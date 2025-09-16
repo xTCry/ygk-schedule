@@ -1,23 +1,27 @@
 import json
 import re
 import pandas as pd
-# from openpyxl import load_workbook
+from openpyxl import load_workbook
 
-file_path = 'so__1_.xlsx'
+# file_path = 'so__1_.xlsx'
+input_file_path = 'files/2025-2/so__2.xlsx'
+output_file_path = 'files/2025-2/schedule.json'
+
 days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
 
-# wb = load_workbook(filename=file_path, data_only=True)
-# print(wb.sheetnames)
+wb = load_workbook(filename=input_file_path, data_only=True)
+print('[wb] sheetnames', wb.sheetnames)
 
-xls = pd.ExcelFile(file_path)
-print(xls.sheet_names)
+xls = pd.ExcelFile(input_file_path)
+print('[xls] sheet_names', xls.sheet_names)
 
 all_schedules = {}
 
 SHOW_DEBUG = False
 
 for sheet_name in xls.sheet_names:
-    df = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
+    ws = wb[sheet_name]
+    df = pd.read_excel(input_file_path, sheet_name=sheet_name, header=None)
     # print(df)
 
     schedule = {}
@@ -30,7 +34,7 @@ for sheet_name in xls.sheet_names:
     counter_test = 0
 
     # парсинг листа с группами
-    for _, row in df.iterrows():
+    for rowIndex, row in df.iterrows():
         first_cell = str(row[0]).strip()
         other_cells_are_nan = all([pd.isna(cell) for cell in row[1:]])
 
@@ -43,7 +47,7 @@ for sheet_name in xls.sheet_names:
 
         # debug vars
         if SHOW_DEBUG and (not pd.isna(row[0]) or not other_cells_are_nan):
-            print('\n=========== ', '[', _+1, ']', sheet_name)
+            print('\n=========== ', '[', rowIndex+1, ']', sheet_name)
             print('other & first_cell:', other_cells_are_nan, first_cell)
             print('current_group:', current_group)
             print('current_day:', current_day)
@@ -80,19 +84,40 @@ for sheet_name in xls.sheet_names:
             if not other_cells_are_nan:
                 lesson_num = prev_lesson_number if prev_lesson_number > -1 else int(first_cell)
 
+                discipline = str(row[1]).strip() if not pd.isna(row[1]) else ''
+                if discipline == '' and not pd.isna(prev_lesson_row[1]) and prev_lesson_number > -1:
+                    discipline = str(prev_lesson_row[1]).strip() if not pd.isna(prev_lesson_row[1]) else ''
+
+                teacher = str(row[5]).strip() if not pd.isna(row[5]) else ''
+                if teacher == '' and not pd.isna(prev_lesson_row[5]) and prev_lesson_number > -1:
+                    teacher = str(prev_lesson_row[5]).strip() if not pd.isna(prev_lesson_row[5]) else ''
+
                 auditory = str(row[8]).strip() if not pd.isna(row[8]) else ''
                 if auditory == '' and not pd.isna(prev_lesson_row[8]) and prev_lesson_number > -1:
                     auditory = str(prev_lesson_row[8]).strip() if not pd.isna(prev_lesson_row[8]) else ''
-                discipline = str(row[1]).strip() if not pd.isna(row[1]) else ''
-                teacher = str(row[5]).strip() if not pd.isna(row[5]) else ''
+
+                isRedDiscipline = False
+                isRedAuditory = False
+                colorDiscipline = ws.cell(row=rowIndex+1, column=2).fill.fgColor.rgb
+                if colorDiscipline != '00000000' and str(colorDiscipline).lower() != 'ffffffff':
+                    isRedDiscipline = True
+                    print('[color] colorDiscipline', rowIndex+1, colorDiscipline)
+
+                colorAuditory = ws.cell(row=rowIndex+1, column=9).fill.fgColor.rgb
+                if colorAuditory != '00000000' and str(colorAuditory).lower() != 'ffffffff':
+                    isRedAuditory = True
+                    print('[color] colorAuditory', rowIndex+1, colorAuditory)
 
                 if SHOW_DEBUG:
                     print('[detected] lesson:', lesson_num, '.', discipline, '[', teacher, ']', auditory)
+
                 entry = {
                     'номер': lesson_num,
                     'дисциплина': discipline,
                     'преподаватель': teacher,
                     'аудитория': auditory,
+                    'красный-дисциплина': isRedDiscipline,
+                    'красный-аудитория': isRedAuditory,
                 }
                 schedule[current_group][current_day].append(entry)
             
@@ -112,7 +137,7 @@ for sheet_name in xls.sheet_names:
     # # ! for test
     # break
 
-with open('schedule.json', 'w', encoding='utf-8') as f:
+with open(output_file_path, 'w', encoding='utf-8') as f:
     json.dump(all_schedules, f, ensure_ascii=False, indent=2)
 
 print('Saved', all_schedules.keys())
