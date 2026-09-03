@@ -10,10 +10,38 @@
 
 ## Команды
 
+### NPM
+
 ```bash
 npm install
 npm run check
 npm run build
+```
+
+### Bash makefile
+
+```bash
+make help
+make install
+make check
+make build
+```
+
+Значения по умолчанию уже определены в `Makefile`: URL страницы расписания,
+локальная папка выгрузки `data/` и regression fixture. Их можно заменить для
+одного запуска:
+
+```bash
+make update OUTPUT_DIR=../ygk-schedule-data
+make update SCHEDULE_PAGE_URL=https://example.org/raspisanie.html
+```
+
+Основные команды:
+
+```bash
+make update
+make update-verbose
+make update-fixture
 ```
 
 ## Локальный запуск
