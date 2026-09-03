@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import type { CanonicalSchedule } from '../types.ts';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
-import { updateSchedule } from './update.ts';
+import { formatUpdateCliOutput, updateSchedule } from './update.ts';
 import { parse } from 'yaml';
 
 const createProjectRoot = async () => {
@@ -27,6 +27,39 @@ const createProjectRoot = async () => {
 };
 
 describe('schedule update', () => {
+  it('hides detailed lesson changes in compact CLI output', () => {
+    const result = {
+      written: true,
+      versionChanged: true,
+      semanticChanged: true,
+      schedule: { groups: {}, diagnostics: [] },
+      diff: {
+        changed: true,
+        addedGroups: [],
+        removedGroups: [],
+        changedGroups: ['СТ1-11'],
+        lessonChanges: [
+          {
+            group: 'СТ1-11',
+            day: 'Понедельник' as const,
+            lessonNumber: 1,
+            before: null,
+            after: { variants: [] },
+          },
+        ],
+      },
+    };
+
+    const compact = JSON.parse(formatUpdateCliOutput(result, false)) as {
+      diff: Record<string, unknown>;
+    };
+    const verbose = JSON.parse(formatUpdateCliOutput(result, true)) as {
+      diff: Record<string, unknown>;
+    };
+    expect(compact.diff).not.toHaveProperty('lessonChanges');
+    expect(verbose.diff.lessonChanges).toHaveLength(1);
+  });
+
   it('writes once and skips an unchanged source, parser and config version', async () => {
     const root = await createProjectRoot();
     const output = join(root, 'data/schedule.json');

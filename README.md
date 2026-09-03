@@ -68,6 +68,16 @@ npm run update -- \
 
 Команда выводит сведения о записи файла, смене версии и смысловых изменениях расписания. При `fatal`-диагностике новый JSON не записывается.
 
+По умолчанию CLI выводит краткий diff по группам. Чтобы вывести изменения
+отдельных пар (`lessonChanges`), добавьте флаг `--verbose-diff`:
+
+```bash
+npm run update -- \
+  --input src/providers/ygk/schedule/fixtures/2026-09-so.xlsx \
+  --output-dir ./data \
+  --verbose-diff
+```
+
 <!-- ## Документация
 
 Основные правила проекта перечислены в [`docs/README.md`](./docs/README.md). -->

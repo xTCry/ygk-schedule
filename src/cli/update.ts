@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
+import type { ScheduleDiff } from '../compare/schedule.ts';
 import { hasFatalDiagnostics } from '../diagnostics/index.ts';
 import {
   getScheduleArtifactFiles,
@@ -39,6 +40,14 @@ export interface UpdateResult {
   semanticChanged: boolean;
   schedule: CanonicalSchedule;
   diff: ReturnType<typeof compareSchedules>;
+}
+
+export interface UpdateCliOutput {
+  written: boolean;
+  versionChanged: boolean;
+  semanticChanged: boolean;
+  schedule: Pick<CanonicalSchedule, 'groups' | 'diagnostics'>;
+  diff: ScheduleDiff;
 }
 
 interface LoadedScheduleSource {
@@ -243,23 +252,41 @@ const parseArgs = (args: string[]): UpdateOptions => {
   };
 };
 
+/**
+ * Формирует компактный вывод CLI, раскрывая детальные изменения пар только по флагу.
+ */
+export const formatUpdateCliOutput = (
+  result: UpdateCliOutput,
+  includeLessonChanges: boolean,
+): string => {
+  const diff = includeLessonChanges
+    ? result.diff
+    : {
+        changed: result.diff.changed,
+        addedGroups: result.diff.addedGroups,
+        removedGroups: result.diff.removedGroups,
+        changedGroups: result.diff.changedGroups,
+      };
+  return `${JSON.stringify(
+    {
+      written: result.written,
+      versionChanged: result.versionChanged,
+      semanticChanged: result.semanticChanged,
+      groups: Object.keys(result.schedule.groups).length,
+      diagnostics: result.schedule.diagnostics.length,
+      diff,
+    },
+    null,
+    2,
+  )}\n`;
+};
+
 export const runUpdateCli = async (
   args = process.argv.slice(2),
 ): Promise<void> => {
   const result = await updateSchedule(parseArgs(args));
   process.stdout.write(
-    `${JSON.stringify(
-      {
-        written: result.written,
-        versionChanged: result.versionChanged,
-        semanticChanged: result.semanticChanged,
-        groups: Object.keys(result.schedule.groups).length,
-        diagnostics: result.schedule.diagnostics.length,
-        diff: result.diff,
-      },
-      null,
-      2,
-    )}\n`,
+    formatUpdateCliOutput(result, args.includes('--verbose-diff')),
   );
 };
 
