@@ -2,6 +2,7 @@ import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
+import type { CanonicalSchedule } from '../types.ts';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
 import { updateSchedule } from './update.ts';
 import { parse } from 'yaml';
@@ -160,7 +161,18 @@ describe('schedule update', () => {
       join(outputDir, 'yaml/00-schedule.yaml'),
       'utf8',
     );
+    const groupJson = await readFile(
+      join(outputDir, 'json/10-groups/СТ1-11.json'),
+      'utf8',
+    );
+    const groupYaml = await readFile(
+      join(outputDir, 'yaml/10-groups/СТ1-11.yaml'),
+      'utf8',
+    );
+    const parsedGroupJson = JSON.parse(groupJson) as CanonicalSchedule;
     expect(JSON.parse(json)).toEqual(parse(yaml));
+    expect(parsedGroupJson).toEqual(parse(groupYaml));
+    expect(Object.keys(parsedGroupJson.groups)).toEqual(['СТ1-11']);
     expect(result.written).toBe(true);
   });
 });

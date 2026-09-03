@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
 import { hasFatalDiagnostics } from '../diagnostics/index.ts';
 import {
+  getScheduleArtifactFiles,
   getScheduleArtifactPaths,
   writeScheduleArtifacts,
 } from '../generators/artifacts.ts';
@@ -144,9 +145,12 @@ export const updateSchedule = async (
     configHash,
   });
   const versionChanged = previous?.version.value !== version.value;
-  const artifactFiles = output.artifacts
-    ? [output.artifacts.json, output.artifacts.yaml]
-    : [output.json];
+  const artifactFiles =
+    output.artifacts && previous
+      ? getScheduleArtifactFiles(output.artifacts, previous)
+      : output.artifacts
+        ? [output.artifacts.json, output.artifacts.yaml]
+        : [output.json];
   const allArtifactsExist = (
     await Promise.all(artifactFiles.map((path) => fileExists(path)))
   ).every(Boolean);
