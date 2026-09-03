@@ -1,7 +1,7 @@
 import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
 import { updateSchedule } from './update.ts';
 
@@ -73,7 +73,9 @@ describe('schedule update', () => {
     expect(second.schedule.version.parserHash).not.toBe(
       first.schedule.version.parserHash,
     );
-    expect(second.schedule.source.sha256).toBe(first.schedule.source.sha256);
+    expect(second.schedule.sources[0]?.sha256).toBe(
+      first.schedule.sources[0]?.sha256,
+    );
   });
 
   it('reparses the same XLSX when configuration changes', async () => {
@@ -99,5 +101,44 @@ describe('schedule update', () => {
     expect(second.schedule.version.configHash).not.toBe(
       first.schedule.version.configHash,
     );
+  });
+
+  it('discovers and aggregates XLSX files from a schedule page', async () => {
+    const root = await createProjectRoot();
+    const output = join(root, 'data/schedule.json');
+    const pageUrl = 'https://ygk.example/raspisanie.html';
+    const sourceUrl = 'https://ygk.example/files/so.xlsx';
+    const fixture = await readFile(fixturePath);
+
+    vi.stubGlobal('fetch', (input: string | URL) => {
+      const url = String(input);
+      if (url === pageUrl) {
+        return Promise.resolve(
+          new Response(
+            '<article><p>Расписание</p><table><tr><td><a href="/files/so.xlsx">СО</a></td></tr></table></article>',
+          ),
+        );
+      }
+      if (url === sourceUrl) return Promise.resolve(new Response(fixture));
+      throw new Error(`Unexpected request: ${url}`);
+    });
+
+    try {
+      const result = await updateSchedule({
+        pageUrl,
+        output,
+        projectRoot: root,
+      });
+      expect(result.written).toBe(true);
+      expect(Object.keys(result.schedule.groups)).toHaveLength(38);
+      expect(result.schedule.sources).toEqual([
+        expect.objectContaining({
+          id: sourceUrl,
+          fileName: 'so.xlsx',
+        }),
+      ]);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

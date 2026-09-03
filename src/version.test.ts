@@ -3,8 +3,12 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { compareSchedules, semanticScheduleHash } from './compare/schedule.ts';
-import type { GroupSchedule } from './types.ts';
-import { buildScheduleVersion, calculateProjectHashes } from './version.ts';
+import type { GroupSchedule, ScheduleSource } from './types.ts';
+import {
+  buildScheduleVersion,
+  calculateProjectHashes,
+  calculateSourceSetHash,
+} from './version.ts';
 
 const makeGroup = (group: string, subject = 'Физика'): GroupSchedule => ({
   group,
@@ -64,14 +68,14 @@ describe('versions and semantic schedule comparison', () => {
 
   it('changes the version when source, parser, config or schema changes', () => {
     const base = buildScheduleVersion({
-      sourceHash: 's',
+      sourceSetHash: 's',
       parserHash: 'p',
       configHash: 'c',
       schemaVersion: 1,
     });
     expect(base.value).not.toBe(
       buildScheduleVersion({
-        sourceHash: 's2',
+        sourceSetHash: 's2',
         parserHash: 'p',
         configHash: 'c',
         schemaVersion: 1,
@@ -79,7 +83,7 @@ describe('versions and semantic schedule comparison', () => {
     );
     expect(base.value).not.toBe(
       buildScheduleVersion({
-        sourceHash: 's',
+        sourceSetHash: 's',
         parserHash: 'p2',
         configHash: 'c',
         schemaVersion: 1,
@@ -87,7 +91,7 @@ describe('versions and semantic schedule comparison', () => {
     );
     expect(base.value).not.toBe(
       buildScheduleVersion({
-        sourceHash: 's',
+        sourceSetHash: 's',
         parserHash: 'p',
         configHash: 'c2',
         schemaVersion: 1,
@@ -95,11 +99,31 @@ describe('versions and semantic schedule comparison', () => {
     );
     expect(base.value).not.toBe(
       buildScheduleVersion({
-        sourceHash: 's',
+        sourceSetHash: 's',
         parserHash: 'p',
         configHash: 'c',
         schemaVersion: 2,
       }).value,
+    );
+  });
+
+  it('calculates a source set hash independently of discovery order', () => {
+    const sources: ScheduleSource[] = [
+      { id: 'https://ygk.example/so.xlsx', fileName: 'so.xlsx', sha256: 'so' },
+      {
+        id: 'https://ygk.example/oit.xlsx',
+        fileName: 'oit.xlsx',
+        sha256: 'oit',
+      },
+    ];
+    expect(calculateSourceSetHash(sources)).toBe(
+      calculateSourceSetHash([...sources].reverse()),
+    );
+    expect(calculateSourceSetHash(sources)).not.toBe(
+      calculateSourceSetHash([
+        { ...sources[0]!, sha256: 'changed' },
+        sources[1]!,
+      ]),
     );
   });
 

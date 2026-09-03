@@ -7,20 +7,24 @@ import type {
   ScheduleVersion,
 } from '../types.ts';
 
-const source: ScheduleSource = { fileName: 'test.xlsx', sha256: 'source' };
+const source: ScheduleSource = {
+  id: 'test.xlsx',
+  fileName: 'test.xlsx',
+  sha256: 'source',
+};
 const version: ScheduleVersion = {
-  schemaVersion: 1,
-  sourceHash: 'source',
+  schemaVersion: 2,
+  sourceSetHash: 'source',
   parserHash: 'parser',
   configHash: 'config',
   value: 'version',
 };
 
 const makeSchedule = (): CanonicalSchedule => ({
-  schemaVersion: 1,
+  schemaVersion: 2,
   provider: 'ygk',
   generatedAt: '2026-09-02T00:00:00.000Z',
-  source,
+  sources: [source],
   version,
   semanticHash: 'semantic',
   diagnostics: [],

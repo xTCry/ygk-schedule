@@ -10,6 +10,7 @@ export type DiagnosticCode =
   | 'UNKNOWN_GROUP'
   | 'GROUP_NAME_NORMALIZED'
   | 'DUPLICATE_GROUP'
+  | 'DUPLICATE_GROUP_ACROSS_SOURCES'
   | 'UNKNOWN_WEEK_COLOR'
   | 'CONFLICTING_WEEK_COLOR'
   | 'INVALID_LESSON_NUMBER'
@@ -21,6 +22,7 @@ export type DiagnosticCode =
   | 'DATA_OUTSIDE_EXPECTED_COLUMNS';
 
 export interface SourceReference {
+  sourceId?: string;
   sheet: string;
   rowStart: number;
   rowEnd: number;
@@ -63,6 +65,8 @@ export interface Diagnostic {
   severity: DiagnosticSeverity;
   message: string;
   fingerprint: string;
+  sourceId?: string;
+  sourceUrl?: string;
   sheet?: string;
   row?: number;
   column?: number;
@@ -72,6 +76,7 @@ export interface Diagnostic {
 }
 
 export interface ScheduleSource {
+  id: string;
   fileName: string;
   sha256: string;
   url?: string;
@@ -81,7 +86,7 @@ export interface ScheduleSource {
 
 export interface ScheduleVersion {
   schemaVersion: number;
-  sourceHash: string;
+  sourceSetHash: string;
   parserHash: string;
   configHash: string;
   value: string;
@@ -91,7 +96,7 @@ export interface CanonicalSchedule {
   schemaVersion: number;
   provider: 'ygk';
   generatedAt: string;
-  source: ScheduleSource;
+  sources: ScheduleSource[];
   version: ScheduleVersion;
   groups: Record<string, GroupSchedule>;
   diagnostics: Diagnostic[];

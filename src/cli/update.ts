@@ -4,20 +4,24 @@ import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
 import { hasFatalDiagnostics } from '../diagnostics/index.ts';
 import { serializeSchedule } from '../generators/json.ts';
-import { parseYgkSchedule } from '../providers/ygk/schedule/parse.ts';
+import { aggregateYgkSchedules } from '../providers/ygk/schedule/aggregate.ts';
+import { discoverScheduleFiles } from '../providers/ygk/schedule/discover.ts';
 import { downloadScheduleFile } from '../providers/ygk/schedule/download.ts';
+import { parseYgkSchedule } from '../providers/ygk/schedule/parse.ts';
 import type { CanonicalSchedule, ScheduleSource } from '../types.ts';
 import { readJsonIfExists, writeFileAtomic } from '../utils/fs.ts';
 import { sha256 } from '../utils/hash.ts';
 import {
   buildScheduleVersion,
   calculateProjectHashes,
+  calculateSourceSetHash,
   SCHEMA_VERSION,
 } from '../version.ts';
 
 export interface UpdateOptions {
   input?: string;
   url?: string;
+  pageUrl?: string;
   output: string;
   projectRoot?: string;
 }
@@ -30,32 +34,78 @@ export interface UpdateResult {
   diff: ReturnType<typeof compareSchedules>;
 }
 
-const loadSource = async (
+interface LoadedScheduleSource {
+  buffer: Buffer;
+  source: ScheduleSource;
+}
+
+const sourceIdFromUrl = (url: string): string => {
+  const normalized = new URL(url);
+  normalized.hash = '';
+  return normalized.toString();
+};
+
+const loadSources = async (
   options: UpdateOptions,
-): Promise<{ buffer: Buffer; source: ScheduleSource }> => {
+): Promise<LoadedScheduleSource[]> => {
+  const sourceOptionCount = [
+    options.input,
+    options.url,
+    options.pageUrl,
+  ].filter(Boolean).length;
+  if (sourceOptionCount !== 1)
+    throw new Error('Specify exactly one of input, url or pageUrl');
+
   if (options.url) {
     const downloaded = await downloadScheduleFile(options.url);
-    return {
-      buffer: downloaded.buffer,
-      source: {
-        fileName: downloaded.fileName,
-        sha256: downloaded.sha256,
-        url: downloaded.url,
-        ...(downloaded.etag ? { etag: downloaded.etag } : {}),
-        ...(downloaded.lastModified
-          ? { lastModified: downloaded.lastModified }
-          : {}),
+    return [
+      {
+        buffer: downloaded.buffer,
+        source: {
+          id: sourceIdFromUrl(options.url),
+          fileName: downloaded.fileName,
+          sha256: downloaded.sha256,
+          url: downloaded.url,
+          ...(downloaded.etag ? { etag: downloaded.etag } : {}),
+          ...(downloaded.lastModified
+            ? { lastModified: downloaded.lastModified }
+            : {}),
+        },
       },
-    };
+    ];
   }
 
-  if (!options.input) throw new Error('Either input or url must be provided');
-  const input = resolve(options.input);
+  if (options.pageUrl) {
+    const files = await discoverScheduleFiles(options.pageUrl);
+    return Promise.all(
+      files.map(async (file) => {
+        const downloaded = await downloadScheduleFile(file.url);
+        return {
+          buffer: downloaded.buffer,
+          source: {
+            id: sourceIdFromUrl(file.url),
+            fileName: downloaded.fileName,
+            sha256: downloaded.sha256,
+            url: downloaded.url,
+            ...(downloaded.etag ? { etag: downloaded.etag } : {}),
+            ...(downloaded.lastModified
+              ? { lastModified: downloaded.lastModified }
+              : {}),
+          },
+        };
+      }),
+    );
+  }
+
+  const input = resolve(options.input!);
   const buffer = await readFile(input);
-  return {
-    buffer,
-    source: { fileName: basename(input), sha256: sha256(buffer) },
-  };
+  const fileName = basename(input);
+  return [
+    {
+      buffer,
+      source: { id: fileName, fileName, sha256: sha256(buffer) },
+    },
+  ];
 };
 
 export const updateSchedule = async (
@@ -64,10 +114,12 @@ export const updateSchedule = async (
   const projectRoot = resolve(options.projectRoot ?? process.cwd());
   const output = resolve(options.output);
   const previous = await readJsonIfExists<CanonicalSchedule>(output);
-  const { buffer, source } = await loadSource(options);
+  const sources = await loadSources(options);
   const { parserHash, configHash } = await calculateProjectHashes(projectRoot);
   const version = buildScheduleVersion({
-    sourceHash: source.sha256,
+    sourceSetHash: calculateSourceSetHash(
+      sources.map((loadedSource) => loadedSource.source),
+    ),
     parserHash,
     configHash,
   });
@@ -84,13 +136,22 @@ export const updateSchedule = async (
     };
   }
 
-  const parsed = await parseYgkSchedule(buffer);
+  const parsed = aggregateYgkSchedules(
+    await Promise.all(
+      sources.map(async ({ buffer, source }) => ({
+        source,
+        parsed: await parseYgkSchedule(buffer),
+      })),
+    ),
+  );
   const semanticHash = semanticScheduleHash(parsed.groups);
   const schedule: CanonicalSchedule = {
     schemaVersion: SCHEMA_VERSION,
     provider: 'ygk',
     generatedAt: new Date().toISOString(),
-    source,
+    sources: sources
+      .map((loadedSource) => loadedSource.source)
+      .sort((left, right) => left.id.localeCompare(right.id)),
     version,
     groups: parsed.groups,
     diagnostics: parsed.diagnostics,
@@ -132,11 +193,15 @@ const parseArgs = (args: string[]): UpdateOptions => {
   if (!output) throw new Error('Missing --output');
   const input = values.get('input');
   const url = values.get('url');
-  if (!input && !url) throw new Error('Missing --input or --url');
+  const pageUrl = values.get('page-url');
+  const sourceOptionCount = [input, url, pageUrl].filter(Boolean).length;
+  if (sourceOptionCount !== 1)
+    throw new Error('Specify exactly one of --input, --url or --page-url');
   return {
     output,
     ...(input ? { input } : {}),
     ...(url ? { url } : {}),
+    ...(pageUrl ? { pageUrl } : {}),
     ...(values.get('project-root')
       ? { projectRoot: values.get('project-root')! }
       : {}),
