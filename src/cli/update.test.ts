@@ -144,6 +144,35 @@ describe('schedule update', () => {
     }
   });
 
+  it('does not replace a valid export when the schedule page is unavailable', async () => {
+    const root = await createProjectRoot();
+    const output = join(root, 'data/schedule.json');
+    await updateSchedule({
+      input: fixturePath,
+      output,
+      projectRoot: root,
+    });
+    const previous = await readFile(output, 'utf8');
+    const fetchMock = vi.fn(() =>
+      Promise.resolve(new Response('unavailable', { status: 503 })),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      await expect(
+        updateSchedule({
+          pageUrl: 'https://ygk.example/raspisanie.html',
+          output,
+          projectRoot: root,
+        }),
+      ).rejects.toThrow(/HTTP 503/);
+      await expect(readFile(output, 'utf8')).resolves.toBe(previous);
+      expect(fetchMock).toHaveBeenCalledTimes(3);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('writes matching JSON and YAML artifacts to an output directory', async () => {
     const root = await createProjectRoot();
     const outputDir = join(root, 'data');

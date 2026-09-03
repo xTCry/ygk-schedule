@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import { YGK_SCHEDULE_PAGE_URL } from '../constants.ts';
+import { fetchYgkResource } from './http.ts';
 
 export interface DiscoveredScheduleFile {
   url: string;
@@ -13,9 +14,17 @@ const normalizeLabel = (value: string): string =>
 export const discoverScheduleFiles = async (
   pageUrl = YGK_SCHEDULE_PAGE_URL,
 ): Promise<DiscoveredScheduleFile[]> => {
-  const response = await fetch(pageUrl, {
-    headers: { 'user-agent': 'ygk-schedule-parser/1.0' },
-  });
+  let response: Response;
+  try {
+    response = await fetchYgkResource(pageUrl, {
+      headers: { 'user-agent': 'ygk-schedule-parser/1.0' },
+    });
+  } catch (error) {
+    throw new Error(
+      `Failed to load schedule page: ${error instanceof Error ? error.message : String(error)}`,
+      { cause: error },
+    );
+  }
   if (!response.ok)
     throw new Error(`Failed to load schedule page: HTTP ${response.status}`);
 

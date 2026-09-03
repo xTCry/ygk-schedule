@@ -1,5 +1,6 @@
 import { basename } from 'node:path';
 import { sha256 } from '../../../utils/hash.ts';
+import { fetchYgkResource } from './http.ts';
 
 export interface DownloadedScheduleFile {
   buffer: Buffer;
@@ -13,10 +14,18 @@ export interface DownloadedScheduleFile {
 export const downloadScheduleFile = async (
   url: string,
 ): Promise<DownloadedScheduleFile> => {
-  const response = await fetch(url, {
-    headers: { 'user-agent': 'ygk-schedule-parser/1.0' },
-    redirect: 'follow',
-  });
+  let response: Response;
+  try {
+    response = await fetchYgkResource(url, {
+      headers: { 'user-agent': 'ygk-schedule-parser/1.0' },
+      redirect: 'follow',
+    });
+  } catch (error) {
+    throw new Error(
+      `Failed to download schedule: ${error instanceof Error ? error.message : String(error)}`,
+      { cause: error },
+    );
+  }
   if (!response.ok)
     throw new Error(`Failed to download schedule: HTTP ${response.status}`);
   const buffer = Buffer.from(await response.arrayBuffer());
