@@ -42,11 +42,19 @@ data/json/00-schedule.json
 data/yaml/00-schedule.yaml
 data/json/10-groups/<группа>.json
 data/yaml/10-groups/<группа>.yaml
+data/meta/90-diagnostics.json
+data/meta/90-diagnostics.yaml
 ```
 
 Групповые файлы содержат ту же каноническую модель, но только для одной группы.
 Они сортируются по коду группы; имена исходных XLSX не используются как
 публичная структура, так как могут меняться.
+
+`90-diagnostics.json` и `90-diagnostics.yaml` содержат сводку diagnostics,
+источник с hash и временем загрузки. Черновики GitHub Issue находятся в
+отдельном массиве `issues`:
+повторения одной проблемы объединяются по fingerprint и перечисляют все
+затронутые ячейки в Markdown-таблице.
 
 Для загрузки XLSX по известному URL вместо `--input` используется `--url`. Этот режим выполняет сетевой запрос:
 

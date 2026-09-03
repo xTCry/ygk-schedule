@@ -95,6 +95,7 @@ const loadSources = async (
           id: sourceIdFromUrl(options.url),
           fileName: downloaded.fileName,
           sha256: downloaded.sha256,
+          fetchedAt: downloaded.fetchedAt,
           url: downloaded.url,
           ...(downloaded.etag ? { etag: downloaded.etag } : {}),
           ...(downloaded.lastModified
@@ -116,6 +117,7 @@ const loadSources = async (
             id: sourceIdFromUrl(file.url),
             fileName: downloaded.fileName,
             sha256: downloaded.sha256,
+            fetchedAt: downloaded.fetchedAt,
             url: downloaded.url,
             ...(downloaded.etag ? { etag: downloaded.etag } : {}),
             ...(downloaded.lastModified
@@ -133,7 +135,12 @@ const loadSources = async (
   return [
     {
       buffer,
-      source: { id: fileName, fileName, sha256: sha256(buffer) },
+      source: {
+        id: fileName,
+        fileName,
+        sha256: sha256(buffer),
+        fetchedAt: new Date().toISOString(),
+      },
     },
   ];
 };

@@ -79,6 +79,7 @@ export interface ScheduleSource {
   id: string;
   fileName: string;
   sha256: string;
+  fetchedAt: string;
   url?: string;
   etag?: string;
   lastModified?: string;

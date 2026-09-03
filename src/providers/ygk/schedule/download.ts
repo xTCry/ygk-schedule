@@ -6,6 +6,7 @@ export interface DownloadedScheduleFile {
   buffer: Buffer;
   fileName: string;
   sha256: string;
+  fetchedAt: string;
   url: string;
   etag?: string;
   lastModified?: string;
@@ -41,6 +42,7 @@ export const downloadScheduleFile = async (
     buffer,
     fileName,
     sha256: sha256(buffer),
+    fetchedAt: new Date().toISOString(),
     url: finalUrl,
     ...(etag ? { etag } : {}),
     ...(lastModified ? { lastModified } : {}),

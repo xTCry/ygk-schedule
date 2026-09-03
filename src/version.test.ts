@@ -183,11 +183,17 @@ describe('versions and semantic schedule comparison', () => {
 
   it('calculates a source set hash independently of discovery order', () => {
     const sources: ScheduleSource[] = [
-      { id: 'https://ygk.example/so.xlsx', fileName: 'so.xlsx', sha256: 'so' },
+      {
+        id: 'https://ygk.example/so.xlsx',
+        fileName: 'so.xlsx',
+        sha256: 'so',
+        fetchedAt: '2026-09-03T00:00:00.000Z',
+      },
       {
         id: 'https://ygk.example/oit.xlsx',
         fileName: 'oit.xlsx',
         sha256: 'oit',
+        fetchedAt: '2026-09-03T00:00:00.000Z',
       },
     ];
     expect(calculateSourceSetHash(sources)).toBe(

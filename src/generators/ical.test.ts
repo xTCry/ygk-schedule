@@ -11,9 +11,10 @@ const source: ScheduleSource = {
   id: 'test.xlsx',
   fileName: 'test.xlsx',
   sha256: 'source',
+  fetchedAt: '2026-09-03T00:00:00.000Z',
 };
 const version: ScheduleVersion = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceSetHash: 'source',
   parserHash: 'parser',
   configHash: 'config',
@@ -21,7 +22,7 @@ const version: ScheduleVersion = {
 };
 
 const makeSchedule = (): CanonicalSchedule => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   provider: 'ygk',
   generatedAt: '2026-09-02T00:00:00.000Z',
   sources: [source],

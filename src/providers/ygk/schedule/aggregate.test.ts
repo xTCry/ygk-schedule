@@ -10,6 +10,7 @@ const source = (id: string): ScheduleSource => ({
   id,
   fileName: `${id}.xlsx`,
   sha256: `${id}-sha256`,
+  fetchedAt: '2026-09-03T00:00:00.000Z',
 });
 
 const group = (code: string): GroupSchedule => ({

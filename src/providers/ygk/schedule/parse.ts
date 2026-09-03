@@ -79,7 +79,9 @@ const onlyFirstColumnHasData = (sheet: XlsxWorksheet, row: number): boolean => {
   return true;
 };
 
-const lessonNumber = (value: unknown): number | null => {
+const parseLessonNumber = (value: unknown): number | null => {
+  // У дочерних ячеек merge нет собственного значения: это не номер пары.
+  if (value === null || value === undefined) return null;
   const normalized = normalizeSingleLine(value);
   if (!/^\d+$/.test(normalized)) return null;
   const number = Number.parseInt(normalized, 10);
@@ -334,7 +336,7 @@ const parseBlock = (
     }
 
     const directFirst = getLogicalDirectCell(sheet, row, 1);
-    const number = lessonNumber(directFirst?.value);
+    const number = parseLessonNumber(directFirst?.value);
     if (number === null) continue;
     if (!currentDay) {
       diagnostics.push(
@@ -482,21 +484,23 @@ const mergeBlockIntoGroups = (
       continue;
     }
 
-    diagnostics.push(
-      createDiagnostic({
-        code: 'DUPLICATE_GROUP',
-        severity: 'warning',
-        message: `Группа ${normalized} встречается более чем в одном блоке`,
-        sheet: block.sheet,
-        row: block.rowStart,
-        normalizedGroup: normalized,
-        fingerprintContext: [
-          normalized,
-          ...existing.sourceGroups,
-          block.sourceGroup,
-        ],
-      }),
-    );
+    if (blockHasLessons) {
+      diagnostics.push(
+        createDiagnostic({
+          code: 'DUPLICATE_GROUP',
+          severity: 'warning',
+          message: `Группа ${normalized} встречается более чем в одном блоке`,
+          sheet: block.sheet,
+          row: block.rowStart,
+          normalizedGroup: normalized,
+          fingerprintContext: [
+            normalized,
+            ...existing.sourceGroups,
+            block.sourceGroup,
+          ],
+        }),
+      );
+    }
     existing.sourceGroups.push(block.sourceGroup);
     existing.sourceBlocks.push(sourceReference);
     for (const day of days) {

@@ -2,6 +2,10 @@ import { join, resolve } from 'node:path';
 import { semanticScheduleHash } from '../compare/schedule.ts';
 import type { CanonicalSchedule } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
+import {
+  serializeDiagnosticsReport,
+  serializeDiagnosticsReportYaml,
+} from './diagnostics.ts';
 import { serializeSchedule } from './json.ts';
 import { serializeScheduleYaml } from './yaml.ts';
 
@@ -10,6 +14,8 @@ export interface ScheduleArtifactPaths {
   yaml: string;
   groupJsonDirectory: string;
   groupYamlDirectory: string;
+  diagnosticsJson: string;
+  diagnosticsYaml: string;
 }
 
 /**
@@ -24,6 +30,8 @@ export const getScheduleArtifactPaths = (
     yaml: join(directory, 'yaml', '00-schedule.yaml'),
     groupJsonDirectory: join(directory, 'json', '10-groups'),
     groupYamlDirectory: join(directory, 'yaml', '10-groups'),
+    diagnosticsJson: join(directory, 'meta', '90-diagnostics.json'),
+    diagnosticsYaml: join(directory, 'meta', '90-diagnostics.yaml'),
   };
 };
 
@@ -74,6 +82,8 @@ export const getScheduleArtifactFiles = (
 ): string[] => [
   paths.json,
   paths.yaml,
+  paths.diagnosticsJson,
+  paths.diagnosticsYaml,
   ...Object.keys(schedule.groups)
     .sort((left, right) => left.localeCompare(right, 'ru-RU'))
     .flatMap((group) => {
@@ -103,6 +113,14 @@ export const writeScheduleArtifacts = async (
   await Promise.all([
     writeFileAtomic(paths.json, serializeSchedule(schedule)),
     writeFileAtomic(paths.yaml, serializeScheduleYaml(schedule)),
+    writeFileAtomic(
+      paths.diagnosticsJson,
+      serializeDiagnosticsReport(schedule),
+    ),
+    writeFileAtomic(
+      paths.diagnosticsYaml,
+      serializeDiagnosticsReportYaml(schedule),
+    ),
     ...groupArtifacts,
   ]);
 };

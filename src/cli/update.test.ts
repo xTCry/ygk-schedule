@@ -231,10 +231,19 @@ describe('schedule update', () => {
       join(outputDir, 'yaml/10-groups/СТ1-11.yaml'),
       'utf8',
     );
+    const diagnostics = JSON.parse(
+      await readFile(join(outputDir, 'meta/90-diagnostics.json'), 'utf8'),
+    ) as { summary: Record<string, number> };
+    const diagnosticsYaml = await readFile(
+      join(outputDir, 'meta/90-diagnostics.yaml'),
+      'utf8',
+    );
     const parsedGroupJson = JSON.parse(groupJson) as CanonicalSchedule;
     expect(JSON.parse(json)).toEqual(parse(yaml));
     expect(parsedGroupJson).toEqual(parse(groupYaml));
     expect(Object.keys(parsedGroupJson.groups)).toEqual(['СТ1-11']);
+    expect(diagnostics).toEqual(parse(diagnosticsYaml));
+    expect(diagnostics.summary.warning).toBe(2);
     expect(result.written).toBe(true);
   });
 });
