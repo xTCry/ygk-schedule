@@ -38,58 +38,26 @@ export const getReplacementArtifactPaths = (
 ): ReplacementArtifactPaths => {
   const directory = resolve(outputDirectory);
   return {
-    replacementsJson: join(
-      directory,
-      'replacements',
-      'json',
-      '00-replacements.json',
-    ),
-    replacementsYaml: join(
-      directory,
-      'replacements',
-      'yaml',
-      '00-replacements.yaml',
-    ),
-    replacementGroupJsonDirectory: join(
-      directory,
-      'replacements',
-      'json',
-      '10-groups',
-    ),
-    replacementGroupYamlDirectory: join(
-      directory,
-      'replacements',
-      'yaml',
-      '10-groups',
-    ),
+    replacementsJson: join(directory, 'replacements', '00-replacements.json'),
+    replacementsYaml: join(directory, 'replacements', '00-replacements.yaml'),
+    replacementGroupJsonDirectory: join(directory, 'replacements', '10-groups'),
+    replacementGroupYamlDirectory: join(directory, 'replacements', '10-groups'),
     replacementDiagnosticsJson: join(
       directory,
       'replacements',
-      'meta',
       '90-diagnostics.json',
     ),
     replacementDiagnosticsYaml: join(
       directory,
       'replacements',
-      'meta',
       '90-diagnostics.yaml',
     ),
-    actualJson: join(directory, 'actual', 'json', '00-schedule.json'),
-    actualYaml: join(directory, 'actual', 'yaml', '00-schedule.yaml'),
-    actualGroupJsonDirectory: join(directory, 'actual', 'json', '10-groups'),
-    actualGroupYamlDirectory: join(directory, 'actual', 'yaml', '10-groups'),
-    actualDiagnosticsJson: join(
-      directory,
-      'actual',
-      'meta',
-      '90-diagnostics.json',
-    ),
-    actualDiagnosticsYaml: join(
-      directory,
-      'actual',
-      'meta',
-      '90-diagnostics.yaml',
-    ),
+    actualJson: join(directory, 'actual', '00-schedule.json'),
+    actualYaml: join(directory, 'actual', '00-schedule.yaml'),
+    actualGroupJsonDirectory: join(directory, 'actual', '10-groups'),
+    actualGroupYamlDirectory: join(directory, 'actual', '10-groups'),
+    actualDiagnosticsJson: join(directory, 'actual', '90-diagnostics.json'),
+    actualDiagnosticsYaml: join(directory, 'actual', '90-diagnostics.yaml'),
   };
 };
 
@@ -401,9 +369,15 @@ export const writeReplacementArtifacts = async (
       ).yaml,
   );
   await Promise.all([
-    syncDirectory(paths.replacementGroupJsonDirectory, expectedReplacementJson),
-    syncDirectory(paths.replacementGroupYamlDirectory, expectedReplacementYaml),
-    syncDirectory(paths.actualGroupJsonDirectory, expectedActualJson),
-    syncDirectory(paths.actualGroupYamlDirectory, expectedActualYaml),
+    // JSON и YAML одной группы лежат рядом: очищаем каталог одним проходом,
+    // иначе две параллельные очистки могут удалить файлы друг друга.
+    syncDirectory(paths.replacementGroupJsonDirectory, [
+      ...expectedReplacementJson,
+      ...expectedReplacementYaml,
+    ]),
+    syncDirectory(paths.actualGroupJsonDirectory, [
+      ...expectedActualJson,
+      ...expectedActualYaml,
+    ]),
   ]);
 };

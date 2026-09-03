@@ -39,7 +39,7 @@ const diagnosticIssueGroupKey = (
 ): string => `${source?.id ?? ''}\0${diagnostic.fingerprint}`;
 
 /**
- * Собирает метаданные diagnostics и черновики Issue для data/meta.
+ * Собирает метаданные diagnostics и черновики Issue для набора data-артефактов.
  */
 export const buildDiagnosticsReport = (
   schedule: DiagnosticsReportSubject,

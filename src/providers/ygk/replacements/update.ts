@@ -192,8 +192,8 @@ const allArtifactsExist = async (paths: readonly string[]): Promise<boolean> =>
 /**
  * Загружает обе страницы замен, записывает raw JSON/YAML и строит actual data.
  *
- * Базовые файлы `json/` и `yaml/` никогда не перезаписываются: результат
- * наложения замен публикуется только в отдельной директории `actual/`.
+ * Базовые файлы `base/` никогда не перезаписываются: результат наложения
+ * замен публикуется только в отдельной директории `actual/`.
  */
 export const updateYgkReplacements = async (
   options: UpdateReplacementsOptions,

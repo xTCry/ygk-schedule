@@ -16,7 +16,7 @@ describe('YGK replacements update', () => {
       outputDir: root,
       projectRoot: process.cwd(),
     });
-    const basePath = join(root, 'json', '00-schedule.json');
+    const basePath = join(root, 'base', '00-schedule.json');
     const baseBefore = await readFile(basePath, 'utf8');
 
     const first = await updateYgkReplacements({
@@ -34,19 +34,19 @@ describe('YGK replacements update', () => {
 
     const replacementsJson = JSON.parse(
       await readFile(
-        join(root, 'replacements', 'json', '00-replacements.json'),
+        join(root, 'replacements', '00-replacements.json'),
         'utf8',
       ),
     ) as { dates: Record<string, { replacements: unknown[] }> };
     const replacementsYaml = await readFile(
-      join(root, 'replacements', 'yaml', '00-replacements.yaml'),
+      join(root, 'replacements', '00-replacements.yaml'),
       'utf8',
     );
     const actualJson = JSON.parse(
-      await readFile(join(root, 'actual', 'json', '00-schedule.json'), 'utf8'),
+      await readFile(join(root, 'actual', '00-schedule.json'), 'utf8'),
     ) as { dates: Record<string, unknown> };
     const actualYaml = await readFile(
-      join(root, 'actual', 'yaml', '00-schedule.yaml'),
+      join(root, 'actual', '00-schedule.yaml'),
       'utf8',
     );
 
@@ -57,13 +57,10 @@ describe('YGK replacements update', () => {
     expect(actualJson).toEqual(parse(actualYaml));
     expect(actualJson.dates).toHaveProperty('2026-09-04');
     await expect(
-      readFile(
-        join(root, 'replacements', 'json', '10-groups', 'ДИ1-13.json'),
-        'utf8',
-      ),
+      readFile(join(root, 'replacements', '10-groups', 'ДИ1-13.json'), 'utf8'),
     ).resolves.toContain('"ДИ1-13"');
     await expect(
-      readFile(join(root, 'actual', 'meta', '90-diagnostics.json'), 'utf8'),
+      readFile(join(root, 'actual', '90-diagnostics.json'), 'utf8'),
     ).resolves.toContain('"issues"');
 
     const second = await updateYgkReplacements({

@@ -68,12 +68,12 @@ npm run update -- \
 Команда создаёт:
 
 ```text
-data/json/00-schedule.json
-data/yaml/00-schedule.yaml
-data/json/10-groups/<группа>.json
-data/yaml/10-groups/<группа>.yaml
-data/meta/90-diagnostics.json
-data/meta/90-diagnostics.yaml
+data/base/00-schedule.json
+data/base/00-schedule.yaml
+data/base/10-groups/<группа>.json
+data/base/10-groups/<группа>.yaml
+data/base/90-diagnostics.json
+data/base/90-diagnostics.yaml
 ```
 
 Групповые файлы содержат ту же каноническую модель, но только для одной группы.
@@ -105,22 +105,22 @@ make update-replacements
 Она требует доступ к интернету и создает:
 
 ```text
-data/replacements/json/00-replacements.json
-data/replacements/yaml/00-replacements.yaml
-data/replacements/json/10-groups/<группа>.json
-data/replacements/yaml/10-groups/<группа>.yaml
-data/replacements/meta/90-diagnostics.json
-data/replacements/meta/90-diagnostics.yaml
+data/replacements/00-replacements.json
+data/replacements/00-replacements.yaml
+data/replacements/10-groups/<группа>.json
+data/replacements/10-groups/<группа>.yaml
+data/replacements/90-diagnostics.json
+data/replacements/90-diagnostics.yaml
 
-data/actual/json/00-schedule.json
-data/actual/yaml/00-schedule.yaml
-data/actual/json/10-groups/<группа>.json
-data/actual/yaml/10-groups/<группа>.yaml
-data/actual/meta/90-diagnostics.json
-data/actual/meta/90-diagnostics.yaml
+data/actual/00-schedule.json
+data/actual/00-schedule.yaml
+data/actual/10-groups/<группа>.json
+data/actual/10-groups/<группа>.yaml
+data/actual/90-diagnostics.json
+data/actual/90-diagnostics.yaml
 ```
 
-Корневые `data/json/` и `data/yaml/` остаются базовым расписанием и не
+`data/base/` остаётся базовым расписанием и не
 изменяются выгрузкой замен. В `actual` применяются только однозначные замены;
 остальные строки видны в `unresolvedReplacements` и diagnostics.
 

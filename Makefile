@@ -3,9 +3,9 @@ REPLACEMENT_FIRST_URL ?= https://menu.sttec.yar.ru/timetable/rasp_first.html
 REPLACEMENT_SECOND_URL ?= https://menu.sttec.yar.ru/timetable/rasp_second.html
 OUTPUT_DIR ?= data
 FIXTURE_PATH ?= src/providers/ygk/schedule/fixtures/2026-09-so.xlsx
-DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/meta/90-diagnostics.json
-ACTUAL_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/actual/meta/90-diagnostics.json
-BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/json/00-schedule.json
+DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/base/90-diagnostics.json
+ACTUAL_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/actual/90-diagnostics.json
+BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
 

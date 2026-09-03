@@ -98,7 +98,7 @@ describe('schedule update', () => {
       projectRoot: root,
     });
     const firstSchedule = await readFile(
-      join(outputDir, 'json/00-schedule.json'),
+      join(outputDir, 'base/00-schedule.json'),
       'utf8',
     );
 
@@ -113,7 +113,7 @@ describe('schedule update', () => {
     expect(second.written).toBe(false);
     expect(second.versionChanged).toBe(false);
     await expect(
-      readFile(join(outputDir, 'json/00-schedule.json'), 'utf8'),
+      readFile(join(outputDir, 'base/00-schedule.json'), 'utf8'),
     ).resolves.toBe(firstSchedule);
   });
 
@@ -248,26 +248,26 @@ describe('schedule update', () => {
     });
 
     const json = await readFile(
-      join(outputDir, 'json/00-schedule.json'),
+      join(outputDir, 'base/00-schedule.json'),
       'utf8',
     );
     const yaml = await readFile(
-      join(outputDir, 'yaml/00-schedule.yaml'),
+      join(outputDir, 'base/00-schedule.yaml'),
       'utf8',
     );
     const groupJson = await readFile(
-      join(outputDir, 'json/10-groups/СТ1-11.json'),
+      join(outputDir, 'base/10-groups/СТ1-11.json'),
       'utf8',
     );
     const groupYaml = await readFile(
-      join(outputDir, 'yaml/10-groups/СТ1-11.yaml'),
+      join(outputDir, 'base/10-groups/СТ1-11.yaml'),
       'utf8',
     );
     const diagnostics = JSON.parse(
-      await readFile(join(outputDir, 'meta/90-diagnostics.json'), 'utf8'),
+      await readFile(join(outputDir, 'base/90-diagnostics.json'), 'utf8'),
     ) as { summary: Record<string, number> };
     const diagnosticsYaml = await readFile(
-      join(outputDir, 'meta/90-diagnostics.yaml'),
+      join(outputDir, 'base/90-diagnostics.yaml'),
       'utf8',
     );
     const parsedGroupJson = JSON.parse(groupJson) as CanonicalSchedule;

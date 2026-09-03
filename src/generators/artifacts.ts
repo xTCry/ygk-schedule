@@ -26,12 +26,12 @@ export const getScheduleArtifactPaths = (
 ): ScheduleArtifactPaths => {
   const directory = resolve(outputDirectory);
   return {
-    json: join(directory, 'json', '00-schedule.json'),
-    yaml: join(directory, 'yaml', '00-schedule.yaml'),
-    groupJsonDirectory: join(directory, 'json', '10-groups'),
-    groupYamlDirectory: join(directory, 'yaml', '10-groups'),
-    diagnosticsJson: join(directory, 'meta', '90-diagnostics.json'),
-    diagnosticsYaml: join(directory, 'meta', '90-diagnostics.yaml'),
+    json: join(directory, 'base', '00-schedule.json'),
+    yaml: join(directory, 'base', '00-schedule.yaml'),
+    groupJsonDirectory: join(directory, 'base', '10-groups'),
+    groupYamlDirectory: join(directory, 'base', '10-groups'),
+    diagnosticsJson: join(directory, 'base', '90-diagnostics.json'),
+    diagnosticsYaml: join(directory, 'base', '90-diagnostics.yaml'),
   };
 };
 

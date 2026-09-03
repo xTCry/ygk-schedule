@@ -55,7 +55,7 @@ jobs:
 
       - name: commit published data
         run: |
-          git add json yaml meta
+          git add base
 
           if git diff --cached --quiet; then
             echo "Schedule data is unchanged"
@@ -69,6 +69,6 @@ jobs:
 
       - name: synchronize diagnostic issues
         working-directory: parser
-        run: make sync-issues DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/meta/90-diagnostics.json"
+        run: make sync-issues DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
