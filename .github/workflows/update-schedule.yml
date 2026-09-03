@@ -1,0 +1,64 @@
+name: update schedule
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: schedule-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: checkout published data
+        uses: actions/checkout@v6
+        with:
+          ref: data
+          fetch-depth: 0
+
+      - name: checkout parser
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          path: parser
+          persist-credentials: false
+
+      - name: setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.13.0
+          cache: npm
+          cache-dependency-path: parser/package-lock.json
+
+      - name: install dependencies
+        working-directory: parser
+        run: make install
+
+      - name: check parser
+        working-directory: parser
+        run: make check
+
+      - name: update schedule data
+        working-directory: parser
+        run: make update OUTPUT_DIR="$GITHUB_WORKSPACE"
+
+      - name: commit published data
+        run: |
+          git add json yaml meta
+
+          if git diff --cached --quiet; then
+            echo "Schedule data is unchanged"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): update schedule"
+          git push origin HEAD:data
