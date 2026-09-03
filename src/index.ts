@@ -11,6 +11,7 @@ export * from './providers/ygk/schedule/discover.ts';
 export * from './providers/ygk/schedule/download.ts';
 export * from './providers/ygk/schedule/group.ts';
 export * from './providers/ygk/schedule/parse.ts';
+export * from './providers/ygk/replacements/parse.ts';
 export * from './types.ts';
 export * from './version.ts';
 export * from './xlsx/colors.ts';

@@ -3,6 +3,10 @@ export type WeekType = 'numerator' | 'denominator' | 'both' | 'unknown';
 export type DayOfWeek =
   'Понедельник' | 'Вторник' | 'Среда' | 'Четверг' | 'Пятница' | 'Суббота';
 
+export type ReplacementShift = 'first' | 'second';
+
+export type ReplacementType = 'replace' | 'cancel' | 'add' | 'move' | 'unknown';
+
 export type DiagnosticSeverity = 'info' | 'warning' | 'error' | 'fatal';
 
 export type DiagnosticCode =
@@ -19,7 +23,14 @@ export type DiagnosticCode =
   | 'CONFLICTING_GROUP_BLOCK'
   | 'EMPTY_SCHEDULE_BLOCK'
   | 'UNKNOWN_DAY'
-  | 'DATA_OUTSIDE_EXPECTED_COLUMNS';
+  | 'DATA_OUTSIDE_EXPECTED_COLUMNS'
+  | 'REPLACEMENT_CHANGES_NOT_PUBLISHED'
+  | 'MISSING_REPLACEMENT_DATE'
+  | 'INVALID_REPLACEMENT_DATE'
+  | 'UNKNOWN_REPLACEMENT_LAYOUT'
+  | 'REPLACEMENT_SHIFT_MISMATCH'
+  | 'INVALID_REPLACEMENT_LESSON_NUMBER'
+  | 'UNKNOWN_REPLACEMENT_TYPE';
 
 export interface SourceReference {
   sourceId?: string;
@@ -106,5 +117,60 @@ export interface CanonicalSchedule {
 
 export interface ParsedSchedule {
   groups: Record<string, GroupSchedule>;
+  diagnostics: Diagnostic[];
+}
+
+/**
+ * Текст занятия из таблицы замен. На этом этапе он не сопоставляется
+ * с дисциплиной, преподавателем или аудиторией базового расписания.
+ */
+export interface ReplacementLesson {
+  raw: string;
+  room?: string;
+}
+
+/**
+ * Исходные данные строки HTML-таблицы, необходимые для диагностики
+ * и последующего сопоставления с базовым расписанием.
+ */
+export interface ReplacementSource {
+  shift: ReplacementShift;
+  row: number;
+  rawGroupName: string;
+  rawLessonNumbers: string;
+  rawOriginal: string;
+  rawReplacement: string;
+  rawRoom: string;
+}
+
+/**
+ * Изменение одной или нескольких пар на конкретную дату.
+ *
+ * Группа нормализуется, когда ее формат однозначно распознан. Для старых
+ * свободных обозначений сохраняется нормализованный исходный текст.
+ */
+export interface Replacement {
+  date: string;
+  group: string;
+  lessonNumbers: number[];
+  type: ReplacementType;
+  original: ReplacementLesson | null;
+  replacement: ReplacementLesson | null;
+  source: ReplacementSource;
+}
+
+/**
+ * Результат разбора страницы замен одной смены.
+ *
+ * При `hasChanges: false` страница не содержит опубликованного блока
+ * «ИЗМЕНЕНИЯ», поэтому дата и день недели неизвестны.
+ */
+export interface ParsedReplacements {
+  hasChanges: boolean;
+  date: string | null;
+  day: DayOfWeek | null;
+  shift: ReplacementShift;
+  weekType: WeekType;
+  replacements: Replacement[];
   diagnostics: Diagnostic[];
 }
