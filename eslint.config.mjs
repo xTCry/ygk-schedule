@@ -14,6 +14,12 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist/**', 'node_modules/**', 'data/**', 'meta/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'data/**',
+      'meta/**',
+      'vitest.config.ts',
+    ],
   },
 );
