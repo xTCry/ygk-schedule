@@ -1,3 +1,4 @@
+import * as cheerio from 'cheerio';
 import { YGK_SCHEDULE_PAGE_URL } from '../constants.ts';
 
 export interface DiscoveredScheduleFile {
@@ -6,21 +7,8 @@ export interface DiscoveredScheduleFile {
   label: string;
 }
 
-const decodeHtml = (value: string): string =>
-  value
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>');
-
-const stripTags = (value: string): string =>
-  decodeHtml(
-    value
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim(),
-  );
+const normalizeLabel = (value: string): string =>
+  value.replace(/\s+/g, ' ').trim();
 
 export const discoverScheduleFiles = async (
   pageUrl = YGK_SCHEDULE_PAGE_URL,
@@ -30,16 +18,49 @@ export const discoverScheduleFiles = async (
   });
   if (!response.ok)
     throw new Error(`Failed to load schedule page: HTTP ${response.status}`);
-  const html = await response.text();
-  const result = new Map<string, DiscoveredScheduleFile>();
-  const anchorRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-  let match: RegExpExecArray | null;
 
-  while ((match = anchorRegex.exec(html))) {
-    const hrefMatch = /href\s*=\s*("([^"]+)"|'([^']+)')/i.exec(match[1] ?? '');
-    const href = decodeHtml(hrefMatch?.[2] ?? hrefMatch?.[3] ?? '');
-    if (!href || !/\.xlsx(?:[?#]|$)/i.test(href)) continue;
-    const url = new URL(href, pageUrl);
+  const html = await response.text();
+  const page = new URL(pageUrl);
+  const $ = cheerio.load(html);
+  const baseScheduleHeading = $('article p')
+    .filter(
+      (_index, element) =>
+        normalizeLabel($(element).text()).toLocaleLowerCase('ru-RU') ===
+        'расписание',
+    )
+    .first();
+
+  if (!baseScheduleHeading.length)
+    throw new Error('Failed to find the base schedule section');
+
+  /**
+   * На странице ЯГК таблица базового расписания следует сразу за заголовком
+   * «Расписание». Поиск только в этой таблице исключает ссылки на практики,
+   * экзамены и устаревшие фрагменты HTML.
+   */
+  const baseScheduleTable = baseScheduleHeading.next('table');
+  if (!baseScheduleTable.length)
+    throw new Error('Failed to find the base schedule table');
+
+  const result = new Map<string, DiscoveredScheduleFile>();
+
+  baseScheduleTable.find('a[href]').each((_index, anchor) => {
+    const href = $(anchor).attr('href');
+    if (!href) return;
+
+    let url: URL;
+    try {
+      url = new URL(href, page);
+    } catch {
+      return;
+    }
+
+    if (
+      url.origin !== page.origin ||
+      !url.pathname.toLowerCase().endsWith('.xlsx')
+    )
+      return;
+
     url.hash = '';
     const fileName = decodeURIComponent(
       url.pathname.split('/').pop() ?? 'schedule.xlsx',
@@ -47,9 +68,12 @@ export const discoverScheduleFiles = async (
     result.set(url.toString(), {
       url: url.toString(),
       fileName,
-      label: stripTags(match[2] ?? ''),
+      label: normalizeLabel($(anchor).text()),
     });
-  }
+  });
+
+  if (!result.size)
+    throw new Error('The base schedule table contains no XLSX links');
 
   return [...result.values()];
 };

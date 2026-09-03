@@ -16,12 +16,33 @@ const withFetch = async (
 };
 
 describe('YGK source discovery and download', () => {
-  it('extracts and deduplicates XLSX links', async () => {
+  it('extracts only base schedule XLSX links from the HTML section', async () => {
     const html = `
-      <a href="/pages/rasp/26-27/so.xlsx">СО 1 сем</a>
-      <a href="/pages/rasp/26-27/so.xlsx#x">Дубль</a>
-      <a href="files/oit.xlsx?download=1">ОИТ &amp; тест</a>
-      <a href="file.pdf">PDF</a>
+      <article>
+        <p>Расписание звонков</p>
+        <table>
+          <tr><td><a href="/pages/rasp/26-27/bells.xlsx">Звонки</a></td></tr>
+        </table>
+
+        <p><img src="../icons/rasp/rasp.png"><a href="#">Расписание</a></p>
+        <table>
+          <tr><td><a href="/pages/rasp/26-27/oar_0.xlsx">ОАР 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/oit_1sem.xlsx">ОИТ 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/ort.xlsx">ОРТ 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/out.xlsx">ОУТ 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/oeis.xlsx">ОЭИС 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/so.xlsx">СО 1 сем</a></td></tr>
+          <tr><td><a href="/pages/rasp/26-27/so.xlsx#old">СО обновлённое</a></td></tr>
+          <tr><td><a href="https://other.example/foreign.xlsx">Чужой файл</a></td></tr>
+        </table>
+
+        <p><a href="#">Расписание учебных практик</a></p>
+        <table>
+          <tr><td><a href="/pages/rasp/26-27/practice.xlsx">Практика</a></td></tr>
+        </table>
+
+        <!-- <a href="/pages/rasp/16-17/old.xlsx">Старый файл</a> -->
+      </article>
     `;
     await withFetch(
       () => Promise.resolve(new Response(html, { status: 200 })),
@@ -30,16 +51,48 @@ describe('YGK source discovery and download', () => {
           discoverScheduleFiles('https://ygk.example/raspisanie.html'),
         ).resolves.toEqual([
           {
-            url: 'https://ygk.example/pages/rasp/26-27/so.xlsx',
-            fileName: 'so.xlsx',
-            label: 'Дубль',
+            url: 'https://ygk.example/pages/rasp/26-27/oar_0.xlsx',
+            fileName: 'oar_0.xlsx',
+            label: 'ОАР 1 сем',
           },
           {
-            url: 'https://ygk.example/files/oit.xlsx?download=1',
-            fileName: 'oit.xlsx',
-            label: 'ОИТ & тест',
+            url: 'https://ygk.example/pages/rasp/26-27/oit_1sem.xlsx',
+            fileName: 'oit_1sem.xlsx',
+            label: 'ОИТ 1 сем',
+          },
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/ort.xlsx',
+            fileName: 'ort.xlsx',
+            label: 'ОРТ 1 сем',
+          },
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/out.xlsx',
+            fileName: 'out.xlsx',
+            label: 'ОУТ 1 сем',
+          },
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/oeis.xlsx',
+            fileName: 'oeis.xlsx',
+            label: 'ОЭИС 1 сем',
+          },
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/so.xlsx',
+            fileName: 'so.xlsx',
+            label: 'СО обновлённое',
           },
         ]);
+      },
+    );
+  });
+
+  it('rejects an unexpected base schedule layout', async () => {
+    await withFetch(
+      () =>
+        Promise.resolve(new Response('<article></article>', { status: 200 })),
+      async () => {
+        await expect(
+          discoverScheduleFiles('https://ygk.example/raspisanie.html'),
+        ).rejects.toThrow(/base schedule section/);
       },
     );
   });
