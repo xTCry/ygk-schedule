@@ -88,7 +88,9 @@ data/meta/90-diagnostics.yaml
 
 Workflow `update schedule` запускается вручную и по cron раз в два часа. После
 выгрузки он создаёт, обновляет и закрывает только диагностические GitHub Issue
-со скрытым маркером parser. Обычные Issue репозитория workflow не изменяет.
+со скрытым маркером parser. Новые Issue получают label
+`schedule-diagnostic`; при необходимости workflow создаёт его сам. Обычные
+Issue репозитория workflow не изменяет.
 
 Для загрузки XLSX по известному URL вместо `--input` используется `--url`. Этот режим выполняет сетевой запрос:
 

@@ -5,6 +5,13 @@ import {
 
 const API_VERSION = '2022-11-28';
 const ISSUES_PER_PAGE = 100;
+export const SCHEDULE_DIAGNOSTIC_LABEL = 'schedule-diagnostic';
+
+const scheduleDiagnosticLabel = {
+  name: SCHEDULE_DIAGNOSTIC_LABEL,
+  color: '0969da',
+  description: 'Автоматически создано парсером расписания',
+};
 
 export interface ManagedDiagnosticIssue {
   number: number;
@@ -133,6 +140,7 @@ export const syncDiagnosticIssues = async (
 export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
   private readonly baseUrl: string;
   private readonly fetchImpl: typeof fetch;
+  private diagnosticLabelReady = false;
 
   public constructor(options: GitHubDiagnosticIssuesClientOptions) {
     const { owner, name } = parseRepository(options.repository);
@@ -171,9 +179,14 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
   }
 
   public async createIssue(issue: DiagnosticIssueDraft): Promise<void> {
+    await this.ensureDiagnosticLabel();
     await this.request(this.baseUrl, {
       method: 'POST',
-      body: JSON.stringify({ title: issue.title, body: issue.body }),
+      body: JSON.stringify({
+        title: issue.title,
+        body: issue.body,
+        labels: [SCHEDULE_DIAGNOSTIC_LABEL],
+      }),
     });
   }
 
@@ -214,5 +227,40 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
     throw new Error(
       `GitHub API ${options.method ?? 'GET'} ${url} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
     );
+  }
+
+  /**
+   * Создает label один раз, чтобы новая диагностическая Issue была заметна в
+   * общем списке. Уже существующий label не изменяется.
+   */
+  private async ensureDiagnosticLabel(): Promise<void> {
+    if (this.diagnosticLabelReady) return;
+
+    const response = await this.fetchImpl(
+      `${this.baseUrl.replace(/\/issues$/, '')}/labels/${SCHEDULE_DIAGNOSTIC_LABEL}`,
+      {
+        headers: {
+          Accept: 'application/vnd.github+json',
+          Authorization: `Bearer ${this.token}`,
+          'X-GitHub-Api-Version': API_VERSION,
+        },
+      },
+    );
+    if (response.ok) {
+      this.diagnosticLabelReady = true;
+      return;
+    }
+    if (response.status !== 404) {
+      const body = await response.text();
+      throw new Error(
+        `GitHub API GET label ${SCHEDULE_DIAGNOSTIC_LABEL} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
+      );
+    }
+
+    await this.request(`${this.baseUrl.replace(/\/issues$/, '')}/labels`, {
+      method: 'POST',
+      body: JSON.stringify(scheduleDiagnosticLabel),
+    });
+    this.diagnosticLabelReady = true;
   }
 }

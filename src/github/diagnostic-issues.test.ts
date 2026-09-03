@@ -134,4 +134,42 @@ describe('diagnostic Issue synchronization', () => {
       'https://api.github.com/repos/owner/repository/issues/2',
     );
   });
+
+  it('creates and assigns the diagnostic label for a new issue', async () => {
+    const fetchMock = vi
+      .fn<typeof fetch>()
+      .mockResolvedValueOnce(new Response(JSON.stringify([])))
+      .mockResolvedValueOnce(new Response('{}', { status: 404 }))
+      .mockResolvedValueOnce(new Response('{}'))
+      .mockResolvedValueOnce(new Response('{}'));
+    const client = new GitHubDiagnosticIssuesClient({
+      repository: 'owner/repository',
+      token: 'token',
+      fetchImpl: fetchMock,
+    });
+
+    await expect(syncDiagnosticIssues([draft('new')], client)).resolves.toEqual(
+      {
+        created: 1,
+        updated: 0,
+        closed: 0,
+        unchanged: 0,
+      },
+    );
+    expect(fetchMock.mock.calls[1]?.[0]).toBe(
+      'https://api.github.com/repos/owner/repository/labels/schedule-diagnostic',
+    );
+    expect(fetchMock.mock.calls[2]?.[0]).toBe(
+      'https://api.github.com/repos/owner/repository/labels',
+    );
+    const issueRequest = fetchMock.mock.calls[3]?.[1];
+    expect(issueRequest?.method).toBe('POST');
+    expect(issueRequest?.body).toBe(
+      JSON.stringify({
+        title: 'Проблема new',
+        body: '<!-- parser-issue-key: new -->\nbody',
+        labels: ['schedule-diagnostic'],
+      }),
+    );
+  });
 });
