@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -83,6 +83,38 @@ describe('schedule update', () => {
     expect(second.versionChanged).toBe(false);
     expect(second.semanticChanged).toBe(false);
     await expect(readFile(output, 'utf8')).resolves.toBe(firstFile);
+  });
+
+  it('skips an unchanged export when CI does not have config/.gitkeep', async () => {
+    const root = await createProjectRoot();
+    await rm(join(root, 'config'), { recursive: true });
+    await mkdir(join(root, 'config'));
+    await writeFile(join(root, 'config/.gitkeep'), '');
+    const outputDir = join(root, 'data');
+
+    const first = await updateSchedule({
+      input: fixturePath,
+      outputDir,
+      projectRoot: root,
+    });
+    const firstSchedule = await readFile(
+      join(outputDir, 'json/00-schedule.json'),
+      'utf8',
+    );
+
+    await rm(join(root, 'config'), { recursive: true });
+    const second = await updateSchedule({
+      input: fixturePath,
+      outputDir,
+      projectRoot: root,
+    });
+
+    expect(first.written).toBe(true);
+    expect(second.written).toBe(false);
+    expect(second.versionChanged).toBe(false);
+    await expect(
+      readFile(join(outputDir, 'json/00-schedule.json'), 'utf8'),
+    ).resolves.toBe(firstSchedule);
   });
 
   it('reparses the same XLSX when parser code changes', async () => {

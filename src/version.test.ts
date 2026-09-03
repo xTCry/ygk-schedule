@@ -207,6 +207,22 @@ describe('versions and semantic schedule comparison', () => {
     );
   });
 
+  it('does not treat a .gitkeep placeholder as configuration', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'ygk-config-hash-'));
+    const absent = await calculateProjectHashes(root);
+
+    await mkdir(join(root, 'config'));
+    const empty = await calculateProjectHashes(root);
+    await writeFile(join(root, 'config/.gitkeep'), '');
+    const placeholderOnly = await calculateProjectHashes(root);
+    await writeFile(join(root, 'config/provider.json'), '{}');
+    const configured = await calculateProjectHashes(root);
+
+    expect(empty.configHash).toBe(absent.configHash);
+    expect(placeholderOnly.configHash).toBe(absent.configHash);
+    expect(configured.configHash).not.toBe(absent.configHash);
+  });
+
   it('ignores generators and changes on parser or config edits', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-hash-'));
     for (const path of [

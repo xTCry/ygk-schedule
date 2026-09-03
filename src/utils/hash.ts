@@ -5,6 +5,8 @@ import { basename, resolve } from 'node:path';
 export const sha256 = (value: string | Buffer): string =>
   createHash('sha256').update(value).digest('hex');
 
+const HASH_IGNORED_FILE_NAMES = new Set(['.gitkeep']);
+
 const walk = async (root: string, current = ''): Promise<string[]> => {
   const absolute = resolve(root, current);
   const entries = await readdir(absolute, { withFileTypes: true });
@@ -13,12 +15,20 @@ const walk = async (root: string, current = ''): Promise<string[]> => {
   for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
     const relative = current ? `${current}/${entry.name}` : entry.name;
     if (entry.isDirectory()) files.push(...(await walk(root, relative)));
-    if (entry.isFile()) files.push(relative);
+    // `.gitkeep` нужен только Git для сохранения пустой директории и не несет данных.
+    if (entry.isFile() && !HASH_IGNORED_FILE_NAMES.has(entry.name))
+      files.push(relative);
   }
 
   return files;
 };
 
+/**
+ * Возвращает воспроизводимый SHA-256 файла или содержимого директории.
+ *
+ * Технические файлы `.gitkeep` намеренно исключаются: пустая директория
+ * локально и отсутствующая в checkout CI не должны менять версию данных.
+ */
 export const hashPath = async (path: string): Promise<string> => {
   try {
     const info = await stat(path);
