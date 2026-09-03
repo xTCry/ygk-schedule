@@ -1,10 +1,14 @@
 name: update schedule
 
 on:
+  schedule:
+    # GitHub интерпретирует cron в UTC. Запуск раз в два часа, в 17 минут.
+    - cron: '17 */2 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: schedule-data-update
@@ -62,3 +66,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update schedule"
           git push origin HEAD:data
+
+      - name: synchronize diagnostic issues
+        working-directory: parser
+        run: make sync-issues DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/meta/90-diagnostics.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

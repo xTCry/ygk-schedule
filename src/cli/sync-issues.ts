@@ -1,0 +1,90 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import type { DiagnosticIssueDraft } from '../diagnostics/issues.ts';
+import {
+  GitHubDiagnosticIssuesClient,
+  syncDiagnosticIssues,
+} from '../github/diagnostic-issues.ts';
+
+interface DiagnosticsReportInput {
+  issues: DiagnosticIssueDraft[];
+}
+
+interface SyncIssuesOptions {
+  diagnostics: string;
+  repository: string;
+  token: string;
+}
+
+const isDiagnosticIssueDraft = (
+  value: unknown,
+): value is DiagnosticIssueDraft => {
+  if (!value || typeof value !== 'object') return false;
+  const draft = value as Record<string, unknown>;
+  return (
+    typeof draft.key === 'string' &&
+    typeof draft.fingerprint === 'string' &&
+    typeof draft.title === 'string' &&
+    typeof draft.body === 'string' &&
+    typeof draft.occurrenceCount === 'number'
+  );
+};
+
+const readDiagnosticsReport = async (
+  path: string,
+): Promise<DiagnosticsReportInput> => {
+  const value: unknown = JSON.parse(await readFile(path, 'utf8'));
+  if (!value || typeof value !== 'object')
+    throw new Error('Diagnostics report must be a JSON object');
+  const issues = (value as Record<string, unknown>).issues;
+  if (!Array.isArray(issues) || !issues.every(isDiagnosticIssueDraft))
+    throw new Error('Diagnostics report has an invalid issues array');
+  return { issues };
+};
+
+const parseArgs = (args: string[]): SyncIssuesOptions => {
+  const values = new Map<string, string>();
+  for (let index = 0; index < args.length; index += 1) {
+    const key = args[index];
+    const value = args[index + 1];
+    if (key?.startsWith('--') && value && !value.startsWith('--')) {
+      values.set(key.slice(2), value);
+      index += 1;
+    }
+  }
+  const diagnostics = values.get('diagnostics');
+  const repository = values.get('repo');
+  const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
+  if (!diagnostics || !repository || !token)
+    throw new Error(
+      'Specify --diagnostics, --repo and set GITHUB_TOKEN or GH_TOKEN',
+    );
+  return { diagnostics: resolve(diagnostics), repository, token };
+};
+
+/**
+ * Синхронизирует Issue по diagnostics report, созданному в ветке data.
+ */
+export const runSyncIssuesCli = async (
+  args = process.argv.slice(2),
+): Promise<void> => {
+  const options = parseArgs(args);
+  const report = await readDiagnosticsReport(options.diagnostics);
+  const result = await syncDiagnosticIssues(
+    report.issues,
+    new GitHubDiagnosticIssuesClient(options),
+  );
+  process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+};
+
+const isDirect =
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+if (isDirect)
+  runSyncIssuesCli().catch((error: unknown) => {
+    process.stderr.write(
+      `${error instanceof Error ? (error.stack ?? error.message) : String(error)}\n`,
+    );
+    process.exitCode = 1;
+  });

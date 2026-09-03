@@ -1,8 +1,9 @@
 SCHEDULE_PAGE_URL ?= https://ygk.edu.yar.ru/raspisanie.html
 OUTPUT_DIR ?= data
 FIXTURE_PATH ?= src/providers/ygk/schedule/fixtures/2026-09-so.xlsx
+DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/meta/90-diagnostics.json
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture sync-issues
 
 help:
 	@printf '%s\n' \
@@ -14,7 +15,8 @@ help:
 		'  make format           Отформатировать проект' \
 		'  make update           Скачать и выгрузить актуальное расписание' \
 		'  make update-verbose   То же, с подробным diff занятий' \
-		'  make update-fixture   Выгрузить regression fixture локально'
+		'  make update-fixture   Выгрузить regression fixture локально' \
+		'  make sync-issues      Синхронизировать диагностические GitHub Issue'
 
 install:
 	npm ci
@@ -48,3 +50,7 @@ update-verbose:
 
 update-fixture:
 	npm run update -- --input "$(FIXTURE_PATH)" --output-dir "$(OUTPUT_DIR)"
+
+sync-issues:
+	test -n "$(GITHUB_REPOSITORY)"
+	npm run sync-issues -- --diagnostics "$(DIAGNOSTICS_PATH)" --repo "$(GITHUB_REPOSITORY)"

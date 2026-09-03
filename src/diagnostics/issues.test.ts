@@ -40,9 +40,11 @@ describe('diagnostic Issue drafts', () => {
       [diagnostic, { ...diagnostic, row: 70 }],
       source,
     );
+    expect(issue.key).toHaveLength(64);
     expect(issue.fingerprint).toBe('fingerprint');
     expect(issue.title).toBe('[schedule] INVALID_LESSON_NUMBER: out.xlsx');
     expect(issue.occurrenceCount).toBe(2);
+    expect(issue.body).toContain('<!-- parser-issue-key:');
     expect(issue.body).toContain('<!-- parser-fingerprint: fingerprint -->');
     expect(issue.body).toContain('| Файл | out.xlsx |');
     expect(issue.body).toContain('| ЮР1-31 | 69 | 1 | ЮР1-33/ЮР1-34 | 0 |');

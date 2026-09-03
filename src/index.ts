@@ -2,6 +2,8 @@ export * from './calendar/academic-year.ts';
 export * from './cli/update.ts';
 export * from './compare/schedule.ts';
 export * from './diagnostics/index.ts';
+export * from './diagnostics/issues.ts';
+export * from './github/diagnostic-issues.ts';
 export * from './generators/ical.ts';
 export * from './generators/json.ts';
 export * from './providers/ygk/constants.ts';

@@ -15,7 +15,7 @@ export interface DiagnosticsReportItem extends Diagnostic {
 }
 
 export interface DiagnosticsReport {
-  schemaVersion: 2;
+  schemaVersion: 3;
   generatedAt: string;
   scheduleVersion: string;
   summary: Record<'info' | 'warning' | 'error' | 'fatal', number>;
@@ -81,7 +81,7 @@ export const buildDiagnosticsReport = (
   );
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     generatedAt: schedule.generatedAt,
     scheduleVersion: schedule.version.value,
     summary,

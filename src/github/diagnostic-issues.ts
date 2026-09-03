@@ -1,0 +1,218 @@
+import {
+  getDiagnosticIssueKeyFromBody,
+  type DiagnosticIssueDraft,
+} from '../diagnostics/issues.ts';
+
+const API_VERSION = '2022-11-28';
+const ISSUES_PER_PAGE = 100;
+
+export interface ManagedDiagnosticIssue {
+  number: number;
+  key: string;
+  title: string;
+  body: string;
+}
+
+export interface DiagnosticIssuesClient {
+  listOpenManagedIssues(): Promise<ManagedDiagnosticIssue[]>;
+  createIssue(issue: DiagnosticIssueDraft): Promise<void>;
+  updateIssue(
+    number: number,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body'>,
+  ): Promise<void>;
+  closeIssue(number: number): Promise<void>;
+}
+
+export interface DiagnosticIssuesSyncResult {
+  created: number;
+  updated: number;
+  closed: number;
+  unchanged: number;
+}
+
+interface RepositoryIssueResponse {
+  number: number;
+  title: string;
+  body: string | null;
+  pull_request?: unknown;
+}
+
+export interface GitHubDiagnosticIssuesClientOptions {
+  repository: string;
+  token: string;
+  fetchImpl?: typeof fetch;
+}
+
+const isRepositoryIssueResponse = (
+  value: unknown,
+): value is RepositoryIssueResponse => {
+  if (!value || typeof value !== 'object') return false;
+  const issue = value as Record<string, unknown>;
+  return (
+    typeof issue.number === 'number' &&
+    typeof issue.title === 'string' &&
+    (typeof issue.body === 'string' || issue.body === null)
+  );
+};
+
+const parseRepository = (
+  repository: string,
+): { owner: string; name: string } => {
+  const [owner, name, ...rest] = repository.split('/');
+  if (!owner || !name || rest.length > 0)
+    throw new Error('Repository must have the form owner/name');
+  return { owner, name };
+};
+
+const buildIssueMap = <T extends { key: string }>(
+  issues: readonly T[],
+  description: string,
+): Map<string, T> => {
+  const result = new Map<string, T>();
+  for (const issue of issues) {
+    if (result.has(issue.key))
+      throw new Error(`Duplicate ${description} for key ${issue.key}`);
+    result.set(issue.key, issue);
+  }
+  return result;
+};
+
+const isSameIssue = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): boolean => existing.title === next.title && existing.body === next.body;
+
+/**
+ * Синхронизирует с GitHub только открытые Issue с маркером parser.
+ *
+ * Отсутствующая в актуальном отчете диагностическая Issue закрывается, а
+ * вручную созданные Issue без служебного маркера остаются без изменений.
+ */
+export const syncDiagnosticIssues = async (
+  drafts: readonly DiagnosticIssueDraft[],
+  client: DiagnosticIssuesClient,
+): Promise<DiagnosticIssuesSyncResult> => {
+  const desiredByKey = buildIssueMap(drafts, 'diagnostic Issue draft');
+  const existingByKey = buildIssueMap(
+    await client.listOpenManagedIssues(),
+    'open managed Issue',
+  );
+  const result: DiagnosticIssuesSyncResult = {
+    created: 0,
+    updated: 0,
+    closed: 0,
+    unchanged: 0,
+  };
+
+  for (const draft of drafts) {
+    const existing = existingByKey.get(draft.key);
+    if (!existing) {
+      await client.createIssue(draft);
+      result.created += 1;
+    } else if (isSameIssue(existing, draft)) {
+      result.unchanged += 1;
+    } else {
+      await client.updateIssue(existing.number, draft);
+      result.updated += 1;
+    }
+  }
+
+  // Закрываем только после успешного создания и обновления актуальных Issue.
+  for (const issue of existingByKey.values()) {
+    if (desiredByKey.has(issue.key)) continue;
+    await client.closeIssue(issue.number);
+    result.closed += 1;
+  }
+
+  return result;
+};
+
+/**
+ * Клиент GitHub REST API для Issue, созданных parser-ом расписания.
+ */
+export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
+  private readonly baseUrl: string;
+  private readonly fetchImpl: typeof fetch;
+
+  public constructor(options: GitHubDiagnosticIssuesClientOptions) {
+    const { owner, name } = parseRepository(options.repository);
+    this.baseUrl = `https://api.github.com/repos/${owner}/${name}/issues`;
+    this.fetchImpl = options.fetchImpl ?? fetch;
+    this.token = options.token;
+  }
+
+  private readonly token: string;
+
+  public async listOpenManagedIssues(): Promise<ManagedDiagnosticIssue[]> {
+    const issues: ManagedDiagnosticIssue[] = [];
+
+    for (let page = 1; ; page += 1) {
+      const response = await this.request(
+        `${this.baseUrl}?state=open&per_page=${ISSUES_PER_PAGE}&page=${page}`,
+      );
+      const payload: unknown = await response.json();
+      if (!Array.isArray(payload) || !payload.every(isRepositoryIssueResponse))
+        throw new Error('GitHub returned an invalid issue list');
+
+      for (const issue of payload) {
+        if (issue.pull_request) continue;
+        const key = getDiagnosticIssueKeyFromBody(issue.body);
+        if (!key) continue;
+        issues.push({
+          number: issue.number,
+          key,
+          title: issue.title,
+          body: issue.body ?? '',
+        });
+      }
+
+      if (payload.length < ISSUES_PER_PAGE) return issues;
+    }
+  }
+
+  public async createIssue(issue: DiagnosticIssueDraft): Promise<void> {
+    await this.request(this.baseUrl, {
+      method: 'POST',
+      body: JSON.stringify({ title: issue.title, body: issue.body }),
+    });
+  }
+
+  public async updateIssue(
+    number: number,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body'>,
+  ): Promise<void> {
+    await this.request(`${this.baseUrl}/${number}`, {
+      method: 'PATCH',
+      body: JSON.stringify(issue),
+    });
+  }
+
+  public async closeIssue(number: number): Promise<void> {
+    await this.request(`${this.baseUrl}/${number}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ state: 'closed', state_reason: 'completed' }),
+    });
+  }
+
+  private async request(
+    url: string,
+    options: RequestInit = {},
+  ): Promise<Response> {
+    const response = await this.fetchImpl(url, {
+      ...options,
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${this.token}`,
+        'Content-Type': 'application/json',
+        'X-GitHub-Api-Version': API_VERSION,
+        ...options.headers,
+      },
+    });
+    if (response.ok) return response;
+
+    const body = await response.text();
+    throw new Error(
+      `GitHub API ${options.method ?? 'GET'} ${url} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
+    );
+  }
+}
