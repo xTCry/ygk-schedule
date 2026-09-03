@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
 import { updateSchedule } from './update.ts';
+import { parse } from 'yaml';
 
 const createProjectRoot = async () => {
   const root = await mkdtemp(join(tmpdir(), 'ygk-update-'));
@@ -140,5 +141,26 @@ describe('schedule update', () => {
     } finally {
       vi.unstubAllGlobals();
     }
+  });
+
+  it('writes matching JSON and YAML artifacts to an output directory', async () => {
+    const root = await createProjectRoot();
+    const outputDir = join(root, 'data');
+    const result = await updateSchedule({
+      input: fixturePath,
+      outputDir,
+      projectRoot: root,
+    });
+
+    const json = await readFile(
+      join(outputDir, 'json/00-schedule.json'),
+      'utf8',
+    );
+    const yaml = await readFile(
+      join(outputDir, 'yaml/00-schedule.yaml'),
+      'utf8',
+    );
+    expect(JSON.parse(json)).toEqual(parse(yaml));
+    expect(result.written).toBe(true);
   });
 });

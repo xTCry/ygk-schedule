@@ -17,9 +17,15 @@ const sortGroup = (group: GroupSchedule): GroupSchedule => ({
   })),
 });
 
-export const serializeSchedule = (schedule: CanonicalSchedule): string => {
-  const normalized: CanonicalSchedule = {
+/**
+ * Нормализует порядок полей и элементов перед сериализацией в публичные файлы.
+ */
+export const normalizeScheduleForSerialization = (
+  schedule: CanonicalSchedule,
+): CanonicalSchedule => {
+  return {
     ...schedule,
+    sources: [...schedule.sources].sort((a, b) => a.id.localeCompare(b.id)),
     groups: Object.fromEntries(
       Object.entries(schedule.groups)
         .sort(([a], [b]) => a.localeCompare(b, 'ru-RU'))
@@ -33,5 +39,12 @@ export const serializeSchedule = (schedule: CanonicalSchedule): string => {
         a.code.localeCompare(b.code),
     ),
   };
+};
+
+/**
+ * Сериализует каноническое расписание в форматированный JSON
+ */
+export const serializeSchedule = (schedule: CanonicalSchedule): string => {
+  const normalized = normalizeScheduleForSerialization(schedule);
   return `${JSON.stringify(normalized, null, 2)}\n`;
 };

@@ -3,13 +3,18 @@ import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
 import { hasFatalDiagnostics } from '../diagnostics/index.ts';
+import {
+  getScheduleArtifactPaths,
+  writeScheduleArtifacts,
+} from '../generators/artifacts.ts';
+import type { ScheduleArtifactPaths } from '../generators/artifacts.ts';
 import { serializeSchedule } from '../generators/json.ts';
 import { aggregateYgkSchedules } from '../providers/ygk/schedule/aggregate.ts';
 import { discoverScheduleFiles } from '../providers/ygk/schedule/discover.ts';
 import { downloadScheduleFile } from '../providers/ygk/schedule/download.ts';
 import { parseYgkSchedule } from '../providers/ygk/schedule/parse.ts';
 import type { CanonicalSchedule, ScheduleSource } from '../types.ts';
-import { readJsonIfExists, writeFileAtomic } from '../utils/fs.ts';
+import { fileExists, readJsonIfExists, writeFileAtomic } from '../utils/fs.ts';
 import { sha256 } from '../utils/hash.ts';
 import {
   buildScheduleVersion,
@@ -22,7 +27,8 @@ export interface UpdateOptions {
   input?: string;
   url?: string;
   pageUrl?: string;
-  output: string;
+  output?: string;
+  outputDir?: string;
   projectRoot?: string;
 }
 
@@ -38,6 +44,20 @@ interface LoadedScheduleSource {
   buffer: Buffer;
   source: ScheduleSource;
 }
+
+interface OutputTarget {
+  json: string;
+  artifacts?: ScheduleArtifactPaths;
+}
+
+const resolveOutputTarget = (options: UpdateOptions): OutputTarget => {
+  if (Boolean(options.output) === Boolean(options.outputDir))
+    throw new Error('Specify exactly one of output or outputDir');
+
+  if (options.output) return { json: resolve(options.output) };
+  const artifacts = getScheduleArtifactPaths(options.outputDir!);
+  return { json: artifacts.json, artifacts };
+};
 
 const sourceIdFromUrl = (url: string): string => {
   const normalized = new URL(url);
@@ -112,8 +132,8 @@ export const updateSchedule = async (
   options: UpdateOptions,
 ): Promise<UpdateResult> => {
   const projectRoot = resolve(options.projectRoot ?? process.cwd());
-  const output = resolve(options.output);
-  const previous = await readJsonIfExists<CanonicalSchedule>(output);
+  const output = resolveOutputTarget(options);
+  const previous = await readJsonIfExists<CanonicalSchedule>(output.json);
   const sources = await loadSources(options);
   const { parserHash, configHash } = await calculateProjectHashes(projectRoot);
   const version = buildScheduleVersion({
@@ -124,8 +144,14 @@ export const updateSchedule = async (
     configHash,
   });
   const versionChanged = previous?.version.value !== version.value;
+  const artifactFiles = output.artifacts
+    ? [output.artifacts.json, output.artifacts.yaml]
+    : [output.json];
+  const allArtifactsExist = (
+    await Promise.all(artifactFiles.map((path) => fileExists(path)))
+  ).every(Boolean);
 
-  if (!versionChanged && previous) {
+  if (!versionChanged && previous && allArtifactsExist) {
     const diff = compareSchedules(previous, previous);
     return {
       written: false,
@@ -169,7 +195,9 @@ export const updateSchedule = async (
     };
   }
 
-  await writeFileAtomic(output, serializeSchedule(schedule));
+  if (output.artifacts)
+    await writeScheduleArtifacts(output.artifacts, schedule);
+  else await writeFileAtomic(output.json, serializeSchedule(schedule));
   return {
     written: true,
     versionChanged,
@@ -190,7 +218,9 @@ const parseArgs = (args: string[]): UpdateOptions => {
     }
   }
   const output = values.get('output');
-  if (!output) throw new Error('Missing --output');
+  const outputDir = values.get('output-dir');
+  if (Boolean(output) === Boolean(outputDir))
+    throw new Error('Specify exactly one of --output or --output-dir');
   const input = values.get('input');
   const url = values.get('url');
   const pageUrl = values.get('page-url');
@@ -198,10 +228,11 @@ const parseArgs = (args: string[]): UpdateOptions => {
   if (sourceOptionCount !== 1)
     throw new Error('Specify exactly one of --input, --url or --page-url');
   return {
-    output,
+    ...(output ? { output } : {}),
     ...(input ? { input } : {}),
     ...(url ? { url } : {}),
     ...(pageUrl ? { pageUrl } : {}),
+    ...(outputDir ? { outputDir } : {}),
     ...(values.get('project-root')
       ? { projectRoot: values.get('project-root')! }
       : {}),

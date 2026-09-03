@@ -18,12 +18,28 @@ npm run build
 
 ## Локальный запуск
 
-Разобрать локальный XLSX и сохранить результат вне репозитория:
+Разобрать локальный XLSX и сохранить общий JSON:
 
 ```bash
 npm run update -- \
   --input src/providers/ygk/schedule/fixtures/2026-09-so.xlsx \
   --output ./.tmp/ygk-schedule.json
+```
+
+Для локальной выгрузки сразу JSON и YAML используйте папку `data/`. В ветке
+`main` она игнорируется Git: это безопасная рабочая копия будущих публикаций.
+
+```bash
+npm run update -- \
+  --input src/providers/ygk/schedule/fixtures/2026-09-so.xlsx \
+  --output-dir ./data
+```
+
+Команда создаёт:
+
+```text
+data/json/00-schedule.json
+data/yaml/00-schedule.yaml
 ```
 
 Для загрузки XLSX по известному URL вместо `--input` используется `--url`. Этот режим выполняет сетевой запрос:
@@ -41,7 +57,7 @@ npm run update -- \
 ```bash
 npm run update -- \
   --page-url https://ygk.edu.yar.ru/raspisanie.html \
-  --output ./.tmp/ygk-schedule.json
+  --output-dir ./data
 ```
 
 Команда выводит сведения о записи файла, смене версии и смысловых изменениях расписания. При `fatal`-диагностике новый JSON не записывается.
