@@ -24,6 +24,8 @@ export type DiagnosticCode =
   | 'EMPTY_SCHEDULE_BLOCK'
   | 'UNKNOWN_DAY'
   | 'DATA_OUTSIDE_EXPECTED_COLUMNS'
+  | 'UNRESOLVED_REPLACEMENT'
+  | 'AMBIGUOUS_REPLACEMENT'
   | 'REPLACEMENT_CHANGES_NOT_PUBLISHED'
   | 'MISSING_REPLACEMENT_DATE'
   | 'INVALID_REPLACEMENT_DATE'
@@ -173,4 +175,102 @@ export interface ParsedReplacements {
   weekType: WeekType;
   replacements: Replacement[];
   diagnostics: Diagnostic[];
+}
+
+/**
+ * Метаданные HTML-страницы замен, загруженной для одной смены.
+ */
+export interface ReplacementPageSource extends ScheduleSource {
+  shift: ReplacementShift;
+}
+
+export interface ReplacementDate {
+  date: string;
+  day: DayOfWeek;
+  weekType: WeekType;
+  replacements: Replacement[];
+}
+
+/**
+ * Публикуемая коллекция необработанных замен с обеих HTML-страниц.
+ */
+export interface CanonicalReplacements {
+  schemaVersion: number;
+  provider: 'ygk';
+  generatedAt: string;
+  sources: ReplacementPageSource[];
+  version: ScheduleVersion;
+  dates: Record<string, ReplacementDate>;
+  diagnostics: Diagnostic[];
+  semanticHash: string;
+}
+
+export type ReplacementApplyStrategy = 'add' | 'exact-subject';
+
+export type UnresolvedReplacementReason =
+  | 'group-not-found'
+  | 'day-not-found'
+  | 'lesson-not-found'
+  | 'original-not-matched'
+  | 'ambiguous-original'
+  | 'unsupported-type';
+
+/**
+ * Примененная замена и правило, позволившее сделать это без догадки.
+ */
+export interface AppliedReplacement {
+  replacement: Replacement;
+  lessonNumber: number;
+  strategy: ReplacementApplyStrategy;
+}
+
+/**
+ * Замена, которую нельзя безопасно наложить на базовую пару.
+ *
+ * Она остается в actual-данных отдельным объектом, чтобы API и будущий
+ * генератор iCalendar могли показать дополнительное событие пользователю.
+ */
+export interface UnresolvedReplacement {
+  replacement: Replacement;
+  lessonNumber: number;
+  reason: UnresolvedReplacementReason;
+}
+
+export interface ActualLesson {
+  number: number;
+  variants: LessonVariant[];
+  source: SourceReference | null;
+  status: 'scheduled' | 'cancelled';
+  replacements: AppliedReplacement[];
+}
+
+export interface ActualGroupSchedule {
+  group: string;
+  date: string;
+  day: DayOfWeek;
+  lessons: ActualLesson[];
+  unresolvedReplacements: UnresolvedReplacement[];
+}
+
+export interface ActualScheduleDate {
+  date: string;
+  day: DayOfWeek;
+  weekType: WeekType;
+  groups: Record<string, ActualGroupSchedule>;
+}
+
+/**
+ * Расписание на конкретные даты после наложения разрешенных замен.
+ */
+export interface ActualSchedule {
+  schemaVersion: number;
+  provider: 'ygk';
+  generatedAt: string;
+  sources: ScheduleSource[];
+  version: ScheduleVersion;
+  baseScheduleVersion: string;
+  replacementVersion: string;
+  dates: Record<string, ActualScheduleDate>;
+  diagnostics: Diagnostic[];
+  semanticHash: string;
 }

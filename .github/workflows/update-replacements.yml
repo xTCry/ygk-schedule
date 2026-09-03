@@ -1,0 +1,77 @@
+name: update replacements
+
+on:
+  schedule:
+    # GitHub интерпретирует cron в UTC; Москва круглый год UTC+3.
+    - cron: '0 10 * * *'
+    - cron: '0 14 * * *'
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  # Обе выгрузки пишут в одну ветку data и не должны push-иться одновременно.
+  group: schedule-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: checkout published data
+        uses: actions/checkout@v6
+        with:
+          ref: data
+          fetch-depth: 0
+
+      - name: checkout parser
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          path: parser
+          persist-credentials: false
+
+      - name: setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.13.0
+          cache: npm
+          cache-dependency-path: parser/package-lock.json
+
+      - name: install dependencies
+        working-directory: parser
+        run: make install
+
+      - name: check parser
+        working-directory: parser
+        run: make check
+
+      - name: update replacement data
+        working-directory: parser
+        run: make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE"
+
+      - name: commit published data
+        run: |
+          git add replacements actual
+
+          if git diff --cached --quiet; then
+            echo "Replacement data is unchanged"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): update replacements"
+          git push origin HEAD:data
+
+      - name: synchronize diagnostic issues
+        working-directory: parser
+        run: make sync-issues OUTPUT_DIR="$GITHUB_WORKSPACE"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,11 +3,7 @@ import {
   formatDiagnosticIssue,
   isIssueCandidate,
 } from '../diagnostics/issues.ts';
-import type {
-  CanonicalSchedule,
-  Diagnostic,
-  ScheduleSource,
-} from '../types.ts';
+import type { Diagnostic, ScheduleSource, ScheduleVersion } from '../types.ts';
 
 export interface DiagnosticsReportItem extends Diagnostic {
   source: ScheduleSource | null;
@@ -21,6 +17,13 @@ export interface DiagnosticsReport {
   summary: Record<'info' | 'warning' | 'error' | 'fatal', number>;
   diagnostics: DiagnosticsReportItem[];
   issues: ReturnType<typeof formatDiagnosticIssue>[];
+}
+
+export interface DiagnosticsReportSubject {
+  generatedAt: string;
+  sources: ScheduleSource[];
+  version: Pick<ScheduleVersion, 'value'>;
+  diagnostics: Diagnostic[];
 }
 
 const compareDiagnostics = (left: Diagnostic, right: Diagnostic): number =>
@@ -39,7 +42,7 @@ const diagnosticIssueGroupKey = (
  * Собирает метаданные diagnostics и черновики Issue для data/meta.
  */
 export const buildDiagnosticsReport = (
-  schedule: CanonicalSchedule,
+  schedule: DiagnosticsReportSubject,
 ): DiagnosticsReport => {
   const sources = new Map(
     schedule.sources.map((source) => [source.id, source]),
@@ -94,12 +97,12 @@ export const buildDiagnosticsReport = (
  * Сериализует diagnostics metadata для последующей публикации или GitHub Issue.
  */
 export const serializeDiagnosticsReport = (
-  schedule: CanonicalSchedule,
+  schedule: DiagnosticsReportSubject,
 ): string => `${JSON.stringify(buildDiagnosticsReport(schedule), null, 2)}\n`;
 
 /**
  * Сериализует diagnostics metadata в YAML с отступом в два пробела.
  */
 export const serializeDiagnosticsReportYaml = (
-  schedule: CanonicalSchedule,
+  schedule: DiagnosticsReportSubject,
 ): string => stringify(buildDiagnosticsReport(schedule), { indent: 2 });

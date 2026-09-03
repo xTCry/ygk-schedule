@@ -42,6 +42,8 @@ make update SCHEDULE_PAGE_URL=https://example.org/raspisanie.html
 make update
 make update-verbose
 make update-fixture
+make update-replacements
+make update-replacements-fixtures
 ```
 
 ## Локальный запуск
@@ -84,6 +86,44 @@ data/meta/90-diagnostics.yaml
 повторения одной проблемы объединяются по fingerprint и перечисляют все
 затронутые ячейки в Markdown-таблице.
 
+## Замены и actual-расписание
+
+После базовой выгрузки можно разобрать локальные HTML-фикстуры замен и
+сформировать JSON/YAML без сетевых запросов:
+
+```bash
+make update-fixture
+make update-replacements-fixtures
+```
+
+Актуальные страницы замен загружаются отдельной командой:
+
+```bash
+make update-replacements
+```
+
+Она требует доступ к интернету и создает:
+
+```text
+data/replacements/json/00-replacements.json
+data/replacements/yaml/00-replacements.yaml
+data/replacements/json/10-groups/<группа>.json
+data/replacements/yaml/10-groups/<группа>.yaml
+data/replacements/meta/90-diagnostics.json
+data/replacements/meta/90-diagnostics.yaml
+
+data/actual/json/00-schedule.json
+data/actual/yaml/00-schedule.yaml
+data/actual/json/10-groups/<группа>.json
+data/actual/yaml/10-groups/<группа>.yaml
+data/actual/meta/90-diagnostics.json
+data/actual/meta/90-diagnostics.yaml
+```
+
+Корневые `data/json/` и `data/yaml/` остаются базовым расписанием и не
+изменяются выгрузкой замен. В `actual` применяются только однозначные замены;
+остальные строки видны в `unresolvedReplacements` и diagnostics.
+
 ## Автоматизация
 
 Workflow `update schedule` запускается вручную и по cron раз в два часа. После
@@ -91,6 +131,10 @@ Workflow `update schedule` запускается вручную и по cron р
 со скрытым маркером parser. Новые Issue получают label
 `schedule-diagnostic`; при необходимости workflow создаёт его сам. Обычные
 Issue репозитория workflow не изменяет.
+
+Workflow `update replacements` запускается вручную и в 13:00, 17:00 и 20:00
+по Москве. Он публикует только директории `replacements/` и `actual/` ветки
+`data`, не перезаписывая базовое расписание.
 
 Для загрузки XLSX по известному URL вместо `--input` используется `--url`. Этот режим выполняет сетевой запрос:
 

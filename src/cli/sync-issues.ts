@@ -12,7 +12,7 @@ interface DiagnosticsReportInput {
 }
 
 interface SyncIssuesOptions {
-  diagnostics: string;
+  diagnostics: string[];
   repository: string;
   token: string;
 }
@@ -44,23 +44,24 @@ const readDiagnosticsReport = async (
 };
 
 const parseArgs = (args: string[]): SyncIssuesOptions => {
+  const diagnostics: string[] = [];
   const values = new Map<string, string>();
   for (let index = 0; index < args.length; index += 1) {
     const key = args[index];
     const value = args[index + 1];
     if (key?.startsWith('--') && value && !value.startsWith('--')) {
-      values.set(key.slice(2), value);
+      if (key === '--diagnostics') diagnostics.push(resolve(value));
+      else values.set(key.slice(2), value);
       index += 1;
     }
   }
-  const diagnostics = values.get('diagnostics');
   const repository = values.get('repo');
   const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
-  if (!diagnostics || !repository || !token)
+  if (!diagnostics.length || !repository || !token)
     throw new Error(
-      'Specify --diagnostics, --repo and set GITHUB_TOKEN or GH_TOKEN',
+      'Specify at least one --diagnostics, --repo and set GITHUB_TOKEN or GH_TOKEN',
     );
-  return { diagnostics: resolve(diagnostics), repository, token };
+  return { diagnostics, repository, token };
 };
 
 /**
@@ -70,9 +71,11 @@ export const runSyncIssuesCli = async (
   args = process.argv.slice(2),
 ): Promise<void> => {
   const options = parseArgs(args);
-  const report = await readDiagnosticsReport(options.diagnostics);
+  const reports = await Promise.all(
+    options.diagnostics.map(readDiagnosticsReport),
+  );
   const result = await syncDiagnosticIssues(
-    report.issues,
+    reports.flatMap((report) => report.issues),
     new GitHubDiagnosticIssuesClient(options),
   );
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
