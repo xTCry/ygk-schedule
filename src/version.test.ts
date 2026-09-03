@@ -63,7 +63,81 @@ describe('versions and semantic schedule comparison', () => {
       addedGroups: ['C'],
       removedGroups: ['A'],
       changedGroups: ['B'],
+      lessonChanges: [
+        {
+          group: 'B',
+          day: 'Понедельник',
+          lessonNumber: 1,
+          before: {
+            variants: [
+              {
+                subject: 'Физика',
+                teacher: 'Иванов И.И.',
+                room: '101',
+                weekType: 'both',
+                subgroup: null,
+              },
+            ],
+          },
+          after: {
+            variants: [
+              {
+                subject: 'Математика',
+                teacher: 'Иванов И.И.',
+                room: '101',
+                weekType: 'both',
+                subgroup: null,
+              },
+            ],
+          },
+        },
+      ],
     });
+  });
+
+  it('reports additions and removals of individual lessons', () => {
+    const previous = { groups: { A: makeGroup('A') } };
+    const currentGroup = makeGroup('A');
+    currentGroup.days[0]?.lessons.push({
+      number: 2,
+      source: {
+        sheet: 'Лист',
+        rowStart: 5,
+        rowEnd: 6,
+        rawGroupName: 'A',
+      },
+      variants: [
+        {
+          subject: 'История',
+          teacher: 'Петров П.П.',
+          room: '202',
+          weekType: 'numerator',
+          sourceRow: 5,
+        },
+      ],
+    });
+    const result = compareSchedules(previous, {
+      groups: { A: currentGroup },
+    });
+    expect(result.lessonChanges).toEqual([
+      {
+        group: 'A',
+        day: 'Понедельник',
+        lessonNumber: 2,
+        before: null,
+        after: {
+          variants: [
+            {
+              subject: 'История',
+              teacher: 'Петров П.П.',
+              room: '202',
+              weekType: 'numerator',
+              subgroup: null,
+            },
+          ],
+        },
+      },
+    ]);
   });
 
   it('changes the version when source, parser, config or schema changes', () => {
