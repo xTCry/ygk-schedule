@@ -1,6 +1,5 @@
 import { readdir, unlink } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { stringify } from 'yaml';
 import { semanticScheduleHash } from '../compare/schedule.ts';
 import type { CanonicalSchedule, GroupScheduleArtifact } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
@@ -12,7 +11,7 @@ import {
   normalizeGroupScheduleForSerialization,
   serializeSchedule,
 } from './json.ts';
-import { serializeScheduleYaml } from './yaml.ts';
+import { serializeScheduleYaml, serializeYaml } from './yaml.ts';
 
 export interface ScheduleArtifactPaths {
   json: string;
@@ -87,7 +86,7 @@ const serializeGroupScheduleArtifact = (
 
 const serializeGroupScheduleArtifactYaml = (
   artifact: GroupScheduleArtifact,
-): string => stringify(artifact, { indent: 2 });
+): string => serializeYaml(artifact);
 
 const syncGroupDirectory = async (
   directory: string,

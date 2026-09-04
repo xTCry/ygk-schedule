@@ -3,7 +3,11 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadYgkReplacementAliases } from './config.ts';
-import { buildActualSchedule } from './resolve.ts';
+import {
+  buildActualSchedule,
+  semanticActualScheduleHash,
+  semanticReplacementHash,
+} from './resolve.ts';
 import type {
   CanonicalReplacements,
   CanonicalSchedule,
@@ -377,5 +381,50 @@ describe('actual YGK schedule', () => {
       scheduleVersion: 'base-version',
       dataRevision: 'data-base-v1',
     });
+  });
+
+  it('ignores source and version provenance in replacement and actual semantic hashes', () => {
+    const snapshot: ReplacementSnapshot = {
+      date: '2026-09-04',
+      day: 'Пятница',
+      weekType: 'numerator',
+      shift: 'first',
+      status: 'mutable',
+      source: replacements.sources[0]!,
+      replacements: [replacement([2], 'replace', 'Математика', 'История')],
+      diagnostics: [],
+    };
+    const replacementHistory: CanonicalReplacements = {
+      ...replacements,
+      dates: {
+        '2026-09-04': {
+          ...replacements.dates['2026-09-04']!,
+          shifts: { first: snapshot },
+          replacements: snapshot.replacements,
+        },
+      },
+    };
+    const differentSource = structuredClone(replacementHistory);
+    differentSource.dates['2026-09-04']!.shifts!.first!.source.sha256 =
+      'new-source-sha';
+    expect(semanticReplacementHash(differentSource)).toBe(
+      semanticReplacementHash(replacementHistory),
+    );
+
+    const actual = buildActualSchedule(
+      baseSchedule,
+      replacementHistory,
+      'actual-parser',
+      'config',
+      undefined,
+      { baseDataRevision: 'data-v1' },
+    );
+    const differentProvenance = structuredClone(actual);
+    differentProvenance.baseScheduleVersion = 'base-version-v2';
+    differentProvenance.baseDataRevision = 'data-v2';
+    differentProvenance.replacementVersion = 'replacement-version-v2';
+    expect(semanticActualScheduleHash(differentProvenance)).toBe(
+      semanticActualScheduleHash(actual),
+    );
   });
 });

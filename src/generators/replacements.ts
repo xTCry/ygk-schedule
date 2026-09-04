@@ -1,6 +1,5 @@
 import { readdir, unlink } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { stringify } from 'yaml';
 import type {
   ActualSchedule,
   ActualGroupScheduleArtifact,
@@ -14,6 +13,7 @@ import {
   serializeDiagnosticsReport,
   serializeDiagnosticsReportYaml,
 } from './diagnostics.ts';
+import { serializeYaml } from './yaml.ts';
 
 export interface ReplacementArtifactPaths {
   replacementsJson: string;
@@ -150,23 +150,40 @@ export const serializeReplacements = (
 
 export const serializeReplacementsYaml = (
   replacements: CanonicalReplacements,
-): string => stringify(normalizeReplacements(replacements), { indent: 2 });
+): string => serializeYaml(normalizeReplacements(replacements));
 
 export const serializeActualSchedule = (schedule: ActualSchedule): string =>
   `${JSON.stringify(normalizeActualSchedule(schedule), null, 2)}\n`;
 
 export const serializeActualScheduleYaml = (schedule: ActualSchedule): string =>
-  stringify(normalizeActualSchedule(schedule), { indent: 2 });
+  serializeYaml(normalizeActualSchedule(schedule));
 
-const groupFileName = (group: string): string =>
-  /^[\p{L}\p{N}-]+$/u.test(group) ? group : encodeURIComponent(group);
+/**
+ * Возвращает безопасное и читаемое имя файла для названия группы из HTML.
+ *
+ * Пробелы и кириллица допустимы в именах файлов и остаются без URL-кодирования.
+ * Кодирование применяется только к символам, которые небезопасны для пути или
+ * несовместимы с распространенными файловыми системами.
+ */
+export const getReplacementGroupFileName = (group: string): string => {
+  const normalized = group.normalize('NFC').trim().replace(/\s+/gu, ' ');
+  if (!normalized || normalized === '.' || normalized === '..')
+    throw new Error(`Group name cannot be used as a file name: ${group}`);
+  return [...normalized]
+    .map((character) =>
+      (character.codePointAt(0) ?? 0) < 32 || /[\\/:*?"<>|]/u.test(character)
+        ? encodeURIComponent(character)
+        : character,
+    )
+    .join('');
+};
 
 const getGroupArtifactPaths = (
   jsonDirectory: string,
   yamlDirectory: string,
   group: string,
 ): { json: string; yaml: string } => {
-  const fileName = groupFileName(group);
+  const fileName = getReplacementGroupFileName(group);
   return {
     json: join(jsonDirectory, `${fileName}.json`),
     yaml: join(yamlDirectory, `${fileName}.yaml`),
@@ -251,7 +268,7 @@ const serializeReplacementGroupArtifact = (
 
 const serializeReplacementGroupArtifactYaml = (
   artifact: GroupReplacementsArtifact,
-): string => stringify(artifact, { indent: 2 });
+): string => serializeYaml(artifact);
 
 const serializeActualGroupArtifact = (
   artifact: ActualGroupScheduleArtifact,
@@ -259,7 +276,7 @@ const serializeActualGroupArtifact = (
 
 const serializeActualGroupArtifactYaml = (
   artifact: ActualGroupScheduleArtifact,
-): string => stringify(artifact, { indent: 2 });
+): string => serializeYaml(artifact);
 
 const syncDirectory = async (
   directory: string,

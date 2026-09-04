@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type { DiagnosticIssueDraft } from '../diagnostics/issues.ts';
 import {
   GitHubDiagnosticIssuesClient,
+  GitHubRateLimitError,
   syncDiagnosticIssues,
   type DiagnosticIssuesClient,
   type ManagedDiagnosticIssue,
@@ -171,5 +172,50 @@ describe('diagnostic Issue synchronization', () => {
         labels: ['schedule-diagnostic'],
       }),
     );
+  });
+
+  it('defers remaining writes when the per-run limit is reached', async () => {
+    const createIssue = vi.fn(() => Promise.resolve());
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([managedIssue('resolved', 3)]),
+      createIssue,
+      updateIssue: () => Promise.resolve(),
+      closeIssue,
+    };
+
+    await expect(
+      syncDiagnosticIssues([draft('new')], client, { maxWriteOperations: 1 }),
+    ).resolves.toEqual({
+      created: 1,
+      updated: 0,
+      closed: 0,
+      unchanged: 0,
+      deferred: { reason: 'write-limit' },
+    });
+    expect(closeIssue).not.toHaveBeenCalled();
+  });
+
+  it('defers Issue synchronization after a GitHub rate limit without closing issues', async () => {
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([managedIssue('resolved', 3)]),
+      createIssue: () => Promise.reject(new GitHubRateLimitError(403, 60)),
+      updateIssue: () => Promise.resolve(),
+      closeIssue,
+    };
+
+    await expect(syncDiagnosticIssues([draft('new')], client)).resolves.toEqual(
+      {
+        created: 0,
+        updated: 0,
+        closed: 0,
+        unchanged: 0,
+        deferred: { reason: 'rate-limit', retryAfterSeconds: 60 },
+      },
+    );
+    expect(closeIssue).not.toHaveBeenCalled();
   });
 });

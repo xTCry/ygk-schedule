@@ -473,10 +473,6 @@ const replacementSemanticValue = (
                       weekType: snapshot.weekType,
                       shift: snapshot.shift,
                       status: snapshot.status,
-                      source: {
-                        id: snapshot.source.id,
-                        sha256: snapshot.source.sha256,
-                      },
                       replacements: snapshot.replacements,
                       diagnostics: snapshot.diagnostics,
                       finalizedBy: snapshot.finalizedBy,
@@ -494,13 +490,32 @@ export const semanticReplacementHash = (
   replacements: CanonicalReplacements,
 ): string => sha256(JSON.stringify(replacementSemanticValue(replacements)));
 
+/**
+ * Убирает provenance полей, которые не меняют опубликованный смысл actual.
+ *
+ * Источник, номер строки и SHA нужны для полного артефакта и диагностики, но
+ * не должны создавать новую версию actual при одинаковых занятиях и заменах.
+ */
+const withoutActualProvenance = (value: unknown): unknown => {
+  if (Array.isArray(value)) return value.map(withoutActualProvenance);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>)
+      .filter(
+        ([key]) =>
+          !['source', 'sourceRow', 'scheduleVersion', 'dataRevision'].includes(
+            key,
+          ),
+      )
+      .map(([key, item]) => [key, withoutActualProvenance(item)]),
+  );
+};
+
 export const semanticActualScheduleHash = (actual: ActualSchedule): string =>
   sha256(
     JSON.stringify({
-      baseScheduleVersion: actual.baseScheduleVersion,
-      baseDataRevision: actual.baseDataRevision,
-      replacementVersion: actual.replacementVersion,
-      dates: actual.dates,
+      dates: withoutActualProvenance(actual.dates),
+      diagnostics: actual.diagnostics,
     }),
   );
 

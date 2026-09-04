@@ -2,7 +2,7 @@ import { mkdtemp, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { stringify } from 'yaml';
+import { serializeYaml } from '../generators/yaml.ts';
 import {
   loadYgkCalendarConfig,
   type CalendarConfigDocument,
@@ -11,7 +11,7 @@ import {
 const writeCalendarConfig = async (
   path: string,
   config: CalendarConfigDocument,
-): Promise<void> => writeFile(path, stringify(config, { indent: 2 }));
+): Promise<void> => writeFile(path, serializeYaml(config));
 
 describe('YGK calendar config', () => {
   it('loads profiles and room profile rules', async () => {

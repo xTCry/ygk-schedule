@@ -35,6 +35,18 @@ export interface DiagnosticIssuesSyncResult {
   updated: number;
   closed: number;
   unchanged: number;
+  deferred?: {
+    reason: 'rate-limit' | 'write-limit';
+    retryAfterSeconds?: number;
+  };
+}
+
+export interface SyncDiagnosticIssuesOptions {
+  /**
+   * Ограничивает число изменяющих запросов за один запуск. Это позволяет
+   * постепенно создать большой набор Issue без ожиданий внутри workflow.
+   */
+  maxWriteOperations?: number;
 }
 
 interface RepositoryIssueResponse {
@@ -48,6 +60,16 @@ export interface GitHubDiagnosticIssuesClientOptions {
   repository: string;
   token: string;
   fetchImpl?: typeof fetch;
+}
+
+export class GitHubRateLimitError extends Error {
+  public constructor(
+    public readonly status: number,
+    public readonly retryAfterSeconds?: number,
+  ) {
+    super(`GitHub API rate limit: HTTP ${status}`);
+    this.name = 'GitHubRateLimitError';
+  }
 }
 
 const isRepositoryIssueResponse = (
@@ -98,37 +120,83 @@ const isSameIssue = (
 export const syncDiagnosticIssues = async (
   drafts: readonly DiagnosticIssueDraft[],
   client: DiagnosticIssuesClient,
+  options: SyncDiagnosticIssuesOptions = {},
 ): Promise<DiagnosticIssuesSyncResult> => {
   const desiredByKey = buildIssueMap(drafts, 'diagnostic Issue draft');
-  const existingByKey = buildIssueMap(
-    await client.listOpenManagedIssues(),
-    'open managed Issue',
-  );
   const result: DiagnosticIssuesSyncResult = {
     created: 0,
     updated: 0,
     closed: 0,
     unchanged: 0,
   };
+  let writeOperations = 0;
+  const deferForWriteLimit = (): DiagnosticIssuesSyncResult => ({
+    ...result,
+    deferred: { reason: 'write-limit' },
+  });
+  const deferForRateLimit = (
+    error: GitHubRateLimitError,
+  ): DiagnosticIssuesSyncResult => ({
+    ...result,
+    deferred: {
+      reason: 'rate-limit',
+      ...(error.retryAfterSeconds
+        ? { retryAfterSeconds: error.retryAfterSeconds }
+        : {}),
+    },
+  });
+  const canWrite = (): boolean =>
+    options.maxWriteOperations === undefined ||
+    writeOperations < options.maxWriteOperations;
+
+  let existingByKey: Map<string, ManagedDiagnosticIssue>;
+  try {
+    existingByKey = buildIssueMap(
+      await client.listOpenManagedIssues(),
+      'open managed Issue',
+    );
+  } catch (error) {
+    if (error instanceof GitHubRateLimitError) return deferForRateLimit(error);
+    throw error;
+  }
 
   for (const draft of drafts) {
     const existing = existingByKey.get(draft.key);
-    if (!existing) {
-      await client.createIssue(draft);
-      result.created += 1;
-    } else if (isSameIssue(existing, draft)) {
+    if (existing && isSameIssue(existing, draft)) {
       result.unchanged += 1;
-    } else {
-      await client.updateIssue(existing.number, draft);
-      result.updated += 1;
+      continue;
+    }
+    if (!canWrite()) return deferForWriteLimit();
+
+    try {
+      if (existing) {
+        await client.updateIssue(existing.number, draft);
+        result.updated += 1;
+      } else {
+        await client.createIssue(draft);
+        result.created += 1;
+      }
+      writeOperations += 1;
+    } catch (error) {
+      if (error instanceof GitHubRateLimitError)
+        return deferForRateLimit(error);
+      throw error;
     }
   }
 
   // Закрываем только после успешного создания и обновления актуальных Issue.
   for (const issue of existingByKey.values()) {
     if (desiredByKey.has(issue.key)) continue;
-    await client.closeIssue(issue.number);
-    result.closed += 1;
+    if (!canWrite()) return deferForWriteLimit();
+    try {
+      await client.closeIssue(issue.number);
+      result.closed += 1;
+      writeOperations += 1;
+    } catch (error) {
+      if (error instanceof GitHubRateLimitError)
+        return deferForRateLimit(error);
+      throw error;
+    }
   }
 
   return result;
@@ -224,6 +292,21 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
     if (response.ok) return response;
 
     const body = await response.text();
+    if (
+      response.status === 429 ||
+      (response.status === 403 && /rate limit/iu.test(body))
+    ) {
+      const retryAfter = Number.parseInt(
+        response.headers.get('retry-after') ?? '',
+        10,
+      );
+      throw new GitHubRateLimitError(
+        response.status,
+        Number.isSafeInteger(retryAfter) && retryAfter > 0
+          ? retryAfter
+          : undefined,
+      );
+    }
     throw new Error(
       `GitHub API ${options.method ?? 'GET'} ${url} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
     );
@@ -252,6 +335,21 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
     }
     if (response.status !== 404) {
       const body = await response.text();
+      if (
+        response.status === 429 ||
+        (response.status === 403 && /rate limit/iu.test(body))
+      ) {
+        const retryAfter = Number.parseInt(
+          response.headers.get('retry-after') ?? '',
+          10,
+        );
+        throw new GitHubRateLimitError(
+          response.status,
+          Number.isSafeInteger(retryAfter) && retryAfter > 0
+            ? retryAfter
+            : undefined,
+        );
+      }
       throw new Error(
         `GitHub API GET label ${SCHEDULE_DIAGNOSTIC_LABEL} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
       );

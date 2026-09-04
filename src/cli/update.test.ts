@@ -4,7 +4,12 @@ import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import type { GroupScheduleArtifact } from '../types.ts';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
-import { formatUpdateCliOutput, updateSchedule } from './update.ts';
+import {
+  buildScheduleSourceChanges,
+  formatUpdateCliOutput,
+  updateSchedule,
+} from './update.ts';
+import { compareSchedules } from '../compare/schedule.ts';
 import { parse } from 'yaml';
 
 const createProjectRoot = async () => {
@@ -58,6 +63,53 @@ describe('schedule update', () => {
     };
     expect(compact.diff).not.toHaveProperty('lessonChanges');
     expect(verbose.diff.lessonChanges).toHaveLength(1);
+  });
+
+  it('reports source hashes and locations for lessons affected by a changed XLSX', async () => {
+    const root = await createProjectRoot();
+    const output = join(root, 'data/schedule.json');
+    const first = await updateSchedule({
+      input: fixturePath,
+      output,
+      projectRoot: root,
+    });
+    const previous = structuredClone(first.schedule);
+    const current = structuredClone(first.schedule);
+    const entry = Object.entries(current.groups)
+      .flatMap(([group, value]) =>
+        value.days.flatMap((day) =>
+          day.lessons.map((lesson) => ({ group, day: day.day, lesson })),
+        ),
+      )
+      .find((item) => Boolean(item.lesson.source.sourceId));
+    if (!entry) throw new Error('Expected a lesson with sourceId');
+    const sourceId = entry.lesson.source.sourceId!;
+    const source = previous.sources.find((item) => item.id === sourceId);
+    if (!source) throw new Error('Expected matching schedule source');
+    source.sha256 = 'previous-source-sha';
+    entry.lesson.variants[0]!.subject = 'Измененная дисциплина';
+    const diff = compareSchedules(previous, current);
+
+    const changes = buildScheduleSourceChanges(
+      previous,
+      current.sources,
+      current,
+      diff,
+    );
+    expect(changes).toHaveLength(1);
+    const change = changes[0];
+    expect(change).toMatchObject({
+      id: sourceId,
+      beforeSha256: 'previous-source-sha',
+      afterSha256: first.schedule.sources.find((item) => item.id === sourceId)
+        ?.sha256,
+    });
+    expect(change?.lessonChanges[0]).toMatchObject({
+      group: entry.group,
+      day: entry.day,
+      lessonNumber: entry.lesson.number,
+    });
+    expect(change?.lessonChanges[0]?.after?.sourceId).toBe(sourceId);
   });
 
   it('writes once and skips an unchanged source, parser and config version', async () => {
@@ -117,7 +169,7 @@ describe('schedule update', () => {
     ).resolves.toBe(firstSchedule);
   });
 
-  it('reparses the same XLSX when parser code changes', async () => {
+  it('reparses but does not republish the same XLSX when only parser code changes', async () => {
     const root = await createProjectRoot();
     const output = join(root, 'data/schedule.json');
     const first = await updateSchedule({
@@ -134,10 +186,10 @@ describe('schedule update', () => {
       output,
       projectRoot: root,
     });
-    expect(second.written).toBe(true);
+    expect(second.written).toBe(false);
     expect(second.versionChanged).toBe(true);
     expect(second.semanticChanged).toBe(false);
-    expect(second.schedule.version.parserHash).not.toBe(
+    expect(second.schedule.version.parserHash).toBe(
       first.schedule.version.parserHash,
     );
     expect(second.schedule.sources[0]?.sha256).toBe(
@@ -145,7 +197,7 @@ describe('schedule update', () => {
     );
   });
 
-  it('reparses the same XLSX when configuration changes', async () => {
+  it('reparses but does not republish the same XLSX when only configuration changes', async () => {
     const root = await createProjectRoot();
     const output = join(root, 'data/schedule.json');
     const first = await updateSchedule({
@@ -165,10 +217,10 @@ describe('schedule update', () => {
       output,
       projectRoot: root,
     });
-    expect(second.written).toBe(true);
+    expect(second.written).toBe(false);
     expect(second.versionChanged).toBe(true);
     expect(second.semanticChanged).toBe(false);
-    expect(second.schedule.version.configHash).not.toBe(
+    expect(second.schedule.version.configHash).toBe(
       first.schedule.version.configHash,
     );
   });

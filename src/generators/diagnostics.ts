@@ -1,9 +1,9 @@
-import { stringify } from 'yaml';
 import {
   formatDiagnosticIssue,
   isIssueCandidate,
 } from '../diagnostics/issues.ts';
 import type { Diagnostic, ScheduleSource, ScheduleVersion } from '../types.ts';
+import { serializeYaml } from './yaml.ts';
 
 export interface DiagnosticsReportItem extends Diagnostic {
   source: ScheduleSource | null;
@@ -105,4 +105,4 @@ export const serializeDiagnosticsReport = (
  */
 export const serializeDiagnosticsReportYaml = (
   schedule: DiagnosticsReportSubject,
-): string => stringify(buildDiagnosticsReport(schedule), { indent: 2 });
+): string => serializeYaml(buildDiagnosticsReport(schedule));

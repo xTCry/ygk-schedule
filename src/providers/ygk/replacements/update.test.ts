@@ -110,9 +110,9 @@ describe('YGK replacements update', () => {
       secondInput: replacementFixturePath('second'),
       projectRoot: root,
     });
-    expect(second.written).toBe(true);
-    expect(second.replacementsChanged).toBe(true);
-    expect(second.actualChanged).toBe(true);
+    expect(second.written).toBe(false);
+    expect(second.replacementsChanged).toBe(false);
+    expect(second.actualChanged).toBe(false);
     await expect(
       readFile(join(root, 'replacements', '10-groups', 'ДИ1-13.json'), 'utf8'),
     ).resolves.toBe(replacementGroup);
@@ -130,6 +130,22 @@ describe('YGK replacements update', () => {
     expect(third.written).toBe(false);
     expect(third.replacementsChanged).toBe(false);
     expect(third.actualChanged).toBe(false);
+
+    await writeFile(
+      join(root, 'replacements', '00-replacements.yaml'),
+      'sources:\n  - &a1\n    id: source\nsnapshot:\n  source: *a1\n',
+    );
+    const rewrittenYaml = await updateYgkReplacements({
+      baseSchedule: basePath,
+      outputDir: root,
+      firstInput: replacementFixturePath('first'),
+      secondInput: replacementFixturePath('second'),
+      projectRoot: root,
+    });
+    expect(rewrittenYaml.written).toBe(true);
+    await expect(
+      readFile(join(root, 'replacements', '00-replacements.yaml'), 'utf8'),
+    ).resolves.not.toMatch(/(^|\s)[&*]a\d+\b/mu);
 
     const firstForNextDayPath = join(root, 'rasp_first-2026-09-05.html');
     const firstFixtureHtml = await readFile(

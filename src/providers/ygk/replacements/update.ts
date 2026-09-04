@@ -150,6 +150,13 @@ const allArtifactsExist = async (paths: readonly string[]): Promise<boolean> =>
   (await Promise.all(paths.map((path) => fileExists(path)))).every(Boolean);
 
 /**
+ * Старые generated YAML могли содержать aliases, зависящие от общих ссылок в
+ * памяти. Один раз пересобираем такие артефакты новым стабильным serializer-ом.
+ */
+const hasGeneratedYamlAliases = async (path: string): Promise<boolean> =>
+  /(^|\s)[&*]a\d+\b/mu.test(await readFile(path, 'utf8'));
+
+/**
  * Загружает обе страницы замен, записывает raw JSON/YAML и строит actual data.
  *
  * Базовые файлы `base/` никогда не перезаписываются: результат наложения
@@ -180,11 +187,12 @@ export const updateYgkReplacements = async (
     configHash,
   );
   const replacements =
-    previousReplacements?.version.value === nextReplacements.version.value
+    previousReplacements &&
+    previousReplacements.schemaVersion === nextReplacements.schemaVersion &&
+    previousReplacements.semanticHash === nextReplacements.semanticHash
       ? previousReplacements
       : nextReplacements;
-  const replacementsChanged =
-    previousReplacements?.version.value !== replacements.version.value;
+  const replacementsChanged = previousReplacements !== replacements;
   const previousActual = await readJsonIfExists<ActualSchedule>(
     artifactPaths.actualJson,
   );
@@ -201,13 +209,17 @@ export const updateYgkReplacements = async (
         : {}),
     },
   );
-  const actualChanged = previousActual?.version.value !== actual.version.value;
+  const actualChanged =
+    previousActual?.schemaVersion !== actual.schemaVersion ||
+    previousActual?.semanticHash !== actual.semanticHash;
   const artifactFiles = getReplacementArtifactFiles(
     artifactPaths,
     replacements,
     actual,
   );
-  const artifactsExist = await allArtifactsExist(artifactFiles);
+  const artifactsExist =
+    (await allArtifactsExist(artifactFiles)) &&
+    !(await hasGeneratedYamlAliases(artifactPaths.replacementsYaml));
 
   if (!replacementsChanged && !actualChanged && artifactsExist) {
     return {
@@ -219,13 +231,17 @@ export const updateYgkReplacements = async (
     };
   }
 
-  await writeReplacementArtifacts(artifactPaths, replacements, actual);
+  await writeReplacementArtifacts(
+    artifactPaths,
+    replacements,
+    actualChanged ? actual : (previousActual ?? actual),
+  );
   return {
     written: true,
     replacementsChanged,
     actualChanged,
     replacements,
-    actual,
+    actual: actualChanged ? actual : (previousActual ?? actual),
   };
 };
 

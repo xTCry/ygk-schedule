@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { DiagnosticIssueDraft } from '../diagnostics/issues.ts';
@@ -15,6 +15,8 @@ interface SyncIssuesOptions {
   diagnostics: string[];
   repository: string;
   token: string;
+  maxWriteOperations: number;
+  report?: string;
 }
 
 const isDiagnosticIssueDraft = (
@@ -57,11 +59,23 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
   }
   const repository = values.get('repo');
   const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
+  const maxWriteOperations = Number.parseInt(
+    values.get('max-writes') ?? '2',
+    10,
+  );
   if (!diagnostics.length || !repository || !token)
     throw new Error(
       'Specify at least one --diagnostics, --repo and set GITHUB_TOKEN or GH_TOKEN',
     );
-  return { diagnostics, repository, token };
+  if (!Number.isSafeInteger(maxWriteOperations) || maxWriteOperations < 1)
+    throw new Error('--max-writes must be a positive integer');
+  return {
+    diagnostics,
+    repository,
+    token,
+    maxWriteOperations,
+    ...(values.get('report') ? { report: resolve(values.get('report')!) } : {}),
+  };
 };
 
 /**
@@ -77,8 +91,11 @@ export const runSyncIssuesCli = async (
   const result = await syncDiagnosticIssues(
     reports.flatMap((report) => report.issues),
     new GitHubDiagnosticIssuesClient(options),
+    { maxWriteOperations: options.maxWriteOperations },
   );
-  process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+  const output = `${JSON.stringify(result, null, 2)}\n`;
+  if (options.report) await writeFile(options.report, output);
+  process.stdout.write(output);
 };
 
 const isDirect =

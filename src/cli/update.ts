@@ -3,7 +3,10 @@ import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
 import type { ScheduleDiff } from '../compare/schedule.ts';
-import { hasFatalDiagnostics } from '../diagnostics/index.ts';
+import {
+  diagnosticSemanticHash,
+  hasFatalDiagnostics,
+} from '../diagnostics/index.ts';
 import {
   getScheduleArtifactFiles,
   getScheduleArtifactPaths,
@@ -15,7 +18,12 @@ import { aggregateYgkSchedules } from '../providers/ygk/schedule/aggregate.ts';
 import { discoverScheduleFiles } from '../providers/ygk/schedule/discover.ts';
 import { downloadScheduleFile } from '../providers/ygk/schedule/download.ts';
 import { parseYgkSchedule } from '../providers/ygk/schedule/parse.ts';
-import type { CanonicalSchedule, ScheduleSource } from '../types.ts';
+import type {
+  CanonicalSchedule,
+  DayOfWeek,
+  ScheduleSource,
+  SourceReference,
+} from '../types.ts';
 import { fileExists, readJsonIfExists, writeFileAtomic } from '../utils/fs.ts';
 import { sha256 } from '../utils/hash.ts';
 import {
@@ -40,6 +48,7 @@ export interface UpdateResult {
   semanticChanged: boolean;
   schedule: CanonicalSchedule;
   diff: ReturnType<typeof compareSchedules>;
+  sourceChanges: ScheduleSourceChange[];
 }
 
 export interface UpdateCliOutput {
@@ -48,6 +57,7 @@ export interface UpdateCliOutput {
   semanticChanged: boolean;
   schedule: Pick<CanonicalSchedule, 'groups' | 'diagnostics'>;
   diff: ScheduleDiff;
+  sourceChanges?: ScheduleSourceChange[];
 }
 
 interface LoadedScheduleSource {
@@ -58,6 +68,22 @@ interface LoadedScheduleSource {
 interface OutputTarget {
   json: string;
   artifacts?: ScheduleArtifactPaths;
+}
+
+export interface SourceLessonChangeLocation {
+  group: string;
+  day: DayOfWeek;
+  lessonNumber: number;
+  before: SourceReference | null;
+  after: SourceReference | null;
+}
+
+export interface ScheduleSourceChange {
+  id: string;
+  fileName: string;
+  beforeSha256: string | null;
+  afterSha256: string | null;
+  lessonChanges: SourceLessonChangeLocation[];
 }
 
 const resolveOutputTarget = (options: UpdateOptions): OutputTarget => {
@@ -73,6 +99,80 @@ const sourceIdFromUrl = (url: string): string => {
   const normalized = new URL(url);
   normalized.hash = '';
   return normalized.toString();
+};
+
+const lessonSource = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  lessonNumber: number,
+): SourceReference | null =>
+  schedule.groups[group]?.days
+    .find((item) => item.day === day)
+    ?.lessons.find((lesson) => lesson.number === lessonNumber)?.source ?? null;
+
+/**
+ * Сопоставляет изменившиеся XLSX с затронутыми парами канонического diff.
+ *
+ * В отчёт попадают только пары, для которых parser сохранил `sourceId`.
+ * Отсутствие привязки не является ошибкой: часть изменений может относиться к
+ * структуре источника, а не к опубликованной паре.
+ */
+export const buildScheduleSourceChanges = (
+  previous: CanonicalSchedule | null,
+  currentSources: readonly ScheduleSource[],
+  current: CanonicalSchedule,
+  diff: ScheduleDiff,
+): ScheduleSourceChange[] => {
+  const previousSources = new Map(
+    previous?.sources.map((source) => [source.id, source]) ?? [],
+  );
+  const nextSources = new Map(
+    currentSources.map((source) => [source.id, source]),
+  );
+  const changedSourceIds = new Set(
+    [...new Set([...previousSources.keys(), ...nextSources.keys()])].filter(
+      (id) => previousSources.get(id)?.sha256 !== nextSources.get(id)?.sha256,
+    ),
+  );
+
+  return [...changedSourceIds]
+    .sort((left, right) => left.localeCompare(right))
+    .map((id) => {
+      const before = previousSources.get(id);
+      const after = nextSources.get(id);
+      const lessonChanges = diff.lessonChanges
+        .map((change) => ({
+          group: change.group,
+          day: change.day,
+          lessonNumber: change.lessonNumber,
+          before: previous
+            ? lessonSource(
+                previous,
+                change.group,
+                change.day,
+                change.lessonNumber,
+              )
+            : null,
+          after: lessonSource(
+            current,
+            change.group,
+            change.day,
+            change.lessonNumber,
+          ),
+        }))
+        .filter(
+          (change) =>
+            change.before?.sourceId === id || change.after?.sourceId === id,
+        );
+      return {
+        id,
+        fileName: after?.fileName ?? before?.fileName ?? id,
+        beforeSha256: before?.sha256 ?? null,
+        afterSha256: after?.sha256 ?? null,
+        lessonChanges,
+      };
+    });
 };
 
 const loadSources = async (
@@ -179,6 +279,7 @@ export const updateSchedule = async (
       semanticChanged: false,
       schedule: previous,
       diff,
+      sourceChanges: [],
     };
   }
 
@@ -204,14 +305,54 @@ export const updateSchedule = async (
     semanticHash,
   };
   const diff = compareSchedules(previous, schedule);
+  const diagnosticsChanged =
+    !previous ||
+    diagnosticSemanticHash(previous.diagnostics) !==
+      diagnosticSemanticHash(schedule.diagnostics);
+  const schemaChanged =
+    !previous ||
+    previous.schemaVersion !== schedule.schemaVersion ||
+    previous.version.schemaVersion !== schedule.version.schemaVersion;
+  const semanticChanged = diff.changed || diagnosticsChanged;
+  const sourceChanges = buildScheduleSourceChanges(
+    previous,
+    sources.map((loadedSource) => loadedSource.source),
+    schedule,
+    diff,
+  );
 
   if (hasFatalDiagnostics(schedule.diagnostics)) {
     return {
       written: false,
       versionChanged,
-      semanticChanged: diff.changed,
+      semanticChanged,
       schedule,
       diff,
+      sourceChanges,
+    };
+  }
+
+  if (!semanticChanged && !schemaChanged) {
+    if (!allArtifactsExist) {
+      if (output.artifacts)
+        await writeScheduleArtifacts(output.artifacts, previous);
+      else await writeFileAtomic(output.json, serializeSchedule(previous));
+      return {
+        written: true,
+        versionChanged,
+        semanticChanged: false,
+        schedule: previous,
+        diff,
+        sourceChanges,
+      };
+    }
+    return {
+      written: false,
+      versionChanged,
+      semanticChanged: false,
+      schedule: previous,
+      diff,
+      sourceChanges,
     };
   }
 
@@ -221,9 +362,10 @@ export const updateSchedule = async (
   return {
     written: true,
     versionChanged,
-    semanticChanged: diff.changed,
+    semanticChanged,
     schedule,
     diff,
+    sourceChanges,
   };
 };
 
@@ -282,6 +424,14 @@ export const formatUpdateCliOutput = (
       groups: Object.keys(result.schedule.groups).length,
       diagnostics: result.schedule.diagnostics.length,
       diff,
+      sourceChanges: (result.sourceChanges ?? []).map((source) => ({
+        id: source.id,
+        fileName: source.fileName,
+        beforeSha256: source.beforeSha256,
+        afterSha256: source.afterSha256,
+        lessonChanges: includeLessonChanges ? source.lessonChanges : undefined,
+        changedLessons: source.lessonChanges.length,
+      })),
     },
     null,
     2,

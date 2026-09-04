@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { createDiagnostic, hasFatalDiagnostics } from './index.ts';
+import {
+  createDiagnostic,
+  diagnosticSemanticHash,
+  hasFatalDiagnostics,
+} from './index.ts';
 
 describe('diagnostics', () => {
   it('keeps the fingerprint stable when source rows move', () => {
@@ -55,5 +59,22 @@ describe('diagnostics', () => {
     });
     expect(hasFatalDiagnostics([warning])).toBe(false);
     expect(hasFatalDiagnostics([warning, fatal])).toBe(true);
+  });
+
+  it('keeps the diagnostics hash stable across context key ordering', () => {
+    const first = createDiagnostic({
+      code: 'UNKNOWN_WEEK_COLOR',
+      severity: 'warning',
+      message: 'Неизвестный цвет',
+      context: { source: 'A', color: 'red' },
+      fingerprintContext: ['A'],
+    });
+    const second = {
+      ...first,
+      context: { color: 'red', source: 'A' },
+    };
+    expect(diagnosticSemanticHash([first])).toBe(
+      diagnosticSemanticHash([second]),
+    );
   });
 });

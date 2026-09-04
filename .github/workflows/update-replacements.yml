@@ -146,9 +146,11 @@ jobs:
         id: sync-issues
         working-directory: parser
         run: |
-          make sync-issues OUTPUT_DIR="$GITHUB_WORKSPACE"
+          make sync-issues \
+            OUTPUT_DIR="$GITHUB_WORKSPACE" \
+            SYNC_ISSUES_REPORT="$RUNNER_TEMP/sync-issues.json"
           node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          import { readFile } from 'node:fs/promises';
+          import { appendFile, readFile } from 'node:fs/promises';
 
           const root = process.env.GITHUB_WORKSPACE;
           const reports = await Promise.all(
@@ -161,10 +163,23 @@ jobs:
             (count, report) => count + report.issues.length,
             0,
           );
+          const sync = JSON.parse(
+            await readFile(`${process.env.RUNNER_TEMP}/sync-issues.json`, 'utf8'),
+          );
           console.log('### Диагностические Issue');
           console.log('');
-          console.log(
-            `Синхронизация завершена. Черновиков Issue в текущих выгрузках: **${drafts}**.`,
+          if (sync.deferred) {
+            console.log(
+              `Синхронизация отложена: **${sync.deferred.reason}**. Следующий запуск продолжит работу без ожидания в этом workflow.`,
+            );
+          } else {
+            console.log(
+              `Синхронизация завершена. Черновиков Issue в текущих выгрузках: **${drafts}**.`,
+            );
+          }
+          await appendFile(
+            process.env.GITHUB_OUTPUT,
+            `status=${sync.deferred ? 'deferred' : 'success'}\n`,
           );
           NODE
         env:
@@ -182,5 +197,5 @@ jobs:
             echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
             echo "- Генерация ICS: \`${{ steps.generate-ical.outcome }}\`"
             echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
-            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outcome }}\`"
+            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outputs.status || steps.sync-issues.outcome }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
