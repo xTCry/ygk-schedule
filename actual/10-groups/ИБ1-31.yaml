@@ -89,7 +89,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement: &a1
+          - replacement:
               date: 2026-09-05
               group: ИБ1-31
               lessonNumbers:
@@ -116,7 +116,26 @@ dates:
               description: "По расписанию: «Электротех.изм ТСИ». По замене: «МДК 01.04 Тимощук
                 М.В.». Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement: *a1
+          - replacement:
+              date: 2026-09-05
+              group: ИБ1-31
+              lessonNumbers:
+                - 3
+                - 4
+              type: replace
+              original:
+                raw: Электротех.изм ТСИ
+              replacement:
+                raw: МДК 01.04 Тимощук М.В.
+                room: ДОТ
+              source:
+                shift: second
+                row: 2
+                rawGroupName: ИБ1-31
+                rawLessonNumbers: 3,4
+                rawOriginal: Электротех.изм ТСИ
+                rawReplacement: МДК 01.04 Тимощук М.В.
+                rawRoom: ДОТ
             lessonNumber: 4
             reason: original-not-matched
             event:

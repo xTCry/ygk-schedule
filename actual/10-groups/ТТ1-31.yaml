@@ -112,7 +112,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
             replacements:
-              - replacement: &a1
+              - replacement:
                   date: 2026-09-05
                   group: ТТ1-31
                   lessonNumbers:
@@ -146,11 +146,29 @@ dates:
             source: null
             status: scheduled
             replacements:
-              - replacement: *a1
+              - replacement:
+                  date: 2026-09-05
+                  group: ТТ1-31
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Инф.технол. Яковлева Е.Н.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 44
+                    rawGroupName: ТТ1-31
+                    rawLessonNumbers: 3,4
+                    rawOriginal: ""
+                    rawReplacement: Инф.технол. Яковлева Е.Н.
+                    rawRoom: ДОТ
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements:
-          - replacement: &a2
+          - replacement:
               date: 2026-09-05
               group: ТТ1-31
               lessonNumbers:
@@ -174,7 +192,25 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «Инф.технол. МДК 05.01». По замене: «Снято»."
-          - replacement: *a2
+          - replacement:
+              date: 2026-09-05
+              group: ТТ1-31
+              lessonNumbers:
+                - 0
+                - 1
+              type: cancel
+              original:
+                raw: Инф.технол. МДК 05.01
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 42
+                rawGroupName: ТТ1-31
+                rawLessonNumbers: 0,1
+                rawOriginal: Инф.технол. МДК 05.01
+                rawReplacement: Снято
+                rawRoom: ""
             lessonNumber: 1
             reason: original-not-matched
             event:
