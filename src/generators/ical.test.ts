@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { generateIcal } from './ical.ts';
+import { generateIcal, generateIcalWithReport } from './ical.ts';
 import { serializeSchedule } from './json.ts';
 import type {
   CanonicalSchedule,
@@ -162,6 +162,42 @@ describe('schedule generators', () => {
         lessonTimes: {},
       }),
     ).toThrow(/Group not found/);
+  });
+
+  it('selects time for every lesson by its room and reports an unknown place', () => {
+    const schedule = makeSchedule();
+    schedule.groups['СТ1-11']!.days[0]!.lessons[0]!.variants[0]!.room = 'А101';
+    schedule.groups['СТ1-11']!.days[0]!.lessons[1]!.variants[0]!.room = 'Б201';
+    schedule.groups['СТ1-11']!.days[0]!.lessons[2]!.variants[0]!.room = 'ДОТ';
+
+    const result = generateIcalWithReport(schedule, {
+      group: 'СТ1-11',
+      termStart: '2026-09-01',
+      termEnd: '2026-10-01',
+      referenceDate: '2026-09-07',
+      lessonTimeResolver: ({ room }) => {
+        if (room === 'А101')
+          return { slots: [{ start: '09:20', end: '10:50' }] };
+        if (room === 'Б201')
+          return { slots: [{ start: '11:00', end: '12:30' }] };
+        return { slots: [], reason: 'Неизвестное место' };
+      },
+    });
+
+    expect(result.content).toContain(
+      'DTSTART;TZID=Europe/Moscow:20260907T092000',
+    );
+    expect(result.content).toContain(
+      'DTSTART;TZID=Europe/Moscow:20260907T110000',
+    );
+    expect(result.content).not.toContain('SUMMARY:Знаменатель');
+    expect(result.skippedEvents).toEqual([
+      expect.objectContaining({
+        lessonNumber: 3,
+        room: 'ДОТ',
+        reason: 'Неизвестное место',
+      }),
+    ]);
   });
 
   it('uses multiple slots, Saturday overrides and stable exclusions', () => {

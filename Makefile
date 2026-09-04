@@ -9,7 +9,6 @@ BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
 BASE_DATA_REVISION ?=
 CALENDAR_CONFIG_PATH ?= config/ygk/calendar.yaml
 CALENDAR_GROUP ?=
-CALENDAR_PROFILE ?=
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
 
@@ -69,7 +68,7 @@ regenerate-artifacts:
 	npm run regenerate-artifacts -- --input "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)"
 
 generate-ical:
-	npm run generate-ical -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --config "$(CALENDAR_CONFIG_PATH)" $(if $(CALENDAR_GROUP),--group "$(CALENDAR_GROUP)") $(if $(CALENDAR_PROFILE),--profile "$(CALENDAR_PROFILE)")
+	npm run generate-ical -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --config "$(CALENDAR_CONFIG_PATH)" $(if $(CALENDAR_GROUP),--group "$(CALENDAR_GROUP)")
 
 update-replacements:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")

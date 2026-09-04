@@ -57,7 +57,7 @@ const schedule: CanonicalSchedule = {
                 {
                   subject: 'Тестовая пара',
                   teacher: '',
-                  room: '',
+                  room: 'А101',
                   weekType: 'both',
                   sourceRow: 1,
                 },
@@ -71,7 +71,7 @@ const schedule: CanonicalSchedule = {
 };
 
 describe('generate iCalendar CLI', () => {
-  it('generates a selected group with a local profile override', async () => {
+  it('generates a selected group by the lesson room profile', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-generate-ical-'));
     const baseDirectory = join(root, 'base');
     const configPath = join(root, 'calendar.yaml');
@@ -98,7 +98,11 @@ describe('generate iCalendar CLI', () => {
               },
             },
           },
-          group_profiles: {},
+          room_profiles: {
+            buildings: {
+              А: { profile: 'local' },
+            },
+          },
           publication: {
             source_url_template: 'https://example.test/ical/{kind}/{group}.ics',
             refresh_interval: 'PT2H',
@@ -113,7 +117,6 @@ describe('generate iCalendar CLI', () => {
       outputDir: root,
       config: configPath,
       group: 'СТ1-11',
-      profile: 'local',
     });
 
     expect(result.generatedGroups).toEqual(['СТ1-11']);
@@ -131,7 +134,7 @@ describe('generate iCalendar CLI', () => {
       outputDir: root,
       config: configPath,
     });
-    expect(noProfileResult.generatedGroups).toEqual([]);
+    expect(noProfileResult.generatedGroups).toEqual(['СТ1-11']);
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('SUMMARY:Тестовая пара');

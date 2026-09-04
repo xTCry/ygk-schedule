@@ -3,12 +3,14 @@ import { join, resolve } from 'node:path';
 import type {
   CalendarProfile,
   CalendarPublication,
+  CalendarRoomProfiles,
   CalendarTerm,
 } from '../calendar/config.ts';
 import type { ActualSchedule, CanonicalSchedule } from '../types.ts';
+import { createYgkRoomTimeResolver } from '../providers/ygk/calendar/room-profile.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
-import { generateActualIcal } from './actual-ical.ts';
-import { generateIcal } from './ical.ts';
+import { generateActualIcalWithReport } from './actual-ical.ts';
+import { generateIcalWithReport, type IcalSkippedEvent } from './ical.ts';
 
 export interface IcalArtifactPaths {
   baseDirectory: string;
@@ -18,12 +20,13 @@ export interface IcalArtifactPaths {
 export interface IcalArtifactsResult {
   generatedGroups: string[];
   skippedGroups: string[];
+  skippedEvents: IcalSkippedEvent[];
   files: string[];
 }
 
 export interface WriteIcalArtifactsOptions {
   profiles: Record<string, CalendarProfile>;
-  groupProfiles: Record<string, string>;
+  roomProfiles: CalendarRoomProfiles;
   term: CalendarTerm;
   timezone: string;
   publication?: CalendarPublication;
@@ -76,21 +79,6 @@ const syncIcalDirectory = async (
   }
 };
 
-const profileForGroup = (
-  group: string,
-  groupProfiles: Record<string, string>,
-  profiles: Record<string, CalendarProfile>,
-): CalendarProfile | null => {
-  const profileName = groupProfiles[group];
-  if (!profileName) return null;
-  const profile = profiles[profileName];
-  if (!profile)
-    throw new Error(
-      `Calendar profile "${profileName}" for group "${group}" was not found`,
-    );
-  return profile;
-};
-
 const calendarSourceUrl = (
   publication: CalendarPublication | undefined,
   kind: 'base' | 'actual',
@@ -105,8 +93,9 @@ const calendarSourceUrl = (
 };
 
 /**
- * Создает base и actual ICS только для групп с явно назначенным профилем
- * звонков. Неизвестный корпус не является поводом подставлять время наугад.
+ * Создает base и actual ICS для всех групп. Время каждого события определяется
+ * по аудитории занятия; при неясном месте событие пропускается и попадает в
+ * `skippedEvents`, а не получает придуманное время.
  */
 export const writeIcalArtifacts = async (
   paths: IcalArtifactPaths,
@@ -114,47 +103,39 @@ export const writeIcalArtifacts = async (
   actual: ActualSchedule | null,
   options: WriteIcalArtifactsOptions,
 ): Promise<IcalArtifactsResult> => {
-  const requestedGroups = options.groups ?? Object.keys(options.groupProfiles);
+  const requestedGroups = options.groups ?? Object.keys(schedule.groups);
   const generatedGroups: string[] = [];
   const skippedGroups: string[] = [];
+  const skippedEvents: IcalSkippedEvent[] = [];
   const writes: Promise<void>[] = [];
   const baseFiles: string[] = [];
   const actualFiles: string[] = [];
+  const lessonTimeResolver = createYgkRoomTimeResolver(
+    options.profiles,
+    options.roomProfiles,
+  );
 
   for (const group of [...new Set(requestedGroups)].sort(compareGroups)) {
     if (!schedule.groups[group]) throw new Error(`Group not found: ${group}`);
-    const profile = profileForGroup(
-      group,
-      options.groupProfiles,
-      options.profiles,
-    );
-    if (!profile) {
-      skippedGroups.push(group);
-      continue;
-    }
 
     const baseFile = join(paths.baseDirectory, `${groupFileName(group)}.ics`);
     const baseSourceUrl = calendarSourceUrl(options.publication, 'base', group);
-    writes.push(
-      writeFileAtomic(
-        baseFile,
-        generateIcal(schedule, {
-          group,
-          calendarName: `ЯГК: ${group}`,
-          termStart: options.term.start,
-          termEnd: options.term.end,
-          referenceDate: options.term.referenceDate,
-          referenceWeekType: options.term.referenceWeekType,
-          timezone: options.timezone,
-          lessonTimes: profile.lessonTimes,
-          lessonTimesByDay: profile.lessonTimesByDay,
-          ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
-          ...(options.publication?.refreshInterval
-            ? { refreshInterval: options.publication.refreshInterval }
-            : {}),
-        }),
-      ),
-    );
+    const baseIcal = generateIcalWithReport(schedule, {
+      group,
+      calendarName: `ЯГК: ${group}`,
+      termStart: options.term.start,
+      termEnd: options.term.end,
+      referenceDate: options.term.referenceDate,
+      referenceWeekType: options.term.referenceWeekType,
+      timezone: options.timezone,
+      lessonTimeResolver,
+      ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
+      ...(options.publication?.refreshInterval
+        ? { refreshInterval: options.publication.refreshInterval }
+        : {}),
+    });
+    writes.push(writeFileAtomic(baseFile, baseIcal.content));
+    skippedEvents.push(...baseIcal.skippedEvents);
     baseFiles.push(baseFile);
 
     if (actual) {
@@ -167,25 +148,21 @@ export const writeIcalArtifacts = async (
         'actual',
         group,
       );
-      writes.push(
-        writeFileAtomic(
-          actualFile,
-          generateActualIcal(schedule, actual, {
-            group,
-            termStart: options.term.start,
-            termEnd: options.term.end,
-            referenceDate: options.term.referenceDate,
-            referenceWeekType: options.term.referenceWeekType,
-            timezone: options.timezone,
-            lessonTimes: profile.lessonTimes,
-            lessonTimesByDay: profile.lessonTimesByDay,
-            ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
-            ...(options.publication?.refreshInterval
-              ? { refreshInterval: options.publication.refreshInterval }
-              : {}),
-          }),
-        ),
-      );
+      const actualIcal = generateActualIcalWithReport(schedule, actual, {
+        group,
+        termStart: options.term.start,
+        termEnd: options.term.end,
+        referenceDate: options.term.referenceDate,
+        referenceWeekType: options.term.referenceWeekType,
+        timezone: options.timezone,
+        lessonTimeResolver,
+        ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
+        ...(options.publication?.refreshInterval
+          ? { refreshInterval: options.publication.refreshInterval }
+          : {}),
+      });
+      writes.push(writeFileAtomic(actualFile, actualIcal.content));
+      skippedEvents.push(...actualIcal.skippedEvents);
       actualFiles.push(actualFile);
     }
     generatedGroups.push(group);
@@ -207,6 +184,7 @@ export const writeIcalArtifacts = async (
   return {
     generatedGroups,
     skippedGroups,
+    skippedEvents,
     files: [...baseFiles, ...actualFiles],
   };
 };

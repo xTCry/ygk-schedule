@@ -6,14 +6,19 @@ import type {
   WeekType,
 } from '../types.ts';
 import { weekTypeForDate } from '../calendar/academic-year.ts';
+import type {
+  LessonTime,
+  LessonTimeOverride,
+  LessonTimeResolver,
+  LessonTimeSlots,
+} from '../calendar/lesson-times.ts';
 
-export interface LessonTime {
-  start: string;
-  end: string;
-}
-
-export type LessonTimeSlots = LessonTime | readonly LessonTime[];
-export type LessonTimeOverride = LessonTimeSlots | null;
+export type {
+  LessonTime,
+  LessonTimeOverride,
+  LessonTimeResolver,
+  LessonTimeSlots,
+} from '../calendar/lesson-times.ts';
 
 export interface IcalDateEvent {
   date: string;
@@ -22,6 +27,26 @@ export interface IcalDateEvent {
   summary: string;
   description?: string;
   room?: string;
+  /**
+   * Аудитория, по которой определяется время. Может отличаться от LOCATION:
+   * например, в замене новая аудитория не указана, но известна исходная пара.
+   */
+  timeRoom?: string;
+}
+
+export interface IcalSkippedEvent {
+  group: string;
+  day: DayOfWeek;
+  date?: string;
+  lessonNumber: number;
+  room: string;
+  summary: string;
+  reason: string;
+}
+
+export interface IcalGenerationResult {
+  content: string;
+  skippedEvents: IcalSkippedEvent[];
 }
 
 export interface IcalOptions {
@@ -34,7 +59,7 @@ export interface IcalOptions {
    * Время пар по умолчанию. Один номер может состоять из нескольких частей:
    * например, в корпусе А/М вторая пара первого курса разделена переменой.
    */
-  lessonTimes: Record<number, LessonTimeSlots>;
+  lessonTimes?: Record<number, LessonTimeSlots>;
   /**
    * Временные слоты, переопределяющие общую таблицу на конкретный день.
    * `null` явно запрещает публикацию пары, для которой в расписании звонков
@@ -43,6 +68,11 @@ export interface IcalOptions {
   lessonTimesByDay?: Partial<
     Record<DayOfWeek, Record<number, LessonTimeOverride>>
   >;
+  /**
+   * Выбор времени занятия по его фактической аудитории. При наличии resolver
+   * имеет приоритет над устаревшей единой таблицей времени группы.
+   */
+  lessonTimeResolver?: LessonTimeResolver;
   timezone?: string;
   productId?: string;
   calendarName?: string;
@@ -184,8 +214,26 @@ const timesForDay = (
       const override = overrides[lessonNumber];
       return override ? toTimeSlots(override) : [];
     }
-    return toTimeSlots(options.lessonTimes[lessonNumber]);
+    return toTimeSlots(options.lessonTimes?.[lessonNumber]);
   })();
+
+const resolveTimes = (
+  options: IcalOptions,
+  group: string,
+  day: DayOfWeek,
+  lessonNumber: number,
+  room: string,
+): { slots: readonly LessonTime[]; reason?: string } => {
+  if (options.lessonTimeResolver)
+    return options.lessonTimeResolver({ group, day, lessonNumber, room });
+  const slots = timesForDay(options, day, lessonNumber);
+  return slots.length
+    ? { slots }
+    : {
+        slots: [],
+        reason: `Для пары ${lessonNumber} не настроено время`,
+      };
+};
 
 const formatLocalDateTime = (date: Date, time: string): string => {
   const [hour, minute] = parseTime(time);
@@ -247,10 +295,10 @@ const serializeEvent = (
  * `DTSTAMP` намеренно стабилен: изменение глобального времени выгрузки не
  * должно переписывать ICS всех неизменных групп.
  */
-export const generateIcal = (
+export const generateIcalWithReport = (
   schedule: CanonicalSchedule,
   options: IcalOptions,
-): string => {
+): IcalGenerationResult => {
   const group = getGroup(schedule, options.group);
   const termStart = parseDate(options.termStart);
   const termEnd = parseDate(options.termEnd);
@@ -258,6 +306,7 @@ export const generateIcal = (
   const referenceWeekType = options.referenceWeekType ?? 'numerator';
   const timezone = options.timezone ?? 'Europe/Moscow';
   const productId = options.productId ?? '-//ygk-schedule//Schedule//RU';
+  const skippedEvents: IcalSkippedEvent[] = [];
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -289,39 +338,55 @@ export const generateIcal = (
         );
         if (firstDate > termEnd) return;
         const interval = variant.weekType === 'both' ? 1 : 2;
-        timesForDay(options, day.day, lesson.number).forEach(
-          (time, timeIndex) => {
-            const description = descriptionForLesson(
-              variant.teacher,
-              variant.room,
-            );
-            lines.push(
-              ...serializeEvent(
-                {
-                  uid: stableUid(
-                    'base',
-                    group.group,
-                    day.day,
-                    String(lesson.number),
-                    variant.weekType,
-                    String(index),
-                    String(timeIndex),
-                  ),
-                  start: formatLocalDateTime(firstDate, time.start),
-                  end: formatLocalDateTime(firstDate, time.end),
-                  rule: `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
-                  excludedDates: sortedDates(
-                    options.excludedDates?.[lesson.number],
-                  ),
-                  summary: variant.subject || `Пара ${lesson.number}`,
-                  ...(variant.room ? { room: variant.room } : {}),
-                  ...(description ? { description } : {}),
-                },
-                timezone,
-              ),
-            );
-          },
+        const resolution = resolveTimes(
+          options,
+          group.group,
+          day.day,
+          lesson.number,
+          variant.room,
         );
+        if (!resolution.slots.length) {
+          skippedEvents.push({
+            group: group.group,
+            day: day.day,
+            lessonNumber: lesson.number,
+            room: variant.room,
+            summary: variant.subject || `Пара ${lesson.number}`,
+            reason: resolution.reason ?? 'Не удалось определить время пары',
+          });
+          return;
+        }
+        resolution.slots.forEach((time, timeIndex) => {
+          const description = descriptionForLesson(
+            variant.teacher,
+            variant.room,
+          );
+          lines.push(
+            ...serializeEvent(
+              {
+                uid: stableUid(
+                  'base',
+                  group.group,
+                  day.day,
+                  String(lesson.number),
+                  variant.weekType,
+                  String(index),
+                  String(timeIndex),
+                ),
+                start: formatLocalDateTime(firstDate, time.start),
+                end: formatLocalDateTime(firstDate, time.end),
+                rule: `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
+                excludedDates: sortedDates(
+                  options.excludedDates?.[lesson.number],
+                ),
+                summary: variant.subject || `Пара ${lesson.number}`,
+                ...(variant.room ? { room: variant.room } : {}),
+                ...(description ? { description } : {}),
+              },
+              timezone,
+            ),
+          );
+        });
       });
     }
   }
@@ -333,32 +398,63 @@ export const generateIcal = (
       left.key.localeCompare(right.key),
   )) {
     const date = parseDate(event.date);
-    timesForDay(options, dayForDate(date), event.lessonNumber).forEach(
-      (time, timeIndex) => {
-        lines.push(
-          ...serializeEvent(
-            {
-              uid: stableUid(
-                'actual',
-                group.group,
-                event.date,
-                String(event.lessonNumber),
-                event.key,
-                String(timeIndex),
-              ),
-              start: formatLocalDateTime(date, time.start),
-              end: formatLocalDateTime(date, time.end),
-              summary: event.summary,
-              ...(event.room ? { room: event.room } : {}),
-              ...(event.description ? { description: event.description } : {}),
-            },
-            timezone,
-          ),
-        );
-      },
+    const day = dayForDate(date);
+    const resolution = resolveTimes(
+      options,
+      group.group,
+      day,
+      event.lessonNumber,
+      event.timeRoom ?? event.room ?? '',
     );
+    if (!resolution.slots.length) {
+      skippedEvents.push({
+        group: group.group,
+        day,
+        date: event.date,
+        lessonNumber: event.lessonNumber,
+        room: event.timeRoom ?? event.room ?? '',
+        summary: event.summary,
+        reason: resolution.reason ?? 'Не удалось определить время пары',
+      });
+      continue;
+    }
+    resolution.slots.forEach((time, timeIndex) => {
+      lines.push(
+        ...serializeEvent(
+          {
+            uid: stableUid(
+              'actual',
+              group.group,
+              event.date,
+              String(event.lessonNumber),
+              event.key,
+              String(timeIndex),
+            ),
+            start: formatLocalDateTime(date, time.start),
+            end: formatLocalDateTime(date, time.end),
+            summary: event.summary,
+            ...(event.room ? { room: event.room } : {}),
+            ...(event.description ? { description: event.description } : {}),
+          },
+          timezone,
+        ),
+      );
+    });
   }
 
   lines.push('END:VCALENDAR');
-  return `${lines.map(fold).join('\r\n')}\r\n`;
+  return {
+    content: `${lines.map(fold).join('\r\n')}\r\n`,
+    skippedEvents,
+  };
 };
+
+/**
+ * Генерирует текст ICS. Для публикации с диагностикой времени используется
+ * `generateIcalWithReport`, а этот wrapper сохраняет простой интерфейс тестов
+ * и других потребителей генератора.
+ */
+export const generateIcal = (
+  schedule: CanonicalSchedule,
+  options: IcalOptions,
+): string => generateIcalWithReport(schedule, options).content;

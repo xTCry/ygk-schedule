@@ -6,7 +6,7 @@ import type {
   LessonTime,
   LessonTimeOverride,
   LessonTimeSlots,
-} from '../generators/ical.ts';
+} from './lesson-times.ts';
 
 export interface CalendarTerm {
   start: string;
@@ -36,6 +36,17 @@ export interface CalendarProfileDocument {
   preholiday_lesson_times?: Record<number, LessonTimeSlots>;
 }
 
+export interface CalendarRoomProfileDocument {
+  profile?: string;
+  course_profiles?: Record<string, string>;
+  group_overrides?: Record<string, string>;
+}
+
+export interface CalendarRoomProfilesDocument {
+  buildings: Record<string, CalendarRoomProfileDocument>;
+  special_rooms?: Record<string, 'remote' | 'sport' | 'unknown'>;
+}
+
 export interface CalendarConfigDocument {
   schema_version?: number;
   timezone: string;
@@ -48,18 +59,29 @@ export interface CalendarConfigDocument {
   bells_file?: string;
   regulations_file?: string;
   profiles?: Record<string, CalendarProfileDocument>;
-  group_profiles: Record<string, string>;
+  room_profiles: CalendarRoomProfilesDocument;
   publication?: {
     source_url_template: string;
     refresh_interval?: string;
   };
 }
 
+export interface CalendarRoomProfileRule {
+  profile?: string;
+  courseProfiles: Record<number, string>;
+  groupOverrides: Record<string, string>;
+}
+
+export interface CalendarRoomProfiles {
+  buildings: Record<string, CalendarRoomProfileRule>;
+  specialRooms: Record<string, 'remote' | 'sport' | 'unknown'>;
+}
+
 export interface YgkCalendarConfig {
   timezone: string;
   term: CalendarTerm;
   profiles: Record<string, CalendarProfile>;
-  groupProfiles: Record<string, string>;
+  roomProfiles: CalendarRoomProfiles;
   publication?: CalendarPublication;
 }
 
@@ -372,12 +394,116 @@ const readPublication = (
   };
 };
 
+const readRoomProfiles = (
+  value: unknown,
+  profiles: Record<string, CalendarProfile>,
+): CalendarRoomProfiles => {
+  if (!isRecord(value))
+    throw new Error('Calendar config requires a room_profiles object');
+  if (!isRecord(value.buildings))
+    throw new Error('Calendar config requires room_profiles.buildings');
+
+  const profileName = (raw: unknown, path: string): string => {
+    const name = readString(raw, path);
+    if (!profiles[name])
+      throw new Error(
+        `Calendar config profile "${name}" at ${path} was not found`,
+      );
+    return name;
+  };
+  const buildings: CalendarRoomProfiles['buildings'] = {};
+  for (const [rawBuilding, rawRule] of Object.entries(value.buildings)) {
+    const building = normalizeRoomCode(rawBuilding);
+    if (!isRecord(rawRule)) {
+      throw new Error(
+        `Calendar config requires an object at room_profiles.buildings.${rawBuilding}`,
+      );
+    }
+    const courseProfiles: Record<number, string> = {};
+    if (rawRule.course_profiles !== undefined) {
+      if (!isRecord(rawRule.course_profiles)) {
+        throw new Error(
+          `Calendar config requires an object at room_profiles.buildings.${rawBuilding}.course_profiles`,
+        );
+      }
+      for (const [rawCourse, rawProfile] of Object.entries(
+        rawRule.course_profiles,
+      )) {
+        const course = Number(rawCourse);
+        if (!Number.isSafeInteger(course) || course < 1 || course > 4) {
+          throw new Error(
+            `Calendar config has invalid course at room_profiles.buildings.${rawBuilding}.course_profiles`,
+          );
+        }
+        courseProfiles[course] = profileName(
+          rawProfile,
+          `room_profiles.buildings.${rawBuilding}.course_profiles.${rawCourse}`,
+        );
+      }
+    }
+    const groupOverrides: Record<string, string> = {};
+    if (rawRule.group_overrides !== undefined) {
+      if (!isRecord(rawRule.group_overrides)) {
+        throw new Error(
+          `Calendar config requires an object at room_profiles.buildings.${rawBuilding}.group_overrides`,
+        );
+      }
+      for (const [group, rawProfile] of Object.entries(
+        rawRule.group_overrides,
+      )) {
+        groupOverrides[group] = profileName(
+          rawProfile,
+          `room_profiles.buildings.${rawBuilding}.group_overrides.${group}`,
+        );
+      }
+    }
+    const profile =
+      rawRule.profile === undefined
+        ? undefined
+        : profileName(
+            rawRule.profile,
+            `room_profiles.buildings.${rawBuilding}.profile`,
+          );
+    if (
+      !profile &&
+      !Object.keys(courseProfiles).length &&
+      !Object.keys(groupOverrides).length
+    ) {
+      throw new Error(
+        `Calendar config requires a profile rule at room_profiles.buildings.${rawBuilding}`,
+      );
+    }
+    buildings[building] = {
+      ...(profile ? { profile } : {}),
+      courseProfiles,
+      groupOverrides,
+    };
+  }
+
+  const specialRooms: CalendarRoomProfiles['specialRooms'] = {};
+  if (value.special_rooms !== undefined) {
+    if (!isRecord(value.special_rooms))
+      throw new Error('Calendar config requires room_profiles.special_rooms');
+    for (const [rawRoom, rawKind] of Object.entries(value.special_rooms)) {
+      if (rawKind !== 'remote' && rawKind !== 'sport' && rawKind !== 'unknown')
+        throw new Error(
+          `Calendar config has invalid room kind at room_profiles.special_rooms.${rawRoom}`,
+        );
+      specialRooms[normalizeRoomCode(rawRoom)] = rawKind;
+    }
+  }
+  return { buildings, specialRooms };
+};
+
+const normalizeRoomCode = (value: string): string =>
+  value.normalize('NFKC').trim().replace(/\s+/g, ' ').toUpperCase();
+
 /**
  * Загружает проверяемую YAML-конфигурацию календаря ЯГК.
  *
  * `bells_file` и `regulations_file` сохраняют исходные документы раздельно.
- * Для ICS используются только подтвержденные `group_profiles`: профиль
- * звонков не выводится догадкой из кода группы.
+ * Время выбирается по аудитории конкретного занятия. Группа уточняет правило
+ * только для корпусов с разными графиками по курсам.
  */
 export const loadYgkCalendarConfig = async (
   file = resolve(process.cwd(), 'config', 'ygk', 'calendar.yaml'),
@@ -386,9 +512,6 @@ export const loadYgkCalendarConfig = async (
   const parsed = await readYaml(configPath);
   if (!isRecord(parsed.term))
     throw new Error('Calendar config requires a term object');
-  if (!isRecord(parsed.group_profiles)) {
-    throw new Error('Calendar config requires a group_profiles object');
-  }
 
   const profiles = parsed.bells_file
     ? profilesFromBells(
@@ -423,16 +546,7 @@ export const loadYgkCalendarConfig = async (
     }
   }
 
-  const groupProfiles: Record<string, string> = {};
-  for (const [group, profile] of Object.entries(parsed.group_profiles)) {
-    const profileName = readString(profile, `group_profiles.${group}`);
-    if (!profiles[profileName]) {
-      throw new Error(
-        `Calendar config profile "${profileName}" for group "${group}" was not found`,
-      );
-    }
-    groupProfiles[group] = profileName;
-  }
+  const roomProfiles = readRoomProfiles(parsed.room_profiles, profiles);
 
   const referenceWeekType = parsed.term.reference_week_type;
   if (
@@ -456,7 +570,7 @@ export const loadYgkCalendarConfig = async (
       referenceWeekType,
     },
     profiles,
-    groupProfiles,
+    roomProfiles,
     ...(publication ? { publication } : {}),
   };
 };

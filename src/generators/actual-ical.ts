@@ -3,9 +3,16 @@ import type {
   ActualLesson,
   ActualSchedule,
   CanonicalSchedule,
+  DayOfWeek,
+  WeekType,
 } from '../types.ts';
 import { sha256 } from '../utils/hash.ts';
-import { generateIcal, type IcalDateEvent, type IcalOptions } from './ical.ts';
+import {
+  generateIcalWithReport,
+  type IcalDateEvent,
+  type IcalGenerationResult,
+  type IcalOptions,
+} from './ical.ts';
 
 const addExcludedDate = (
   excludedDates: Map<number, Set<string>>,
@@ -33,6 +40,7 @@ const actualLessonEvents = (
   date: string,
   lesson: ActualLesson,
   prefix: string,
+  fallbackTimeRoom: string,
 ): IcalDateEvent[] =>
   lesson.variants.map((variant, index) => ({
     date,
@@ -44,6 +52,9 @@ const actualLessonEvents = (
     )}`,
     summary: variant.subject || `Пара ${lesson.number}`,
     ...(variant.room ? { room: variant.room } : {}),
+    ...(variant.room || fallbackTimeRoom
+      ? { timeRoom: variant.room || fallbackTimeRoom }
+      : {}),
     ...(variant.teacher
       ? { description: `Преподаватель: ${variant.teacher}` }
       : {}),
@@ -52,6 +63,7 @@ const actualLessonEvents = (
 const addReplacementEvents = (
   date: string,
   lesson: ActualLesson,
+  fallbackTimeRoom: string,
 ): IcalDateEvent[] =>
   lesson.replacements
     .filter((applied) => applied.replacement.type === 'add')
@@ -78,6 +90,9 @@ const addReplacementEvents = (
           )}`,
           summary: replacement.raw || `Добавленная пара ${lesson.number}`,
           ...(replacement.room ? { room: replacement.room } : {}),
+          ...(replacement.room || fallbackTimeRoom
+            ? { timeRoom: replacement.room || fallbackTimeRoom }
+            : {}),
           description,
         },
       ];
@@ -105,8 +120,45 @@ const addFrozenDate = (
 
   for (const lesson of actualGroup.lessons) {
     if (lesson.status === 'cancelled') continue;
-    events.push(...actualLessonEvents(date, lesson, 'frozen'));
+    events.push(
+      ...actualLessonEvents(
+        date,
+        lesson,
+        'frozen',
+        baseRoomForLesson(
+          schedule,
+          group,
+          actualGroup.day,
+          lesson.number,
+          'both',
+        ),
+      ),
+    );
   }
+};
+
+/**
+ * Возвращает аудиторию исходной пары как fallback для определения времени
+ * добавленной или неразрешенной замены без собственной аудитории.
+ */
+const baseRoomForLesson = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  lessonNumber: number,
+  weekType: WeekType,
+): string => {
+  const lesson = schedule.groups[group]?.days
+    .find((item) => item.day === day)
+    ?.lessons.find((item) => item.number === lessonNumber);
+  return (
+    lesson?.variants.find(
+      (variant) =>
+        variant.weekType === 'both' ||
+        variant.weekType === weekType ||
+        weekType === 'unknown',
+    )?.room ?? ''
+  );
 };
 
 /**
@@ -116,11 +168,11 @@ const addFrozenDate = (
  * Для финализированной даты используется полный `frozenBase`-снимок группы:
  * это защищает прошлые занятия от будущей смены XLSX-расписания.
  */
-export const generateActualIcal = (
+export const generateActualIcalWithReport = (
   schedule: CanonicalSchedule,
   actual: ActualSchedule,
   options: IcalOptions,
-): string => {
+): IcalGenerationResult => {
   const excludedDates = new Map<number, Set<string>>();
   const events: IcalDateEvent[] = [];
 
@@ -139,18 +191,34 @@ export const generateActualIcal = (
       );
     } else {
       for (const lesson of actualGroup.lessons) {
+        const fallbackTimeRoom = baseRoomForLesson(
+          schedule,
+          options.group,
+          actualDate.day,
+          lesson.number,
+          actualDate.weekType,
+        );
         const isReplacement = hasReplacementType(lesson, 'replace');
         const isCancelled = hasReplacementType(lesson, 'cancel');
         if (isReplacement || isCancelled)
           addExcludedDate(excludedDates, lesson.number, date);
         if (isReplacement && lesson.status !== 'cancelled')
-          events.push(...actualLessonEvents(date, lesson, 'replace'));
+          events.push(
+            ...actualLessonEvents(date, lesson, 'replace', fallbackTimeRoom),
+          );
         if (!isReplacement && !isCancelled)
-          events.push(...addReplacementEvents(date, lesson));
+          events.push(...addReplacementEvents(date, lesson, fallbackTimeRoom));
       }
     }
 
     for (const unresolved of actualGroup.unresolvedReplacements) {
+      const fallbackTimeRoom = baseRoomForLesson(
+        schedule,
+        options.group,
+        actualDate.day,
+        unresolved.lessonNumber,
+        actualDate.weekType,
+      );
       events.push({
         date,
         lessonNumber: unresolved.lessonNumber,
@@ -166,14 +234,26 @@ export const generateActualIcal = (
         summary: unresolved.event.summary,
         description: unresolved.event.description,
         ...(unresolved.event.room ? { room: unresolved.event.room } : {}),
+        ...(unresolved.event.room || fallbackTimeRoom
+          ? { timeRoom: unresolved.event.room || fallbackTimeRoom }
+          : {}),
       });
     }
   }
 
-  return generateIcal(schedule, {
+  return generateIcalWithReport(schedule, {
     ...options,
     excludedDates: toExcludedDates(excludedDates),
     additionalEvents: events,
     calendarName: options.calendarName ?? `ЯГК: ${options.group} (actual)`,
   });
 };
+
+/**
+ * Генерирует actual ICS без диагностического отчета.
+ */
+export const generateActualIcal = (
+  schedule: CanonicalSchedule,
+  actual: ActualSchedule,
+  options: IcalOptions,
+): string => generateActualIcalWithReport(schedule, actual, options).content;

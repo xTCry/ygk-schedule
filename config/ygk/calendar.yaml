@@ -16,17 +16,46 @@ publication:
   source_url_template: https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/{kind}/{group}.ics
   refresh_interval: PT2H
 
-# Здесь перечисляются только подтвержденные привязки. Данные о корпусах для
-# остальных групп в регламенте отсутствуют, поэтому профиль не угадывается.
-group_profiles:
-  ЮР1-11: f-year-1
-  ЮР1-12: f-year-1
-  ЮР1-13: f-year-1
-  ЮР1-14: f-year-1
-  ЮР1-15: f-year-1
-  ЮР1-16: f-year-1
-  ЮР2-11: f-year-1
-  ТУ1-11: f-year-1
-  ТУ1-12: f-year-1
-  ЭК1-11: f-year-1
-  ЭК1-12: f-year-1
+# Профиль определяется прежде всего по аудитории конкретного занятия.
+# Номерная аудитория «А203» / «А 203» означает корпус А. Код группы нужен
+# только как второе условие для Т и Ф, где у разных курсов разные звонки.
+room_profiles:
+  buildings:
+    А:
+      profile: a-m
+    М:
+      profile: a-m
+    Б:
+      profile: b-v
+    В:
+      profile: b-v
+    Т:
+      course_profiles:
+        '1': t-year-1
+        '2': t-years-2-4
+        '3': t-years-2-4
+        '4': t-years-2-4
+    Ф:
+      course_profiles:
+        '2': f-years-2-4
+        '3': f-years-2-4
+        '4': f-years-2-4
+      # Эти группы явно перечислены в таблице звонков для первого курса.
+      group_overrides:
+        ЮР1-11: f-year-1
+        ЮР1-12: f-year-1
+        ЮР1-13: f-year-1
+        ЮР1-14: f-year-1
+        ЮР1-15: f-year-1
+        ЮР1-16: f-year-1
+        ЮР2-11: f-year-1
+        ТУ1-11: f-year-1
+        ТУ1-12: f-year-1
+        ЭК1-11: f-year-1
+        ЭК1-12: f-year-1
+  # Для этих обозначений физический корпус и время пока не подтверждены.
+  special_rooms:
+    ДОТ: remote
+    РОТ: unknown
+    Спорт корпус: sport
+    Спортзал: sport

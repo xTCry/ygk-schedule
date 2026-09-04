@@ -14,7 +14,7 @@ const writeCalendarConfig = async (
 ): Promise<void> => writeFile(path, stringify(config, { indent: 2 }));
 
 describe('YGK calendar config', () => {
-  it('loads profiles and explicit group bindings', async () => {
+  it('loads profiles and room profile rules', async () => {
     const directory = await mkdtemp(join(tmpdir(), 'ygk-calendar-config-'));
     const path = join(directory, 'calendar.yaml');
     await writeCalendarConfig(path, {
@@ -35,7 +35,14 @@ describe('YGK calendar config', () => {
           },
         },
       },
-      group_profiles: { 'СТ1-11': 'known' },
+      room_profiles: {
+        buildings: {
+          А: { profile: 'known' },
+        },
+        special_rooms: {
+          ДОТ: 'remote',
+        },
+      },
     } satisfies CalendarConfigDocument);
 
     await expect(loadYgkCalendarConfig(path)).resolves.toMatchObject({
@@ -46,7 +53,16 @@ describe('YGK calendar config', () => {
           },
         },
       },
-      groupProfiles: { 'СТ1-11': 'known' },
+      roomProfiles: {
+        buildings: {
+          А: {
+            profile: 'known',
+            courseProfiles: {},
+            groupOverrides: {},
+          },
+        },
+        specialRooms: { ДОТ: 'remote' },
+      },
     });
   });
 
@@ -68,7 +84,7 @@ describe('YGK calendar config', () => {
           },
         },
       },
-      group_profiles: { 'СТ1-11': 'known' },
+      room_profiles: { buildings: { А: { profile: 'known' } } },
     } satisfies CalendarConfigDocument);
 
     await expect(loadYgkCalendarConfig(path)).rejects.toThrow(
@@ -76,7 +92,7 @@ describe('YGK calendar config', () => {
     );
   });
 
-  it('rejects a binding to an unknown profile', async () => {
+  it('rejects a room rule pointing to an unknown profile', async () => {
     const directory = await mkdtemp(join(tmpdir(), 'ygk-calendar-config-'));
     const path = join(directory, 'calendar.yaml');
     await writeCalendarConfig(path, {
@@ -94,7 +110,7 @@ describe('YGK calendar config', () => {
           },
         },
       },
-      group_profiles: { 'СТ1-11': 'missing' },
+      room_profiles: { buildings: { А: { profile: 'missing' } } },
     } satisfies CalendarConfigDocument);
 
     await expect(loadYgkCalendarConfig(path)).rejects.toThrow(
@@ -105,7 +121,12 @@ describe('YGK calendar config', () => {
   it('derives the checked profiles from the tracked bell schedule', async () => {
     const config = await loadYgkCalendarConfig();
 
-    expect(config.groupProfiles['ЮР1-11']).toBe('f-year-1');
+    expect(config.roomProfiles.buildings.Ф?.groupOverrides['ЮР1-11']).toBe(
+      'f-year-1',
+    );
+    expect(config.roomProfiles.buildings.Т?.courseProfiles[2]).toBe(
+      't-years-2-4',
+    );
     expect(config.profiles['a-m']?.lessonTimes[2]).toEqual([
       { start: '11:00', end: '11:45' },
       { start: '12:25', end: '13:10' },

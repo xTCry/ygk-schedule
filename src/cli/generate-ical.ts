@@ -14,7 +14,6 @@ export interface GenerateIcalOptions {
   config?: string;
   actualSchedule?: string;
   group?: string;
-  profile?: string;
 }
 
 const parseArgs = (args: string[]): GenerateIcalOptions => {
@@ -31,8 +30,6 @@ const parseArgs = (args: string[]): GenerateIcalOptions => {
   const outputDir = values.get('output-dir');
   if (!baseSchedule || !outputDir)
     throw new Error('Specify --base-schedule and --output-dir');
-  if (values.get('profile') && !values.get('group'))
-    throw new Error('--profile requires --group');
   return {
     baseSchedule,
     outputDir,
@@ -41,16 +38,14 @@ const parseArgs = (args: string[]): GenerateIcalOptions => {
       ? { actualSchedule: values.get('actual-schedule')! }
       : {}),
     ...(values.get('group') ? { group: values.get('group')! } : {}),
-    ...(values.get('profile') ? { profile: values.get('profile')! } : {}),
   };
 };
 
 /**
  * Создает подписываемые base/actual ICS из опубликованных JSON-артефактов.
  *
- * При `group + profile` профиль применяется только к указанной группе —
- * это безопасный локальный способ проверить календарь до заполнения
- * `groupProfiles` в конфигурации.
+ * Время каждой пары определяется по ее аудитории. Опция `--group` ограничивает
+ * локальную проверку одной группой, но не меняет правила выбора корпуса.
  */
 export const generateIcalArtifacts = async (
   options: GenerateIcalOptions,
@@ -66,16 +61,10 @@ export const generateIcalArtifacts = async (
   );
   const actual = await readJsonIfExists<ActualSchedule>(actualPath);
   const config = await loadYgkCalendarConfig(options.config);
-  const groupProfiles = { ...config.groupProfiles };
-  if (options.group && options.profile) {
-    if (!config.profiles[options.profile])
-      throw new Error(`Calendar profile was not found: ${options.profile}`);
-    groupProfiles[options.group] = options.profile;
-  }
 
   return writeIcalArtifacts(getIcalArtifactPaths(outputDir), schedule, actual, {
     profiles: config.profiles,
-    groupProfiles,
+    roomProfiles: config.roomProfiles,
     term: config.term,
     timezone: config.timezone,
     ...(config.publication ? { publication: config.publication } : {}),
@@ -92,6 +81,7 @@ export const runGenerateIcalCli = async (
       {
         generatedGroups: result.generatedGroups,
         skippedGroups: result.skippedGroups,
+        skippedEvents: result.skippedEvents.length,
         files: result.files.length,
       },
       null,
