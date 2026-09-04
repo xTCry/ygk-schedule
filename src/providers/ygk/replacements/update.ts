@@ -19,7 +19,7 @@ import { sha256 } from '../../../utils/hash.ts';
 import {
   SCHEMA_VERSION,
   buildScheduleVersion,
-  calculateProjectHashes,
+  calculateReplacementProjectHashes,
   calculateSourceSetHash,
 } from '../../../version.ts';
 import {
@@ -210,7 +210,8 @@ export const updateYgkReplacements = async (
     artifactPaths.replacementsJson,
   );
   const pages = await loadPages(options);
-  const { parserHash, configHash } = await calculateProjectHashes(projectRoot);
+  const { parserHash, configHash } =
+    await calculateReplacementProjectHashes(projectRoot);
   const nextReplacements = buildCanonicalReplacements(
     pages,
     parserHash,

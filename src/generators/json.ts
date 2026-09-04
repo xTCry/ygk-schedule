@@ -1,6 +1,11 @@
 import type { CanonicalSchedule, GroupSchedule } from '../types.ts';
 
-const sortGroup = (group: GroupSchedule): GroupSchedule => ({
+/**
+ * Нормализует вложенные массивы одной группы перед сериализацией.
+ */
+export const normalizeGroupScheduleForSerialization = (
+  group: GroupSchedule,
+): GroupSchedule => ({
   ...group,
   sourceGroups: [...group.sourceGroups].sort((a, b) =>
     a.localeCompare(b, 'ru-RU'),
@@ -29,7 +34,10 @@ export const normalizeScheduleForSerialization = (
     groups: Object.fromEntries(
       Object.entries(schedule.groups)
         .sort(([a], [b]) => a.localeCompare(b, 'ru-RU'))
-        .map(([key, value]) => [key, sortGroup(value)]),
+        .map(([key, value]) => [
+          key,
+          normalizeGroupScheduleForSerialization(value),
+        ]),
     ),
     diagnostics: [...schedule.diagnostics].sort(
       (a, b) =>

@@ -3,10 +3,13 @@ import { join, resolve } from 'node:path';
 import { stringify } from 'yaml';
 import type {
   ActualSchedule,
+  ActualGroupScheduleArtifact,
   CanonicalReplacements,
+  GroupReplacementsArtifact,
   ReplacementDate,
 } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
+import { sha256 } from '../utils/hash.ts';
 import {
   serializeDiagnosticsReport,
   serializeDiagnosticsReportYaml,
@@ -72,15 +75,11 @@ const replacementSortKey = (
     replacement.replacement?.raw ?? '',
   ].join('\0');
 
-const normalizeReplacements = (
-  replacements: CanonicalReplacements,
-): CanonicalReplacements => ({
-  ...replacements,
-  sources: [...replacements.sources].sort((left, right) =>
-    compareText(left.id, right.id),
-  ),
-  dates: Object.fromEntries(
-    Object.entries(replacements.dates)
+const normalizeReplacementDates = (
+  dates: CanonicalReplacements['dates'],
+): CanonicalReplacements['dates'] =>
+  Object.fromEntries(
+    Object.entries(dates)
       .sort(([left], [right]) => compareText(left, right))
       .map(([date, value]) => [
         date,
@@ -91,19 +90,13 @@ const normalizeReplacements = (
           ),
         },
       ]),
-  ),
-  diagnostics: [...replacements.diagnostics].sort((left, right) =>
-    compareText(left.fingerprint, right.fingerprint),
-  ),
-});
+  );
 
-const normalizeActualSchedule = (schedule: ActualSchedule): ActualSchedule => ({
-  ...schedule,
-  sources: [...schedule.sources].sort((left, right) =>
-    compareText(left.id, right.id),
-  ),
-  dates: Object.fromEntries(
-    Object.entries(schedule.dates)
+const normalizeActualDates = (
+  dates: ActualSchedule['dates'],
+): ActualSchedule['dates'] =>
+  Object.fromEntries(
+    Object.entries(dates)
       .sort(([left], [right]) => compareText(left, right))
       .map(([date, value]) => [
         date,
@@ -124,7 +117,27 @@ const normalizeActualSchedule = (schedule: ActualSchedule): ActualSchedule => ({
           ),
         },
       ]),
+  );
+
+const normalizeReplacements = (
+  replacements: CanonicalReplacements,
+): CanonicalReplacements => ({
+  ...replacements,
+  sources: [...replacements.sources].sort((left, right) =>
+    compareText(left.id, right.id),
   ),
+  dates: normalizeReplacementDates(replacements.dates),
+  diagnostics: [...replacements.diagnostics].sort((left, right) =>
+    compareText(left.fingerprint, right.fingerprint),
+  ),
+});
+
+const normalizeActualSchedule = (schedule: ActualSchedule): ActualSchedule => ({
+  ...schedule,
+  sources: [...schedule.sources].sort((left, right) =>
+    compareText(left.id, right.id),
+  ),
+  dates: normalizeActualDates(schedule.dates),
   diagnostics: [...schedule.diagnostics].sort((left, right) =>
     compareText(left.fingerprint, right.fingerprint),
   ),
@@ -176,10 +189,13 @@ const actualGroups = (schedule: ActualSchedule): string[] =>
     ),
   ].sort(compareText);
 
+/**
+ * Возвращает компактную выгрузку замен одной группы без общих metadata.
+ */
 const replacementGroupArtifact = (
   replacements: CanonicalReplacements,
   group: string,
-): CanonicalReplacements => {
+): GroupReplacementsArtifact => {
   const dates: CanonicalReplacements['dates'] = {};
   for (const [date, value] of Object.entries(replacements.dates)) {
     const groupReplacements = value.replacements.filter(
@@ -189,18 +205,26 @@ const replacementGroupArtifact = (
     dates[date] = { ...value, replacements: groupReplacements };
   }
   return {
-    ...replacements,
-    dates,
+    schemaVersion: replacements.schemaVersion,
+    provider: replacements.provider,
+    group,
+    dates: normalizeReplacementDates(dates),
     diagnostics: replacements.diagnostics.filter(
       (diagnostic) => diagnostic.normalizedGroup === group,
+    ),
+    semanticHash: sha256(
+      JSON.stringify({ group, dates: normalizeReplacementDates(dates) }),
     ),
   };
 };
 
+/**
+ * Возвращает компактную выгрузку actual-расписания одной группы.
+ */
 const actualGroupArtifact = (
   schedule: ActualSchedule,
   group: string,
-): ActualSchedule => {
+): ActualGroupScheduleArtifact => {
   const dates: ActualSchedule['dates'] = {};
   for (const [date, value] of Object.entries(schedule.dates)) {
     const scheduleGroup = value.groups[group];
@@ -208,13 +232,34 @@ const actualGroupArtifact = (
     dates[date] = { ...value, groups: { [group]: scheduleGroup } };
   }
   return {
-    ...schedule,
-    dates,
+    schemaVersion: schedule.schemaVersion,
+    provider: schedule.provider,
+    group,
+    dates: normalizeActualDates(dates),
     diagnostics: schedule.diagnostics.filter(
       (diagnostic) => diagnostic.normalizedGroup === group,
     ),
+    semanticHash: sha256(
+      JSON.stringify({ group, dates: normalizeActualDates(dates) }),
+    ),
   };
 };
+
+const serializeReplacementGroupArtifact = (
+  artifact: GroupReplacementsArtifact,
+): string => `${JSON.stringify(artifact, null, 2)}\n`;
+
+const serializeReplacementGroupArtifactYaml = (
+  artifact: GroupReplacementsArtifact,
+): string => stringify(artifact, { indent: 2 });
+
+const serializeActualGroupArtifact = (
+  artifact: ActualGroupScheduleArtifact,
+): string => `${JSON.stringify(artifact, null, 2)}\n`;
+
+const serializeActualGroupArtifactYaml = (
+  artifact: ActualGroupScheduleArtifact,
+): string => stringify(artifact, { indent: 2 });
 
 const syncDirectory = async (
   directory: string,
@@ -287,8 +332,14 @@ export const writeReplacementArtifacts = async (
       );
       const artifact = replacementGroupArtifact(replacements, group);
       return [
-        writeFileAtomic(groupPaths.json, serializeReplacements(artifact)),
-        writeFileAtomic(groupPaths.yaml, serializeReplacementsYaml(artifact)),
+        writeFileAtomic(
+          groupPaths.json,
+          serializeReplacementGroupArtifact(artifact),
+        ),
+        writeFileAtomic(
+          groupPaths.yaml,
+          serializeReplacementGroupArtifactYaml(artifact),
+        ),
       ];
     },
   );
@@ -300,8 +351,11 @@ export const writeReplacementArtifacts = async (
     );
     const artifact = actualGroupArtifact(actual, group);
     return [
-      writeFileAtomic(groupPaths.json, serializeActualSchedule(artifact)),
-      writeFileAtomic(groupPaths.yaml, serializeActualScheduleYaml(artifact)),
+      writeFileAtomic(groupPaths.json, serializeActualGroupArtifact(artifact)),
+      writeFileAtomic(
+        groupPaths.yaml,
+        serializeActualGroupArtifactYaml(artifact),
+      ),
     ];
   });
 

@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 import type { ScheduleSource, ScheduleVersion } from './types.ts';
 import { hashPath, hashPaths, sha256 } from './utils/hash.ts';
 
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 
 export interface VersionInput {
   sourceSetHash: string;
@@ -41,6 +41,12 @@ export const buildScheduleVersion = (input: VersionInput): ScheduleVersion => {
   };
 };
 
+/**
+ * Считает hash кода, влияющего только на базовое XLSX-расписание.
+ *
+ * Код HTML-замен и генераторов намеренно не входит в этот hash: иначе их
+ * изменение заставляет заново публиковать всё базовое расписание.
+ */
 export const calculateProjectHashes = async (
   projectRoot = process.cwd(),
 ): Promise<{ parserHash: string; configHash: string }> => ({
@@ -48,7 +54,22 @@ export const calculateProjectHashes = async (
     resolve(projectRoot, 'src/parser'),
     resolve(projectRoot, 'src/xlsx'),
     resolve(projectRoot, 'src/diagnostics'),
-    resolve(projectRoot, 'src/providers/ygk'),
+    resolve(projectRoot, 'src/providers/ygk/schedule'),
+    resolve(projectRoot, 'src/types.ts'),
+  ]),
+  configHash: await hashPath(resolve(projectRoot, 'config')),
+});
+
+/**
+ * Считает hash кода, влияющего на разбор и разрешение HTML-замен.
+ */
+export const calculateReplacementProjectHashes = async (
+  projectRoot = process.cwd(),
+): Promise<{ parserHash: string; configHash: string }> => ({
+  parserHash: await hashPaths([
+    resolve(projectRoot, 'src/parser'),
+    resolve(projectRoot, 'src/diagnostics'),
+    resolve(projectRoot, 'src/providers/ygk/replacements'),
     resolve(projectRoot, 'src/types.ts'),
   ]),
   configHash: await hashPath(resolve(projectRoot, 'config')),

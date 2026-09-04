@@ -223,13 +223,14 @@ describe('versions and semantic schedule comparison', () => {
     expect(configured.configHash).not.toBe(absent.configHash);
   });
 
-  it('ignores generators and changes on parser or config edits', async () => {
+  it('ignores generators and replacement code for the base schedule parser hash', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-hash-'));
     for (const path of [
       'src/parser',
       'src/xlsx',
       'src/diagnostics',
-      'src/providers/ygk',
+      'src/providers/ygk/schedule',
+      'src/providers/ygk/replacements',
       'src/generators',
       'config',
     ])
@@ -238,6 +239,14 @@ describe('versions and semantic schedule comparison', () => {
     await writeFile(join(root, 'src/parser/a.ts'), 'export const a = 1;');
     await writeFile(
       join(root, 'src/generators/ical.ts'),
+      'export const a = 1;',
+    );
+    await writeFile(
+      join(root, 'src/providers/ygk/replacements/parse.ts'),
+      'export const a = 1;',
+    );
+    await writeFile(
+      join(root, 'src/providers/ygk/schedule/parse.ts'),
       'export const a = 1;',
     );
     await writeFile(join(root, 'config/a.json'), '{}');
@@ -249,10 +258,25 @@ describe('versions and semantic schedule comparison', () => {
     );
     await expect(calculateProjectHashes(root)).resolves.toEqual(initial);
 
+    await writeFile(
+      join(root, 'src/providers/ygk/replacements/parse.ts'),
+      'export const a = 2;',
+    );
+    await expect(calculateProjectHashes(root)).resolves.toEqual(initial);
+
     await writeFile(join(root, 'src/parser/a.ts'), 'export const a = 2;');
     const parserChanged = await calculateProjectHashes(root);
     expect(parserChanged.parserHash).not.toBe(initial.parserHash);
     expect(parserChanged.configHash).toBe(initial.configHash);
+
+    await writeFile(
+      join(root, 'src/providers/ygk/schedule/parse.ts'),
+      'export const a = 2;',
+    );
+    const scheduleProviderChanged = await calculateProjectHashes(root);
+    expect(scheduleProviderChanged.parserHash).not.toBe(
+      parserChanged.parserHash,
+    );
 
     await writeFile(join(root, 'config/a.json'), '{"x":1}');
     const configChanged = await calculateProjectHashes(root);

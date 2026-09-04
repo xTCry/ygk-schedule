@@ -1,12 +1,17 @@
+import { readdir, unlink } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { stringify } from 'yaml';
 import { semanticScheduleHash } from '../compare/schedule.ts';
-import type { CanonicalSchedule } from '../types.ts';
+import type { CanonicalSchedule, GroupScheduleArtifact } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import {
   serializeDiagnosticsReport,
   serializeDiagnosticsReportYaml,
 } from './diagnostics.ts';
-import { serializeSchedule } from './json.ts';
+import {
+  normalizeGroupScheduleForSerialization,
+  serializeSchedule,
+} from './json.ts';
 import { serializeScheduleYaml } from './yaml.ts';
 
 export interface ScheduleArtifactPaths {
@@ -55,22 +60,52 @@ export const getGroupArtifactPaths = (
   };
 };
 
-const createGroupSchedule = (
+/**
+ * Создает компактный публичный артефакт одной группы без общих metadata.
+ */
+const createGroupScheduleArtifact = (
   schedule: CanonicalSchedule,
   group: string,
-): CanonicalSchedule => {
+): GroupScheduleArtifact => {
   const groupSchedule = schedule.groups[group];
   if (!groupSchedule) throw new Error(`Group not found: ${group}`);
 
-  const groups = { [group]: groupSchedule };
   return {
-    ...schedule,
-    groups,
+    schemaVersion: schedule.schemaVersion,
+    provider: schedule.provider,
+    group: normalizeGroupScheduleForSerialization(groupSchedule),
     diagnostics: schedule.diagnostics.filter(
       (diagnostic) => diagnostic.normalizedGroup === group,
     ),
-    semanticHash: semanticScheduleHash(groups),
+    semanticHash: semanticScheduleHash({ [group]: groupSchedule }),
   };
+};
+
+const serializeGroupScheduleArtifact = (
+  artifact: GroupScheduleArtifact,
+): string => `${JSON.stringify(artifact, null, 2)}\n`;
+
+const serializeGroupScheduleArtifactYaml = (
+  artifact: GroupScheduleArtifact,
+): string => stringify(artifact, { indent: 2 });
+
+const syncGroupDirectory = async (
+  directory: string,
+  expectedPaths: readonly string[],
+): Promise<void> => {
+  const expected = new Set(expectedPaths.map((path) => resolve(path)));
+  try {
+    const entries = await readdir(directory, { withFileTypes: true });
+    await Promise.all(
+      entries
+        .filter((entry) => entry.isFile() && entry.name !== '.gitkeep')
+        .map((entry) => join(directory, entry.name))
+        .filter((path) => !expected.has(resolve(path)))
+        .map((path) => unlink(path)),
+    );
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+  }
 };
 
 /**
@@ -99,16 +134,23 @@ export const writeScheduleArtifacts = async (
   paths: ScheduleArtifactPaths,
   schedule: CanonicalSchedule,
 ): Promise<void> => {
-  const groupArtifacts = Object.keys(schedule.groups)
-    .sort((left, right) => left.localeCompare(right, 'ru-RU'))
-    .flatMap((group) => {
-      const groupPaths = getGroupArtifactPaths(paths, group);
-      const groupSchedule = createGroupSchedule(schedule, group);
-      return [
-        writeFileAtomic(groupPaths.json, serializeSchedule(groupSchedule)),
-        writeFileAtomic(groupPaths.yaml, serializeScheduleYaml(groupSchedule)),
-      ];
-    });
+  const groups = Object.keys(schedule.groups).sort((left, right) =>
+    left.localeCompare(right, 'ru-RU'),
+  );
+  const groupArtifacts = groups.flatMap((group) => {
+    const groupPaths = getGroupArtifactPaths(paths, group);
+    const artifact = createGroupScheduleArtifact(schedule, group);
+    return [
+      writeFileAtomic(
+        groupPaths.json,
+        serializeGroupScheduleArtifact(artifact),
+      ),
+      writeFileAtomic(
+        groupPaths.yaml,
+        serializeGroupScheduleArtifactYaml(artifact),
+      ),
+    ];
+  });
 
   await Promise.all([
     writeFileAtomic(paths.json, serializeSchedule(schedule)),
@@ -123,4 +165,12 @@ export const writeScheduleArtifacts = async (
     ),
     ...groupArtifacts,
   ]);
+
+  await syncGroupDirectory(
+    paths.groupJsonDirectory,
+    groups.flatMap((group) => {
+      const groupPaths = getGroupArtifactPaths(paths, group);
+      return [groupPaths.json, groupPaths.yaml];
+    }),
+  );
 };

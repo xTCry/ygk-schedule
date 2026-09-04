@@ -1,4 +1,4 @@
-import { mkdtemp, readFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parse } from 'yaml';
@@ -7,6 +7,10 @@ import { updateSchedule } from '../../../cli/update.ts';
 import { fixturePath } from '../schedule/fixture.test-helper.ts';
 import { replacementFixturePath } from './fixture.test-helper.ts';
 import { updateYgkReplacements } from './update.ts';
+import type {
+  ActualGroupScheduleArtifact,
+  GroupReplacementsArtifact,
+} from '../../../types.ts';
 
 describe('YGK replacements update', () => {
   it('writes raw replacements and actual data without replacing the base schedule', async () => {
@@ -63,15 +67,60 @@ describe('YGK replacements update', () => {
       readFile(join(root, 'actual', '90-diagnostics.json'), 'utf8'),
     ).resolves.toContain('"issues"');
 
+    const replacementGroup = await readFile(
+      join(root, 'replacements', '10-groups', 'ДИ1-13.json'),
+      'utf8',
+    );
+    const actualGroup = await readFile(
+      join(root, 'actual', '10-groups', 'ДИ1-13.json'),
+      'utf8',
+    );
+    expect(JSON.parse(replacementGroup) as GroupReplacementsArtifact).toEqual(
+      expect.objectContaining({
+        group: 'ДИ1-13',
+      }),
+    );
+    expect(JSON.parse(actualGroup) as ActualGroupScheduleArtifact).toEqual(
+      expect.objectContaining({
+        group: 'ДИ1-13',
+      }),
+    );
+    expect(JSON.parse(replacementGroup)).not.toHaveProperty('generatedAt');
+    expect(JSON.parse(actualGroup)).not.toHaveProperty('version');
+
+    await mkdir(join(root, 'config'));
+    await writeFile(join(root, 'config/provider.json'), '{}');
+    await updateSchedule({
+      input: fixturePath,
+      outputDir: root,
+      projectRoot: root,
+    });
     const second = await updateYgkReplacements({
       baseSchedule: basePath,
       outputDir: root,
       firstInput: replacementFixturePath('first'),
       secondInput: replacementFixturePath('second'),
-      projectRoot: process.cwd(),
+      projectRoot: root,
     });
-    expect(second.written).toBe(false);
-    expect(second.replacementsChanged).toBe(false);
-    expect(second.actualChanged).toBe(false);
+    expect(second.written).toBe(true);
+    expect(second.replacementsChanged).toBe(true);
+    expect(second.actualChanged).toBe(true);
+    await expect(
+      readFile(join(root, 'replacements', '10-groups', 'ДИ1-13.json'), 'utf8'),
+    ).resolves.toBe(replacementGroup);
+    await expect(
+      readFile(join(root, 'actual', '10-groups', 'ДИ1-13.json'), 'utf8'),
+    ).resolves.toBe(actualGroup);
+
+    const third = await updateYgkReplacements({
+      baseSchedule: basePath,
+      outputDir: root,
+      firstInput: replacementFixturePath('first'),
+      secondInput: replacementFixturePath('second'),
+      projectRoot: root,
+    });
+    expect(third.written).toBe(false);
+    expect(third.replacementsChanged).toBe(false);
+    expect(third.actualChanged).toBe(false);
   });
 });

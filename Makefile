@@ -9,7 +9,7 @@ BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture update-replacements update-replacements-fixtures sync-issues
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts update-replacements update-replacements-fixtures sync-issues
 
 help:
 	@printf '%s\n' \
@@ -22,6 +22,7 @@ help:
 		'  make update           Скачать и выгрузить актуальное расписание' \
 		'  make update-verbose   То же, с подробным diff занятий' \
 		'  make update-fixture   Выгрузить regression fixture локально' \
+		'  make regenerate-artifacts Пересобрать data из полного JSON без сети' \
 		'  make update-replacements Скачать и применить актуальные замены' \
 		'  make update-replacements-fixtures Обработать локальные HTML-фикстуры замен' \
 		'  make sync-issues      Синхронизировать диагностические GitHub Issue'
@@ -58,6 +59,9 @@ update-verbose:
 
 update-fixture:
 	npm run update -- --input "$(FIXTURE_PATH)" --output-dir "$(OUTPUT_DIR)"
+
+regenerate-artifacts:
+	npm run regenerate-artifacts -- --input "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)"
 
 update-replacements:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)"

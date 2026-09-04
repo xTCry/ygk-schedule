@@ -2,7 +2,7 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
-import type { CanonicalSchedule } from '../types.ts';
+import type { GroupScheduleArtifact } from '../types.ts';
 import { fixturePath } from '../providers/ygk/schedule/fixture.test-helper.ts';
 import { formatUpdateCliOutput, updateSchedule } from './update.ts';
 import { parse } from 'yaml';
@@ -270,12 +270,28 @@ describe('schedule update', () => {
       join(outputDir, 'base/90-diagnostics.yaml'),
       'utf8',
     );
-    const parsedGroupJson = JSON.parse(groupJson) as CanonicalSchedule;
+    const parsedGroupJson = JSON.parse(groupJson) as GroupScheduleArtifact;
     expect(JSON.parse(json)).toEqual(parse(yaml));
     expect(parsedGroupJson).toEqual(parse(groupYaml));
-    expect(Object.keys(parsedGroupJson.groups)).toEqual(['СТ1-11']);
+    expect(parsedGroupJson.group.group).toBe('СТ1-11');
+    expect(parsedGroupJson).not.toHaveProperty('generatedAt');
+    expect(parsedGroupJson).not.toHaveProperty('sources');
+    expect(parsedGroupJson).not.toHaveProperty('version');
     expect(diagnostics).toEqual(parse(diagnosticsYaml));
     expect(diagnostics.summary.warning).toBe(2);
+
+    await writeFile(
+      join(root, 'config/config.json'),
+      '{"academicYear":"auto"}',
+    );
+    await updateSchedule({
+      input: fixturePath,
+      outputDir,
+      projectRoot: root,
+    });
+    await expect(
+      readFile(join(outputDir, 'base/10-groups/СТ1-11.json'), 'utf8'),
+    ).resolves.toBe(groupJson);
     expect(result.written).toBe(true);
   });
 });

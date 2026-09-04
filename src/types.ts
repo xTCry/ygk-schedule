@@ -117,6 +117,21 @@ export interface CanonicalSchedule {
   semanticHash: string;
 }
 
+/**
+ * Публичная выгрузка базового расписания одной группы.
+ *
+ * Глобальные metadata намеренно остаются в `base/00-schedule.*` и
+ * `base/90-diagnostics.*`: их обновление не должно переписывать файлы всех
+ * групп, если само расписание группы не менялось.
+ */
+export interface GroupScheduleArtifact {
+  schemaVersion: number;
+  provider: 'ygk';
+  group: GroupSchedule;
+  diagnostics: Diagnostic[];
+  semanticHash: string;
+}
+
 export interface ParsedSchedule {
   groups: Record<string, GroupSchedule>;
   diagnostics: Diagnostic[];
@@ -205,6 +220,21 @@ export interface CanonicalReplacements {
   semanticHash: string;
 }
 
+/**
+ * Публичная выгрузка замен, относящихся к одной группе.
+ *
+ * Общие сведения об источниках и версии замен хранятся в `00-replacements.*`
+ * и diagnostics, поэтому не дублируются в каждом групповом файле.
+ */
+export interface GroupReplacementsArtifact {
+  schemaVersion: number;
+  provider: 'ygk';
+  group: string;
+  dates: Record<string, ReplacementDate>;
+  diagnostics: Diagnostic[];
+  semanticHash: string;
+}
+
 export type ReplacementApplyStrategy = 'add' | 'exact-subject';
 
 export type UnresolvedReplacementReason =
@@ -270,6 +300,21 @@ export interface ActualSchedule {
   version: ScheduleVersion;
   baseScheduleVersion: string;
   replacementVersion: string;
+  dates: Record<string, ActualScheduleDate>;
+  diagnostics: Diagnostic[];
+  semanticHash: string;
+}
+
+/**
+ * Публичная выгрузка actual-расписания одной группы на даты замен.
+ *
+ * Версии исходного расписания и замен доступны в общем `actual/00-schedule.*`
+ * и не включаются сюда, чтобы метаданные не создавали массовые изменения.
+ */
+export interface ActualGroupScheduleArtifact {
+  schemaVersion: number;
+  provider: 'ygk';
+  group: string;
   dates: Record<string, ActualScheduleDate>;
   diagnostics: Diagnostic[];
   semanticHash: string;
