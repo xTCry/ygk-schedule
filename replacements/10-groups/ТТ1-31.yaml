@@ -734,8 +734,7 @@ dates:
               rawOriginal: ОБиЗР
               rawReplacement: История Новиков М.П.
               rawRoom: Б501
-          - &a1
-            date: 2026-09-05
+          - date: 2026-09-05
             group: ТТ1-31
             lessonNumbers:
               - 0
@@ -753,8 +752,7 @@ dates:
               rawOriginal: Инф.технол. МДК 05.01
               rawReplacement: Снято
               rawRoom: ""
-          - &a2
-            date: 2026-09-05
+          - date: 2026-09-05
             group: ТТ1-31
             lessonNumbers:
               - 2
@@ -772,8 +770,7 @@ dates:
               rawOriginal: МДК 05.01
               rawReplacement: Ин.язык Трусова Е.В.
               rawRoom: ДОТ
-          - &a3
-            date: 2026-09-05
+          - date: 2026-09-05
             group: ТТ1-31
             lessonNumbers:
               - 3
@@ -1531,8 +1528,59 @@ dates:
               rawRoom: ""
         diagnostics: []
     replacements:
-      - *a1
-      - *a2
-      - *a3
+      - date: 2026-09-05
+        group: ТТ1-31
+        lessonNumbers:
+          - 0
+          - 1
+        type: cancel
+        original:
+          raw: Инф.технол. МДК 05.01
+        replacement:
+          raw: Снято
+        source:
+          shift: first
+          row: 42
+          rawGroupName: ТТ1-31
+          rawLessonNumbers: 0,1
+          rawOriginal: Инф.технол. МДК 05.01
+          rawReplacement: Снято
+          rawRoom: ""
+      - date: 2026-09-05
+        group: ТТ1-31
+        lessonNumbers:
+          - 2
+        type: replace
+        original:
+          raw: МДК 05.01
+        replacement:
+          raw: Ин.язык Трусова Е.В.
+          room: ДОТ
+        source:
+          shift: first
+          row: 43
+          rawGroupName: ТТ1-31
+          rawLessonNumbers: "2"
+          rawOriginal: МДК 05.01
+          rawReplacement: Ин.язык Трусова Е.В.
+          rawRoom: ДОТ
+      - date: 2026-09-05
+        group: ТТ1-31
+        lessonNumbers:
+          - 3
+          - 4
+        type: add
+        original: null
+        replacement:
+          raw: Инф.технол. Яковлева Е.Н.
+          room: ДОТ
+        source:
+          shift: first
+          row: 44
+          rawGroupName: ТТ1-31
+          rawLessonNumbers: 3,4
+          rawOriginal: ""
+          rawReplacement: Инф.технол. Яковлева Е.Н.
+          rawRoom: ДОТ
 diagnostics: []
 semanticHash: 1080af979a51903d9f0ef280a1ccc70ef7279bcffe79a37335dc97706bcd837d
