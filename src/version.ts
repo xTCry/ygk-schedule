@@ -57,7 +57,7 @@ export const calculateProjectHashes = async (
     resolve(projectRoot, 'src/providers/ygk/schedule'),
     resolve(projectRoot, 'src/types.ts'),
   ]),
-  configHash: await hashPath(resolve(projectRoot, 'config')),
+  configHash: await hashPath(resolve(projectRoot, 'config', 'ygk', 'schedule')),
 });
 
 /**
@@ -70,7 +70,10 @@ export const calculateReplacementProjectHashes = async (
     resolve(projectRoot, 'src/parser'),
     resolve(projectRoot, 'src/diagnostics'),
     resolve(projectRoot, 'src/providers/ygk/replacements'),
+    resolve(projectRoot, 'src/providers/ygk/schedule/group.ts'),
     resolve(projectRoot, 'src/types.ts'),
   ]),
-  configHash: await hashPath(resolve(projectRoot, 'config')),
+  configHash: await hashPath(
+    resolve(projectRoot, 'config', 'ygk', 'replacements.json'),
+  ),
 });

@@ -26,6 +26,7 @@ import {
   YGK_REPLACEMENT_FIRST_PAGE_URL,
   YGK_REPLACEMENT_SECOND_PAGE_URL,
 } from '../constants.ts';
+import { loadYgkReplacementAliases } from './config.ts';
 import { downloadReplacementPage } from './download.ts';
 import { parseYgkReplacements } from './parse.ts';
 import { buildActualSchedule, semanticReplacementHash } from './resolve.ts';
@@ -212,6 +213,7 @@ export const updateYgkReplacements = async (
   const pages = await loadPages(options);
   const { parserHash, configHash } =
     await calculateReplacementProjectHashes(projectRoot);
+  const aliases = await loadYgkReplacementAliases(projectRoot);
   const nextReplacements = buildCanonicalReplacements(
     pages,
     parserHash,
@@ -228,6 +230,7 @@ export const updateYgkReplacements = async (
     replacements,
     parserHash,
     configHash,
+    aliases,
   );
   const previousActual = await readJsonIfExists<ActualSchedule>(
     artifactPaths.actualJson,

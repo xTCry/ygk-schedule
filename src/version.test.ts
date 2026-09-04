@@ -7,6 +7,7 @@ import type { GroupSchedule, ScheduleSource } from './types.ts';
 import {
   buildScheduleVersion,
   calculateProjectHashes,
+  calculateReplacementProjectHashes,
   calculateSourceSetHash,
 } from './version.ts';
 
@@ -211,11 +212,16 @@ describe('versions and semantic schedule comparison', () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-config-hash-'));
     const absent = await calculateProjectHashes(root);
 
-    await mkdir(join(root, 'config'));
+    await mkdir(join(root, 'config', 'ygk', 'schedule'), {
+      recursive: true,
+    });
     const empty = await calculateProjectHashes(root);
-    await writeFile(join(root, 'config/.gitkeep'), '');
+    await writeFile(join(root, 'config', 'ygk', 'schedule', '.gitkeep'), '');
     const placeholderOnly = await calculateProjectHashes(root);
-    await writeFile(join(root, 'config/provider.json'), '{}');
+    await writeFile(
+      join(root, 'config', 'ygk', 'schedule', 'provider.json'),
+      '{}',
+    );
     const configured = await calculateProjectHashes(root);
 
     expect(empty.configHash).toBe(absent.configHash);
@@ -252,6 +258,7 @@ describe('versions and semantic schedule comparison', () => {
     await writeFile(join(root, 'config/a.json'), '{}');
 
     const initial = await calculateProjectHashes(root);
+    const replacementInitial = await calculateReplacementProjectHashes(root);
     await writeFile(
       join(root, 'src/generators/ical.ts'),
       'export const a = 2;',
@@ -263,6 +270,26 @@ describe('versions and semantic schedule comparison', () => {
       'export const a = 2;',
     );
     await expect(calculateProjectHashes(root)).resolves.toEqual(initial);
+    const replacementCodeChanged =
+      await calculateReplacementProjectHashes(root);
+    expect(replacementCodeChanged.parserHash).not.toBe(
+      replacementInitial.parserHash,
+    );
+
+    await mkdir(join(root, 'config', 'ygk'), { recursive: true });
+    await writeFile(
+      join(root, 'config', 'ygk', 'replacements.json'),
+      '{"groups":{"тест":"СТ1-11"}}',
+    );
+    await expect(calculateProjectHashes(root)).resolves.toEqual(initial);
+    const replacementConfigChanged =
+      await calculateReplacementProjectHashes(root);
+    expect(replacementConfigChanged.parserHash).toBe(
+      replacementCodeChanged.parserHash,
+    );
+    expect(replacementConfigChanged.configHash).not.toBe(
+      replacementInitial.configHash,
+    );
 
     await writeFile(join(root, 'src/parser/a.ts'), 'export const a = 2;');
     const parserChanged = await calculateProjectHashes(root);
@@ -278,7 +305,13 @@ describe('versions and semantic schedule comparison', () => {
       parserChanged.parserHash,
     );
 
-    await writeFile(join(root, 'config/a.json'), '{"x":1}');
+    await mkdir(join(root, 'config', 'ygk', 'schedule'), {
+      recursive: true,
+    });
+    await writeFile(
+      join(root, 'config', 'ygk', 'schedule', 'a.json'),
+      '{"x":1}',
+    );
     const configChanged = await calculateProjectHashes(root);
     expect(configChanged.configHash).not.toBe(initial.configHash);
   });

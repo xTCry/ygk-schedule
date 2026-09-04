@@ -19,12 +19,20 @@ import type {
 } from '../../../types.ts';
 import { sha256 } from '../../../utils/hash.ts';
 import { SCHEMA_VERSION, buildScheduleVersion } from '../../../version.ts';
+import { resolveReplacementAlias, type ReplacementAliases } from './config.ts';
 
 const subjectKey = (value: string): string =>
   normalizeDashes(normalizeSingleLine(value))
     .normalize('NFKC')
     .toLocaleLowerCase('ru-RU')
     .replace(/[^\p{L}\p{N}]+/gu, '');
+
+const emptyAliases = (): ReplacementAliases => ({
+  groups: new Map(),
+  subjects: new Map(),
+  teachers: new Map(),
+  rooms: new Map(),
+});
 
 const variantAppliesToWeek = (
   variant: LessonVariant,
@@ -47,14 +55,33 @@ const toActualLesson = (lesson: Lesson, weekType: WeekType): ActualLesson => ({
 
 const createReplacementVariant = (
   replacement: Replacement,
+  originalVariant: LessonVariant | undefined,
+  aliases: ReplacementAliases,
 ): LessonVariant | null => {
   if (!replacement.replacement) return null;
+  const rawSubject = replacement.replacement.raw;
+  const parsed = rawSubject.match(
+    /^(?<subject>.*?)\s*(?<teacher>[А-ЯЁ][а-яё-]+\s+[А-ЯЁ]\.\s*[А-ЯЁ]\.?)$/u,
+  );
+  const parsedSubject = parsed?.groups?.subject?.trim() ?? rawSubject;
+  const parsedTeacher = parsed?.groups?.teacher?.trim() ?? '';
+  const subject = parsedSubject
+    ? resolveReplacementAlias(aliases, 'subjects', parsedSubject)
+    : (originalVariant?.subject ?? rawSubject);
+  const teacher = parsedTeacher
+    ? resolveReplacementAlias(aliases, 'teachers', parsedTeacher)
+    : (originalVariant?.teacher ?? '');
+  const room = replacement.replacement.room
+    ? resolveReplacementAlias(aliases, 'rooms', replacement.replacement.room)
+    : (originalVariant?.room ?? '');
+
   return {
-    subject: replacement.replacement.raw,
-    teacher: '',
-    room: replacement.replacement.room ?? '',
+    subject,
+    teacher,
+    room,
     weekType: 'both',
-    rawSubject: replacement.replacement.raw,
+    rawSubject,
+    ...(parsedTeacher ? { rawTeacher: parsedTeacher } : {}),
     ...(replacement.replacement.room
       ? { rawRoom: replacement.replacement.room }
       : {}),
@@ -70,6 +97,7 @@ const sourceForReplacement = (
 
 const resolutionDiagnostic = (
   replacement: Replacement,
+  resolvedGroup: string,
   lessonNumber: number,
   reason: UnresolvedReplacementReason,
   source: ReplacementPageSource | undefined,
@@ -108,7 +136,7 @@ const resolutionDiagnostic = (
       replacement.replacement?.raw ?? '',
     ],
     ...(rawValue ? { rawValue } : {}),
-    ...(replacement.group ? { normalizedGroup: replacement.group } : {}),
+    ...(resolvedGroup ? { normalizedGroup: resolvedGroup } : {}),
   });
   return {
     ...diagnostic,
@@ -125,15 +153,37 @@ const unresolved = (
   sources: readonly ReplacementPageSource[],
   diagnostics: Diagnostic[],
 ): void => {
+  const description = [
+    replacement.original?.raw
+      ? `По расписанию: «${replacement.original.raw}».`
+      : '',
+    replacement.replacement?.raw
+      ? `По замене: «${replacement.replacement.raw}».`
+      : '',
+    replacement.replacement?.room
+      ? `Аудитория: «${replacement.replacement.room}».`
+      : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
   const unresolvedReplacement: UnresolvedReplacement = {
     replacement,
     lessonNumber,
     reason,
+    event: {
+      summary: 'Необработанная замена',
+      description:
+        description || 'Опубликована замена, которую не удалось разобрать.',
+      ...(replacement.replacement?.room
+        ? { room: replacement.replacement.room }
+        : {}),
+    },
   };
   target.unresolvedReplacements.push(unresolvedReplacement);
   diagnostics.push(
     resolutionDiagnostic(
       replacement,
+      target.group,
       lessonNumber,
       reason,
       sourceForReplacement(sources, replacement),
@@ -153,14 +203,29 @@ const applied = (
 const findMatchingVariants = (
   lesson: ActualLesson,
   replacement: Replacement,
-): number[] => {
+  aliases: ReplacementAliases,
+): { index: number; strategy: AppliedReplacement['strategy'] }[] => {
   const original = replacement.original?.raw;
   if (!original) return [];
-  const key = subjectKey(original);
+  const resolvedOriginal = resolveReplacementAlias(
+    aliases,
+    'subjects',
+    original,
+  );
+  const key = subjectKey(resolvedOriginal);
   return lesson.variants
-    .map((variant, index) => ({ index, key: subjectKey(variant.subject) }))
+    .map((variant, index) => ({
+      index,
+      key: subjectKey(
+        resolveReplacementAlias(aliases, 'subjects', variant.subject),
+      ),
+      strategy:
+        resolvedOriginal === original
+          ? ('exact-subject' as const)
+          : ('subject-alias' as const),
+    }))
     .filter((candidate) => candidate.key === key)
-    .map((candidate) => candidate.index);
+    .map(({ index, strategy }) => ({ index, strategy }));
 };
 
 const applyReplacement = (
@@ -169,11 +234,16 @@ const applyReplacement = (
   lessonNumber: number,
   sources: readonly ReplacementPageSource[],
   diagnostics: Diagnostic[],
+  aliases: ReplacementAliases,
 ): void => {
   const lesson = target.lessons.find((item) => item.number === lessonNumber);
-  const replacementVariant = createReplacementVariant(replacement);
 
   if (replacement.type === 'add') {
+    const replacementVariant = createReplacementVariant(
+      replacement,
+      undefined,
+      aliases,
+    );
     if (!replacementVariant) {
       unresolved(
         target,
@@ -224,7 +294,7 @@ const applyReplacement = (
     return;
   }
 
-  const matches = findMatchingVariants(lesson, replacement);
+  const matches = findMatchingVariants(lesson, replacement, aliases);
   if (!matches.length) {
     unresolved(
       target,
@@ -247,14 +317,21 @@ const applyReplacement = (
     );
     return;
   }
+  const match = matches[0];
+  if (!match) return;
 
   if (replacement.type === 'cancel') {
     lesson.variants = [];
     lesson.status = 'cancelled';
-    applied(lesson, replacement, lessonNumber, 'exact-subject');
+    applied(lesson, replacement, lessonNumber, match.strategy);
     return;
   }
 
+  const replacementVariant = createReplacementVariant(
+    replacement,
+    lesson.variants[match.index],
+    aliases,
+  );
   if (!replacementVariant) {
     unresolved(
       target,
@@ -268,7 +345,7 @@ const applyReplacement = (
   }
   lesson.variants = [replacementVariant];
   lesson.status = 'scheduled';
-  applied(lesson, replacement, lessonNumber, 'exact-subject');
+  applied(lesson, replacement, lessonNumber, match.strategy);
 };
 
 const createActualDate = (
@@ -335,6 +412,7 @@ export const buildActualSchedule = (
   replacements: CanonicalReplacements,
   parserHash: string,
   configHash: string,
+  aliases: ReplacementAliases = emptyAliases(),
 ): ActualSchedule => {
   const diagnostics = [...replacements.diagnostics];
   const dates: Record<string, ActualScheduleDate> = {};
@@ -349,17 +427,22 @@ export const buildActualSchedule = (
     dates[date] = actualDate;
 
     for (const replacement of replacementDate.replacements) {
-      const group = actualDate.groups[replacement.group];
+      const replacementGroup = resolveReplacementAlias(
+        aliases,
+        'groups',
+        replacement.group,
+      );
+      const group = actualDate.groups[replacementGroup];
       if (!group) {
-        const baseGroup = schedule.groups[replacement.group];
+        const baseGroup = schedule.groups[replacementGroup];
         const unresolvedGroup: ActualGroupSchedule = {
-          group: replacement.group,
+          group: replacementGroup,
           date,
           day: replacementDate.day,
           lessons: [],
           unresolvedReplacements: [],
         };
-        actualDate.groups[replacement.group] = unresolvedGroup;
+        actualDate.groups[replacementGroup] = unresolvedGroup;
         for (const lessonNumber of replacement.lessonNumbers)
           unresolved(
             unresolvedGroup,
@@ -379,6 +462,7 @@ export const buildActualSchedule = (
           lessonNumber,
           replacements.sources,
           diagnostics,
+          aliases,
         );
     }
 

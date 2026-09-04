@@ -1,4 +1,8 @@
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { loadYgkReplacementAliases } from './config.ts';
 import { buildActualSchedule } from './resolve.ts';
 import type {
   CanonicalReplacements,
@@ -174,6 +178,12 @@ describe('actual YGK schedule', () => {
       expect.objectContaining({
         lessonNumber: 5,
         reason: 'lesson-not-found',
+        event: {
+          summary: 'Необработанная замена',
+          description:
+            'По расписанию: «Неизвестный предмет». По замене: «История». Аудитория: «А201».',
+          room: 'А201',
+        },
       }),
     ]);
     expect(actual.diagnostics).toEqual([
@@ -182,5 +192,95 @@ describe('actual YGK schedule', () => {
         severity: 'error',
       }),
     ]);
+  });
+
+  it('uses aliases only for an unambiguous match and preserves raw values', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'ygk-resolver-aliases-'));
+    const directory = join(root, 'config', 'ygk');
+    await mkdir(directory, { recursive: true });
+    await writeFile(
+      join(directory, 'replacements.json'),
+      JSON.stringify({
+        groups: { 'специальная ст': 'СТ1-11' },
+        subjects: { Алгебра: 'Математика' },
+        teachers: { 'Петров П. П.': 'Петров П.П.' },
+        rooms: { 'а 201': 'А201' },
+      }),
+    );
+    const aliases = await loadYgkReplacementAliases(root);
+    const aliasedReplacement: Replacement = {
+      ...replacement([2], 'replace', 'Алгебра', 'История Петров П. П.'),
+      group: 'специальная СТ',
+      replacement: { raw: 'История Петров П. П.', room: 'а 201' },
+      source: {
+        ...replacement([2], 'replace', 'Алгебра', 'История Петров П. П.')
+          .source,
+        rawGroupName: 'специальная СТ',
+        rawRoom: 'а 201',
+      },
+    };
+    const actual = buildActualSchedule(
+      baseSchedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [aliasedReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+      aliases,
+    );
+
+    expect(actual.dates['2026-09-04']?.groups).toHaveProperty('СТ1-11');
+    expect(
+      actual.dates['2026-09-04']?.groups['СТ1-11']?.lessons.find(
+        (lesson) => lesson.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [
+        {
+          subject: 'История',
+          teacher: 'Петров П.П.',
+          room: 'А201',
+          rawSubject: 'История Петров П. П.',
+          rawTeacher: 'Петров П. П.',
+          rawRoom: 'а 201',
+        },
+      ],
+      replacements: [{ strategy: 'subject-alias', lessonNumber: 2 }],
+    });
+
+    const ambiguousBase = structuredClone(baseSchedule);
+    const ambiguousLesson = ambiguousBase.groups[
+      'СТ1-11'
+    ]?.days[0]?.lessons.find((lesson) => lesson.number === 2);
+    if (!ambiguousLesson) throw new Error('Expected test lesson was not found');
+    ambiguousLesson.variants.push({
+      ...ambiguousLesson.variants[0]!,
+      subject: 'Алгебра',
+    });
+    const ambiguous = buildActualSchedule(
+      ambiguousBase,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [aliasedReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+      aliases,
+    );
+
+    expect(
+      ambiguous.dates['2026-09-04']?.groups['СТ1-11']?.unresolvedReplacements,
+    ).toEqual([expect.objectContaining({ reason: 'ambiguous-original' })]);
   });
 });

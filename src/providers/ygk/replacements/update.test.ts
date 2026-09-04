@@ -88,8 +88,16 @@ describe('YGK replacements update', () => {
     expect(JSON.parse(replacementGroup)).not.toHaveProperty('generatedAt');
     expect(JSON.parse(actualGroup)).not.toHaveProperty('version');
 
-    await mkdir(join(root, 'config'));
-    await writeFile(join(root, 'config/provider.json'), '{}');
+    await mkdir(join(root, 'config', 'ygk'), { recursive: true });
+    await writeFile(
+      join(root, 'config', 'ygk', 'replacements.json'),
+      JSON.stringify({
+        groups: {},
+        subjects: {},
+        teachers: {},
+        rooms: {},
+      }),
+    );
     await updateSchedule({
       input: fixturePath,
       outputDir: root,

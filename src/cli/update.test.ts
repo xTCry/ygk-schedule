@@ -153,8 +153,11 @@ describe('schedule update', () => {
       output,
       projectRoot: root,
     });
+    await mkdir(join(root, 'config', 'ygk', 'schedule'), {
+      recursive: true,
+    });
     await writeFile(
-      join(root, 'config/config.json'),
+      join(root, 'config', 'ygk', 'schedule', 'config.json'),
       '{"academicYear":"auto"}',
     );
     const second = await updateSchedule({

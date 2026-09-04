@@ -235,7 +235,8 @@ export interface GroupReplacementsArtifact {
   semanticHash: string;
 }
 
-export type ReplacementApplyStrategy = 'add' | 'exact-subject';
+export type ReplacementApplyStrategy =
+  'add' | 'exact-subject' | 'subject-alias';
 
 export type UnresolvedReplacementReason =
   | 'group-not-found'
@@ -264,6 +265,17 @@ export interface UnresolvedReplacement {
   replacement: Replacement;
   lessonNumber: number;
   reason: UnresolvedReplacementReason;
+  /**
+   * Отдельное событие для API и будущего actual ICS.
+   *
+   * Оно не подменяет исходную пару: при неясной строке пользователь видит и
+   * базовое расписание, и опубликованный текст замены.
+   */
+  event: {
+    summary: 'Необработанная замена';
+    description: string;
+    room?: string;
+  };
 }
 
 export interface ActualLesson {
