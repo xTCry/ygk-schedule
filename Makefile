@@ -7,10 +7,13 @@ DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/base/90-diagnostics.json
 ACTUAL_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/actual/90-diagnostics.json
 BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
 BASE_DATA_REVISION ?=
+CALENDAR_CONFIG_PATH ?= config/ygk/calendar.json
+CALENDAR_GROUP ?=
+CALENDAR_PROFILE ?=
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts update-replacements update-replacements-fixtures sync-issues
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures sync-issues
 
 help:
 	@printf '%s\n' \
@@ -24,6 +27,7 @@ help:
 		'  make update-verbose   То же, с подробным diff занятий' \
 		'  make update-fixture   Выгрузить regression fixture локально' \
 		'  make regenerate-artifacts Пересобрать data из полного JSON без сети' \
+		'  make generate-ical    Сгенерировать base/actual ICS из JSON-артефактов' \
 		'  make update-replacements Скачать и применить актуальные замены' \
 		'  make update-replacements-fixtures Обработать локальные HTML-фикстуры замен' \
 		'  make sync-issues      Синхронизировать диагностические GitHub Issue'
@@ -63,6 +67,9 @@ update-fixture:
 
 regenerate-artifacts:
 	npm run regenerate-artifacts -- --input "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)"
+
+generate-ical:
+	npm run generate-ical -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --config "$(CALENDAR_CONFIG_PATH)" $(if $(CALENDAR_GROUP),--group "$(CALENDAR_GROUP)") $(if $(CALENDAR_PROFILE),--profile "$(CALENDAR_PROFILE)")
 
 update-replacements:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")

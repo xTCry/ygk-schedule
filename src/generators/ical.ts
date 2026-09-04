@@ -12,15 +12,61 @@ export interface LessonTime {
   end: string;
 }
 
+export type LessonTimeSlots = LessonTime | readonly LessonTime[];
+export type LessonTimeOverride = LessonTimeSlots | null;
+
+export interface IcalDateEvent {
+  date: string;
+  lessonNumber: number;
+  key: string;
+  summary: string;
+  description?: string;
+  room?: string;
+}
+
 export interface IcalOptions {
   group: string;
   termStart: string;
   termEnd: string;
   referenceDate: string;
   referenceWeekType?: 'numerator' | 'denominator';
-  lessonTimes: Record<number, LessonTime>;
+  /**
+   * Время пар по умолчанию. Один номер может состоять из нескольких частей:
+   * например, в корпусе А/М вторая пара первого курса разделена переменой.
+   */
+  lessonTimes: Record<number, LessonTimeSlots>;
+  /**
+   * Временные слоты, переопределяющие общую таблицу на конкретный день.
+   * `null` явно запрещает публикацию пары, для которой в расписании звонков
+   * нет времени. Используется, в частности, для субботы.
+   */
+  lessonTimesByDay?: Partial<
+    Record<DayOfWeek, Record<number, LessonTimeOverride>>
+  >;
   timezone?: string;
   productId?: string;
+  calendarName?: string;
+  /**
+   * Даты, на которых recurring-события базового расписания не должны
+   * отображаться. Ключ — номер пары.
+   */
+  excludedDates?: Record<number, readonly string[]>;
+  /**
+   * Одноразовые события: примененные замены и безопасно отображаемые
+   * неразрешенные строки.
+   */
+  additionalEvents?: readonly IcalDateEvent[];
+}
+
+interface IcalEventDetails {
+  uid: string;
+  start: string;
+  end: string;
+  summary: string;
+  room?: string;
+  description?: string;
+  rule?: string;
+  excludedDates?: readonly string[];
 }
 
 const dayOffsets: Record<DayOfWeek, number> = {
@@ -31,6 +77,8 @@ const dayOffsets: Record<DayOfWeek, number> = {
   Пятница: 5,
   Суббота: 6,
 };
+
+const stableTimestamp = '20000101T000000Z';
 
 const parseDate = (value: string): Date => {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
@@ -43,7 +91,10 @@ const parseDate = (value: string): Date => {
 const parseTime = (value: string): [number, number] => {
   const match = /^(\d{2}):(\d{2})$/.exec(value);
   if (!match) throw new Error(`Invalid time: ${value}`);
-  return [Number(match[1]), Number(match[2])];
+  const hour = Number(match[1]);
+  const minute = Number(match[2]);
+  if (hour > 23 || minute > 59) throw new Error(`Invalid time: ${value}`);
+  return [hour, minute];
 };
 
 const dateKey = (date: Date): string =>
@@ -94,19 +145,45 @@ const firstDateForWeekType = (
   return next;
 };
 
+const dayForDate = (date: Date): DayOfWeek => {
+  const weekday = date.getUTCDay();
+  const days: Record<number, DayOfWeek> = {
+    1: 'Понедельник',
+    2: 'Вторник',
+    3: 'Среда',
+    4: 'Четверг',
+    5: 'Пятница',
+    6: 'Суббота',
+  };
+  const day = days[weekday];
+  if (!day) throw new Error(`Unsupported calendar weekday: ${weekday}`);
+  return day;
+};
+
+const toTimeSlots = (value: LessonTimeSlots | undefined): LessonTime[] =>
+  !value ? [] : 'start' in value ? [value] : [...value];
+
+const timesForDay = (
+  options: IcalOptions,
+  day: DayOfWeek,
+  lessonNumber: number,
+): LessonTime[] =>
+  (() => {
+    const overrides = options.lessonTimesByDay?.[day];
+    if (overrides && Object.hasOwn(overrides, lessonNumber)) {
+      const override = overrides[lessonNumber];
+      return override ? toTimeSlots(override) : [];
+    }
+    return toTimeSlots(options.lessonTimes[lessonNumber]);
+  })();
+
 const formatLocalDateTime = (date: Date, time: string): string => {
   const [hour, minute] = parseTime(time);
   return `${dateKey(date)}T${String(hour).padStart(2, '0')}${String(minute).padStart(2, '0')}00`;
 };
 
-const uid = (
-  group: string,
-  day: string,
-  number: number,
-  weekType: WeekType,
-  index: number,
-): string =>
-  `${createHash('sha1').update([group, day, number, weekType, index].join('\0')).digest('hex')}@ygk-schedule`;
+const stableUid = (...parts: readonly string[]): string =>
+  `${createHash('sha1').update(parts.join('\0')).digest('hex')}@ygk-schedule`;
 
 const getGroup = (
   schedule: CanonicalSchedule,
@@ -117,6 +194,49 @@ const getGroup = (
   return value;
 };
 
+const descriptionForLesson = (
+  teacher: string,
+  room: string,
+): string | undefined => {
+  const description = [teacher, room].filter(Boolean).join('\n');
+  return description || undefined;
+};
+
+const sortedDates = (dates: readonly string[] | undefined): string[] =>
+  [...new Set(dates ?? [])].sort((left, right) => left.localeCompare(right));
+
+const serializeEvent = (
+  event: IcalEventDetails,
+  timezone: string,
+): string[] => [
+  'BEGIN:VEVENT',
+  `UID:${event.uid}`,
+  `DTSTAMP:${stableTimestamp}`,
+  `DTSTART;TZID=${timezone}:${event.start}`,
+  `DTEND;TZID=${timezone}:${event.end}`,
+  ...(event.rule ? [event.rule] : []),
+  ...(event.excludedDates?.length
+    ? [
+        `EXDATE;TZID=${timezone}:${event.excludedDates
+          .map((date) => `${date.replaceAll('-', '')}T${event.start.slice(9)}`)
+          .join(',')}`,
+      ]
+    : []),
+  `SUMMARY:${escapeIcal(event.summary)}`,
+  ...(event.room ? [`LOCATION:${escapeIcal(event.room)}`] : []),
+  ...(event.description
+    ? [`DESCRIPTION:${escapeIcal(event.description)}`]
+    : []),
+  'END:VEVENT',
+];
+
+/**
+ * Генерирует recurring ICS базового расписания и при необходимости добавляет
+ * одноразовые исключения для actual-календаря.
+ *
+ * `DTSTAMP` намеренно стабилен: изменение глобального времени выгрузки не
+ * должно переписывать ICS всех неизменных групп.
+ */
 export const generateIcal = (
   schedule: CanonicalSchedule,
   options: IcalOptions,
@@ -128,22 +248,20 @@ export const generateIcal = (
   const referenceWeekType = options.referenceWeekType ?? 'numerator';
   const timezone = options.timezone ?? 'Europe/Moscow';
   const productId = options.productId ?? '-//ygk-schedule//Schedule//RU';
-  const now = new Date()
-    .toISOString()
-    .replace(/[-:]/g, '')
-    .replace(/\.\d{3}/, '');
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
     `PRODID:${productId}`,
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
+    ...(options.calendarName
+      ? [`X-WR-CALNAME:${escapeIcal(options.calendarName)}`]
+      : []),
+    `X-WR-TIMEZONE:${timezone}`,
   ];
 
   for (const day of group.days) {
     for (const lesson of day.lessons) {
-      const time = options.lessonTimes[lesson.number];
-      if (!time) continue;
       lesson.variants.forEach((variant, index) => {
         if (variant.weekType === 'unknown') return;
         const firstDate = firstDateForWeekType(
@@ -155,23 +273,74 @@ export const generateIcal = (
         );
         if (firstDate > termEnd) return;
         const interval = variant.weekType === 'both' ? 1 : 2;
-        const description = [variant.teacher, variant.room]
-          .filter(Boolean)
-          .join('\n');
-        lines.push(
-          'BEGIN:VEVENT',
-          `UID:${uid(group.group, day.day, lesson.number, variant.weekType, index)}`,
-          `DTSTAMP:${now}`,
-          `DTSTART;TZID=${timezone}:${formatLocalDateTime(firstDate, time.start)}`,
-          `DTEND;TZID=${timezone}:${formatLocalDateTime(firstDate, time.end)}`,
-          `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
-          `SUMMARY:${escapeIcal(variant.subject || `Пара ${lesson.number}`)}`,
-          ...(variant.room ? [`LOCATION:${escapeIcal(variant.room)}`] : []),
-          ...(description ? [`DESCRIPTION:${escapeIcal(description)}`] : []),
-          'END:VEVENT',
+        timesForDay(options, day.day, lesson.number).forEach(
+          (time, timeIndex) => {
+            const description = descriptionForLesson(
+              variant.teacher,
+              variant.room,
+            );
+            lines.push(
+              ...serializeEvent(
+                {
+                  uid: stableUid(
+                    'base',
+                    group.group,
+                    day.day,
+                    String(lesson.number),
+                    variant.weekType,
+                    String(index),
+                    String(timeIndex),
+                  ),
+                  start: formatLocalDateTime(firstDate, time.start),
+                  end: formatLocalDateTime(firstDate, time.end),
+                  rule: `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
+                  excludedDates: sortedDates(
+                    options.excludedDates?.[lesson.number],
+                  ),
+                  summary: variant.subject || `Пара ${lesson.number}`,
+                  ...(variant.room ? { room: variant.room } : {}),
+                  ...(description ? { description } : {}),
+                },
+                timezone,
+              ),
+            );
+          },
         );
       });
     }
+  }
+
+  for (const event of [...(options.additionalEvents ?? [])].sort(
+    (left, right) =>
+      left.date.localeCompare(right.date) ||
+      left.lessonNumber - right.lessonNumber ||
+      left.key.localeCompare(right.key),
+  )) {
+    const date = parseDate(event.date);
+    timesForDay(options, dayForDate(date), event.lessonNumber).forEach(
+      (time, timeIndex) => {
+        lines.push(
+          ...serializeEvent(
+            {
+              uid: stableUid(
+                'actual',
+                group.group,
+                event.date,
+                String(event.lessonNumber),
+                event.key,
+                String(timeIndex),
+              ),
+              start: formatLocalDateTime(date, time.start),
+              end: formatLocalDateTime(date, time.end),
+              summary: event.summary,
+              ...(event.room ? { room: event.room } : {}),
+              ...(event.description ? { description: event.description } : {}),
+            },
+            timezone,
+          ),
+        );
+      },
+    );
   }
 
   lines.push('END:VCALENDAR');

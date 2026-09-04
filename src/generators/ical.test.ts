@@ -163,4 +163,68 @@ describe('schedule generators', () => {
       }),
     ).toThrow(/Group not found/);
   });
+
+  it('uses multiple slots, Saturday overrides and stable exclusions', () => {
+    const schedule = makeSchedule();
+    schedule.groups['СТ1-11']!.days.push({
+      day: 'Суббота',
+      lessons: [
+        {
+          number: 5,
+          source: {
+            sheet: 'Лист',
+            rowStart: 11,
+            rowEnd: 12,
+            rawGroupName: 'СТ1-11',
+          },
+          variants: [
+            {
+              subject: 'Субботняя пара',
+              teacher: '',
+              room: '',
+              weekType: 'both',
+              sourceRow: 11,
+            },
+          ],
+        },
+      ],
+    });
+    const options = {
+      group: 'СТ1-11',
+      termStart: '2026-09-01',
+      termEnd: '2026-10-01',
+      referenceDate: '2026-09-07',
+      lessonTimes: {
+        2: [
+          { start: '11:00', end: '11:45' },
+          { start: '12:25', end: '13:10' },
+        ],
+        5: { start: '15:05', end: '16:35' },
+      },
+      lessonTimesByDay: {
+        Суббота: {
+          5: { start: '16:45', end: '18:15' },
+        },
+      },
+      excludedDates: { 2: ['2026-09-07'] },
+      additionalEvents: [
+        {
+          date: '2026-09-05',
+          lessonNumber: 5,
+          key: 'unresolved',
+          summary: 'Необработанная замена',
+        },
+      ],
+    } as const;
+    const first = generateIcal(schedule, options);
+    const second = generateIcal(schedule, options);
+
+    expect(first).toBe(second);
+    expect(first.match(/SUMMARY:Числитель/g) ?? []).toHaveLength(2);
+    expect(first).toContain('EXDATE;TZID=Europe/Moscow:20260907T110000');
+    expect(first).toContain('EXDATE;TZID=Europe/Moscow:20260907T122500');
+    expect(first).toContain('DTSTART;TZID=Europe/Moscow:20260905T164500');
+    expect(first).toContain('DTEND;TZID=Europe/Moscow:20260905T181500');
+    expect(first).toContain('DTSTAMP:20000101T000000Z');
+  });
 });

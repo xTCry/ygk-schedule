@@ -108,22 +108,28 @@ jobs:
           );
           NODE
 
+      - name: generate calendars
+        id: generate-ical
+        working-directory: parser
+        run: |
+          make generate-ical OUTPUT_DIR="$GITHUB_WORKSPACE"
+
       - name: commit published data
         id: publish-data
         run: |
-          git add replacements actual
+          git add replacements actual ical
 
           if git diff --cached --quiet; then
             echo "Replacement data is unchanged"
             {
               echo "### Публикация"
               echo
-              echo "Изменений в \`replacements/\` и \`actual/\` нет — commit не создан."
+              echo "Изменений в \`replacements/\`, \`actual/\` и \`ical/\` нет — commit не создан."
             } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
-          files=$(git diff --cached --name-only -- replacements actual | wc -l)
+          files=$(git diff --cached --name-only -- replacements actual ical | wc -l)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update replacements"
@@ -132,7 +138,7 @@ jobs:
           {
             echo "### Публикация"
             echo
-            echo "- Обновлено файлов: **$files**"
+            echo "- Обновлено файлов в \`replacements/\`, \`actual/\` и \`ical/\`: **$files**"
             echo "- Commit: \`$commit\`"
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -174,6 +180,7 @@ jobs:
             echo "- Ревизия parser: \`${{ github.sha }}\`"
             echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
             echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
+            echo "- Генерация ICS: \`${{ steps.generate-ical.outcome }}\`"
             echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
             echo "- Синхронизация Issue: \`${{ steps.sync-issues.outcome }}\`"
           } >> "$GITHUB_STEP_SUMMARY"

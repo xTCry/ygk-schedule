@@ -1,0 +1,123 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { generateIcalArtifacts } from './generate-ical.ts';
+import type {
+  CanonicalSchedule,
+  ScheduleSource,
+  ScheduleVersion,
+} from '../types.ts';
+
+const source: ScheduleSource = {
+  id: 'test.xlsx',
+  fileName: 'test.xlsx',
+  sha256: 'source',
+  fetchedAt: '2026-09-04T00:00:00.000Z',
+};
+
+const version: ScheduleVersion = {
+  schemaVersion: 5,
+  sourceSetHash: 'source',
+  parserHash: 'parser',
+  configHash: 'config',
+  value: 'version',
+};
+
+const schedule: CanonicalSchedule = {
+  schemaVersion: 5,
+  provider: 'ygk',
+  generatedAt: '2026-09-04T00:00:00.000Z',
+  sources: [source],
+  version,
+  semanticHash: 'semantic',
+  diagnostics: [],
+  groups: {
+    'СТ1-11': {
+      group: 'СТ1-11',
+      sourceGroups: ['СТ1-11'],
+      sourceBlocks: [
+        { sheet: 'Лист', rowStart: 1, rowEnd: 2, rawGroupName: 'СТ1-11' },
+      ],
+      days: [
+        {
+          day: 'Понедельник',
+          lessons: [
+            {
+              number: 1,
+              source: {
+                sheet: 'Лист',
+                rowStart: 1,
+                rowEnd: 2,
+                rawGroupName: 'СТ1-11',
+              },
+              variants: [
+                {
+                  subject: 'Тестовая пара',
+                  teacher: '',
+                  room: '',
+                  weekType: 'both',
+                  sourceRow: 1,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+};
+
+describe('generate iCalendar CLI', () => {
+  it('generates a selected group with a local profile override', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'ygk-generate-ical-'));
+    const baseDirectory = join(root, 'base');
+    const configPath = join(root, 'calendar.json');
+    await mkdir(baseDirectory, { recursive: true });
+    await writeFile(
+      join(baseDirectory, '00-schedule.json'),
+      JSON.stringify(schedule),
+    );
+    await writeFile(
+      configPath,
+      JSON.stringify({
+        timezone: 'Europe/Moscow',
+        term: {
+          start: '2026-09-01',
+          end: '2027-06-30',
+          referenceDate: '2026-09-07',
+          referenceWeekType: 'numerator',
+        },
+        profiles: {
+          local: {
+            lessonTimes: { 1: { start: '09:20', end: '10:50' } },
+          },
+        },
+        groupProfiles: {},
+      }),
+    );
+
+    const result = await generateIcalArtifacts({
+      baseSchedule: join(baseDirectory, '00-schedule.json'),
+      outputDir: root,
+      config: configPath,
+      group: 'СТ1-11',
+      profile: 'local',
+    });
+
+    expect(result.generatedGroups).toEqual(['СТ1-11']);
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain('SUMMARY:Тестовая пара');
+
+    const noProfileResult = await generateIcalArtifacts({
+      baseSchedule: join(baseDirectory, '00-schedule.json'),
+      outputDir: root,
+      config: configPath,
+    });
+    expect(noProfileResult.generatedGroups).toEqual([]);
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain('SUMMARY:Тестовая пара');
+  });
+});

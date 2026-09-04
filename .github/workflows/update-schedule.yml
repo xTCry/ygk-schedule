@@ -87,22 +87,28 @@ jobs:
           );
           NODE
 
+      - name: generate calendars
+        id: generate-ical
+        working-directory: parser
+        run: |
+          make generate-ical OUTPUT_DIR="$GITHUB_WORKSPACE"
+
       - name: commit published data
         id: publish-data
         run: |
-          git add base
+          git add base ical
 
           if git diff --cached --quiet; then
             echo "Schedule data is unchanged"
             {
               echo "### Публикация"
               echo
-              echo "Изменений в \`base/\` нет — commit не создан."
+              echo "Изменений в \`base/\` и \`ical/\` нет — commit не создан."
             } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
-          files=$(git diff --cached --name-only -- base | wc -l)
+          files=$(git diff --cached --name-only -- base ical | wc -l)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update schedule"
@@ -111,7 +117,7 @@ jobs:
           {
             echo "### Публикация"
             echo
-            echo "- Обновлено файлов в \`base/\`: **$files**"
+            echo "- Обновлено файлов в \`base/\` и \`ical/\`: **$files**"
             echo "- Commit: \`$commit\`"
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -148,6 +154,7 @@ jobs:
             echo "- Ревизия parser: \`${{ github.sha }}\`"
             echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
             echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
+            echo "- Генерация ICS: \`${{ steps.generate-ical.outcome }}\`"
             echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
             echo "- Синхронизация Issue: \`${{ steps.sync-issues.outcome }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
