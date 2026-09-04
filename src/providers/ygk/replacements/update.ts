@@ -10,8 +10,8 @@ import type {
   ActualSchedule,
   CanonicalReplacements,
   CanonicalSchedule,
-  Diagnostic,
   ReplacementPageSource,
+  ReplacementSnapshot,
   ReplacementShift,
 } from '../../../types.ts';
 import { fileExists, readJsonIfExists } from '../../../utils/fs.ts';
@@ -28,6 +28,7 @@ import {
 } from '../constants.ts';
 import { loadYgkReplacementAliases } from './config.ts';
 import { downloadReplacementPage } from './download.ts';
+import { mergeReplacementHistory } from './history.ts';
 import { parseYgkReplacements } from './parse.ts';
 import { buildActualSchedule, semanticReplacementHash } from './resolve.ts';
 
@@ -39,6 +40,11 @@ export interface UpdateReplacementsOptions {
   firstUrl?: string;
   secondUrl?: string;
   projectRoot?: string;
+  /**
+   * SHA commit ветки `data`, из которой прочитан базовый артефакт.
+   * Локальная работа может не передавать Git provenance.
+   */
+  baseDataRevision?: string;
 }
 
 export interface UpdateReplacementsResult {
@@ -99,88 +105,41 @@ const loadPages = async (
   ]);
 };
 
-const withSource = (
-  diagnostics: readonly Diagnostic[],
-  source: ReplacementPageSource,
-): Diagnostic[] =>
-  diagnostics.map((diagnostic) => ({
-    ...diagnostic,
-    sourceId: source.id,
-    ...(source.url ? { sourceUrl: source.url } : {}),
-  }));
-
 const buildCanonicalReplacements = (
+  previous: CanonicalReplacements | null,
   pages: readonly LoadedReplacementPage[],
   parserHash: string,
   configHash: string,
 ): CanonicalReplacements => {
-  const diagnostics: Diagnostic[] = [];
-  const dates = new Map<string, CanonicalReplacements['dates'][string]>();
-
-  for (const page of pages) {
-    const parsed = parseYgkReplacements(page.html, page.source.shift);
-    diagnostics.push(...withSource(parsed.diagnostics, page.source));
-    if (!parsed.date || !parsed.day) continue;
-
-    const current = dates.get(parsed.date);
-    if (!current) {
-      dates.set(parsed.date, {
-        date: parsed.date,
-        day: parsed.day,
-        weekType: parsed.weekType,
-        replacements: [...parsed.replacements],
-      });
-      continue;
-    }
-
-    if (current.day !== parsed.day || current.weekType !== parsed.weekType) {
-      diagnostics.push(
-        ...withSource(
-          [
-            {
-              provider: 'ygk',
-              code: 'UNKNOWN_REPLACEMENT_LAYOUT',
-              severity: 'error',
-              message:
-                'Страницы замен содержат несовместимые дату, день недели или тип недели',
-              fingerprint: sha256(
-                [
-                  'ygk',
-                  'UNKNOWN_REPLACEMENT_LAYOUT',
-                  parsed.date,
-                  current.day,
-                  parsed.day,
-                  current.weekType,
-                  parsed.weekType,
-                ].join('\0'),
-              ),
-              rawValue: `${current.day} / ${current.weekType}; ${parsed.day} / ${parsed.weekType}`,
-            },
-          ],
-          page.source,
-        ),
-      );
-      continue;
-    }
-    current.replacements.push(...parsed.replacements);
-  }
+  const history = mergeReplacementHistory(
+    previous,
+    pages.map((page) => ({
+      parsed: parseYgkReplacements(page.html, page.source.shift),
+      source: page.source,
+    })),
+  );
+  const sources = Object.values(history.dates)
+    .flatMap((date) => Object.values(date.shifts ?? {}))
+    .filter((snapshot): snapshot is ReplacementSnapshot => Boolean(snapshot))
+    .map((snapshot) => snapshot.source)
+    .sort((left, right) =>
+      `${left.shift}\0${left.id}\0${left.sha256}`.localeCompare(
+        `${right.shift}\0${right.id}\0${right.sha256}`,
+      ),
+    );
 
   const replacements: CanonicalReplacements = {
     schemaVersion: SCHEMA_VERSION,
     provider: 'ygk',
     generatedAt: new Date().toISOString(),
-    sources: pages
-      .map((page) => page.source)
-      .sort((left, right) => left.id.localeCompare(right.id)),
+    sources,
     version: buildScheduleVersion({
-      sourceSetHash: calculateSourceSetHash(pages.map((page) => page.source)),
+      sourceSetHash: calculateSourceSetHash(sources),
       parserHash,
       configHash,
     }),
-    dates: Object.fromEntries(
-      [...dates.entries()].sort(([left], [right]) => left.localeCompare(right)),
-    ),
-    diagnostics,
+    dates: history.dates,
+    diagnostics: history.diagnostics,
     semanticHash: '',
   };
   replacements.semanticHash = semanticReplacementHash(replacements);
@@ -215,6 +174,7 @@ export const updateYgkReplacements = async (
     await calculateReplacementProjectHashes(projectRoot);
   const aliases = await loadYgkReplacementAliases(projectRoot);
   const nextReplacements = buildCanonicalReplacements(
+    previousReplacements,
     pages,
     parserHash,
     configHash,
@@ -225,15 +185,21 @@ export const updateYgkReplacements = async (
       : nextReplacements;
   const replacementsChanged =
     previousReplacements?.version.value !== replacements.version.value;
+  const previousActual = await readJsonIfExists<ActualSchedule>(
+    artifactPaths.actualJson,
+  );
   const actual = buildActualSchedule(
     baseSchedule,
     replacements,
     parserHash,
     configHash,
     aliases,
-  );
-  const previousActual = await readJsonIfExists<ActualSchedule>(
-    artifactPaths.actualJson,
+    {
+      previousActual,
+      ...(options.baseDataRevision
+        ? { baseDataRevision: options.baseDataRevision }
+        : {}),
+    },
   );
   const actualChanged = previousActual?.version.value !== actual.version.value;
   const artifactFiles = getReplacementArtifactFiles(

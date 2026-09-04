@@ -63,7 +63,8 @@ jobs:
         id: update-data
         working-directory: parser
         run: |
-          make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE"
+          base_data_revision=$(git -C "$GITHUB_WORKSPACE" rev-parse HEAD)
+          make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE" BASE_DATA_REVISION="$base_data_revision"
           data_changed=false
           if ! git diff --quiet -- replacements actual; then data_changed=true; fi
           DATA_CHANGED="$data_changed" node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
@@ -83,6 +84,15 @@ jobs:
             (count, date) => count + date.replacements.length,
             0,
           );
+          const snapshots = Object.values(replacements.dates).flatMap(
+            (date) => Object.values(date.shifts ?? {}),
+          );
+          const mutableSnapshots = snapshots.filter(
+            (snapshot) => snapshot?.status === 'mutable',
+          ).length;
+          const finalizedSnapshots = snapshots.filter(
+            (snapshot) => snapshot?.status === 'finalized',
+          ).length;
           const summary = diagnostics.summary;
           const changed = process.env.DATA_CHANGED === 'true' ? 'да' : 'нет';
 
@@ -91,6 +101,7 @@ jobs:
           console.log(`- Изменения перед публикацией: **${changed}**`);
           console.log(`- Дат с заменами: **${Object.keys(replacements.dates).length}**`);
           console.log(`- Строк замен: **${replacementCount}**`);
+          console.log(`- Снимков: **${mutableSnapshots} mutable**, **${finalizedSnapshots} finalized**`);
           console.log(`- Дат actual-расписания: **${Object.keys(actual.dates).length}**`);
           console.log(
             `- Diagnostics: ${summary.info} info, ${summary.warning} warnings, ${summary.error} errors, ${summary.fatal} fatal.`,

@@ -130,5 +130,53 @@ describe('YGK replacements update', () => {
     expect(third.written).toBe(false);
     expect(third.replacementsChanged).toBe(false);
     expect(third.actualChanged).toBe(false);
+
+    const firstForNextDayPath = join(root, 'rasp_first-2026-09-05.html');
+    const firstFixtureHtml = await readFile(
+      replacementFixturePath('first'),
+      'utf8',
+    );
+    await writeFile(
+      firstForNextDayPath,
+      firstFixtureHtml
+        .replace(
+          'на 4 сентября 2026 года / пятница',
+          'на 5 сентября 2026 года / суббота',
+        )
+        .replace('(Числитель) Первая смена', '(Знаменатель) Первая смена'),
+    );
+    const fourth = await updateYgkReplacements({
+      baseSchedule: basePath,
+      outputDir: root,
+      firstInput: firstForNextDayPath,
+      secondInput: replacementFixturePath('second'),
+      projectRoot: root,
+      baseDataRevision: 'data-base-revision',
+    });
+
+    expect(fourth.written).toBe(true);
+    expect(fourth.replacementsChanged).toBe(true);
+    expect(fourth.actualChanged).toBe(true);
+    expect(fourth.replacements.dates['2026-09-04']?.shifts).toMatchObject({
+      first: {
+        status: 'finalized',
+        finalizedBy: { date: '2026-09-05' },
+      },
+      second: { status: 'mutable' },
+    });
+    expect(
+      fourth.replacements.dates['2026-09-05']?.shifts?.first,
+    ).toMatchObject({ status: 'mutable' });
+    expect(
+      fourth.actual.dates['2026-09-04']?.groups['СТ1-11']?.frozenBase,
+    ).toEqual(
+      expect.objectContaining({
+        dataRevision: 'data-base-revision',
+      }),
+    );
+    expect(
+      fourth.actual.dates['2026-09-04']?.groups['СТ1-11']?.frozenBase
+        ?.scheduleVersion,
+    ).toBeTypeOf('string');
   }, 20_000);
 });

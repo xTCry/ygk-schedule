@@ -43,6 +43,9 @@ const parseArgs = (args: string[]): UpdateReplacementsOptions => {
     ...(values.get('project-root')
       ? { projectRoot: values.get('project-root')! }
       : {}),
+    ...(values.get('base-data-revision')
+      ? { baseDataRevision: values.get('base-data-revision')! }
+      : {}),
   };
 };
 
@@ -53,6 +56,11 @@ export const formatUpdateReplacementsCliOutput = (
   result: UpdateReplacementsResult,
 ): string => {
   const diagnostics = buildDiagnosticsReport(result.actual);
+  const snapshots = Object.values(result.replacements.dates).flatMap((date) =>
+    Object.values(date.shifts ?? {}).filter(
+      (snapshot): snapshot is NonNullable<typeof snapshot> => Boolean(snapshot),
+    ),
+  );
   return `${JSON.stringify(
     {
       written: result.written,
@@ -63,6 +71,12 @@ export const formatUpdateReplacementsCliOutput = (
         (count, date) => count + date.replacements.length,
         0,
       ),
+      mutableSnapshots: snapshots.filter(
+        (snapshot) => snapshot.status === 'mutable',
+      ).length,
+      finalizedSnapshots: snapshots.filter(
+        (snapshot) => snapshot.status === 'finalized',
+      ).length,
       actualDates: Object.keys(result.actual.dates).length,
       diagnostics: diagnostics.summary,
     },

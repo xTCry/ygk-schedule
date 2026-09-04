@@ -9,10 +9,13 @@ import type {
   CanonicalReplacements,
   CanonicalSchedule,
   Diagnostic,
+  FrozenActualBase,
   Lesson,
   LessonVariant,
   Replacement,
   ReplacementPageSource,
+  ReplacementShift,
+  ReplacementSnapshot,
   UnresolvedReplacement,
   UnresolvedReplacementReason,
   WeekType,
@@ -20,6 +23,7 @@ import type {
 import { sha256 } from '../../../utils/hash.ts';
 import { SCHEMA_VERSION, buildScheduleVersion } from '../../../version.ts';
 import { resolveReplacementAlias, type ReplacementAliases } from './config.ts';
+import { compatibleReplacementSnapshots } from './history.ts';
 
 const subjectKey = (value: string): string =>
   normalizeDashes(normalizeSingleLine(value))
@@ -348,28 +352,103 @@ const applyReplacement = (
   applied(lesson, replacement, lessonNumber, match.strategy);
 };
 
-const createActualDate = (
+const cloneActualLesson = (lesson: ActualLesson): ActualLesson => ({
+  ...lesson,
+  variants: lesson.variants.map((variant) => ({ ...variant })),
+  source: lesson.source ? { ...lesson.source } : null,
+  replacements: [],
+});
+
+const baseLessons = (
   schedule: CanonicalSchedule,
-  date: string,
+  group: string,
   day: ActualScheduleDate['day'],
   weekType: WeekType,
-): ActualScheduleDate => {
-  const groups: Record<string, ActualGroupSchedule> = {};
-  for (const [group, scheduleGroup] of Object.entries(schedule.groups)) {
-    const scheduleDay = scheduleGroup.days.find((item) => item.day === day);
-    if (!scheduleDay) continue;
-    groups[group] = {
-      group,
-      date,
-      day,
-      lessons: scheduleDay.lessons
-        .map((lesson) => toActualLesson(lesson, weekType))
-        .filter((lesson) => lesson.variants.length > 0),
-      unresolvedReplacements: [],
-    };
-  }
-  return { date, day, weekType, groups };
+): ActualLesson[] | null => {
+  const scheduleDay = schedule.groups[group]?.days.find(
+    (item) => item.day === day,
+  );
+  if (!scheduleDay) return null;
+  return scheduleDay.lessons
+    .map((lesson) => toActualLesson(lesson, weekType))
+    .filter((lesson) => lesson.variants.length > 0);
 };
+
+const frozenBase = (
+  schedule: CanonicalSchedule,
+  dataRevision: string | undefined,
+  lessons: readonly ActualLesson[],
+): FrozenActualBase => ({
+  scheduleVersion: schedule.version.value,
+  ...(dataRevision ? { dataRevision } : {}),
+  lessons: lessons.map(cloneActualLesson),
+});
+
+const legacySnapshots = (
+  replacements: CanonicalReplacements,
+  date: CanonicalReplacements['dates'][string],
+): ReplacementSnapshot[] => {
+  const shifts: readonly ReplacementShift[] = ['first', 'second'];
+  return shifts.flatMap((shift) => {
+    const shiftReplacements = date.replacements.filter(
+      (replacement) => replacement.source.shift === shift,
+    );
+    if (!shiftReplacements.length) return [];
+    const source = replacements.sources.find(
+      (item) => item.shift === shift,
+    ) ?? {
+      id: `legacy-${shift}`,
+      fileName: `legacy-${shift}.html`,
+      sha256: sha256(`legacy\0${shift}`),
+      fetchedAt: replacements.generatedAt,
+      shift,
+    };
+    return [
+      {
+        date: date.date,
+        day: date.day,
+        weekType: date.weekType,
+        shift,
+        status: 'mutable',
+        source,
+        replacements: shiftReplacements,
+        diagnostics: [],
+      } satisfies ReplacementSnapshot,
+    ];
+  });
+};
+
+const snapshotsForActual = (
+  replacements: CanonicalReplacements,
+  date: CanonicalReplacements['dates'][string],
+): ReplacementSnapshot[] =>
+  date.shifts
+    ? compatibleReplacementSnapshots(date)
+    : legacySnapshots(replacements, date);
+
+const snapshotStates = (
+  snapshots: readonly ReplacementSnapshot[],
+): NonNullable<ActualScheduleDate['shifts']> =>
+  Object.fromEntries(
+    snapshots.map((snapshot) => [
+      snapshot.shift,
+      {
+        date: snapshot.date,
+        day: snapshot.day,
+        weekType: snapshot.weekType,
+        status: snapshot.status,
+        source: { ...snapshot.source },
+        ...(snapshot.finalizedBy
+          ? { finalizedBy: { ...snapshot.finalizedBy } }
+          : {}),
+      },
+    ]),
+  );
+
+export interface BuildActualScheduleOptions {
+  previousActual?: ActualSchedule | null;
+  baseDataRevision?: string;
+}
 
 const replacementSemanticValue = (
   replacements: CanonicalReplacements,
@@ -382,6 +461,29 @@ const replacementSemanticValue = (
         {
           day: value.day,
           weekType: value.weekType,
+          shifts: Object.fromEntries(
+            Object.entries(value.shifts ?? {})
+              .sort(([left], [right]) => left.localeCompare(right))
+              .map(([shift, snapshot]) => [
+                shift,
+                snapshot
+                  ? {
+                      date: snapshot.date,
+                      day: snapshot.day,
+                      weekType: snapshot.weekType,
+                      shift: snapshot.shift,
+                      status: snapshot.status,
+                      source: {
+                        id: snapshot.source.id,
+                        sha256: snapshot.source.sha256,
+                      },
+                      replacements: snapshot.replacements,
+                      diagnostics: snapshot.diagnostics,
+                      finalizedBy: snapshot.finalizedBy,
+                    }
+                  : null,
+              ]),
+          ),
           replacements: value.replacements,
         },
       ]),
@@ -396,6 +498,7 @@ export const semanticActualScheduleHash = (actual: ActualSchedule): string =>
   sha256(
     JSON.stringify({
       baseScheduleVersion: actual.baseScheduleVersion,
+      baseDataRevision: actual.baseDataRevision,
       replacementVersion: actual.replacementVersion,
       dates: actual.dates,
     }),
@@ -413,57 +516,122 @@ export const buildActualSchedule = (
   parserHash: string,
   configHash: string,
   aliases: ReplacementAliases = emptyAliases(),
+  options: BuildActualScheduleOptions = {},
 ): ActualSchedule => {
   const diagnostics = [...replacements.diagnostics];
   const dates: Record<string, ActualScheduleDate> = {};
+  const baseDataRevision =
+    options.previousActual?.baseScheduleVersion === schedule.version.value
+      ? (options.previousActual.baseDataRevision ?? options.baseDataRevision)
+      : options.baseDataRevision;
 
   for (const [date, replacementDate] of Object.entries(replacements.dates)) {
-    const actualDate = createActualDate(
-      schedule,
+    const snapshots = snapshotsForActual(replacements, replacementDate);
+    if (!snapshots.length) continue;
+    const actualDate: ActualScheduleDate = {
       date,
-      replacementDate.day,
-      replacementDate.weekType,
-    );
+      day: replacementDate.day,
+      weekType: replacementDate.weekType,
+      shifts: snapshotStates(snapshots),
+      groups: {},
+    };
     dates[date] = actualDate;
 
-    for (const replacement of replacementDate.replacements) {
-      const replacementGroup = resolveReplacementAlias(
-        aliases,
-        'groups',
-        replacement.group,
+    const ensureGroup = (
+      group: string,
+      shouldFreezeBase: boolean,
+    ): ActualGroupSchedule => {
+      const existing = actualDate.groups[group];
+      if (existing) return existing;
+
+      const previousGroup =
+        options.previousActual?.dates[date]?.groups[group] ?? null;
+      const retainedFrozenBase = previousGroup?.frozenBase;
+      const currentBaseLessons = baseLessons(
+        schedule,
+        group,
+        replacementDate.day,
+        replacementDate.weekType,
       );
-      const group = actualDate.groups[replacementGroup];
-      if (!group) {
-        const baseGroup = schedule.groups[replacementGroup];
-        const unresolvedGroup: ActualGroupSchedule = {
-          group: replacementGroup,
-          date,
-          day: replacementDate.day,
-          lessons: [],
-          unresolvedReplacements: [],
-        };
-        actualDate.groups[replacementGroup] = unresolvedGroup;
+      const initialLessons = retainedFrozenBase
+        ? retainedFrozenBase.lessons.map(cloneActualLesson)
+        : (currentBaseLessons?.map(cloneActualLesson) ?? []);
+      const target: ActualGroupSchedule = {
+        group,
+        date,
+        day: replacementDate.day,
+        lessons: initialLessons,
+        unresolvedReplacements: [],
+        ...(retainedFrozenBase
+          ? {
+              frozenBase: {
+                ...retainedFrozenBase,
+                lessons: retainedFrozenBase.lessons.map(cloneActualLesson),
+              },
+            }
+          : shouldFreezeBase && currentBaseLessons
+            ? {
+                frozenBase: frozenBase(
+                  schedule,
+                  baseDataRevision,
+                  currentBaseLessons,
+                ),
+              }
+            : {}),
+      };
+      actualDate.groups[group] = target;
+      return target;
+    };
+
+    for (const snapshot of snapshots) {
+      for (const replacement of snapshot.replacements) {
+        const replacementGroup = resolveReplacementAlias(
+          aliases,
+          'groups',
+          replacement.group,
+        );
+        const group = ensureGroup(
+          replacementGroup,
+          snapshot.status === 'finalized',
+        );
+        const hasBaseDay =
+          Boolean(schedule.groups[replacementGroup]) &&
+          Boolean(
+            baseLessons(
+              schedule,
+              replacementGroup,
+              replacementDate.day,
+              replacementDate.weekType,
+            ),
+          );
+        const hasFrozenBase = Boolean(group.frozenBase);
+
+        if (!hasBaseDay && !hasFrozenBase) {
+          const reason = schedule.groups[replacementGroup]
+            ? 'day-not-found'
+            : 'group-not-found';
+          for (const lessonNumber of replacement.lessonNumbers)
+            unresolved(
+              group,
+              replacement,
+              lessonNumber,
+              reason,
+              replacements.sources,
+              diagnostics,
+            );
+          continue;
+        }
+
         for (const lessonNumber of replacement.lessonNumbers)
-          unresolved(
-            unresolvedGroup,
+          applyReplacement(
+            group,
             replacement,
             lessonNumber,
-            baseGroup ? 'day-not-found' : 'group-not-found',
             replacements.sources,
             diagnostics,
+            aliases,
           );
-        continue;
       }
-
-      for (const lessonNumber of replacement.lessonNumbers)
-        applyReplacement(
-          group,
-          replacement,
-          lessonNumber,
-          replacements.sources,
-          diagnostics,
-          aliases,
-        );
     }
 
     for (const group of Object.values(actualDate.groups)) {
@@ -492,6 +660,7 @@ export const buildActualSchedule = (
     ),
     version,
     baseScheduleVersion: schedule.version.value,
+    ...(baseDataRevision ? { baseDataRevision } : {}),
     replacementVersion: replacements.version.value,
     dates,
     diagnostics,

@@ -7,6 +7,8 @@ export type ReplacementShift = 'first' | 'second';
 
 export type ReplacementType = 'replace' | 'cancel' | 'add' | 'move' | 'unknown';
 
+export type ReplacementSnapshotStatus = 'mutable' | 'finalized';
+
 export type DiagnosticSeverity = 'info' | 'warning' | 'error' | 'fatal';
 
 export type DiagnosticCode =
@@ -31,6 +33,8 @@ export type DiagnosticCode =
   | 'INVALID_REPLACEMENT_DATE'
   | 'UNKNOWN_REPLACEMENT_LAYOUT'
   | 'REPLACEMENT_SHIFT_MISMATCH'
+  | 'REPLACEMENT_FINALIZED_SNAPSHOT_REAPPEARED'
+  | 'REPLACEMENT_STALE_SNAPSHOT'
   | 'INVALID_REPLACEMENT_LESSON_NUMBER'
   | 'UNKNOWN_REPLACEMENT_TYPE';
 
@@ -199,10 +203,46 @@ export interface ReplacementPageSource extends ScheduleSource {
   shift: ReplacementShift;
 }
 
+/**
+ * Один снимок страницы замен конкретной смены на опубликованную дату.
+ *
+ * Снимки первой и второй смены живут независимо: обновление одной страницы
+ * не должно перетирать данные другой. После перехода страницы на новую дату
+ * прежний снимок этой же смены становится `finalized`.
+ */
+export interface ReplacementSnapshot {
+  date: string;
+  day: DayOfWeek;
+  weekType: WeekType;
+  shift: ReplacementShift;
+  status: ReplacementSnapshotStatus;
+  source: ReplacementPageSource;
+  replacements: Replacement[];
+  diagnostics: Diagnostic[];
+  /**
+   * Снимок, по которому прежняя страница той же смены была финализирована.
+   *
+   * Это детерминированная provenance-ссылка, а не время выполнения workflow:
+   * повторный запуск с теми же HTML не создает новый diff.
+   */
+  finalizedBy?: {
+    date: string;
+    sourceId: string;
+    sourceSha256: string;
+  };
+}
+
 export interface ReplacementDate {
   date: string;
   day: DayOfWeek;
   weekType: WeekType;
+  /**
+   * История независимых страниц первой и второй смены.
+   *
+   * Старые данные без этого поля читаются как legacy-выгрузка и
+   * автоматически мигрируются при следующем обновлении.
+   */
+  shifts?: Partial<Record<ReplacementShift, ReplacementSnapshot>>;
   replacements: Replacement[];
 }
 
@@ -286,18 +326,46 @@ export interface ActualLesson {
   replacements: AppliedReplacement[];
 }
 
+/**
+ * Снимок базовых пар, закрепленный при финализации замен.
+ *
+ * Он не дает будущему обновлению XLSX ретроспективно изменить уже прошедший
+ * день. Сохраняется только у групп, затронутых финализированными заменами.
+ */
+export interface FrozenActualBase {
+  scheduleVersion: string;
+  dataRevision?: string;
+  lessons: ActualLesson[];
+}
+
 export interface ActualGroupSchedule {
   group: string;
   date: string;
   day: DayOfWeek;
   lessons: ActualLesson[];
   unresolvedReplacements: UnresolvedReplacement[];
+  frozenBase?: FrozenActualBase;
 }
 
 export interface ActualScheduleDate {
   date: string;
   day: DayOfWeek;
   weekType: WeekType;
+  /**
+   * Состояние отдельных источников замен для даты.
+   *
+   * Например, первая смена может быть уже финализирована, а вторая — еще
+   * изменяться на ту же дату.
+   */
+  shifts?: Partial<
+    Record<
+      ReplacementShift,
+      Pick<
+        ReplacementSnapshot,
+        'status' | 'source' | 'finalizedBy' | 'date' | 'day' | 'weekType'
+      >
+    >
+  >;
   groups: Record<string, ActualGroupSchedule>;
 }
 
@@ -311,6 +379,11 @@ export interface ActualSchedule {
   sources: ScheduleSource[];
   version: ScheduleVersion;
   baseScheduleVersion: string;
+  /**
+   * SHA commit ветки `data`, из которой был прочитан `base/00-schedule.json`.
+   * Локальный запуск без Git provenance оставляет поле пустым.
+   */
+  baseDataRevision?: string;
   replacementVersion: string;
   dates: Record<string, ActualScheduleDate>;
   diagnostics: Diagnostic[];

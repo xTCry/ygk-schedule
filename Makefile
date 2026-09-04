@@ -6,6 +6,7 @@ FIXTURE_PATH ?= src/providers/ygk/schedule/fixtures/2026-09-so.xlsx
 DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/base/90-diagnostics.json
 ACTUAL_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/actual/90-diagnostics.json
 BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
+BASE_DATA_REVISION ?=
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
 
@@ -64,10 +65,10 @@ regenerate-artifacts:
 	npm run regenerate-artifacts -- --input "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)"
 
 update-replacements:
-	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)"
+	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
 
 update-replacements-fixtures:
-	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-input "$(REPLACEMENT_FIRST_FIXTURE_PATH)" --second-input "$(REPLACEMENT_SECOND_FIXTURE_PATH)"
+	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-input "$(REPLACEMENT_FIRST_FIXTURE_PATH)" --second-input "$(REPLACEMENT_SECOND_FIXTURE_PATH)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
 
 sync-issues:
 	test -n "$(GITHUB_REPOSITORY)"

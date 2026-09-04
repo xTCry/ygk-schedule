@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 import type { ScheduleSource, ScheduleVersion } from './types.ts';
 import { hashPath, hashPaths, sha256 } from './utils/hash.ts';
 
-export const SCHEMA_VERSION = 4;
+export const SCHEMA_VERSION = 5;
 
 export interface VersionInput {
   sourceSetHash: string;

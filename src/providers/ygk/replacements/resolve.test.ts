@@ -8,6 +8,7 @@ import type {
   CanonicalReplacements,
   CanonicalSchedule,
   Replacement,
+  ReplacementSnapshot,
   SourceReference,
 } from '../../../types.ts';
 
@@ -282,5 +283,99 @@ describe('actual YGK schedule', () => {
     expect(
       ambiguous.dates['2026-09-04']?.groups['СТ1-11']?.unresolvedReplacements,
     ).toEqual([expect.objectContaining({ reason: 'ambiguous-original' })]);
+  });
+
+  it('keeps a frozen base for a finalized shift after the XLSX schedule changes', () => {
+    const finalizedFirst: ReplacementSnapshot = {
+      date: '2026-09-04',
+      day: 'Пятница',
+      weekType: 'numerator',
+      shift: 'first',
+      status: 'finalized',
+      source: replacements.sources[0]!,
+      replacements: [replacement([2], 'replace', 'Математика', 'История')],
+      diagnostics: [],
+      finalizedBy: {
+        date: '2026-09-05',
+        sourceId: 'first',
+        sourceSha256: 'first-05',
+      },
+    };
+    const mutableSecond: ReplacementSnapshot = {
+      date: '2026-09-04',
+      day: 'Пятница',
+      weekType: 'numerator',
+      shift: 'second',
+      status: 'mutable',
+      source: {
+        ...replacements.sources[0]!,
+        id: 'second',
+        fileName: 'rasp_second.html',
+        sha256: 'second-source-hash',
+        shift: 'second',
+      },
+      replacements: [replacement([4], 'add', null, 'Биология')],
+      diagnostics: [],
+    };
+    const history: CanonicalReplacements = {
+      ...replacements,
+      dates: {
+        '2026-09-04': {
+          ...replacements.dates['2026-09-04']!,
+          shifts: {
+            first: finalizedFirst,
+            second: mutableSecond,
+          },
+          replacements: [
+            ...finalizedFirst.replacements,
+            ...mutableSecond.replacements,
+          ],
+        },
+      },
+    };
+    const firstActual = buildActualSchedule(
+      baseSchedule,
+      history,
+      'actual-parser',
+      'config',
+      undefined,
+      { baseDataRevision: 'data-base-v1' },
+    );
+    const frozen = firstActual.dates['2026-09-04']?.groups['СТ1-11'];
+    expect(frozen?.frozenBase).toMatchObject({
+      scheduleVersion: 'base-version',
+      dataRevision: 'data-base-v1',
+    });
+
+    const changedBase = structuredClone(baseSchedule);
+    changedBase.version.value = 'base-version-v2';
+    const lesson = changedBase.groups['СТ1-11']?.days[0]?.lessons.find(
+      (item) => item.number === 2,
+    );
+    if (!lesson) throw new Error('Expected lesson was not found');
+    lesson.variants[0]!.subject = 'Алгебра';
+
+    const rebuilt = buildActualSchedule(
+      changedBase,
+      history,
+      'actual-parser',
+      'config',
+      undefined,
+      { previousActual: firstActual, baseDataRevision: 'data-base-v2' },
+    );
+    expect(
+      rebuilt.dates['2026-09-04']?.groups['СТ1-11']?.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [{ subject: 'История' }],
+      replacements: [{ strategy: 'exact-subject' }],
+    });
+    expect(
+      rebuilt.dates['2026-09-04']?.groups['СТ1-11']?.frozenBase,
+    ).toMatchObject({
+      scheduleVersion: 'base-version',
+      dataRevision: 'data-base-v1',
+    });
   });
 });
