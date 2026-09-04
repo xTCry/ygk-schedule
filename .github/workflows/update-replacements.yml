@@ -49,29 +49,120 @@ jobs:
         run: make install
 
       - name: check parser
+        id: check-parser
         working-directory: parser
-        run: make check
+        run: |
+          make check
+          {
+            echo "## Проверка parser"
+            echo
+            echo "✅ TypeScript, ESLint, Vitest и Prettier прошли успешно."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: update replacement data
+        id: update-data
         working-directory: parser
-        run: make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE"
+        run: |
+          make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE"
+          data_changed=false
+          if ! git diff --quiet -- replacements actual; then data_changed=true; fi
+          DATA_CHANGED="$data_changed" node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          import { readFile } from 'node:fs/promises';
+
+          const root = process.env.GITHUB_WORKSPACE;
+          const replacements = JSON.parse(
+            await readFile(`${root}/replacements/00-replacements.json`, 'utf8'),
+          );
+          const actual = JSON.parse(
+            await readFile(`${root}/actual/00-schedule.json`, 'utf8'),
+          );
+          const diagnostics = JSON.parse(
+            await readFile(`${root}/actual/90-diagnostics.json`, 'utf8'),
+          );
+          const replacementCount = Object.values(replacements.dates).reduce(
+            (count, date) => count + date.replacements.length,
+            0,
+          );
+          const summary = diagnostics.summary;
+          const changed = process.env.DATA_CHANGED === 'true' ? 'да' : 'нет';
+
+          console.log('## Замены и actual-расписание');
+          console.log('');
+          console.log(`- Изменения перед публикацией: **${changed}**`);
+          console.log(`- Дат с заменами: **${Object.keys(replacements.dates).length}**`);
+          console.log(`- Строк замен: **${replacementCount}**`);
+          console.log(`- Дат actual-расписания: **${Object.keys(actual.dates).length}**`);
+          console.log(
+            `- Diagnostics: ${summary.info} info, ${summary.warning} warnings, ${summary.error} errors, ${summary.fatal} fatal.`,
+          );
+          NODE
 
       - name: commit published data
+        id: publish-data
         run: |
           git add replacements actual
 
           if git diff --cached --quiet; then
             echo "Replacement data is unchanged"
+            {
+              echo "### Публикация"
+              echo
+              echo "Изменений в \`replacements/\` и \`actual/\` нет — commit не создан."
+            } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
+          files=$(git diff --cached --name-only -- replacements actual | wc -l)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update replacements"
           git push origin HEAD:data
+          commit=$(git rev-parse --short HEAD)
+          {
+            echo "### Публикация"
+            echo
+            echo "- Обновлено файлов: **$files**"
+            echo "- Commit: \`$commit\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: synchronize diagnostic issues
+        id: sync-issues
         working-directory: parser
-        run: make sync-issues OUTPUT_DIR="$GITHUB_WORKSPACE"
+        run: |
+          make sync-issues OUTPUT_DIR="$GITHUB_WORKSPACE"
+          node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          import { readFile } from 'node:fs/promises';
+
+          const root = process.env.GITHUB_WORKSPACE;
+          const reports = await Promise.all(
+            ['replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
+              async (path) =>
+                JSON.parse(await readFile(`${root}/${path}`, 'utf8')),
+            ),
+          );
+          const drafts = reports.reduce(
+            (count, report) => count + report.issues.length,
+            0,
+          );
+          console.log('### Диагностические Issue');
+          console.log('');
+          console.log(
+            `Синхронизация завершена. Черновиков Issue в текущих выгрузках: **${drafts}**.`,
+          );
+          NODE
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: write workflow status
+        if: always()
+        run: |
+          {
+            echo "## Итог workflow"
+            echo
+            echo "- Событие: \`${{ github.event_name }}\`"
+            echo "- Ревизия parser: \`${{ github.sha }}\`"
+            echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
+            echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
+            echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
+            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outcome }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

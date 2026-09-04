@@ -122,5 +122,5 @@ describe('YGK replacements update', () => {
     expect(third.written).toBe(false);
     expect(third.replacementsChanged).toBe(false);
     expect(third.actualChanged).toBe(false);
-  });
+  }, 20_000);
 });

@@ -46,29 +46,108 @@ jobs:
         run: make install
 
       - name: check parser
+        id: check-parser
         working-directory: parser
-        run: make check
+        run: |
+          make check
+          {
+            echo "## Проверка parser"
+            echo
+            echo "✅ TypeScript, ESLint, Vitest и Prettier прошли успешно."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: update schedule data
+        id: update-data
         working-directory: parser
-        run: make update OUTPUT_DIR="$GITHUB_WORKSPACE"
+        run: |
+          make update OUTPUT_DIR="$GITHUB_WORKSPACE"
+          base_changed=false
+          if ! git diff --quiet -- base; then base_changed=true; fi
+          BASE_CHANGED="$base_changed" node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          import { readFile } from 'node:fs/promises';
+
+          const root = process.env.GITHUB_WORKSPACE;
+          const schedule = JSON.parse(
+            await readFile(`${root}/base/00-schedule.json`, 'utf8'),
+          );
+          const diagnostics = JSON.parse(
+            await readFile(`${root}/base/90-diagnostics.json`, 'utf8'),
+          );
+          const summary = diagnostics.summary;
+          const changed = process.env.BASE_CHANGED === 'true' ? 'да' : 'нет';
+
+          console.log('## Базовое расписание');
+          console.log('');
+          console.log(`- Изменения перед публикацией: **${changed}**`);
+          console.log(`- Групп: **${Object.keys(schedule.groups).length}**`);
+          console.log(`- Источников XLSX: **${schedule.sources.length}**`);
+          console.log(`- Версия данных: \`${schedule.version.value}\``);
+          console.log(
+            `- Diagnostics: ${summary.info} info, ${summary.warning} warnings, ${summary.error} errors, ${summary.fatal} fatal.`,
+          );
+          NODE
 
       - name: commit published data
+        id: publish-data
         run: |
           git add base
 
           if git diff --cached --quiet; then
             echo "Schedule data is unchanged"
+            {
+              echo "### Публикация"
+              echo
+              echo "Изменений в \`base/\` нет — commit не создан."
+            } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
+          files=$(git diff --cached --name-only -- base | wc -l)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update schedule"
           git push origin HEAD:data
+          commit=$(git rev-parse --short HEAD)
+          {
+            echo "### Публикация"
+            echo
+            echo "- Обновлено файлов в \`base/\`: **$files**"
+            echo "- Commit: \`$commit\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: synchronize diagnostic issues
+        id: sync-issues
         working-directory: parser
-        run: make sync-issues DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json"
+        run: |
+          make sync-issues DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json"
+          node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          import { readFile } from 'node:fs/promises';
+
+          const report = JSON.parse(
+            await readFile(
+              `${process.env.GITHUB_WORKSPACE}/base/90-diagnostics.json`,
+              'utf8',
+            ),
+          );
+          console.log('### Диагностические Issue');
+          console.log('');
+          console.log(
+            `Синхронизация завершена. Черновиков Issue в текущей выгрузке: **${report.issues.length}**.`,
+          );
+          NODE
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: write workflow status
+        if: always()
+        run: |
+          {
+            echo "## Итог workflow"
+            echo
+            echo "- Событие: \`${{ github.event_name }}\`"
+            echo "- Ревизия parser: \`${{ github.sha }}\`"
+            echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
+            echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
+            echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
+            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outcome }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
