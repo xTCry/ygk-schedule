@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { CanonicalSchedule } from '../types.ts';
+import type { CanonicalSchedule, ReplacementPageSource } from '../types.ts';
 import { buildDiagnosticsReport } from './diagnostics.ts';
 
 const schedule: CanonicalSchedule = {
@@ -73,6 +73,55 @@ describe('diagnostics metadata generator', () => {
         title: '[schedule] INVALID_LESSON_NUMBER: out.xlsx',
         occurrenceCount: 2,
       }),
+    ]);
+  });
+
+  it('groups unresolved replacements with a shared source and reason', () => {
+    const replacementSource: ReplacementPageSource = {
+      ...schedule.sources[0]!,
+      fileName: 'rasp_first.html',
+      shift: 'first',
+    };
+    const report = buildDiagnosticsReport({
+      ...schedule,
+      sources: [replacementSource],
+      diagnostics: [
+        {
+          ...schedule.diagnostics[0]!,
+          code: 'UNRESOLVED_REPLACEMENT',
+          fingerprint: 'replacement-one',
+          context: {
+            date: '2026-09-05',
+            lessonNumber: 1,
+            type: 'replace',
+            reason: 'original-not-matched',
+          },
+        },
+        {
+          ...schedule.diagnostics[1]!,
+          code: 'UNRESOLVED_REPLACEMENT',
+          fingerprint: 'replacement-two',
+          context: {
+            date: '2026-09-05',
+            lessonNumber: 2,
+            type: 'replace',
+            reason: 'original-not-matched',
+          },
+        },
+      ],
+    });
+
+    expect(report.schemaVersion).toBe(4);
+    expect(report.issues).toHaveLength(1);
+    const issueFingerprint = report.issues[0]?.fingerprint;
+    if (!issueFingerprint)
+      throw new Error('Expected generated Issue fingerprint');
+    expect(report.issues[0]?.occurrenceCount).toBe(2);
+    expect(report.issues[0]?.labels).toContain('reason:original-not-matched');
+    expect(report.issues[0]?.labels).toContain('shift:first');
+    expect(report.diagnostics.map((item) => item.issueFingerprint)).toEqual([
+      issueFingerprint,
+      issueFingerprint,
     ]);
   });
 });

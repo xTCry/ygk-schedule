@@ -1,7 +1,10 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { DiagnosticIssueDraft } from '../diagnostics/issues.ts';
+import {
+  SCHEDULE_DIAGNOSTIC_LABEL,
+  type DiagnosticIssueDraft,
+} from '../diagnostics/issues.ts';
 import {
   GitHubDiagnosticIssuesClient,
   syncDiagnosticIssues,
@@ -21,7 +24,7 @@ interface SyncIssuesOptions {
 
 const isDiagnosticIssueDraft = (
   value: unknown,
-): value is DiagnosticIssueDraft => {
+): value is Omit<DiagnosticIssueDraft, 'labels'> & { labels?: unknown } => {
   if (!value || typeof value !== 'object') return false;
   const draft = value as Record<string, unknown>;
   return (
@@ -29,7 +32,10 @@ const isDiagnosticIssueDraft = (
     typeof draft.fingerprint === 'string' &&
     typeof draft.title === 'string' &&
     typeof draft.body === 'string' &&
-    typeof draft.occurrenceCount === 'number'
+    typeof draft.occurrenceCount === 'number' &&
+    (draft.labels === undefined ||
+      (Array.isArray(draft.labels) &&
+        draft.labels.every((label) => typeof label === 'string')))
   );
 };
 
@@ -42,7 +48,19 @@ const readDiagnosticsReport = async (
   const issues = (value as Record<string, unknown>).issues;
   if (!Array.isArray(issues) || !issues.every(isDiagnosticIssueDraft))
     throw new Error('Diagnostics report has an invalid issues array');
-  return { issues };
+  return {
+    // Старые reports до schema v4 не содержат labels. Это нужно, чтобы
+    // workflow мог синхронно мигрировать data-ветку без ручного шага.
+    issues: issues.map((issue) => {
+      const labels =
+        Array.isArray(issue.labels) && issue.labels.length
+          ? [...new Set(issue.labels as string[])].sort((left, right) =>
+              left.localeCompare(right),
+            )
+          : [SCHEDULE_DIAGNOSTIC_LABEL];
+      return { ...issue, labels };
+    }),
+  };
 };
 
 const parseArgs = (args: string[]): SyncIssuesOptions => {

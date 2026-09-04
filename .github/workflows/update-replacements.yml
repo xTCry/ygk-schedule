@@ -147,6 +147,9 @@ jobs:
         working-directory: parser
         run: |
           make sync-issues \
+            DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json" \
+            REPLACEMENT_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/replacements/90-diagnostics.json" \
+            ACTUAL_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/actual/90-diagnostics.json" \
             OUTPUT_DIR="$GITHUB_WORKSPACE" \
             SYNC_ISSUES_REPORT="$RUNNER_TEMP/sync-issues.json"
           node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
@@ -154,7 +157,7 @@ jobs:
 
           const root = process.env.GITHUB_WORKSPACE;
           const reports = await Promise.all(
-            ['replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
+            ['base/90-diagnostics.json', 'replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
               async (path) =>
                 JSON.parse(await readFile(`${root}/${path}`, 'utf8')),
             ),

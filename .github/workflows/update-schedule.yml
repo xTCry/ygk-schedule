@@ -127,15 +127,23 @@ jobs:
         run: |
           make sync-issues \
             DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json" \
+            REPLACEMENT_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/replacements/90-diagnostics.json" \
+            ACTUAL_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/actual/90-diagnostics.json" \
             SYNC_ISSUES_REPORT="$RUNNER_TEMP/sync-issues.json"
           node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
           import { appendFile, readFile } from 'node:fs/promises';
 
-          const report = JSON.parse(
-            await readFile(
-              `${process.env.GITHUB_WORKSPACE}/base/90-diagnostics.json`,
-              'utf8',
+          const reports = await Promise.all(
+            ['base/90-diagnostics.json', 'replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
+              async (path) =>
+                JSON.parse(
+                  await readFile(`${process.env.GITHUB_WORKSPACE}/${path}`, 'utf8'),
+                ),
             ),
+          );
+          const drafts = reports.reduce(
+            (count, report) => count + report.issues.length,
+            0,
           );
           const sync = JSON.parse(
             await readFile(`${process.env.RUNNER_TEMP}/sync-issues.json`, 'utf8'),
@@ -148,7 +156,7 @@ jobs:
             );
           } else {
             console.log(
-              `Синхронизация завершена. Черновиков Issue в текущей выгрузке: **${report.issues.length}**.`,
+              `Синхронизация завершена. Черновиков Issue во всех выгрузках: **${drafts}**.`,
             );
           }
           await appendFile(

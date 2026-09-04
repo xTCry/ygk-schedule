@@ -1,5 +1,6 @@
 import {
   formatDiagnosticIssue,
+  getDiagnosticIssueGroupKey,
   isIssueCandidate,
 } from '../diagnostics/issues.ts';
 import type { Diagnostic, ScheduleSource, ScheduleVersion } from '../types.ts';
@@ -11,7 +12,7 @@ export interface DiagnosticsReportItem extends Diagnostic {
 }
 
 export interface DiagnosticsReport {
-  schemaVersion: 3;
+  schemaVersion: 4;
   generatedAt: string;
   scheduleVersion: string;
   summary: Record<'info' | 'warning' | 'error' | 'fatal', number>;
@@ -36,7 +37,7 @@ const compareDiagnostics = (left: Diagnostic, right: Diagnostic): number =>
 const diagnosticIssueGroupKey = (
   diagnostic: Diagnostic,
   source: ScheduleSource | null,
-): string => `${source?.id ?? ''}\0${diagnostic.fingerprint}`;
+): string => getDiagnosticIssueGroupKey(diagnostic, source ?? undefined);
 
 /**
  * Собирает метаданные diagnostics и черновики Issue для набора data-артефактов.
@@ -57,7 +58,7 @@ export const buildDiagnosticsReport = (
     string,
     { source: ScheduleSource | null; diagnostics: Diagnostic[] }
   >();
-  const diagnostics = [...schedule.diagnostics]
+  const reportItems = [...schedule.diagnostics]
     .sort(compareDiagnostics)
     .map((diagnostic) => {
       summary[diagnostic.severity] += 1;
@@ -79,12 +80,23 @@ export const buildDiagnosticsReport = (
         issueFingerprint,
       };
     });
-  const issues = [...issueGroups.values()].map(({ source, diagnostics }) =>
-    formatDiagnosticIssue(diagnostics, source ?? undefined),
+  const draftsByGroupKey = new Map(
+    [...issueGroups.entries()].map(([key, { source, diagnostics }]) => [
+      key,
+      formatDiagnosticIssue(diagnostics, source ?? undefined),
+    ]),
   );
+  const diagnostics = reportItems.map((item) => ({
+    ...item,
+    issueFingerprint: item.issueFingerprint
+      ? (draftsByGroupKey.get(diagnosticIssueGroupKey(item, item.source))
+          ?.fingerprint ?? null)
+      : null,
+  }));
+  const issues = [...draftsByGroupKey.values()];
 
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     generatedAt: schedule.generatedAt,
     scheduleVersion: schedule.version.value,
     summary,

@@ -13,6 +13,7 @@ const draft = (key: string, suffix = ''): DiagnosticIssueDraft => ({
   fingerprint: `fingerprint-${key}`,
   title: `Проблема ${key}${suffix}`,
   body: `<!-- parser-issue-key: ${key} -->\nbody${suffix}`,
+  labels: ['schedule-diagnostic'],
   occurrenceCount: 1,
 });
 
@@ -25,6 +26,7 @@ const managedIssue = (
   key,
   title: `Проблема ${key}${suffix}`,
   body: `<!-- parser-issue-key: ${key} -->\nbody${suffix}`,
+  labels: ['schedule-diagnostic'],
 });
 
 describe('diagnostic Issue synchronization', () => {
@@ -102,15 +104,18 @@ describe('diagnostic Issue synchronization', () => {
               number: 1,
               title: 'manual',
               body: '<!-- parser-fingerprint: fingerprint -->',
+              labels: [],
             },
             {
               number: 2,
               title: 'managed',
               body: `<!-- parser-issue-key: ${key} -->`,
+              labels: [{ name: 'schedule-diagnostic' }],
             },
           ]),
         ),
       )
+      .mockResolvedValueOnce(new Response('{}'))
       .mockResolvedValueOnce(new Response('{}'))
       .mockResolvedValueOnce(new Response('{}'));
     const client = new GitHubDiagnosticIssuesClient({
@@ -127,11 +132,14 @@ describe('diagnostic Issue synchronization', () => {
       closed: 0,
       unchanged: 0,
     });
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(fetchMock.mock.calls[0]?.[0]).toContain(
       '/repos/owner/repository/issues?state=open',
     );
     expect(fetchMock.mock.calls[1]?.[0]).toBe(
+      'https://api.github.com/repos/owner/repository/labels/schedule-diagnostic',
+    );
+    expect(fetchMock.mock.calls[2]?.[0]).toBe(
       'https://api.github.com/repos/owner/repository/issues/2',
     );
   });
@@ -170,6 +178,78 @@ describe('diagnostic Issue synchronization', () => {
         title: 'Проблема new',
         body: '<!-- parser-issue-key: new -->\nbody',
         labels: ['schedule-diagnostic'],
+      }),
+    );
+  });
+
+  it('adds diagnostic labels when an existing Issue is updated', async () => {
+    const issue = draft('b'.repeat(64));
+    issue.labels = [
+      'diagnostic:error',
+      'diagnostic:unresolved-replacement',
+      'reason:original-not-matched',
+      'schedule-diagnostic',
+      'shift:first',
+    ];
+    const fetchMock = vi
+      .fn<typeof fetch>()
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify([
+            {
+              number: 2,
+              title: issue.title,
+              body: issue.body,
+              labels: [{ name: 'schedule-diagnostic' }],
+            },
+          ]),
+        ),
+      )
+      .mockResolvedValue(new Response('{}'));
+    const client = new GitHubDiagnosticIssuesClient({
+      repository: 'owner/repository',
+      token: 'token',
+      fetchImpl: fetchMock,
+    });
+
+    await syncDiagnosticIssues([issue], client);
+
+    const updateCall = fetchMock.mock.calls.find(
+      ([url, options]) =>
+        url === 'https://api.github.com/repos/owner/repository/issues/2' &&
+        options?.method === 'PATCH',
+    );
+    expect(updateCall?.[1]?.body).toBe(
+      JSON.stringify({
+        title: issue.title,
+        body: issue.body,
+        labels: issue.labels,
+      }),
+    );
+  });
+
+  it('preserves manually added labels when synchronizing diagnostics', async () => {
+    const issue = draft('c'.repeat(64));
+    const updateIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([
+          {
+            ...managedIssue(issue.key, 3),
+            labels: ['schedule-diagnostic', 'needs-review'],
+          },
+        ]),
+      createIssue: () => Promise.resolve(),
+      updateIssue,
+      closeIssue: () => Promise.resolve(),
+    };
+
+    await syncDiagnosticIssues([issue], client);
+
+    expect(updateIssue).toHaveBeenCalledWith(
+      3,
+      expect.objectContaining({
+        labels: ['needs-review', 'schedule-diagnostic'],
       }),
     );
   });

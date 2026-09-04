@@ -1,11 +1,11 @@
 import {
   getDiagnosticIssueKeyFromBody,
+  SCHEDULE_DIAGNOSTIC_LABEL,
   type DiagnosticIssueDraft,
 } from '../diagnostics/issues.ts';
 
 const API_VERSION = '2022-11-28';
 const ISSUES_PER_PAGE = 100;
-export const SCHEDULE_DIAGNOSTIC_LABEL = 'schedule-diagnostic';
 
 const scheduleDiagnosticLabel = {
   name: SCHEDULE_DIAGNOSTIC_LABEL,
@@ -18,6 +18,7 @@ export interface ManagedDiagnosticIssue {
   key: string;
   title: string;
   body: string;
+  labels: string[];
 }
 
 export interface DiagnosticIssuesClient {
@@ -25,7 +26,7 @@ export interface DiagnosticIssuesClient {
   createIssue(issue: DiagnosticIssueDraft): Promise<void>;
   updateIssue(
     number: number,
-    issue: Pick<DiagnosticIssueDraft, 'title' | 'body'>,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body' | 'labels'>,
   ): Promise<void>;
   closeIssue(number: number): Promise<void>;
 }
@@ -53,6 +54,7 @@ interface RepositoryIssueResponse {
   number: number;
   title: string;
   body: string | null;
+  labels: unknown[];
   pull_request?: unknown;
 }
 
@@ -80,7 +82,8 @@ const isRepositoryIssueResponse = (
   return (
     typeof issue.number === 'number' &&
     typeof issue.title === 'string' &&
-    (typeof issue.body === 'string' || issue.body === null)
+    (typeof issue.body === 'string' || issue.body === null) &&
+    Array.isArray(issue.labels)
   );
 };
 
@@ -109,7 +112,73 @@ const buildIssueMap = <T extends { key: string }>(
 const isSameIssue = (
   existing: ManagedDiagnosticIssue,
   next: DiagnosticIssueDraft,
-): boolean => existing.title === next.title && existing.body === next.body;
+): boolean =>
+  existing.title === next.title &&
+  existing.body === next.body &&
+  existing.labels.length === next.labels.length &&
+  existing.labels.every((label, index) => label === next.labels[index]);
+
+const labelNames = (labels: readonly unknown[]): string[] =>
+  labels
+    .flatMap((label) =>
+      label &&
+      typeof label === 'object' &&
+      typeof (label as Record<string, unknown>).name === 'string'
+        ? [(label as { name: string }).name]
+        : [],
+    )
+    .sort((left, right) => left.localeCompare(right));
+
+const isManagedDiagnosticLabel = (label: string): boolean =>
+  label === SCHEDULE_DIAGNOSTIC_LABEL ||
+  ['diagnostic:', 'reason:', 'shift:'].some((prefix) =>
+    label.startsWith(prefix),
+  );
+
+/**
+ * Сохраняет labels, добавленные вручную, и пересобирает только служебные
+ * labels diagnostics. Автоматический workflow не должен стирать ручную
+ * классификацию Issue.
+ */
+const mergedIssueLabels = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): string[] =>
+  [
+    ...new Set([
+      ...next.labels,
+      ...existing.labels.filter((label) => !isManagedDiagnosticLabel(label)),
+    ]),
+  ].sort((left, right) => left.localeCompare(right));
+
+const diagnosticLabelDefinition = (
+  label: string,
+): { name: string; color: string; description: string } => {
+  if (label === SCHEDULE_DIAGNOSTIC_LABEL) return scheduleDiagnosticLabel;
+  if (label.startsWith('diagnostic:'))
+    return {
+      name: label,
+      color: '0969da',
+      description: 'Код или уровень диагностического сообщения расписания',
+    };
+  if (label.startsWith('reason:'))
+    return {
+      name: label,
+      color: 'd4a72c',
+      description: 'Причина, по которой изменение расписания не применено',
+    };
+  if (label.startsWith('shift:'))
+    return {
+      name: label,
+      color: '8250df',
+      description: 'Смена страницы замен',
+    };
+  return {
+    name: label,
+    color: '6e7781',
+    description: 'Автоматически создано парсером расписания',
+  };
+};
 
 /**
  * Синхронизирует с GitHub только открытые Issue с маркером parser.
@@ -162,7 +231,10 @@ export const syncDiagnosticIssues = async (
 
   for (const draft of drafts) {
     const existing = existingByKey.get(draft.key);
-    if (existing && isSameIssue(existing, draft)) {
+    const next = existing
+      ? { ...draft, labels: mergedIssueLabels(existing, draft) }
+      : draft;
+    if (existing && isSameIssue(existing, next)) {
       result.unchanged += 1;
       continue;
     }
@@ -170,10 +242,10 @@ export const syncDiagnosticIssues = async (
 
     try {
       if (existing) {
-        await client.updateIssue(existing.number, draft);
+        await client.updateIssue(existing.number, next);
         result.updated += 1;
       } else {
-        await client.createIssue(draft);
+        await client.createIssue(next);
         result.created += 1;
       }
       writeOperations += 1;
@@ -208,7 +280,7 @@ export const syncDiagnosticIssues = async (
 export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
   private readonly baseUrl: string;
   private readonly fetchImpl: typeof fetch;
-  private diagnosticLabelReady = false;
+  private readonly ensuredLabels = new Set<string>();
 
   public constructor(options: GitHubDiagnosticIssuesClientOptions) {
     const { owner, name } = parseRepository(options.repository);
@@ -239,6 +311,7 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
           key,
           title: issue.title,
           body: issue.body ?? '',
+          labels: labelNames(issue.labels),
         });
       }
 
@@ -247,24 +320,29 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
   }
 
   public async createIssue(issue: DiagnosticIssueDraft): Promise<void> {
-    await this.ensureDiagnosticLabel();
+    await this.ensureDiagnosticLabels(issue.labels);
     await this.request(this.baseUrl, {
       method: 'POST',
       body: JSON.stringify({
         title: issue.title,
         body: issue.body,
-        labels: [SCHEDULE_DIAGNOSTIC_LABEL],
+        labels: issue.labels,
       }),
     });
   }
 
   public async updateIssue(
     number: number,
-    issue: Pick<DiagnosticIssueDraft, 'title' | 'body'>,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body' | 'labels'>,
   ): Promise<void> {
+    await this.ensureDiagnosticLabels(issue.labels);
     await this.request(`${this.baseUrl}/${number}`, {
       method: 'PATCH',
-      body: JSON.stringify(issue),
+      body: JSON.stringify({
+        title: issue.title,
+        body: issue.body,
+        labels: issue.labels,
+      }),
     });
   }
 
@@ -316,11 +394,10 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
    * Создает label один раз, чтобы новая диагностическая Issue была заметна в
    * общем списке. Уже существующий label не изменяется.
    */
-  private async ensureDiagnosticLabel(): Promise<void> {
-    if (this.diagnosticLabelReady) return;
-
+  private async ensureDiagnosticLabel(label: string): Promise<void> {
+    if (this.ensuredLabels.has(label)) return;
     const response = await this.fetchImpl(
-      `${this.baseUrl.replace(/\/issues$/, '')}/labels/${SCHEDULE_DIAGNOSTIC_LABEL}`,
+      `${this.baseUrl.replace(/\/issues$/, '')}/labels/${label}`,
       {
         headers: {
           Accept: 'application/vnd.github+json',
@@ -330,7 +407,7 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
       },
     );
     if (response.ok) {
-      this.diagnosticLabelReady = true;
+      this.ensuredLabels.add(label);
       return;
     }
     if (response.status !== 404) {
@@ -351,14 +428,20 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
         );
       }
       throw new Error(
-        `GitHub API GET label ${SCHEDULE_DIAGNOSTIC_LABEL} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
+        `GitHub API GET label ${label} failed: HTTP ${response.status}${body ? ` ${body}` : ''}`,
       );
     }
 
     await this.request(`${this.baseUrl.replace(/\/issues$/, '')}/labels`, {
       method: 'POST',
-      body: JSON.stringify(scheduleDiagnosticLabel),
+      body: JSON.stringify(diagnosticLabelDefinition(label)),
     });
-    this.diagnosticLabelReady = true;
+    this.ensuredLabels.add(label);
+  }
+
+  private async ensureDiagnosticLabels(
+    labels: readonly string[],
+  ): Promise<void> {
+    for (const label of labels) await this.ensureDiagnosticLabel(label);
   }
 }
