@@ -1,0 +1,173 @@
+schemaVersion: 5
+provider: ygk
+group: ЗМ1-13
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ЗМ1-13:
+        group: ЗМ1-13
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Вакансия
+                room: Б402
+                weekType: both
+                sourceRow: 91
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Зевахина О.Б.
+                room: Б401
+                weekType: both
+                sourceRow: 93
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Биология
+                teacher: Козырева Д.А.
+                room: Б402
+                weekType: both
+                sourceRow: 95
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Кургузова М.С.
+                room: Б503
+                weekType: both
+                sourceRow: 97
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-05
+              group: ЗМ1-13
+              lessonNumbers:
+                - 0
+                - 1
+              type: replace
+              original:
+                raw: Физика ОБиЗР
+              replacement:
+                raw: Литер. Рус.язык Бабарыкова Э.В.
+                room: А202
+              source:
+                shift: first
+                row: 40
+                rawGroupName: ЗМ1-13
+                rawLessonNumbers: 0,1
+                rawOriginal: Физика ОБиЗР
+                rawReplacement: Литер. Рус.язык Бабарыкова Э.В.
+                rawRoom: А202
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физика ОБиЗР». По замене: «Литер. Рус.язык
+                Бабарыкова Э.В.». Аудитория: «А202»."
+              room: А202
+          - replacement: *a1
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физика ОБиЗР». По замене: «Литер. Рус.язык
+                Бабарыкова Э.В.». Аудитория: «А202»."
+              room: А202
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 037d087d0dcba164fdab9cb982a8d6906e5b81fedb64d227883e8a79fb5ecc18
+    sheet: "Замены: Первая смена"
+    row: 40
+    normalizedGroup: ЗМ1-13
+    rawValue: Литер. Рус.язык Бабарыкова Э.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 4b052f53d207332fe9d0ef4fc29b53415df1f37c7b13af63f4fe360f7765cfbf
+    sheet: "Замены: Первая смена"
+    row: 40
+    normalizedGroup: ЗМ1-13
+    rawValue: Литер. Рус.язык Бабарыкова Э.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 6545f4d193dbf1ab2a46705c2776922fd587501cadd35fb7580ba174331a1e17

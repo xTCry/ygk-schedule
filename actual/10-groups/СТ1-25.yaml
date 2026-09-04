@@ -1,0 +1,151 @@
+schemaVersion: 5
+provider: ygk
+group: СТ1-25
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      СТ1-25:
+        group: СТ1-25
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности п/гр2
+                teacher: Сердцева О.Д.
+                room: Б407
+                weekType: numerator
+                subgroup: "2"
+                sourceRow: 150
+            source:
+              sheet: СТ 2 курс
+              rowStart: 149
+              rowEnd: 150
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности п/гр2
+                teacher: Сердцева О.Д.
+                room: Б407
+                weekType: numerator
+                subgroup: "2"
+                sourceRow: 152
+            source:
+              sheet: СТ 2 курс
+              rowStart: 151
+              rowEnd: 152
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Герман О. Г.
+                room: Сп.зал
+                weekType: numerator
+                sourceRow: 154
+            source:
+              sheet: СТ 2 курс
+              rowStart: 153
+              rowEnd: 154
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Техническая механика п/гр1
+                teacher: Кощеев В. В.
+                room: М207
+                weekType: numerator
+                subgroup: "1"
+                sourceRow: 156
+            source:
+              sheet: СТ 2 курс
+              rowStart: 155
+              rowEnd: 156
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: СТ1-25
+              lessonNumbers:
+                - 4
+              type: replace
+              original:
+                raw: Тех.механика
+              replacement:
+                raw: /теория Кощеев В.В.
+                room: М207
+              source:
+                shift: first
+                row: 50
+                rawGroupName: СТ1-25
+                rawLessonNumbers: "4"
+                rawOriginal: Тех.механика
+                rawReplacement: /теория Кощеев В.В.
+                rawRoom: М207
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Тех.механика». По замене: «/теория Кощеев В.В.».
+                Аудитория: «М207»."
+              room: М207
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: e0173c41fbe6909de00aa3c1e284960443d12a095046b27e7058a91f6cd8ae97
+    sheet: "Замены: Первая смена"
+    row: 50
+    normalizedGroup: СТ1-25
+    rawValue: /теория Кощеев В.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 4dc339f675395bccb84bdda4e7deab504004853ee621e3bfb09f75d836db8a0e

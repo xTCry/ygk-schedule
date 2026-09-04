@@ -1,0 +1,173 @@
+schemaVersion: 5
+provider: ygk
+group: РК2-11
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      РК2-11:
+        group: РК2-11
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Психология рекламы
+                teacher: Шалаева А.А.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 46
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Рекламная деятельность
+                teacher: Павлова О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 47
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 47
+              rowEnd: 48
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                teacher: Павлова О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 49
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 49
+              rowEnd: 50
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Зевахина О.Б.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 52
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 51
+              rowEnd: 52
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-05
+              group: РК2-11
+              lessonNumbers:
+                - 1
+                - 2
+              type: replace
+              original:
+                raw: Рекл.деят. МДк 01.01
+              replacement:
+                raw: МДК 01.01 Девятаева Н.Ф.
+                room: ДОТ
+              source:
+                shift: first
+                row: 22
+                rawGroupName: РК2-11
+                rawLessonNumbers: 1,2
+                rawOriginal: Рекл.деят. МДк 01.01
+                rawReplacement: МДК 01.01 Девятаева Н.Ф.
+                rawRoom: ДОТ
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рекл.деят. МДк 01.01». По замене: «МДК 01.01
+                Девятаева Н.Ф.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement: *a1
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рекл.деят. МДк 01.01». По замене: «МДК 01.01
+                Девятаева Н.Ф.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: a07c372a097e89e6ba1d0a7699bc340fcb1c58575b495fe99dd4f345fedef312
+    sheet: "Замены: Первая смена"
+    row: 22
+    normalizedGroup: РК2-11
+    rawValue: МДК 01.01 Девятаева Н.Ф.
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: de113a15a3751e7150a6f5880623056b610ae293fb075f808407758987e22da9
+    sheet: "Замены: Первая смена"
+    row: 22
+    normalizedGroup: РК2-11
+    rawValue: МДК 01.01 Девятаева Н.Ф.
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 85101c5db430f14b9a79134058c72a14aeee126e667319463e7cbb24e1f7ff1e

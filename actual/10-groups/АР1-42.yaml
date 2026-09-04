@@ -1,0 +1,133 @@
+schemaVersion: 5
+provider: ygk
+group: АР1-42
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      АР1-42:
+        group: АР1-42
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: Эффективное поведение на рынке труда
+                teacher: Малашкевич Д.А.
+                room: Б204
+                weekType: numerator
+                sourceRow: 256
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 255
+              rowEnd: 256
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Рисунок и живопись
+                teacher: Балдасарьян О.Н.
+                room: Б208
+                weekType: both
+                sourceRow: 257
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 257
+              rowEnd: 258
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3
+                teacher: Вакансия
+                room: Б501
+                weekType: both
+                sourceRow: 259
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 259
+              rowEnd: 260
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: АР1-42
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: МДК 01.05
+              replacement:
+                raw: Рисунок и жив Багдасарьян О.Н.
+                room: Б208
+              source:
+                shift: second
+                row: 14
+                rawGroupName: АР1-42
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 01.05
+                rawReplacement: Рисунок и жив Багдасарьян О.Н.
+                rawRoom: Б208
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.05». По замене: «Рисунок и жив Багдасарьян
+                О.Н.». Аудитория: «Б208»."
+              room: Б208
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: fcaab9600a900a64ab52ee61a424a9b93491abfe0886873cb5f5771003a0d23f
+    sheet: "Замены: Вторая смена"
+    row: 14
+    normalizedGroup: АР1-42
+    rawValue: Рисунок и жив Багдасарьян О.Н.
+    context:
+      date: 2026-09-05
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 5f566639ce9a149d78e00153cadc2879fad05378a2bae3847e15fd5a1c984cfb

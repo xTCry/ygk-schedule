@@ -1,0 +1,200 @@
+schemaVersion: 5
+provider: ygk
+group: ТТ1-41
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ТТ1-41:
+        group: ТТ1-41
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК.03.02 Наладка и испытания теплотехнического оборудования котельных
+                  установок, систем тепло- и топливоснабжения
+                teacher: Коротюк И.С.
+                room: МТ103
+                weekType: both
+                sourceRow: 187
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 187
+              rowEnd: 188
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК.03.02 Наладка и испытания теплотехнического оборудования котельных
+                  установок, систем тепло- и топливоснабжения
+                teacher: Коротюк И.С.
+                room: МТ103
+                weekType: both
+                sourceRow: 189
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 189
+              rowEnd: 190
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.03.02 Наладка и испытания теплотехнического оборудования котельных
+                  установок, систем тепло- и топливоснабжения
+                teacher: Коротюк И.С.
+                room: МТ103
+                weekType: both
+                sourceRow: 191
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 191
+              rowEnd: 192
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-05
+              group: ТТ1-41
+              lessonNumbers:
+                - 0
+                - 1
+              type: replace
+              original:
+                raw: МДК 03.02
+              replacement:
+                raw: Ин.язык Трусова Е.В.
+                room: Ф206
+              source:
+                shift: first
+                row: 34
+                rawGroupName: ТТ1-41
+                rawLessonNumbers: 0,1
+                rawOriginal: МДК 03.02
+                rawReplacement: Ин.язык Трусова Е.В.
+                rawRoom: Ф206
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Ин.язык Трусова Е.В.».
+                Аудитория: «Ф206»."
+              room: Ф206
+          - replacement: *a1
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Ин.язык Трусова Е.В.».
+                Аудитория: «Ф206»."
+              room: Ф206
+          - replacement:
+              date: 2026-09-05
+              group: ТТ1-41
+              lessonNumbers:
+                - 2
+              type: cancel
+              original:
+                raw: МДК 03.02
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 35
+                rawGroupName: ТТ1-41
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 03.02
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: c2c9ded3d35adfd5240af989d34e669663464d5d923ffda371bb06d0d629fd0e
+    sheet: "Замены: Первая смена"
+    row: 34
+    normalizedGroup: ТТ1-41
+    rawValue: Ин.язык Трусова Е.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: bbd84a988d920f1d1367fbeaaeb67c3320b42ba6b0d72cbb843e98a725a86a66
+    sheet: "Замены: Первая смена"
+    row: 34
+    normalizedGroup: ТТ1-41
+    rawValue: Ин.язык Трусова Е.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5d0b325c060ab0664694b4d149a1d592b1c04b0a6932317222110fe4f61352e8
+    sheet: "Замены: Первая смена"
+    row: 35
+    normalizedGroup: ТТ1-41
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: eb547227e5f8f8a338adfc99f8fa03c3e9b3c42870a6c287256057e2d5cb5937

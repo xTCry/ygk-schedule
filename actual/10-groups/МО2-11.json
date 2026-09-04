@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 5,
+  "provider": "ygk",
+  "group": "МО2-11",
+  "dates": {
+    "2026-09-05": {
+      "date": "2026-09-05",
+      "day": "Суббота",
+      "weekType": "numerator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a",
+            "fetchedAt": "2026-09-04T14:02:43.680Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9a7ef8-3169\"",
+            "lastModified": "Fri, 04 Sep 2026 08:19:04 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211",
+            "fetchedAt": "2026-09-04T14:02:43.676Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ac5c3-1c38\"",
+            "lastModified": "Fri, 04 Sep 2026 13:21:07 GMT"
+          }
+        }
+      },
+      "groups": {
+        "МО2-11": {
+          "group": "МО2-11",
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "lessons": [
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Основы бизнеса, коммуникаций и финансовой грамотности",
+                  "teacher": "Вакансия",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "sourceRow": 42
+                }
+              ],
+              "source": {
+                "sheet": "МО2-11",
+                "rowStart": 42,
+                "rowEnd": 43,
+                "rawGroupName": "МО2-11",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "Основы строительного черчения",
+                  "teacher": "Дегтева И.Е.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "sourceRow": 44
+                }
+              ],
+              "source": {
+                "sheet": "МО2-11",
+                "rowStart": 44,
+                "rowEnd": 45,
+                "rawGroupName": "МО2-11",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-05",
+                "group": "МО2-11",
+                "lessonNumbers": [
+                  3
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "Осн.бизнеса"
+                },
+                "replacement": {
+                  "raw": "Ковалева С.В.",
+                  "room": "ДОТ"
+                },
+                "source": {
+                  "shift": "first",
+                  "row": 19,
+                  "rawGroupName": "МО2-11",
+                  "rawLessonNumbers": "3",
+                  "rawOriginal": "Осн.бизнеса",
+                  "rawReplacement": "Ковалева С.В.",
+                  "rawRoom": "ДОТ"
+                }
+              },
+              "lessonNumber": 3,
+              "reason": "original-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «Осн.бизнеса». По замене: «Ковалева С.В.». Аудитория: «ДОТ».",
+                "room": "ДОТ"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "fb079a96d16e272c34d8833a6968da6bcbffbca15a205486acd4513f211cdb6f",
+      "sheet": "Замены: Первая смена",
+      "row": 19,
+      "normalizedGroup": "МО2-11",
+      "rawValue": "Ковалева С.В.",
+      "context": {
+        "date": "2026-09-05",
+        "lessonNumber": 3,
+        "type": "replace",
+        "reason": "original-not-matched"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    }
+  ],
+  "semanticHash": "e916ad9ca6ecbf76a3e6b931c63a89418d4e7b015140ffba8a27da99fe6c862b"
+}

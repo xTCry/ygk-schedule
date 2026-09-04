@@ -1,0 +1,210 @@
+schemaVersion: 5
+provider: ygk
+group: СА1-21
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      СА1-21:
+        group: СА1-21
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Архитектура аппаратных средств
+                teacher: Груздев В.В.
+                room: Б204
+                weekType: both
+                rawSubject: Архитектура  аппаратных средств
+                sourceRow: 42
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 42
+              rowEnd: 43
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.01.01 Компьютерные сети
+                teacher: |-
+                  Хожайнова М.Г.
+                  Груздев В.В.
+                room: |-
+                  Б308
+                  Б309
+                weekType: both
+                sourceRow: 44
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 44
+              rowEnd: 45
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Дискретная математика с элементами мат.логики
+                teacher: Холманова В.М.
+                room: М102
+                weekType: both
+                sourceRow: 46
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 46
+              rowEnd: 47
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: История России
+                teacher: Свободина Н.В.
+                room: А203
+                weekType: both
+                rawSubject: История России Свободина Н.В.
+                rawTeacher: Свободина Н.В.
+                rawRoom: А203
+                sourceRow: 15
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: СА1-21
+                  lessonNumbers:
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: История России Свободина Н.В.
+                    room: А203
+                  source:
+                    shift: first
+                    row: 15
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: История России Свободина Н.В.
+                    rawRoom: А203
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: СА1-21
+              lessonNumbers:
+                - 1
+              type: cancel
+              original:
+                raw: Арх.апп.ср.
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 14
+                rawGroupName: СА1-21
+                rawLessonNumbers: "1"
+                rawOriginal: Арх.апп.ср.
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Арх.апп.ср.». По замене: «Снято»."
+          - replacement:
+              date: 2026-09-05
+              group: СА1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: МДК 01.01
+              replacement:
+                raw: 1,2 п/гр Хожайнова М.Г.
+                room: Б308
+              source:
+                shift: first
+                row: 16
+                rawGroupName: СА1-21
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 01.01
+                rawReplacement: 1,2 п/гр Хожайнова М.Г.
+                rawRoom: Б308
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.01». По замене: «1,2 п/гр Хожайнова М.Г.».
+                Аудитория: «Б308»."
+              room: Б308
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 8e5452141fe0edecce475cddf0ebb1f0b4f5716ff5bdfbc1013a19c4ac197d7d
+    sheet: "Замены: Первая смена"
+    row: 14
+    normalizedGroup: СА1-21
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 8b1e5d81ad57cbe04a8a8fc6cecdd00bb183de5fccd9974d7cee4efc5c572127
+    sheet: "Замены: Первая смена"
+    row: 16
+    normalizedGroup: СА1-21
+    rawValue: 1,2 п/гр Хожайнова М.Г.
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 89063c21106fca5214f6114d2fab044bf45d2e0816d1718e0f4c68e95ea83eb2

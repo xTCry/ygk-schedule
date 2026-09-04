@@ -1,0 +1,133 @@
+schemaVersion: 5
+provider: ygk
+group: РК1-21
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      РК1-21:
+        group: РК1-21
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                teacher: Девятаева Н.Ф.
+                room: ДОТ
+                weekType: both
+                sourceRow: 98
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Рекламная деятельность
+                teacher: Кожешкурт А.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Зевахина О.Б.
+                room: ДОТ
+                weekType: both
+                sourceRow: 102
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: РК1-21
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: БЖ
+              replacement:
+                raw: Рус.яз.и культ.речи Новикова М.А.
+                room: ДОТ
+              source:
+                shift: first
+                row: 23
+                rawGroupName: РК1-21
+                rawLessonNumbers: "3"
+                rawOriginal: БЖ
+                rawReplacement: Рус.яз.и культ.речи Новикова М.А.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «БЖ». По замене: «Рус.яз.и культ.речи Новикова
+                М.А.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5af1ab0e5a3db74d62be8be33bae982223060be231ccbfcf4c466654fe7d78e4
+    sheet: "Замены: Первая смена"
+    row: 23
+    normalizedGroup: РК1-21
+    rawValue: Рус.яз.и культ.речи Новикова М.А.
+    context:
+      date: 2026-09-05
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 9040b54d49c4d4c04c8cfbaeaa5f1f90a7d00421d13f7b4b6a5428759793411a

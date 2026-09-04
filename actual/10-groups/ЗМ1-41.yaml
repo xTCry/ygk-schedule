@@ -1,0 +1,153 @@
+schemaVersion: 5
+provider: ygk
+group: ЗМ1-41
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ЗМ1-41:
+        group: ЗМ1-41
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 04.01
+                teacher: Акиничева М.А.
+                room: Б507
+                weekType: both
+                rawSubject: МДК 04.01 Акиничева М.А.
+                rawTeacher: Акиничева М.А.
+                rawRoom: Б507
+                sourceRow: 47
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ЗМ1-41
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 04.01 Акиничева М.А.
+                    room: Б507
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: ЗМ1-41
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: МДК 04.01 Акиничева М.А.
+                    rawRoom: Б507
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Трусова Е.В.
+                  Ткаченко Г.А.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 43
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                  градостроительстве
+                teacher: Горохова Е.Б.
+                room: Б503
+                weekType: both
+                sourceRow: 45
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ЗМ1-41
+              lessonNumbers:
+                - 5
+              type: cancel
+              original:
+                raw: МДК 03.01
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 46
+                rawGroupName: ЗМ1-41
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 03.01
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.01». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7253eb92303d5b3571ff0c2a8a2e186fd6fcbe1c8dcdefb8900e376b91f276ca
+    sheet: "Замены: Первая смена"
+    row: 46
+    normalizedGroup: ЗМ1-41
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: ac566f824c0038a62e10785b5120c80d71d2a79458d6e9f6c6787be4d78fb5a6

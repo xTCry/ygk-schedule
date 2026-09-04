@@ -1,0 +1,175 @@
+schemaVersion: 5
+provider: ygk
+group: РК1-11
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      РК1-11:
+        group: РК1-11
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Травникова Г.Г.
+                room: Б101
+                weekType: both
+                sourceRow: 249
+            source:
+              sheet: 1 курс
+              rowStart: 249
+              rowEnd: 250
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Чупрова П.А.
+                room: Спорт.зал
+                weekType: both
+                sourceRow: 251
+            source:
+              sheet: 1 курс
+              rowStart: 251
+              rowEnd: 252
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: М208
+                weekType: numerator
+                sourceRow: 254
+            source:
+              sheet: 1 курс
+              rowStart: 253
+              rowEnd: 254
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: РК1-11
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Физкультура
+              replacement:
+                raw: Информ. Садилова К.А.
+                room: В102
+              source:
+                shift: first
+                row: 5
+                rawGroupName: РК1-11
+                rawLessonNumbers: "2"
+                rawOriginal: Физкультура
+                rawReplacement: Информ. Садилова К.А.
+                rawRoom: В102
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкультура». По замене: «Информ. Садилова К.А.».
+                Аудитория: «В102»."
+              room: В102
+          - replacement:
+              date: 2026-09-05
+              group: РК1-11
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Осн.шах.игры
+              replacement:
+                raw: Физика Овсова К.С.
+                room: В102
+              source:
+                shift: first
+                row: 6
+                rawGroupName: РК1-11
+                rawLessonNumbers: "3"
+                rawOriginal: Осн.шах.игры
+                rawReplacement: Физика Овсова К.С.
+                rawRoom: В102
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.шах.игры». По замене: «Физика Овсова К.С.».
+                Аудитория: «В102»."
+              room: В102
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 822437b4e159963ed9a083d77b1d404993df0e6caa369ddb3434583958a7cb19
+    sheet: "Замены: Первая смена"
+    row: 5
+    normalizedGroup: РК1-11
+    rawValue: Информ. Садилова К.А.
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 71c347624e5d2bd67f7a6bf28e911365fe5313cee44f09377711debbb6c54abb
+    sheet: "Замены: Первая смена"
+    row: 6
+    normalizedGroup: РК1-11
+    rawValue: Физика Овсова К.С.
+    context:
+      date: 2026-09-05
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 95f5e3893fdc9a38c786997e4d21b5ffc0bc60d973292ca080e50d1d39af9d84

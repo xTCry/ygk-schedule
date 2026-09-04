@@ -1,0 +1,169 @@
+schemaVersion: 5
+provider: ygk
+group: ЮР1-23
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ЮР1-23:
+        group: ЮР1-23
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 2
+            variants:
+              - subject: Русский язык и культура речи
+                teacher: Вакансия
+                room: Ф405
+                weekType: both
+                sourceRow: 93
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: ДОУ
+                teacher: Хватова Е.Ю.
+                room: Ф305
+                weekType: both
+                rawSubject: ДОУ Хватова Е.Ю.
+                rawTeacher: Хватова Е.Ю.
+                rawRoom: Ф305
+                sourceRow: 23
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ЮР1-23
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: ДОУ Хватова Е.Ю.
+                    room: Ф305
+                  source:
+                    shift: second
+                    row: 23
+                    rawGroupName: ЮР1-23
+                    rawLessonNumbers: "3"
+                    rawOriginal: История России
+                    rawReplacement: ДОУ Хватова Е.Ю.
+                    rawRoom: Ф305
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 97
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 99
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 99
+              rowEnd: 100
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ЮР1-23
+              lessonNumbers:
+                - 2
+              type: cancel
+              original:
+                raw: Русский язык
+              replacement:
+                raw: Снято
+              source:
+                shift: second
+                row: 24
+                rawGroupName: ЮР1-23
+                rawLessonNumbers: "2"
+                rawOriginal: Русский язык
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Русский язык». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: dfadb301f7984fe55defe7f2cee88b3303c6cc41d2d2de1b907b8a6b0b8cd60b
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ЮР1-23
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: d9462775ff69a98ad9d9161ed8a34b8838d0583514794e9aeafd749d4c8c7bf7

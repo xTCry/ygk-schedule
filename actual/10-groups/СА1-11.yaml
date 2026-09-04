@@ -1,0 +1,135 @@
+schemaVersion: 5
+provider: ygk
+group: СА1-11
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      СА1-11:
+        group: СА1-11
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Холманова В.М.
+                room: М102
+                weekType: numerator
+                sourceRow: 192
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 191
+              rowEnd: 192
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Дворниченко Г.В.
+                room: Б502
+                weekType: both
+                sourceRow: 193
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 193
+              rowEnd: 194
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иностранный язык
+                teacher: |-
+                  Зубковская А.Е.
+                  Загородних Е.С.
+                room: Б501
+                weekType: both
+                sourceRow: 195
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 195
+              rowEnd: 196
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: СА1-11
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Осн.шахм.игры
+              replacement:
+                raw: Рус.язык Грибанова Е.Н.
+                room: Б502
+              source:
+                shift: first
+                row: 51
+                rawGroupName: СА1-11
+                rawLessonNumbers: "1"
+                rawOriginal: Осн.шахм.игры
+                rawReplacement: Рус.язык Грибанова Е.Н.
+                rawRoom: Б502
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.шахм.игры». По замене: «Рус.язык Грибанова
+                Е.Н.». Аудитория: «Б502»."
+              room: Б502
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 6b8cecf486d1b4561a10624fb8396b6acbdd06ba2830a80a32cf638e0a1b4ccb
+    sheet: "Замены: Первая смена"
+    row: 51
+    normalizedGroup: СА1-11
+    rawValue: Рус.язык Грибанова Е.Н.
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 0b84be4a1683e51058630bce34c0a402105bc48aaf1db6212c18a228c9713739

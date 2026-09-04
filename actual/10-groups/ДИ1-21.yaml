@@ -1,0 +1,167 @@
+schemaVersion: 5
+provider: ygk
+group: ДИ1-21
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ДИ1-21:
+        group: ДИ1-21
+        date: 2026-09-05
+        day: Суббота
+        lessons: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ДИ1-21
+              lessonNumbers:
+                - 1
+              type: cancel
+              original:
+                raw: История дизайна
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 56
+                rawGroupName: ДИ1-21
+                rawLessonNumbers: "1"
+                rawOriginal: История дизайна
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 1
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «История дизайна». По замене: «Снято»."
+          - replacement:
+              date: 2026-09-05
+              group: ДИ1-21
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Рисунок п/гр
+              replacement:
+                raw: Материалов. Краснянская Е.В.
+                room: ДОТ
+              source:
+                shift: first
+                row: 24
+                rawGroupName: ДИ1-21
+                rawLessonNumbers: "3"
+                rawOriginal: Рисунок п/гр
+                rawReplacement: Материалов. Краснянская Е.В.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рисунок п/гр». По замене: «Материалов. Краснянская
+                Е.В.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement:
+              date: 2026-09-05
+              group: ДИ1-21
+              lessonNumbers:
+                - 4
+              type: add
+              original: null
+              replacement:
+                raw: История дизайна Кожешкурт А.В
+                room: ДОТ
+              source:
+                shift: first
+                row: 55
+                rawGroupName: ДИ1-21
+                rawLessonNumbers: "4"
+                rawOriginal: ""
+                rawReplacement: История дизайна Кожешкурт А.В
+                rawRoom: ДОТ
+            lessonNumber: 4
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По замене: «История дизайна Кожешкурт А.В». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 21a1b83077a01980017e48c2867f87bee74d64e3a28f1e3baccd4cbd7fd1318c
+    sheet: "Замены: Первая смена"
+    row: 24
+    normalizedGroup: ДИ1-21
+    rawValue: Материалов. Краснянская Е.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 3
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: be6956cb634dee3e0884eecffa80ee935fa466c599755ce26d14b4538b09de90
+    sheet: "Замены: Первая смена"
+    row: 55
+    normalizedGroup: ДИ1-21
+    rawValue: История дизайна Кожешкурт А.В
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: add
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 4f6a0717a3ba9db3f35fb159e95326543dc5aab8f9740e5f3ecd596bf658e933
+    sheet: "Замены: Первая смена"
+    row: 56
+    normalizedGroup: ДИ1-21
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: b81c921b48ff31b76e1a549b4680b5fae2fc61bb1a3a8fc187b6268def0f59ad

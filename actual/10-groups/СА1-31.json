@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 5,
+  "provider": "ygk",
+  "group": "СА1-31",
+  "dates": {
+    "2026-09-05": {
+      "date": "2026-09-05",
+      "day": "Суббота",
+      "weekType": "numerator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a",
+            "fetchedAt": "2026-09-04T14:02:43.680Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9a7ef8-3169\"",
+            "lastModified": "Fri, 04 Sep 2026 08:19:04 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211",
+            "fetchedAt": "2026-09-04T14:02:43.676Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ac5c3-1c38\"",
+            "lastModified": "Fri, 04 Sep 2026 13:21:07 GMT"
+          }
+        }
+      },
+      "groups": {
+        "СА1-31": {
+          "group": "СА1-31",
+          "date": "2026-09-05",
+          "day": "Суббота",
+          "lessons": [
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "УП.01.02 Учебная практика",
+                  "teacher": "Хожайнова М.Г.\nЗайцев Р.А.",
+                  "room": "Б308\nБ309",
+                  "weekType": "both",
+                  "sourceRow": 94
+                }
+              ],
+              "source": {
+                "sheet": "СА1-21 СА1-31  СА1-41",
+                "rowStart": 94,
+                "rowEnd": 95,
+                "rawGroupName": "СА1-31/СА1-32/СА2-21",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "Основы алгоритмизации и программирования",
+                  "teacher": "Вершинина Н.А.",
+                  "room": "Б110",
+                  "weekType": "numerator",
+                  "sourceRow": 97
+                }
+              ],
+              "source": {
+                "sheet": "СА1-21 СА1-31  СА1-41",
+                "rowStart": 96,
+                "rowEnd": 97,
+                "rawGroupName": "СА1-31/СА1-32/СА2-21",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-05",
+                "group": "СА1-31",
+                "lessonNumbers": [
+                  4
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "УП 01.02"
+                },
+                "replacement": {
+                  "raw": "МДК 03.01 /теор Зайцев Р.А.",
+                  "room": "Б309"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 8,
+                  "rawGroupName": "СА1-31",
+                  "rawLessonNumbers": "4",
+                  "rawOriginal": "УП 01.02",
+                  "rawReplacement": "МДК 03.01 /теор Зайцев Р.А.",
+                  "rawRoom": "Б309"
+                }
+              },
+              "lessonNumber": 4,
+              "reason": "original-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «УП 01.02». По замене: «МДК 03.01 /теор Зайцев Р.А.». Аудитория: «Б309».",
+                "room": "Б309"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "48d4d6a3c3e1cf7d30f0375803330f7d93272ba94df5aa7cf79a579cf5a5b135",
+      "sheet": "Замены: Вторая смена",
+      "row": 8,
+      "normalizedGroup": "СА1-31",
+      "rawValue": "МДК 03.01 /теор Зайцев Р.А.",
+      "context": {
+        "date": "2026-09-05",
+        "lessonNumber": 4,
+        "type": "replace",
+        "reason": "original-not-matched"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    }
+  ],
+  "semanticHash": "c1e86ba4d9d3b8c7588d53e64d89fec9c97cffe898238f143d56d40f913a4439"
+}

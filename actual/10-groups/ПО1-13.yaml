@@ -1,0 +1,133 @@
+schemaVersion: 5
+provider: ygk
+group: ПО1-13
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ПО1-13:
+        group: ПО1-13
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы безопастности и защиты Родины
+                teacher: Травникова Г.Г.
+                room: Б101
+                weekType: both
+                sourceRow: 91
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: ПО1-13/ПО1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Обществознание
+                teacher: Залевская Е.Н.
+                room: Б507
+                weekType: both
+                sourceRow: 93
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ПО1-13/ПО1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Дворниченко Г.В.
+                room: Б503
+                weekType: both
+                sourceRow: 95
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: ПО1-13/ПО1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ПО1-13
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Осн.шахм.игры
+              replacement:
+                raw: Рус.язык Грибанова Е.Н.
+                room: Б503
+              source:
+                shift: first
+                row: 52
+                rawGroupName: ПО1-13
+                rawLessonNumbers: "2"
+                rawOriginal: Осн.шахм.игры
+                rawReplacement: Рус.язык Грибанова Е.Н.
+                rawRoom: Б503
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.шахм.игры». По замене: «Рус.язык Грибанова
+                Е.Н.». Аудитория: «Б503»."
+              room: Б503
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 296acfa90dd4f73a1655d5d5420c77cc77db8ee2ce0f4404077ddd0e887182ec
+    sheet: "Замены: Первая смена"
+    row: 52
+    normalizedGroup: ПО1-13
+    rawValue: Рус.язык Грибанова Е.Н.
+    context:
+      date: 2026-09-05
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: bd44868a96eb2e7f96e263e3d03bfddf3bcfd6bc2817029981b8250a8c4c8675

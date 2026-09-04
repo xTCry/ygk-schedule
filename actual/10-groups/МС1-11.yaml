@@ -1,0 +1,133 @@
+schemaVersion: 5
+provider: ygk
+group: МС1-11
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      МС1-11:
+        group: МС1-11
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Зевахина О.Б.
+                room: Б501
+                weekType: both
+                sourceRow: 43
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Новиков М.П.
+                room: Б508
+                weekType: both
+                sourceRow: 45
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Обществознание
+                teacher: Новиков М.П.
+                room: А202
+                weekType: both
+                sourceRow: 47
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 47
+              rowEnd: 48
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: МС1-11
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: ОБиЗР
+              replacement:
+                raw: История Новиков М.П.
+                room: Б501
+              source:
+                shift: first
+                row: 41
+                rawGroupName: МС1-11
+                rawLessonNumbers: "0"
+                rawOriginal: ОБиЗР
+                rawReplacement: История Новиков М.П.
+                rawRoom: Б501
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ОБиЗР». По замене: «История Новиков М.П.».
+                Аудитория: «Б501»."
+              room: Б501
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 911980a158852e116719cda0dd3cc0e1d2e3178e5a2d2e0f22b428bd8b408f8e
+    sheet: "Замены: Первая смена"
+    row: 41
+    normalizedGroup: МС1-11
+    rawValue: История Новиков М.П.
+    context:
+      date: 2026-09-05
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 540c33478ed888c4a5aacec99c094f4a9be81167aa91cc3b0e31db4ed5bc3406

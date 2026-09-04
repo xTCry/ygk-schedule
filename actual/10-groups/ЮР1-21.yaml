@@ -1,0 +1,172 @@
+schemaVersion: 5
+provider: ygk
+group: ЮР1-21
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ЮР1-21:
+        group: ЮР1-21
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 45
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 03.01 Право социального обеспечения
+                teacher: Ребрищева Л.П.
+                room: Ф206
+                weekType: both
+                sourceRow: 47
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 47
+              rowEnd: 48
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 03.01 Право социального обеспечения
+                teacher: Ребрищева Л.П.
+                room: Ф206
+                weekType: both
+                sourceRow: 49
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 49
+              rowEnd: 50
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ЮР1-21
+              lessonNumbers:
+                - 4
+              type: replace
+              original:
+                raw: МДК 03.01
+              replacement:
+                raw: ДОУ /т. Нестерова А.В.
+                room: Ф306
+              source:
+                shift: second
+                row: 28
+                rawGroupName: ЮР1-21
+                rawLessonNumbers: "4"
+                rawOriginal: МДК 03.01
+                rawReplacement: ДОУ /т. Нестерова А.В.
+                rawRoom: Ф306
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.01». По замене: «ДОУ /т. Нестерова А.В.».
+                Аудитория: «Ф306»."
+              room: Ф306
+          - replacement:
+              date: 2026-09-05
+              group: ЮР1-21
+              lessonNumbers:
+                - 5
+              type: cancel
+              original:
+                raw: МДК 03.01
+              replacement:
+                raw: Снято
+              source:
+                shift: second
+                row: 29
+                rawGroupName: ЮР1-21
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 03.01
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.01». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d47380dac7363e63bab7d724ac114b5aca75e34e8d57f5affe7966096fe3ad29
+    sheet: "Замены: Вторая смена"
+    row: 28
+    normalizedGroup: ЮР1-21
+    rawValue: ДОУ /т. Нестерова А.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 6b8d9757d62fd3e8d959eb6ea2487499822acb6eb723d5779901ebd8b585a0ea
+    sheet: "Замены: Вторая смена"
+    row: 29
+    normalizedGroup: ЮР1-21
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: bfef4e5b70b0357e8590cb0ec2ba2c9169eaaa2e22678da4b967000760cb62a5

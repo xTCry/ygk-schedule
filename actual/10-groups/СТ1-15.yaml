@@ -1,0 +1,157 @@
+schemaVersion: 5
+provider: ygk
+group: СТ1-15
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      СТ1-15:
+        group: СТ1-15
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Гаврилова М.А.
+                room: М106
+                weekType: numerator
+                sourceRow: 146
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 145
+              rowEnd: 146
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физика
+                teacher: Овсова К.С.
+                room: М101
+                weekType: both
+                sourceRow: 147
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 147
+              rowEnd: 148
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Литература
+                teacher: Шалаева А.А.
+                room: Б204
+                weekType: both
+                rawSubject: Литература Шалаева А.А.
+                rawTeacher: Шалаева А.А.
+                rawRoom: Б204
+                sourceRow: 4
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 149
+              rowEnd: 150
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: СТ1-15
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История
+                  replacement:
+                    raw: Литература Шалаева А.А.
+                    room: Б204
+                  source:
+                    shift: first
+                    row: 4
+                    rawGroupName: СТ1-15
+                    rawLessonNumbers: "3"
+                    rawOriginal: История
+                    rawReplacement: Литература Шалаева А.А.
+                    rawRoom: Б204
+                lessonNumber: 3
+                strategy: exact-subject
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: СТ1-15
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Физика л/р
+              replacement:
+                raw: /теория Овсова К.С.
+                room: М101
+              source:
+                shift: first
+                row: 3
+                rawGroupName: СТ1-15
+                rawLessonNumbers: "1"
+                rawOriginal: Физика л/р
+                rawReplacement: /теория Овсова К.С.
+                rawRoom: М101
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физика л/р». По замене: «/теория Овсова К.С.».
+                Аудитория: «М101»."
+              room: М101
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: dafd303b473bbc3d62bc7c5a038067ae2b553e41d212a44dea6b17fa7bc15537
+    sheet: "Замены: Первая смена"
+    row: 3
+    normalizedGroup: СТ1-15
+    rawValue: /теория Овсова К.С.
+    context:
+      date: 2026-09-05
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 5a3e1fd148d81a4e70077a40c365ab31c089ef0958b11d8fec5bf3645ed1df3b

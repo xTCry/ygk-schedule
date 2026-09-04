@@ -1,0 +1,150 @@
+schemaVersion: 5
+provider: ygk
+group: АР1-13
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      АР1-13:
+        group: АР1-13
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Индивидуальный проект
+                teacher: |-
+                  Ткаченко Г.А.
+                  Климова А.А.
+                room: Акт.зал
+                weekType: both
+                sourceRow: 97
+            source:
+              sheet: 1 курс
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: АР1-13/АР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Булычева Л.А.
+                room: Б110
+                weekType: both
+                sourceRow: 99
+            source:
+              sheet: 1 курс
+              rowStart: 99
+              rowEnd: 100
+              rawGroupName: АР1-13/АР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Обществознание
+                teacher: Булычева Л.А.
+                room: Б110
+                weekType: both
+                sourceRow: 101
+            source:
+              sheet: 1 курс
+              rowStart: 101
+              rowEnd: 102
+              rawGroupName: АР1-13/АР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Травникова Г.Г.
+                room: Б101
+                weekType: both
+                sourceRow: 103
+            source:
+              sheet: 1 курс
+              rowStart: 103
+              rowEnd: 104
+              rawGroupName: АР1-13/АР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: АР1-13
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: Инд.проект
+              replacement:
+                raw: 1,2 п/гр. Ткаченко Г.А.
+                room: Акт.зал
+              source:
+                shift: first
+                row: 8
+                rawGroupName: АР1-13
+                rawLessonNumbers: "0"
+                rawOriginal: Инд.проект
+                rawReplacement: 1,2 п/гр. Ткаченко Г.А.
+                rawRoom: Акт.зал
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инд.проект». По замене: «1,2 п/гр. Ткаченко Г.А.».
+                Аудитория: «Акт.зал»."
+              room: Акт.зал
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0c7748303ec15c0dbdb4fd472a6e0acd2603bf44dd2d80832726b8e21d0adc5e
+    sheet: "Замены: Первая смена"
+    row: 8
+    normalizedGroup: АР1-13
+    rawValue: 1,2 п/гр. Ткаченко Г.А.
+    context:
+      date: 2026-09-05
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: bbe088cf2ac2c2b346f4a5d0d7dafac7fca0b23918922f65c713c287c34ddc22

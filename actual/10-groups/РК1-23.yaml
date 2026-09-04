@@ -1,0 +1,148 @@
+schemaVersion: 5
+provider: ygk
+group: РК1-23
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      РК1-23:
+        group: РК1-23
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Рекл.деят
+                teacher: Кожешкурт А.В.
+                room: Б401
+                weekType: both
+                rawSubject: Рекл.деят Кожешкурт А.В.
+                rawTeacher: Кожешкурт А.В.
+                rawRoom: Б401
+                sourceRow: 53
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: РК1-23
+                  lessonNumbers:
+                    - 1
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Рекл.деят Кожешкурт А.В.
+                    room: Б401
+                  source:
+                    shift: first
+                    row: 53
+                    rawGroupName: РК1-23
+                    rawLessonNumbers: "1"
+                    rawOriginal: ""
+                    rawReplacement: Рекл.деят Кожешкурт А.В.
+                    rawRoom: Б401
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                teacher: Девятаева Н.Ф.
+                room: Б204
+                weekType: both
+                sourceRow: 151
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 151
+              rowEnd: 152
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Рекламная деятельность
+                teacher: Кожешкурт А.В.
+                room: Б507
+                weekType: both
+                sourceRow: 153
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 153
+              rowEnd: 154
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: РК1-23
+              lessonNumbers:
+                - 3
+              type: cancel
+              original:
+                raw: Рекл.деят
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 54
+                rawGroupName: РК1-23
+                rawLessonNumbers: "3"
+                rawOriginal: Рекл.деят
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рекл.деят». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0d72fd22c1e18e8169a07286588ce7e7c849813d4bc87d7e6ed26450ceaf7f79
+    sheet: "Замены: Первая смена"
+    row: 54
+    normalizedGroup: РК1-23
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: f05a7aee679604fdbe872053fa16f925b24fe9d1a979695947f1e008edc4c0ca

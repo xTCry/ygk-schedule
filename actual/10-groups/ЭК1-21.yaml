@@ -1,0 +1,133 @@
+schemaVersion: 5
+provider: ygk
+group: ЭК1-21
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ЭК1-21:
+        group: ЭК1-21
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: numerator
+                sourceRow: 41
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 40
+              rowEnd: 41
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Налоги и налогообложение
+                teacher: Бежина М.И.
+                room: Ф302
+                weekType: both
+                sourceRow: 42
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 42
+              rowEnd: 43
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Финансы, денежное обращение и кредит
+                teacher: Бежина М.И.
+                room: Ф302
+                weekType: both
+                sourceRow: 44
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 44
+              rowEnd: 45
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ЭК1-21
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Физкультура
+              replacement:
+                raw: ФДОиК Бежина М.И.
+                room: Ф302
+              source:
+                shift: second
+                row: 21
+                rawGroupName: ЭК1-21
+                rawLessonNumbers: "3"
+                rawOriginal: Физкультура
+                rawReplacement: ФДОиК Бежина М.И.
+                rawRoom: Ф302
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкультура». По замене: «ФДОиК Бежина М.И.».
+                Аудитория: «Ф302»."
+              room: Ф302
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: b88e370d0f71524c622ba1e191ee64adf78df43829bbc9abb11566ac5baf314f
+    sheet: "Замены: Вторая смена"
+    row: 21
+    normalizedGroup: ЭК1-21
+    rawValue: ФДОиК Бежина М.И.
+    context:
+      date: 2026-09-05
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 02a6e1a89806d86366f81b70392460592b9b4e718b5af4de1490d3a2beac26e3

@@ -1,0 +1,193 @@
+schemaVersion: 5
+provider: ygk
+group: ИС1-41
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      ИС1-41:
+        group: ИС1-41
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК 03.02 Управление проектами п/пр1
+                teacher: Юров А.А.
+                room: Б304
+                weekType: numerator
+                sourceRow: 199
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 198
+              rowEnd: 199
+              rawGroupName: ИС1-41/ИС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК.03.02 Управление проектами
+                teacher: |-
+                  Юров А.А.
+                  Байдина Ю.А.
+                room: |-
+                  Б304
+                  Б407
+                weekType: both
+                sourceRow: 200
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 200
+              rowEnd: 201
+              rawGroupName: ИС1-41/ИС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.05.03 Тестирование ИС п/гр2
+                teacher: Вакансия
+                room: Б304
+                weekType: numerator
+                subgroup: "2"
+                sourceRow: 203
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 202
+              rowEnd: 203
+              rawGroupName: ИС1-41/ИС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.05.03 Тестирование ИС п/гр2
+                teacher: Вакансия
+                room: Б304
+                weekType: numerator
+                subgroup: "2"
+                sourceRow: 205
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 204
+              rowEnd: 205
+              rawGroupName: ИС1-41/ИС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-05
+              group: ИС1-41
+              lessonNumbers:
+                - 4
+              type: replace
+              original:
+                raw: МДК 05.03 п/гр
+              replacement:
+                raw: Эф.поведение Малашкевич Д.А.
+                room: Б110
+              source:
+                shift: second
+                row: 9
+                rawGroupName: ИС1-41
+                rawLessonNumbers: "4"
+                rawOriginal: МДК 05.03 п/гр
+                rawReplacement: Эф.поведение Малашкевич Д.А.
+                rawRoom: Б110
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 05.03 п/гр». По замене: «Эф.поведение
+                Малашкевич Д.А.». Аудитория: «Б110»."
+              room: Б110
+          - replacement:
+              date: 2026-09-05
+              group: ИС1-41
+              lessonNumbers:
+                - 5
+              type: cancel
+              original:
+                raw: МДК 05.03 п/гр
+              replacement:
+                raw: Снято
+              source:
+                shift: second
+                row: 10
+                rawGroupName: ИС1-41
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 05.03 п/гр
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 05.03 п/гр». По замене: «Снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3b760cb0fb96811b7697859cb26ba9d4e29af012798be9f1b79d27d8ce499401
+    sheet: "Замены: Вторая смена"
+    row: 9
+    normalizedGroup: ИС1-41
+    rawValue: Эф.поведение Малашкевич Д.А.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: c5d39bd033fcae5818eaab930e7f8a67947d64073f48df802e9146c0b1e6c3d5
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИС1-41
+    rawValue: Снято
+    context:
+      date: 2026-09-05
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: aa5e2a543f3856868a153824e9ade0ddd611ec2b146d2b38a18ceb18fcb193db

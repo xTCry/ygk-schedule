@@ -1,0 +1,145 @@
+schemaVersion: 5
+provider: ygk
+group: РК1-31
+dates:
+  2026-09-05:
+    date: 2026-09-05
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d8606887235394272d4920d892135d6458eac7e550a5595320a98ff58773a76a
+          fetchedAt: 2026-09-04T14:02:43.680Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9a7ef8-3169"
+          lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+      second:
+        date: 2026-09-05
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 174922548f064531b77a774faf40dd848fa70d39c7657d28483f50c0d1ee9211
+          fetchedAt: 2026-09-04T14:02:43.676Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ac5c3-1c38"
+          lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+    groups:
+      РК1-31:
+        group: РК1-31
+        date: 2026-09-05
+        day: Суббота
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК 02.02 Разработка и размещение рекламного контента для продвижения
+                  торговой марки
+                teacher: Павлова О.В.
+                room: Б204
+                weekType: both
+                sourceRow: 198
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 198
+              rowEnd: 199
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 02.02 Разработка и размещение рекламного контента для продвижения
+                  торговой марки
+                teacher: Павлова О.В.
+                room: Б204
+                weekType: both
+                sourceRow: 200
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 200
+              rowEnd: 201
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-05
+              group: РК1-31
+              lessonNumbers:
+                - 4
+                - 5
+              type: replace
+              original:
+                raw: МДК 02.02
+              replacement:
+                raw: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                room: ДОТ
+              source:
+                shift: second
+                row: 18
+                rawGroupName: РК1-31
+                rawLessonNumbers: 4,5
+                rawOriginal: МДК 02.02
+                rawReplacement: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                rawRoom: ДОТ
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. МДК 04.03
+                Выблова Т.В.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement: *a1
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. МДК 04.03
+                Выблова Т.В.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 30bc2dd2c2d953bbebba2e7f85d9cb23420c2658ec9ab4f4c31f91024f9b7173
+    sheet: "Замены: Вторая смена"
+    row: 18
+    normalizedGroup: РК1-31
+    rawValue: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3a6e82a302d3f528362c67c04641b68a742998bc8f9b660f99bcbb169d4f9193
+    sheet: "Замены: Вторая смена"
+    row: 18
+    normalizedGroup: РК1-31
+    rawValue: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 72ddb366d64d76e4b53b2b303270fa423ff5873bcfce2e135bcffaa47fa7a4c4
