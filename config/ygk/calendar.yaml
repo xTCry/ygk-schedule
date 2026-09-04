@@ -1,0 +1,32 @@
+# Даты праздников, каникул, переносов и предпраздничных дней будут добавлены
+# отдельным этапом. До этого preholiday-время хранится как справочные данные.
+schema_version: 1
+timezone: Europe/Moscow
+term:
+  start: '2026-09-01'
+  end: '2027-06-30'
+  reference_date: '2026-09-07'
+  reference_week_type: numerator
+
+bells_file: bells.yaml
+regulations_file: regulations.yaml
+
+# До GitHub Pages используем прямую ссылку на ветку data.
+publication:
+  source_url_template: https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/{kind}/{group}.ics
+  refresh_interval: PT2H
+
+# Здесь перечисляются только подтвержденные привязки. Данные о корпусах для
+# остальных групп в регламенте отсутствуют, поэтому профиль не угадывается.
+group_profiles:
+  ЮР1-11: f-year-1
+  ЮР1-12: f-year-1
+  ЮР1-13: f-year-1
+  ЮР1-14: f-year-1
+  ЮР1-15: f-year-1
+  ЮР1-16: f-year-1
+  ЮР2-11: f-year-1
+  ТУ1-11: f-year-1
+  ТУ1-12: f-year-1
+  ЭК1-11: f-year-1
+  ЭК1-12: f-year-1

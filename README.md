@@ -166,13 +166,20 @@ make generate-ical OUTPUT_DIR=./data \
 ```
 
 Явные соответствия `группа → профиль звонков` для автоматической публикации
-находятся в [`config/ygk/calendar.json`](config/ygk/calendar.json).
+находятся в [`config/ygk/calendar.yaml`](config/ygk/calendar.yaml). Полная
+таблица звонков и регламент хранятся рядом в `bells.yaml` и `regulations.yaml`.
 Пока корпус или профиль группы не подтвержден, генератор не угадывает его и
 не публикует для этой группы ICS. Параметры `CALENDAR_GROUP` и
 `CALENDAR_PROFILE` предназначены только для локальной проверки одного
 календаря.
 
-После настройки GitHub Pages в ветке `data` публичные URL будут иметь вид:
+Пока GitHub Pages не настроен, в файле ICS указывается прямой URL ветки `data`
+на `raw.githubusercontent.com`. Его можно использовать и для подписки:
+
+```text
+https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/base/СТ1-11.ics
+https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/actual/СТ1-11.ics
+```
 
 ```text
 https://xtcry.github.io/ygk-schedule/ical/base/СТ1-11.ics
@@ -188,6 +195,10 @@ https://xtcry.github.io/ygk-schedule/ical/actual/СТ1-11.ics
 URL `actual` нужной группы → «Добавить календарь». Google Calendar обновляет
 подписки по собственному расписанию и кеширует их; принудительно задать
 частоту обновления со стороны этого репозитория нельзя.
+
+После настройки GitHub Pages изменится только шаблон
+`publication.source_url_template` в `calendar.yaml`; пути `ical/base/` и
+`ical/actual/` останутся прежними.
 
 ## Миграция generated-файлов
 

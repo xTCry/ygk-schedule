@@ -1,6 +1,10 @@
 import { readdir, unlink } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import type { CalendarProfile, CalendarTerm } from '../calendar/config.ts';
+import type {
+  CalendarProfile,
+  CalendarPublication,
+  CalendarTerm,
+} from '../calendar/config.ts';
 import type { ActualSchedule, CanonicalSchedule } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import { generateActualIcal } from './actual-ical.ts';
@@ -22,6 +26,7 @@ export interface WriteIcalArtifactsOptions {
   groupProfiles: Record<string, string>;
   term: CalendarTerm;
   timezone: string;
+  publication?: CalendarPublication;
   groups?: readonly string[];
   /**
    * Очистка нужна только для полной пересборки. Локальный запуск одной группы
@@ -86,6 +91,19 @@ const profileForGroup = (
   return profile;
 };
 
+const calendarSourceUrl = (
+  publication: CalendarPublication | undefined,
+  kind: 'base' | 'actual',
+  group: string,
+): string | undefined => {
+  const template = publication?.sourceUrlTemplate;
+  if (!template) return undefined;
+  const urlGroup = /^[\p{L}\p{N}-]+$/u.test(group)
+    ? group
+    : encodeURIComponent(group);
+  return template.replaceAll('{kind}', kind).replaceAll('{group}', urlGroup);
+};
+
 /**
  * Создает base и actual ICS только для групп с явно назначенным профилем
  * звонков. Неизвестный корпус не является поводом подставлять время наугад.
@@ -116,6 +134,7 @@ export const writeIcalArtifacts = async (
     }
 
     const baseFile = join(paths.baseDirectory, `${groupFileName(group)}.ics`);
+    const baseSourceUrl = calendarSourceUrl(options.publication, 'base', group);
     writes.push(
       writeFileAtomic(
         baseFile,
@@ -129,6 +148,10 @@ export const writeIcalArtifacts = async (
           timezone: options.timezone,
           lessonTimes: profile.lessonTimes,
           lessonTimesByDay: profile.lessonTimesByDay,
+          ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
+          ...(options.publication?.refreshInterval
+            ? { refreshInterval: options.publication.refreshInterval }
+            : {}),
         }),
       ),
     );
@@ -138,6 +161,11 @@ export const writeIcalArtifacts = async (
       const actualFile = join(
         paths.actualDirectory,
         `${groupFileName(group)}.ics`,
+      );
+      const actualSourceUrl = calendarSourceUrl(
+        options.publication,
+        'actual',
+        group,
       );
       writes.push(
         writeFileAtomic(
@@ -151,6 +179,10 @@ export const writeIcalArtifacts = async (
             timezone: options.timezone,
             lessonTimes: profile.lessonTimes,
             lessonTimesByDay: profile.lessonTimesByDay,
+            ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
+            ...(options.publication?.refreshInterval
+              ? { refreshInterval: options.publication.refreshInterval }
+              : {}),
           }),
         ),
       );

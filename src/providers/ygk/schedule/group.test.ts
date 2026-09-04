@@ -31,6 +31,22 @@ describe('YGK group parsing', () => {
     });
   });
 
+  it('expands abbreviated group codes only with an explicit prefix', () => {
+    expect(parseGroupCandidate('СД2-21/2-22')).toMatchObject({
+      groups: ['СД2-21', 'СД2-22'],
+    });
+    expect(parseGroupCandidate('СТ1-31/СТ1-32/2-21')).toMatchObject({
+      groups: ['СТ1-31', 'СТ1-32', 'СТ2-21'],
+    });
+    expect(parseGroupCandidate('2-22')).toBeNull();
+  });
+
+  it('does not accept the known malformed group code from the regulation', () => {
+    expect(parseGroupCandidate('ЗМ1-1-13/ЗМ1-14')).toMatchObject({
+      groups: ['ЗМ1-14'],
+    });
+  });
+
   it('rejects service rows and ordinary text', () => {
     expect(parseGroupCandidate('* с ДОТ')).toBeNull();
     expect(parseGroupCandidate('Понедельник')).toBeNull();

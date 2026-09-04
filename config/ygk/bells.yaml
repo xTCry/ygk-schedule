@@ -1,0 +1,343 @@
+# Расписание звонков актуально для 2026–2027 учебного года.
+# Время перенесено из опубликованной таблицы; уточняется при новой публикации.
+schema_version: 1
+academic_year: '2026-2027'
+time_format: HH:MM
+schedule_sets:
+  abvm:
+    buildings:
+      - А
+      - Б
+      - В
+      - М
+    regular:
+      days:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+      common_periods:
+        '0':
+          segments:
+            - start: '08:00'
+              end: '09:10'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:20'
+              end: '10:50'
+          break_after_minutes: 10
+        '3':
+          segments:
+            - start: '13:20'
+              end: '14:50'
+          break_after_minutes: 15
+        '4':
+          segments:
+            - start: '15:05'
+              end: '16:35'
+          break_after_minutes: 30
+        '5':
+          segments:
+            - start: '17:05'
+              end: '18:35'
+          break_after_minutes: 10
+        '6':
+          segments:
+            - start: '18:45'
+              end: '19:55'
+      variants:
+        - id: a_m
+          buildings:
+            - А
+            - М
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '11:45'
+                - start: '12:25'
+                  end: '13:10'
+              internal_breaks_minutes:
+                - 40
+              break_after_minutes: 10
+        - id: b_v
+          buildings:
+            - Б
+            - В
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '12:30'
+              break_after_minutes: 50
+    saturday:
+      days:
+        - saturday
+      periods_1_to_4: use_regular_schedule
+      period_overrides:
+        '4':
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '16:45'
+              end: '18:15'
+      not_listed:
+        - '0'
+        - '6'
+    preholiday:
+      applies_to: all_groups
+      lesson_duration_minutes: 60
+      periods:
+        '0':
+          segments:
+            - start: '08:00'
+              end: '09:00'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:10'
+              end: '10:10'
+          break_after_minutes: 10
+        '2':
+          segments:
+            - start: '10:20'
+              end: '11:20'
+          break_after_minutes: 30
+        '3':
+          segments:
+            - start: '11:50'
+              end: '12:50'
+          break_after_minutes: 10
+        '4':
+          segments:
+            - start: '13:00'
+              end: '14:00'
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '14:10'
+              end: '15:10'
+          break_after_minutes: 10
+        '6':
+          segments:
+            - start: '15:20'
+              end: '16:20'
+  t:
+    buildings:
+      - Т
+    regular:
+      days:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - saturday
+      common_periods:
+        '0':
+          segments:
+            - start: '08:00'
+              end: '09:10'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:20'
+              end: '10:50'
+          break_after_minutes: 10
+        '3':
+          segments:
+            - start: '13:20'
+              end: '14:50'
+          break_after_minutes: 10
+        '4':
+          segments:
+            - start: '15:00'
+              end: '16:30'
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '16:40'
+              end: '18:10'
+          break_after_minutes: 10
+        '6':
+          segments:
+            - start: '18:20'
+              end: '19:50'
+      variants:
+        - id: professions_and_specialty_year_1
+          audience: profession_groups_and_specialty_year_1
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '11:45'
+                - start: '12:25'
+                  end: '13:10'
+              internal_breaks_minutes:
+                - 40
+              break_after_minutes: 10
+        - id: specialty_years_2_4
+          audience: specialty_years_2_4
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '12:30'
+              break_after_minutes: 50
+    preholiday:
+      applies_to: all_groups
+      lesson_duration_minutes: 60
+      periods:
+        '0':
+          segments:
+            - start: '08:00'
+              end: '09:00'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:10'
+              end: '10:10'
+          break_after_minutes: 10
+        '2':
+          segments:
+            - start: '10:20'
+              end: '11:20'
+          break_after_minutes: 30
+        '3':
+          segments:
+            - start: '11:50'
+              end: '12:50'
+          break_after_minutes: 10
+        '4':
+          segments:
+            - start: '13:00'
+              end: '14:00'
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '14:10'
+              end: '15:10'
+          break_after_minutes: 10
+        '6':
+          segments:
+            - start: '15:20'
+              end: '16:20'
+  f:
+    buildings:
+      - Ф
+    regular:
+      days:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+      common_periods:
+        '0':
+          segments:
+            - start: '08:00'
+              end: '09:10'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:20'
+              end: '10:50'
+          break_after_minutes: 10
+      variants:
+        - id: listed_year_1_groups
+          audience: specific_year_1_groups
+          group_sets:
+            - ЮР1-11/ЮР1-12
+            - ЮР1-13/ЮР1-14
+            - ЮР1-15/ЮР1-16
+            - ЮР2-11
+            - ТУ1-11/ТУ1-12
+            - ЭК1-11/ЭК1-12
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '11:45'
+                - start: '12:30'
+                  end: '13:15'
+              internal_breaks_minutes:
+                - 45
+              break_after_minutes: 10
+        - id: years_2_4
+          audience: years_2_4
+          periods:
+            '2':
+              segments:
+                - start: '11:00'
+                  end: '12:30'
+              break_after_minutes: 55
+            '3':
+              segments:
+                - start: '13:25'
+                  end: '14:55'
+              break_after_minutes: 10
+            '4':
+              segments:
+                - start: '15:05'
+                  end: '16:35'
+              break_after_minutes: 15
+            '5':
+              segments:
+                - start: '16:50'
+                  end: '18:20'
+      source_constraints:
+        - Пары 3-5 в будничном блоке явно указаны под заголовком «для групп 2,3,4 курсов».
+        - Для перечисленных групп 1 курса после второй пары отдельные времена пар 3-5 в документе не приведены.
+    saturday:
+      days:
+        - saturday
+      periods_1_to_4: use_regular_schedule
+      period_overrides:
+        '4':
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '16:45'
+              end: '18:15'
+      source_constraints:
+        - 'В документе указано: «1-4 пары — по осн. расписанию звонков».'
+    preholiday:
+      applies_to: all_groups
+      lesson_duration_minutes: 60
+      periods:
+        '0':
+          segments:
+            - start: '07:50'
+              end: '08:50'
+          break_after_minutes: 10
+        '1':
+          segments:
+            - start: '09:00'
+              end: '10:00'
+          break_after_minutes: 10
+        '2':
+          segments:
+            - start: '10:10'
+              end: '11:10'
+          break_after_minutes: 30
+        '3':
+          segments:
+            - start: '11:40'
+              end: '12:40'
+          break_after_minutes: 10
+        '4':
+          segments:
+            - start: '12:50'
+              end: '13:50'
+          break_after_minutes: 10
+        '5':
+          segments:
+            - start: '14:00'
+              end: '15:00'
+          break_after_minutes: 10
+        '6':
+          segments:
+            - start: '15:10'
+              end: '16:10'

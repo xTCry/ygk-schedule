@@ -47,6 +47,16 @@ export interface IcalOptions {
   productId?: string;
   calendarName?: string;
   /**
+   * Постоянный публичный адрес этого ICS. Он остается внутри файла для
+   * клиентов, которые получили календарь не через прямую подписку.
+   */
+  sourceUrl?: string;
+  /**
+   * Рекомендуемый интервал повторного чтения `sourceUrl` в ISO 8601 duration.
+   * Клиент календаря может проигнорировать эту рекомендацию.
+   */
+  refreshInterval?: string;
+  /**
    * Даты, на которых recurring-события базового расписания не должны
    * отображаться. Ключ — номер пары.
    */
@@ -258,6 +268,12 @@ export const generateIcal = (
       ? [`X-WR-CALNAME:${escapeIcal(options.calendarName)}`]
       : []),
     `X-WR-TIMEZONE:${timezone}`,
+    ...(options.sourceUrl
+      ? [`URL:${options.sourceUrl}`, `SOURCE;VALUE=URI:${options.sourceUrl}`]
+      : []),
+    ...(options.refreshInterval
+      ? [`REFRESH-INTERVAL;VALUE=DURATION:${options.refreshInterval}`]
+      : []),
   ];
 
   for (const day of group.days) {

@@ -2,6 +2,8 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { stringify } from 'yaml';
+import type { CalendarConfigDocument } from '../calendar/config.ts';
 import { generateIcalArtifacts } from './generate-ical.ts';
 import type {
   CanonicalSchedule,
@@ -72,7 +74,7 @@ describe('generate iCalendar CLI', () => {
   it('generates a selected group with a local profile override', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-generate-ical-'));
     const baseDirectory = join(root, 'base');
-    const configPath = join(root, 'calendar.json');
+    const configPath = join(root, 'calendar.yaml');
     await mkdir(baseDirectory, { recursive: true });
     await writeFile(
       join(baseDirectory, '00-schedule.json'),
@@ -80,21 +82,30 @@ describe('generate iCalendar CLI', () => {
     );
     await writeFile(
       configPath,
-      JSON.stringify({
-        timezone: 'Europe/Moscow',
-        term: {
-          start: '2026-09-01',
-          end: '2027-06-30',
-          referenceDate: '2026-09-07',
-          referenceWeekType: 'numerator',
-        },
-        profiles: {
-          local: {
-            lessonTimes: { 1: { start: '09:20', end: '10:50' } },
+      stringify(
+        {
+          timezone: 'Europe/Moscow',
+          term: {
+            start: '2026-09-01',
+            end: '2027-06-30',
+            reference_date: '2026-09-07',
+            reference_week_type: 'numerator',
           },
-        },
-        groupProfiles: {},
-      }),
+          profiles: {
+            local: {
+              lesson_times: {
+                1: { start: '09:20', end: '10:50' },
+              },
+            },
+          },
+          group_profiles: {},
+          publication: {
+            source_url_template: 'https://example.test/ical/{kind}/{group}.ics',
+            refresh_interval: 'PT2H',
+          },
+        } satisfies CalendarConfigDocument,
+        { indent: 2 },
+      ),
     );
 
     const result = await generateIcalArtifacts({
@@ -109,6 +120,11 @@ describe('generate iCalendar CLI', () => {
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('SUMMARY:Тестовая пара');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain(
+      'SOURCE;VALUE=URI:https://example.test/ical/base/СТ1-11.ics',
+    );
 
     const noProfileResult = await generateIcalArtifacts({
       baseSchedule: join(baseDirectory, '00-schedule.json'),

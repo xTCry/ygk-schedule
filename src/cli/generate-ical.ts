@@ -78,6 +78,7 @@ export const generateIcalArtifacts = async (
     groupProfiles,
     term: config.term,
     timezone: config.timezone,
+    ...(config.publication ? { publication: config.publication } : {}),
     ...(options.group ? { groups: [options.group] } : {}),
   });
 };
