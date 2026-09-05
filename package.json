@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck:pages": "tsc -p tsconfig.pages.json",
     "test": "vitest run",
     "update": "tsx src/cli/update.ts",
     "regenerate-artifacts": "tsx src/cli/regenerate-artifacts.ts",
@@ -20,10 +21,11 @@
     "workflow:update-replacements": "tsx src/cli/update-replacements-workflow.ts",
     "workflow:publish": "tsx src/cli/publish-data.ts",
     "workflow:summary": "tsx src/cli/write-workflow-summary.ts",
+    "pages:build": "tsx src/cli/build-pages.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run format:check"
+    "check": "npm run typecheck && npm run typecheck:pages && npm run lint && npm run test && npm run format:check"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -33,6 +35,7 @@
     "tsx": "^4.23.13",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.69.0",
+    "vite": "^8.2.2",
     "vitest": "^4.1.11"
   },
   "dependencies": {

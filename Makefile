@@ -11,8 +11,10 @@ CALENDAR_CONFIG_PATH ?= config/ygk/calendar.yaml
 CALENDAR_GROUP ?=
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
+PAGES_OUTPUT_DIR ?= .tmp/pages
+PAGES_BASE ?= /ygk-schedule/
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures sync-issues
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures sync-issues pages-build
 
 help:
 	@printf '%s\n' \
@@ -29,7 +31,8 @@ help:
 		'  make generate-ical    Сгенерировать base/actual ICS из JSON-артефактов' \
 		'  make update-replacements Скачать и применить актуальные замены' \
 		'  make update-replacements-fixtures Обработать локальные HTML-фикстуры замен' \
-		'  make sync-issues      Синхронизировать диагностические GitHub Issue'
+		'  make sync-issues      Синхронизировать диагностические GitHub Issue' \
+		'  make pages-build      Собрать локальный snapshot GitHub Pages'
 
 install:
 	npm ci
@@ -79,3 +82,6 @@ update-replacements-fixtures:
 sync-issues:
 	test -n "$(GITHUB_REPOSITORY)"
 	npm run sync-issues -- --output-dir "$(OUTPUT_DIR)" --repo "$(GITHUB_REPOSITORY)" --max-writes "$(ISSUE_MAX_WRITES)" $(if $(SYNC_ISSUES_REPORT),--report "$(SYNC_ISSUES_REPORT)")
+
+pages-build:
+	npm run pages:build -- --data-dir "$(OUTPUT_DIR)" --output-dir "$(PAGES_OUTPUT_DIR)" --base "$(PAGES_BASE)"

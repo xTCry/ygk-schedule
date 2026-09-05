@@ -172,7 +172,7 @@ describe('YGK calendar config', () => {
     );
     expect(config.publication).toMatchObject({
       sourceUrlTemplate:
-        'https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/{kind}/{group}.ics',
+        'https://xtcry.github.io/ygk-schedule/ical/{kind}/{group}.ics',
       refreshInterval: 'PT2H',
     });
     expect(config.roomProfiles.specialRooms['СПОРТ.ЗАЛ']).toEqual({

@@ -1,0 +1,77 @@
+name: deploy pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-pages.yml'
+      - 'pages/**'
+      - 'src/pages/**'
+      - 'src/cli/build-pages.ts'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_run:
+    workflows: ['update schedule', 'update replacements']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: checkout parser
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: checkout published data
+        uses: actions/checkout@v6
+        with:
+          ref: data
+          path: data
+          persist-credentials: false
+
+      - name: setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.13.0
+          cache: npm
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: build Pages
+        run: npm run pages:build -- --data-dir "$GITHUB_WORKSPACE/data" --output-dir "$RUNNER_TEMP/site" --base "/${{ github.event.repository.name }}/"
+
+      - name: upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

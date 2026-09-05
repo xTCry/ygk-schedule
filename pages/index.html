@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Публичное расписание Ярославского градостроительного колледжа"
+    />
+    <title>Расписание ЯГК</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <a class="brand" href="./">ЯГК · расписание</a>
+        <p>
+          Автоматически обновляемая публикация базового расписания и замен.
+          Проверяйте важные изменения по официальным источникам колледжа.
+        </p>
+      </header>
+
+      <main>
+        <section class="panel selector-panel" aria-labelledby="group-heading">
+          <div>
+            <p class="eyebrow">Расписание</p>
+            <h1 id="group-heading">Выберите группу</h1>
+          </div>
+          <label class="group-select">
+            <span>Группа</span>
+            <select id="group-select" disabled>
+              <option>Загрузка списка групп…</option>
+            </select>
+          </label>
+        </section>
+
+        <section id="status" class="status" aria-live="polite">
+          Загружаем опубликованные данные…
+        </section>
+
+        <section id="schedule-view" class="schedule-view" hidden>
+          <div class="schedule-head">
+            <div>
+              <p class="eyebrow" id="schedule-caption">Ближайшее расписание</p>
+              <h2 id="schedule-title"></h2>
+            </div>
+            <div id="calendar-links" class="calendar-links"></div>
+          </div>
+
+          <div id="diagnostics" class="diagnostics"></div>
+          <div id="days" class="days"></div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Данные и исходные JSON доступны как статический
+          <a href="./api/index.json">API</a>. Сайт не является официальным
+          источником колледжа.
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
