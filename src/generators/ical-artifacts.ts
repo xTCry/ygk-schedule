@@ -138,6 +138,9 @@ export const writeIcalArtifacts = async (
 
   for (const group of [...new Set(requestedGroups)].sort(compareGroups)) {
     if (!schedule.groups[group]) throw new Error(`Group not found: ${group}`);
+    // У отдельных групп может быть свой срок семестра, но опорная неделя
+    // остается общей для опубликованной версии расписания.
+    const termRange = options.term.groupRanges[group] ?? options.term;
 
     for (const subgroup of [undefined, ...subgroupsForGroup(schedule, group)]) {
       const fileName = calendarFileName(group, subgroup);
@@ -152,10 +155,10 @@ export const writeIcalArtifacts = async (
         group,
         ...(subgroup ? { subgroup } : {}),
         calendarName: `ЯГК: ${group}${subgroupLabel}`,
-        termStart: options.term.start,
-        termEnd: options.term.end,
-        referenceDate: options.term.referenceDate,
-        referenceWeekType: options.term.referenceWeekType,
+        termStart: termRange.start,
+        termEnd: termRange.end,
+        referenceDate: options.term.weekAnchor.date,
+        referenceWeekType: options.term.weekAnchor.weekType,
         timezone: options.timezone,
         lessonTimeResolver,
         ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
@@ -178,10 +181,10 @@ export const writeIcalArtifacts = async (
           group,
           ...(subgroup ? { subgroup } : {}),
           calendarName: `ЯГК: ${group}${subgroupLabel} (actual)`,
-          termStart: options.term.start,
-          termEnd: options.term.end,
-          referenceDate: options.term.referenceDate,
-          referenceWeekType: options.term.referenceWeekType,
+          termStart: termRange.start,
+          termEnd: termRange.end,
+          referenceDate: options.term.weekAnchor.date,
+          referenceWeekType: options.term.weekAnchor.weekType,
           timezone: options.timezone,
           lessonTimeResolver,
           ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),

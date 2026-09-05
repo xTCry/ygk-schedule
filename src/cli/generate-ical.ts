@@ -14,6 +14,8 @@ export interface GenerateIcalOptions {
   config?: string;
   actualSchedule?: string;
   group?: string;
+  /** Дата выбора активного семестра; нужна для воспроизводимых тестов. */
+  calendarDate?: Date;
 }
 
 const parseArgs = (args: string[]): GenerateIcalOptions => {
@@ -60,7 +62,10 @@ export const generateIcalArtifacts = async (
     options.actualSchedule ?? `${outputDir}/actual/00-schedule.json`,
   );
   const actual = await readJsonIfExists<ActualSchedule>(actualPath);
-  const config = await loadYgkCalendarConfig(options.config);
+  const config = await loadYgkCalendarConfig(
+    options.config,
+    options.calendarDate,
+  );
 
   return writeIcalArtifacts(getIcalArtifactPaths(outputDir), schedule, actual, {
     profiles: config.profiles,

@@ -20,10 +20,17 @@ describe('YGK calendar config', () => {
     await writeCalendarConfig(path, {
       timezone: 'Europe/Moscow',
       term: {
-        start: '2026-09-01',
-        end: '2027-06-30',
-        reference_date: '2026-09-07',
-        reference_week_type: 'numerator',
+        first: { start: '09-01', end: '12-31' },
+        second: { start: '01-12', end: '06-30' },
+        fallback_week_anchor: {
+          date: '2026-09-07',
+          week_type: 'numerator',
+        },
+        group_ranges: {
+          'СТ1-11': {
+            first: { start: '09-01', end: '12-20' },
+          },
+        },
       },
       profiles: {
         known: {
@@ -45,7 +52,9 @@ describe('YGK calendar config', () => {
       },
     } satisfies CalendarConfigDocument);
 
-    await expect(loadYgkCalendarConfig(path)).resolves.toMatchObject({
+    await expect(
+      loadYgkCalendarConfig(path, new Date('2026-09-05T12:00:00Z')),
+    ).resolves.toMatchObject({
       profiles: {
         known: {
           lessonTimesByDay: {
@@ -63,6 +72,18 @@ describe('YGK calendar config', () => {
         },
         specialRooms: { ДОТ: 'remote' },
       },
+      term: {
+        semester: 'first',
+        start: '2026-09-01',
+        end: '2026-12-31',
+        weekAnchor: {
+          date: '2026-09-07',
+          weekType: 'numerator',
+        },
+        groupRanges: {
+          'СТ1-11': { start: '2026-09-01', end: '2026-12-20' },
+        },
+      },
     });
   });
 
@@ -72,10 +93,12 @@ describe('YGK calendar config', () => {
     await writeCalendarConfig(path, {
       timezone: 'Europe/Moscow',
       term: {
-        start: '2026-09-01',
-        end: '2027-06-30',
-        reference_date: '2026-09-07',
-        reference_week_type: 'numerator',
+        first: { start: '09-01', end: '12-31' },
+        second: { start: '01-12', end: '06-30' },
+        fallback_week_anchor: {
+          date: '2026-09-07',
+          week_type: 'numerator',
+        },
       },
       profiles: {
         known: {
@@ -98,10 +121,12 @@ describe('YGK calendar config', () => {
     await writeCalendarConfig(path, {
       timezone: 'Europe/Moscow',
       term: {
-        start: '2026-09-01',
-        end: '2027-06-30',
-        reference_date: '2026-09-07',
-        reference_week_type: 'numerator',
+        first: { start: '09-01', end: '12-31' },
+        second: { start: '01-12', end: '06-30' },
+        fallback_week_anchor: {
+          date: '2026-09-07',
+          week_type: 'numerator',
+        },
       },
       profiles: {
         known: {
@@ -119,7 +144,10 @@ describe('YGK calendar config', () => {
   });
 
   it('derives the checked profiles from the tracked bell schedule', async () => {
-    const config = await loadYgkCalendarConfig();
+    const config = await loadYgkCalendarConfig(
+      undefined,
+      new Date('2026-09-05T12:00:00Z'),
+    );
 
     expect(config.roomProfiles.buildings.Ф?.groupOverrides['ЮР1-11']).toBe(
       'f-year-1',
@@ -140,8 +168,76 @@ describe('YGK calendar config', () => {
       refreshInterval: 'PT2H',
     });
     expect(config.term).toMatchObject({
+      semester: 'first',
       start: '2026-09-01',
       end: '2026-12-31',
+      groupRanges: {},
+    });
+  });
+
+  it('rejects a term boundary with a year', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'ygk-calendar-config-'));
+    const path = join(directory, 'calendar.yaml');
+    await writeCalendarConfig(path, {
+      timezone: 'Europe/Moscow',
+      term: {
+        first: { start: '2026-09-01', end: '12-31' },
+        second: { start: '01-12', end: '06-30' },
+        fallback_week_anchor: {
+          date: '2026-09-07',
+          week_type: 'numerator',
+        },
+      },
+      profiles: {
+        known: {
+          lesson_times: {
+            1: { start: '09:20', end: '10:50' },
+          },
+        },
+      },
+      room_profiles: { buildings: { А: { profile: 'known' } } },
+    } satisfies CalendarConfigDocument);
+
+    await expect(loadYgkCalendarConfig(path)).rejects.toThrow(
+      /requires MM-DD at term.first.start/,
+    );
+  });
+
+  it('derives both spring term boundaries from the reference year', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'ygk-calendar-config-'));
+    const path = join(directory, 'calendar.yaml');
+    await writeCalendarConfig(path, {
+      timezone: 'Europe/Moscow',
+      term: {
+        first: { start: '09-01', end: '12-31' },
+        second: { start: '01-12', end: '06-30' },
+        fallback_week_anchor: {
+          date: '2027-01-18',
+          week_type: 'denominator',
+        },
+      },
+      profiles: {
+        known: {
+          lesson_times: {
+            1: { start: '09:20', end: '10:50' },
+          },
+        },
+      },
+      room_profiles: { buildings: { А: { profile: 'known' } } },
+    } satisfies CalendarConfigDocument);
+
+    await expect(
+      loadYgkCalendarConfig(path, new Date('2027-01-18T12:00:00Z')),
+    ).resolves.toMatchObject({
+      term: {
+        semester: 'second',
+        start: '2027-01-12',
+        end: '2027-06-30',
+        weekAnchor: {
+          date: '2027-01-18',
+          weekType: 'denominator',
+        },
+      },
     });
   });
 });

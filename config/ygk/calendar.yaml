@@ -3,10 +3,31 @@
 schema_version: 1
 timezone: Europe/Moscow
 term:
-  start: '2026-09-01'
-  end: '2026-12-31'
-  reference_date: '2026-09-07'
-  reference_week_type: numerator
+  # Активный семестр выбирается автоматически по текущей дате:
+  # с начала first — первый, до него — второй.
+  first:
+    start: '09-01'
+    end: '12-31'
+  second:
+    start: '01-12'
+    end: '06-30'
+  # Временная точка чередования недель. Когда parser замен сможет надежно
+  # извлекать дату и числитель/знаменатель, она будет уточняться автоматически.
+  fallback_week_anchor:
+    date: '2026-09-07'
+    week_type: numerator
+  # Исключения для групп при особых сроках семестра. Значения также MM-DD,
+  # а first/second применяются автоматически вместе с базовым семестром.
+  # Пример:
+  # group_ranges:
+  #   СТ1-11:
+  #     first:
+  #       start: '09-01'
+  #       end: '12-20'
+  #     second:
+  #       start: '01-12'
+  #       end: '05-20'
+  group_ranges: {}
 
 bells_file: bells.yaml
 regulations_file: regulations.yaml

@@ -2,17 +2,35 @@ import { readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { parse } from 'yaml';
 import type { DayOfWeek } from '../types.ts';
+import { inferAcademicYear } from './academic-year.ts';
 import type {
   LessonTime,
   LessonTimeOverride,
   LessonTimeSlots,
 } from './lesson-times.ts';
 
-export interface CalendarTerm {
+export interface CalendarTermRange {
   start: string;
   end: string;
-  referenceDate: string;
-  referenceWeekType: 'numerator' | 'denominator';
+}
+
+export type CalendarSemester = 'first' | 'second';
+
+/**
+ * Исходная точка чередования числителя и знаменателя.
+ *
+ * Пока parser замен не подтвердил актуальную неделю, используется значение из
+ * календарной конфигурации. В дальнейшем оно будет заменяться данными ЯГК.
+ */
+export interface CalendarWeekAnchor {
+  date: string;
+  weekType: 'numerator' | 'denominator';
+}
+
+export interface CalendarTerm extends CalendarTermRange {
+  semester: CalendarSemester;
+  weekAnchor: CalendarWeekAnchor;
+  groupRanges: Record<string, CalendarTermRange>;
 }
 
 export interface CalendarPublication {
@@ -51,10 +69,16 @@ export interface CalendarConfigDocument {
   schema_version?: number;
   timezone: string;
   term: {
-    start: string;
-    end: string;
-    reference_date: string;
-    reference_week_type: 'numerator' | 'denominator';
+    first: CalendarTermRange;
+    second: CalendarTermRange;
+    fallback_week_anchor: {
+      date: string;
+      week_type: 'numerator' | 'denominator';
+    };
+    group_ranges?: Record<
+      string,
+      Partial<Record<CalendarSemester, CalendarTermRange>>
+    >;
   };
   bells_file?: string;
   regulations_file?: string;
@@ -113,6 +137,98 @@ const readString = (value: unknown, path: string): string => {
   if (typeof value !== 'string' || !value.trim())
     throw new Error(`Calendar config requires a non-empty string at ${path}`);
   return value;
+};
+
+/**
+ * Проверяет дату формата YYYY-MM-DD.
+ */
+const readIsoDate = (value: unknown, path: string): void => {
+  const isoDate = readString(value, path);
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate);
+  if (!match) {
+    throw new Error(`Calendar config requires YYYY-MM-DD at ${path}`);
+  }
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    throw new Error(`Calendar config has an invalid date at ${path}`);
+  }
+};
+
+/**
+ * Проверяет месяц и день без привязки к конкретному учебному году.
+ */
+const readMonthDay = (value: unknown, path: string): string => {
+  const monthDay = readString(value, path);
+  const match = /^(\d{2})-(\d{2})$/.exec(monthDay);
+  if (!match) throw new Error(`Calendar config requires MM-DD at ${path}`);
+  const month = Number(match[1]);
+  const day = Number(match[2]);
+  // 2000 — високосный год, поэтому корректно поддерживается и 02-29.
+  const date = new Date(Date.UTC(2000, month - 1, day));
+  if (date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) {
+    throw new Error(`Calendar config has an invalid month and day at ${path}`);
+  }
+  return monthDay;
+};
+
+/** Привязывает MM-DD к указанному году с проверкой реальной даты. */
+const dateForTermBoundary = (monthDay: string, year: number): string => {
+  const date = `${year}-${monthDay}`;
+  const month = Number(monthDay.slice(0, 2));
+  const day = Number(monthDay.slice(3, 5));
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  if (
+    parsed.getUTCFullYear() !== year ||
+    parsed.getUTCMonth() !== month - 1 ||
+    parsed.getUTCDate() !== day
+  ) {
+    throw new Error(`Calendar config has an invalid date at ${date}`);
+  }
+  return date;
+};
+
+/** Преобразует границы одного семестра в полные даты для ICS. */
+const readTermRange = (
+  value: unknown,
+  path: string,
+  startYear: number,
+): CalendarTermRange => {
+  if (!isRecord(value))
+    throw new Error(`Calendar config requires an object at ${path}`);
+  const startMonthDay = readMonthDay(value.start, `${path}.start`);
+  const endMonthDay = readMonthDay(value.end, `${path}.end`);
+  const start = dateForTermBoundary(startMonthDay, startYear);
+  const end = dateForTermBoundary(
+    endMonthDay,
+    endMonthDay < startMonthDay ? startYear + 1 : startYear,
+  );
+  if (start > end) {
+    throw new Error(`Calendar config requires start before end at ${path}`);
+  }
+  return { start, end };
+};
+
+/**
+ * Выбирает актуальный семестр по текущему дню и началу первого семестра.
+ *
+ * После даты начала первого семестра публикуется осенний диапазон, до нее —
+ * весенний. Поэтому январь–август не требуют ручного переключения конфига.
+ */
+const semesterForDate = (
+  date: Date,
+  firstSemesterStart: string,
+): CalendarSemester => {
+  const monthDay = `${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(
+    date.getUTCDate(),
+  ).padStart(2, '0')}`;
+  return monthDay >= firstSemesterStart ? 'first' : 'second';
 };
 
 const timeToMinutes = (value: string, path: string): number => {
@@ -507,10 +623,12 @@ const normalizeRoomCode = (value: string): string =>
  */
 export const loadYgkCalendarConfig = async (
   file = resolve(process.cwd(), 'config', 'ygk', 'calendar.yaml'),
+  calendarDate = new Date(),
 ): Promise<YgkCalendarConfig> => {
   const configPath = resolve(file);
   const parsed = await readYaml(configPath);
-  if (!isRecord(parsed.term))
+  const rawTerm = parsed.term;
+  if (!isRecord(rawTerm))
     throw new Error('Calendar config requires a term object');
 
   const profiles = parsed.bells_file
@@ -548,26 +666,70 @@ export const loadYgkCalendarConfig = async (
 
   const roomProfiles = readRoomProfiles(parsed.room_profiles, profiles);
 
-  const referenceWeekType = parsed.term.reference_week_type;
-  if (
-    referenceWeekType !== 'numerator' &&
-    referenceWeekType !== 'denominator'
-  ) {
+  if (!isRecord(rawTerm.fallback_week_anchor)) {
     throw new Error(
-      'Calendar config reference_week_type must be numerator or denominator',
+      'Calendar config requires an object at term.fallback_week_anchor',
     );
+  }
+  const rawWeekAnchor = rawTerm.fallback_week_anchor;
+  readIsoDate(rawWeekAnchor.date, 'term.fallback_week_anchor.date');
+  const weekType = rawWeekAnchor.week_type;
+  if (weekType !== 'numerator' && weekType !== 'denominator') {
+    throw new Error(
+      'Calendar config fallback_week_anchor.week_type must be numerator or denominator',
+    );
+  }
+  const academicYear = inferAcademicYear(calendarDate);
+  const semester = semesterForDate(
+    calendarDate,
+    readMonthDay(
+      isRecord(rawTerm.first) ? rawTerm.first.start : undefined,
+      'term.first.start',
+    ),
+  );
+  const termRange = readTermRange(
+    rawTerm[semester],
+    `term.${semester}`,
+    semester === 'first' ? academicYear.startYear : academicYear.endYear,
+  );
+  const groupRanges: CalendarTerm['groupRanges'] = {};
+  if (rawTerm.group_ranges !== undefined) {
+    if (!isRecord(rawTerm.group_ranges)) {
+      throw new Error(
+        'Calendar config requires an object at term.group_ranges',
+      );
+    }
+    for (const [group, rawRanges] of Object.entries(rawTerm.group_ranges)) {
+      if (!group.trim()) {
+        throw new Error(
+          'Calendar config requires a non-empty group code at term.group_ranges',
+        );
+      }
+      if (!isRecord(rawRanges)) {
+        throw new Error(
+          `Calendar config requires an object at term.group_ranges.${group}`,
+        );
+      }
+      const rawRange = rawRanges[semester];
+      if (rawRange === undefined) continue;
+      groupRanges[group] = readTermRange(
+        rawRange,
+        `term.group_ranges.${group}.${semester}`,
+        semester === 'first' ? academicYear.startYear : academicYear.endYear,
+      );
+    }
   }
   const publication = readPublication(parsed.publication, 'publication');
   return {
     timezone: readString(parsed.timezone, 'timezone'),
     term: {
-      start: readString(parsed.term.start, 'term.start'),
-      end: readString(parsed.term.end, 'term.end'),
-      referenceDate: readString(
-        parsed.term.reference_date,
-        'term.reference_date',
-      ),
-      referenceWeekType,
+      ...termRange,
+      semester,
+      weekAnchor: {
+        date: readString(rawWeekAnchor.date, 'term.fallback_week_anchor.date'),
+        weekType,
+      },
+      groupRanges,
     },
     profiles,
     roomProfiles,

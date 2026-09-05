@@ -102,10 +102,17 @@ describe('generate iCalendar CLI', () => {
         {
           timezone: 'Europe/Moscow',
           term: {
-            start: '2026-09-01',
-            end: '2027-06-30',
-            reference_date: '2026-09-07',
-            reference_week_type: 'numerator',
+            first: { start: '09-01', end: '12-31' },
+            second: { start: '01-12', end: '06-30' },
+            fallback_week_anchor: {
+              date: '2026-09-07',
+              week_type: 'numerator',
+            },
+            group_ranges: {
+              'СТ1-11': {
+                first: { start: '09-01', end: '12-20' },
+              },
+            },
           },
           profiles: {
             local: {
@@ -133,12 +140,16 @@ describe('generate iCalendar CLI', () => {
       outputDir: root,
       config: configPath,
       group: 'СТ1-11',
+      calendarDate: new Date('2026-09-05T12:00:00Z'),
     });
 
     expect(result.generatedGroups).toEqual(['СТ1-11']);
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('SUMMARY:Тестовая пара');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain('UNTIL=20261220T235959Z');
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain(
