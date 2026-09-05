@@ -1,0 +1,69 @@
+schemaVersion: 5
+provider: ygk
+group: ДИ1-31
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        replacements:
+          - &a1
+            date: 2026-09-07
+            group: ДИ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: БЖ
+            replacement:
+              raw: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
+              room: Б101
+            source:
+              shift: second
+              row: 26
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: БЖ
+              rawReplacement: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
+              rawRoom: Б101
+          - &a2
+            date: 2026-09-07
+            group: ДИ1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.02 Т.2.2.
+            replacement:
+              raw: 1,2 п/гр. Махоткина Д.Е.
+              room: Б407
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.02 Т.2.2.
+              rawReplacement: 1,2 п/гр. Махоткина Д.Е.
+              rawRoom: Б407
+        diagnostics: []
+    replacements:
+      - *a1
+      - *a2
+diagnostics: []
+semanticHash: 827f8b02f3f3d16c2430a0f99bc48bb7eed12e06e10112481d55f125f9dd67a5

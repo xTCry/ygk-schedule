@@ -1,0 +1,150 @@
+schemaVersion: 5
+provider: ygk
+group: 2 БПЛА
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      2 БПЛА:
+        group: 2 БПЛА
+        date: 2026-09-07
+        day: Понедельник
+        lessons: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-07
+              group: 2 БПЛА
+              lessonNumbers:
+                - 0
+                - 1
+              type: cancel
+              original:
+                raw: Разговоры Матем.
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 43
+                rawGroupName: 2 БПЛА
+                rawLessonNumbers: 0,1
+                rawOriginal: Разговоры Матем.
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 0
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Разговоры Матем.». По замене: «снято»."
+          - replacement: *a1
+            lessonNumber: 1
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Разговоры Матем.». По замене: «снято»."
+          - replacement:
+              date: 2026-09-07
+              group: 2 БПЛА
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Ин.язык
+              replacement:
+                raw: Петрушенко Е.Е.
+                room: к.1
+              source:
+                shift: first
+                row: 44
+                rawGroupName: 2 БПЛА
+                rawLessonNumbers: "2"
+                rawOriginal: Ин.язык
+                rawReplacement: Петрушенко Е.Е.
+                rawRoom: к.1
+            lessonNumber: 2
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Ин.язык». По замене: «Петрушенко Е.Е.». Аудитория:
+                «к.1»."
+              room: к.1
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 096fa7309e4f7c0cd7823a74b042bbb50f885b2af19d665d3f8b179be55ff366
+    sheet: "Замены: Первая смена"
+    row: 43
+    normalizedGroup: 2 БПЛА
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 0
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 94a6119f004ee69f7f7a88242d80e34b8eb9a3f691378494613e9c1d2cdad588
+    sheet: "Замены: Первая смена"
+    row: 44
+    normalizedGroup: 2 БПЛА
+    rawValue: Петрушенко Е.Е.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: aab96b420338b41fd8bf20ea82f63093ddd8f935e3106739f53e7cbe156c2b09
+    sheet: "Замены: Первая смена"
+    row: 43
+    normalizedGroup: 2 БПЛА
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 1
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 1a9b9ea2724bfc3b68c2156a04aab6477d736fcb9b07f73b901dc6f9beb2b092

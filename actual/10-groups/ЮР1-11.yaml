@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ЮР1-11:
         group: ЮР1-11
@@ -65,7 +73,89 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «Математика». По замене: «Снято»."
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ЮР1-11:
+        group: ЮР1-11
+        date: 2026-09-07
+        day: Понедельник
+        lessons: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ЮР1-11
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Инд.проект
+              replacement:
+                raw: 1,2 п/гр. Супагина К.И.
+                room: Ф305
+              source:
+                shift: first
+                row: 34
+                rawGroupName: ЮР1-11
+                rawLessonNumbers: "3"
+                rawOriginal: Инд.проект
+                rawReplacement: 1,2 п/гр. Супагина К.И.
+                rawRoom: Ф305
+            lessonNumber: 3
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инд.проект». По замене: «1,2 п/гр. Супагина К.И.».
+                Аудитория: «Ф305»."
+              room: Ф305
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 29189b81df825ce0f53777b91241471dec3a3fab9da923a683538f78050b6dad
+    sheet: "Замены: Первая смена"
+    row: 34
+    normalizedGroup: ЮР1-11
+    rawValue: 1,2 п/гр. Супагина К.И.
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -82,4 +172,4 @@ diagnostics:
       reason: group-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 163c579094da28d49d0abec235ae774cf43caa1514d73260dac541a5c60e3d46
+semanticHash: 42d94084fb5333fc92e2f5b90f4978b36a89facd4b01ab8b437d8645064b7bdd

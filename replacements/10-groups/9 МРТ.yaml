@@ -1,0 +1,69 @@
+schemaVersion: 5
+provider: ygk
+group: 9 МРТ
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        replacements:
+          - &a1
+            date: 2026-09-07
+            group: 9 МРТ
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 51
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 04.01
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+          - &a2
+            date: 2026-09-07
+            group: 9 МРТ
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: УП 01 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 52
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 01 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a1
+      - *a2
+diagnostics: []
+semanticHash: cd8040cdae49aa3027fdb7b72392ad09d96d3994c440f0caec76a45ba0463c74

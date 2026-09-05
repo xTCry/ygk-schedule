@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ДИ1-43:
         group: ДИ1-43
@@ -110,7 +118,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ДИ1-43
               lessonNumbers:
@@ -137,26 +145,7 @@ dates:
               description: "По расписанию: «МДК 01.02». По замене: «1,2 п/гр. Выблова Т.В.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ДИ1-43
-              lessonNumbers:
-                - 2
-                - 3
-              type: replace
-              original:
-                raw: МДК 01.02
-              replacement:
-                raw: 1,2 п/гр. Выблова Т.В.
-                room: ДОТ
-              source:
-                shift: second
-                row: 17
-                rawGroupName: ДИ1-43
-                rawLessonNumbers: 2,3
-                rawOriginal: МДК 01.02
-                rawReplacement: 1,2 п/гр. Выблова Т.В.
-                rawRoom: ДОТ
+          - replacement: *a1
             lessonNumber: 3
             reason: original-not-matched
             event:
@@ -164,7 +153,7 @@ dates:
               description: "По расписанию: «МДК 01.02». По замене: «1,2 п/гр. Выблова Т.В.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
+          - replacement: &a2
               date: 2026-09-05
               group: ДИ1-43
               lessonNumbers:
@@ -191,26 +180,7 @@ dates:
               description: "По расписанию: «МДК 01.01 МДК02.01». По замене: «1,2 п/гр.
                 Ремизова А.И.». Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ДИ1-43
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: МДК 01.01 МДК02.01
-              replacement:
-                raw: 1,2 п/гр. Ремизова А.И.
-                room: ДОТ
-              source:
-                shift: second
-                row: 16
-                rawGroupName: ДИ1-43
-                rawLessonNumbers: 4,5
-                rawOriginal: МДК 01.01 МДК02.01
-                rawReplacement: 1,2 п/гр. Ремизова А.И.
-                rawRoom: ДОТ
+          - replacement: *a2
             lessonNumber: 5
             reason: original-not-matched
             event:
@@ -218,19 +188,219 @@ dates:
               description: "По расписанию: «МДК 01.01 МДК02.01». По замене: «1,2 п/гр.
                 Ремизова А.И.». Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики
+                  teacher: |-
+                    Выблова Т.В.
+                    Вакансия
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 88
+              source:
+                sheet: ДИ-4курс
+                rowStart: 88
+                rowEnd: 89
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики
+                  teacher: |-
+                    Выблова Т.В.
+                    Вакансия
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 90
+              source:
+                sheet: ДИ-4курс
+                rowStart: 90
+                rowEnd: 91
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 01.01 Дизайн-проектирование
+                  teacher: |-
+                    Ремизова А.И.
+                    Голубева Т.С.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 92
+              source:
+                sheet: ДИ-4курс
+                rowStart: 92
+                rowEnd: 93
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+                  teacher: |-
+                    Ремизова А.И.
+                    Голубева Т.С.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 94
+              source:
+                sheet: ДИ-4курс
+                rowStart: 94
+                rowEnd: 95
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ДИ1-43:
+        group: ДИ1-43
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 5
+            variants:
+              - subject: МДК 02.02 Основы конструкторско-технологического обеспечения дизайна
+                teacher: |-
+                  Ремизова А.И.
+                  Вакансия
+                room: Б507
+                weekType: both
+                sourceRow: 51
+            source:
+              sheet: ДИ-4курс
+              rowStart: 51
+              rowEnd: 52
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: МДК 01.01 Дизайн-проектирование КП
+                teacher: |-
+                  Ремизова А.И.
+                  Голубева Т.С.
+                room: |-
+                  Б302
+                  Б305
+                weekType: both
+                sourceRow: 53
+            source:
+              sheet: ДИ-4курс
+              rowStart: 53
+              rowEnd: 54
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ДИ1-43
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: МДК 02.02
+              replacement:
+                raw: 1,2 п/гр. Ремизова А.И.
+                room: Б507
+              source:
+                shift: second
+                row: 32
+                rawGroupName: ДИ1-43
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 02.02
+                rawReplacement: 1,2 п/гр. Ремизова А.И.
+                rawRoom: Б507
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. Ремизова А.И.».
+                Аудитория: «Б507»."
+              room: Б507
+          - replacement:
+              date: 2026-09-07
+              group: ДИ1-43
+              lessonNumbers:
+                - 6
+              type: replace
+              original:
+                raw: МДК 01.01 КП
+              replacement:
+                raw: 1,2 п/гр. Ремизова А.И.
+                room: Б406
+              source:
+                shift: second
+                row: 33
+                rawGroupName: ДИ1-43
+                rawLessonNumbers: "6"
+                rawOriginal: МДК 01.01 КП
+                rawReplacement: 1,2 п/гр. Ремизова А.И.
+                rawRoom: Б406
+            lessonNumber: 6
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.01 КП». По замене: «1,2 п/гр. Ремизова
+                А.И.». Аудитория: «Б406»."
+              room: Б406
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: bdef65be62bd1c5133ac9f6c176d30f2b9b62d65489218b3aff5f312d1d13582
+    fingerprint: 1e2b43dc346d2caa57c4426b1005ed43fe5fa4ff85d7bc84c93769f6063097b9
     sheet: "Замены: Вторая смена"
-    row: 16
+    row: 17
     normalizedGroup: ДИ1-43
-    rawValue: 1,2 п/гр. Ремизова А.И.
+    rawValue: 1,2 п/гр. Выблова Т.В.
     context:
       date: 2026-09-05
-      lessonNumber: 4
+      lessonNumber: 3
       type: replace
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
@@ -239,13 +409,13 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: b31e1dfb6c656a6d1cd405fab0a9bb78ab9cf7cf10683d1989060a2c6f710bff
+    fingerprint: 50c3411cf2e848416bbceb5184bcec1ad4c4285a5f5bd07d2468bee70c9ceb36
     sheet: "Замены: Вторая смена"
-    row: 16
+    row: 32
     normalizedGroup: ДИ1-43
     rawValue: 1,2 п/гр. Ремизова А.И.
     context:
-      date: 2026-09-05
+      date: 2026-09-07
       lessonNumber: 5
       type: replace
       reason: original-not-matched
@@ -271,16 +441,48 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 1e2b43dc346d2caa57c4426b1005ed43fe5fa4ff85d7bc84c93769f6063097b9
+    fingerprint: b31e1dfb6c656a6d1cd405fab0a9bb78ab9cf7cf10683d1989060a2c6f710bff
     sheet: "Замены: Вторая смена"
-    row: 17
+    row: 16
     normalizedGroup: ДИ1-43
-    rawValue: 1,2 п/гр. Выблова Т.В.
+    rawValue: 1,2 п/гр. Ремизова А.И.
     context:
       date: 2026-09-05
-      lessonNumber: 3
+      lessonNumber: 5
       type: replace
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 47275e4ef474510b4ec261714b63eb6a32d5bd9309ee7cdd06d560035808aa38
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: bdef65be62bd1c5133ac9f6c176d30f2b9b62d65489218b3aff5f312d1d13582
+    sheet: "Замены: Вторая смена"
+    row: 16
+    normalizedGroup: ДИ1-43
+    rawValue: 1,2 п/гр. Ремизова А.И.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: de90b392d1b31f574e82612cf2120b283e7defab72925595404325f31d78e18c
+    sheet: "Замены: Вторая смена"
+    row: 33
+    normalizedGroup: ДИ1-43
+    rawValue: 1,2 п/гр. Ремизова А.И.
+    context:
+      date: 2026-09-07
+      lessonNumber: 6
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: b79cc25a84487105fc514a7c2112b616dbe82d944a1c81392a207373e9d34a53

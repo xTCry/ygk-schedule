@@ -12,7 +12,7 @@
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9a7ef8-3169\"",
             "lastModified": "Fri, 04 Sep 2026 08:19:04 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759"
           }
         },
         "second": {
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9ac5c3-1c38\"",
             "lastModified": "Fri, 04 Sep 2026 13:21:07 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382"
           }
         }
       },
@@ -180,31 +190,83 @@
                 "room": "Б308"
               }
             }
-          ]
+          ],
+          "frozenBase": {
+            "scheduleVersion": "18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7",
+            "dataRevision": "c34c18aa84659ba23ad4d53d490e962228a09521",
+            "lessons": [
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "МДК.03.01 Техническая защита информации п/гр2",
+                    "teacher": "Вакансия",
+                    "room": "Б310",
+                    "weekType": "both",
+                    "subgroup": "2",
+                    "sourceRow": 150
+                  }
+                ],
+                "source": {
+                  "sheet": "ИБ1-21 ИБ1-31 ИБ41",
+                  "rowStart": 150,
+                  "rowEnd": 151,
+                  "rawGroupName": "ИБ1-41/ИБ1-42/ИБ2-31",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "МДК.02.02 Криптограф-ие средства защиты инф-ции",
+                    "teacher": "Хожайнова М.Г.\nЗайцев Р.А.",
+                    "room": "Б308\nБ309",
+                    "weekType": "numerator",
+                    "sourceRow": 153
+                  }
+                ],
+                "source": {
+                  "sheet": "ИБ1-21 ИБ1-31 ИБ41",
+                  "rowStart": 152,
+                  "rowEnd": 153,
+                  "rawGroupName": "ИБ1-41/ИБ1-42/ИБ2-31",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 5,
+                "variants": [
+                  {
+                    "subject": "МДК.03.01 Техническая защита информации п/гр1",
+                    "teacher": "Вакансия",
+                    "room": "Б310",
+                    "weekType": "numerator",
+                    "subgroup": "1",
+                    "sourceRow": 155
+                  }
+                ],
+                "source": {
+                  "sheet": "ИБ1-21 ИБ1-31 ИБ41",
+                  "rowStart": 154,
+                  "rowEnd": 155,
+                  "rawGroupName": "ИБ1-41/ИБ1-42/ИБ2-31",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
         }
       }
     }
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "3f3b64c63635798c406737863654ae1800b3cd234e9dcccfd7e57d0eb24ba91e",
-      "sheet": "Замены: Вторая смена",
-      "row": 6,
-      "normalizedGroup": "ИБ1-41",
-      "rawValue": "Эф.поведение Малашкевич Д.А.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -223,7 +285,26 @@
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "3f3b64c63635798c406737863654ae1800b3cd234e9dcccfd7e57d0eb24ba91e",
+      "sheet": "Замены: Вторая смена",
+      "row": 6,
+      "normalizedGroup": "ИБ1-41",
+      "rawValue": "Эф.поведение Малашкевич Д.А.",
+      "context": {
+        "date": "2026-09-05",
+        "lessonNumber": 3,
+        "type": "replace",
+        "reason": "original-not-matched"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "416570cb9a2a306dab3954c081903dd48aecaee153d64ab98c9e9aa07fe84335"
+  "semanticHash": "90a5ffba57e9b679b5179491a337d481db9d25c2d82b7bed4e3072d11adc49d4"
 }

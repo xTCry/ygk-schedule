@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ТУ1-21:
         group: ТУ1-21
@@ -79,7 +87,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a1
                   date: 2026-09-05
                   group: ТУ1-21
                   lessonNumbers:
@@ -118,26 +126,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ТУ1-21
-              lessonNumbers:
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: История России ...
-              replacement:
-                raw: Прав. и докум.обесп Зеленцова Л.В.
-                room: Ф107
-              source:
-                shift: second
-                row: 22
-                rawGroupName: ТУ1-21
-                rawLessonNumbers: 3,4
-                rawOriginal: История России ...
-                rawReplacement: Прав. и докум.обесп Зеленцова Л.В.
-                rawRoom: Ф107
+          - replacement: *a1
             lessonNumber: 4
             reason: original-not-matched
             event:
@@ -145,7 +134,247 @@ dates:
               description: "По расписанию: «История России ...». По замене: «Прав. и
                 докум.обесп Зеленцова Л.В.». Аудитория: «Ф107»."
               room: Ф107
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК.01.02 Изучение основ делопроизводства
+                  teacher: |-
+                    Нестерова А,В.
+                    Хватова Е.Ю.
+                  room: |-
+                    Ф306
+                    Ф305
+                  weekType: both
+                  rawSubject: "МДК.01.02 Изучение основ делопроизводства "
+                  sourceRow: 89
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 89
+                rowEnd: 90
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: История России
+                  teacher: Горбачев В.Н.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 91
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 91
+                rowEnd: 92
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Менеджмент в туризме и гостеприимстве
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: numerator
+                  rawSubject: Менеджмент в туризме и гостеприимстве
+                  sourceRow: 94
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 93
+                rowEnd: 94
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ТУ1-21:
+        group: ТУ1-21
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                sourceRow: 54
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Горбачев В.Н.
+                room: Ф107
+                weekType: both
+                sourceRow: 56
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.03.01 Выполнение функций ассистента экскурсовода (гида)
+                teacher: Тюленева В.О.
+                room: Ф301
+                weekType: both
+                sourceRow: 58
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Основы финансовой грамотности
+                teacher: Сафронова Л.Н
+                room: Ф302
+                weekType: both
+                rawSubject: "Основы финансовой грамотности "
+                sourceRow: 60
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 60
+              rowEnd: 61
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ТУ1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: БЖ
+              replacement:
+                raw: Инф.экс.деят. Тюленева В.О.
+                room: Ф106
+              source:
+                shift: second
+                row: 2
+                rawGroupName: ТУ1-21
+                rawLessonNumbers: "2"
+                rawOriginal: БЖ
+                rawReplacement: Инф.экс.деят. Тюленева В.О.
+                rawRoom: Ф106
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «БЖ». По замене: «Инф.экс.деят. Тюленева В.О.».
+                Аудитория: «Ф106»."
+              room: Ф106
+          - replacement:
+              date: 2026-09-07
+              group: ТУ1-21
+              lessonNumbers:
+                - 4
+              type: replace
+              original:
+                raw: МДК 03.01
+              replacement:
+                raw: Леонтьева А.С.
+                room: Ф106
+              source:
+                shift: second
+                row: 3
+                rawGroupName: ТУ1-21
+                rawLessonNumbers: "4"
+                rawOriginal: МДК 03.01
+                rawReplacement: Леонтьева А.С.
+                rawRoom: Ф106
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.01». По замене: «Леонтьева А.С.».
+                Аудитория: «Ф106»."
+              room: Ф106
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 2093f3fcdffbd82984473962721d8c61c70d0e49ee9607ec3174b86e818d17f3
+    sheet: "Замены: Вторая смена"
+    row: 3
+    normalizedGroup: ТУ1-21
+    rawValue: Леонтьева А.С.
+    context:
+      date: 2026-09-07
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 97d782ad8a8fad654370c2bf34b77e8871f61a0081544aebccef6ad9f8092068
+    sheet: "Замены: Вторая смена"
+    row: 2
+    normalizedGroup: ТУ1-21
+    rawValue: Инф.экс.деят. Тюленева В.О.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -162,4 +391,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a9731381900171becd42d3c465a02a8a00f545bfa73226ba7017b945fdd31fdd
+semanticHash: 5d9d9be13096283f90b2c5a7d1a48c4f9d909591296f5e7e584a0ea847da48f0

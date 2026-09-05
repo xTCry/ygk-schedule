@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       РК1-33:
         group: РК1-33
@@ -76,7 +84,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: РК1-33
               lessonNumbers:
@@ -103,26 +111,7 @@ dates:
               description: "По расписанию: «МДК 04.03 УП 04.03». По замене: «1,2 п/гр.
                 Пономаренко В.С.». Аудитория: «Б403»."
               room: Б403
-          - replacement:
-              date: 2026-09-05
-              group: РК1-33
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: МДК 04.03 УП 04.03
-              replacement:
-                raw: 1,2 п/гр. Пономаренко В.С.
-                room: Б403
-              source:
-                shift: second
-                row: 13
-                rawGroupName: РК1-33
-                rawLessonNumbers: 4,5
-                rawOriginal: МДК 04.03 УП 04.03
-                rawReplacement: 1,2 п/гр. Пономаренко В.С.
-                rawRoom: Б403
+          - replacement: *a1
             lessonNumber: 5
             reason: original-not-matched
             event:
@@ -130,19 +119,216 @@ dates:
               description: "По расписанию: «МДК 04.03 УП 04.03». По замене: «1,2 п/гр.
                 Пономаренко В.С.». Аудитория: «Б403»."
               room: Б403
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                  teacher: |-
+                    Пономаренко В.С.
+                    Вакансия
+                  room: Б403
+                  weekType: both
+                  sourceRow: 247
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 247
+                rowEnd: 248
+                rawGroupName: РК1-33/РК1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: УП 04.03 Разработка рекламного проекта
+                  teacher: |-
+                    Пономаренко В.С.
+                    Вакансия
+                  room: Б403
+                  weekType: both
+                  sourceRow: 249
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 249
+                rowEnd: 250
+                rawGroupName: РК1-33/РК1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      РК1-33:
+        group: РК1-33
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности
+                teacher: |-
+                  Пономаренко В.С.
+                  Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 206
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 206
+              rowEnd: 207
+              rawGroupName: РК1-33/РК1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 04.01 Разработка творческих рекламных решений
+                teacher: |-
+                  Анисимова С.А.
+                  Рудина М.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 208
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 208
+              rowEnd: 209
+              rawGroupName: РК1-33/РК1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 02.02 Разработка и размещение рекламного контента для продвижения
+                  торговой марки
+                teacher: Павлова О.В.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 210
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 210
+              rowEnd: 211
+              rawGroupName: РК1-33/РК1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                teacher: |-
+                  Пономаренко В.С.
+                  Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 212
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 212
+              rowEnd: 213
+              rawGroupName: РК1-33/РК1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: РК1-33
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Инф.технол.
+              replacement:
+                raw: 1,2 п/гр. Пономаренко В.С.
+                room: ДОТ
+              source:
+                shift: second
+                row: 20
+                rawGroupName: РК1-33
+                rawLessonNumbers: "2"
+                rawOriginal: Инф.технол.
+                rawReplacement: 1,2 п/гр. Пономаренко В.С.
+                rawRoom: ДОТ
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инф.технол.». По замене: «1,2 п/гр. Пономаренко
+                В.С.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement:
+              date: 2026-09-07
+              group: РК1-33
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: МДК 04.03
+              replacement:
+                raw: 1,2 п/гр. Пономаренко В.С.
+                room: ДОТ
+              source:
+                shift: second
+                row: 21
+                rawGroupName: РК1-33
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 04.03
+                rawReplacement: 1,2 п/гр. Пономаренко В.С.
+                rawRoom: ДОТ
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 04.03». По замене: «1,2 п/гр. Пономаренко
+                В.С.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: ff990d9737f1daa7e02d64de83975eaf4d04da6ff7919232f41cc37bf7d27f52
+    fingerprint: 057a313508bf5bcbf5e892b4dde67808e2c9a7293d4c80a9a885daa5a5bab003
     sheet: "Замены: Вторая смена"
-    row: 13
+    row: 21
     normalizedGroup: РК1-33
     rawValue: 1,2 п/гр. Пономаренко В.С.
     context:
-      date: 2026-09-05
-      lessonNumber: 4
+      date: 2026-09-07
+      lessonNumber: 5
       type: replace
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
@@ -163,4 +349,36 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d2672a46167943945a927cc5eb3aa6ebe11137c52164a41ca585cff8a5b6276c
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: ad8690d9d883a5add6a7d28408da1b2c940f9d78c00a10d71847d6238c9ea34a
+    sheet: "Замены: Вторая смена"
+    row: 20
+    normalizedGroup: РК1-33
+    rawValue: 1,2 п/гр. Пономаренко В.С.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: ff990d9737f1daa7e02d64de83975eaf4d04da6ff7919232f41cc37bf7d27f52
+    sheet: "Замены: Вторая смена"
+    row: 13
+    normalizedGroup: РК1-33
+    rawValue: 1,2 п/гр. Пономаренко В.С.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: b9426a02ffe7441f5da25d6e093b6e0aec29692a9f21cf1ef5ed78eee2e41fd4

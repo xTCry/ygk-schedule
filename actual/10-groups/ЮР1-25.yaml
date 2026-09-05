@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ЮР1-25:
         group: ЮР1-25
@@ -104,7 +112,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ЮР1-25
               lessonNumbers:
@@ -128,25 +136,7 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 03.01». По замене: «Снято»."
-          - replacement:
-              date: 2026-09-05
-              group: ЮР1-25
-              lessonNumbers:
-                - 2
-                - 3
-              type: cancel
-              original:
-                raw: МДК 03.01
-              replacement:
-                raw: Снято
-              source:
-                shift: second
-                row: 27
-                rawGroupName: ЮР1-25
-                rawLessonNumbers: 2,3
-                rawOriginal: МДК 03.01
-                rawReplacement: Снято
-                rawRoom: ""
+          - replacement: *a1
             lessonNumber: 3
             reason: original-not-matched
             event:
@@ -204,23 +194,184 @@ dates:
               description: "По расписанию: «Ин.язык п/гр». По замене: «Физкультура Калачик
                 Н.И.». Аудитория: «Сп.площ.»."
               room: Сп.площ.
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Ребрищева Л.П.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 146
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 146
+                rowEnd: 147
+                rawGroupName: ЮР1-25 / ЮР1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Ребрищева Л.П.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 148
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 148
+                rowEnd: 149
+                rawGroupName: ЮР1-25 / ЮР1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности п/гр2
+                  teacher: Петлюк Е.В.
+                  room: Ф403
+                  weekType: numerator
+                  subgroup: "2"
+                  sourceRow: 151
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 150
+                rowEnd: 151
+                rawGroupName: ЮР1-25 / ЮР1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности п/гр2
+                  teacher: Петлюк Е.В.
+                  room: Ф303
+                  weekType: numerator
+                  subgroup: "2"
+                  sourceRow: 153
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 152
+                rowEnd: 153
+                rawGroupName: ЮР1-25 / ЮР1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ЮР1-25:
+        group: ЮР1-25
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Вакансия
+                room: Ф106
+                weekType: both
+                sourceRow: 105
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Русский язык и культура речи
+                teacher: Вакансия
+                room: Ф104
+                weekType: both
+                sourceRow: 107
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Физическая культура
+                teacher: Калачик Н.И.
+                room: Сп.площ
+                weekType: both
+                sourceRow: 109
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 109
+              rowEnd: 110
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ЮР1-25
+              lessonNumbers:
+                - 4
+              type: replace
+              original:
+                raw: Рус.яз.и культ.речи
+              replacement:
+                raw: Конст.право Богданова В.В.
+                room: Ф404
+              source:
+                shift: second
+                row: 4
+                rawGroupName: ЮР1-25
+                rawLessonNumbers: "4"
+                rawOriginal: Рус.яз.и культ.речи
+                rawReplacement: Конст.право Богданова В.В.
+                rawRoom: Ф404
+            lessonNumber: 4
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рус.яз.и культ.речи». По замене: «Конст.право
+                Богданова В.В.». Аудитория: «Ф404»."
+              room: Ф404
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: e9043ce125f94bdf8f8c1af47916c59913985eb17ac57112b1390657fab7166f
-    sheet: "Замены: Вторая смена"
-    row: 25
-    normalizedGroup: ЮР1-25
-    rawValue: ДОУ Хватова Е.Ю.
-    context:
-      date: 2026-09-05
-      lessonNumber: 4
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -257,6 +408,22 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: a0a3de9a0d8e94aba9daab7047180ab201a40c858e477b09834909daef16a941
+    sheet: "Замены: Вторая смена"
+    row: 4
+    normalizedGroup: ЮР1-25
+    rawValue: Конст.право Богданова В.В.
+    context:
+      date: 2026-09-07
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: dcaa2a888cecbb48b3172f683d73418adb23fe97306af3f6cb225d5754a9c8e9
     sheet: "Замены: Вторая смена"
     row: 27
@@ -269,4 +436,20 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: ccc5be284659604710fd95174a0f6b4036d0919723205ff70b7915323a2240ec
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: e9043ce125f94bdf8f8c1af47916c59913985eb17ac57112b1390657fab7166f
+    sheet: "Замены: Вторая смена"
+    row: 25
+    normalizedGroup: ЮР1-25
+    rawValue: ДОУ Хватова Е.Ю.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: bab7441fa28f921d0dc1b2b79c8f278e168c15d3ca6184bedd61f9b2754dfd12

@@ -1,0 +1,198 @@
+schemaVersion: 5
+provider: ygk
+group: 6 ИКС
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      6 ИКС:
+        group: 6 ИКС
+        date: 2026-09-07
+        day: Понедельник
+        lessons: []
+        unresolvedReplacements:
+          - replacement: &a1
+              date: 2026-09-07
+              group: 6 ИКС
+              lessonNumbers:
+                - 0
+                - 1
+              type: replace
+              original:
+                raw: УП 02 п/гр.2
+              replacement:
+                raw: Ин.язык Петрушенко Е.Е.
+                room: к.1
+              source:
+                shift: first
+                row: 65
+                rawGroupName: 6 ИКС
+                rawLessonNumbers: 0,1
+                rawOriginal: УП 02 п/гр.2
+                rawReplacement: Ин.язык Петрушенко Е.Е.
+                rawRoom: к.1
+            lessonNumber: 0
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 02 п/гр.2». По замене: «Ин.язык Петрушенко
+                Е.Е.». Аудитория: «к.1»."
+              room: к.1
+          - replacement: *a1
+            lessonNumber: 1
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 02 п/гр.2». По замене: «Ин.язык Петрушенко
+                Е.Е.». Аудитория: «к.1»."
+              room: к.1
+          - replacement: &a2
+              date: 2026-09-07
+              group: 6 ИКС
+              lessonNumbers:
+                - 2
+                - 3
+                - 4
+              type: cancel
+              original:
+                raw: МДК 01.04 УП 02 п/гр. 1
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 66
+                rawGroupName: 6 ИКС
+                rawLessonNumbers: 2-4
+                rawOriginal: МДК 01.04 УП 02 п/гр. 1
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 2
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.04 УП 02 п/гр. 1». По замене: «снято»."
+          - replacement: *a2
+            lessonNumber: 3
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.04 УП 02 п/гр. 1». По замене: «снято»."
+          - replacement: *a2
+            lessonNumber: 4
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.04 УП 02 п/гр. 1». По замене: «снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 183d2442ff3347b56f0b8bf62131bba4ad659391c7a3f69923daca23fbe3e631
+    sheet: "Замены: Первая смена"
+    row: 65
+    normalizedGroup: 6 ИКС
+    rawValue: Ин.язык Петрушенко Е.Е.
+    context:
+      date: 2026-09-07
+      lessonNumber: 1
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 552dfcd8635273ec6ce547c0da738d1606c45c2468e3c5a650c18d4c585647b3
+    sheet: "Замены: Первая смена"
+    row: 66
+    normalizedGroup: 6 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 585bf3b5da0d6d237d721a750d03c596e2d1c2ce59f67a6935884248f12f8a87
+    sheet: "Замены: Первая смена"
+    row: 65
+    normalizedGroup: 6 ИКС
+    rawValue: Ин.язык Петрушенко Е.Е.
+    context:
+      date: 2026-09-07
+      lessonNumber: 0
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: a3603891e843fe0c3ec406cb80ed591efa536b63f1f8b10ec72cbdbab196f116
+    sheet: "Замены: Первая смена"
+    row: 66
+    normalizedGroup: 6 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: b59724d99952b5a2cf0145156681f81030a94639c4b6ceeae1b98f05c585504f
+    sheet: "Замены: Первая смена"
+    row: 66
+    normalizedGroup: 6 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 4
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 69a8f4f1cd878de6922eac66f6754cf26e2eb0a90f46acea6131c23c3a724c4a

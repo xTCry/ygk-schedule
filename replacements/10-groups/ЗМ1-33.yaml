@@ -1,0 +1,68 @@
+schemaVersion: 5
+provider: ygk
+group: ЗМ1-33
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        replacements:
+          - &a1
+            date: 2026-09-07
+            group: ЗМ1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Осн.бер.пр. Парамонов В.И.
+              room: М208
+            source:
+              shift: first
+              row: 32
+              rawGroupName: ЗМ1-33
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: Осн.бер.пр. Парамонов В.И.
+              rawRoom: М208
+          - &a2
+            date: 2026-09-07
+            group: ЗМ1-33
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Охрана труда
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 33
+              rawGroupName: ЗМ1-33
+              rawLessonNumbers: "6"
+              rawOriginal: Охрана труда
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a1
+      - *a2
+diagnostics: []
+semanticHash: 108fda1e6780d7a151bf94726dc2a22f5a075ee8529fc5cfdc5180b2257d92b3

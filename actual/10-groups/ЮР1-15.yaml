@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ЮР1-15:
         group: ЮР1-15
@@ -42,7 +50,7 @@ dates:
         day: Суббота
         lessons: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ЮР1-15
               lessonNumbers:
@@ -66,25 +74,7 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «Математика История». По замене: «Снято»."
-          - replacement:
-              date: 2026-09-05
-              group: ЮР1-15
-              lessonNumbers:
-                - 1
-                - 2
-              type: cancel
-              original:
-                raw: Математика История
-              replacement:
-                raw: Снято
-              source:
-                shift: first
-                row: 32
-                rawGroupName: ЮР1-15
-                rawLessonNumbers: 1,2
-                rawOriginal: Математика История
-                rawReplacement: Снято
-                rawRoom: ""
+          - replacement: *a1
             lessonNumber: 2
             reason: group-not-found
             event:
@@ -114,6 +104,118 @@ dates:
               summary: Необработанная замена
               description: "По замене: «Физкультура Калачик Н.И.». Аудитория: «Сп.площ.»."
               room: Сп.площ.
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ЮР1-15:
+        group: ЮР1-15
+        date: 2026-09-07
+        day: Понедельник
+        lessons: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ЮР1-15
+              lessonNumbers:
+                - 0
+              type: cancel
+              original:
+                raw: Разговоры
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 37
+                rawGroupName: ЮР1-15
+                rawLessonNumbers: "0"
+                rawOriginal: Разговоры
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 0
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Разговоры». По замене: «снято»."
+          - replacement:
+              date: 2026-09-07
+              group: ЮР1-15
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: История
+              replacement:
+                raw: ОБиЗР Корсаков С.В.
+                room: Ф301
+              source:
+                shift: first
+                row: 35
+                rawGroupName: ЮР1-15
+                rawLessonNumbers: "2"
+                rawOriginal: История
+                rawReplacement: ОБиЗР Корсаков С.В.
+                rawRoom: Ф301
+            lessonNumber: 2
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «История». По замене: «ОБиЗР Корсаков С.В.».
+                Аудитория: «Ф301»."
+              room: Ф301
+          - replacement:
+              date: 2026-09-07
+              group: ЮР1-15
+              lessonNumbers:
+                - 3
+              type: cancel
+              original:
+                raw: Литература
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 36
+                rawGroupName: ЮР1-15
+                rawLessonNumbers: "3"
+                rawOriginal: Литература
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 3
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Литература». По замене: «снято»."
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -151,6 +253,22 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Группа из замены не найдена в базовом расписании
+    fingerprint: 38668b4109c0a51603564d8db940e245953f928d158b7afdb17b62c5068438c0
+    sheet: "Замены: Первая смена"
+    row: 37
+    normalizedGroup: ЮР1-15
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 0
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
     fingerprint: 585dccb59bdeac4a406cd9bd7953a8f0716d845a50a3cccb229af6558c404b3f
     sheet: "Замены: Первая смена"
     row: 33
@@ -163,4 +281,36 @@ diagnostics:
       reason: group-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 5285f7aa1b55f59ab23202e173a9f022f9cb8592a21f762faf7a1de5a88da8c7
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 64cd9590176282c4daae7720d21dc36637c8844573bd6242e3cc7bf7b5fdc19a
+    sheet: "Замены: Первая смена"
+    row: 36
+    normalizedGroup: ЮР1-15
+    rawValue: снято
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: b7e221e60291f6919eb602a6c8818e4a4555d2f34970a730ba308ed29151fa03
+    sheet: "Замены: Первая смена"
+    row: 35
+    normalizedGroup: ЮР1-15
+    rawValue: ОБиЗР Корсаков С.В.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 27e8ea00e16b60dd2054e08fc7dd308eef1c93816a2070ea9faf7fe0daa6ce56

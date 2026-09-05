@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ЮР1-21:
         group: ЮР1-21
@@ -136,23 +144,56 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 03.01». По замене: «Снято»."
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 3
+              variants:
+                - subject: Теория государства и права
+                  teacher: Вечера Л.А.
+                  room: Ф406
+                  weekType: both
+                  sourceRow: 45
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 45
+                rowEnd: 46
+                rawGroupName: ЮР1-21 / ЮР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Ребрищева Л.П.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 47
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 47
+                rowEnd: 48
+                rawGroupName: ЮР1-21 / ЮР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Ребрищева Л.П.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 49
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 49
+                rowEnd: 50
+                rawGroupName: ЮР1-21 / ЮР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: d47380dac7363e63bab7d724ac114b5aca75e34e8d57f5affe7966096fe3ad29
-    sheet: "Замены: Вторая смена"
-    row: 28
-    normalizedGroup: ЮР1-21
-    rawValue: ДОУ /т. Нестерова А.В.
-    context:
-      date: 2026-09-05
-      lessonNumber: 4
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -169,4 +210,20 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: bfef4e5b70b0357e8590cb0ec2ba2c9169eaaa2e22678da4b967000760cb62a5
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d47380dac7363e63bab7d724ac114b5aca75e34e8d57f5affe7966096fe3ad29
+    sheet: "Замены: Вторая смена"
+    row: 28
+    normalizedGroup: ЮР1-21
+    rawValue: ДОУ /т. Нестерова А.В.
+    context:
+      date: 2026-09-05
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 42f6b776f3b4c6a1e0e1aa485e13bd6b4488d580f797ad3f5d20ae5af7328b8e

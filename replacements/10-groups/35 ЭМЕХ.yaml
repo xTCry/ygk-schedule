@@ -1,0 +1,70 @@
+schemaVersion: 5
+provider: ygk
+group: 35 ЭМЕХ
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        replacements:
+          - &a1
+            date: 2026-09-07
+            group: 35 ЭМЕХ
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: Бархатов Ю.Л.
+              room: сл.м.
+            source:
+              shift: first
+              row: 48
+              rawGroupName: 35 ЭМЕХ
+              rawLessonNumbers: "1"
+              rawOriginal: УП 02
+              rawReplacement: Бархатов Ю.Л.
+              rawRoom: сл.м.
+          - &a2
+            date: 2026-09-07
+            group: 35 ЭМЕХ
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: Бархатов Ю.Л.
+              room: сл.м.
+            source:
+              shift: first
+              row: 49
+              rawGroupName: 35 ЭМЕХ
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 02
+              rawReplacement: Бархатов Ю.Л.
+              rawRoom: сл.м.
+        diagnostics: []
+    replacements:
+      - *a1
+      - *a2
+diagnostics: []
+semanticHash: b66dc7c6a5673e23c0d106ac2d3aed0b6d822bc605ee76df2432e897aeb50280

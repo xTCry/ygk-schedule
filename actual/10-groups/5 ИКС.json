@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 5,
+  "provider": "ygk",
+  "group": "5 ИКС",
+  "dates": {
+    "2026-09-07": {
+      "date": "2026-09-07",
+      "day": "Понедельник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-07",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759",
+            "fetchedAt": "2026-09-05T13:16:53.414Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9bd178-3b8a\"",
+            "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-07",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
+            "fetchedAt": "2026-09-05T13:16:53.411Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9bf536-22e2\"",
+            "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          }
+        }
+      },
+      "groups": {
+        "5 ИКС": {
+          "group": "5 ИКС",
+          "date": "2026-09-07",
+          "day": "Понедельник",
+          "lessons": [],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-07",
+                "group": "5 ИКС",
+                "lessonNumbers": [
+                  3
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "Ин.язык"
+                },
+                "replacement": {
+                  "raw": "Петрушенко Е.Е.",
+                  "room": "к.1"
+                },
+                "source": {
+                  "shift": "first",
+                  "row": 45,
+                  "rawGroupName": "5 ИКС",
+                  "rawLessonNumbers": "3",
+                  "rawOriginal": "Ин.язык",
+                  "rawReplacement": "Петрушенко Е.Е.",
+                  "rawRoom": "к.1"
+                }
+              },
+              "lessonNumber": 3,
+              "reason": "group-not-found",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «Ин.язык». По замене: «Петрушенко Е.Е.». Аудитория: «к.1».",
+                "room": "к.1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Группа из замены не найдена в базовом расписании",
+      "fingerprint": "e766c2f60aa553de66b9380f624f403b4e9b22ce667bbe48174aa817c37ab60d",
+      "sheet": "Замены: Первая смена",
+      "row": 45,
+      "normalizedGroup": "5 ИКС",
+      "rawValue": "Петрушенко Е.Е.",
+      "context": {
+        "date": "2026-09-07",
+        "lessonNumber": 3,
+        "type": "replace",
+        "reason": "group-not-found"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    }
+  ],
+  "semanticHash": "078a395abef2c972ad9159a80b5d1bd50cdb795d290c4749d8eeeaab8ffc6b90"
+}

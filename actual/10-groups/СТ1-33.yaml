@@ -1,0 +1,188 @@
+schemaVersion: 5
+provider: ygk
+group: СТ1-33
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      СТ1-33:
+        group: СТ1-33
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                  п/гр1
+                teacher: Секацкая Н. А.
+                room: ДОТ
+                weekType: denominator
+                subgroup: "1"
+                sourceRow: 57
+            source:
+              sheet: CТ 3 курс
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: >-
+                  МДК.01.01 Т.1.2.Архитектура зданий п/гр1
+
+                  Информационные технологии в профессиональной деятельности
+                  п/гр2
+                teacher: |-
+                  Секацкая Н. А.
+                  Костерина Е.В.
+                room: ДОТ
+                weekType: denominator
+                rawSubject: >-
+                  МДК.01.01  Т.1.2.Архитектура зданий п/гр1
+
+                  Информационные технологии в профессиональной деятельности
+                  п/гр2
+                sourceRow: 59
+            source:
+              sheet: CТ 3 курс
+              rowStart: 59
+              rowEnd: 60
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Основы философии
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 61
+            source:
+              sheet: CТ 3 курс
+              rowStart: 61
+              rowEnd: 62
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: СТ1-33
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: МДК 01.01 п/гр.2
+              replacement:
+                raw: /теория Секацкая Н.А.
+                room: ДОТ
+              source:
+                shift: second
+                row: 7
+                rawGroupName: СТ1-33
+                rawLessonNumbers: "3"
+                rawOriginal: МДК 01.01 п/гр.2
+                rawReplacement: /теория Секацкая Н.А.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.01 п/гр.2». По замене: «/теория Секацкая
+                Н.А.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement:
+              date: 2026-09-07
+              group: СТ1-33
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: Осн.философии
+              replacement:
+                raw: Физкультура Герман О.Г.
+                room: ДОТ
+              source:
+                shift: second
+                row: 8
+                rawGroupName: СТ1-33
+                rawLessonNumbers: "5"
+                rawOriginal: Осн.философии
+                rawReplacement: Физкультура Герман О.Г.
+                rawRoom: ДОТ
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.философии». По замене: «Физкультура Герман
+                О.Г.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 65227bc61e5043001c5c4070c52c568764827ec63b39949c775a0cbba89f4639
+    sheet: "Замены: Вторая смена"
+    row: 7
+    normalizedGroup: СТ1-33
+    rawValue: /теория Секацкая Н.А.
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 8cd2335b139321d3b259675d8d18b59ec5237095e10639169be15ce845b4bd0e
+    sheet: "Замены: Вторая смена"
+    row: 8
+    normalizedGroup: СТ1-33
+    rawValue: Физкультура Герман О.Г.
+    context:
+      date: 2026-09-07
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: b684977953266f6f04cd19414fdc2a2cd727bd1cfd53ecb9aa68eb351dba1cfd

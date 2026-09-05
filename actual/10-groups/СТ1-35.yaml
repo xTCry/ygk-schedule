@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       СТ1-35:
         group: СТ1-35
@@ -89,7 +97,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: СТ1-35
               lessonNumbers:
@@ -116,26 +124,7 @@ dates:
               description: "По расписанию: «МДК 01.01». По замене: «/теория Гасенина М.П.».
                 Аудитория: «Б409»."
               room: Б409
-          - replacement:
-              date: 2026-09-05
-              group: СТ1-35
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: МДК 01.01
-              replacement:
-                raw: /теория Гасенина М.П.
-                room: Б409
-              source:
-                shift: second
-                row: 11
-                rawGroupName: СТ1-35
-                rawLessonNumbers: 4,5
-                rawOriginal: МДК 01.01
-                rawReplacement: /теория Гасенина М.П.
-                rawRoom: Б409
+          - replacement: *a1
             lessonNumber: 5
             reason: original-not-matched
             event:
@@ -143,7 +132,202 @@ dates:
               description: "По расписанию: «МДК 01.01». По замене: «/теория Гасенина М.П.».
                 Аудитория: «Б409»."
               room: Б409
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                  teacher: Хухарева Н.Е.
+                  room: Б409
+                  weekType: numerator
+                  sourceRow: 145
+              source:
+                sheet: CТ 3 курс
+                rowStart: 144
+                rowEnd: 145
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                  teacher: Хухарева Н.Е.
+                  room: Б409
+                  weekType: both
+                  sourceRow: 146
+              source:
+                sheet: CТ 3 курс
+                rowStart: 146
+                rowEnd: 147
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                    п/гр2
+                  teacher: Хухарева Н.Е.
+                  room: Б409
+                  weekType: numerator
+                  subgroup: "2"
+                  sourceRow: 149
+              source:
+                sheet: CТ 3 курс
+                rowStart: 148
+                rowEnd: 149
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      СТ1-35:
+        group: СТ1-35
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК.02.02. Учет и контроль технологических процессов на объекте
+                  капитальногостроительства
+                teacher: Машкова Е.С.
+                room: ДОТ
+                weekType: both
+                sourceRow: 105
+            source:
+              sheet: CТ 3 курс
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: СТ1-35/СТ1-36/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Физическая культура
+                teacher: Герман О.Г.
+                room: ДОТ
+                weekType: both
+                sourceRow: 107
+            source:
+              sheet: CТ 3 курс
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: СТ1-35/СТ1-36/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.02.01Организация технологических процессов на объекте капитального
+                  строительствТ. 1.1.
+                teacher: Машкова Е.С.
+                room: ДОТ
+                weekType: both
+                sourceRow: 109
+            source:
+              sheet: CТ 3 курс
+              rowStart: 109
+              rowEnd: 110
+              rawGroupName: СТ1-35/СТ1-36/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: Основы философии
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 111
+            source:
+              sheet: CТ 3 курс
+              rowStart: 111
+              rowEnd: 112
+              rawGroupName: СТ1-35/СТ1-36/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: СТ1-35
+              lessonNumbers:
+                - 6
+              type: replace
+              original:
+                raw: Осн.философии
+              replacement:
+                raw: МДК 02.01 Т.1.1. Машкова Е.С.
+                room: ДОТ
+              source:
+                shift: second
+                row: 9
+                rawGroupName: СТ1-35
+                rawLessonNumbers: "6"
+                rawOriginal: Осн.философии
+                rawReplacement: МДК 02.01 Т.1.1. Машкова Е.С.
+                rawRoom: ДОТ
+            lessonNumber: 6
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.философии». По замене: «МДК 02.01 Т.1.1.
+                Машкова Е.С.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 699cac98de513cbbe8c84b1599d8e6671fcbc50ff8c44ef0f2770a51ffb16bf4
+    sheet: "Замены: Вторая смена"
+    row: 9
+    normalizedGroup: СТ1-35
+    rawValue: МДК 02.01 Т.1.1. Машкова Е.С.
+    context:
+      date: 2026-09-07
+      lessonNumber: 6
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -176,4 +360,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: cf26a1a30f8c97a4b613ec8f90526bb3608b44c96722d28e0263c24475db9e49
+semanticHash: 4ffbe86a031a3c1489884d5f0bf9e1280e41660f40ff757347b5d5dd31db9db6

@@ -1,0 +1,135 @@
+schemaVersion: 5
+provider: ygk
+group: ИС1-25
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ИС1-25:
+        group: ИС1-25
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Архитектура аппаратных средств
+                teacher: Груздев В.В.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 104
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 104
+              rowEnd: 105
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.06.01 Внедрение ИС
+                teacher: Пронина Л.Ю.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 106
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 106
+              rowEnd: 107
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Иностранный язык
+                teacher: |-
+                  Загороднева Е.С.
+                  Смирнова Е.Ф.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 108
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 108
+              rowEnd: 109
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: ИС1-25
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Арх.аппар.ср.
+              replacement:
+                raw: 1,2 п/гр. Серова А.М.
+                room: ДОТ
+              source:
+                shift: first
+                row: 8
+                rawGroupName: ИС1-25
+                rawLessonNumbers: "1"
+                rawOriginal: Арх.аппар.ср.
+                rawReplacement: 1,2 п/гр. Серова А.М.
+                rawRoom: ДОТ
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Арх.аппар.ср.». По замене: «1,2 п/гр. Серова
+                А.М.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0f73dac7e11b0bfadad01b3a568fc7a7f1de31f45f137a307004b123d6b3bd69
+    sheet: "Замены: Первая смена"
+    row: 8
+    normalizedGroup: ИС1-25
+    rawValue: 1,2 п/гр. Серова А.М.
+    context:
+      date: 2026-09-07
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: cec251b5b29a9044dbbe1f67cde03f061f19ae11f08f9f8bf6f0d673f7b08086

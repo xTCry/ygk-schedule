@@ -12,7 +12,7 @@
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9a7ef8-3169\"",
             "lastModified": "Fri, 04 Sep 2026 08:19:04 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759"
           }
         },
         "second": {
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9ac5c3-1c38\"",
             "lastModified": "Fri, 04 Sep 2026 13:21:07 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382"
           }
         }
       },
@@ -178,31 +188,81 @@
                 "room": "В102"
               }
             }
-          ]
+          ],
+          "frozenBase": {
+            "scheduleVersion": "18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7",
+            "dataRevision": "c34c18aa84659ba23ad4d53d490e962228a09521",
+            "lessons": [
+              {
+                "number": 1,
+                "variants": [
+                  {
+                    "subject": "Основы безопасности и защиты Родины",
+                    "teacher": "Травникова Г.Г.",
+                    "room": "Б101",
+                    "weekType": "both",
+                    "sourceRow": 249
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 249,
+                  "rowEnd": 250,
+                  "rawGroupName": "РК1-11",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "Физическая культура",
+                    "teacher": "Чупрова П.А.",
+                    "room": "Спорт.зал",
+                    "weekType": "both",
+                    "sourceRow": 251
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 251,
+                  "rowEnd": 252,
+                  "rawGroupName": "РК1-11",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "Математика",
+                    "teacher": "Пухова Ю.Г.",
+                    "room": "М208",
+                    "weekType": "numerator",
+                    "sourceRow": 254
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 253,
+                  "rowEnd": 254,
+                  "rawGroupName": "РК1-11",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
         }
       }
     }
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "822437b4e159963ed9a083d77b1d404993df0e6caa369ddb3434583958a7cb19",
-      "sheet": "Замены: Первая смена",
-      "row": 5,
-      "normalizedGroup": "РК1-11",
-      "rawValue": "Информ. Садилова К.А.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -221,7 +281,26 @@
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "822437b4e159963ed9a083d77b1d404993df0e6caa369ddb3434583958a7cb19",
+      "sheet": "Замены: Первая смена",
+      "row": 5,
+      "normalizedGroup": "РК1-11",
+      "rawValue": "Информ. Садилова К.А.",
+      "context": {
+        "date": "2026-09-05",
+        "lessonNumber": 2,
+        "type": "replace",
+        "reason": "original-not-matched"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "95f5e3893fdc9a38c786997e4d21b5ffc0bc60d973292ca080e50d1d39af9d84"
+  "semanticHash": "5815b799896c9e88a79bd3f27b5cd03bc8455b35931c373d756e9e27d0dd463e"
 }

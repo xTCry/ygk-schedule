@@ -1,0 +1,88 @@
+schemaVersion: 5
+provider: ygk
+group: 10 МРТ
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      10 МРТ:
+        group: 10 МРТ
+        date: 2026-09-07
+        day: Понедельник
+        lessons: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: 10 МРТ
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: Разговоры о важном
+              replacement:
+                raw: Вагушева Е.А.
+                room: к.23
+              source:
+                shift: first
+                row: 63
+                rawGroupName: 10 МРТ
+                rawLessonNumbers: "0"
+                rawOriginal: Разговоры о важном
+                rawReplacement: Вагушева Е.А.
+                rawRoom: к.23
+            lessonNumber: 0
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Разговоры о важном». По замене: «Вагушева Е.А.».
+                Аудитория: «к.23»."
+              room: к.23
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 135aad91c14f4a0c6716495017ee38c3496dc2b8e7b3d924c598ae4c5df4bd97
+    sheet: "Замены: Первая смена"
+    row: 63
+    normalizedGroup: 10 МРТ
+    rawValue: Вагушева Е.А.
+    context:
+      date: 2026-09-07
+      lessonNumber: 0
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: c721f87eb2f0b26e62c797a8bd1a6c9d92afec4244959354292636a5be33036d

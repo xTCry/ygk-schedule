@@ -1,0 +1,49 @@
+schemaVersion: 5
+provider: ygk
+group: ПО1-11
+dates:
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        replacements:
+          - &a1
+            date: 2026-09-07
+            group: ПО1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: 1,2 п/гр.Информ. Садилова К.А.
+              room: Б308
+            source:
+              shift: first
+              row: 24
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: 1,2 п/гр.Информ. Садилова К.А.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a1
+diagnostics: []
+semanticHash: bba71e0b8afb5407494c0ef004972642f7d772313121c8fd9ade1f3ce22f1298

@@ -12,7 +12,7 @@
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9a7ef8-3169\"",
             "lastModified": "Fri, 04 Sep 2026 08:19:04 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759"
           }
         },
         "second": {
           "date": "2026-09-05",
           "day": "Суббота",
           "weekType": "numerator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9ac5c3-1c38\"",
             "lastModified": "Fri, 04 Sep 2026 13:21:07 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-07",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382"
           }
         }
       },
@@ -211,7 +221,76 @@
                 "description": "По расписанию: «МДК 03.02». По замене: «Снято»."
               }
             }
-          ]
+          ],
+          "frozenBase": {
+            "scheduleVersion": "18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7",
+            "dataRevision": "c34c18aa84659ba23ad4d53d490e962228a09521",
+            "lessons": [
+              {
+                "number": 0,
+                "variants": [
+                  {
+                    "subject": "МДК.03.02 Наладка и испытания теплотехнического оборудования котельных установок, систем тепло- и топливоснабжения",
+                    "teacher": "Коротюк И.С.",
+                    "room": "МТ103",
+                    "weekType": "both",
+                    "sourceRow": 187
+                  }
+                ],
+                "source": {
+                  "sheet": "ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41",
+                  "rowStart": 187,
+                  "rowEnd": 188,
+                  "rawGroupName": "ТТ1-41",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 1,
+                "variants": [
+                  {
+                    "subject": "МДК.03.02 Наладка и испытания теплотехнического оборудования котельных установок, систем тепло- и топливоснабжения",
+                    "teacher": "Коротюк И.С.",
+                    "room": "МТ103",
+                    "weekType": "both",
+                    "sourceRow": 189
+                  }
+                ],
+                "source": {
+                  "sheet": "ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41",
+                  "rowStart": 189,
+                  "rowEnd": 190,
+                  "rawGroupName": "ТТ1-41",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "МДК.03.02 Наладка и испытания теплотехнического оборудования котельных установок, систем тепло- и топливоснабжения",
+                    "teacher": "Коротюк И.С.",
+                    "room": "МТ103",
+                    "weekType": "both",
+                    "sourceRow": 191
+                  }
+                ],
+                "source": {
+                  "sheet": "ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41",
+                  "rowStart": 191,
+                  "rowEnd": 192,
+                  "rawGroupName": "ТТ1-41",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
         }
       }
     }
@@ -222,15 +301,15 @@
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
       "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "c2c9ded3d35adfd5240af989d34e669663464d5d923ffda371bb06d0d629fd0e",
+      "fingerprint": "5d0b325c060ab0664694b4d149a1d592b1c04b0a6932317222110fe4f61352e8",
       "sheet": "Замены: Первая смена",
-      "row": 34,
+      "row": 35,
       "normalizedGroup": "ТТ1-41",
-      "rawValue": "Ин.язык Трусова Е.В.",
+      "rawValue": "Снято",
       "context": {
         "date": "2026-09-05",
-        "lessonNumber": 0,
-        "type": "replace",
+        "lessonNumber": 2,
+        "type": "cancel",
         "reason": "original-not-matched"
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
@@ -260,20 +339,20 @@
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
       "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "5d0b325c060ab0664694b4d149a1d592b1c04b0a6932317222110fe4f61352e8",
+      "fingerprint": "c2c9ded3d35adfd5240af989d34e669663464d5d923ffda371bb06d0d629fd0e",
       "sheet": "Замены: Первая смена",
-      "row": 35,
+      "row": 34,
       "normalizedGroup": "ТТ1-41",
-      "rawValue": "Снято",
+      "rawValue": "Ин.язык Трусова Е.В.",
       "context": {
         "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "cancel",
+        "lessonNumber": 0,
+        "type": "replace",
         "reason": "original-not-matched"
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "eb547227e5f8f8a338adfc99f8fa03c3e9b3c42870a6c287256057e2d5cb5937"
+  "semanticHash": "1ee91bd706cd61e629135b017187aee283bebc83071b8095bab664bc54b20902"
 }

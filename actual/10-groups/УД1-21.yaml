@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       УД1-21:
         group: УД1-21
@@ -74,7 +82,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a1
                   date: 2026-09-05
                   group: УД1-21
                   lessonNumbers:
@@ -114,28 +122,58 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
             replacements:
-              - replacement:
-                  date: 2026-09-05
-                  group: УД1-21
-                  lessonNumbers:
-                    - 3
-                    - 4
-                  type: replace
-                  original:
-                    raw: История России
-                  replacement:
-                    raw: Коровкина А.М
-                    room: Б409,А202
-                  source:
-                    shift: first
-                    row: 36
-                    rawGroupName: УД1-21
-                    rawLessonNumbers: 3,4
-                    rawOriginal: История России
-                    rawReplacement: Коровкина А.М
-                    rawRoom: Б409,А202
+              - replacement: *a1
                 lessonNumber: 4
                 strategy: exact-subject
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 2
+              variants:
+                - subject: Физическая культура
+                  teacher: Николаенко Ю.А.
+                  room: Сп.зал
+                  weekType: numerator
+                  sourceRow: 90
+              source:
+                sheet: УД1-11 УД1-21 УД1-31
+                rowStart: 89
+                rowEnd: 90
+                rawGroupName: УД1-21/УД1-22/УД2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: История России
+                  teacher: Вакансия
+                  room: А202
+                  weekType: numerator
+                  sourceRow: 92
+              source:
+                sheet: УД1-11 УД1-21 УД1-31
+                rowStart: 91
+                rowEnd: 92
+                rawGroupName: УД1-21/УД1-22/УД2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: История России
+                  teacher: Вакансия
+                  room: А202
+                  weekType: both
+                  sourceRow: 93
+              source:
+                sheet: УД1-11 УД1-21 УД1-31
+                rowStart: 93
+                rowEnd: 94
+                rawGroupName: УД1-21/УД1-22/УД2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: 1657c3077b9335d2095311b94988c3dbc163b3010b9a4a88a305bd81b94c02ea
+semanticHash: 3e4950db88d96846dd78079f6646464e55812e1e15dff40fbd251e3a689bb0b7

@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ЗМ1-43:
         group: ЗМ1-43
@@ -104,7 +112,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ЗМ1-43
               lessonNumbers:
@@ -131,26 +139,7 @@ dates:
               description: "По расписанию: «МДК 03.01». По замене: «МДК 03.02 Шумилова Т.А.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ЗМ1-43
-              lessonNumbers:
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.01
-              replacement:
-                raw: МДК 03.02 Шумилова Т.А.
-                room: ДОТ
-              source:
-                shift: first
-                row: 45
-                rawGroupName: ЗМ1-43
-                rawLessonNumbers: 3,4
-                rawOriginal: МДК 03.01
-                rawReplacement: МДК 03.02 Шумилова Т.А.
-                rawRoom: ДОТ
+          - replacement: *a1
             lessonNumber: 4
             reason: original-not-matched
             event:
@@ -158,6 +147,201 @@ dates:
               description: "По расписанию: «МДК 03.01». По замене: «МДК 03.02 Шумилова Т.А.».
                 Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК 04.02 Охрана окружающей среды и природоохранные мероприятия
+                  teacher: Акиничева М.А.
+                  room: ДОТ
+                  weekType: numerator
+                  sourceRow: 86
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 85
+                rowEnd: 86
+                rawGroupName: ЗМ1-43/ЗМ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 04.02 Охрана окружающей среды и природоохранные мероприятия
+                  teacher: Акиничева М.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 87
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 87
+                rowEnd: 88
+                rawGroupName: ЗМ1-43/ЗМ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                    градостроительстве
+                  teacher: Горохова Е.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 89
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 89
+                rowEnd: 90
+                rawGroupName: ЗМ1-43/ЗМ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                    градостроительстве
+                  teacher: Горохова Е.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 91
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 91
+                rowEnd: 92
+                rawGroupName: ЗМ1-43/ЗМ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ЗМ1-43:
+        group: ЗМ1-43
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                teacher: Шумилова Т.А.
+                room: Ф306
+                weekType: both
+                sourceRow: 50
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 50
+              rowEnd: 51
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                teacher: Шумилова Т.А.
+                room: Ф306
+                weekType: both
+                sourceRow: 52
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 52
+              rowEnd: 53
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                teacher: Шумилова Т.А.
+                room: Ф306
+                weekType: both
+                sourceRow: 54
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a2
+              date: 2026-09-07
+              group: ЗМ1-43
+              lessonNumbers:
+                - 1
+                - 2
+                - 3
+              type: replace
+              original:
+                raw: МДК 03.02
+              replacement:
+                raw: Шумилова Т.А.
+                room: экскурсия
+              source:
+                shift: first
+                row: 27
+                rawGroupName: ЗМ1-43
+                rawLessonNumbers: 1-3
+                rawOriginal: МДК 03.02
+                rawReplacement: Шумилова Т.А.
+                rawRoom: экскурсия
+            lessonNumber: 1
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Шумилова Т.А.». Аудитория:
+                «экскурсия»."
+              room: экскурсия
+          - replacement: *a2
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Шумилова Т.А.». Аудитория:
+                «экскурсия»."
+              room: экскурсия
+          - replacement: *a2
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 03.02». По замене: «Шумилова Т.А.». Аудитория:
+                «экскурсия»."
+              room: экскурсия
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -179,6 +363,22 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5f4fa72f9a3ce6ca4b68db2936ac9d68b970c6b1726d691234ca16e0e2953a9c
+    sheet: "Замены: Первая смена"
+    row: 27
+    normalizedGroup: ЗМ1-43
+    rawValue: Шумилова Т.А.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: b6aeee0fb500fea9ff0468cd10d01c4ad3d0623648154c3c4f0b502e04193057
     sheet: "Замены: Первая смена"
     row: 45
@@ -191,4 +391,36 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d269337358fc3bb4c40df9c654e16763cc4bffb52485df848a21d575aaf44c20
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: c36a38dd131f5e343a011301f6e7209a3fbc4c41a3fbea27073ad7d782bcf5fb
+    sheet: "Замены: Первая смена"
+    row: 27
+    normalizedGroup: ЗМ1-43
+    rawValue: Шумилова Т.А.
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: f6a44579fdb2f60d69131f86ff883829b53b67dae22b40067d37cea697c514b9
+    sheet: "Замены: Первая смена"
+    row: 27
+    normalizedGroup: ЗМ1-43
+    rawValue: Шумилова Т.А.
+    context:
+      date: 2026-09-07
+      lessonNumber: 1
+      type: replace
+      reason: lesson-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 10be1f9aaf0acba7d500261acf5ba8e45088f74698154ecad7b45f2bbd1a4f19

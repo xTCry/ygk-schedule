@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ДИ1-45:
         group: ДИ1-45
@@ -139,6 +147,55 @@ dates:
               description: "По расписанию: «МДК 01.02». По замене: «Ин.язык Темофеева Е.Н.».
                 Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
+          dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК 01.01 Дизайн-проектирование
+                  teacher: Ремизова А.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 139
+              source:
+                sheet: ДИ-4курс
+                rowStart: 139
+                rowEnd: 140
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 141
+              source:
+                sheet: ДИ-4курс
+                rowStart: 141
+                rowEnd: 142
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 143
+              source:
+                sheet: ДИ-4курс
+                rowStart: 143
+                rowEnd: 144
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -172,4 +229,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a10d6d7747e67bc72f8e6db14dcca78da89c1d1c6cdda0f4de2436eb70c5ad8d
+semanticHash: 752b720c1e2868e2425c09a0a02300e543edfcc69213828066a15002add9905d

@@ -11,7 +11,7 @@ dates:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9a7ef8-3169"
           lastModified: Fri, 04 Sep 2026 08:19:04 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
       second:
         date: 2026-09-05
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9ac5c3-1c38"
           lastModified: Fri, 04 Sep 2026 13:21:07 GMT
+        finalizedBy:
+          date: 2026-09-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     groups:
       ДИ1-13:
         group: ДИ1-13
@@ -65,6 +73,126 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «Математика». По замене: «Снято»."
+  2026-09-07:
+    date: 2026-09-07
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
+          fetchedAt: 2026-09-05T13:16:53.414Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9bd178-3b8a"
+          lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+      second:
+        date: 2026-09-07
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
+          fetchedAt: 2026-09-05T13:16:53.411Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9bf536-22e2"
+          lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+    groups:
+      ДИ1-13:
+        group: ДИ1-13
+        date: 2026-09-07
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Травникова Г.Г.
+                room: Б101
+                weekType: both
+                sourceRow: 158
+            source:
+              sheet: 1 курс
+              rowStart: 158
+              rowEnd: 159
+              rawGroupName: ДИ1-13/ДИ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Основы профессиональной деятельности
+                teacher: Сосновских А.Л.
+                room: Б204
+                weekType: both
+                sourceRow: 160
+            source:
+              sheet: 1 курс
+              rowStart: 160
+              rowEnd: 161
+              rawGroupName: ДИ1-13/ДИ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иностранный язык
+                teacher: |-
+                  Темофеева Е.Н.
+                  Мишуринская Е.Ю.
+                room: Акт.зал
+                weekType: both
+                sourceRow: 162
+            source:
+              sheet: 1 курс
+              rowStart: 162
+              rowEnd: 163
+              rawGroupName: ДИ1-13/ДИ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Разговоры о важном
+                teacher: Соломенникова Ф.Я.
+                room: В105
+                weekType: both
+                rawSubject: Разговоры о важном Соломенникова Ф.Я.
+                rawTeacher: Соломенникова Ф.Я.
+                rawRoom: В105
+                sourceRow: 25
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ДИ1-13
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Разговоры о важном Соломенникова Ф.Я.
+                    room: В105
+                  source:
+                    shift: first
+                    row: 25
+                    rawGroupName: ДИ1-13
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Разговоры о важном Соломенникова Ф.Я.
+                    rawRoom: В105
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -82,4 +210,4 @@ diagnostics:
       reason: day-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 783d14625157a81c21a53df2dbd3adf82f450f81a4625795268502ed49c23f1b
+semanticHash: 17699ac6599c4e96d6e5893b4ba660c2315c39e326c7c9d39975975c7b7c8978
