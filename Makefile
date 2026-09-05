@@ -3,9 +3,6 @@ REPLACEMENT_FIRST_URL ?= https://menu.sttec.yar.ru/timetable/rasp_first.html
 REPLACEMENT_SECOND_URL ?= https://menu.sttec.yar.ru/timetable/rasp_second.html
 OUTPUT_DIR ?= data
 FIXTURE_PATH ?= src/providers/ygk/schedule/fixtures/2026-09-so.xlsx
-DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/base/90-diagnostics.json
-REPLACEMENT_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/replacements/90-diagnostics.json
-ACTUAL_DIAGNOSTICS_PATH ?= $(OUTPUT_DIR)/actual/90-diagnostics.json
 ISSUE_MAX_WRITES ?= 10
 SYNC_ISSUES_REPORT ?=
 BASE_SCHEDULE_PATH ?= $(OUTPUT_DIR)/base/00-schedule.json
@@ -81,9 +78,4 @@ update-replacements-fixtures:
 
 sync-issues:
 	test -n "$(GITHUB_REPOSITORY)"
-	set --; \
-	for report in "$(DIAGNOSTICS_PATH)" "$(REPLACEMENT_DIAGNOSTICS_PATH)" "$(ACTUAL_DIAGNOSTICS_PATH)"; do \
-		if test -f "$$report"; then set -- "$$@" --diagnostics "$$report"; fi; \
-	done; \
-	test "$$#" -gt 0; \
-	npm run sync-issues -- "$$@" --repo "$(GITHUB_REPOSITORY)" --max-writes "$(ISSUE_MAX_WRITES)" $(if $(SYNC_ISSUES_REPORT),--report "$(SYNC_ISSUES_REPORT)")
+	npm run sync-issues -- --output-dir "$(OUTPUT_DIR)" --repo "$(GITHUB_REPOSITORY)" --max-writes "$(ISSUE_MAX_WRITES)" $(if $(SYNC_ISSUES_REPORT),--report "$(SYNC_ISSUES_REPORT)")

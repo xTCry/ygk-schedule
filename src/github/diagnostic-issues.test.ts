@@ -11,6 +11,7 @@ import {
 const draft = (key: string, suffix = ''): DiagnosticIssueDraft => ({
   key,
   fingerprint: `fingerprint-${key}`,
+  scope: 'base',
   title: `Проблема ${key}${suffix}`,
   body: `<!-- parser-issue-key: ${key} -->\nbody${suffix}`,
   labels: ['schedule-diagnostic'],

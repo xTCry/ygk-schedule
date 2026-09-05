@@ -1,5 +1,5 @@
 import { readdir, unlink } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
 import type {
   ActualSchedule,
   ActualGroupScheduleArtifact,
@@ -11,6 +11,10 @@ import type {
 import { writeFileAtomic } from '../utils/fs.ts';
 import { sha256 } from '../utils/hash.ts';
 import {
+  buildDiagnosticIssueEvidence,
+  buildDiagnosticsReport,
+  serializeDiagnosticIssueEvidence,
+  serializeDiagnosticIssueEvidenceYaml,
   serializeDiagnosticsReport,
   serializeDiagnosticsReportYaml,
 } from './diagnostics.ts';
@@ -23,12 +27,16 @@ export interface ReplacementArtifactPaths {
   replacementGroupYamlDirectory: string;
   replacementDiagnosticsJson: string;
   replacementDiagnosticsYaml: string;
+  replacementEvidenceJsonDirectory: string;
+  replacementEvidenceYamlDirectory: string;
   actualJson: string;
   actualYaml: string;
   actualGroupJsonDirectory: string;
   actualGroupYamlDirectory: string;
   actualDiagnosticsJson: string;
   actualDiagnosticsYaml: string;
+  actualEvidenceJsonDirectory: string;
+  actualEvidenceYamlDirectory: string;
 }
 
 const compareText = (left: string, right: string): number =>
@@ -56,14 +64,29 @@ export const getReplacementArtifactPaths = (
       'replacements',
       '90-diagnostics.yaml',
     ),
+    replacementEvidenceJsonDirectory: join(
+      directory,
+      'replacements',
+      '91-issue-evidence',
+    ),
+    replacementEvidenceYamlDirectory: join(
+      directory,
+      'replacements',
+      '91-issue-evidence',
+    ),
     actualJson: join(directory, 'actual', '00-schedule.json'),
     actualYaml: join(directory, 'actual', '00-schedule.yaml'),
     actualGroupJsonDirectory: join(directory, 'actual', '10-groups'),
     actualGroupYamlDirectory: join(directory, 'actual', '10-groups'),
     actualDiagnosticsJson: join(directory, 'actual', '90-diagnostics.json'),
     actualDiagnosticsYaml: join(directory, 'actual', '90-diagnostics.yaml'),
+    actualEvidenceJsonDirectory: join(directory, 'actual', '91-issue-evidence'),
+    actualEvidenceYamlDirectory: join(directory, 'actual', '91-issue-evidence'),
   };
 };
+
+const relativeDataPath = (outputDirectory: string, path: string): string =>
+  relative(resolve(outputDirectory), path).split(sep).join('/');
 
 const replacementSortKey = (
   replacement: ReplacementDate['replacements'][number],
@@ -417,32 +440,83 @@ export const getReplacementArtifactFiles = (
   paths: ReplacementArtifactPaths,
   replacements: CanonicalReplacements,
   actual: ActualSchedule,
-): string[] => [
-  paths.replacementsJson,
-  paths.replacementsYaml,
-  paths.replacementDiagnosticsJson,
-  paths.replacementDiagnosticsYaml,
-  paths.actualJson,
-  paths.actualYaml,
-  paths.actualDiagnosticsJson,
-  paths.actualDiagnosticsYaml,
-  ...replacementGroups(replacements).flatMap((group) => {
-    const groupPaths = getGroupArtifactPaths(
-      paths.replacementGroupJsonDirectory,
-      paths.replacementGroupYamlDirectory,
-      group,
-    );
-    return [groupPaths.json, groupPaths.yaml];
-  }),
-  ...actualGroups(actual).flatMap((group) => {
-    const groupPaths = getGroupArtifactPaths(
-      paths.actualGroupJsonDirectory,
-      paths.actualGroupYamlDirectory,
-      group,
-    );
-    return [groupPaths.json, groupPaths.yaml];
-  }),
-];
+): string[] => {
+  const outputDirectory = resolve(paths.replacementsJson, '..', '..');
+  const replacementReport = buildDiagnosticsReport(replacements, {
+    scope: 'replacements',
+    evidence: {
+      diagnosticsJsonPath: relativeDataPath(
+        outputDirectory,
+        paths.replacementDiagnosticsJson,
+      ),
+      diagnosticsYamlPath: relativeDataPath(
+        outputDirectory,
+        paths.replacementDiagnosticsYaml,
+      ),
+      directory: relativeDataPath(
+        outputDirectory,
+        paths.replacementEvidenceJsonDirectory,
+      ),
+    },
+  });
+  const actualReport = buildDiagnosticsReport(actual, {
+    scope: 'actual',
+    evidence: {
+      diagnosticsJsonPath: relativeDataPath(
+        outputDirectory,
+        paths.actualDiagnosticsJson,
+      ),
+      diagnosticsYamlPath: relativeDataPath(
+        outputDirectory,
+        paths.actualDiagnosticsYaml,
+      ),
+      directory: relativeDataPath(
+        outputDirectory,
+        paths.actualEvidenceJsonDirectory,
+      ),
+    },
+  });
+  const evidencePaths = (report: typeof replacementReport): string[] =>
+    buildDiagnosticIssueEvidence(report).flatMap((evidence) => {
+      const issue = report.issues.find(
+        (candidate) => candidate.key === evidence.issue.key,
+      );
+      return issue?.evidence
+        ? [
+            join(outputDirectory, issue.evidence.jsonPath),
+            join(outputDirectory, issue.evidence.yamlPath),
+          ]
+        : [];
+    });
+  return [
+    paths.replacementsJson,
+    paths.replacementsYaml,
+    paths.replacementDiagnosticsJson,
+    paths.replacementDiagnosticsYaml,
+    paths.actualJson,
+    paths.actualYaml,
+    paths.actualDiagnosticsJson,
+    paths.actualDiagnosticsYaml,
+    ...evidencePaths(replacementReport),
+    ...evidencePaths(actualReport),
+    ...replacementGroups(replacements).flatMap((group) => {
+      const groupPaths = getGroupArtifactPaths(
+        paths.replacementGroupJsonDirectory,
+        paths.replacementGroupYamlDirectory,
+        group,
+      );
+      return [groupPaths.json, groupPaths.yaml];
+    }),
+    ...actualGroups(actual).flatMap((group) => {
+      const groupPaths = getGroupArtifactPaths(
+        paths.actualGroupJsonDirectory,
+        paths.actualGroupYamlDirectory,
+        group,
+      );
+      return [groupPaths.json, groupPaths.yaml];
+    }),
+  ];
+};
 
 /**
  * Записывает raw-замены и actual-расписание, очищая только устаревшие файлы
@@ -458,6 +532,48 @@ export const writeReplacementArtifacts = async (
   // источник только что распарсен или прочитан из предыдущего JSON-артефакта.
   const normalizedReplacements = normalizeReplacements(replacements);
   const normalizedActual = normalizeActualSchedule(actual);
+  const outputDirectory = resolve(paths.replacementsJson, '..', '..');
+  const replacementDiagnostics = buildDiagnosticsReport(
+    normalizedReplacements,
+    {
+      scope: 'replacements',
+      evidence: {
+        diagnosticsJsonPath: relativeDataPath(
+          outputDirectory,
+          paths.replacementDiagnosticsJson,
+        ),
+        diagnosticsYamlPath: relativeDataPath(
+          outputDirectory,
+          paths.replacementDiagnosticsYaml,
+        ),
+        directory: relativeDataPath(
+          outputDirectory,
+          paths.replacementEvidenceJsonDirectory,
+        ),
+      },
+    },
+  );
+  const actualDiagnostics = buildDiagnosticsReport(normalizedActual, {
+    scope: 'actual',
+    evidence: {
+      diagnosticsJsonPath: relativeDataPath(
+        outputDirectory,
+        paths.actualDiagnosticsJson,
+      ),
+      diagnosticsYamlPath: relativeDataPath(
+        outputDirectory,
+        paths.actualDiagnosticsYaml,
+      ),
+      directory: relativeDataPath(
+        outputDirectory,
+        paths.actualEvidenceJsonDirectory,
+      ),
+    },
+  });
+  const replacementIssueEvidence = buildDiagnosticIssueEvidence(
+    replacementDiagnostics,
+  );
+  const actualIssueEvidence = buildDiagnosticIssueEvidence(actualDiagnostics);
   const replacementGroupWrites = replacementGroups(
     normalizedReplacements,
   ).flatMap((group) => {
@@ -505,11 +621,11 @@ export const writeReplacementArtifacts = async (
     ),
     writeFileAtomic(
       paths.replacementDiagnosticsJson,
-      serializeDiagnosticsReport(normalizedReplacements),
+      serializeDiagnosticsReport(replacementDiagnostics),
     ),
     writeFileAtomic(
       paths.replacementDiagnosticsYaml,
-      serializeDiagnosticsReportYaml(normalizedReplacements),
+      serializeDiagnosticsReportYaml(replacementDiagnostics),
     ),
     writeFileAtomic(
       paths.actualJson,
@@ -521,11 +637,38 @@ export const writeReplacementArtifacts = async (
     ),
     writeFileAtomic(
       paths.actualDiagnosticsJson,
-      serializeDiagnosticsReport(normalizedActual),
+      serializeDiagnosticsReport(actualDiagnostics),
     ),
     writeFileAtomic(
       paths.actualDiagnosticsYaml,
-      serializeDiagnosticsReportYaml(normalizedActual),
+      serializeDiagnosticsReportYaml(actualDiagnostics),
+    ),
+    ...[
+      ...replacementIssueEvidence.map((evidence) => ({
+        evidence,
+        issue: replacementDiagnostics.issues.find(
+          (candidate) => candidate.key === evidence.issue.key,
+        ),
+      })),
+      ...actualIssueEvidence.map((evidence) => ({
+        evidence,
+        issue: actualDiagnostics.issues.find(
+          (candidate) => candidate.key === evidence.issue.key,
+        ),
+      })),
+    ].flatMap(({ evidence, issue }) =>
+      issue?.evidence
+        ? [
+            writeFileAtomic(
+              join(outputDirectory, issue.evidence.jsonPath),
+              serializeDiagnosticIssueEvidence(evidence),
+            ),
+            writeFileAtomic(
+              join(outputDirectory, issue.evidence.yamlPath),
+              serializeDiagnosticIssueEvidenceYaml(evidence),
+            ),
+          ]
+        : [],
     ),
     ...replacementGroupWrites,
     ...actualGroupWrites,
@@ -574,5 +717,33 @@ export const writeReplacementArtifacts = async (
       ...expectedActualJson,
       ...expectedActualYaml,
     ]),
+    syncDirectory(
+      paths.replacementEvidenceJsonDirectory,
+      replacementIssueEvidence.flatMap((evidence) => {
+        const issue = replacementDiagnostics.issues.find(
+          (candidate) => candidate.key === evidence.issue.key,
+        );
+        return issue?.evidence
+          ? [
+              join(outputDirectory, issue.evidence.jsonPath),
+              join(outputDirectory, issue.evidence.yamlPath),
+            ]
+          : [];
+      }),
+    ),
+    syncDirectory(
+      paths.actualEvidenceJsonDirectory,
+      actualIssueEvidence.flatMap((evidence) => {
+        const issue = actualDiagnostics.issues.find(
+          (candidate) => candidate.key === evidence.issue.key,
+        );
+        return issue?.evidence
+          ? [
+              join(outputDirectory, issue.evidence.jsonPath),
+              join(outputDirectory, issue.evidence.yamlPath),
+            ]
+          : [];
+      }),
+    ),
   ]);
 };

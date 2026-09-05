@@ -2,6 +2,8 @@ import {
   formatDiagnosticIssue,
   getDiagnosticIssueGroupKey,
   isIssueCandidate,
+  type DiagnosticIssueEvidenceReference,
+  type DiagnosticsScope,
 } from '../diagnostics/issues.ts';
 import type { Diagnostic, ScheduleSource, ScheduleVersion } from '../types.ts';
 import { serializeYaml } from './yaml.ts';
@@ -9,10 +11,11 @@ import { serializeYaml } from './yaml.ts';
 export interface DiagnosticsReportItem extends Diagnostic {
   source: ScheduleSource | null;
   issueFingerprint: string | null;
+  issueKey: string | null;
 }
 
 export interface DiagnosticsReport {
-  schemaVersion: 4;
+  schemaVersion: 5;
   generatedAt: string;
   scheduleVersion: string;
   summary: Record<'info' | 'warning' | 'error' | 'fatal', number>;
@@ -20,11 +23,31 @@ export interface DiagnosticsReport {
   issues: ReturnType<typeof formatDiagnosticIssue>[];
 }
 
+export interface DiagnosticIssueEvidence {
+  schemaVersion: 1;
+  issue: Pick<
+    ReturnType<typeof formatDiagnosticIssue>,
+    'key' | 'fingerprint' | 'scope' | 'title' | 'labels' | 'occurrenceCount'
+  >;
+  diagnosticsReport: Pick<
+    DiagnosticIssueEvidenceReference,
+    'diagnosticsJsonPath' | 'diagnosticsYamlPath'
+  >;
+  diagnostics: DiagnosticsReportItem[];
+}
+
 export interface DiagnosticsReportSubject {
   generatedAt: string;
   sources: ScheduleSource[];
   version: Pick<ScheduleVersion, 'value'>;
   diagnostics: Diagnostic[];
+}
+
+export interface BuildDiagnosticsReportOptions {
+  scope?: DiagnosticsScope;
+  evidence?: Omit<DiagnosticIssueEvidenceReference, 'jsonPath' | 'yamlPath'> & {
+    directory: string;
+  };
 }
 
 const compareDiagnostics = (left: Diagnostic, right: Diagnostic): number =>
@@ -44,6 +67,7 @@ const diagnosticIssueGroupKey = (
  */
 export const buildDiagnosticsReport = (
   schedule: DiagnosticsReportSubject,
+  options: BuildDiagnosticsReportOptions = {},
 ): DiagnosticsReport => {
   const sources = new Map(
     schedule.sources.map((source) => [source.id, source]),
@@ -83,7 +107,7 @@ export const buildDiagnosticsReport = (
   const draftsByGroupKey = new Map(
     [...issueGroups.entries()].map(([key, { source, diagnostics }]) => [
       key,
-      formatDiagnosticIssue(diagnostics, source ?? undefined),
+      formatDiagnosticIssue(diagnostics, source ?? undefined, options),
     ]),
   );
   const diagnostics = reportItems.map((item) => ({
@@ -92,11 +116,15 @@ export const buildDiagnosticsReport = (
       ? (draftsByGroupKey.get(diagnosticIssueGroupKey(item, item.source))
           ?.fingerprint ?? null)
       : null,
+    issueKey: item.issueFingerprint
+      ? (draftsByGroupKey.get(diagnosticIssueGroupKey(item, item.source))
+          ?.key ?? null)
+      : null,
   }));
   const issues = [...draftsByGroupKey.values()];
 
   return {
-    schemaVersion: 4,
+    schemaVersion: 5,
     generatedAt: schedule.generatedAt,
     scheduleVersion: schedule.version.value,
     summary,
@@ -108,13 +136,55 @@ export const buildDiagnosticsReport = (
 /**
  * Сериализует diagnostics metadata для последующей публикации или GitHub Issue.
  */
-export const serializeDiagnosticsReport = (
-  schedule: DiagnosticsReportSubject,
-): string => `${JSON.stringify(buildDiagnosticsReport(schedule), null, 2)}\n`;
+export const serializeDiagnosticsReport = (report: DiagnosticsReport): string =>
+  `${JSON.stringify(report, null, 2)}\n`;
 
 /**
  * Сериализует diagnostics metadata в YAML с отступом в два пробела.
  */
 export const serializeDiagnosticsReportYaml = (
-  schedule: DiagnosticsReportSubject,
-): string => serializeYaml(buildDiagnosticsReport(schedule));
+  report: DiagnosticsReport,
+): string => serializeYaml(report);
+
+/**
+ * Создает отдельные компактные evidence-артефакты для каждой managed Issue.
+ *
+ * Ссылка из Issue ведет на неизменяемый commit data-ветки и поэтому не зависит
+ * от номера строки в постоянно обновляемом полном diagnostics report.
+ */
+export const buildDiagnosticIssueEvidence = (
+  report: DiagnosticsReport,
+): DiagnosticIssueEvidence[] =>
+  report.issues.flatMap((issue) => {
+    if (!issue.evidence) return [];
+    return [
+      {
+        schemaVersion: 1,
+        issue: {
+          key: issue.key,
+          fingerprint: issue.fingerprint,
+          scope: issue.scope,
+          title: issue.title,
+          labels: issue.labels,
+          occurrenceCount: issue.occurrenceCount,
+        },
+        diagnosticsReport: {
+          diagnosticsJsonPath: issue.evidence.diagnosticsJsonPath,
+          diagnosticsYamlPath: issue.evidence.diagnosticsYamlPath,
+        },
+        diagnostics: report.diagnostics.filter(
+          (diagnostic) => diagnostic.issueKey === issue.key,
+        ),
+      },
+    ];
+  });
+
+/** Сериализует evidence одной Issue в JSON. */
+export const serializeDiagnosticIssueEvidence = (
+  evidence: DiagnosticIssueEvidence,
+): string => `${JSON.stringify(evidence, null, 2)}\n`;
+
+/** Сериализует evidence одной Issue в YAML. */
+export const serializeDiagnosticIssueEvidenceYaml = (
+  evidence: DiagnosticIssueEvidence,
+): string => serializeYaml(evidence);

@@ -48,136 +48,26 @@ jobs:
       - name: check parser
         id: check-parser
         working-directory: parser
-        run: |
-          make check
-          {
-            echo "## Проверка parser"
-            echo
-            echo "✅ TypeScript, ESLint, Vitest и Prettier прошли успешно."
-          } >> "$GITHUB_STEP_SUMMARY"
+        run: npm run workflow:check
 
       - name: update schedule data
         id: update-data
         working-directory: parser
-        run: |
-          make update OUTPUT_DIR="$GITHUB_WORKSPACE"
-          base_changed=false
-          if ! git diff --quiet -- base; then base_changed=true; fi
-          BASE_CHANGED="$base_changed" node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          import { readFile } from 'node:fs/promises';
-
-          const root = process.env.GITHUB_WORKSPACE;
-          const schedule = JSON.parse(
-            await readFile(`${root}/base/00-schedule.json`, 'utf8'),
-          );
-          const diagnostics = JSON.parse(
-            await readFile(`${root}/base/90-diagnostics.json`, 'utf8'),
-          );
-          const summary = diagnostics.summary;
-          const changed = process.env.BASE_CHANGED === 'true' ? 'да' : 'нет';
-
-          console.log('## Базовое расписание');
-          console.log('');
-          console.log(`- Изменения перед публикацией: **${changed}**`);
-          console.log(`- Групп: **${Object.keys(schedule.groups).length}**`);
-          console.log(`- Источников XLSX: **${schedule.sources.length}**`);
-          console.log(`- Версия данных: \`${schedule.version.value}\``);
-          console.log(
-            `- Diagnostics: ${summary.info} info, ${summary.warning} warnings, ${summary.error} errors, ${summary.fatal} fatal.`,
-          );
-          NODE
-
-      - name: generate calendars
-        id: generate-ical
-        working-directory: parser
-        run: |
-          make generate-ical OUTPUT_DIR="$GITHUB_WORKSPACE"
+        run: npm run workflow:update-schedule -- --output-dir "$GITHUB_WORKSPACE" --page-url "https://ygk.edu.yar.ru/raspisanie.html"
 
       - name: commit published data
         id: publish-data
-        run: |
-          git add base ical
-
-          if git diff --cached --quiet; then
-            echo "Schedule data is unchanged"
-            {
-              echo "### Публикация"
-              echo
-              echo "Изменений в \`base/\` и \`ical/\` нет — commit не создан."
-            } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-
-          files=$(git diff --cached --name-only -- base ical | wc -l)
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(data): update schedule"
-          git push origin HEAD:data
-          commit=$(git rev-parse --short HEAD)
-          {
-            echo "### Публикация"
-            echo
-            echo "- Обновлено файлов в \`base/\` и \`ical/\`: **$files**"
-            echo "- Commit: \`$commit\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+        working-directory: parser
+        run: npm run workflow:publish -- --output-dir "$GITHUB_WORKSPACE" --kind schedule
 
       - name: synchronize diagnostic issues
         id: sync-issues
         working-directory: parser
-        run: |
-          make sync-issues \
-            DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json" \
-            REPLACEMENT_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/replacements/90-diagnostics.json" \
-            ACTUAL_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/actual/90-diagnostics.json" \
-            SYNC_ISSUES_REPORT="$RUNNER_TEMP/sync-issues.json"
-          node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          import { appendFile, readFile } from 'node:fs/promises';
-
-          const reports = await Promise.all(
-            ['base/90-diagnostics.json', 'replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
-              async (path) =>
-                JSON.parse(
-                  await readFile(`${process.env.GITHUB_WORKSPACE}/${path}`, 'utf8'),
-                ),
-            ),
-          );
-          const drafts = reports.reduce(
-            (count, report) => count + report.issues.length,
-            0,
-          );
-          const sync = JSON.parse(
-            await readFile(`${process.env.RUNNER_TEMP}/sync-issues.json`, 'utf8'),
-          );
-          console.log('### Диагностические Issue');
-          console.log('');
-          if (sync.deferred) {
-            console.log(
-              `Синхронизация отложена: **${sync.deferred.reason}**. Следующий запуск продолжит работу без ожидания в этом workflow.`,
-            );
-          } else {
-            console.log(
-              `Синхронизация завершена. Черновиков Issue во всех выгрузках: **${drafts}**.`,
-            );
-          }
-          await appendFile(
-            process.env.GITHUB_OUTPUT,
-            `status=${sync.deferred ? 'deferred' : 'success'}\n`,
-          );
-          NODE
+        run: npm run sync-issues -- --output-dir "$GITHUB_WORKSPACE" --repo "$GITHUB_REPOSITORY" --max-writes 2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: write workflow status
         if: always()
-        run: |
-          {
-            echo "## Итог workflow"
-            echo
-            echo "- Событие: \`${{ github.event_name }}\`"
-            echo "- Ревизия parser: \`${{ github.sha }}\`"
-            echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
-            echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
-            echo "- Генерация ICS: \`${{ steps.generate-ical.outcome }}\`"
-            echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
-            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outputs.status || steps.sync-issues.outcome }}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+        working-directory: parser
+        run: npm run workflow:summary -- --event "${{ github.event_name }}" --parser-revision "${{ github.sha }}" --check "${{ steps.check-parser.outcome }}" --update "${{ steps.update-data.outcome }}" --ical "${{ steps.update-data.outcome }}" --publish "${{ steps.publish-data.outputs.status || steps.publish-data.outcome }}" --issues "${{ steps.sync-issues.outputs.status || steps.sync-issues.outcome }}"

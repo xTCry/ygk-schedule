@@ -1,9 +1,13 @@
 import { readdir, unlink } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
 import { semanticScheduleHash } from '../compare/schedule.ts';
 import type { CanonicalSchedule, GroupScheduleArtifact } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import {
+  buildDiagnosticIssueEvidence,
+  buildDiagnosticsReport,
+  serializeDiagnosticIssueEvidence,
+  serializeDiagnosticIssueEvidenceYaml,
   serializeDiagnosticsReport,
   serializeDiagnosticsReportYaml,
 } from './diagnostics.ts';
@@ -20,6 +24,8 @@ export interface ScheduleArtifactPaths {
   groupYamlDirectory: string;
   diagnosticsJson: string;
   diagnosticsYaml: string;
+  diagnosticsEvidenceJsonDirectory: string;
+  diagnosticsEvidenceYamlDirectory: string;
 }
 
 /**
@@ -36,8 +42,21 @@ export const getScheduleArtifactPaths = (
     groupYamlDirectory: join(directory, 'base', '10-groups'),
     diagnosticsJson: join(directory, 'base', '90-diagnostics.json'),
     diagnosticsYaml: join(directory, 'base', '90-diagnostics.yaml'),
+    diagnosticsEvidenceJsonDirectory: join(
+      directory,
+      'base',
+      '91-issue-evidence',
+    ),
+    diagnosticsEvidenceYamlDirectory: join(
+      directory,
+      'base',
+      '91-issue-evidence',
+    ),
   };
 };
+
+const relativeDataPath = (outputDirectory: string, path: string): string =>
+  relative(resolve(outputDirectory), path).split(sep).join('/');
 
 const getGroupFileName = (group: string): string => {
   if (!/^[\p{L}\p{N}-]+$/u.test(group))
@@ -113,18 +132,48 @@ const syncGroupDirectory = async (
 export const getScheduleArtifactFiles = (
   paths: ScheduleArtifactPaths,
   schedule: CanonicalSchedule,
-): string[] => [
-  paths.json,
-  paths.yaml,
-  paths.diagnosticsJson,
-  paths.diagnosticsYaml,
-  ...Object.keys(schedule.groups)
-    .sort((left, right) => left.localeCompare(right, 'ru-RU'))
-    .flatMap((group) => {
-      const groupPaths = getGroupArtifactPaths(paths, group);
-      return [groupPaths.json, groupPaths.yaml];
+): string[] => {
+  const report = buildDiagnosticsReport(schedule, {
+    scope: 'base',
+    evidence: {
+      diagnosticsJsonPath: relativeDataPath(
+        resolve(paths.json, '..', '..'),
+        paths.diagnosticsJson,
+      ),
+      diagnosticsYamlPath: relativeDataPath(
+        resolve(paths.json, '..', '..'),
+        paths.diagnosticsYaml,
+      ),
+      directory: relativeDataPath(
+        resolve(paths.json, '..', '..'),
+        paths.diagnosticsEvidenceJsonDirectory,
+      ),
+    },
+  });
+  const evidence = buildDiagnosticIssueEvidence(report);
+  return [
+    paths.json,
+    paths.yaml,
+    paths.diagnosticsJson,
+    paths.diagnosticsYaml,
+    ...evidence.flatMap((item) => {
+      const issue = report.issues.find(
+        (candidate) => candidate.key === item.issue.key,
+      );
+      if (!issue?.evidence) return [];
+      return [
+        join(resolve(paths.json, '..', '..'), issue.evidence.jsonPath),
+        join(resolve(paths.json, '..', '..'), issue.evidence.yamlPath),
+      ];
     }),
-];
+    ...Object.keys(schedule.groups)
+      .sort((left, right) => left.localeCompare(right, 'ru-RU'))
+      .flatMap((group) => {
+        const groupPaths = getGroupArtifactPaths(paths, group);
+        return [groupPaths.json, groupPaths.yaml];
+      }),
+  ];
+};
 
 /**
  * Записывает общие и групповые JSON/YAML без ручной синхронизации между ними.
@@ -133,6 +182,25 @@ export const writeScheduleArtifacts = async (
   paths: ScheduleArtifactPaths,
   schedule: CanonicalSchedule,
 ): Promise<void> => {
+  const outputDirectory = resolve(paths.json, '..', '..');
+  const diagnostics = buildDiagnosticsReport(schedule, {
+    scope: 'base',
+    evidence: {
+      diagnosticsJsonPath: relativeDataPath(
+        outputDirectory,
+        paths.diagnosticsJson,
+      ),
+      diagnosticsYamlPath: relativeDataPath(
+        outputDirectory,
+        paths.diagnosticsYaml,
+      ),
+      directory: relativeDataPath(
+        outputDirectory,
+        paths.diagnosticsEvidenceJsonDirectory,
+      ),
+    },
+  });
+  const issueEvidence = buildDiagnosticIssueEvidence(diagnostics);
   const groups = Object.keys(schedule.groups).sort((left, right) =>
     left.localeCompare(right, 'ru-RU'),
   );
@@ -156,12 +224,28 @@ export const writeScheduleArtifacts = async (
     writeFileAtomic(paths.yaml, serializeScheduleYaml(schedule)),
     writeFileAtomic(
       paths.diagnosticsJson,
-      serializeDiagnosticsReport(schedule),
+      serializeDiagnosticsReport(diagnostics),
     ),
     writeFileAtomic(
       paths.diagnosticsYaml,
-      serializeDiagnosticsReportYaml(schedule),
+      serializeDiagnosticsReportYaml(diagnostics),
     ),
+    ...issueEvidence.flatMap((evidence) => {
+      const issue = diagnostics.issues.find(
+        (candidate) => candidate.key === evidence.issue.key,
+      );
+      if (!issue?.evidence) return [];
+      return [
+        writeFileAtomic(
+          join(outputDirectory, issue.evidence.jsonPath),
+          serializeDiagnosticIssueEvidence(evidence),
+        ),
+        writeFileAtomic(
+          join(outputDirectory, issue.evidence.yamlPath),
+          serializeDiagnosticIssueEvidenceYaml(evidence),
+        ),
+      ];
+    }),
     ...groupArtifacts,
   ]);
 
@@ -170,6 +254,20 @@ export const writeScheduleArtifacts = async (
     groups.flatMap((group) => {
       const groupPaths = getGroupArtifactPaths(paths, group);
       return [groupPaths.json, groupPaths.yaml];
+    }),
+  );
+  await syncGroupDirectory(
+    paths.diagnosticsEvidenceJsonDirectory,
+    issueEvidence.flatMap((evidence) => {
+      const issue = diagnostics.issues.find(
+        (candidate) => candidate.key === evidence.issue.key,
+      );
+      return issue?.evidence
+        ? [
+            join(outputDirectory, issue.evidence.jsonPath),
+            join(outputDirectory, issue.evidence.yamlPath),
+          ]
+        : [];
     }),
   );
 };

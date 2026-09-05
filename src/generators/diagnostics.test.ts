@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import type { CanonicalSchedule, ReplacementPageSource } from '../types.ts';
-import { buildDiagnosticsReport } from './diagnostics.ts';
+import {
+  buildDiagnosticIssueEvidence,
+  buildDiagnosticsReport,
+} from './diagnostics.ts';
 
 const schedule: CanonicalSchedule = {
   schemaVersion: 3,
@@ -67,10 +70,12 @@ describe('diagnostics metadata generator', () => {
       },
       issueFingerprint: 'fingerprint',
     });
+    expect(report.diagnostics[0]?.issueKey).toHaveLength(64);
     expect(report.issues).toEqual([
       expect.objectContaining({
         fingerprint: 'fingerprint',
-        title: '[schedule] INVALID_LESSON_NUMBER: out.xlsx',
+        scope: 'base',
+        title: '[schedule][base][error] INVALID_LESSON_NUMBER',
         occurrenceCount: 2,
       }),
     ]);
@@ -111,7 +116,7 @@ describe('diagnostics metadata generator', () => {
       ],
     });
 
-    expect(report.schemaVersion).toBe(4);
+    expect(report.schemaVersion).toBe(5);
     expect(report.issues).toHaveLength(1);
     const issueFingerprint = report.issues[0]?.fingerprint;
     if (!issueFingerprint)
@@ -122,6 +127,36 @@ describe('diagnostics metadata generator', () => {
     expect(report.diagnostics.map((item) => item.issueFingerprint)).toEqual([
       issueFingerprint,
       issueFingerprint,
+    ]);
+  });
+
+  it('creates one compact evidence artifact for every managed Issue', () => {
+    const report = buildDiagnosticsReport(schedule, {
+      scope: 'base',
+      evidence: {
+        diagnosticsJsonPath: 'base/90-diagnostics.json',
+        diagnosticsYamlPath: 'base/90-diagnostics.yaml',
+        directory: 'base/91-issue-evidence',
+      },
+    });
+    const evidence = buildDiagnosticIssueEvidence(report);
+    const issue = report.issues[0];
+    const firstEvidence = evidence[0];
+    if (!issue || !firstEvidence)
+      throw new Error('Expected one diagnostics Issue and its evidence');
+
+    expect(evidence).toHaveLength(1);
+    expect(firstEvidence.schemaVersion).toBe(1);
+    expect(firstEvidence.issue.key).toBe(issue.key);
+    expect(firstEvidence.issue.scope).toBe('base');
+    expect(firstEvidence.diagnosticsReport).toEqual({
+      diagnosticsJsonPath: 'base/90-diagnostics.json',
+      diagnosticsYamlPath: 'base/90-diagnostics.yaml',
+    });
+    expect(firstEvidence.diagnostics.map((item) => item.row)).toEqual([69, 70]);
+    expect(firstEvidence.diagnostics.map((item) => item.issueKey)).toEqual([
+      issue.key,
+      issue.key,
     ]);
   });
 });

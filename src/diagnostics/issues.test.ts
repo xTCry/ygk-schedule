@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { formatDiagnosticIssue, isIssueCandidate } from './issues.ts';
+import {
+  formatDiagnosticIssue,
+  isIssueCandidate,
+  withDiagnosticIssueLinks,
+} from './issues.ts';
 import type {
   Diagnostic,
   ReplacementPageSource,
@@ -47,12 +51,14 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.key).toHaveLength(64);
     expect(issue.fingerprint).toBe('fingerprint');
     expect(issue.title).toBe(
-      '[schedule] INVALID_LESSON_NUMBER: out.xlsx — ЮР1-33/ЮР1-34',
+      '[schedule][base][error] INVALID_LESSON_NUMBER — ЮР1-33/ЮР1-34',
     );
     expect(issue.labels).toEqual([
+      'area:parser',
       'diagnostic:error',
       'diagnostic:invalid-lesson-number',
       'schedule-diagnostic',
+      'scope:base',
     ]);
     expect(issue.occurrenceCount).toBe(2);
     expect(issue.body).toContain('<!-- parser-issue-key:');
@@ -101,13 +107,15 @@ describe('diagnostic Issue drafts', () => {
 
     expect(issue.occurrenceCount).toBe(2);
     expect(issue.title).toBe(
-      '[schedule] UNRESOLVED_REPLACEMENT / original-not-matched: rasp_first.html (2026-09-05, первая смена)',
+      '[schedule][base][error] UNRESOLVED_REPLACEMENT / original-not-matched — 2026-09-05, первая смена',
     );
     expect(issue.labels).toEqual([
+      'area:resolver',
       'diagnostic:error',
       'diagnostic:unresolved-replacement',
       'reason:original-not-matched',
       'schedule-diagnostic',
+      'scope:base',
       'shift:first',
     ]);
     expect(issue.body).toContain('| Причина | original-not-matched |');
@@ -115,5 +123,30 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.body).toContain('| Смена | первая смена |');
     expect(issue.body).toContain('| СТ1-15 | 1 | replace | Теория |');
     expect(issue.body).toContain('| РК1-11 | 2 | replace | Информатика |');
+  });
+
+  it('adds immutable data and parser links only for Issue evidence', () => {
+    const issue = formatDiagnosticIssue([diagnostic], source, {
+      scope: 'base',
+      evidence: {
+        diagnosticsJsonPath: 'base/90-diagnostics.json',
+        diagnosticsYamlPath: 'base/90-diagnostics.yaml',
+        directory: 'base/91-issue-evidence',
+      },
+    });
+
+    const linked = withDiagnosticIssueLinks(issue, {
+      repository: 'xTCry/ygk-schedule',
+      dataRevision: 'a'.repeat(40),
+      parserRevision: 'b'.repeat(40),
+    });
+
+    expect(linked.body).toContain('## Ревизии и данные');
+    expect(linked.body).toContain(
+      'https://github.com/xTCry/ygk-schedule/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/base/91-issue-evidence/',
+    );
+    expect(linked.body).toContain(
+      'https://github.com/xTCry/ygk-schedule/commit/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+    );
   });
 });

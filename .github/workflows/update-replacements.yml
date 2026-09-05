@@ -51,154 +51,26 @@ jobs:
       - name: check parser
         id: check-parser
         working-directory: parser
-        run: |
-          make check
-          {
-            echo "## Проверка parser"
-            echo
-            echo "✅ TypeScript, ESLint, Vitest и Prettier прошли успешно."
-          } >> "$GITHUB_STEP_SUMMARY"
+        run: npm run workflow:check
 
       - name: update replacement data
         id: update-data
         working-directory: parser
-        run: |
-          base_data_revision=$(git -C "$GITHUB_WORKSPACE" rev-parse HEAD)
-          make update-replacements OUTPUT_DIR="$GITHUB_WORKSPACE" BASE_DATA_REVISION="$base_data_revision"
-          data_changed=false
-          if ! git diff --quiet -- replacements actual; then data_changed=true; fi
-          DATA_CHANGED="$data_changed" node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          import { readFile } from 'node:fs/promises';
-
-          const root = process.env.GITHUB_WORKSPACE;
-          const replacements = JSON.parse(
-            await readFile(`${root}/replacements/00-replacements.json`, 'utf8'),
-          );
-          const actual = JSON.parse(
-            await readFile(`${root}/actual/00-schedule.json`, 'utf8'),
-          );
-          const diagnostics = JSON.parse(
-            await readFile(`${root}/actual/90-diagnostics.json`, 'utf8'),
-          );
-          const replacementCount = Object.values(replacements.dates).reduce(
-            (count, date) => count + date.replacements.length,
-            0,
-          );
-          const snapshots = Object.values(replacements.dates).flatMap(
-            (date) => Object.values(date.shifts ?? {}),
-          );
-          const mutableSnapshots = snapshots.filter(
-            (snapshot) => snapshot?.status === 'mutable',
-          ).length;
-          const finalizedSnapshots = snapshots.filter(
-            (snapshot) => snapshot?.status === 'finalized',
-          ).length;
-          const summary = diagnostics.summary;
-          const changed = process.env.DATA_CHANGED === 'true' ? 'да' : 'нет';
-
-          console.log('## Замены и actual-расписание');
-          console.log('');
-          console.log(`- Изменения перед публикацией: **${changed}**`);
-          console.log(`- Дат с заменами: **${Object.keys(replacements.dates).length}**`);
-          console.log(`- Строк замен: **${replacementCount}**`);
-          console.log(`- Снимков: **${mutableSnapshots} mutable**, **${finalizedSnapshots} finalized**`);
-          console.log(`- Дат actual-расписания: **${Object.keys(actual.dates).length}**`);
-          console.log(
-            `- Diagnostics: ${summary.info} info, ${summary.warning} warnings, ${summary.error} errors, ${summary.fatal} fatal.`,
-          );
-          NODE
-
-      - name: generate calendars
-        id: generate-ical
-        working-directory: parser
-        run: |
-          make generate-ical OUTPUT_DIR="$GITHUB_WORKSPACE"
+        run: npm run workflow:update-replacements -- --output-dir "$GITHUB_WORKSPACE" --base-schedule "$GITHUB_WORKSPACE/base/00-schedule.json" --first-url "https://menu.sttec.yar.ru/timetable/rasp_first.html" --second-url "https://menu.sttec.yar.ru/timetable/rasp_second.html"
 
       - name: commit published data
         id: publish-data
-        run: |
-          git add replacements actual ical
-
-          if git diff --cached --quiet; then
-            echo "Replacement data is unchanged"
-            {
-              echo "### Публикация"
-              echo
-              echo "Изменений в \`replacements/\`, \`actual/\` и \`ical/\` нет — commit не создан."
-            } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-
-          files=$(git diff --cached --name-only -- replacements actual ical | wc -l)
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(data): update replacements"
-          git push origin HEAD:data
-          commit=$(git rev-parse --short HEAD)
-          {
-            echo "### Публикация"
-            echo
-            echo "- Обновлено файлов в \`replacements/\`, \`actual/\` и \`ical/\`: **$files**"
-            echo "- Commit: \`$commit\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+        working-directory: parser
+        run: npm run workflow:publish -- --output-dir "$GITHUB_WORKSPACE" --kind replacements
 
       - name: synchronize diagnostic issues
         id: sync-issues
         working-directory: parser
-        run: |
-          make sync-issues \
-            DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/base/90-diagnostics.json" \
-            REPLACEMENT_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/replacements/90-diagnostics.json" \
-            ACTUAL_DIAGNOSTICS_PATH="$GITHUB_WORKSPACE/actual/90-diagnostics.json" \
-            OUTPUT_DIR="$GITHUB_WORKSPACE" \
-            SYNC_ISSUES_REPORT="$RUNNER_TEMP/sync-issues.json"
-          node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          import { appendFile, readFile } from 'node:fs/promises';
-
-          const root = process.env.GITHUB_WORKSPACE;
-          const reports = await Promise.all(
-            ['base/90-diagnostics.json', 'replacements/90-diagnostics.json', 'actual/90-diagnostics.json'].map(
-              async (path) =>
-                JSON.parse(await readFile(`${root}/${path}`, 'utf8')),
-            ),
-          );
-          const drafts = reports.reduce(
-            (count, report) => count + report.issues.length,
-            0,
-          );
-          const sync = JSON.parse(
-            await readFile(`${process.env.RUNNER_TEMP}/sync-issues.json`, 'utf8'),
-          );
-          console.log('### Диагностические Issue');
-          console.log('');
-          if (sync.deferred) {
-            console.log(
-              `Синхронизация отложена: **${sync.deferred.reason}**. Следующий запуск продолжит работу без ожидания в этом workflow.`,
-            );
-          } else {
-            console.log(
-              `Синхронизация завершена. Черновиков Issue в текущих выгрузках: **${drafts}**.`,
-            );
-          }
-          await appendFile(
-            process.env.GITHUB_OUTPUT,
-            `status=${sync.deferred ? 'deferred' : 'success'}\n`,
-          );
-          NODE
+        run: npm run sync-issues -- --output-dir "$GITHUB_WORKSPACE" --repo "$GITHUB_REPOSITORY" --max-writes 2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: write workflow status
         if: always()
-        run: |
-          {
-            echo "## Итог workflow"
-            echo
-            echo "- Событие: \`${{ github.event_name }}\`"
-            echo "- Ревизия parser: \`${{ github.sha }}\`"
-            echo "- Проверка parser: \`${{ steps.check-parser.outcome }}\`"
-            echo "- Выгрузка данных: \`${{ steps.update-data.outcome }}\`"
-            echo "- Генерация ICS: \`${{ steps.generate-ical.outcome }}\`"
-            echo "- Публикация: \`${{ steps.publish-data.outcome }}\`"
-            echo "- Синхронизация Issue: \`${{ steps.sync-issues.outputs.status || steps.sync-issues.outcome }}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+        working-directory: parser
+        run: npm run workflow:summary -- --event "${{ github.event_name }}" --parser-revision "${{ github.sha }}" --check "${{ steps.check-parser.outcome }}" --update "${{ steps.update-data.outcome }}" --ical "${{ steps.update-data.outcome }}" --publish "${{ steps.publish-data.outputs.status || steps.publish-data.outcome }}" --issues "${{ steps.sync-issues.outputs.status || steps.sync-issues.outcome }}"

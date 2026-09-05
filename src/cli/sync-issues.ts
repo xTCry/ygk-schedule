@@ -3,12 +3,19 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   SCHEDULE_DIAGNOSTIC_LABEL,
+  withDiagnosticIssueLinks,
   type DiagnosticIssueDraft,
 } from '../diagnostics/issues.ts';
 import {
   GitHubDiagnosticIssuesClient,
   syncDiagnosticIssues,
 } from '../github/diagnostic-issues.ts';
+import { runGit } from '../workflows/git.ts';
+import {
+  appendGitHubSummary,
+  setGitHubOutput,
+} from '../workflows/github-actions.ts';
+import { formatIssueSyncSummary } from '../workflows/summary.ts';
 
 interface DiagnosticsReportInput {
   issues: DiagnosticIssueDraft[];
@@ -20,6 +27,9 @@ interface SyncIssuesOptions {
   token: string;
   maxWriteOperations: number;
   report?: string;
+  dataRoot?: string;
+  dataRevision?: string;
+  parserRevision?: string;
 }
 
 const isDiagnosticIssueDraft = (
@@ -30,6 +40,10 @@ const isDiagnosticIssueDraft = (
   return (
     typeof draft.key === 'string' &&
     typeof draft.fingerprint === 'string' &&
+    (draft.scope === undefined ||
+      draft.scope === 'base' ||
+      draft.scope === 'replacements' ||
+      draft.scope === 'actual') &&
     typeof draft.title === 'string' &&
     typeof draft.body === 'string' &&
     typeof draft.occurrenceCount === 'number' &&
@@ -81,6 +95,16 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     values.get('max-writes') ?? '2',
     10,
   );
+  const dataRoot = values.get('output-dir');
+  if (!diagnostics.length && dataRoot) {
+    diagnostics.push(
+      ...[
+        'base/90-diagnostics.json',
+        'replacements/90-diagnostics.json',
+        'actual/90-diagnostics.json',
+      ].map((path) => resolve(dataRoot, path)),
+    );
+  }
   if (!diagnostics.length || !repository || !token)
     throw new Error(
       'Specify at least one --diagnostics, --repo and set GITHUB_TOKEN or GH_TOKEN',
@@ -93,7 +117,42 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     token,
     maxWriteOperations,
     ...(values.get('report') ? { report: resolve(values.get('report')!) } : {}),
+    ...(dataRoot ? { dataRoot: resolve(dataRoot) } : {}),
+    ...(values.get('data-revision')
+      ? { dataRevision: values.get('data-revision')! }
+      : {}),
+    ...(values.get('parser-revision')
+      ? { parserRevision: values.get('parser-revision')! }
+      : {}),
   };
+};
+
+const managedLinksMarker = '<!-- diagnostics-links: ';
+
+const withoutManagedLinks = (body: string): string =>
+  body.split(managedLinksMarker, 1)[0]?.trimEnd() ?? body;
+
+/**
+ * Если диагностика не изменилась, сохраняет уже опубликованные immutable
+ * ссылки. Иначе каждое стороннее обновление data-ветки вызывало бы PATCH всех
+ * Issue только из-за нового SHA commit.
+ */
+const preserveExistingLinks = (
+  current: DiagnosticIssueDraft,
+  previousBody: string | undefined,
+): DiagnosticIssueDraft =>
+  previousBody &&
+  withoutManagedLinks(previousBody) === withoutManagedLinks(current.body) &&
+  previousBody.includes(managedLinksMarker)
+    ? { ...current, body: previousBody }
+    : current;
+
+const getDataRevision = async (
+  options: SyncIssuesOptions,
+): Promise<string | undefined> => {
+  if (options.dataRevision) return options.dataRevision;
+  if (!options.dataRoot) return undefined;
+  return runGit(options.dataRoot, ['rev-parse', 'HEAD']);
 };
 
 /**
@@ -104,15 +163,47 @@ export const runSyncIssuesCli = async (
 ): Promise<void> => {
   const options = parseArgs(args);
   const reports = await Promise.all(
-    options.diagnostics.map(readDiagnosticsReport),
+    options.diagnostics.map(async (diagnosticsPath) => {
+      const path = resolve(diagnosticsPath);
+      try {
+        return await readDiagnosticsReport(path);
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null;
+        throw error;
+      }
+    }),
   );
+  const loadedReports = reports.filter(
+    (report): report is DiagnosticsReportInput => report !== null,
+  );
+  if (!loadedReports.length)
+    throw new Error(
+      'No diagnostics reports were found for Issue synchronization',
+    );
+  const dataRevision = await getDataRevision(options);
+  const parserRevision = options.parserRevision ?? process.env.GITHUB_SHA;
+  const drafts = loadedReports
+    .flatMap((report) => report.issues)
+    .map((issue) =>
+      withDiagnosticIssueLinks(issue, {
+        repository: options.repository,
+        ...(dataRevision ? { dataRevision } : {}),
+        ...(parserRevision ? { parserRevision } : {}),
+      }),
+    );
   const result = await syncDiagnosticIssues(
-    reports.flatMap((report) => report.issues),
+    drafts,
     new GitHubDiagnosticIssuesClient(options),
-    { maxWriteOperations: options.maxWriteOperations },
+    {
+      maxWriteOperations: options.maxWriteOperations,
+      prepareDraft: (issue, existing) =>
+        preserveExistingLinks(issue, existing?.body),
+    },
   );
   const output = `${JSON.stringify(result, null, 2)}\n`;
   if (options.report) await writeFile(options.report, output);
+  await appendGitHubSummary(formatIssueSyncSummary(drafts.length, result));
+  await setGitHubOutput('status', result.deferred ? 'deferred' : 'success');
   process.stdout.write(output);
 };
 

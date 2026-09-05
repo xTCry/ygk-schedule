@@ -1,13 +1,24 @@
 import { sha256 } from '../utils/hash.ts';
 import type { Diagnostic, DiagnosticCode, ScheduleSource } from '../types.ts';
 
+export type DiagnosticsScope = 'base' | 'replacements' | 'actual';
+
+export interface DiagnosticIssueEvidenceReference {
+  diagnosticsJsonPath: string;
+  diagnosticsYamlPath: string;
+  jsonPath: string;
+  yamlPath: string;
+}
+
 export interface DiagnosticIssueDraft {
   key: string;
   fingerprint: string;
+  scope: DiagnosticsScope;
   title: string;
   body: string;
   labels: string[];
   occurrenceCount: number;
+  evidence?: DiagnosticIssueEvidenceReference;
 }
 
 export const DIAGNOSTIC_ISSUE_KEY_MARKER = 'parser-issue-key';
@@ -16,6 +27,8 @@ export const SCHEDULE_DIAGNOSTIC_LABEL = 'schedule-diagnostic';
 const diagnosticLabelPrefix = 'diagnostic:';
 const reasonLabelPrefix = 'reason:';
 const shiftLabelPrefix = 'shift:';
+const scopeLabelPrefix = 'scope:';
+const areaLabelPrefix = 'area:';
 
 const issueWarningCodes = new Set<DiagnosticCode>([
   'CONFLICTING_WEEK_COLOR',
@@ -53,6 +66,26 @@ const contextNumber = (
 
 const labelSegment = (value: string): string =>
   value.toLocaleLowerCase('en-US').replace(/_/g, '-');
+
+const diagnosticsScopeTitle = (scope: DiagnosticsScope): string =>
+  ({
+    base: 'base',
+    replacements: 'replacements',
+    actual: 'actual',
+  })[scope];
+
+const diagnosticArea = (
+  diagnostic: Diagnostic,
+  scope: DiagnosticsScope,
+): 'parser' | 'resolver' => {
+  if (
+    scope === 'actual' ||
+    diagnostic.code === 'UNRESOLVED_REPLACEMENT' ||
+    diagnostic.code === 'AMBIGUOUS_REPLACEMENT'
+  )
+    return 'resolver';
+  return 'parser';
+};
 
 const replacementShift = (
   source: ScheduleSource | undefined,
@@ -127,11 +160,14 @@ const issueFingerprint = (
 const issueLabels = (
   diagnostic: Diagnostic,
   source: ScheduleSource | undefined,
+  scope: DiagnosticsScope,
 ): string[] => {
   const reason = contextString(diagnostic, 'reason');
   const shift = replacementShift(source);
   return [
     SCHEDULE_DIAGNOSTIC_LABEL,
+    `${scopeLabelPrefix}${scope}`,
+    `${areaLabelPrefix}${diagnosticArea(diagnostic, scope)}`,
     `${diagnosticLabelPrefix}${diagnostic.severity}`,
     `${diagnosticLabelPrefix}${labelSegment(diagnostic.code)}`,
     ...(reason ? [`${reasonLabelPrefix}${labelSegment(reason)}`] : []),
@@ -142,21 +178,21 @@ const issueLabels = (
 const issueTitle = (
   diagnostics: readonly Diagnostic[],
   source: ScheduleSource | undefined,
+  scope: DiagnosticsScope,
 ): string => {
   const diagnostic = diagnostics[0];
   if (!diagnostic)
     throw new Error('Cannot create an Issue title without diagnostics');
-  const sourceLabel =
-    source?.fileName ?? diagnostic.sourceId ?? 'unknown-source';
   const group = commonGroup(diagnostics);
+  const prefix = `[schedule][${diagnosticsScopeTitle(scope)}][${diagnostic.severity}] ${diagnostic.code}`;
   if (diagnostic.code !== 'UNRESOLVED_REPLACEMENT')
-    return `[schedule] ${diagnostic.code}: ${sourceLabel}${group ? ` — ${group}` : ''}`;
+    return `${prefix}${group ? ` — ${group}` : ''}`;
 
   const reason = commonContextString(diagnostics, 'reason') ?? 'unknown-reason';
   const date = commonContextString(diagnostics, 'date');
   const shift = replacementShiftLabel(source);
-  const scope = [date, shift].filter(Boolean).join(', ');
-  return `[schedule] ${diagnostic.code} / ${reason}: ${sourceLabel}${scope ? ` (${scope})` : ''}`;
+  const replacementScope = [date, shift].filter(Boolean).join(', ');
+  return `${prefix} / ${reason}${replacementScope ? ` — ${replacementScope}` : ''}`;
 };
 
 const issueClassificationRows = (
@@ -207,6 +243,64 @@ export const isIssueCandidate = (diagnostic: Diagnostic): boolean =>
   diagnostic.severity === 'fatal' ||
   issueWarningCodes.has(diagnostic.code);
 
+export interface DiagnosticIssueFormattingOptions {
+  scope?: DiagnosticsScope;
+  evidence?: Omit<DiagnosticIssueEvidenceReference, 'jsonPath' | 'yamlPath'> & {
+    directory: string;
+  };
+}
+
+export interface DiagnosticIssueLinkOptions {
+  repository: string;
+  dataRevision?: string;
+  parserRevision?: string;
+}
+
+const commitLink = (
+  repository: string,
+  revision: string | undefined,
+): string =>
+  revision
+    ? `[\`${revision.slice(0, 12)}\`](https://github.com/${repository}/commit/${revision})`
+    : '—';
+
+const dataFileLink = (
+  repository: string,
+  revision: string | undefined,
+  path: string,
+): string =>
+  revision
+    ? `[\`${path}\`](https://github.com/${repository}/blob/${revision}/${path})`
+    : `\`${path}\``;
+
+/**
+ * Добавляет к черновику ссылки на неизменяемые revision code и data.
+ *
+ * Сами diagnostics остаются независимыми от GitHub: ссылки появляются только
+ * перед синхронизацией Issue в workflow либо при локальном запуске с `--repo`.
+ */
+export const withDiagnosticIssueLinks = (
+  issue: DiagnosticIssueDraft,
+  options: DiagnosticIssueLinkOptions,
+): DiagnosticIssueDraft => {
+  if (!issue.evidence) return issue;
+  const body = `${issue.body}
+<!-- diagnostics-links: ${options.dataRevision ?? 'unpublished'} -->
+
+## Ревизии и данные
+
+| Поле | Значение |
+| --- | --- |
+| Ревизия parser | ${commitLink(options.repository, options.parserRevision)} |
+| Ревизия data | ${commitLink(options.repository, options.dataRevision)} |
+| Diagnostics JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.diagnosticsJsonPath)} |
+| Diagnostics YAML | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.diagnosticsYamlPath)} |
+| Evidence JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.jsonPath)} |
+| Evidence YAML | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.yamlPath)} |
+`;
+  return { ...issue, body };
+};
+
 /**
  * Формирует один структурированный черновик GitHub Issue для повторяющейся
  * проблемы. Все diagnostics должны относиться к одному fingerprint.
@@ -214,11 +308,13 @@ export const isIssueCandidate = (diagnostic: Diagnostic): boolean =>
 export const formatDiagnosticIssue = (
   diagnostics: readonly Diagnostic[],
   source?: ScheduleSource,
+  options: DiagnosticIssueFormattingOptions = {},
 ): DiagnosticIssueDraft => {
   const diagnostic = diagnostics[0];
   if (!diagnostic)
     throw new Error('Cannot create an Issue draft without diagnostics');
 
+  const scope = options.scope ?? 'base';
   const fingerprint = issueFingerprint(diagnostic, source);
   const key = getDiagnosticIssueKey(fingerprint, source);
   const locations = diagnostics
@@ -232,9 +328,20 @@ export const formatDiagnosticIssue = (
   return {
     key,
     fingerprint,
-    title: issueTitle(diagnostics, source),
-    labels: issueLabels(diagnostic, source),
+    scope,
+    title: issueTitle(diagnostics, source, scope),
+    labels: issueLabels(diagnostic, source, scope),
     occurrenceCount: diagnostics.length,
+    ...(options.evidence
+      ? {
+          evidence: {
+            diagnosticsJsonPath: options.evidence.diagnosticsJsonPath,
+            diagnosticsYamlPath: options.evidence.diagnosticsYamlPath,
+            jsonPath: `${options.evidence.directory}/${key}.json`,
+            yamlPath: `${options.evidence.directory}/${key}.yaml`,
+          },
+        }
+      : {}),
     body: `<!-- ${DIAGNOSTIC_ISSUE_KEY_MARKER}: ${key} -->
 <!-- parser-fingerprint: ${fingerprint} -->
 

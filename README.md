@@ -83,6 +83,8 @@ data/base/10-groups/<группа>.json
 data/base/10-groups/<группа>.yaml
 data/base/90-diagnostics.json
 data/base/90-diagnostics.yaml
+data/base/91-issue-evidence/<issue-key>.json
+data/base/91-issue-evidence/<issue-key>.yaml
 ```
 
 Групповые файлы содержат только данные своей группы, её diagnostics и
@@ -96,6 +98,8 @@ diff всех групп. Файлы сортируются по коду гру
 отдельном массиве `issues`:
 повторения одной проблемы объединяются по fingerprint и перечисляют все
 затронутые ячейки в Markdown-таблице.
+Для каждой автоматической Issue также создаётся `91-issue-evidence/<issue-key>.*`;
+workflow ссылается на него и на конкретные commits кода и data.
 
 ## Замены и actual-расписание
 
@@ -220,6 +224,11 @@ Issue репозитория workflow не изменяет.
 Workflow `update replacements` запускается вручную и в 13:00, 17:00 и 20:00
 по Москве. Он публикует только директории `replacements/`, `actual/` и
 производные `ical/` ветки `data`, не перезаписывая базовое расписание.
+
+Основная логика workflow находится в TypeScript (`src/workflows/` и
+`src/cli/*-workflow.ts`), а YAML оставлен коротким: checkout, установка Node,
+cron, permissions и запуск команд. Эту же логику можно проверять локально без
+копирования inline-скриптов из GitHub Actions.
 
 Для загрузки XLSX по известному URL вместо `--input` используется `--url`. Этот режим выполняет сетевой запрос:
 

@@ -48,6 +48,15 @@ export interface SyncDiagnosticIssuesOptions {
    * постепенно создать большой набор Issue без ожиданий внутри workflow.
    */
   maxWriteOperations?: number;
+  /**
+   * Позволяет дополнить черновик контекстом существующей Issue до сравнения.
+   * Например, сохранить ссылку на уже опубликованный immutable data commit,
+   * если сама диагностика не изменилась.
+   */
+  prepareDraft?: (
+    draft: DiagnosticIssueDraft,
+    existing: ManagedDiagnosticIssue | undefined,
+  ) => DiagnosticIssueDraft;
 }
 
 interface RepositoryIssueResponse {
@@ -131,7 +140,7 @@ const labelNames = (labels: readonly unknown[]): string[] =>
 
 const isManagedDiagnosticLabel = (label: string): boolean =>
   label === SCHEDULE_DIAGNOSTIC_LABEL ||
-  ['diagnostic:', 'reason:', 'shift:'].some((prefix) =>
+  ['diagnostic:', 'reason:', 'shift:', 'scope:', 'area:'].some((prefix) =>
     label.startsWith(prefix),
   );
 
@@ -172,6 +181,18 @@ const diagnosticLabelDefinition = (
       name: label,
       color: '8250df',
       description: 'Смена страницы замен',
+    };
+  if (label.startsWith('scope:'))
+    return {
+      name: label,
+      color: '0969da',
+      description: 'Поток generated data, в котором обнаружена проблема',
+    };
+  if (label.startsWith('area:'))
+    return {
+      name: label,
+      color: '1f883d',
+      description: 'Подсистема parser-а, сформировавшая diagnostics',
     };
   return {
     name: label,
@@ -231,9 +252,10 @@ export const syncDiagnosticIssues = async (
 
   for (const draft of drafts) {
     const existing = existingByKey.get(draft.key);
+    const prepared = options.prepareDraft?.(draft, existing) ?? draft;
     const next = existing
-      ? { ...draft, labels: mergedIssueLabels(existing, draft) }
-      : draft;
+      ? { ...prepared, labels: mergedIssueLabels(existing, prepared) }
+      : prepared;
     if (existing && isSameIssue(existing, next)) {
       result.unchanged += 1;
       continue;
