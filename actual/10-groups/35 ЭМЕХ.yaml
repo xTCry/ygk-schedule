@@ -68,7 +68,7 @@ dates:
               description: "По расписанию: «УП 02». По замене: «Бархатов Ю.Л.». Аудитория:
                 «сл.м.»."
               room: сл.м.
-          - replacement: &a1
+          - replacement:
               date: 2026-09-07
               group: 35 ЭМЕХ
               lessonNumbers:
@@ -95,7 +95,26 @@ dates:
               description: "По расписанию: «УП 02». По замене: «Бархатов Ю.Л.». Аудитория:
                 «сл.м.»."
               room: сл.м.
-          - replacement: *a1
+          - replacement:
+              date: 2026-09-07
+              group: 35 ЭМЕХ
+              lessonNumbers:
+                - 2
+                - 3
+              type: replace
+              original:
+                raw: УП 02
+              replacement:
+                raw: Бархатов Ю.Л.
+                room: сл.м.
+              source:
+                shift: first
+                row: 49
+                rawGroupName: 35 ЭМЕХ
+                rawLessonNumbers: 2,3
+                rawOriginal: УП 02
+                rawReplacement: Бархатов Ю.Л.
+                rawRoom: сл.м.
             lessonNumber: 3
             reason: group-not-found
             event:

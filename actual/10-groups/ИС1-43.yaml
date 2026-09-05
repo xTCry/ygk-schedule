@@ -142,7 +142,7 @@ dates:
               description: "По расписанию: «МДК 05.03». По замене: «МДК 09.03 Гудкова А.Л.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement: &a1
+          - replacement:
               date: 2026-09-05
               group: ИС1-43
               lessonNumbers:
@@ -169,7 +169,26 @@ dates:
               description: "По расписанию: «УП 05». По замене: «1,2 п/гр. Васильченко М.О.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement: *a1
+          - replacement:
+              date: 2026-09-05
+              group: ИС1-43
+              lessonNumbers:
+                - 4
+                - 5
+              type: replace
+              original:
+                raw: УП 05
+              replacement:
+                raw: 1,2 п/гр. Васильченко М.О.
+                room: ДОТ
+              source:
+                shift: second
+                row: 5
+                rawGroupName: ИС1-43
+                rawLessonNumbers: 4,5
+                rawOriginal: УП 05
+                rawReplacement: 1,2 п/гр. Васильченко М.О.
+                rawRoom: ДОТ
             lessonNumber: 5
             reason: original-not-matched
             event:

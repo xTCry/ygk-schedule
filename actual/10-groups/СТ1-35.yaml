@@ -97,7 +97,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement: &a1
+          - replacement:
               date: 2026-09-05
               group: СТ1-35
               lessonNumbers:
@@ -124,7 +124,26 @@ dates:
               description: "По расписанию: «МДК 01.01». По замене: «/теория Гасенина М.П.».
                 Аудитория: «Б409»."
               room: Б409
-          - replacement: *a1
+          - replacement:
+              date: 2026-09-05
+              group: СТ1-35
+              lessonNumbers:
+                - 4
+                - 5
+              type: replace
+              original:
+                raw: МДК 01.01
+              replacement:
+                raw: /теория Гасенина М.П.
+                room: Б409
+              source:
+                shift: second
+                row: 11
+                rawGroupName: СТ1-35
+                rawLessonNumbers: 4,5
+                rawOriginal: МДК 01.01
+                rawReplacement: /теория Гасенина М.П.
+                rawRoom: Б409
             lessonNumber: 5
             reason: original-not-matched
             event:

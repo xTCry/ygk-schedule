@@ -42,7 +42,7 @@ dates:
         day: Понедельник
         lessons: []
         unresolvedReplacements:
-          - replacement: &a1
+          - replacement:
               date: 2026-09-07
               group: 6 ИКС
               lessonNumbers:
@@ -69,7 +69,26 @@ dates:
               description: "По расписанию: «УП 02 п/гр.2». По замене: «Ин.язык Петрушенко
                 Е.Е.». Аудитория: «к.1»."
               room: к.1
-          - replacement: *a1
+          - replacement:
+              date: 2026-09-07
+              group: 6 ИКС
+              lessonNumbers:
+                - 0
+                - 1
+              type: replace
+              original:
+                raw: УП 02 п/гр.2
+              replacement:
+                raw: Ин.язык Петрушенко Е.Е.
+                room: к.1
+              source:
+                shift: first
+                row: 65
+                rawGroupName: 6 ИКС
+                rawLessonNumbers: 0,1
+                rawOriginal: УП 02 п/гр.2
+                rawReplacement: Ин.язык Петрушенко Е.Е.
+                rawRoom: к.1
             lessonNumber: 1
             reason: group-not-found
             event:
@@ -77,7 +96,7 @@ dates:
               description: "По расписанию: «УП 02 п/гр.2». По замене: «Ин.язык Петрушенко
                 Е.Е.». Аудитория: «к.1»."
               room: к.1
-          - replacement: &a2
+          - replacement:
               date: 2026-09-07
               group: 6 ИКС
               lessonNumbers:
@@ -102,13 +121,51 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 01.04 УП 02 п/гр. 1». По замене: «снято»."
-          - replacement: *a2
+          - replacement:
+              date: 2026-09-07
+              group: 6 ИКС
+              lessonNumbers:
+                - 2
+                - 3
+                - 4
+              type: cancel
+              original:
+                raw: МДК 01.04 УП 02 п/гр. 1
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 66
+                rawGroupName: 6 ИКС
+                rawLessonNumbers: 2-4
+                rawOriginal: МДК 01.04 УП 02 п/гр. 1
+                rawReplacement: снято
+                rawRoom: ""
             lessonNumber: 3
             reason: group-not-found
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 01.04 УП 02 п/гр. 1». По замене: «снято»."
-          - replacement: *a2
+          - replacement:
+              date: 2026-09-07
+              group: 6 ИКС
+              lessonNumbers:
+                - 2
+                - 3
+                - 4
+              type: cancel
+              original:
+                raw: МДК 01.04 УП 02 п/гр. 1
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 66
+                rawGroupName: 6 ИКС
+                rawLessonNumbers: 2-4
+                rawOriginal: МДК 01.04 УП 02 п/гр. 1
+                rawReplacement: снято
+                rawRoom: ""
             lessonNumber: 4
             reason: group-not-found
             event:
