@@ -60,9 +60,20 @@ export interface CalendarRoomProfileDocument {
   group_overrides?: Record<string, string>;
 }
 
+export type CalendarSpecialRoomKind = 'remote' | 'sport' | 'unknown';
+
+export interface CalendarSpecialRoomDocument {
+  kind: CalendarSpecialRoomKind;
+  profile?: string;
+  aliases?: string[];
+}
+
 export interface CalendarRoomProfilesDocument {
   buildings: Record<string, CalendarRoomProfileDocument>;
-  special_rooms?: Record<string, 'remote' | 'sport' | 'unknown'>;
+  special_rooms?: Record<
+    string,
+    CalendarSpecialRoomKind | CalendarSpecialRoomDocument
+  >;
 }
 
 export interface CalendarConfigDocument {
@@ -98,7 +109,12 @@ export interface CalendarRoomProfileRule {
 
 export interface CalendarRoomProfiles {
   buildings: Record<string, CalendarRoomProfileRule>;
-  specialRooms: Record<string, 'remote' | 'sport' | 'unknown'>;
+  specialRooms: Record<string, CalendarSpecialRoomRule>;
+}
+
+export interface CalendarSpecialRoomRule {
+  kind: CalendarSpecialRoomKind;
+  profile?: string;
 }
 
 export interface YgkCalendarConfig {
@@ -600,12 +616,64 @@ const readRoomProfiles = (
   if (value.special_rooms !== undefined) {
     if (!isRecord(value.special_rooms))
       throw new Error('Calendar config requires room_profiles.special_rooms');
-    for (const [rawRoom, rawKind] of Object.entries(value.special_rooms)) {
-      if (rawKind !== 'remote' && rawKind !== 'sport' && rawKind !== 'unknown')
+    for (const [rawRoom, rawRule] of Object.entries(value.special_rooms)) {
+      const document =
+        typeof rawRule === 'string'
+          ? { kind: rawRule }
+          : isRecord(rawRule)
+            ? rawRule
+            : null;
+      if (
+        !document ||
+        (document.kind !== 'remote' &&
+          document.kind !== 'sport' &&
+          document.kind !== 'unknown')
+      ) {
         throw new Error(
-          `Calendar config has invalid room kind at room_profiles.special_rooms.${rawRoom}`,
+          `Calendar config has invalid special room at room_profiles.special_rooms.${rawRoom}`,
         );
-      specialRooms[normalizeRoomCode(rawRoom)] = rawKind;
+      }
+      const profile =
+        document.profile === undefined
+          ? undefined
+          : profileName(
+              document.profile,
+              `room_profiles.special_rooms.${rawRoom}.profile`,
+            );
+      const aliases = document.aliases;
+      if (aliases !== undefined && !Array.isArray(aliases)) {
+        throw new Error(
+          `Calendar config requires an array at room_profiles.special_rooms.${rawRoom}.aliases`,
+        );
+      }
+      const rooms = [
+        rawRoom,
+        ...(aliases?.map((alias, index) =>
+          readString(
+            alias,
+            `room_profiles.special_rooms.${rawRoom}.aliases[${index}]`,
+          ),
+        ) ?? []),
+      ];
+      const rule: CalendarSpecialRoomRule = {
+        kind: document.kind,
+        ...(profile ? { profile } : {}),
+      };
+      for (const room of rooms) {
+        const normalizedRoom = normalizeRoomCode(
+          readString(room, 'special room'),
+        );
+        const existing = specialRooms[normalizedRoom];
+        if (
+          existing &&
+          (existing.kind !== rule.kind || existing.profile !== rule.profile)
+        ) {
+          throw new Error(
+            `Calendar config has conflicting special room rule for ${room}`,
+          );
+        }
+        specialRooms[normalizedRoom] = rule;
+      }
     }
   }
   return { buildings, specialRooms };

@@ -48,6 +48,11 @@ describe('YGK calendar config', () => {
         },
         special_rooms: {
           ДОТ: 'remote',
+          Спортзал: {
+            kind: 'sport',
+            profile: 'known',
+            aliases: ['Сп.зал'],
+          },
         },
       },
     } satisfies CalendarConfigDocument);
@@ -70,7 +75,10 @@ describe('YGK calendar config', () => {
             groupOverrides: {},
           },
         },
-        specialRooms: { ДОТ: 'remote' },
+        specialRooms: {
+          ДОТ: { kind: 'remote' },
+          'СП.ЗАЛ': { kind: 'sport', profile: 'known' },
+        },
       },
       term: {
         semester: 'first',
@@ -166,6 +174,10 @@ describe('YGK calendar config', () => {
       sourceUrlTemplate:
         'https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/{kind}/{group}.ics',
       refreshInterval: 'PT2H',
+    });
+    expect(config.roomProfiles.specialRooms['СПОРТ.ЗАЛ']).toEqual({
+      kind: 'sport',
+      profile: 'a-m',
     });
     expect(config.term).toMatchObject({
       semester: 'first',

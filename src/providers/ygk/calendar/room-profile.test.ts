@@ -10,7 +10,10 @@ import {
 
 const profiles: Record<string, CalendarProfile> = {
   'a-m': {
-    lessonTimes: { 2: { start: '11:00', end: '11:45' } },
+    lessonTimes: {
+      2: { start: '11:00', end: '11:45' },
+      3: { start: '13:20', end: '14:50' },
+    },
     lessonTimesByDay: {},
   },
   'b-v': {
@@ -56,10 +59,12 @@ const roomProfiles: CalendarRoomProfiles = {
     },
   },
   specialRooms: {
-    ДОТ: 'remote',
-    РОТ: 'unknown',
-    'СПОРТ КОРПУС': 'sport',
-    СПОРТЗАЛ: 'sport',
+    ДОТ: { kind: 'remote' },
+    РОТ: { kind: 'unknown' },
+    'СПОРТ КОРПУС': { kind: 'sport' },
+    СПОРТЗАЛ: { kind: 'sport', profile: 'a-m' },
+    'СП.ЗАЛ': { kind: 'sport', profile: 'a-m' },
+    'СПОРТ.ЗАЛ': { kind: 'sport', profile: 'a-m' },
   },
 };
 
@@ -72,8 +77,26 @@ describe('YGK room profile resolver', () => {
       building: 'А',
     });
     expect(
+      parseYgkRoomLocation('каб. Б-504', roomProfiles.specialRooms),
+    ).toMatchObject({
+      kind: 'physical',
+      building: 'Б',
+    });
+    expect(
       parseYgkRoomLocation('Спорт корпус', roomProfiles.specialRooms).kind,
     ).toBe('sport');
+    expect(
+      parseYgkRoomLocation('Сп.зал', roomProfiles.specialRooms),
+    ).toMatchObject({
+      kind: 'sport',
+      profile: 'a-m',
+    });
+    expect(
+      parseYgkRoomLocation('Спорт.зал', roomProfiles.specialRooms),
+    ).toMatchObject({
+      kind: 'sport',
+      profile: 'a-m',
+    });
     expect(parseYgkRoomLocation('ДОТ', roomProfiles.specialRooms).kind).toBe(
       'remote',
     );
@@ -128,5 +151,20 @@ describe('YGK room profile resolver', () => {
         room: 'Ф101',
       }),
     ).toMatchObject({ slots: [] });
+  });
+
+  it('uses the configured sport hall profile for known spelling variants', () => {
+    const resolve = createYgkRoomTimeResolver(profiles, roomProfiles);
+    expect(
+      resolve({
+        group: 'СД2-31',
+        day: 'Суббота',
+        lessonNumber: 3,
+        room: 'Сп.зал',
+      }),
+    ).toMatchObject({
+      profile: 'a-m',
+      slots: [{ start: '13:20', end: '14:50' }],
+    });
   });
 });

@@ -2,6 +2,7 @@ import type {
   CalendarProfile,
   CalendarRoomProfileRule,
   CalendarRoomProfiles,
+  CalendarSpecialRoomRule,
 } from '../../../calendar/config.ts';
 import type {
   LessonTimeResolution,
@@ -15,6 +16,7 @@ export interface YgkRoomLocation {
   raw: string;
   normalized: string;
   building?: string;
+  profile?: string;
 }
 
 /**
@@ -36,7 +38,7 @@ const normalizeRoom = (value: string): string =>
  * попадают под это правило: первая буква в них не означает корпус.
  */
 const physicalRoomPattern =
-  /(?:^|[\s,;(/])([АБВМТФ])\s*(?:№\s*)?(\d{1,4})(?=$|[\s,;.)/])/u;
+  /(?:^|[\s,;(/])([АБВМТФ])\s*(?:[-.]?\s*)?(?:№\s*)?(\d{1,4})(?=$|[\s,;.)/])/u;
 
 /**
  * Определяет тип места проведения занятия, не пытаясь угадать незнакомое
@@ -44,15 +46,16 @@ const physicalRoomPattern =
  */
 export const parseYgkRoomLocation = (
   room: string,
-  specialRooms: Record<string, Exclude<YgkRoomKind, 'physical'>>,
+  specialRooms: Record<string, CalendarSpecialRoomRule>,
 ): YgkRoomLocation => {
   const normalized = normalizeRoom(room);
-  const specialKind = specialRooms[normalized];
-  if (specialKind)
+  const specialRoom = specialRooms[normalized];
+  if (specialRoom)
     return {
-      kind: specialKind,
+      kind: specialRoom.kind,
       raw: room,
       normalized,
+      ...(specialRoom.profile ? { profile: specialRoom.profile } : {}),
     };
 
   const physical = physicalRoomPattern.exec(normalized);
@@ -93,6 +96,46 @@ const missingResolution = (reason: string): LessonTimeResolution => ({
 });
 
 /**
+ * Находит время пары внутри уже выбранного профиля звонков.
+ */
+const resolveProfileTime = (
+  profiles: Record<string, CalendarProfile>,
+  profileName: string,
+  day: string,
+  lessonNumber: number,
+): LessonTimeResolution => {
+  const profile = profiles[profileName];
+  if (!profile)
+    return missingResolution(
+      `Профиль звонков «${profileName}» не найден в конфигурации`,
+    );
+
+  const dayOverrides =
+    profile.lessonTimesByDay[day as keyof typeof profile.lessonTimesByDay];
+  if (dayOverrides && Object.hasOwn(dayOverrides, lessonNumber)) {
+    const override = dayOverrides[lessonNumber];
+    return override
+      ? {
+          slots: 'start' in override ? [override] : [...override],
+          profile: profileName,
+        }
+      : missingResolution(
+          `Для пары ${lessonNumber} в ${day} нет подтвержденного времени`,
+        );
+  }
+
+  const slots = profile.lessonTimes[lessonNumber];
+  return slots
+    ? {
+        slots: 'start' in slots ? [slots] : [...slots],
+        profile: profileName,
+      }
+    : missingResolution(
+        `Для пары ${lessonNumber} в профиле «${profileName}» нет времени`,
+      );
+};
+
+/**
  * Создает resolver времени занятия ЯГК.
  *
  * Корпус определяется по тексту аудитории конкретного варианта занятия.
@@ -105,12 +148,16 @@ export const createYgkRoomTimeResolver = (
 ): LessonTimeResolver => {
   return ({ group, day, lessonNumber, room }): LessonTimeResolution => {
     const location = parseYgkRoomLocation(room, roomProfiles.specialRooms);
-    if (location.kind !== 'physical') {
+    if (location.kind !== 'physical' && !location.profile) {
       return missingResolution(
         location.kind === 'unknown'
           ? `Не удалось определить корпус по аудитории «${room || 'не указана'}»`
           : `Для места «${room}» пока не подтверждено расписание звонков`,
       );
+    }
+
+    if (location.profile) {
+      return resolveProfileTime(profiles, location.profile, day, lessonNumber);
     }
 
     const rule = roomProfiles.buildings[location.building!];
@@ -125,33 +172,6 @@ export const createYgkRoomTimeResolver = (
         `Для корпуса «${location.building}» и группы «${group}» не определен профиль звонков`,
       );
 
-    const profile = profiles[profileName];
-    if (!profile)
-      return missingResolution(
-        `Профиль звонков «${profileName}» не найден в конфигурации`,
-      );
-
-    const dayOverrides = profile.lessonTimesByDay[day];
-    if (dayOverrides && Object.hasOwn(dayOverrides, lessonNumber)) {
-      const override = dayOverrides[lessonNumber];
-      return override
-        ? {
-            slots: 'start' in override ? [override] : [...override],
-            profile: profileName,
-          }
-        : missingResolution(
-            `Для пары ${lessonNumber} в ${day} нет подтвержденного времени`,
-          );
-    }
-
-    const slots = profile.lessonTimes[lessonNumber];
-    return slots
-      ? {
-          slots: 'start' in slots ? [slots] : [...slots],
-          profile: profileName,
-        }
-      : missingResolution(
-          `Для пары ${lessonNumber} в профиле «${profileName}» нет времени`,
-        );
+    return resolveProfileTime(profiles, profileName, day, lessonNumber);
   };
 };
