@@ -199,6 +199,82 @@ describe('actual YGK schedule', () => {
     ]);
   });
 
+  it('changes only the matching subgroup variant of a lesson', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (item) => item.number === 2,
+    )!;
+    lesson.variants = [
+      {
+        subject: 'Математика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '1',
+        sourceRow: 2,
+      },
+      {
+        subject: 'Физика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '2',
+        sourceRow: 3,
+      },
+    ];
+    const replaceFirst = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement([2], 'replace', 'Математика', 'История'),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+    const replacedLesson = replaceFirst.dates['2026-09-04']!.groups[
+      'СТ1-11'
+    ]!.lessons.find((item) => item.number === 2)!;
+
+    expect(replacedLesson).toMatchObject({
+      status: 'scheduled',
+      variants: [
+        { subject: 'История', subgroup: '1' },
+        { subject: 'Физика', subgroup: '2' },
+      ],
+    });
+
+    const cancelFirst = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [replacement([2], 'cancel', 'Математика', 'Снято')],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      cancelFirst.dates['2026-09-04']!.groups['СТ1-11']!.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      status: 'scheduled',
+      variants: [{ subject: 'Физика', subgroup: '2' }],
+    });
+  });
+
   it('uses aliases only for an unambiguous match and preserves raw values', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-resolver-aliases-'));
     const directory = join(root, 'config', 'ygk');

@@ -35,7 +35,7 @@ describe('YAML schedule generator', () => {
     expect(parse(yaml)).toEqual(JSON.parse(serializeSchedule(schedule)));
   });
 
-  it('does not introduce aliases for repeated object references', () => {
+  it('uses stable aliases for repeated object references', () => {
     const source = {
       id: 'https://ygk.example/so.xlsx',
       sha256: 'source',
@@ -46,7 +46,8 @@ describe('YAML schedule generator', () => {
     const second = serializeYaml(value);
 
     expect(first).toBe(second);
-    expect(first).not.toMatch(/(^|\s)[&*][A-Za-z]\d*/u);
+    expect(first).toMatch(/&a1/u);
+    expect(first).toMatch(/\*a1/u);
     expect(parse(first)).toEqual(JSON.parse(JSON.stringify(value)));
   });
 });

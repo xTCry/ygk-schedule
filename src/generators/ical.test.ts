@@ -164,6 +164,52 @@ describe('schedule generators', () => {
     ).toThrow(/Group not found/);
   });
 
+  it('generates a subgroup calendar with common and matching subgroup variants', () => {
+    const schedule = makeSchedule();
+    schedule.groups['СТ1-11']!.days[0]!.lessons[0]!.variants = [
+      {
+        subject: 'Общая пара',
+        teacher: '',
+        room: '',
+        weekType: 'both',
+        sourceRow: 3,
+      },
+      {
+        subject: 'Пара подгруппы 1',
+        teacher: '',
+        room: '',
+        weekType: 'both',
+        subgroup: '1',
+        sourceRow: 4,
+      },
+      {
+        subject: 'Пара подгруппы 2',
+        teacher: '',
+        room: '',
+        weekType: 'both',
+        subgroup: '2',
+        sourceRow: 5,
+      },
+    ];
+
+    const ical = generateIcal(schedule, {
+      group: 'СТ1-11',
+      subgroup: '1',
+      termStart: '2026-09-01',
+      termEnd: '2026-10-01',
+      referenceDate: '2026-09-07',
+      lessonTimes: { 1: { start: '09:20', end: '10:50' } },
+      excludedDatesByVariant: [
+        { lessonNumber: 1, subgroup: '1', dates: ['2026-09-07'] },
+      ],
+    });
+
+    expect(ical).toContain('SUMMARY:Общая пара');
+    expect(ical).toContain('SUMMARY:Пара подгруппы 1');
+    expect(ical).not.toContain('SUMMARY:Пара подгруппы 2');
+    expect(ical.match(/EXDATE;TZID=Europe\/Moscow/g)).toHaveLength(1);
+  });
+
   it('selects time for every lesson by its room and reports an unknown place', () => {
     const schedule = makeSchedule();
     schedule.groups['СТ1-11']!.days[0]!.lessons[0]!.variants[0]!.room = 'А101';

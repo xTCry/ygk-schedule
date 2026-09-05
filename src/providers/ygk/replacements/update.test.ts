@@ -131,21 +131,9 @@ describe('YGK replacements update', () => {
     expect(third.replacementsChanged).toBe(false);
     expect(third.actualChanged).toBe(false);
 
-    await writeFile(
-      join(root, 'replacements', '00-replacements.yaml'),
-      'sources:\n  - &a1\n    id: source\nsnapshot:\n  source: *a1\n',
-    );
-    const rewrittenYaml = await updateYgkReplacements({
-      baseSchedule: basePath,
-      outputDir: root,
-      firstInput: replacementFixturePath('first'),
-      secondInput: replacementFixturePath('second'),
-      projectRoot: root,
-    });
-    expect(rewrittenYaml.written).toBe(true);
     await expect(
       readFile(join(root, 'replacements', '00-replacements.yaml'), 'utf8'),
-    ).resolves.not.toMatch(/(^|\s)[&*]a\d+\b/mu);
+    ).resolves.toMatch(/(^|\s)[&*]a\d+\b/mu);
 
     const firstForNextDayPath = join(root, 'rasp_first-2026-09-05.html');
     const firstFixtureHtml = await readFile(

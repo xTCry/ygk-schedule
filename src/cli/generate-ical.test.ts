@@ -61,6 +61,22 @@ const schedule: CanonicalSchedule = {
                   weekType: 'both',
                   sourceRow: 1,
                 },
+                {
+                  subject: 'Тестовая пара подгруппы 1',
+                  teacher: '',
+                  room: 'А101',
+                  weekType: 'both',
+                  subgroup: '1',
+                  sourceRow: 2,
+                },
+                {
+                  subject: 'Тестовая пара подгруппы 2',
+                  teacher: '',
+                  room: 'А101',
+                  weekType: 'both',
+                  subgroup: '2',
+                  sourceRow: 3,
+                },
               ],
             },
           ],
@@ -127,6 +143,17 @@ describe('generate iCalendar CLI', () => {
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain(
       'SOURCE;VALUE=URI:https://example.test/ical/base/СТ1-11.ics',
+    );
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11-1.ics'), 'utf8'),
+    ).resolves.toContain('SUMMARY:Тестовая пара подгруппы 1');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11-1.ics'), 'utf8'),
+    ).resolves.not.toContain('SUMMARY:Тестовая пара подгруппы 2');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11-2.ics'), 'utf8'),
+    ).resolves.toContain(
+      'SOURCE;VALUE=URI:https://example.test/ical/base/СТ1-11-2.ics',
     );
 
     const noProfileResult = await generateIcalArtifacts({

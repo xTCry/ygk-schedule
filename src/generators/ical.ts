@@ -25,6 +25,11 @@ export interface IcalDateEvent {
   lessonNumber: number;
   key: string;
   summary: string;
+  /**
+   * Подгруппа, для которой предназначено одноразовое событие. Отсутствие
+   * означает общую строку: она попадает во все календари подгрупп.
+   */
+  subgroup?: string;
   description?: string;
   room?: string;
   /**
@@ -49,8 +54,26 @@ export interface IcalGenerationResult {
   skippedEvents: IcalSkippedEvent[];
 }
 
+/**
+ * Исключение recurring-пары только для одного варианта подгруппы.
+ *
+ * Обычные `excludedDates` применяются ко всем вариантам номера пары и нужны
+ * для финализированной даты. Эта структура позволяет точечно заменить пару
+ * одной подгруппы, не скрывая занятие второй.
+ */
+export interface IcalVariantExclusion {
+  lessonNumber: number;
+  subgroup?: string;
+  dates: readonly string[];
+}
+
 export interface IcalOptions {
   group: string;
+  /**
+   * При наличии календарь содержит общие варианты и варианты одной подгруппы.
+   * Отсутствие оставляет общий календарь группы без фильтрации.
+   */
+  subgroup?: string;
   termStart: string;
   termEnd: string;
   referenceDate: string;
@@ -91,6 +114,10 @@ export interface IcalOptions {
    * отображаться. Ключ — номер пары.
    */
   excludedDates?: Record<number, readonly string[]>;
+  /**
+   * Точечные исключения вариантов подгрупп. Используются только actual ICS.
+   */
+  excludedDatesByVariant?: readonly IcalVariantExclusion[];
   /**
    * Одноразовые события: примененные замены и безопасно отображаемые
    * неразрешенные строки.
@@ -263,6 +290,28 @@ const descriptionForLesson = (
 const sortedDates = (dates: readonly string[] | undefined): string[] =>
   [...new Set(dates ?? [])].sort((left, right) => left.localeCompare(right));
 
+const appliesToSubgroup = (
+  valueSubgroup: string | undefined,
+  requestedSubgroup: string | undefined,
+): boolean =>
+  !requestedSubgroup || !valueSubgroup || valueSubgroup === requestedSubgroup;
+
+const excludedDatesForVariant = (
+  options: IcalOptions,
+  lessonNumber: number,
+  subgroup: string | undefined,
+): string[] =>
+  sortedDates([
+    ...(options.excludedDates?.[lessonNumber] ?? []),
+    ...(options.excludedDatesByVariant ?? [])
+      .filter(
+        (exclusion) =>
+          exclusion.lessonNumber === lessonNumber &&
+          exclusion.subgroup === subgroup,
+      )
+      .flatMap((exclusion) => exclusion.dates),
+  ]);
+
 const serializeEvent = (
   event: IcalEventDetails,
   timezone: string,
@@ -328,7 +377,12 @@ export const generateIcalWithReport = (
   for (const day of group.days) {
     for (const lesson of day.lessons) {
       lesson.variants.forEach((variant, index) => {
-        if (variant.weekType === 'unknown') return;
+        if (
+          variant.weekType === 'unknown' ||
+          !appliesToSubgroup(variant.subgroup, options.subgroup)
+        ) {
+          return;
+        }
         const firstDate = firstDateForWeekType(
           termStart,
           day.day,
@@ -367,6 +421,7 @@ export const generateIcalWithReport = (
                 uid: stableUid(
                   'base',
                   group.group,
+                  options.subgroup ?? 'all',
                   day.day,
                   String(lesson.number),
                   variant.weekType,
@@ -376,8 +431,10 @@ export const generateIcalWithReport = (
                 start: formatLocalDateTime(firstDate, time.start),
                 end: formatLocalDateTime(firstDate, time.end),
                 rule: `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
-                excludedDates: sortedDates(
-                  options.excludedDates?.[lesson.number],
+                excludedDates: excludedDatesForVariant(
+                  options,
+                  lesson.number,
+                  variant.subgroup,
                 ),
                 summary: variant.subject || `Пара ${lesson.number}`,
                 ...(variant.room ? { room: variant.room } : {}),
@@ -397,6 +454,7 @@ export const generateIcalWithReport = (
       left.lessonNumber - right.lessonNumber ||
       left.key.localeCompare(right.key),
   )) {
+    if (!appliesToSubgroup(event.subgroup, options.subgroup)) continue;
     const date = parseDate(event.date);
     const day = dayForDate(date);
     const resolution = resolveTimes(
@@ -425,6 +483,7 @@ export const generateIcalWithReport = (
             uid: stableUid(
               'actual',
               group.group,
+              options.subgroup ?? 'all',
               event.date,
               String(event.lessonNumber),
               event.key,

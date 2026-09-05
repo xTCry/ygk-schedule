@@ -4,6 +4,7 @@ import { buildDiagnosticsReport } from '../../../generators/diagnostics.ts';
 import {
   getReplacementArtifactFiles,
   getReplacementArtifactPaths,
+  serializeReplacementsYaml,
   writeReplacementArtifacts,
 } from '../../../generators/replacements.ts';
 import type {
@@ -149,12 +150,22 @@ const buildCanonicalReplacements = (
 const allArtifactsExist = async (paths: readonly string[]): Promise<boolean> =>
   (await Promise.all(paths.map((path) => fileExists(path)))).every(Boolean);
 
+const yamlHasAliases = (value: string): boolean =>
+  /(^|\s)[&*]a\d+\b/mu.test(value);
+
 /**
- * Старые generated YAML могли содержать aliases, зависящие от общих ссылок в
- * памяти. Один раз пересобираем такие артефакты новым стабильным serializer-ом.
+ * Проверяет, что full YAML уже использует ожидаемые aliases. При первом
+ * запуске после миграции это заставляет переписать все групповые файлы, чтобы
+ * они получили одинаковую компактную форму.
  */
-const hasGeneratedYamlAliases = async (path: string): Promise<boolean> =>
-  /(^|\s)[&*]a\d+\b/mu.test(await readFile(path, 'utf8'));
+const hasExpectedYamlAliases = async (
+  path: string,
+  replacements: CanonicalReplacements,
+): Promise<boolean> => {
+  const expected = serializeReplacementsYaml(replacements);
+  if (!yamlHasAliases(expected)) return true;
+  return yamlHasAliases(await readFile(path, 'utf8'));
+};
 
 /**
  * Загружает обе страницы замен, записывает raw JSON/YAML и строит actual data.
@@ -219,7 +230,10 @@ export const updateYgkReplacements = async (
   );
   const artifactsExist =
     (await allArtifactsExist(artifactFiles)) &&
-    !(await hasGeneratedYamlAliases(artifactPaths.replacementsYaml));
+    (await hasExpectedYamlAliases(
+      artifactPaths.replacementsYaml,
+      replacements,
+    ));
 
   if (!replacementsChanged && !actualChanged && artifactsExist) {
     return {

@@ -6,6 +6,7 @@ import type {
   CanonicalReplacements,
   GroupReplacementsArtifact,
   ReplacementDate,
+  ReplacementSnapshot,
 } from '../types.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import { sha256 } from '../utils/hash.ts';
@@ -75,21 +76,82 @@ const replacementSortKey = (
     replacement.replacement?.raw ?? '',
   ].join('\0');
 
+/**
+ * Устойчиво связывает строку агрегированной даты с той же строкой снимка
+ * смены после чтения JSON, где ссылочная идентичность уже потеряна.
+ */
+const replacementIdentity = (
+  replacement: ReplacementDate['replacements'][number],
+): string =>
+  [
+    replacementSortKey(replacement),
+    replacement.source.shift,
+    String(replacement.source.row),
+    replacement.source.rawGroupName,
+    replacement.source.rawLessonNumbers,
+    replacement.source.rawOriginal,
+    replacement.source.rawReplacement,
+    replacement.source.rawRoom,
+  ].join('\0');
+
 const normalizeReplacementDates = (
   dates: CanonicalReplacements['dates'],
 ): CanonicalReplacements['dates'] =>
   Object.fromEntries(
     Object.entries(dates)
       .sort(([left], [right]) => compareText(left, right))
-      .map(([date, value]) => [
-        date,
-        {
-          ...value,
-          replacements: [...value.replacements].sort((left, right) =>
-            compareText(replacementSortKey(left), replacementSortKey(right)),
-          ),
-        },
-      ]),
+      .map(([date, value]) => {
+        const replacements = [...value.replacements].sort((left, right) =>
+          compareText(replacementSortKey(left), replacementSortKey(right)),
+        );
+        const replacementReferences = new Map(
+          replacements.map((replacement) => [
+            replacementIdentity(replacement),
+            replacement,
+          ]),
+        );
+        const shifts = Object.fromEntries(
+          Object.entries(value.shifts ?? {})
+            .sort(([left], [right]) => compareText(left, right))
+            .flatMap(([shift, snapshot]) =>
+              snapshot
+                ? [
+                    [
+                      shift,
+                      {
+                        ...snapshot,
+                        replacements: snapshot.replacements
+                          .map(
+                            (replacement) =>
+                              replacementReferences.get(
+                                replacementIdentity(replacement),
+                              ) ?? replacement,
+                          )
+                          .sort((left, right) =>
+                            compareText(
+                              replacementSortKey(left),
+                              replacementSortKey(right),
+                            ),
+                          ),
+                        diagnostics: [...snapshot.diagnostics].sort(
+                          (left, right) =>
+                            compareText(left.fingerprint, right.fingerprint),
+                        ),
+                      } satisfies ReplacementSnapshot,
+                    ],
+                  ]
+                : [],
+            ),
+        );
+        return [
+          date,
+          {
+            ...value,
+            ...(Object.keys(shifts).length ? { shifts } : {}),
+            replacements,
+          },
+        ];
+      }),
   );
 
 const normalizeActualDates = (
@@ -199,6 +261,50 @@ const replacementGroups = (replacements: CanonicalReplacements): string[] =>
     ),
   ].sort(compareText);
 
+/**
+ * Оставляет в снимке смены только строки и диагностику одной группы.
+ *
+ * Массив `replacements` намеренно содержит те же объекты, что и агрегированная
+ * проекция даты. YAML представит их aliases, а JSON останется полностью
+ * развернутым и не потеряет совместимость.
+ */
+const replacementSnapshotForGroup = (
+  snapshot: ReplacementSnapshot,
+  group: string,
+): ReplacementSnapshot | null => {
+  const groupReplacements = snapshot.replacements.filter(
+    (replacement) => replacement.group === group,
+  );
+  const diagnostics = snapshot.diagnostics.filter(
+    (diagnostic) => diagnostic.normalizedGroup === group,
+  );
+  if (!groupReplacements.length && !diagnostics.length) return null;
+  return {
+    ...snapshot,
+    replacements: groupReplacements,
+    diagnostics,
+  };
+};
+
+/**
+ * Проецирует независимые снимки первой и второй смены на одну группу.
+ */
+const replacementShiftsForGroup = (
+  date: ReplacementDate,
+  group: string,
+): ReplacementDate['shifts'] => {
+  const shifts = Object.entries(date.shifts ?? {})
+    .sort(([left], [right]) => compareText(left, right))
+    .flatMap(([shift, snapshot]) => {
+      if (!snapshot) return [];
+      const groupSnapshot = replacementSnapshotForGroup(snapshot, group);
+      return groupSnapshot
+        ? ([[shift, groupSnapshot]] as const)
+        : ([] as const);
+    });
+  return shifts.length ? Object.fromEntries(shifts) : undefined;
+};
+
 const actualGroups = (schedule: ActualSchedule): string[] =>
   [
     ...new Set(
@@ -219,7 +325,14 @@ const replacementGroupArtifact = (
       (replacement) => replacement.group === group,
     );
     if (!groupReplacements.length) continue;
-    dates[date] = { ...value, replacements: groupReplacements };
+    const shifts = replacementShiftsForGroup(value, group);
+    dates[date] = {
+      date: value.date,
+      day: value.day,
+      weekType: value.weekType,
+      ...(shifts ? { shifts } : {}),
+      replacements: groupReplacements,
+    };
   }
   return {
     schemaVersion: replacements.schemaVersion,
@@ -340,33 +453,38 @@ export const writeReplacementArtifacts = async (
   replacements: CanonicalReplacements,
   actual: ActualSchedule,
 ): Promise<void> => {
-  const replacementGroupWrites = replacementGroups(replacements).flatMap(
-    (group) => {
-      const groupPaths = getGroupArtifactPaths(
-        paths.replacementGroupJsonDirectory,
-        paths.replacementGroupYamlDirectory,
-        group,
-      );
-      const artifact = replacementGroupArtifact(replacements, group);
-      return [
-        writeFileAtomic(
-          groupPaths.json,
-          serializeReplacementGroupArtifact(artifact),
-        ),
-        writeFileAtomic(
-          groupPaths.yaml,
-          serializeReplacementGroupArtifactYaml(artifact),
-        ),
-      ];
-    },
-  );
-  const actualGroupWrites = actualGroups(actual).flatMap((group) => {
+  // JSON не сохраняет shared references. Перед каждым выводом восстанавливаем
+  // их по стабильному ключу, чтобы YAML aliases не зависели от того, был ли
+  // источник только что распарсен или прочитан из предыдущего JSON-артефакта.
+  const normalizedReplacements = normalizeReplacements(replacements);
+  const normalizedActual = normalizeActualSchedule(actual);
+  const replacementGroupWrites = replacementGroups(
+    normalizedReplacements,
+  ).flatMap((group) => {
+    const groupPaths = getGroupArtifactPaths(
+      paths.replacementGroupJsonDirectory,
+      paths.replacementGroupYamlDirectory,
+      group,
+    );
+    const artifact = replacementGroupArtifact(normalizedReplacements, group);
+    return [
+      writeFileAtomic(
+        groupPaths.json,
+        serializeReplacementGroupArtifact(artifact),
+      ),
+      writeFileAtomic(
+        groupPaths.yaml,
+        serializeReplacementGroupArtifactYaml(artifact),
+      ),
+    ];
+  });
+  const actualGroupWrites = actualGroups(normalizedActual).flatMap((group) => {
     const groupPaths = getGroupArtifactPaths(
       paths.actualGroupJsonDirectory,
       paths.actualGroupYamlDirectory,
       group,
     );
-    const artifact = actualGroupArtifact(actual, group);
+    const artifact = actualGroupArtifact(normalizedActual, group);
     return [
       writeFileAtomic(groupPaths.json, serializeActualGroupArtifact(artifact)),
       writeFileAtomic(
@@ -379,35 +497,41 @@ export const writeReplacementArtifacts = async (
   await Promise.all([
     writeFileAtomic(
       paths.replacementsJson,
-      serializeReplacements(replacements),
+      serializeReplacements(normalizedReplacements),
     ),
     writeFileAtomic(
       paths.replacementsYaml,
-      serializeReplacementsYaml(replacements),
+      serializeReplacementsYaml(normalizedReplacements),
     ),
     writeFileAtomic(
       paths.replacementDiagnosticsJson,
-      serializeDiagnosticsReport(replacements),
+      serializeDiagnosticsReport(normalizedReplacements),
     ),
     writeFileAtomic(
       paths.replacementDiagnosticsYaml,
-      serializeDiagnosticsReportYaml(replacements),
+      serializeDiagnosticsReportYaml(normalizedReplacements),
     ),
-    writeFileAtomic(paths.actualJson, serializeActualSchedule(actual)),
-    writeFileAtomic(paths.actualYaml, serializeActualScheduleYaml(actual)),
+    writeFileAtomic(
+      paths.actualJson,
+      serializeActualSchedule(normalizedActual),
+    ),
+    writeFileAtomic(
+      paths.actualYaml,
+      serializeActualScheduleYaml(normalizedActual),
+    ),
     writeFileAtomic(
       paths.actualDiagnosticsJson,
-      serializeDiagnosticsReport(actual),
+      serializeDiagnosticsReport(normalizedActual),
     ),
     writeFileAtomic(
       paths.actualDiagnosticsYaml,
-      serializeDiagnosticsReportYaml(actual),
+      serializeDiagnosticsReportYaml(normalizedActual),
     ),
     ...replacementGroupWrites,
     ...actualGroupWrites,
   ]);
 
-  const expectedReplacementJson = replacementGroups(replacements).map(
+  const expectedReplacementJson = replacementGroups(normalizedReplacements).map(
     (group) =>
       getGroupArtifactPaths(
         paths.replacementGroupJsonDirectory,
@@ -415,7 +539,7 @@ export const writeReplacementArtifacts = async (
         group,
       ).json,
   );
-  const expectedReplacementYaml = replacementGroups(replacements).map(
+  const expectedReplacementYaml = replacementGroups(normalizedReplacements).map(
     (group) =>
       getGroupArtifactPaths(
         paths.replacementGroupJsonDirectory,
@@ -423,7 +547,7 @@ export const writeReplacementArtifacts = async (
         group,
       ).yaml,
   );
-  const expectedActualJson = actualGroups(actual).map(
+  const expectedActualJson = actualGroups(normalizedActual).map(
     (group) =>
       getGroupArtifactPaths(
         paths.actualGroupJsonDirectory,
@@ -431,7 +555,7 @@ export const writeReplacementArtifacts = async (
         group,
       ).json,
   );
-  const expectedActualYaml = actualGroups(actual).map(
+  const expectedActualYaml = actualGroups(normalizedActual).map(
     (group) =>
       getGroupArtifactPaths(
         paths.actualGroupJsonDirectory,

@@ -47,6 +47,27 @@ const groupFileName = (group: string): string => {
   return group;
 };
 
+const calendarFileName = (
+  group: string,
+  subgroup: string | undefined,
+): string => groupFileName(`${group}${subgroup ? `-${subgroup}` : ''}`);
+
+const subgroupsForGroup = (
+  schedule: CanonicalSchedule,
+  group: string,
+): string[] =>
+  [
+    ...new Set(
+      schedule.groups[group]?.days.flatMap((day) =>
+        day.lessons.flatMap((lesson) =>
+          lesson.variants.flatMap((variant) =>
+            variant.subgroup ? [variant.subgroup] : [],
+          ),
+        ),
+      ) ?? [],
+    ),
+  ].sort((left, right) => left.localeCompare(right, 'ru-RU'));
+
 /**
  * Возвращает стабильные директории base и actual календарей в ветке данных.
  */
@@ -82,13 +103,13 @@ const syncIcalDirectory = async (
 const calendarSourceUrl = (
   publication: CalendarPublication | undefined,
   kind: 'base' | 'actual',
-  group: string,
+  calendarFileName: string,
 ): string | undefined => {
   const template = publication?.sourceUrlTemplate;
   if (!template) return undefined;
-  const urlGroup = /^[\p{L}\p{N}-]+$/u.test(group)
-    ? group
-    : encodeURIComponent(group);
+  const urlGroup = /^[\p{L}\p{N}-]+$/u.test(calendarFileName)
+    ? calendarFileName
+    : encodeURIComponent(calendarFileName);
   return template.replaceAll('{kind}', kind).replaceAll('{group}', urlGroup);
 };
 
@@ -118,52 +139,60 @@ export const writeIcalArtifacts = async (
   for (const group of [...new Set(requestedGroups)].sort(compareGroups)) {
     if (!schedule.groups[group]) throw new Error(`Group not found: ${group}`);
 
-    const baseFile = join(paths.baseDirectory, `${groupFileName(group)}.ics`);
-    const baseSourceUrl = calendarSourceUrl(options.publication, 'base', group);
-    const baseIcal = generateIcalWithReport(schedule, {
-      group,
-      calendarName: `ЯГК: ${group}`,
-      termStart: options.term.start,
-      termEnd: options.term.end,
-      referenceDate: options.term.referenceDate,
-      referenceWeekType: options.term.referenceWeekType,
-      timezone: options.timezone,
-      lessonTimeResolver,
-      ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
-      ...(options.publication?.refreshInterval
-        ? { refreshInterval: options.publication.refreshInterval }
-        : {}),
-    });
-    writes.push(writeFileAtomic(baseFile, baseIcal.content));
-    skippedEvents.push(...baseIcal.skippedEvents);
-    baseFiles.push(baseFile);
-
-    if (actual) {
-      const actualFile = join(
-        paths.actualDirectory,
-        `${groupFileName(group)}.ics`,
-      );
-      const actualSourceUrl = calendarSourceUrl(
+    for (const subgroup of [undefined, ...subgroupsForGroup(schedule, group)]) {
+      const fileName = calendarFileName(group, subgroup);
+      const subgroupLabel = subgroup ? `, подгруппа ${subgroup}` : '';
+      const baseFile = join(paths.baseDirectory, `${fileName}.ics`);
+      const baseSourceUrl = calendarSourceUrl(
         options.publication,
-        'actual',
-        group,
+        'base',
+        fileName,
       );
-      const actualIcal = generateActualIcalWithReport(schedule, actual, {
+      const baseIcal = generateIcalWithReport(schedule, {
         group,
+        ...(subgroup ? { subgroup } : {}),
+        calendarName: `ЯГК: ${group}${subgroupLabel}`,
         termStart: options.term.start,
         termEnd: options.term.end,
         referenceDate: options.term.referenceDate,
         referenceWeekType: options.term.referenceWeekType,
         timezone: options.timezone,
         lessonTimeResolver,
-        ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
+        ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
         ...(options.publication?.refreshInterval
           ? { refreshInterval: options.publication.refreshInterval }
           : {}),
       });
-      writes.push(writeFileAtomic(actualFile, actualIcal.content));
-      skippedEvents.push(...actualIcal.skippedEvents);
-      actualFiles.push(actualFile);
+      writes.push(writeFileAtomic(baseFile, baseIcal.content));
+      if (!subgroup) skippedEvents.push(...baseIcal.skippedEvents);
+      baseFiles.push(baseFile);
+
+      if (actual) {
+        const actualFile = join(paths.actualDirectory, `${fileName}.ics`);
+        const actualSourceUrl = calendarSourceUrl(
+          options.publication,
+          'actual',
+          fileName,
+        );
+        const actualIcal = generateActualIcalWithReport(schedule, actual, {
+          group,
+          ...(subgroup ? { subgroup } : {}),
+          calendarName: `ЯГК: ${group}${subgroupLabel} (actual)`,
+          termStart: options.term.start,
+          termEnd: options.term.end,
+          referenceDate: options.term.referenceDate,
+          referenceWeekType: options.term.referenceWeekType,
+          timezone: options.timezone,
+          lessonTimeResolver,
+          ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
+          ...(options.publication?.refreshInterval
+            ? { refreshInterval: options.publication.refreshInterval }
+            : {}),
+        });
+        writes.push(writeFileAtomic(actualFile, actualIcal.content));
+        if (!subgroup) skippedEvents.push(...actualIcal.skippedEvents);
+        actualFiles.push(actualFile);
+      }
     }
     generatedGroups.push(group);
   }

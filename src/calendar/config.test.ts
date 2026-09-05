@@ -139,5 +139,9 @@ describe('YGK calendar config', () => {
         'https://raw.githubusercontent.com/xTCry/ygk-schedule/data/ical/{kind}/{group}.ics',
       refreshInterval: 'PT2H',
     });
+    expect(config.term).toMatchObject({
+      start: '2026-09-01',
+      end: '2026-12-31',
+    });
   });
 });

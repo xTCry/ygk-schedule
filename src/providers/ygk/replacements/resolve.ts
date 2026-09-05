@@ -84,6 +84,9 @@ const createReplacementVariant = (
     teacher,
     room,
     weekType: 'both',
+    ...(originalVariant?.subgroup
+      ? { subgroup: originalVariant.subgroup }
+      : {}),
     rawSubject,
     ...(parsedTeacher ? { rawTeacher: parsedTeacher } : {}),
     ...(replacement.replacement.room
@@ -325,8 +328,8 @@ const applyReplacement = (
   if (!match) return;
 
   if (replacement.type === 'cancel') {
-    lesson.variants = [];
-    lesson.status = 'cancelled';
+    lesson.variants.splice(match.index, 1);
+    lesson.status = lesson.variants.length ? 'scheduled' : 'cancelled';
     applied(lesson, replacement, lessonNumber, match.strategy);
     return;
   }
@@ -347,7 +350,7 @@ const applyReplacement = (
     );
     return;
   }
-  lesson.variants = [replacementVariant];
+  lesson.variants.splice(match.index, 1, replacementVariant);
   lesson.status = 'scheduled';
   applied(lesson, replacement, lessonNumber, match.strategy);
 };
@@ -497,7 +500,12 @@ export const semanticReplacementHash = (
  * не должны создавать новую версию actual при одинаковых занятиях и заменах.
  */
 const withoutActualProvenance = (value: unknown): unknown => {
-  if (Array.isArray(value)) return value.map(withoutActualProvenance);
+  if (Array.isArray(value)) {
+    const normalized = value.map(withoutActualProvenance);
+    return normalized.sort((left, right) =>
+      JSON.stringify(left).localeCompare(JSON.stringify(right)),
+    );
+  }
   if (!value || typeof value !== 'object') return value;
   return Object.fromEntries(
     Object.entries(value as Record<string, unknown>)
@@ -507,17 +515,56 @@ const withoutActualProvenance = (value: unknown): unknown => {
             key,
           ),
       )
+      .sort(([left], [right]) => left.localeCompare(right))
       .map(([key, item]) => [key, withoutActualProvenance(item)]),
   );
 };
 
-export const semanticActualScheduleHash = (actual: ActualSchedule): string =>
-  sha256(
+/**
+ * Повторяет порядок публичной actual-выгрузки перед semantic hash.
+ *
+ * Сначала actual строится из истории и может иметь другой порядок групп или
+ * пар, чем тот же JSON после повторного чтения. Эти перестановки не являются
+ * изменением расписания и не должны создавать новый commit.
+ */
+const normalizeActualDatesForHash = (
+  dates: ActualSchedule['dates'],
+): ActualSchedule['dates'] =>
+  Object.fromEntries(
+    Object.entries(dates)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([date, value]) => [
+        date,
+        {
+          ...value,
+          groups: Object.fromEntries(
+            Object.entries(value.groups)
+              .sort(([left], [right]) => left.localeCompare(right))
+              .map(([group, scheduleGroup]) => [
+                group,
+                {
+                  ...scheduleGroup,
+                  lessons: [...scheduleGroup.lessons].sort(
+                    (left, right) => left.number - right.number,
+                  ),
+                },
+              ]),
+          ),
+        },
+      ]),
+  );
+
+export const semanticActualScheduleHash = (actual: ActualSchedule): string => {
+  const dates = normalizeActualDatesForHash(actual.dates);
+  return sha256(
     JSON.stringify({
-      dates: withoutActualProvenance(actual.dates),
-      diagnostics: actual.diagnostics,
+      dates: withoutActualProvenance(dates),
+      diagnostics: [...actual.diagnostics].sort((left, right) =>
+        left.fingerprint.localeCompare(right.fingerprint),
+      ),
     }),
   );
+};
 
 /**
  * Накладывает только однозначные замены на расписание для дат из HTML-страниц.

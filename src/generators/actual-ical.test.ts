@@ -226,4 +226,63 @@ describe('actual iCalendar generator', () => {
     expect(ical).toContain('SUMMARY:Базовая пара 4');
     expect(ical).not.toContain('SUMMARY:Новая базовая пара\\r\\n');
   });
+
+  it('keeps a replacement of one subgroup out of the other subgroup calendar', () => {
+    const schedule = makeSchedule();
+    const baseLesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (lesson) => lesson.number === 2,
+    )!;
+    baseLesson.variants = [
+      {
+        subject: 'Исходная дисциплина',
+        teacher: '',
+        room: 'А201',
+        weekType: 'both',
+        subgroup: '1',
+        sourceRow: 3,
+      },
+      {
+        subject: 'Пара подгруппы 2',
+        teacher: '',
+        room: 'А201',
+        weekType: 'both',
+        subgroup: '2',
+        sourceRow: 4,
+      },
+    ];
+    const group = makeActualGroup();
+    const actualLesson = group.lessons.find((lesson) => lesson.number === 2)!;
+    actualLesson.variants = [
+      {
+        subject: 'История',
+        teacher: 'Петров П.П.',
+        room: 'А201',
+        weekType: 'both',
+        subgroup: '1',
+        sourceRow: 3,
+      },
+      {
+        subject: 'Пара подгруппы 2',
+        teacher: '',
+        room: 'А201',
+        weekType: 'both',
+        subgroup: '2',
+        sourceRow: 4,
+      },
+    ];
+
+    const firstSubgroup = generateActualIcal(schedule, makeActual(group), {
+      ...options,
+      subgroup: '1',
+    });
+    const secondSubgroup = generateActualIcal(schedule, makeActual(group), {
+      ...options,
+      subgroup: '2',
+    });
+
+    expect(firstSubgroup).toContain('SUMMARY:История');
+    expect(firstSubgroup).not.toContain('SUMMARY:Пара подгруппы 2');
+    expect(secondSubgroup).not.toContain('SUMMARY:История');
+    expect(secondSubgroup).toContain('SUMMARY:Пара подгруппы 2');
+  });
 });

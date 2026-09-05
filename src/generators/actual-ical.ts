@@ -2,6 +2,7 @@ import type {
   ActualGroupSchedule,
   ActualLesson,
   ActualSchedule,
+  AppliedReplacement,
   CanonicalSchedule,
   DayOfWeek,
   WeekType,
@@ -12,6 +13,7 @@ import {
   type IcalDateEvent,
   type IcalGenerationResult,
   type IcalOptions,
+  type IcalVariantExclusion,
 } from './ical.ts';
 
 const addExcludedDate = (
@@ -36,29 +38,72 @@ const toExcludedDates = (
       ]),
   );
 
+const variantExclusionKey = (
+  lessonNumber: number,
+  subgroup: string | undefined,
+): string => `${lessonNumber}\0${subgroup ?? ''}`;
+
+const addVariantExclusion = (
+  exclusions: Map<string, Set<string>>,
+  lessonNumber: number,
+  subgroup: string | undefined,
+  date: string,
+): void => {
+  const key = variantExclusionKey(lessonNumber, subgroup);
+  const dates = exclusions.get(key) ?? new Set<string>();
+  dates.add(date);
+  exclusions.set(key, dates);
+};
+
+const toVariantExclusions = (
+  exclusions: ReadonlyMap<string, ReadonlySet<string>>,
+): IcalVariantExclusion[] =>
+  [...exclusions.entries()]
+    .map(([key, dates]) => {
+      const [rawLessonNumber, subgroup] = key.split('\0');
+      return {
+        lessonNumber: Number(rawLessonNumber),
+        ...(subgroup ? { subgroup } : {}),
+        dates: [...dates].sort((left, right) => left.localeCompare(right)),
+      };
+    })
+    .sort(
+      (left, right) =>
+        left.lessonNumber - right.lessonNumber ||
+        (left.subgroup ?? '').localeCompare(right.subgroup ?? ''),
+    );
+
 const actualLessonEvents = (
   date: string,
   lesson: ActualLesson,
   prefix: string,
   fallbackTimeRoom: string,
+  subgroups?: ReadonlySet<string | undefined>,
 ): IcalDateEvent[] =>
-  lesson.variants.map((variant, index) => ({
-    date,
-    lessonNumber: lesson.number,
-    key: `${prefix}:${index}:${sha256(
-      [variant.subject, variant.teacher, variant.room, variant.weekType].join(
-        '\0',
-      ),
-    )}`,
-    summary: variant.subject || `Пара ${lesson.number}`,
-    ...(variant.room ? { room: variant.room } : {}),
-    ...(variant.room || fallbackTimeRoom
-      ? { timeRoom: variant.room || fallbackTimeRoom }
-      : {}),
-    ...(variant.teacher
-      ? { description: `Преподаватель: ${variant.teacher}` }
-      : {}),
-  }));
+  lesson.variants
+    .filter((variant) => !subgroups || subgroups.has(variant.subgroup))
+    .map((variant, index) => ({
+      date,
+      lessonNumber: lesson.number,
+      key: `${prefix}:${index}:${sha256(
+        [
+          variant.subject,
+          variant.teacher,
+          variant.room,
+          variant.weekType,
+          variant.subgroup ?? '',
+        ].join('\0'),
+      )}`,
+      summary: variant.subject || `Пара ${lesson.number}`,
+      ...(variant.subgroup ? { subgroup: variant.subgroup } : {}),
+      ...(variant.room ? { room: variant.room } : {}),
+      ...(variant.room || fallbackTimeRoom
+        ? { timeRoom: variant.room || fallbackTimeRoom }
+        : {}),
+      ...(variant.teacher
+        ? { description: `Преподаватель: ${variant.teacher}` }
+        : {}),
+    }));
 
 const addReplacementEvents = (
   date: string,
@@ -70,6 +115,9 @@ const addReplacementEvents = (
     .flatMap((applied, index) => {
       const replacement = applied.replacement.replacement;
       if (!replacement) return [];
+      const subgroup = lesson.variants.find(
+        (variant) => variant.sourceRow === applied.replacement.source.row,
+      )?.subgroup;
       const description = [
         'Добавленная замена.',
         replacement.room ? `Аудитория: ${replacement.room}.` : '',
@@ -89,6 +137,7 @@ const addReplacementEvents = (
             ].join('\0'),
           )}`,
           summary: replacement.raw || `Добавленная пара ${lesson.number}`,
+          ...(subgroup ? { subgroup } : {}),
           ...(replacement.room ? { room: replacement.room } : {}),
           ...(replacement.room || fallbackTimeRoom
             ? { timeRoom: replacement.room || fallbackTimeRoom }
@@ -98,11 +147,65 @@ const addReplacementEvents = (
       ];
     });
 
-const hasReplacementType = (
+/**
+ * Пытается восстановить подгруппу измененной базовой пары.
+ *
+ * Resolver применяет replace/cancel только к единственному совпадению, поэтому
+ * точное совпадение исходного предмета позволяет календарю исключить только
+ * соответствующий recurring-вариант. При alias или иной неоднозначности
+ * возвращается undefined: такая замена считается общей и не скрывает
+ * произвольную подгруппу.
+ */
+const subgroupForAppliedReplacement = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  weekType: WeekType,
+  lesson: ActualLesson,
+  applied: AppliedReplacement,
+): string | undefined => {
+  const replacementVariant = lesson.variants.find(
+    (variant) => variant.sourceRow === applied.replacement.source.row,
+  );
+  if (replacementVariant) return replacementVariant.subgroup;
+
+  const original = applied.replacement.original?.raw;
+  if (!original) return undefined;
+  const variants = schedule.groups[group]?.days
+    .find((item) => item.day === day)
+    ?.lessons.find((item) => item.number === lesson.number)
+    ?.variants.filter(
+      (variant) =>
+        (variant.weekType === 'both' ||
+          variant.weekType === weekType ||
+          weekType === 'unknown') &&
+        variant.subject === original,
+    );
+  return variants?.length === 1 ? variants[0]?.subgroup : undefined;
+};
+
+const subgroupsForReplacementType = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  weekType: WeekType,
   lesson: ActualLesson,
   type: 'replace' | 'cancel',
-): boolean =>
-  lesson.replacements.some((applied) => applied.replacement.type === type);
+): Set<string | undefined> =>
+  new Set(
+    lesson.replacements
+      .filter((applied) => applied.replacement.type === type)
+      .map((applied) =>
+        subgroupForAppliedReplacement(
+          schedule,
+          group,
+          day,
+          weekType,
+          lesson,
+          applied,
+        ),
+      ),
+  );
 
 const addFrozenDate = (
   schedule: CanonicalSchedule,
@@ -174,6 +277,7 @@ export const generateActualIcalWithReport = (
   options: IcalOptions,
 ): IcalGenerationResult => {
   const excludedDates = new Map<number, Set<string>>();
+  const excludedDatesByVariant = new Map<string, Set<string>>();
   const events: IcalDateEvent[] = [];
 
   for (const [date, actualDate] of Object.entries(actual.dates)) {
@@ -198,15 +302,40 @@ export const generateActualIcalWithReport = (
           lesson.number,
           actualDate.weekType,
         );
-        const isReplacement = hasReplacementType(lesson, 'replace');
-        const isCancelled = hasReplacementType(lesson, 'cancel');
-        if (isReplacement || isCancelled)
-          addExcludedDate(excludedDates, lesson.number, date);
-        if (isReplacement && lesson.status !== 'cancelled')
-          events.push(
-            ...actualLessonEvents(date, lesson, 'replace', fallbackTimeRoom),
+        const replacedSubgroups = subgroupsForReplacementType(
+          schedule,
+          options.group,
+          actualDate.day,
+          actualDate.weekType,
+          lesson,
+          'replace',
+        );
+        const cancelledSubgroups = subgroupsForReplacementType(
+          schedule,
+          options.group,
+          actualDate.day,
+          actualDate.weekType,
+          lesson,
+          'cancel',
+        );
+        for (const subgroup of [...replacedSubgroups, ...cancelledSubgroups])
+          addVariantExclusion(
+            excludedDatesByVariant,
+            lesson.number,
+            subgroup,
+            date,
           );
-        if (!isReplacement && !isCancelled)
+        if (replacedSubgroups.size && lesson.status !== 'cancelled')
+          events.push(
+            ...actualLessonEvents(
+              date,
+              lesson,
+              'replace',
+              fallbackTimeRoom,
+              replacedSubgroups,
+            ),
+          );
+        if (!replacedSubgroups.size && !cancelledSubgroups.size)
           events.push(...addReplacementEvents(date, lesson, fallbackTimeRoom));
       }
     }
@@ -244,6 +373,7 @@ export const generateActualIcalWithReport = (
   return generateIcalWithReport(schedule, {
     ...options,
     excludedDates: toExcludedDates(excludedDates),
+    excludedDatesByVariant: toVariantExclusions(excludedDatesByVariant),
     additionalEvents: events,
     calendarName: options.calendarName ?? `ЯГК: ${options.group} (actual)`,
   });
