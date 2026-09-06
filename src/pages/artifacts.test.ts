@@ -22,6 +22,15 @@ describe('Pages public API artifacts', () => {
     await writeJson(data, 'base/00-schedule.json', {
       generatedAt: '2026-09-05T12:00:00.000Z',
       version: { value: 'schedule-version' },
+      sources: [
+        {
+          id: 'source',
+          fileName: 'schedule.xlsx',
+          sha256: 'hash',
+          fetchedAt: '2026-09-05T12:00:00.000Z',
+          url: 'https://example.test/schedule.xlsx',
+        },
+      ],
       groups: { 'СТ1-11': {}, 'ДИ1-13': {} },
     });
     await writeJson(data, 'base/10-groups/СТ1-11.json', { group: 'СТ1-11' });
@@ -51,11 +60,32 @@ describe('Pages public API artifacts', () => {
     ).resolves.toEqual({
       schemaVersion: 1,
       provider: 'ygk',
-      generatedAt: '2026-09-05T12:00:00.000Z',
       scheduleVersion: 'schedule-version',
+      updates: {
+        schedule: '2026-09-05T12:00:00.000Z',
+        replacements: null,
+        actual: null,
+      },
+      sources: [
+        {
+          id: 'source',
+          fileName: 'schedule.xlsx',
+          url: 'https://example.test/schedule.xlsx',
+        },
+      ],
       groups: [
-        { code: 'ДИ1-13', hasActual: false, hasReplacements: false },
-        { code: 'СТ1-11', hasActual: true, hasReplacements: true },
+        {
+          code: 'ДИ1-13',
+          hasActual: false,
+          hasReplacements: false,
+          calendars: { base: [], actual: [] },
+        },
+        {
+          code: 'СТ1-11',
+          hasActual: true,
+          hasReplacements: true,
+          calendars: { base: [], actual: ['СТ1-11.ics'] },
+        },
       ],
     });
     const publicIndex = await readPagesApiIndex(output);

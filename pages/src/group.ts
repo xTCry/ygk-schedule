@@ -1,0 +1,314 @@
+import './style.css';
+import { loadActualSchedule, loadGroupSchedule, loadIndex } from './api.ts';
+import { openCalendarDialog } from './components/calendar-dialog.ts';
+import { renderSchedule } from './components/schedule.ts';
+import { formatUpdate } from './date.ts';
+import { createElement, requiredElement } from './dom.ts';
+import { initializeThemeControl } from './theme.ts';
+import type {
+  ActualGroup,
+  ActualDate,
+  BaseGroupArtifact,
+  Diagnostic,
+  PagesApiGroup,
+  PagesApiIndex,
+} from './types.ts';
+
+const visibleDiagnostic = (diagnostic: Diagnostic): boolean =>
+  diagnostic.severity === 'warning' ||
+  diagnostic.severity === 'error' ||
+  diagnostic.severity === 'fatal';
+
+const groupStorageKey = 'ygk-schedule-group';
+const subgroupStorageKey = (group: string): string =>
+  `ygk-schedule-subgroup:${group}`;
+
+const subgroupsFor = (schedule: BaseGroupArtifact): string[] =>
+  [
+    ...new Set(
+      schedule.group.days.flatMap((day) =>
+        day.lessons.flatMap((lesson) =>
+          lesson.variants.flatMap((variant) =>
+            variant.subgroup ? [variant.subgroup] : [],
+          ),
+        ),
+      ),
+    ),
+  ].sort((left, right) => left.localeCompare(right, 'ru-RU'));
+
+const sourceLinksFor = (
+  index: PagesApiIndex,
+  schedule: BaseGroupArtifact,
+): Array<{ fileName: string; url?: string }> => {
+  const sourceIds = new Set(
+    schedule.group.sourceBlocks
+      .map((source) => source.sourceId)
+      .filter((value): value is string => Boolean(value)),
+  );
+  return index.sources.filter((source) => sourceIds.has(source.id));
+};
+
+const renderSources = (
+  index: PagesApiIndex,
+  schedule: BaseGroupArtifact,
+): void => {
+  const container = requiredElement<HTMLElement>('#source-links');
+  container.replaceChildren();
+  const sources = sourceLinksFor(index, schedule);
+  if (!sources.length) {
+    container.textContent = 'Источник XLSX не указан в опубликованной версии.';
+    return;
+  }
+  for (const source of sources) {
+    const link = createElement('a', 'source-link');
+    link.textContent = source.fileName;
+    if (source.url) {
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+    } else {
+      link.removeAttribute('href');
+    }
+    container.append(link);
+  }
+};
+
+const openReplacementDialog = (
+  date: string,
+  actual: ActualGroup,
+  actualDate: ActualDate,
+  diagnostics: readonly Diagnostic[],
+): void => {
+  const dialog = requiredElement<HTMLDialogElement>('#replacement-dialog');
+  const content = requiredElement<HTMLElement>('#replacement-dialog-content');
+  const close = requiredElement<HTMLButtonElement>('#replacement-dialog-close');
+  content.replaceChildren();
+  const title = createElement('h2', 'text-xl font-semibold tracking-tight');
+  title.textContent = `Изменения на ${date}`;
+  content.append(title);
+  const sources = Object.entries(actualDate.shifts ?? {});
+  if (sources.length) {
+    const sourceSection = createElement('div', 'mt-4 flex flex-wrap gap-2');
+    for (const [shift, snapshot] of sources) {
+      const source = createElement(
+        snapshot.source.url ? 'a' : 'span',
+        'source-link',
+      );
+      source.textContent = `Исходная страница замен: ${
+        shift === 'first' ? '1 смена' : '2 смена'
+      }`;
+      if (source instanceof HTMLAnchorElement && snapshot.source.url) {
+        source.href = snapshot.source.url;
+        source.target = '_blank';
+        source.rel = 'noreferrer';
+      }
+      sourceSection.append(source);
+    }
+    content.append(sourceSection);
+  }
+
+  const details = createElement('div', 'mt-5 space-y-3');
+  for (const lesson of actual.lessons.filter(
+    (item) => item.replacements.length > 0 || item.status === 'cancelled',
+  )) {
+    const item = createElement(
+      'article',
+      'rounded-xl border border-stone-200 p-4 dark:border-stone-700',
+    );
+    const heading = createElement('strong', 'block');
+    heading.textContent = `Пара ${lesson.number}`;
+    const text = createElement(
+      'p',
+      'mt-1 text-sm leading-5 text-stone-600 dark:text-stone-300',
+    );
+    text.textContent = lesson.replacements
+      .map((replacement) => {
+        const before = replacement.replacement.original?.raw;
+        const after = replacement.replacement.replacement?.raw;
+        return before && after
+          ? `${before} → ${after}`
+          : 'Изменение опубликовано';
+      })
+      .join('; ');
+    item.append(heading, text);
+    details.append(item);
+  }
+  for (const unresolved of actual.unresolvedReplacements) {
+    const item = createElement(
+      'article',
+      'rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-950 dark:border-amber-700 dark:bg-amber-950/30 dark:text-amber-100',
+    );
+    const heading = createElement('strong', 'block');
+    heading.textContent = `Необработанная строка: пара ${unresolved.lessonNumber}`;
+    const text = createElement('p', 'mt-1 text-sm leading-5');
+    text.textContent = unresolved.event.description;
+    item.append(heading, text);
+    details.append(item);
+  }
+  for (const diagnostic of diagnostics.filter(
+    (item) => visibleDiagnostic(item) && item.context?.date === date,
+  )) {
+    const item = createElement(
+      'article',
+      'rounded-xl border border-red-300 bg-red-50 p-4 text-red-950 dark:border-red-800 dark:bg-red-950/30 dark:text-red-100',
+    );
+    const heading = createElement('strong', 'block');
+    heading.textContent = `${diagnostic.code}`;
+    const text = createElement('p', 'mt-1 text-sm leading-5');
+    text.textContent = diagnostic.message;
+    item.append(heading, text);
+    details.append(item);
+  }
+  if (!details.childElementCount) {
+    const empty = createElement(
+      'p',
+      'mt-4 text-sm text-stone-600 dark:text-stone-300',
+    );
+    empty.textContent = 'Для этой даты нет дополнительных деталей.';
+    details.append(empty);
+  }
+  content.append(details);
+  close.onclick = () => dialog.close();
+  if (!dialog.open) dialog.showModal();
+};
+
+const renderGroup = async (
+  index: PagesApiIndex,
+  group: PagesApiGroup,
+  subgroup: string | null,
+): Promise<string[]> => {
+  const status = requiredElement<HTMLElement>('#group-status');
+  status.textContent = `Загружаем расписание ${group.code}…`;
+  const [base, actual] = await Promise.all([
+    loadGroupSchedule(group.code),
+    group.hasActual ? loadActualSchedule(group.code) : Promise.resolve(null),
+  ]);
+  const title = requiredElement<HTMLElement>('#group-title');
+  const updates = requiredElement<HTMLElement>('#group-updates');
+  const diagnostics = requiredElement<HTMLElement>('#group-diagnostics');
+  const schedule = requiredElement<HTMLElement>('#schedule');
+  title.textContent = group.code;
+  updates.textContent = `Расписание обновлено: ${formatUpdate(index.updates.schedule)} · замены: ${formatUpdate(index.updates.replacements)}`;
+  renderSources(index, base);
+  diagnostics.replaceChildren();
+  for (const item of [
+    ...base.diagnostics,
+    ...(actual?.diagnostics ?? []),
+  ].filter(
+    (diagnostic) => visibleDiagnostic(diagnostic) && !diagnostic.context?.date,
+  )) {
+    const card = createElement('article', 'diagnostic-card');
+    const heading = createElement('strong', 'block text-sm');
+    heading.textContent = `${item.severity.toUpperCase()} · ${item.code}`;
+    const text = createElement('p', 'mt-1 text-sm leading-5');
+    text.textContent = item.message;
+    card.append(heading, text);
+    diagnostics.append(card);
+  }
+  renderSchedule(schedule, base, actual, {
+    group: group.code,
+    subgroup,
+    onOpenReplacementDetails: (date, actualGroup, actualDate) =>
+      openReplacementDialog(date, actualGroup, actualDate, [
+        ...base.diagnostics,
+        ...(actual?.diagnostics ?? []),
+      ]),
+  });
+  status.textContent = '';
+
+  return subgroupsFor(base);
+};
+
+const initialize = async (): Promise<void> => {
+  initializeThemeControl();
+  const status = requiredElement<HTMLElement>('#group-status');
+  const groupSelect = requiredElement<HTMLSelectElement>('#group-select');
+  const subgroupSelect = requiredElement<HTMLSelectElement>('#subgroup-select');
+  const calendar = requiredElement<HTMLButtonElement>('#calendar-button');
+  try {
+    const index = await loadIndex();
+    const requested = new URL(window.location.href).searchParams.get('group');
+    const savedGroup = localStorage.getItem(groupStorageKey);
+    const group =
+      index.groups.find((item) => item.code === requested) ??
+      index.groups.find((item) => item.code === savedGroup) ??
+      index.groups[0];
+    if (!group) throw new Error('В опубликованном API нет групп');
+    groupSelect.replaceChildren();
+    for (const candidate of index.groups) {
+      const option = document.createElement('option');
+      option.value = candidate.code;
+      option.textContent = candidate.code;
+      groupSelect.append(option);
+    }
+    groupSelect.value = group.code;
+    localStorage.setItem(groupStorageKey, group.code);
+
+    let currentGroup = group;
+    let currentSubgroup = localStorage.getItem(subgroupStorageKey(group.code));
+    const refresh = async (): Promise<void> => {
+      let available = await renderGroup(index, currentGroup, currentSubgroup);
+      if (currentSubgroup && !available.includes(currentSubgroup)) {
+        currentSubgroup = null;
+        localStorage.removeItem(subgroupStorageKey(currentGroup.code));
+        available = await renderGroup(index, currentGroup, currentSubgroup);
+      }
+      subgroupSelect.replaceChildren();
+      const all = document.createElement('option');
+      all.value = '';
+      all.textContent = 'Все подгруппы';
+      subgroupSelect.append(all);
+      for (const subgroup of available) {
+        const option = document.createElement('option');
+        option.value = subgroup;
+        option.textContent = `Подгруппа ${subgroup}`;
+        subgroupSelect.append(option);
+      }
+      subgroupSelect.value = currentSubgroup ?? '';
+      subgroupSelect.disabled = available.length === 0;
+    };
+    await refresh();
+
+    groupSelect.addEventListener('change', () => {
+      const next = index.groups.find((item) => item.code === groupSelect.value);
+      if (!next) return;
+      currentGroup = next;
+      currentSubgroup = localStorage.getItem(subgroupStorageKey(next.code));
+      localStorage.setItem(groupStorageKey, next.code);
+      const url = new URL(window.location.href);
+      url.searchParams.set('group', next.code);
+      window.history.replaceState({}, '', url);
+      void refresh().catch((error: unknown) => {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : 'Не удалось обновить расписание';
+      });
+    });
+    subgroupSelect.addEventListener('change', () => {
+      currentSubgroup = subgroupSelect.value || null;
+      if (currentSubgroup)
+        localStorage.setItem(
+          subgroupStorageKey(currentGroup.code),
+          currentSubgroup,
+        );
+      else localStorage.removeItem(subgroupStorageKey(currentGroup.code));
+      void refresh().catch((error: unknown) => {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : 'Не удалось обновить расписание';
+      });
+    });
+    calendar.addEventListener('click', () =>
+      openCalendarDialog(currentGroup, currentSubgroup),
+    );
+  } catch (error) {
+    status.textContent =
+      error instanceof Error
+        ? error.message
+        : 'Не удалось загрузить опубликованные данные';
+  }
+};
+
+void initialize();

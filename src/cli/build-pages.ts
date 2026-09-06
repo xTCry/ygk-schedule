@@ -1,6 +1,7 @@
 import { mkdir, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import tailwindcss from '@tailwindcss/vite';
 import { build } from 'vite';
 import { preparePagesPublicDirectory } from '../pages/artifacts.ts';
 
@@ -8,6 +9,7 @@ interface BuildPagesOptions {
   dataDirectory: string;
   outputDirectory: string;
   base: string;
+  calendarConfigPath: string;
 }
 
 const projectDirectory = resolve(
@@ -35,6 +37,10 @@ const parseArgs = (args: string[]): BuildPagesOptions => {
     dataDirectory: resolve(dataDirectory),
     outputDirectory: resolve(outputDirectory),
     base,
+    calendarConfigPath: resolve(
+      values.get('calendar-config') ??
+        resolve(projectDirectory, 'config', 'ygk', 'calendar.yaml'),
+    ),
   };
 };
 
@@ -53,15 +59,23 @@ export const buildPages = async (options: BuildPagesOptions): Promise<void> => {
   const index = await preparePagesPublicDirectory({
     dataDirectory: options.dataDirectory,
     publicDirectory,
+    calendarConfigPath: options.calendarConfigPath,
   });
   await build({
     configFile: false,
     root: resolve(projectDirectory, 'pages'),
     base: options.base,
     publicDir: publicDirectory,
+    plugins: [tailwindcss()],
     build: {
       outDir: options.outputDirectory,
       emptyOutDir: true,
+      rolldownOptions: {
+        input: {
+          index: resolve(projectDirectory, 'pages', 'index.html'),
+          group: resolve(projectDirectory, 'pages', 'group.html'),
+        },
+      },
     },
   });
   process.stdout.write(
