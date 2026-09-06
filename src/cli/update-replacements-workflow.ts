@@ -1,6 +1,7 @@
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateIcalArtifacts } from './generate-ical.ts';
+import { writePublicationStatus } from '../generators/publication-status.ts';
 import { updateYgkReplacements } from '../providers/ygk/replacements/update.ts';
 import type { DiagnosticsReport } from '../generators/diagnostics.ts';
 import type { ActualSchedule, CanonicalReplacements } from '../types.ts';
@@ -75,6 +76,7 @@ export const updateReplacementsWorkflow = async (
     baseDataRevision,
     ...(options.projectRoot ? { projectRoot: options.projectRoot } : {}),
   });
+  await writePublicationStatus(options.outputDir);
   const ical = await generateIcalArtifacts({
     baseSchedule: options.baseSchedule,
     outputDir: options.outputDir,

@@ -6,6 +6,19 @@
 Публичный просмотр и статический JSON API публикуются отдельным GitHub Pages
 сайтом.
 
+[![Расписание](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json)
+[![Замены](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Freplacements.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json)
+[![XLSX parser](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fxlsx-parser.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json)
+[![HTML parser](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Freplacements-parser.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json)
+[![Обновление расписания](https://github.com/xTCry/ygk-schedule/actions/workflows/update-schedule.yml/badge.svg?branch=main)](https://github.com/xTCry/ygk-schedule/actions/workflows/update-schedule.yml)
+[![Обновление замен](https://github.com/xTCry/ygk-schedule/actions/workflows/update-replacements.yml/badge.svg?branch=main)](https://github.com/xTCry/ygk-schedule/actions/workflows/update-replacements.yml)
+
+Первые две метки показывают время последней опубликованной выгрузки по Москве,
+следующие — первые 12 символов `parserHash`, которым сформированы текущие
+XLSX- и HTML-данные.
+Полные версии, источники и diagnostics доступны в
+[`data/meta/00-status.json`](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json).
+
 ## Ветки репозитория
 
 - [`main`](https://github.com/xTCry/ygk-schedule/tree/main) — исходный код,
@@ -77,6 +90,7 @@ make update-verbose
 make update-fixture
 make update-replacements
 make update-replacements-fixtures
+make publication-status
 make generate-ical
 make pages-build
 ```

@@ -19,11 +19,11 @@ const publishTargets: Record<
   { directories: string[]; message: string }
 > = {
   schedule: {
-    directories: ['base', 'ical'],
+    directories: ['base', 'ical', 'meta'],
     message: 'chore(data): update schedule',
   },
   replacements: {
-    directories: ['replacements', 'actual', 'ical'],
+    directories: ['replacements', 'actual', 'ical', 'meta'],
     message: 'chore(data): update replacements',
   },
 };

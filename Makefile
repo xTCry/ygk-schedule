@@ -14,7 +14,7 @@ REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-
 PAGES_OUTPUT_DIR ?= .tmp/pages
 PAGES_BASE ?= /ygk-schedule/
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures sync-issues pages-build
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures publication-status sync-issues pages-build
 
 help:
 	@printf '%s\n' \
@@ -31,6 +31,7 @@ help:
 		'  make generate-ical    Сгенерировать base/actual ICS из JSON-артефактов' \
 		'  make update-replacements Скачать и применить актуальные замены' \
 		'  make update-replacements-fixtures Обработать локальные HTML-фикстуры замен' \
+		'  make publication-status Пересобрать metadata для README badges' \
 		'  make sync-issues      Синхронизировать диагностические GitHub Issue' \
 		'  make pages-build      Собрать локальный snapshot GitHub Pages'
 
@@ -78,6 +79,9 @@ update-replacements:
 
 update-replacements-fixtures:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-input "$(REPLACEMENT_FIRST_FIXTURE_PATH)" --second-input "$(REPLACEMENT_SECOND_FIXTURE_PATH)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
+
+publication-status:
+	npm run publication-status -- --output-dir "$(OUTPUT_DIR)"
 
 sync-issues:
 	test -n "$(GITHUB_REPOSITORY)"

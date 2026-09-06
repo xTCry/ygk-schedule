@@ -2,6 +2,7 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateIcalArtifacts } from './generate-ical.ts';
 import { updateSchedule } from './update.ts';
+import { writePublicationStatus } from '../generators/publication-status.ts';
 import type { CanonicalSchedule } from '../types.ts';
 import { readJsonIfExists } from '../utils/fs.ts';
 import type { DiagnosticsReport } from '../generators/diagnostics.ts';
@@ -56,6 +57,7 @@ export const updateScheduleWorkflow = async (
     outputDir: options.outputDir,
     ...(options.projectRoot ? { projectRoot: options.projectRoot } : {}),
   });
+  await writePublicationStatus(options.outputDir);
   const ical = await generateIcalArtifacts({
     baseSchedule: resolve(options.outputDir, 'base/00-schedule.json'),
     outputDir: options.outputDir,
