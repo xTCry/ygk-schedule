@@ -81,11 +81,14 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: Основы шахматной игры
-                teacher: Дворниченко Г.В.
+              - subject: Рус.язык
+                teacher: Грибанова Е.Н.
                 room: Б503
                 weekType: both
-                sourceRow: 95
+                rawSubject: Рус.язык Грибанова Е.Н.
+                rawTeacher: Грибанова Е.Н.
+                rawRoom: Б503
+                sourceRow: 52
             source:
               sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
               rowStart: 95
@@ -93,34 +96,29 @@ dates:
               rawGroupName: ПО1-13/ПО1-14
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ПО1-13
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: Осн.шахм.игры
-              replacement:
-                raw: Рус.язык Грибанова Е.Н.
-                room: Б503
-              source:
-                shift: first
-                row: 52
-                rawGroupName: ПО1-13
-                rawLessonNumbers: "2"
-                rawOriginal: Осн.шахм.игры
-                rawReplacement: Рус.язык Грибанова Е.Н.
-                rawRoom: Б503
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.шахм.игры». По замене: «Рус.язык Грибанова
-                Е.Н.». Аудитория: «Б503»."
-              room: Б503
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ПО1-13
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Осн.шахм.игры
+                  replacement:
+                    raw: Рус.язык Грибанова Е.Н.
+                    room: Б503
+                  source:
+                    shift: first
+                    row: 52
+                    rawGroupName: ПО1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: Осн.шахм.игры
+                    rawReplacement: Рус.язык Грибанова Е.Н.
+                    rawRoom: Б503
+                lessonNumber: 2
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -256,11 +254,14 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: Информатика
-                teacher: Лужина А.С.
-                room: Б310
-                weekType: denominator
-                sourceRow: 54
+              - subject: 1,2 п/гр.
+                teacher: Садилова К.А.
+                room: Б304
+                weekType: both
+                rawSubject: 1,2 п/гр. Садилова К.А.
+                rawTeacher: Садилова К.А.
+                rawRoom: Б304
+                sourceRow: 23
             source:
               sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
               rowStart: 54
@@ -268,7 +269,28 @@ dates:
               rawGroupName: ПО1-13/ПО1-14
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ПО1-13
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Информ.
+                  replacement:
+                    raw: 1,2 п/гр. Садилова К.А.
+                    room: Б304
+                  source:
+                    shift: first
+                    row: 23
+                    rawGroupName: ПО1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: Информ.
+                    rawReplacement: 1,2 п/гр. Садилова К.А.
+                    rawRoom: Б304
+                lessonNumber: 2
+                strategy: subject-abbreviation
           - number: 3
             variants:
               - subject: Математика
@@ -284,64 +306,6 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ПО1-13
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: Информ.
-              replacement:
-                raw: 1,2 п/гр. Садилова К.А.
-                room: Б304
-              source:
-                shift: first
-                row: 23
-                rawGroupName: ПО1-13
-                rawLessonNumbers: "2"
-                rawOriginal: Информ.
-                rawReplacement: 1,2 п/гр. Садилова К.А.
-                rawRoom: Б304
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Информ.». По замене: «1,2 п/гр. Садилова К.А.».
-                Аудитория: «Б304»."
-              room: Б304
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 296acfa90dd4f73a1655d5d5420c77cc77db8ee2ce0f4404077ddd0e887182ec
-    sheet: "Замены: Первая смена"
-    row: 52
-    normalizedGroup: ПО1-13
-    rawValue: Рус.язык Грибанова Е.Н.
-    context:
-      date: 2026-09-05
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: b1dc8b16ca3bde1dce8b4714a34b379e2f2c6dc5925c31d9f2753819071ae231
-    sheet: "Замены: Первая смена"
-    row: 23
-    normalizedGroup: ПО1-13
-    rawValue: 1,2 п/гр. Садилова К.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c2845775db68931a34d6cd20b9016edf5814450d31e51944a3ee3154da212b10
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 537964463f47e2bc7b8e1302f73dbe7b3676991dea9ae38ca0d7b3a95483a2ae

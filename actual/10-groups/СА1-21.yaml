@@ -67,15 +67,14 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: МДК.01.01 Компьютерные сети
-                teacher: |-
-                  Хожайнова М.Г.
-                  Груздев В.В.
-                room: |-
-                  Б308
-                  Б309
+              - subject: 1,2 п/гр
+                teacher: Хожайнова М.Г.
+                room: Б308
                 weekType: both
-                sourceRow: 44
+                rawSubject: 1,2 п/гр Хожайнова М.Г.
+                rawTeacher: Хожайнова М.Г.
+                rawRoom: Б308
+                sourceRow: 16
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 44
@@ -83,7 +82,28 @@ dates:
               rawGroupName: СА1-21/СА1-22/СА2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: СА1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: 1,2 п/гр Хожайнова М.Г.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 16
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: 1,2 п/гр Хожайнова М.Г.
+                    rawRoom: Б308
+                lessonNumber: 2
+                strategy: subject-module-code
           - number: 3
             variants:
               - subject: Дискретная математика с элементами мат.логики
@@ -156,32 +176,6 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «Арх.апп.ср.». По замене: «Снято»."
-          - replacement:
-              date: 2026-09-05
-              group: СА1-21
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.01
-              replacement:
-                raw: 1,2 п/гр Хожайнова М.Г.
-                room: Б308
-              source:
-                shift: first
-                row: 16
-                rawGroupName: СА1-21
-                rawLessonNumbers: "2"
-                rawOriginal: МДК 01.01
-                rawReplacement: 1,2 п/гр Хожайнова М.Г.
-                rawRoom: Б308
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.01». По замене: «1,2 п/гр Хожайнова М.Г.».
-                Аудитория: «Б308»."
-              room: Б308
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -294,11 +288,14 @@ dates:
             replacements: []
           - number: 1
             variants:
-              - subject: МДК.01.01 Компьютерные сети
-                teacher: Хожайнова М.Г.
+              - subject: Опер.системы
+                teacher: Гудкова А.Л.
                 room: Б308
                 weekType: both
-                sourceRow: 5
+                rawSubject: Опер.системы Гудкова А.Л.
+                rawTeacher: Гудкова А.Л.
+                rawRoom: Б308
+                sourceRow: 12
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 5
@@ -306,19 +303,39 @@ dates:
               rawGroupName: СА1-21/СА1-22/СА2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-07
+                  group: СА1-21
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.01 МДК 04.01
+                  replacement:
+                    raw: Опер.системы Гудкова А.Л.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 12
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: 1,2
+                    rawOriginal: МДК 01.01 МДК 04.01
+                    rawReplacement: Опер.системы Гудкова А.Л.
+                    rawRoom: Б308
+                lessonNumber: 1
+                strategy: subject-module-code
           - number: 2
             variants:
-              - subject: МДК.04.01 Установка, настройка и обслуживание кабельных систем и
-                  телекоммуникационного оборудования
-                teacher: |-
-                  Груздев В.В.
-                  Хожайнова М.Г.
-                room: |-
-                  Б304
-                  Б308
+              - subject: Опер.системы
+                teacher: Гудкова А.Л.
+                room: Б308
                 weekType: both
-                sourceRow: 7
+                rawSubject: Опер.системы Гудкова А.Л.
+                rawTeacher: Гудкова А.Л.
+                rawRoom: Б308
+                sourceRow: 12
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 7
@@ -326,18 +343,20 @@ dates:
               rawGroupName: СА1-21/СА1-22/СА2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: *a1
+                lessonNumber: 2
+                strategy: subject-module-code
           - number: 3
             variants:
-              - subject: Информационные технологии
-                teacher: |-
-                  Лужина А.С.
-                  Комиссарова О.В.
-                room: |-
-                  Б310
-                  Б204
+              - subject: 1,2 п/гр.
+                teacher: Комиссарова О.В.
+                room: Б204
                 weekType: both
-                sourceRow: 9
+                rawSubject: 1,2 п/гр. Комиссарова О.В.
+                rawTeacher: Комиссарова О.В.
+                rawRoom: Б204
+                sourceRow: 13
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 9
@@ -345,137 +364,30 @@ dates:
               rawGroupName: СА1-21/СА1-22/СА2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: СА1-21
-              lessonNumbers:
-                - 1
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.01 МДК 04.01
-              replacement:
-                raw: Опер.системы Гудкова А.Л.
-                room: Б308
-              source:
-                shift: first
-                row: 12
-                rawGroupName: СА1-21
-                rawLessonNumbers: 1,2
-                rawOriginal: МДК 01.01 МДК 04.01
-                rawReplacement: Опер.системы Гудкова А.Л.
-                rawRoom: Б308
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.01 МДК 04.01». По замене: «Опер.системы
-                Гудкова А.Л.». Аудитория: «Б308»."
-              room: Б308
-          - replacement:
-              date: 2026-09-07
-              group: СА1-21
-              lessonNumbers:
-                - 1
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.01 МДК 04.01
-              replacement:
-                raw: Опер.системы Гудкова А.Л.
-                room: Б308
-              source:
-                shift: first
-                row: 12
-                rawGroupName: СА1-21
-                rawLessonNumbers: 1,2
-                rawOriginal: МДК 01.01 МДК 04.01
-                rawReplacement: Опер.системы Гудкова А.Л.
-                rawRoom: Б308
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.01 МДК 04.01». По замене: «Опер.системы
-                Гудкова А.Л.». Аудитория: «Б308»."
-              room: Б308
-          - replacement:
-              date: 2026-09-07
-              group: СА1-21
-              lessonNumbers:
-                - 3
-              type: replace
-              original:
-                raw: Инф.технол.
-              replacement:
-                raw: 1,2 п/гр. Комиссарова О.В.
-                room: Б204
-              source:
-                shift: first
-                row: 13
-                rawGroupName: СА1-21
-                rawLessonNumbers: "3"
-                rawOriginal: Инф.технол.
-                rawReplacement: 1,2 п/гр. Комиссарова О.В.
-                rawRoom: Б204
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Инф.технол.». По замене: «1,2 п/гр. Комиссарова
-                О.В.». Аудитория: «Б204»."
-              room: Б204
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: СА1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Инф.технол.
+                  replacement:
+                    raw: 1,2 п/гр. Комиссарова О.В.
+                    room: Б204
+                  source:
+                    shift: first
+                    row: 13
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: Инф.технол.
+                    rawReplacement: 1,2 п/гр. Комиссарова О.В.
+                    rawRoom: Б204
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 2cb591c06b32e8926d2d37e8e2aae16aa7e50096dc8b502f39946618a85cccba
-    sheet: "Замены: Первая смена"
-    row: 13
-    normalizedGroup: СА1-21
-    rawValue: 1,2 п/гр. Комиссарова О.В.
-    context:
-      date: 2026-09-07
-      lessonNumber: 3
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 88df8a3b079edcc06eadd87083f55b676009c3311800f75b87937f26d2c5cf31
-    sheet: "Замены: Первая смена"
-    row: 12
-    normalizedGroup: СА1-21
-    rawValue: Опер.системы Гудкова А.Л.
-    context:
-      date: 2026-09-07
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 8b1e5d81ad57cbe04a8a8fc6cecdd00bb183de5fccd9974d7cee4efc5c572127
-    sheet: "Замены: Первая смена"
-    row: 16
-    normalizedGroup: СА1-21
-    rawValue: 1,2 п/гр Хожайнова М.Г.
-    context:
-      date: 2026-09-05
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -492,20 +404,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: ddb4d3955cfc3ca3d43aca88917122257f3b58a4c7ece169456624aaedf313b9
-    sheet: "Замены: Первая смена"
-    row: 12
-    normalizedGroup: СА1-21
-    rawValue: Опер.системы Гудкова А.Л.
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b8518fb577ccab1bca931fc12430890e000ccaa8354ec12e36a5f30878900860
+semanticHash: cf68f6c36e9004fca7f0d886acfeea5fc8bcad79e27ab8c1e1002f0d00ea6cf5

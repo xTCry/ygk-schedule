@@ -292,11 +292,14 @@ dates:
             replacements: []
           - number: 4
             variants:
-              - subject: Административное право
-                teacher: Малышева Н.А.
-                room: Ф401
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
                 weekType: both
-                sourceRow: 58
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 5
             source:
               sheet: ЮР1-21 ЮР1-23 ЮР1-25
               rowStart: 58
@@ -304,7 +307,28 @@ dates:
               rawGroupName: ЮР1-23 /ЮР1-24
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ЮР1-23
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: Адм.право
+                  replacement:
+                    raw: Физкультура Калачик Н.И.
+                    room: Сп.площ.
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ЮР1-23
+                    rawLessonNumbers: "4"
+                    rawOriginal: Адм.право
+                    rawReplacement: Физкультура Калачик Н.И.
+                    rawRoom: Сп.площ.
+                lessonNumber: 4
+                strategy: subject-abbreviation
           - number: 5
             variants:
               - subject: Русский язык и культура речи
@@ -321,32 +345,6 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ЮР1-23
-              lessonNumbers:
-                - 4
-              type: replace
-              original:
-                raw: Адм.право
-              replacement:
-                raw: Физкультура Калачик Н.И.
-                room: Сп.площ.
-              source:
-                shift: second
-                row: 5
-                rawGroupName: ЮР1-23
-                rawLessonNumbers: "4"
-                rawOriginal: Адм.право
-                rawReplacement: Физкультура Калачик Н.И.
-                rawRoom: Сп.площ.
-            lessonNumber: 4
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Адм.право». По замене: «Физкультура Калачик Н.И.».
-                Аудитория: «Сп.площ.»."
-              room: Сп.площ.
           - replacement:
               date: 2026-09-07
               group: ЮР1-23
@@ -371,22 +369,6 @@ dates:
               summary: Необработанная замена
               description: "По расписанию: «Рус.яз.и культ.речи». По замене: «снято»."
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 8f61805a15625964fb08fe606185a9ec92971c5540be7cc79040400becbc4368
-    sheet: "Замены: Вторая смена"
-    row: 5
-    normalizedGroup: ЮР1-23
-    rawValue: Физкультура Калачик Н.И.
-    context:
-      date: 2026-09-07
-      lessonNumber: 4
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -419,4 +401,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: b230fc86e5b8417ec4a84e9bfbe84ea02a67d2d1387ad0b5c04e07b676e1b329
+semanticHash: 979c78d6059ce3a39919216fed6633d9aa58248916bfd05322cdaa4bc3d8952b

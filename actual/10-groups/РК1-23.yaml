@@ -98,44 +98,36 @@ dates:
             status: scheduled
             replacements: []
           - number: 3
-            variants:
-              - subject: Рекламная деятельность
-                teacher: Кожешкурт А.В.
-                room: Б507
-                weekType: both
-                sourceRow: 153
+            variants: []
             source:
               sheet: РК121РК1-22РК1-31РК32РК1-41РК42
               rowStart: 153
               rowEnd: 154
               rawGroupName: РК1-23/РК1-24
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
-            status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: РК1-23
-              lessonNumbers:
-                - 3
-              type: cancel
-              original:
-                raw: Рекл.деят
-              replacement:
-                raw: Снято
-              source:
-                shift: first
-                row: 54
-                rawGroupName: РК1-23
-                rawLessonNumbers: "3"
-                rawOriginal: Рекл.деят
-                rawReplacement: Снято
-                rawRoom: ""
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Рекл.деят». По замене: «Снято»."
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: РК1-23
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Рекл.деят
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 54
+                    rawGroupName: РК1-23
+                    rawLessonNumbers: "3"
+                    rawOriginal: Рекл.деят
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -170,21 +162,5 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
               status: scheduled
               replacements: []
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 0d72fd22c1e18e8169a07286588ce7e7c849813d4bc87d7e6ed26450ceaf7f79
-    sheet: "Замены: Первая смена"
-    row: 54
-    normalizedGroup: РК1-23
-    rawValue: Снято
-    context:
-      date: 2026-09-05
-      lessonNumber: 3
-      type: cancel
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 51b61c86c55a6d217af5d43d852e0f66b664df671af7023718bb19a1301a1eae
+diagnostics: []
+semanticHash: 6f65cb390283adb54252d558d6066ad845799fab18b5a9e69f569436f7888d25

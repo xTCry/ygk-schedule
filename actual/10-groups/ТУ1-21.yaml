@@ -87,7 +87,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a1
                   date: 2026-09-05
                   group: ТУ1-21
                   lessonNumbers:
@@ -126,26 +126,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ТУ1-21
-              lessonNumbers:
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: История России ...
-              replacement:
-                raw: Прав. и докум.обесп Зеленцова Л.В.
-                room: Ф107
-              source:
-                shift: second
-                row: 22
-                rawGroupName: ТУ1-21
-                rawLessonNumbers: 3,4
-                rawOriginal: История России ...
-                rawReplacement: Прав. и докум.обесп Зеленцова Л.В.
-                rawRoom: Ф107
+          - replacement: *a1
             lessonNumber: 4
             reason: original-not-matched
             event:
@@ -280,10 +261,13 @@ dates:
           - number: 4
             variants:
               - subject: МДК.03.01 Выполнение функций ассистента экскурсовода (гида)
-                teacher: Тюленева В.О.
-                room: Ф301
+                teacher: Леонтьева А.С.
+                room: Ф106
                 weekType: both
-                sourceRow: 58
+                rawSubject: Леонтьева А.С.
+                rawTeacher: Леонтьева А.С.
+                rawRoom: Ф106
+                sourceRow: 3
             source:
               sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
               rowStart: 58
@@ -291,7 +275,28 @@ dates:
               rawGroupName: ТУ1-21/ТУ1-22
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Леонтьева А.С.
+                    room: Ф106
+                  source:
+                    shift: second
+                    row: 3
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Леонтьева А.С.
+                    rawRoom: Ф106
+                lessonNumber: 4
+                strategy: subject-module-code
           - number: 5
             variants:
               - subject: Основы финансовой грамотности
@@ -335,49 +340,7 @@ dates:
               description: "По расписанию: «БЖ». По замене: «Инф.экс.деят. Тюленева В.О.».
                 Аудитория: «Ф106»."
               room: Ф106
-          - replacement:
-              date: 2026-09-07
-              group: ТУ1-21
-              lessonNumbers:
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.01
-              replacement:
-                raw: Леонтьева А.С.
-                room: Ф106
-              source:
-                shift: second
-                row: 3
-                rawGroupName: ТУ1-21
-                rawLessonNumbers: "4"
-                rawOriginal: МДК 03.01
-                rawReplacement: Леонтьева А.С.
-                rawRoom: Ф106
-            lessonNumber: 4
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.01». По замене: «Леонтьева А.С.».
-                Аудитория: «Ф106»."
-              room: Ф106
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 2093f3fcdffbd82984473962721d8c61c70d0e49ee9607ec3174b86e818d17f3
-    sheet: "Замены: Вторая смена"
-    row: 3
-    normalizedGroup: ТУ1-21
-    rawValue: Леонтьева А.С.
-    context:
-      date: 2026-09-07
-      lessonNumber: 4
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -410,4 +373,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 5d9d9be13096283f90b2c5a7d1a48c4f9d909591296f5e7e584a0ea847da48f0
+semanticHash: 2720224a438142b1d4bc1f4e5b89e57980de702990217355fb5c84d772fa76f5

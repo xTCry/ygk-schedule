@@ -282,13 +282,15 @@ dates:
             replacements: []
           - number: 5
             variants:
-              - subject: МДК.01.01 Т.1.2 Строительные материалы и изделия п/гр2
-                teacher: Краснянская Е. В.
+              - subject: /теория
+                teacher: Краснянская Е.В.
                 room: В102
-                weekType: denominator
+                weekType: both
                 subgroup: "2"
-                rawSubject: " МДК.01.01  Т.1.2 Строительные материалы и изделия п/гр2"
-                sourceRow: 8
+                rawSubject: /теория Краснянская Е.В.
+                rawTeacher: Краснянская Е.В.
+                rawRoom: В102
+                sourceRow: 4
             source:
               sheet: СД2-11 СД2-13 СД2-21 СД2-31
               rowStart: 8
@@ -296,51 +298,30 @@ dates:
               rawGroupName: СД2-11/СД2-12
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: СД2-11
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: МДК 01.01 Т.1.2.п/гр.1
-              replacement:
-                raw: /теория Краснянская Е.В.
-                room: В102
-              source:
-                shift: first
-                row: 4
-                rawGroupName: СД2-11
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 01.01 Т.1.2.п/гр.1
-                rawReplacement: /теория Краснянская Е.В.
-                rawRoom: В102
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.01 Т.1.2.п/гр.1». По замене: «/теория
-                Краснянская Е.В.». Аудитория: «В102»."
-              room: В102
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: СД2-11
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 01.01 Т.1.2.п/гр.1
+                  replacement:
+                    raw: /теория Краснянская Е.В.
+                    room: В102
+                  source:
+                    shift: first
+                    row: 4
+                    rawGroupName: СД2-11
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 01.01 Т.1.2.п/гр.1
+                    rawReplacement: /теория Краснянская Е.В.
+                    rawRoom: В102
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 4d64af09f68959bc04e5a2d3065e4785f97f26e65ad083aa66c7c74545335b89
-    sheet: "Замены: Первая смена"
-    row: 4
-    normalizedGroup: СД2-11
-    rawValue: /теория Краснянская Е.В.
-    context:
-      date: 2026-09-07
-      lessonNumber: 5
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -357,4 +338,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2eebf38c32644589fbddbf0fa8445c1af41ee705847ed5fd894fd0f7246f639d
+semanticHash: f23ca5e084cb7886ac55c15442af2b95189940218089aa2a35ca65adcdcd5bee

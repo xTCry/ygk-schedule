@@ -42,7 +42,7 @@ dates:
         day: Понедельник
         lessons: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-07
               group: 36 ЭМЕХ
               lessonNumbers:
@@ -67,32 +67,14 @@ dates:
               summary: Необработанная замена
               description: "По замене: «по расписанию». Аудитория: «очно»."
               room: очно
-          - replacement:
-              date: 2026-09-07
-              group: 36 ЭМЕХ
-              lessonNumbers:
-                - 1
-                - 2
-              type: add
-              original: null
-              replacement:
-                raw: по расписанию
-                room: очно
-              source:
-                shift: first
-                row: 41
-                rawGroupName: 36 ЭМЕХ
-                rawLessonNumbers: 1,2
-                rawOriginal: ""
-                rawReplacement: по расписанию
-                rawRoom: очно
+          - replacement: *a1
             lessonNumber: 2
             reason: group-not-found
             event:
               summary: Необработанная замена
               description: "По замене: «по расписанию». Аудитория: «очно»."
               room: очно
-          - replacement:
+          - replacement: &a2
               date: 2026-09-07
               group: 36 ЭМЕХ
               lessonNumbers:
@@ -117,25 +99,7 @@ dates:
               summary: Необработанная замена
               description: "По замене: «по расписанию». Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-07
-              group: 36 ЭМЕХ
-              lessonNumbers:
-                - 3
-                - 4
-              type: add
-              original: null
-              replacement:
-                raw: по расписанию
-                room: ДОТ
-              source:
-                shift: first
-                row: 42
-                rawGroupName: 36 ЭМЕХ
-                rawLessonNumbers: 3,4
-                rawOriginal: ""
-                rawReplacement: по расписанию
-                rawRoom: ДОТ
+          - replacement: *a2
             lessonNumber: 4
             reason: group-not-found
             event:

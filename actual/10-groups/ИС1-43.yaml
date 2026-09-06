@@ -67,12 +67,15 @@ dates:
             replacements: []
           - number: 3
             variants:
-              - subject: МДК.05.03 Тестирование ИС п/гр2
-                teacher: Вакансия
+              - subject: МДК 09.03
+                teacher: Гудкова А.Л.
                 room: ДОТ
                 weekType: both
                 subgroup: "2"
-                sourceRow: 254
+                rawSubject: МДК 09.03 Гудкова А.Л.
+                rawTeacher: Гудкова А.Л.
+                rawRoom: ДОТ
+                sourceRow: 4
             source:
               sheet: ИС-3 курс ИС-4 курс
               rowStart: 254
@@ -80,7 +83,28 @@ dates:
               rawGroupName: ИС1-43/ИС1-44
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ИС1-43
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 05.03
+                  replacement:
+                    raw: МДК 09.03 Гудкова А.Л.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 4
+                    rawGroupName: ИС1-43
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 05.03
+                    rawReplacement: МДК 09.03 Гудкова А.Л.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
           - number: 4
             variants:
               - subject: УП.05 Учебная практика
@@ -116,33 +140,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ИС1-43
-              lessonNumbers:
-                - 3
-              type: replace
-              original:
-                raw: МДК 05.03
-              replacement:
-                raw: МДК 09.03 Гудкова А.Л.
-                room: ДОТ
-              source:
-                shift: second
-                row: 4
-                rawGroupName: ИС1-43
-                rawLessonNumbers: "3"
-                rawOriginal: МДК 05.03
-                rawReplacement: МДК 09.03 Гудкова А.Л.
-                rawRoom: ДОТ
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 05.03». По замене: «МДК 09.03 Гудкова А.Л.».
-                Аудитория: «ДОТ»."
-              room: ДОТ
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ИС1-43
               lessonNumbers:
@@ -169,26 +167,7 @@ dates:
               description: "По расписанию: «УП 05». По замене: «1,2 п/гр. Васильченко М.О.».
                 Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ИС1-43
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: УП 05
-              replacement:
-                raw: 1,2 п/гр. Васильченко М.О.
-                room: ДОТ
-              source:
-                shift: second
-                row: 5
-                rawGroupName: ИС1-43
-                rawLessonNumbers: 4,5
-                rawOriginal: УП 05
-                rawReplacement: 1,2 п/гр. Васильченко М.О.
-                rawRoom: ДОТ
+          - replacement: *a1
             lessonNumber: 5
             reason: original-not-matched
             event:
@@ -404,22 +383,6 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 4755cfb545fc6a4df05f0c1052467b2934ed6650122b4ec98d432c419feda7ca
-    sheet: "Замены: Вторая смена"
-    row: 4
-    normalizedGroup: ИС1-43
-    rawValue: МДК 09.03 Гудкова А.Л.
-    context:
-      date: 2026-09-05
-      lessonNumber: 3
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 5f626b3fb304fdae0d7d597338db600d44257dd878bc4e637abe9137d37661e9
     sheet: "Замены: Вторая смена"
     row: 19
@@ -448,4 +411,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: b105a9e23fb91aa6b6bb99203e6e1266728b0d581c6863e4997012397da66a37
+semanticHash: 0618fb9a674f522091b23730472ac9ceb2452fcff2b24f670d859b85e7b34524

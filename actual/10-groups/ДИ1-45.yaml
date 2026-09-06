@@ -66,11 +66,14 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: МДК 01.02 Основы проектной и компьютерной графики
-                teacher: Вакансия
+              - subject: МДК 04.01
+                teacher: Малашкевич Д.А.
                 room: ДОТ
                 weekType: both
-                sourceRow: 141
+                rawSubject: МДК 04.01 Малашкевич Д.А.
+                rawTeacher: Малашкевич Д.А.
+                rawRoom: ДОТ
+                sourceRow: 19
             source:
               sheet: ДИ-4курс
               rowStart: 141
@@ -78,14 +81,38 @@ dates:
               rawGroupName: ДИ1-45/2-31
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ДИ1-45
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.02
+                  replacement:
+                    raw: МДК 04.01 Малашкевич Д.А.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 19
+                    rawGroupName: ДИ1-45
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.02
+                    rawReplacement: МДК 04.01 Малашкевич Д.А.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
           - number: 3
             variants:
-              - subject: МДК 01.02 Основы проектной и компьютерной графики
-                teacher: Вакансия
+              - subject: Ин.язык
+                teacher: Темофеева Е.Н.
                 room: ДОТ
                 weekType: both
-                sourceRow: 143
+                rawSubject: Ин.язык Темофеева Е.Н.
+                rawTeacher: Темофеева Е.Н.
+                rawRoom: ДОТ
+                sourceRow: 20
             source:
               sheet: ДИ-4курс
               rowStart: 143
@@ -93,60 +120,29 @@ dates:
               rawGroupName: ДИ1-45/2-31
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ДИ1-45
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.02
-              replacement:
-                raw: МДК 04.01 Малашкевич Д.А.
-                room: ДОТ
-              source:
-                shift: second
-                row: 19
-                rawGroupName: ДИ1-45
-                rawLessonNumbers: "2"
-                rawOriginal: МДК 01.02
-                rawReplacement: МДК 04.01 Малашкевич Д.А.
-                rawRoom: ДОТ
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.02». По замене: «МДК 04.01 Малашкевич
-                Д.А.». Аудитория: «ДОТ»."
-              room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ДИ1-45
-              lessonNumbers:
-                - 3
-              type: replace
-              original:
-                raw: МДК 01.02
-              replacement:
-                raw: Ин.язык Темофеева Е.Н.
-                room: ДОТ
-              source:
-                shift: second
-                row: 20
-                rawGroupName: ДИ1-45
-                rawLessonNumbers: "3"
-                rawOriginal: МДК 01.02
-                rawReplacement: Ин.язык Темофеева Е.Н.
-                rawRoom: ДОТ
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.02». По замене: «Ин.язык Темофеева Е.Н.».
-                Аудитория: «ДОТ»."
-              room: ДОТ
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ДИ1-45
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 01.02
+                  replacement:
+                    raw: Ин.язык Темофеева Е.Н.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 20
+                    rawGroupName: ДИ1-45
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 01.02
+                    rawReplacement: Ин.язык Темофеева Е.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -196,37 +192,5 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
               status: scheduled
               replacements: []
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 8db8170ab9dd6da881d29d46fdaaa8453f78e41ce52c22c05c5028a0d6449e59
-    sheet: "Замены: Вторая смена"
-    row: 19
-    normalizedGroup: ДИ1-45
-    rawValue: МДК 04.01 Малашкевич Д.А.
-    context:
-      date: 2026-09-05
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: e1f80d7e9e4a41c36193c49a83459019b5b9224699b38d1b53c84889b28a7513
-    sheet: "Замены: Вторая смена"
-    row: 20
-    normalizedGroup: ДИ1-45
-    rawValue: Ин.язык Темофеева Е.Н.
-    context:
-      date: 2026-09-05
-      lessonNumber: 3
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 752b720c1e2868e2425c09a0a02300e543edfcc69213828066a15002add9905d
+diagnostics: []
+semanticHash: de1761a6eed4d50bbc83d2f8fc2c598308256df102e5ea2eccf3e3aac4dfbd6d

@@ -68,7 +68,7 @@ dates:
               description: "По расписанию: «МДК 04.01». По замене: «Физика Крижановский В.С.».
                 Аудитория: «к.33»."
               room: к.33
-          - replacement:
+          - replacement: &a1
               date: 2026-09-07
               group: 9 МРТ
               lessonNumbers:
@@ -92,25 +92,7 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «УП 01 п/гр.2». По замене: «снято»."
-          - replacement:
-              date: 2026-09-07
-              group: 9 МРТ
-              lessonNumbers:
-                - 2
-                - 3
-              type: cancel
-              original:
-                raw: УП 01 п/гр.2
-              replacement:
-                raw: снято
-              source:
-                shift: first
-                row: 52
-                rawGroupName: 9 МРТ
-                rawLessonNumbers: 2,3
-                rawOriginal: УП 01 п/гр.2
-                rawReplacement: снято
-                rawRoom: ""
+          - replacement: *a1
             lessonNumber: 3
             reason: group-not-found
             event:

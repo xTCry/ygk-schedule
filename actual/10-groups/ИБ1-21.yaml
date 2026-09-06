@@ -97,7 +97,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ИБ1-21
               lessonNumbers:
@@ -124,26 +124,7 @@ dates:
               description: "По расписанию: «МДК 01.01». По замене: «Грехова Е.И.». Аудитория:
                 «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: ИБ1-21
-              lessonNumbers:
-                - 1
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.01
-              replacement:
-                raw: Грехова Е.И.
-                room: ДОТ
-              source:
-                shift: first
-                row: 17
-                rawGroupName: ИБ1-21
-                rawLessonNumbers: 1,2
-                rawOriginal: МДК 01.01
-                rawReplacement: Грехова Е.И.
-                rawRoom: ДОТ
+          - replacement: *a1
             lessonNumber: 2
             reason: original-not-matched
             event:
@@ -258,15 +239,15 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: Основы информационной безопасности
+              - subject: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
                 teacher: |-
                   Тимощук М.В.
                   Егорова Ю.С.
-                room: |-
-                  IT-квант.
-                  VR-квант.
+                room: IT-кв.
                 weekType: both
-                sourceRow: 7
+                rawSubject: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
+                rawRoom: IT-кв.
+                sourceRow: 6
             source:
               sheet: ИБ1-21 ИБ1-31 ИБ41
               rowStart: 7
@@ -274,52 +255,30 @@ dates:
               rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ИБ1-21
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: Осн.инф.без.
-              replacement:
-                raw: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
-                room: IT-кв.
-              source:
-                shift: first
-                row: 6
-                rawGroupName: ИБ1-21
-                rawLessonNumbers: "2"
-                rawOriginal: Осн.инф.без.
-                rawReplacement: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
-                rawRoom: IT-кв.
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.инф.без.». По замене: «п/гр. Тимощук
-                М.В.-снято п/гр. Егорова Ю.С.-по расписанию». Аудитория:
-                «IT-кв.»."
-              room: IT-кв.
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ИБ1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Осн.инф.без.
+                  replacement:
+                    raw: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
+                    room: IT-кв.
+                  source:
+                    shift: first
+                    row: 6
+                    rawGroupName: ИБ1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: Осн.инф.без.
+                    rawReplacement: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
+                    rawRoom: IT-кв.
+                lessonNumber: 2
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 8ad0cecf63c0530559200b97f715f6e7e7f79d852132114588fbf62e6e01a4c6
-    sheet: "Замены: Первая смена"
-    row: 6
-    normalizedGroup: ИБ1-21
-    rawValue: п/гр. Тимощук М.В.-снято п/гр. Егорова Ю.С.-по расписанию
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -352,4 +311,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 91d8f99fa203d526d25eb8415d0de413d0d17456a02c3f7993567ff27abf6234
+semanticHash: c67d5fa91f24e151951b9a6410fda70a1326f82be7e504c1bbe66f544d5a71e2

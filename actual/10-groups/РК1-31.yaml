@@ -82,7 +82,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: РК1-31
               lessonNumbers:
@@ -109,26 +109,7 @@ dates:
               description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. МДК 04.03
                 Выблова Т.В.». Аудитория: «ДОТ»."
               room: ДОТ
-          - replacement:
-              date: 2026-09-05
-              group: РК1-31
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: МДК 02.02
-              replacement:
-                raw: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-                room: ДОТ
-              source:
-                shift: second
-                row: 18
-                rawGroupName: РК1-31
-                rawLessonNumbers: 4,5
-                rawOriginal: МДК 02.02
-                rawReplacement: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-                rawRoom: ДОТ
+          - replacement: *a1
             lessonNumber: 5
             reason: original-not-matched
             event:
@@ -245,15 +226,14 @@ dates:
             replacements: []
           - number: 5
             variants:
-              - subject: МДК 03.02 Правовое обеспечение рекламной деятельности
-                teacher: |-
-                  Вепрева Ю.Ю.
-                  Павлова О.В.
-                room: |-
-                  Б406
-                  Б403
+              - subject: 1,2 п/гр.
+                teacher: Вепрева Ю.Ю.
+                room: Б406
                 weekType: both
-                sourceRow: 163
+                rawSubject: 1,2 п/гр. Вепрева Ю.Ю.
+                rawTeacher: Вепрева Ю.Ю.
+                rawRoom: Б406
+                sourceRow: 35
             source:
               sheet: РК121РК1-22РК1-31РК32РК1-41РК42
               rowStart: 163
@@ -261,7 +241,28 @@ dates:
               rawGroupName: РК1-31/РК1-32
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: РК1-31
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 03.02
+                  replacement:
+                    raw: 1,2 п/гр. Вепрева Ю.Ю.
+                    room: Б406
+                  source:
+                    shift: second
+                    row: 35
+                    rawGroupName: РК1-31
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 03.02
+                    rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
+                    rawRoom: Б406
+                lessonNumber: 5
+                strategy: subject-module-code
           - number: 6
             variants:
               - subject: МДК 03.02 Правовое обеспечение рекламной деятельности
@@ -312,32 +313,6 @@ dates:
               date: 2026-09-07
               group: РК1-31
               lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: МДК 03.02
-              replacement:
-                raw: 1,2 п/гр. Вепрева Ю.Ю.
-                room: Б406
-              source:
-                shift: second
-                row: 35
-                rawGroupName: РК1-31
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 03.02
-                rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
-                rawRoom: Б406
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.02». По замене: «1,2 п/гр. Вепрева Ю.Ю.».
-                Аудитория: «Б406»."
-              room: Б406
-          - replacement:
-              date: 2026-09-07
-              group: РК1-31
-              lessonNumbers:
                 - 6
               type: replace
               original:
@@ -361,22 +336,6 @@ dates:
                 Вепрева Ю.Ю.». Аудитория: «Б309»."
               room: Б309
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 26a367829cd74513f0073c1ad215deba8aa797c441b0ae9ff7f6594e292fe7eb
-    sheet: "Замены: Вторая смена"
-    row: 35
-    normalizedGroup: РК1-31
-    rawValue: 1,2 п/гр. Вепрева Ю.Ю.
-    context:
-      date: 2026-09-07
-      lessonNumber: 5
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -441,4 +400,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0e64b453518270ad127f74d633681038b46f67b594ca211bf10e72b90238a7b4
+semanticHash: 15ffbe358eeb63e0c9c3c3c163c7456c088160fe42b087efadb86b4eb3fa6bc9

@@ -73,11 +73,14 @@ dates:
             replacements: []
           - number: 5
             variants:
-              - subject: МДК.02.01 Техническая оценка и инвентаризация объектов недвижимости
-                teacher: Ковалева С.В.
+              - subject: Осн.бер.пр.
+                teacher: Парамонов В.И.
                 room: М208
                 weekType: both
-                sourceRow: 52
+                rawSubject: Осн.бер.пр. Парамонов В.И.
+                rawTeacher: Парамонов В.И.
+                rawRoom: М208
+                sourceRow: 32
             source:
               sheet: ЗМ1-31 ЗМ1-33
               rowStart: 52
@@ -85,7 +88,28 @@ dates:
               rawGroupName: ЗМ1-33/ЗМ1-34
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ЗМ1-33
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 02.01
+                  replacement:
+                    raw: Осн.бер.пр. Парамонов В.И.
+                    room: М208
+                  source:
+                    shift: first
+                    row: 32
+                    rawGroupName: ЗМ1-33
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 02.01
+                    rawReplacement: Осн.бер.пр. Парамонов В.И.
+                    rawRoom: М208
+                lessonNumber: 5
+                strategy: subject-module-code
           - number: 6
             variants: []
             source:
@@ -116,48 +140,6 @@ dates:
                     rawRoom: ""
                 lessonNumber: 6
                 strategy: exact-subject
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ЗМ1-33
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: МДК 02.01
-              replacement:
-                raw: Осн.бер.пр. Парамонов В.И.
-                room: М208
-              source:
-                shift: first
-                row: 32
-                rawGroupName: ЗМ1-33
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 02.01
-                rawReplacement: Осн.бер.пр. Парамонов В.И.
-                rawRoom: М208
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 02.01». По замене: «Осн.бер.пр. Парамонов
-                В.И.». Аудитория: «М208»."
-              room: М208
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: c8a04c029e7e39c1f43f73e5767247939025dd5fab0300b09a0a42352e8751f2
-    sheet: "Замены: Первая смена"
-    row: 32
-    normalizedGroup: ЗМ1-33
-    rawValue: Осн.бер.пр. Парамонов В.И.
-    context:
-      date: 2026-09-07
-      lessonNumber: 5
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b1bd8df5621e027c10a2f7620e39de724e9ec188817d7d92145b04193b024b33
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: b0f721ca37439300de6056dc8104441712d20cad2adfdaf45b0b84a129615606

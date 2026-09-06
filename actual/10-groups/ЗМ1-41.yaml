@@ -102,45 +102,36 @@ dates:
             status: scheduled
             replacements: []
           - number: 5
-            variants:
-              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
-                  градостроительстве
-                teacher: Горохова Е.Б.
-                room: Б503
-                weekType: both
-                sourceRow: 45
+            variants: []
             source:
               sheet: ЗМ1-41 ЗМ1-43
               rowStart: 45
               rowEnd: 46
               rawGroupName: ЗМ1-41/ЗМ1-42
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
-            status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-05
-              group: ЗМ1-41
-              lessonNumbers:
-                - 5
-              type: cancel
-              original:
-                raw: МДК 03.01
-              replacement:
-                raw: Снято
-              source:
-                shift: first
-                row: 46
-                rawGroupName: ЗМ1-41
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 03.01
-                rawReplacement: Снято
-                rawRoom: ""
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.01». По замене: «Снято»."
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ЗМ1-41
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 46
+                    rawGroupName: ЗМ1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -284,7 +275,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-07
               group: ЗМ1-41
               lessonNumbers:
@@ -313,28 +304,7 @@ dates:
               description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
                 03.02 Федорова А.А.». Аудитория: «экскурсия»."
               room: экскурсия
-          - replacement:
-              date: 2026-09-07
-              group: ЗМ1-41
-              lessonNumbers:
-                - 1
-                - 2
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.02 МДК 04.01 Прав.обесп.
-              replacement:
-                raw: МДК 03.02 Федорова А.А.
-                room: экскурсия
-              source:
-                shift: first
-                row: 26
-                rawGroupName: ЗМ1-41
-                rawLessonNumbers: 1-4
-                rawOriginal: МДК 03.02 МДК 04.01 Прав.обесп.
-                rawReplacement: МДК 03.02 Федорова А.А.
-                rawRoom: экскурсия
+          - replacement: *a1
             lessonNumber: 2
             reason: original-not-matched
             event:
@@ -342,28 +312,7 @@ dates:
               description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
                 03.02 Федорова А.А.». Аудитория: «экскурсия»."
               room: экскурсия
-          - replacement:
-              date: 2026-09-07
-              group: ЗМ1-41
-              lessonNumbers:
-                - 1
-                - 2
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.02 МДК 04.01 Прав.обесп.
-              replacement:
-                raw: МДК 03.02 Федорова А.А.
-                room: экскурсия
-              source:
-                shift: first
-                row: 26
-                rawGroupName: ЗМ1-41
-                rawLessonNumbers: 1-4
-                rawOriginal: МДК 03.02 МДК 04.01 Прав.обесп.
-                rawReplacement: МДК 03.02 Федорова А.А.
-                rawRoom: экскурсия
+          - replacement: *a1
             lessonNumber: 3
             reason: original-not-matched
             event:
@@ -371,28 +320,7 @@ dates:
               description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
                 03.02 Федорова А.А.». Аудитория: «экскурсия»."
               room: экскурсия
-          - replacement:
-              date: 2026-09-07
-              group: ЗМ1-41
-              lessonNumbers:
-                - 1
-                - 2
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.02 МДК 04.01 Прав.обесп.
-              replacement:
-                raw: МДК 03.02 Федорова А.А.
-                room: экскурсия
-              source:
-                shift: first
-                row: 26
-                rawGroupName: ЗМ1-41
-                rawLessonNumbers: 1-4
-                rawOriginal: МДК 03.02 МДК 04.01 Прав.обесп.
-                rawReplacement: МДК 03.02 Федорова А.А.
-                rawRoom: экскурсия
+          - replacement: *a1
             lessonNumber: 4
             reason: original-not-matched
             event:
@@ -437,22 +365,6 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 7253eb92303d5b3571ff0c2a8a2e186fd6fcbe1c8dcdefb8900e376b91f276ca
-    sheet: "Замены: Первая смена"
-    row: 46
-    normalizedGroup: ЗМ1-41
-    rawValue: Снято
-    context:
-      date: 2026-09-05
-      lessonNumber: 5
-      type: cancel
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: a741287f3e844d80bff62182047ce903f813da3fb7f5e32316149b39f40e839d
     sheet: "Замены: Первая смена"
     row: 26
@@ -481,4 +393,4 @@ diagnostics:
       reason: original-not-matched
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 7931a1edfcd313829788ccc0a722911597c56578227d337393b85a5613ae9bc3
+semanticHash: ad40ee69abdcc1d5e21f681405e65c697ef1470c2d81f7d71572d24dcfa86aa4

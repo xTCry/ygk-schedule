@@ -73,12 +73,15 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
-                teacher: Вакансия
+              - subject: Рисунок Багдасарьян В.В.
+                teacher: Багдасарьян О.Н.
                 room: ДОТ
-                weekType: denominator
+                weekType: both
                 subgroup: "2"
-                sourceRow: 8
+                rawSubject: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                rawTeacher: Багдасарьян О.Н.
+                rawRoom: ДОТ
+                sourceRow: 21
             source:
               sheet: АР1-21 АР1-31 АР1-32 АР1-41
               rowStart: 8
@@ -86,49 +89,28 @@ dates:
               rawGroupName: АР1-21/АР1-22
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: АР1-21
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: МДК 01.03 п/гр.1
-              replacement:
-                raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-                room: ДОТ
-              source:
-                shift: first
-                row: 21
-                rawGroupName: АР1-21
-                rawLessonNumbers: "2"
-                rawOriginal: МДК 01.03 п/гр.1
-                rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-                rawRoom: ДОТ
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.03 п/гр.1». По замене: «Рисунок Багдасарьян
-                В.В.Багдасарьян О.Н.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: e8b36aefb62e862edb00c21771ea823d65f9194bbfeef64a182ed54c760708a0
-    sheet: "Замены: Первая смена"
-    row: 21
-    normalizedGroup: АР1-21
-    rawValue: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ceb67fcd8dd8722b72e45eee0d0eab167931063666e58db9a6cab17220af45f6
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: АР1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.03 п/гр.1
+                  replacement:
+                    raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 21
+                    rawGroupName: АР1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.03 п/гр.1
+                    rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 3f744f388b761c2abdf6f1e0df35f6080c853545b0b3ae86f442e7b170429c71

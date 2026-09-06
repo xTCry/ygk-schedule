@@ -103,11 +103,14 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "МДК.05.01 Технология выполнения работ по рабочей профессии \" Слесарь по ремонту оборудования тепловых сетей\"",
-                  "teacher": "Вакансия",
+                  "subject": "Ин.язык",
+                  "teacher": "Трусова Е.В.",
                   "room": "ДОТ",
                   "weekType": "both",
-                  "sourceRow": 143
+                  "rawSubject": "Ин.язык Трусова Е.В.",
+                  "rawTeacher": "Трусова Е.В.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 43
                 }
               ],
               "source": {
@@ -118,7 +121,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-05",
+                    "group": "ТТ1-31",
+                    "lessonNumbers": [
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 05.01"
+                    },
+                    "replacement": {
+                      "raw": "Ин.язык Трусова Е.В.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 43,
+                      "rawGroupName": "ТТ1-31",
+                      "rawLessonNumbers": "2",
+                      "rawOriginal": "МДК 05.01",
+                      "rawReplacement": "Ин.язык Трусова Е.В.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
               "number": 3,
@@ -290,39 +322,6 @@
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «Инф.технол. МДК 05.01». По замене: «Снято»."
               }
-            },
-            {
-              "replacement": {
-                "date": "2026-09-05",
-                "group": "ТТ1-31",
-                "lessonNumbers": [
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 05.01"
-                },
-                "replacement": {
-                  "raw": "Ин.язык Трусова Е.В.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 43,
-                  "rawGroupName": "ТТ1-31",
-                  "rawLessonNumbers": "2",
-                  "rawOriginal": "МДК 05.01",
-                  "rawReplacement": "Ин.язык Трусова Е.В.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 05.01». По замене: «Ин.язык Трусова Е.В.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
             }
           ],
           "frozenBase": {
@@ -444,25 +443,6 @@
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
       "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "27f48e422726c633df8a832eae6e1f7a6d21bca338be29f6d5a458bfc49b631b",
-      "sheet": "Замены: Первая смена",
-      "row": 43,
-      "normalizedGroup": "ТТ1-31",
-      "rawValue": "Ин.язык Трусова Е.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
       "fingerprint": "6fe4f560806d8becf00bf033c69a38dbbf5f2a826c54ca75454b285623149ee7",
       "sheet": "Замены: Первая смена",
       "row": 42,
@@ -478,5 +458,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "5b67753ed1ba717c71d2447451ee8df0f0c8c98e6c0c148b6ee6d1171338bee6"
+  "semanticHash": "ee8d57d676427020615d9379ffd82fa308d9cd78eec0e1550085826b1d408fb3"
 }

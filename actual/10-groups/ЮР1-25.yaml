@@ -112,7 +112,7 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement:
+          - replacement: &a1
               date: 2026-09-05
               group: ЮР1-25
               lessonNumbers:
@@ -136,25 +136,7 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 03.01». По замене: «Снято»."
-          - replacement:
-              date: 2026-09-05
-              group: ЮР1-25
-              lessonNumbers:
-                - 2
-                - 3
-              type: cancel
-              original:
-                raw: МДК 03.01
-              replacement:
-                raw: Снято
-              source:
-                shift: second
-                row: 27
-                rawGroupName: ЮР1-25
-                rawLessonNumbers: 2,3
-                rawOriginal: МДК 03.01
-                rawReplacement: Снято
-                rawRoom: ""
+          - replacement: *a1
             lessonNumber: 3
             reason: original-not-matched
             event:
