@@ -1,6 +1,7 @@
 import './style.css';
 import { loadActualSchedule, loadGroupSchedule, loadIndex } from './api.ts';
 import { openCalendarDialog } from './components/calendar-dialog.ts';
+import { initializeGroupPicker } from './components/group-picker.ts';
 import { renderSchedule } from './components/schedule.ts';
 import { formatUpdate } from './date.ts';
 import { createElement, requiredElement } from './dom.ts';
@@ -222,7 +223,10 @@ const renderGroup = async (
 const initialize = async (): Promise<void> => {
   initializeThemeControl();
   const status = requiredElement<HTMLElement>('#group-status');
-  const groupSelect = requiredElement<HTMLSelectElement>('#group-select');
+  const groupInput = requiredElement<HTMLInputElement>('#group-input');
+  const groupClear = requiredElement<HTMLButtonElement>('#group-clear');
+  const groupToggle = requiredElement<HTMLButtonElement>('#group-toggle');
+  const groupOptions = requiredElement<HTMLElement>('#group-options');
   const subgroupSelect = requiredElement<HTMLSelectElement>('#subgroup-select');
   const calendar = requiredElement<HTMLButtonElement>('#calendar-button');
   try {
@@ -234,14 +238,6 @@ const initialize = async (): Promise<void> => {
       index.groups.find((item) => item.code === savedGroup) ??
       index.groups[0];
     if (!group) throw new Error('В опубликованном API нет групп');
-    groupSelect.replaceChildren();
-    for (const candidate of index.groups) {
-      const option = document.createElement('option');
-      option.value = candidate.code;
-      option.textContent = candidate.code;
-      groupSelect.append(option);
-    }
-    groupSelect.value = group.code;
     localStorage.setItem(groupStorageKey, group.code);
 
     let currentGroup = group;
@@ -267,11 +263,7 @@ const initialize = async (): Promise<void> => {
       subgroupSelect.value = currentSubgroup ?? '';
       subgroupSelect.disabled = available.length === 0;
     };
-    await refresh();
-
-    groupSelect.addEventListener('change', () => {
-      const next = index.groups.find((item) => item.code === groupSelect.value);
-      if (!next) return;
+    const selectGroup = (next: PagesApiGroup): void => {
       currentGroup = next;
       currentSubgroup = localStorage.getItem(subgroupStorageKey(next.code));
       localStorage.setItem(groupStorageKey, next.code);
@@ -284,7 +276,28 @@ const initialize = async (): Promise<void> => {
             ? error.message
             : 'Не удалось обновить расписание';
       });
-    });
+    };
+    const groupPicker = initializeGroupPicker(
+      {
+        input: groupInput,
+        clear: groupClear,
+        toggle: groupToggle,
+        list: groupOptions,
+      },
+      {
+        groups: index.groups.map((item) => item.code),
+        initialValue: group.code,
+        onSelect: (code) => {
+          const next = index.groups.find((item) => item.code === code);
+          if (next && next.code !== currentGroup.code) selectGroup(next);
+        },
+      },
+    );
+    groupInput.disabled = false;
+    groupClear.disabled = false;
+    groupToggle.disabled = false;
+    await refresh();
+
     subgroupSelect.addEventListener('change', () => {
       currentSubgroup = subgroupSelect.value || null;
       if (currentSubgroup)
@@ -301,7 +314,11 @@ const initialize = async (): Promise<void> => {
       });
     });
     calendar.addEventListener('click', () =>
-      openCalendarDialog(currentGroup, currentSubgroup),
+      openCalendarDialog(
+        index.groups.find((item) => item.code === groupPicker.value()) ??
+          currentGroup,
+        currentSubgroup,
+      ),
     );
   } catch (error) {
     status.textContent =

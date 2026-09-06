@@ -39,7 +39,10 @@
           </p>
         </section>
 
-        <section class="paper-panel" aria-labelledby="group-heading">
+        <section
+          class="paper-panel group-picker-panel"
+          aria-labelledby="group-heading"
+        >
           <p class="eyebrow">Просмотр расписания</p>
           <h2
             id="group-heading"
@@ -48,10 +51,40 @@
             Выберите свою группу
           </h2>
           <form id="group-form" class="mt-5 flex flex-col gap-3 sm:flex-row">
-            <label class="sr-only" for="group-select">Группа</label>
-            <select id="group-select" class="form-select" disabled>
-              <option>Загрузка списка групп…</option>
-            </select>
+            <label class="sr-only" for="group-input">Группа</label>
+            <div class="group-picker">
+              <div class="group-picker-field">
+                <input
+                  id="group-input"
+                  class="form-select group-picker-input"
+                  placeholder="Например, СТ1-11"
+                  disabled
+                />
+                <button
+                  id="group-clear"
+                  class="group-picker-clear"
+                  type="button"
+                  aria-label="Очистить поиск группы"
+                  title="Очистить поиск"
+                  disabled
+                >
+                  ×
+                </button>
+                <button
+                  id="group-toggle"
+                  class="group-picker-toggle"
+                  aria-label="Показать список групп"
+                  disabled
+                ></button>
+              </div>
+              <ul
+                id="group-options"
+                class="group-picker-options"
+                role="listbox"
+                aria-label="Список групп"
+                hidden
+              ></ul>
+            </div>
             <button class="button-primary" type="submit">
               Открыть расписание
             </button>

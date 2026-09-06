@@ -20,7 +20,7 @@
       </header>
 
       <main class="space-y-5">
-        <section class="paper-panel">
+        <section class="paper-panel group-picker-panel">
           <div
             class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end"
           >
@@ -47,7 +47,39 @@
           <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
             <label>
               <span class="form-label">Группа</span>
-              <select id="group-select" class="form-select"></select>
+              <div class="group-picker">
+                <div class="group-picker-field">
+                  <input
+                    id="group-input"
+                    class="form-select group-picker-input"
+                    placeholder="Например, СТ1-11"
+                    disabled
+                  />
+                  <button
+                    id="group-clear"
+                    class="group-picker-clear"
+                    type="button"
+                    aria-label="Очистить поиск группы"
+                    title="Очистить поиск"
+                    disabled
+                  >
+                    ×
+                  </button>
+                  <button
+                    id="group-toggle"
+                    class="group-picker-toggle"
+                    aria-label="Показать список групп"
+                    disabled
+                  ></button>
+                </div>
+                <ul
+                  id="group-options"
+                  class="group-picker-options"
+                  role="listbox"
+                  aria-label="Список групп"
+                  hidden
+                ></ul>
+              </div>
             </label>
             <label>
               <span class="form-label">Подгруппа</span>

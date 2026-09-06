@@ -1,5 +1,6 @@
 import './style.css';
 import { loadIndex } from './api.ts';
+import { initializeGroupPicker } from './components/group-picker.ts';
 import { formatUpdate } from './date.ts';
 import { requiredElement } from './dom.ts';
 import { initializeThemeControl } from './theme.ts';
@@ -7,27 +8,37 @@ import { initializeThemeControl } from './theme.ts';
 const initialize = async (): Promise<void> => {
   initializeThemeControl();
   const form = requiredElement<HTMLFormElement>('#group-form');
-  const select = requiredElement<HTMLSelectElement>('#group-select');
+  const input = requiredElement<HTMLInputElement>('#group-input');
+  const clear = requiredElement<HTMLButtonElement>('#group-clear');
+  const toggle = requiredElement<HTMLButtonElement>('#group-toggle');
+  const list = requiredElement<HTMLElement>('#group-options');
   const status = requiredElement<HTMLElement>('#home-status');
   const updates = requiredElement<HTMLElement>('#updates');
 
   try {
     const index = await loadIndex();
-    select.replaceChildren();
-    for (const group of index.groups) {
-      const option = document.createElement('option');
-      option.value = group.code;
-      option.textContent = group.code;
-      select.append(option);
-    }
-    select.disabled = false;
+    const picker = initializeGroupPicker(
+      { input, clear, toggle, list },
+      {
+        groups: index.groups.map((group) => group.code),
+        initialValue: index.groups[0]?.code ?? '',
+        onSelect: () => undefined,
+      },
+    );
+    input.disabled = false;
+    clear.disabled = false;
+    toggle.disabled = false;
     updates.textContent = `Базовое расписание: ${formatUpdate(index.updates.schedule)} · замены: ${formatUpdate(index.updates.replacements)}`;
     status.textContent = `Опубликовано групп: ${index.groups.length}.`;
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      window.location.assign(
-        `group.html?group=${encodeURIComponent(select.value)}`,
-      );
+      const group = picker.commitTypedValue();
+      if (!group) {
+        status.textContent = 'Выберите группу из списка.';
+        input.focus();
+        return;
+      }
+      window.location.assign(`group.html?group=${encodeURIComponent(group)}`);
     });
   } catch (error) {
     status.textContent =
