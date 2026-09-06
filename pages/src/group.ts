@@ -1,9 +1,10 @@
 import './style.css';
 import { loadActualSchedule, loadGroupSchedule, loadIndex } from './api.ts';
+import { initializeColorModeControl } from './color-mode.ts';
 import { openCalendarDialog } from './components/calendar-dialog.ts';
 import { initializeGroupPicker } from './components/group-picker.ts';
 import { renderSchedule } from './components/schedule.ts';
-import { formatUpdate } from './date.ts';
+import { formatScheduleDate, formatUpdate } from './date.ts';
 import { createElement, requiredElement } from './dom.ts';
 import { initializeThemeControl } from './theme.ts';
 import type {
@@ -23,6 +24,7 @@ const visibleDiagnostic = (diagnostic: Diagnostic): boolean =>
 const groupStorageKey = 'ygk-schedule-group';
 const subgroupStorageKey = (group: string): string =>
   `ygk-schedule-subgroup:${group}`;
+const showOtherSubgroupsStorageKey = 'ygk-schedule-show-other-subgroups';
 
 const subgroupsFor = (schedule: BaseGroupArtifact): string[] =>
   [
@@ -72,6 +74,53 @@ const renderSources = (
     }
     container.append(link);
   }
+};
+
+const renderUpdates = (
+  container: HTMLElement,
+  index: PagesApiIndex,
+  actual: Awaited<ReturnType<typeof loadActualSchedule>> | null,
+): void => {
+  container.replaceChildren(
+    document.createTextNode(
+      `Базовое расписание обновлено: ${formatUpdate(index.updates.schedule)}`,
+    ),
+  );
+  const latest = Object.entries(actual?.dates ?? {})
+    .flatMap(([date, actualDate]) =>
+      Object.entries(actualDate.shifts ?? {}).map(([shift, snapshot]) => ({
+        date,
+        shift,
+        source: snapshot.source,
+      })),
+    )
+    .sort((left, right) => {
+      const dateOrder = right.date.localeCompare(left.date);
+      if (dateOrder) return dateOrder;
+      return (right.source.fetchedAt ?? '').localeCompare(
+        left.source.fetchedAt ?? '',
+      );
+    })[0];
+  if (!latest) {
+    container.append(
+      document.createTextNode(' · Замены для этой группы пока не опубликованы'),
+    );
+    return;
+  }
+  container.append(document.createTextNode(' · Замены на '));
+  const link = createElement('a', 'text-link');
+  link.textContent = formatScheduleDate(latest.date);
+  if (latest.source.url) {
+    link.href = latest.source.url;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+  }
+  container.append(link);
+  const shift = latest.shift === 'first' ? '1 смена' : '2 смена';
+  const checked = latest.source.fetchedAt
+    ? ` · проверено: ${formatUpdate(latest.source.fetchedAt)}`
+    : '';
+  container.append(document.createTextNode(` (${shift}${checked})`));
 };
 
 const openReplacementDialog = (
@@ -177,6 +226,7 @@ const renderGroup = async (
   index: PagesApiIndex,
   group: PagesApiGroup,
   subgroup: string | null,
+  showOtherSubgroups: boolean,
 ): Promise<string[]> => {
   const status = requiredElement<HTMLElement>('#group-status');
   status.textContent = `Загружаем расписание ${group.code}…`;
@@ -189,7 +239,7 @@ const renderGroup = async (
   const diagnostics = requiredElement<HTMLElement>('#group-diagnostics');
   const schedule = requiredElement<HTMLElement>('#schedule');
   title.textContent = group.code;
-  updates.textContent = `Расписание обновлено: ${formatUpdate(index.updates.schedule)} · замены: ${formatUpdate(index.updates.replacements)}`;
+  renderUpdates(updates, index, actual);
   renderSources(index, base);
   diagnostics.replaceChildren();
   for (const item of [
@@ -209,6 +259,7 @@ const renderGroup = async (
   renderSchedule(schedule, base, actual, {
     group: group.code,
     subgroup,
+    showOtherSubgroups,
     onOpenReplacementDetails: (date, actualGroup, actualDate) =>
       openReplacementDialog(date, actualGroup, actualDate, [
         ...base.diagnostics,
@@ -222,12 +273,16 @@ const renderGroup = async (
 
 const initialize = async (): Promise<void> => {
   initializeThemeControl();
+  initializeColorModeControl();
   const status = requiredElement<HTMLElement>('#group-status');
   const groupInput = requiredElement<HTMLInputElement>('#group-input');
   const groupClear = requiredElement<HTMLButtonElement>('#group-clear');
   const groupToggle = requiredElement<HTMLButtonElement>('#group-toggle');
   const groupOptions = requiredElement<HTMLElement>('#group-options');
   const subgroupSelect = requiredElement<HTMLSelectElement>('#subgroup-select');
+  const showOtherSubgroups = requiredElement<HTMLInputElement>(
+    '#show-other-subgroups',
+  );
   const calendar = requiredElement<HTMLButtonElement>('#calendar-button');
   try {
     const index = await loadIndex();
@@ -242,12 +297,25 @@ const initialize = async (): Promise<void> => {
 
     let currentGroup = group;
     let currentSubgroup = localStorage.getItem(subgroupStorageKey(group.code));
+    let keepOtherSubgroups =
+      localStorage.getItem(showOtherSubgroupsStorageKey) !== 'false';
+    showOtherSubgroups.checked = keepOtherSubgroups;
     const refresh = async (): Promise<void> => {
-      let available = await renderGroup(index, currentGroup, currentSubgroup);
+      let available = await renderGroup(
+        index,
+        currentGroup,
+        currentSubgroup,
+        keepOtherSubgroups,
+      );
       if (currentSubgroup && !available.includes(currentSubgroup)) {
         currentSubgroup = null;
         localStorage.removeItem(subgroupStorageKey(currentGroup.code));
-        available = await renderGroup(index, currentGroup, currentSubgroup);
+        available = await renderGroup(
+          index,
+          currentGroup,
+          currentSubgroup,
+          keepOtherSubgroups,
+        );
       }
       subgroupSelect.replaceChildren();
       const all = document.createElement('option');
@@ -306,6 +374,19 @@ const initialize = async (): Promise<void> => {
           currentSubgroup,
         );
       else localStorage.removeItem(subgroupStorageKey(currentGroup.code));
+      void refresh().catch((error: unknown) => {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : 'Не удалось обновить расписание';
+      });
+    });
+    showOtherSubgroups.addEventListener('change', () => {
+      keepOtherSubgroups = showOtherSubgroups.checked;
+      localStorage.setItem(
+        showOtherSubgroupsStorageKey,
+        String(keepOtherSubgroups),
+      );
       void refresh().catch((error: unknown) => {
         status.textContent =
           error instanceof Error

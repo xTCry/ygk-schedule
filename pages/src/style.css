@@ -71,7 +71,7 @@
    * а не только абсолютный список внутри неё.
    */
   .group-picker-panel {
-    @apply relative z-10;
+    @apply relative z-10 pb-4 sm:pb-5;
   }
 
   .group-picker-field {
@@ -126,6 +126,22 @@
     @apply inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-sm text-sky-800 no-underline hover:border-sky-700 dark:border-slate-700 dark:bg-slate-800 dark:text-sky-200 dark:hover:border-sky-300;
   }
 
+  .group-provenance {
+    @apply mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500 dark:text-slate-400;
+  }
+
+  .group-provenance .source-link {
+    @apply px-2 py-1 text-xs;
+  }
+
+  .subgroup-visibility {
+    @apply mt-2 flex cursor-pointer items-start gap-2 text-xs leading-5 text-slate-500 dark:text-slate-400;
+  }
+
+  .subgroup-visibility input {
+    @apply mt-1 h-3.5 w-3.5 accent-sky-700 dark:accent-sky-300;
+  }
+
   .day-card {
     @apply rounded-2xl border border-sky-200 bg-white/90 p-5 shadow-[3px_3px_0_0_rgb(14,116,144,0.16)] dark:border-slate-700 dark:bg-slate-900;
   }
@@ -152,6 +168,22 @@
 
   .lesson-cancelled strong {
     @apply line-through;
+  }
+
+  .lesson-variant {
+    @apply space-y-1;
+  }
+
+  .lesson-variant-muted {
+    @apply scale-[0.98] opacity-40 transition-opacity hover:opacity-75;
+  }
+
+  .lesson-remote-variant {
+    @apply rounded-lg border border-indigo-200 bg-indigo-50/70 p-2 dark:border-indigo-900 dark:bg-indigo-950/30;
+  }
+
+  .lesson-break {
+    @apply text-slate-500 dark:text-slate-400;
   }
 
   .chip {
@@ -181,6 +213,52 @@
 
   .subgroup-gradient-2 {
     @apply rounded-lg border border-emerald-200 bg-linear-to-r from-emerald-50 to-cyan-50 p-2 dark:border-emerald-900 dark:from-emerald-950/50 dark:to-cyan-950/40;
+  }
+
+  html[data-color-mode='calm'] .subgroup-gradient-1,
+  html[data-color-mode='calm'] .subgroup-gradient-2 {
+    @apply border-stone-200 bg-stone-50 dark:border-stone-700 dark:bg-stone-800;
+  }
+
+  html[data-color-mode='calm'] {
+    @apply bg-stone-100 text-stone-950 dark:bg-stone-950 dark:text-stone-100;
+  }
+
+  html[data-color-mode='calm'] body {
+    @apply bg-[radial-gradient(circle_at_1px_1px,rgba(87,83,78,0.13)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(214,211,209,0.08)_1px,transparent_0)];
+  }
+
+  html[data-color-mode='calm'] .site-header,
+  html[data-color-mode='calm'] .site-footer {
+    @apply border-stone-200 dark:border-stone-700;
+  }
+
+  html[data-color-mode='calm'] .brand,
+  html[data-color-mode='calm'] .text-link,
+  html[data-color-mode='calm'] .eyebrow {
+    @apply text-stone-950 dark:text-stone-100;
+  }
+
+  html[data-color-mode='calm'] .theme-toggle,
+  html[data-color-mode='calm'] .source-link,
+  html[data-color-mode='calm'] .button-secondary,
+  html[data-color-mode='calm'] .group-picker-toggle {
+    @apply border-stone-300 bg-stone-100 text-stone-950 hover:border-stone-600 hover:bg-stone-200 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100 dark:hover:border-stone-400 dark:hover:bg-stone-700;
+  }
+
+  html[data-color-mode='calm'] .button-primary {
+    @apply border-stone-800 bg-stone-800 hover:bg-stone-700 dark:border-stone-200 dark:bg-stone-200 dark:text-stone-950 dark:hover:bg-stone-100;
+  }
+
+  html[data-color-mode='calm'] .paper-panel,
+  html[data-color-mode='calm'] .day-card {
+    @apply border-stone-200 bg-white/90 shadow-[4px_4px_0_0_rgb(120,113,108,0.18)] dark:border-stone-700 dark:bg-stone-900 dark:shadow-[4px_4px_0_0_rgb(28,25,23,0.9)];
+  }
+
+  html[data-color-mode='calm'] .form-select,
+  html[data-color-mode='calm'] .group-picker-clear,
+  html[data-color-mode='calm'] .group-picker-options {
+    @apply border-stone-300 bg-white focus:border-stone-700 focus:ring-stone-200 dark:border-stone-700 dark:bg-stone-950 dark:focus:border-stone-300 dark:focus:ring-stone-900;
   }
 
   .day-remote {
@@ -227,5 +305,9 @@
 
   .lesson-card[data-lesson-number='6'] .lesson-number {
     @apply border-orange-300 bg-orange-100 text-orange-950 dark:border-orange-800 dark:bg-orange-950 dark:text-orange-100;
+  }
+
+  html[data-color-mode='calm'] .lesson-card .lesson-number {
+    @apply border-stone-300 bg-stone-100 text-stone-950 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100;
   }
 }

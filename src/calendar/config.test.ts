@@ -179,6 +179,10 @@ describe('YGK calendar config', () => {
       kind: 'sport',
       profile: 'a-m',
     });
+    expect(config.roomProfiles.specialRooms.ДОТ).toEqual({
+      kind: 'remote',
+      profile: 'a-m',
+    });
     expect(config.term).toMatchObject({
       semester: 'first',
       start: '2026-09-01',

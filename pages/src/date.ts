@@ -62,6 +62,14 @@ export const formatUpdate = (value: string | null): string => {
   }).format(new Date(value));
 };
 
+/** Форматирует дату расписания без несуществующего для неё времени суток. */
+export const formatScheduleDate = (value: string): string =>
+  formatter({
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(new Date(`${value}T12:00:00+03:00`));
+
 export const nextStudyDates = (): Date[] => {
   const result: Date[] = [];
   for (let offset = 0; result.length < 7 && offset < 14; offset += 1) {

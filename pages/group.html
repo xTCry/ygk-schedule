@@ -15,12 +15,17 @@
         <a class="brand" href="./">ЯГК · расписание</a>
         <div class="flex items-center gap-3">
           <a class="text-link text-sm" href="./">О сайте</a>
+          <button
+            id="color-mode-toggle"
+            class="theme-toggle"
+            type="button"
+          ></button>
           <button id="theme-toggle" class="theme-toggle" type="button"></button>
         </div>
       </header>
 
       <main class="space-y-5">
-        <section class="paper-panel group-picker-panel">
+        <section class="paper-panel">
           <div
             class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end"
           >
@@ -36,6 +41,10 @@
               >
                 Загружаем дату обновления…
               </p>
+              <div class="group-provenance">
+                <span>Официальный XLSX:</span>
+                <div id="source-links" class="flex flex-wrap gap-2"></div>
+              </div>
             </div>
             <button id="calendar-button" class="button-primary" type="button">
               Добавить расписание в календарь
@@ -43,7 +52,7 @@
           </div>
         </section>
 
-        <section class="paper-panel">
+        <section class="paper-panel group-picker-panel">
           <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
             <label>
               <span class="form-label">Группа</span>
@@ -86,6 +95,10 @@
               <select id="subgroup-select" class="form-select" disabled>
                 <option>Все подгруппы</option>
               </select>
+              <span class="subgroup-visibility">
+                <input id="show-other-subgroups" type="checkbox" checked />
+                Показывать другие подгруппы менее заметно
+              </span>
             </label>
           </div>
           <p
@@ -95,14 +108,6 @@
           >
             Загружаем опубликованные данные…
           </p>
-        </section>
-
-        <section class="paper-panel">
-          <p class="eyebrow">Официальный файл расписания</p>
-          <div
-            id="source-links"
-            class="mt-3 flex flex-wrap gap-2 text-sm"
-          ></div>
         </section>
 
         <section id="group-diagnostics" class="space-y-3"></section>

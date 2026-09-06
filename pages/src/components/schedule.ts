@@ -14,6 +14,7 @@ import type {
 export interface ScheduleRenderOptions {
   group: string;
   subgroup: string | null;
+  showOtherSubgroups: boolean;
   onOpenReplacementDetails: (
     date: string,
     actual: ActualGroup,
@@ -29,45 +30,81 @@ const visibleDiagnostic = (diagnostic: Diagnostic): boolean =>
 const diagnosticForDate = (diagnostic: Diagnostic, date: string): boolean =>
   diagnostic.context?.date === date;
 
-const roomLabel = (room: string): string | null => {
-  const match = /^([АБВМТФ])\s*\d/iu.exec(room.trim());
-  if (match?.[1]) return `корпус ${match[1].toUpperCase()}`;
-  if (/(?:спорт|сп\.)/iu.test(room)) return 'спортзал';
-  if (/(?:дот|дистанцион)/iu.test(room)) return 'дистанционно';
-  return null;
+const isRemoteVariant = (variant: LessonVariant): boolean =>
+  /(?:дот|дистанцион)/iu.test(variant.room);
+
+const subgroupPosition = (subgroup: string | undefined): number => {
+  if (!subgroup) return -1;
+  const number = Number(subgroup);
+  return Number.isFinite(number) ? number : Number.MAX_SAFE_INTEGER;
 };
 
-const shortTimingLabel = (variant: LessonVariant | undefined): string => {
-  if (!variant?.timing.slots.length) return 'время уточняется';
-  const periods = variant.timing.slots
-    .map((slot) => `${slot.start}–${slot.end}`)
-    .join('\n');
-  return variant.timing.breakAfterMinutes
-    ? `${periods}\nперемена ${variant.timing.breakAfterMinutes} мин`
-    : periods;
-};
+/** Общий вариант всегда показывается до вариантов отдельных подгрупп. */
+const sortVariants = <T extends LessonVariant>(variants: readonly T[]): T[] =>
+  [...variants].sort((left, right) => {
+    const subgroupOrder =
+      subgroupPosition(left.subgroup) - subgroupPosition(right.subgroup);
+    if (subgroupOrder) return subgroupOrder;
+    return (left.subgroup ?? '').localeCompare(right.subgroup ?? '', 'ru-RU');
+  });
+
+const displayedVariants = <T extends LessonVariant>(
+  variants: readonly T[],
+  subgroup: string | null,
+  showOtherSubgroups: boolean,
+): T[] =>
+  sortVariants(variants).filter(
+    (variant) =>
+      !subgroup ||
+      showOtherSubgroups ||
+      !variant.subgroup ||
+      variant.subgroup === subgroup,
+  );
 
 /**
- * Собирает время под номером пары. Обычно все варианты пары используют один
- * профиль звонков; если аудитории ведут к разным профилям, обе версии времени
- * остаются видны, но не дублируются возле каждого предмета.
+ * В номерной аудитории код корпуса уже очевиден. Вывод «Б409 · корпус Б»
+ * временно отключен, пока не появится подтверждённый случай, где это полезно.
  */
-const lessonTimingLabel = (variants: readonly LessonVariant[]): string =>
-  [
-    ...new Set(
-      variants.map((variant) => shortTimingLabel(variant)).filter(Boolean),
-    ),
-  ].join('\n\n');
+const displayRoom = (room: string): string => {
+  /*
+  const building = /^([АБВМТФ])\s*\d/iu.exec(room.trim())?.[1];
+  if (building) return `${room} · корпус ${building}`;
+  */
+  return room || 'Аудитория не указана';
+};
 
-const filterLesson = <T extends Lesson>(
-  lesson: T,
-  subgroup: string | null,
-): T | null => {
-  if (!subgroup) return lesson;
-  const variants = lesson.variants.filter(
-    (variant) => !variant.subgroup || variant.subgroup === subgroup,
-  );
-  return variants.length ? { ...lesson, variants } : null;
+const createLessonTiming = (
+  variants: readonly LessonVariant[],
+): HTMLElement => {
+  const timing = createElement('div', 'lesson-time');
+  const uniqueVariants = [
+    ...new Map(
+      variants.map((variant) => [
+        JSON.stringify({
+          slots: variant.timing.slots,
+          breakAfterMinutes: variant.timing.breakAfterMinutes,
+        }),
+        variant,
+      ]),
+    ).values(),
+  ];
+  if (!uniqueVariants.some((variant) => variant.timing.slots.length)) {
+    timing.textContent = '—';
+    return timing;
+  }
+  for (const variant of uniqueVariants) {
+    const line = createElement('div', 'leading-4');
+    line.textContent = variant.timing.slots
+      .map((slot) => `${slot.start}–${slot.end}`)
+      .join('\n');
+    if (variant.timing.breakAfterMinutes) {
+      const pause = createElement('em', 'lesson-break');
+      pause.textContent = `перемена ${variant.timing.breakAfterMinutes} мин`;
+      line.append(document.createElement('br'), pause);
+    }
+    timing.append(line);
+  }
+  return timing;
 };
 
 const replacementLabel = (lesson: ActualLesson): string | null => {
@@ -79,34 +116,36 @@ const replacementLabel = (lesson: ActualLesson): string | null => {
   return null;
 };
 
-const createVariant = (variant: LessonVariant): HTMLElement => {
+const createVariant = (
+  variant: LessonVariant,
+  selectedSubgroup: string | null,
+): HTMLElement => {
+  const otherSubgroup =
+    selectedSubgroup !== null &&
+    variant.subgroup !== undefined &&
+    variant.subgroup !== selectedSubgroup;
   const item = createElement(
     'div',
-    `space-y-1${variant.subgroup ? ` subgroup-gradient-${variant.subgroup}` : ''}`,
+    [
+      'lesson-variant',
+      variant.subgroup ? `subgroup-gradient-${variant.subgroup}` : '',
+      isRemoteVariant(variant) ? 'lesson-remote-variant' : '',
+      otherSubgroup ? 'lesson-variant-muted' : '',
+    ]
+      .filter(Boolean)
+      .join(' '),
   );
-  const title = createElement('strong', 'block font-medium');
-  title.textContent = variant.subject || 'Предмет не указан';
-  const location = roomLabel(variant.room);
-  const details = [
-    variant.teacher,
-    variant.room,
-    location &&
-    location.localeCompare(variant.room, 'ru-RU', {
-      sensitivity: 'accent',
-    }) !== 0
-      ? location
-      : null,
-  ]
+  const details = [displayRoom(variant.room), variant.teacher]
     .filter(Boolean)
     .join(' · ');
-  if (details) {
-    const text = createElement(
-      'p',
-      'text-sm text-stone-600 dark:text-stone-300',
-    );
-    text.textContent = details;
-    item.append(text);
-  }
+  const location = createElement(
+    'p',
+    'text-sm text-stone-600 dark:text-stone-300',
+  );
+  location.textContent = details;
+  const title = createElement('strong', 'block font-medium');
+  title.textContent = variant.subject || 'Предмет не указан';
+  item.append(location, title);
   if (variant.subgroup) {
     const chip = createElement('span', 'chip');
     chip.textContent = `Подгруппа ${variant.subgroup}`;
@@ -117,7 +156,9 @@ const createVariant = (variant: LessonVariant): HTMLElement => {
 
 const createLesson = (
   lesson: Lesson | ActualLesson,
+  variants: readonly LessonVariant[],
   actual: boolean,
+  selectedSubgroup: string | null,
 ): HTMLElement => {
   const actualLesson = lesson as ActualLesson;
   const card = createElement(
@@ -128,8 +169,7 @@ const createLesson = (
   const numberColumn = createElement('div', 'lesson-number-column');
   const number = createElement('div', 'lesson-number');
   number.textContent = `${lesson.number}`;
-  const time = createElement('p', 'lesson-time');
-  time.textContent = lessonTimingLabel(lesson.variants);
+  const time = createLessonTiming(variants);
   numberColumn.append(number, time);
   const content = createElement('div', 'min-w-0 space-y-2');
   const label = actual ? replacementLabel(actualLesson) : null;
@@ -138,7 +178,8 @@ const createLesson = (
     badge.textContent = label;
     content.append(badge);
   }
-  for (const variant of lesson.variants) content.append(createVariant(variant));
+  for (const variant of variants)
+    content.append(createVariant(variant, selectedSubgroup));
   if (actual && actualLesson.replacements.length) {
     const source = actualLesson.replacements
       .map((item) => {
@@ -188,7 +229,7 @@ const createUnresolved = (
 
 /**
  * Рендерит ближайшие учебные дни. Для выбранной подгруппы общие пары
- * сохраняются, а варианты других подгрупп скрываются.
+ * сохраняются, а остальные варианты можно оставить второстепенными.
  */
 export const renderSchedule = (
   container: HTMLElement,
@@ -228,12 +269,19 @@ export const renderSchedule = (
 
     const originalLessons = actualGroup?.lessons ?? baseDay?.lessons ?? [];
     const lessons = originalLessons
-      .map((lesson) => filterLesson(lesson, options.subgroup))
-      .filter((lesson): lesson is Lesson | ActualLesson => Boolean(lesson));
+      .map((lesson) => ({
+        lesson,
+        variants: displayedVariants(
+          lesson.variants,
+          options.subgroup,
+          options.showOtherSubgroups,
+        ),
+      }))
+      .filter((item) => item.variants.length > 0);
     const isRemoteDay =
       lessons.length > 0 &&
-      lessons.every((lesson) =>
-        lesson.variants.every((variant) =>
+      lessons.every((item) =>
+        item.variants.every((variant) =>
           /(?:дот|дистанцион)/iu.test(variant.room),
         ),
       );
@@ -255,8 +303,15 @@ export const renderSchedule = (
         'div',
         'mt-4 divide-y divide-stone-200 dark:divide-stone-800',
       );
-      for (const lesson of lessons)
-        list.append(createLesson(lesson, Boolean(actualGroup)));
+      for (const { lesson, variants } of lessons)
+        list.append(
+          createLesson(
+            lesson,
+            variants,
+            Boolean(actualGroup),
+            options.subgroup,
+          ),
+        );
       card.append(list);
     }
 
