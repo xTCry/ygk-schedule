@@ -31,6 +31,48 @@ const subjectKey = (value: string): string =>
     .toLocaleLowerCase('ru-RU')
     .replace(/[^\p{L}\p{N}]+/gu, '');
 
+const subjectWords = (value: string): string[] =>
+  normalizeDashes(normalizeSingleLine(value))
+    .normalize('NFKC')
+    .toLocaleLowerCase('ru-RU')
+    .match(/[\p{L}\p{N}]+/gu) ?? [];
+
+/**
+ * Извлекает коды модулей из написаний «МДК 01.01» и «МДК.01.01».
+ *
+ * Это не нечёткий поиск предмета: код в строке замен однозначно указывает
+ * конкретную дисциплину, когда одна ячейка перечисляет несколько пар.
+ */
+const moduleCodes = (value: string): string[] =>
+  [...value.matchAll(/МДК\.?\s*(\d{1,2}\.\d{1,2})/giu)].map(
+    (match) => match[1]!,
+  );
+
+/**
+ * Проверяет распространённое сокращённое название предмета, например
+ * «Инф. технол.» для «Информационные технологии».
+ *
+ * Правило намеренно консервативно: сокращение должно содержать точки,
+ * состоять из тех же слов и каждое его слово должно быть длиной не менее
+ * трёх символов и быть префиксом полного слова.
+ */
+const isSubjectAbbreviationOf = (
+  abbreviation: string,
+  subject: string,
+): boolean => {
+  if (!abbreviation.includes('.')) return false;
+  const abbreviationWords = subjectWords(abbreviation);
+  const subjectFullWords = subjectWords(subject);
+  return (
+    abbreviationWords.length > 0 &&
+    abbreviationWords.length === subjectFullWords.length &&
+    abbreviationWords.every(
+      (word, index) =>
+        word.length >= 3 && subjectFullWords[index]?.startsWith(word),
+    )
+  );
+};
+
 const emptyAliases = (): ReplacementAliases => ({
   groups: new Map(),
   subjects: new Map(),
@@ -210,6 +252,7 @@ const applied = (
 const findMatchingVariants = (
   lesson: ActualLesson,
   replacement: Replacement,
+  lessonNumber: number,
   aliases: ReplacementAliases,
 ): { index: number; strategy: AppliedReplacement['strategy'] }[] => {
   const original = replacement.original?.raw;
@@ -220,7 +263,7 @@ const findMatchingVariants = (
     original,
   );
   const key = subjectKey(resolvedOriginal);
-  return lesson.variants
+  const exactMatches = lesson.variants
     .map((variant, index) => ({
       index,
       key: subjectKey(
@@ -233,6 +276,44 @@ const findMatchingVariants = (
     }))
     .filter((candidate) => candidate.key === key)
     .map(({ index, strategy }) => ({ index, strategy }));
+  if (exactMatches.length) return exactMatches;
+
+  const originalModuleCodes = moduleCodes(resolvedOriginal);
+  const lessonIndex = replacement.lessonNumbers.indexOf(lessonNumber);
+  if (
+    lessonIndex >= 0 &&
+    originalModuleCodes.length === replacement.lessonNumbers.length &&
+    new Set(originalModuleCodes).size === originalModuleCodes.length
+  ) {
+    const expectedModuleCode = originalModuleCodes[lessonIndex];
+    const moduleMatches = lesson.variants.flatMap((variant, index) =>
+      moduleCodes(
+        resolveReplacementAlias(aliases, 'subjects', variant.subject),
+      ).includes(expectedModuleCode ?? '')
+        ? [
+            {
+              index,
+              strategy: 'subject-module-code' as const,
+            },
+          ]
+        : [],
+    );
+    if (moduleMatches.length) return moduleMatches;
+  }
+
+  return lesson.variants.flatMap((variant, index) =>
+    isSubjectAbbreviationOf(
+      original,
+      resolveReplacementAlias(aliases, 'subjects', variant.subject),
+    )
+      ? [
+          {
+            index,
+            strategy: 'subject-abbreviation' as const,
+          },
+        ]
+      : [],
+  );
 };
 
 const applyReplacement = (
@@ -301,7 +382,12 @@ const applyReplacement = (
     return;
   }
 
-  const matches = findMatchingVariants(lesson, replacement, aliases);
+  const matches = findMatchingVariants(
+    lesson,
+    replacement,
+    lessonNumber,
+    aliases,
+  );
   if (!matches.length) {
     unresolved(
       target,
@@ -453,12 +539,73 @@ export interface BuildActualScheduleOptions {
   baseDataRevision?: string;
 }
 
+/**
+ * Рекурсивно сортирует ключи JSON-совместимого значения для semantic hash.
+ *
+ * Порядок ключей контекста diagnostics не несёт смысла и не должен менять
+ * решение о публикации данных.
+ */
+const stableSemanticValue = (value: unknown): unknown => {
+  if (Array.isArray(value)) return value.map(stableSemanticValue);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right, 'ru-RU'))
+      .map(([key, item]) => [key, stableSemanticValue(item)]),
+  );
+};
+
+/**
+ * Оставляет у строки замен только данные, меняющие опубликованный смысл.
+ *
+ * URL, время загрузки, ETag и SHA HTML нужны в полном артефакте для
+ * проверки источника, но не должны создавать новую semantic-версию.
+ */
+const replacementSemanticEntry = (replacement: Replacement): unknown => ({
+  date: replacement.date,
+  group: replacement.group,
+  lessonNumbers: replacement.lessonNumbers,
+  type: replacement.type,
+  original: replacement.original,
+  replacement: replacement.replacement,
+  source: {
+    shift: replacement.source.shift,
+    row: replacement.source.row,
+    rawGroupName: replacement.source.rawGroupName,
+    rawLessonNumbers: replacement.source.rawLessonNumbers,
+    rawOriginal: replacement.source.rawOriginal,
+    rawReplacement: replacement.source.rawReplacement,
+    rawRoom: replacement.source.rawRoom,
+  },
+});
+
+const semanticDiagnostics = (diagnostics: readonly Diagnostic[]): unknown[] =>
+  diagnostics
+    .map((diagnostic) => {
+      const semanticDiagnostic = { ...diagnostic };
+      delete semanticDiagnostic.sourceId;
+      delete semanticDiagnostic.sourceUrl;
+      return stableSemanticValue(semanticDiagnostic);
+    })
+    .sort((left, right) =>
+      JSON.stringify(left).localeCompare(JSON.stringify(right), 'ru-RU'),
+    );
+
+const sortedReplacementSemanticEntries = (
+  replacements: readonly Replacement[],
+): unknown[] =>
+  replacements
+    .map(replacementSemanticEntry)
+    .sort((left, right) =>
+      JSON.stringify(left).localeCompare(JSON.stringify(right), 'ru-RU'),
+    );
+
 const replacementSemanticValue = (
   replacements: CanonicalReplacements,
 ): unknown => ({
   dates: Object.fromEntries(
     Object.entries(replacements.dates)
-      .sort(([left], [right]) => left.localeCompare(right))
+      .sort(([left], [right]) => left.localeCompare(right, 'ru-RU'))
       .map(([date, value]) => [
         date,
         {
@@ -476,17 +623,19 @@ const replacementSemanticValue = (
                       weekType: snapshot.weekType,
                       shift: snapshot.shift,
                       status: snapshot.status,
-                      replacements: snapshot.replacements,
-                      diagnostics: snapshot.diagnostics,
-                      finalizedBy: snapshot.finalizedBy,
+                      replacements: sortedReplacementSemanticEntries(
+                        snapshot.replacements,
+                      ),
+                      diagnostics: semanticDiagnostics(snapshot.diagnostics),
                     }
                   : null,
               ]),
           ),
-          replacements: value.replacements,
+          replacements: sortedReplacementSemanticEntries(value.replacements),
         },
       ]),
   ),
+  diagnostics: semanticDiagnostics(replacements.diagnostics),
 });
 
 export const semanticReplacementHash = (
@@ -513,7 +662,15 @@ const withoutActualProvenance = (value: unknown): unknown => {
         ([key]) =>
           !['source', 'sourceRow', 'scheduleVersion', 'dataRevision'].includes(
             key,
-          ),
+          ) &&
+          ![
+            'sourceId',
+            'sourceUrl',
+            'fetchedAt',
+            'sha256',
+            'etag',
+            'lastModified',
+          ].includes(key),
       )
       .sort(([left], [right]) => left.localeCompare(right))
       .map(([key, item]) => [key, withoutActualProvenance(item)]),

@@ -276,7 +276,11 @@ export interface GroupReplacementsArtifact {
 }
 
 export type ReplacementApplyStrategy =
-  'add' | 'exact-subject' | 'subject-alias';
+  | 'add'
+  | 'exact-subject'
+  | 'subject-alias'
+  | 'subject-module-code'
+  | 'subject-abbreviation';
 
 export type UnresolvedReplacementReason =
   | 'group-not-found'

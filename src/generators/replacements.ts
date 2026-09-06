@@ -5,6 +5,7 @@ import type {
   ActualGroupScheduleArtifact,
   CanonicalReplacements,
   GroupReplacementsArtifact,
+  Replacement,
   ReplacementDate,
   ReplacementSnapshot,
 } from '../types.ts';
@@ -179,8 +180,19 @@ const normalizeReplacementDates = (
 
 const normalizeActualDates = (
   dates: ActualSchedule['dates'],
-): ActualSchedule['dates'] =>
-  Object.fromEntries(
+): ActualSchedule['dates'] => {
+  const replacementReferences = new Map<string, Replacement>();
+  const restoreReplacementReference = (
+    replacement: Replacement,
+  ): Replacement => {
+    const key = replacementIdentity(replacement);
+    const existing = replacementReferences.get(key);
+    if (existing) return existing;
+    replacementReferences.set(key, replacement);
+    return replacement;
+  };
+
+  return Object.fromEntries(
     Object.entries(dates)
       .sort(([left], [right]) => compareText(left, right))
       .map(([date, value]) => [
@@ -194,15 +206,31 @@ const normalizeActualDates = (
                 group,
                 {
                   ...scheduleGroup,
-                  lessons: [...scheduleGroup.lessons].sort(
-                    (left, right) => left.number - right.number,
-                  ),
+                  lessons: [...scheduleGroup.lessons]
+                    .sort((left, right) => left.number - right.number)
+                    .map((lesson) => ({
+                      ...lesson,
+                      replacements: lesson.replacements.map((applied) => ({
+                        ...applied,
+                        replacement: restoreReplacementReference(
+                          applied.replacement,
+                        ),
+                      })),
+                    })),
+                  unresolvedReplacements:
+                    scheduleGroup.unresolvedReplacements.map((unresolved) => ({
+                      ...unresolved,
+                      replacement: restoreReplacementReference(
+                        unresolved.replacement,
+                      ),
+                    })),
                 },
               ]),
           ),
         },
       ]),
   );
+};
 
 const normalizeReplacements = (
   replacements: CanonicalReplacements,

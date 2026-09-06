@@ -91,10 +91,13 @@ describe('generate iCalendar CLI', () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-generate-ical-'));
     const baseDirectory = join(root, 'base');
     const configPath = join(root, 'calendar.yaml');
+    const remoteSchedule = structuredClone(schedule);
+    remoteSchedule.groups['СТ1-11']!.days[0]!.lessons[0]!.variants[0]!.room =
+      'ДОТ';
     await mkdir(baseDirectory, { recursive: true });
     await writeFile(
       join(baseDirectory, '00-schedule.json'),
-      JSON.stringify(schedule),
+      JSON.stringify(remoteSchedule),
     );
     await writeFile(
       configPath,
@@ -125,6 +128,9 @@ describe('generate iCalendar CLI', () => {
             buildings: {
               А: { profile: 'local' },
             },
+            special_rooms: {
+              ДОТ: { kind: 'remote', profile: 'local' },
+            },
           },
           publication: {
             source_url_template: 'https://example.test/ical/{kind}/{group}.ics',
@@ -147,6 +153,12 @@ describe('generate iCalendar CLI', () => {
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('SUMMARY:Тестовая пара');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain('DTSTART;TZID=Europe/Moscow:20260907T092000');
+    await expect(
+      readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
+    ).resolves.toContain('LOCATION:ДОТ');
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('UNTIL=20261220T235959Z');

@@ -4,6 +4,7 @@ import { buildDiagnosticsReport } from '../../../generators/diagnostics.ts';
 import {
   getReplacementArtifactFiles,
   getReplacementArtifactPaths,
+  serializeActualScheduleYaml,
   serializeReplacementsYaml,
   writeReplacementArtifacts,
 } from '../../../generators/replacements.ts';
@@ -160,9 +161,8 @@ const yamlHasAliases = (value: string): boolean =>
  */
 const hasExpectedYamlAliases = async (
   path: string,
-  replacements: CanonicalReplacements,
+  expected: string,
 ): Promise<boolean> => {
-  const expected = serializeReplacementsYaml(replacements);
   if (!yamlHasAliases(expected)) return true;
   return yamlHasAliases(await readFile(path, 'utf8'));
 };
@@ -232,7 +232,11 @@ export const updateYgkReplacements = async (
     (await allArtifactsExist(artifactFiles)) &&
     (await hasExpectedYamlAliases(
       artifactPaths.replacementsYaml,
-      replacements,
+      serializeReplacementsYaml(replacements),
+    )) &&
+    (await hasExpectedYamlAliases(
+      artifactPaths.actualYaml,
+      serializeActualScheduleYaml(actual),
     ));
 
   if (!replacementsChanged && !actualChanged && artifactsExist) {

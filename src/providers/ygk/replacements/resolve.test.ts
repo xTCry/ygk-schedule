@@ -365,6 +365,82 @@ describe('actual YGK schedule', () => {
     ).toEqual([expect.objectContaining({ reason: 'ambiguous-original' })]);
   });
 
+  it('matches listed module codes and conservative subject abbreviations', () => {
+    const schedule = structuredClone(baseSchedule);
+    const scheduleGroup = schedule.groups['СТ1-11'];
+    if (!scheduleGroup) throw new Error('Expected test group was not found');
+    delete schedule.groups['СТ1-11'];
+    scheduleGroup.group = 'СА1-21';
+    scheduleGroup.sourceGroups = ['СА1-21'];
+    schedule.groups['СА1-21'] = scheduleGroup;
+
+    const lessons = scheduleGroup.days[0]?.lessons;
+    if (!lessons) throw new Error('Expected test day was not found');
+    lessons[0]!.variants[0]!.subject = 'МДК.01.01 Компьютерные сети';
+    lessons[1]!.variants[0]!.subject =
+      'МДК.04.01 Установка, настройка и обслуживание';
+    lessons[2]!.variants[0]!.subject = 'Информационные технологии';
+
+    const moduleReplacement: Replacement = {
+      ...replacement(
+        [0, 2],
+        'replace',
+        'МДК 01.01 МДК 04.01',
+        'Опер.системы Гудкова А.Л.',
+      ),
+      group: 'СА1-21',
+      source: {
+        ...replacement(
+          [0, 2],
+          'replace',
+          'МДК 01.01 МДК 04.01',
+          'Опер.системы Гудкова А.Л.',
+        ).source,
+        rawGroupName: 'СА1-21',
+      },
+    };
+    const abbreviatedReplacement: Replacement = {
+      ...replacement([4], 'replace', 'Инф.технол.', 'Практика'),
+      group: 'СА1-21',
+      source: {
+        ...replacement([4], 'replace', 'Инф.технол.', 'Практика').source,
+        rawGroupName: 'СА1-21',
+      },
+    };
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [moduleReplacement, abbreviatedReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+    const actualLessons = actual.dates['2026-09-04']?.groups['СА1-21']?.lessons;
+
+    expect(actualLessons?.find((lesson) => lesson.number === 0)).toMatchObject({
+      variants: [{ subject: 'Опер.системы', teacher: 'Гудкова А.Л.' }],
+      replacements: [{ strategy: 'subject-module-code' }],
+    });
+    expect(actualLessons?.find((lesson) => lesson.number === 2)).toMatchObject({
+      variants: [{ subject: 'Опер.системы', teacher: 'Гудкова А.Л.' }],
+      replacements: [{ strategy: 'subject-module-code' }],
+    });
+    expect(actualLessons?.find((lesson) => lesson.number === 4)).toMatchObject({
+      variants: [{ subject: 'Практика' }],
+      replacements: [{ strategy: 'subject-abbreviation' }],
+    });
+    expect(
+      actual.dates['2026-09-04']?.groups['СА1-21']?.unresolvedReplacements,
+    ).toEqual([]);
+  });
+
   it('keeps a frozen base for a finalized shift after the XLSX schedule changes', () => {
     const finalizedFirst: ReplacementSnapshot = {
       date: '2026-09-04',
@@ -481,8 +557,14 @@ describe('actual YGK schedule', () => {
       },
     };
     const differentSource = structuredClone(replacementHistory);
+    differentSource.generatedAt = '2026-09-05T17:00:00.000Z';
+    differentSource.sources[0]!.fetchedAt = '2026-09-05T17:00:00.000Z';
+    differentSource.sources[0]!.etag = 'new-etag';
+    differentSource.sources[0]!.lastModified = 'Sat, 05 Sep 2026 17:00:00 GMT';
     differentSource.dates['2026-09-04']!.shifts!.first!.source.sha256 =
       'new-source-sha';
+    differentSource.dates['2026-09-04']!.shifts!.first!.source.fetchedAt =
+      '2026-09-05T17:00:00.000Z';
     expect(semanticReplacementHash(differentSource)).toBe(
       semanticReplacementHash(replacementHistory),
     );
@@ -499,6 +581,14 @@ describe('actual YGK schedule', () => {
     differentProvenance.baseScheduleVersion = 'base-version-v2';
     differentProvenance.baseDataRevision = 'data-v2';
     differentProvenance.replacementVersion = 'replacement-version-v2';
+    differentProvenance.generatedAt = '2026-09-05T17:00:00.000Z';
+    differentProvenance.diagnostics = differentProvenance.diagnostics.map(
+      (diagnostic) => ({
+        ...diagnostic,
+        sourceId: 'different-source',
+        sourceUrl: 'https://example.test/different-source.html',
+      }),
+    );
     expect(semanticActualScheduleHash(differentProvenance)).toBe(
       semanticActualScheduleHash(actual),
     );

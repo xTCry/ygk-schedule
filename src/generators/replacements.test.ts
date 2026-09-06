@@ -13,6 +13,7 @@ import type {
 import {
   getReplacementArtifactPaths,
   getReplacementGroupFileName,
+  serializeActualScheduleYaml,
   writeReplacementArtifacts,
 } from './replacements.ts';
 
@@ -134,5 +135,61 @@ describe('replacement artifact file names', () => {
     expect(
       parsed.dates['2026-09-05']?.shifts?.first?.replacements,
     ).toHaveLength(1);
+  });
+
+  it('restores actual replacement aliases after a JSON round trip', () => {
+    const sharedReplacement = replacement('СТ1-11', 1);
+    const schedule: ActualSchedule = {
+      ...actual,
+      dates: {
+        '2026-09-05': {
+          date: '2026-09-05',
+          day: 'Суббота',
+          weekType: 'numerator',
+          groups: {
+            'СТ1-11': {
+              group: 'СТ1-11',
+              date: '2026-09-05',
+              day: 'Суббота',
+              lessons: [
+                {
+                  number: 1,
+                  variants: [],
+                  source: null,
+                  status: 'scheduled',
+                  replacements: [
+                    {
+                      replacement: sharedReplacement,
+                      lessonNumber: 1,
+                      strategy: 'exact-subject',
+                    },
+                  ],
+                },
+                {
+                  number: 2,
+                  variants: [],
+                  source: null,
+                  status: 'scheduled',
+                  replacements: [
+                    {
+                      replacement: sharedReplacement,
+                      lessonNumber: 2,
+                      strategy: 'exact-subject',
+                    },
+                  ],
+                },
+              ],
+              unresolvedReplacements: [],
+            },
+          },
+        },
+      },
+    };
+    const restored = JSON.parse(JSON.stringify(schedule)) as ActualSchedule;
+    const yaml = serializeActualScheduleYaml(restored);
+
+    expect(yaml).toContain('&a1');
+    expect(yaml).toContain('*a1');
+    expect(parse(yaml)).toEqual(restored);
   });
 });
