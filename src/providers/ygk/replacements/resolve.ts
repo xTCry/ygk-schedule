@@ -23,7 +23,9 @@ import type {
 import { sha256 } from '../../../utils/hash.ts';
 import { SCHEMA_VERSION, buildScheduleVersion } from '../../../version.ts';
 import { resolveReplacementAlias, type ReplacementAliases } from './config.ts';
+import { resolveYgkReplacementGroup } from './group.ts';
 import { compatibleReplacementSnapshots } from './history.ts';
+import { parseYgkReplacementLessonText } from './lesson-text.ts';
 
 const subjectKey = (value: string): string =>
   normalizeDashes(normalizeSingleLine(value))
@@ -53,8 +55,9 @@ const moduleCodes = (value: string): string[] =>
  * «Инф. технол.» для «Информационные технологии».
  *
  * Правило намеренно консервативно: сокращение должно содержать точки,
- * состоять из тех же слов и каждое его слово должно быть длиной не менее
- * трёх символов и быть префиксом полного слова.
+ * состоять из начала последовательности слов полного названия, а каждое
+ * сокращённое слово должно быть длиной не менее двух символов и быть
+ * префиксом полного слова.
  */
 const isSubjectAbbreviationOf = (
   abbreviation: string,
@@ -65,10 +68,10 @@ const isSubjectAbbreviationOf = (
   const subjectFullWords = subjectWords(subject);
   return (
     abbreviationWords.length > 0 &&
-    abbreviationWords.length === subjectFullWords.length &&
+    abbreviationWords.length <= subjectFullWords.length &&
     abbreviationWords.every(
       (word, index) =>
-        word.length >= 3 && subjectFullWords[index]?.startsWith(word),
+        word.length >= 2 && subjectFullWords[index]?.startsWith(word),
     )
   );
 };
@@ -106,11 +109,10 @@ const createReplacementVariant = (
 ): LessonVariant | null => {
   if (!replacement.replacement) return null;
   const rawSubject = replacement.replacement.raw;
-  const parsed = rawSubject.match(
-    /^(?<subject>.*?)\s*(?<teacher>[А-ЯЁ][а-яё-]+\s+[А-ЯЁ]\.\s*[А-ЯЁ]\.?)$/u,
-  );
-  const parsedSubject = parsed?.groups?.subject?.trim() ?? rawSubject;
-  const parsedTeacher = parsed?.groups?.teacher?.trim() ?? '';
+  const parsed = parseYgkReplacementLessonText(rawSubject);
+  const parsedSubject = parsed.subject;
+  const parsedTeacher =
+    parsed.teachers.length === 1 ? (parsed.teachers[0] ?? '') : '';
   const subject = parsedSubject
     ? resolveReplacementAlias(aliases, 'subjects', parsedSubject)
     : (originalVariant?.subject ?? rawSubject);
@@ -126,9 +128,11 @@ const createReplacementVariant = (
     teacher,
     room,
     weekType: 'both',
-    ...(originalVariant?.subgroup
-      ? { subgroup: originalVariant.subgroup }
-      : {}),
+    ...(parsed.subgroups.length === 1
+      ? { subgroup: parsed.subgroups[0] }
+      : originalVariant?.subgroup
+        ? { subgroup: originalVariant.subgroup }
+        : {}),
     rawSubject,
     ...(parsedTeacher ? { rawTeacher: parsedTeacher } : {}),
     ...(replacement.replacement.room
@@ -257,23 +261,56 @@ const findMatchingVariants = (
 ): { index: number; strategy: AppliedReplacement['strategy'] }[] => {
   const original = replacement.original?.raw;
   if (!original) return [];
+  const parsedOriginal = parseYgkReplacementLessonText(original);
+  const originalContainsOnlyMarkers =
+    !parsedOriginal.subject &&
+    (parsedOriginal.teachers.length > 0 ||
+      parsedOriginal.subgroups.length > 0 ||
+      parsedOriginal.theory);
+  if (originalContainsOnlyMarkers) return [];
+
+  const originalSubject = parsedOriginal.subject || original;
   const resolvedOriginal = resolveReplacementAlias(
     aliases,
     'subjects',
-    original,
+    originalSubject,
   );
   const key = subjectKey(resolvedOriginal);
-  const exactMatches = lesson.variants
+  const requestedTeacher =
+    parsedOriginal.teachers.length === 1
+      ? resolveReplacementAlias(
+          aliases,
+          'teachers',
+          parsedOriginal.teachers[0] ?? '',
+        )
+      : '';
+  const candidates = lesson.variants
     .map((variant, index) => ({
       index,
+      variant,
       key: subjectKey(
         resolveReplacementAlias(aliases, 'subjects', variant.subject),
       ),
       strategy:
-        resolvedOriginal === original
+        resolvedOriginal === originalSubject
           ? ('exact-subject' as const)
           : ('subject-alias' as const),
     }))
+    .filter(
+      (candidate) =>
+        (!parsedOriginal.subgroups.length ||
+          (candidate.variant.subgroup !== undefined &&
+            parsedOriginal.subgroups.includes(candidate.variant.subgroup))) &&
+        (!requestedTeacher ||
+          subjectKey(
+            resolveReplacementAlias(
+              aliases,
+              'teachers',
+              candidate.variant.teacher,
+            ),
+          ) === subjectKey(requestedTeacher)),
+    );
+  const exactMatches = candidates
     .filter((candidate) => candidate.key === key)
     .map(({ index, strategy }) => ({ index, strategy }));
   if (exactMatches.length) return exactMatches;
@@ -286,7 +323,7 @@ const findMatchingVariants = (
     new Set(originalModuleCodes).size === originalModuleCodes.length
   ) {
     const expectedModuleCode = originalModuleCodes[lessonIndex];
-    const moduleMatches = lesson.variants.flatMap((variant, index) =>
+    const moduleMatches = candidates.flatMap(({ variant, index }) =>
       moduleCodes(
         resolveReplacementAlias(aliases, 'subjects', variant.subject),
       ).includes(expectedModuleCode ?? '')
@@ -301,9 +338,9 @@ const findMatchingVariants = (
     if (moduleMatches.length) return moduleMatches;
   }
 
-  return lesson.variants.flatMap((variant, index) =>
+  return candidates.flatMap(({ variant, index }) =>
     isSubjectAbbreviationOf(
-      original,
+      resolvedOriginal,
       resolveReplacementAlias(aliases, 'subjects', variant.subject),
     )
       ? [
@@ -804,11 +841,14 @@ export const buildActualSchedule = (
 
     for (const snapshot of snapshots) {
       for (const replacement of snapshot.replacements) {
-        const replacementGroup = resolveReplacementAlias(
-          aliases,
-          'groups',
+        const resolvedGroup = resolveYgkReplacementGroup(
           replacement.group,
+          Object.keys(schedule.groups),
+          aliases,
         );
+        const replacementGroup =
+          resolvedGroup.group ??
+          resolveReplacementAlias(aliases, 'groups', replacement.group);
         const group = ensureGroup(
           replacementGroup,
           snapshot.status === 'finalized',

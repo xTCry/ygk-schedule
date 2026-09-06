@@ -31,6 +31,14 @@ describe('YGK group parsing', () => {
     });
   });
 
+  it('accepts numbered specialty group names from the new base schedule', () => {
+    expect(parseGroupCandidate('36 ЭМЕХ, 2 БПЛА, 4 ИКС.')).toEqual({
+      raw: '36 ЭМЕХ, 2 БПЛА, 4 ИКС.',
+      normalizedSource: '36 ЭМЕХ, 2 БПЛА, 4 ИКС.',
+      groups: ['36 ЭМЕХ', '2 БПЛА', '4 ИКС'],
+    });
+  });
+
   it('expands abbreviated group codes only with an explicit prefix', () => {
     expect(parseGroupCandidate('СД2-21/2-22')).toMatchObject({
       groups: ['СД2-21', 'СД2-22'],

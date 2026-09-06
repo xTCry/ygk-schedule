@@ -18,6 +18,8 @@ export * from './providers/ygk/schedule/group.ts';
 export * from './providers/ygk/schedule/parse.ts';
 export * from './providers/ygk/replacements/parse.ts';
 export * from './providers/ygk/replacements/download.ts';
+export * from './providers/ygk/replacements/group.ts';
+export * from './providers/ygk/replacements/lesson-text.ts';
 export * from './providers/ygk/replacements/resolve.ts';
 export * from './providers/ygk/replacements/update.ts';
 export * from './types.ts';

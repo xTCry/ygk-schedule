@@ -15,12 +15,28 @@ const confusables: Record<string, string> = {
   Y: 'У',
 };
 
-const groupPattern = /[А-ЯЁA-Z]{1,5}\d{0,2}-\d{1,3}(?![-\d])/giu;
-const fullGroupPattern = /^([А-ЯЁ]{1,5})\d{0,2}-\d{1,3}$/u;
+const canonicalGroupPattern = /[А-ЯЁA-Z]{1,5}\d{0,2}-\d{1,3}(?![-\d])/giu;
+const numberedSpecialtyGroupPattern =
+  /\d{1,3}\s+[А-ЯЁA-Z]{2,5}(?![\p{L}\p{N}])/giu;
+const fullCanonicalGroupPattern = /^([А-ЯЁ]{1,5})\d{0,2}-\d{1,3}$/u;
 const compactGroupPattern = /^\d{1,2}-\d{1,3}$/u;
 
 const groupPrefix = (group: string): string | null =>
   /^([А-ЯЁ]{1,5})\d{0,2}-\d{1,3}$/u.exec(group)?.[1] ?? null;
+
+const groupsInPart = (value: string): string[] =>
+  [
+    ...[...value.matchAll(canonicalGroupPattern)].map((match) => ({
+      group: match[0],
+      index: match.index ?? 0,
+    })),
+    ...[...value.matchAll(numberedSpecialtyGroupPattern)].map((match) => ({
+      group: match[0],
+      index: match.index ?? 0,
+    })),
+  ]
+    .sort((left, right) => left.index - right.index)
+    .map((match) => match.group);
 
 /**
  * Раскрывает распространенное в документах сокращение группы:
@@ -36,17 +52,20 @@ const groupsFromCandidate = (normalizedSource: string): string[] => {
   for (const part of normalizedSource.split('/')) {
     const value = part.trim();
     if (!value) continue;
-    const fullGroups = [...value.matchAll(groupPattern)].map(
-      (match) => match[0],
-    );
-    if (fullGroups.length) {
-      groups.push(...fullGroups);
-      currentPrefix = groupPrefix(fullGroups.at(-1)!);
+    const foundGroups = groupsInPart(value);
+    if (foundGroups.length) {
+      groups.push(...foundGroups);
+      const lastCanonicalGroup = [...foundGroups]
+        .reverse()
+        .find((group) => fullCanonicalGroupPattern.test(group));
+      currentPrefix = lastCanonicalGroup
+        ? groupPrefix(lastCanonicalGroup)
+        : null;
       continue;
     }
     if (currentPrefix && compactGroupPattern.test(value)) {
       const expanded = `${currentPrefix}${value}`;
-      if (fullGroupPattern.test(expanded)) groups.push(expanded);
+      if (fullCanonicalGroupPattern.test(expanded)) groups.push(expanded);
     }
   }
 

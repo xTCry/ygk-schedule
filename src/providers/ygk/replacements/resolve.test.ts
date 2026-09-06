@@ -365,6 +365,112 @@ describe('actual YGK schedule', () => {
     ).toEqual([expect.objectContaining({ reason: 'ambiguous-original' })]);
   });
 
+  it('resolves a numbered specialty group from the base schedule', () => {
+    const schedule = structuredClone(baseSchedule);
+    const scheduleGroup = schedule.groups['СТ1-11'];
+    if (!scheduleGroup) throw new Error('Expected test group was not found');
+    delete schedule.groups['СТ1-11'];
+    scheduleGroup.group = '36 ЭМЕХ';
+    scheduleGroup.sourceGroups = ['36 ЭМЕХ'];
+    schedule.groups['36 ЭМЕХ'] = scheduleGroup;
+
+    const namedReplacement: Replacement = {
+      ...replacement([2], 'replace', 'Математика', 'История'),
+      group: '36 ЭМЕХ',
+      source: {
+        ...replacement([2], 'replace', 'Математика', 'История').source,
+        rawGroupName: '36 ЭМЕХ',
+      },
+    };
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [namedReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']?.groups['36 ЭМЕХ']?.lessons.find(
+        (lesson) => lesson.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [{ subject: 'История' }],
+      replacements: [{ strategy: 'exact-subject', lessonNumber: 2 }],
+    });
+  });
+
+  it('uses a parsed subgroup and teacher to replace only one variant', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (item) => item.number === 2,
+    )!;
+    lesson.variants = [
+      {
+        subject: 'Математика',
+        teacher: 'Петрова П.П.',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '1',
+        sourceRow: 2,
+      },
+      {
+        subject: 'Математика',
+        teacher: 'Петрова П.П.',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '2',
+        sourceRow: 3,
+      },
+    ];
+    const subgroupReplacement: Replacement = {
+      ...replacement(
+        [2],
+        'replace',
+        'Математика п/гр.2 Петрова П.П.',
+        'Инф.технол.п/гр.2 Сердцева О.Д.',
+      ),
+    };
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [subgroupReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']!.groups['СТ1-11']!.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [
+        { subject: 'Математика', subgroup: '1', teacher: 'Петрова П.П.' },
+        {
+          subject: 'Инф.технол.',
+          subgroup: '2',
+          teacher: 'Сердцева О.Д.',
+        },
+      ],
+      replacements: [{ strategy: 'exact-subject', lessonNumber: 2 }],
+    });
+  });
+
   it('matches listed module codes and conservative subject abbreviations', () => {
     const schedule = structuredClone(baseSchedule);
     const scheduleGroup = schedule.groups['СТ1-11'];
