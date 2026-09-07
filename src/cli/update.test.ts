@@ -1,4 +1,11 @@
-import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import {
+  copyFile,
+  mkdtemp,
+  mkdir,
+  readFile,
+  rm,
+  writeFile,
+} from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -135,6 +142,29 @@ describe('schedule update', () => {
     expect(second.versionChanged).toBe(false);
     expect(second.semanticChanged).toBe(false);
     await expect(readFile(output, 'utf8')).resolves.toBe(firstFile);
+  });
+
+  it('aggregates every local XLSX file from an input directory', async () => {
+    const root = await createProjectRoot();
+    const inputDir = join(root, 'input');
+    await mkdir(inputDir);
+    await copyFile(fixturePath, join(inputDir, 'schedule.xlsx'));
+    await writeFile(join(inputDir, 'notes.txt'), 'not an XLSX source');
+
+    const result = await updateSchedule({
+      inputDir,
+      output: join(root, 'data/schedule.json'),
+      projectRoot: root,
+    });
+
+    expect(result.written).toBe(true);
+    expect(Object.keys(result.schedule.groups)).toHaveLength(38);
+    expect(result.schedule.sources).toEqual([
+      expect.objectContaining({
+        id: 'schedule.xlsx',
+        fileName: 'schedule.xlsx',
+      }),
+    ]);
   });
 
   it('skips an unchanged export when CI does not have config/.gitkeep', async () => {

@@ -10,6 +10,7 @@ import type { ActualSchedule, CanonicalSchedule } from '../types.ts';
 import { createYgkRoomTimeResolver } from '../providers/ygk/calendar/room-profile.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import { generateActualIcalWithReport } from './actual-ical.ts';
+import { getGroupFileName } from './group-file-name.ts';
 import { generateIcalWithReport, type IcalSkippedEvent } from './ical.ts';
 
 export interface IcalArtifactPaths {
@@ -41,16 +42,10 @@ export interface WriteIcalArtifactsOptions {
 const compareGroups = (left: string, right: string): number =>
   left.localeCompare(right, 'ru-RU');
 
-const groupFileName = (group: string): string => {
-  if (!/^[\p{L}\p{N}-]+$/u.test(group))
-    throw new Error(`Group code cannot be used as a file name: ${group}`);
-  return group;
-};
-
 const calendarFileName = (
   group: string,
   subgroup: string | undefined,
-): string => groupFileName(`${group}${subgroup ? `-${subgroup}` : ''}`);
+): string => getGroupFileName(`${group}${subgroup ? `-${subgroup}` : ''}`);
 
 const subgroupsForGroup = (
   schedule: CanonicalSchedule,

@@ -15,6 +15,7 @@ import {
   normalizeGroupScheduleForSerialization,
   serializeSchedule,
 } from './json.ts';
+import { getGroupFileName } from './group-file-name.ts';
 import { serializeScheduleYaml, serializeYaml } from './yaml.ts';
 
 export interface ScheduleArtifactPaths {
@@ -57,12 +58,6 @@ export const getScheduleArtifactPaths = (
 
 const relativeDataPath = (outputDirectory: string, path: string): string =>
   relative(resolve(outputDirectory), path).split(sep).join('/');
-
-const getGroupFileName = (group: string): string => {
-  if (!/^[\p{L}\p{N}-]+$/u.test(group))
-    throw new Error(`Group code cannot be used as a file name: ${group}`);
-  return group;
-};
 
 /**
  * Возвращает пути JSON и YAML для одной нормализованной группы.

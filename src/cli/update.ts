@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compareSchedules, semanticScheduleHash } from '../compare/schedule.ts';
@@ -35,6 +35,7 @@ import {
 
 export interface UpdateOptions {
   input?: string;
+  inputDir?: string;
   url?: string;
   pageUrl?: string;
   output?: string;
@@ -180,11 +181,12 @@ const loadSources = async (
 ): Promise<LoadedScheduleSource[]> => {
   const sourceOptionCount = [
     options.input,
+    options.inputDir,
     options.url,
     options.pageUrl,
   ].filter(Boolean).length;
   if (sourceOptionCount !== 1)
-    throw new Error('Specify exactly one of input, url or pageUrl');
+    throw new Error('Specify exactly one of input, inputDir, url or pageUrl');
 
   if (options.url) {
     const downloaded = await downloadScheduleFile(options.url);
@@ -223,6 +225,36 @@ const loadSources = async (
             ...(downloaded.lastModified
               ? { lastModified: downloaded.lastModified }
               : {}),
+          },
+        };
+      }),
+    );
+  }
+
+  if (options.inputDir) {
+    const directory = resolve(options.inputDir);
+    const entries = await readdir(directory, { withFileTypes: true });
+    const fileNames = entries
+      .filter(
+        (entry) =>
+          entry.isFile() &&
+          entry.name.toLocaleLowerCase('en-US').endsWith('.xlsx'),
+      )
+      .map((entry) => entry.name)
+      .sort((left, right) => left.localeCompare(right, 'ru-RU'));
+    if (!fileNames.length)
+      throw new Error(`No XLSX files found in input directory: ${directory}`);
+
+    return Promise.all(
+      fileNames.map(async (fileName) => {
+        const buffer = await readFile(resolve(directory, fileName));
+        return {
+          buffer,
+          source: {
+            id: fileName,
+            fileName,
+            sha256: sha256(buffer),
+            fetchedAt: new Date().toISOString(),
           },
         };
       }),
@@ -384,14 +416,20 @@ const parseArgs = (args: string[]): UpdateOptions => {
   if (Boolean(output) === Boolean(outputDir))
     throw new Error('Specify exactly one of --output or --output-dir');
   const input = values.get('input');
+  const inputDir = values.get('input-dir');
   const url = values.get('url');
   const pageUrl = values.get('page-url');
-  const sourceOptionCount = [input, url, pageUrl].filter(Boolean).length;
+  const sourceOptionCount = [input, inputDir, url, pageUrl].filter(
+    Boolean,
+  ).length;
   if (sourceOptionCount !== 1)
-    throw new Error('Specify exactly one of --input, --url or --page-url');
+    throw new Error(
+      'Specify exactly one of --input, --input-dir, --url or --page-url',
+    );
   return {
     ...(output ? { output } : {}),
     ...(input ? { input } : {}),
+    ...(inputDir ? { inputDir } : {}),
     ...(url ? { url } : {}),
     ...(pageUrl ? { pageUrl } : {}),
     ...(outputDir ? { outputDir } : {}),
