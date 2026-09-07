@@ -69,6 +69,7 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.body).toContain('<!-- diagnostic-observation-keys:');
     expect(issue.body).toContain('<!-- parser-fingerprint: fingerprint -->');
     expect(issue.body).toContain('| Файл | out.xlsx |');
+    expect(issue.body).toContain('| Загружен | 03.09.2026, 15:00 МСК |');
     expect(issue.body).toContain(
       '| ЮР1-31 | 69 | 1 | ЮР1-33/ЮР1-34 | — | — | 0 |',
     );
@@ -155,5 +156,27 @@ describe('diagnostic Issue drafts', () => {
     expect(linked.body).toContain(
       'https://github.com/xTCry/ygk-schedule/commit/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
     );
+  });
+
+  it('links the source SHA-256 only when an external archive is configured', () => {
+    const issue = formatDiagnosticIssue([diagnostic], source);
+    const linked = withDiagnosticIssueLinks(issue, {
+      repository: 'xTCry/ygk-schedule',
+      sourceArchiveUrlTemplate:
+        'https://archive.example/sources/{sha256}/{fileName}',
+    });
+
+    expect(linked.body).toContain(
+      '| SHA-256 | [`source-hash`](https://archive.example/sources/source-hash/out.xlsx) |',
+    );
+  });
+
+  it('keeps an invalid source timestamp readable without failing Issue formatting', () => {
+    const issue = formatDiagnosticIssue([diagnostic], {
+      ...source,
+      fetchedAt: 'not-a-date',
+    });
+
+    expect(issue.body).toContain('| Загружен | not-a-date |');
   });
 });

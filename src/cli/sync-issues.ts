@@ -32,6 +32,7 @@ interface SyncIssuesOptions {
   dataRoot?: string;
   dataRevision?: string;
   parserRevision?: string;
+  sourceArchiveUrlTemplate?: string;
   currentDate: string;
 }
 
@@ -141,6 +142,34 @@ const moscowDate = (): string => {
   return `${values.get('year')}-${values.get('month')}-${values.get('day')}`;
 };
 
+/**
+ * Проверяет шаблон внешнего архива исходных XLSX/HTML. URL нужен только для
+ * ссылок в Issue, поэтому относительные пути и шаблоны без source SHA не
+ * принимаются: они не позволят открыть конкретную версию источника.
+ */
+const sourceArchiveUrlTemplate = (
+  value: string | undefined,
+): string | undefined => {
+  if (!value) return undefined;
+  if (!value.includes('{sha256}'))
+    throw new Error(
+      '--source-archive-url-template must include the {sha256} placeholder',
+    );
+  const example = value
+    .replaceAll('{sha256}', 'a'.repeat(64))
+    .replaceAll('{fileName}', 'source.xlsx');
+  try {
+    const url = new URL(example);
+    if (url.protocol !== 'https:' && url.protocol !== 'http:')
+      throw new Error('Unsupported protocol');
+  } catch {
+    throw new Error(
+      '--source-archive-url-template must resolve to an absolute HTTP(S) URL',
+    );
+  }
+  return value;
+};
+
 const parseArgs = (args: string[]): SyncIssuesOptions => {
   const diagnostics: string[] = [];
   const values = new Map<string, string>();
@@ -160,6 +189,9 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     10,
   );
   const dataRoot = values.get('output-dir');
+  const sourceArchiveTemplate = sourceArchiveUrlTemplate(
+    values.get('source-archive-url-template'),
+  );
   const currentDate = values.get('current-date') ?? moscowDate();
   if (!diagnostics.length && dataRoot) {
     diagnostics.push(
@@ -190,6 +222,9 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
       : {}),
     ...(values.get('parser-revision')
       ? { parserRevision: values.get('parser-revision')! }
+      : {}),
+    ...(sourceArchiveTemplate
+      ? { sourceArchiveUrlTemplate: sourceArchiveTemplate }
       : {}),
     currentDate,
   };
@@ -263,6 +298,9 @@ export const runSyncIssuesCli = async (
         repository: options.repository,
         ...(dataRevision ? { dataRevision } : {}),
         ...(parserRevision ? { parserRevision } : {}),
+        ...(options.sourceArchiveUrlTemplate
+          ? { sourceArchiveUrlTemplate: options.sourceArchiveUrlTemplate }
+          : {}),
       }),
     );
   const result = await syncDiagnosticIssues(

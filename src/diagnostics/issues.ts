@@ -387,6 +387,11 @@ export interface DiagnosticIssueLinkOptions {
   repository: string;
   dataRevision?: string;
   parserRevision?: string;
+  /**
+   * Шаблон постоянного URL архива исходных файлов. Поддерживает плейсхолдеры
+   * `{sha256}` и `{fileName}`; значения URL-кодируются перед подстановкой.
+   */
+  sourceArchiveUrlTemplate?: string;
 }
 
 const commitLink = (
@@ -407,6 +412,79 @@ const dataFileLink = (
     : `\`${path}\``;
 
 /**
+ * Переводит ISO-время загрузки в московское время. Если старый report
+ * содержит некорректное значение, Issue остаётся синхронизируемой и выводит
+ * исходную строку вместо падения workflow.
+ */
+const formatMoscowDateTime = (value: string | undefined): string => {
+  if (!value) return '—';
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return formatTableValue(value);
+
+  const parts = new Intl.DateTimeFormat('ru-RU', {
+    timeZone: 'Europe/Moscow',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(date);
+  const part = (type: Intl.DateTimeFormatPartTypes): string =>
+    parts.find((item) => item.type === type)?.value ?? '';
+  return `${part('day')}.${part('month')}.${part('year')}, ${part('hour')}:${part('minute')} МСК`;
+};
+
+/**
+ * Строит URL сохранённого исходника. Архивирование raw XLSX/HTML необязательно:
+ * если URL не настроен, diagnostics продолжает выводить обычный SHA-256.
+ */
+const sourceArchiveUrl = (
+  sha256: string | undefined,
+  fileName: string | undefined,
+  template: string | undefined,
+): string | undefined => {
+  if (!sha256 || !fileName || !template) return undefined;
+  const url = template
+    .replaceAll('{sha256}', encodeURIComponent(sha256))
+    .replaceAll('{fileName}', encodeURIComponent(fileName));
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' || parsed.protocol === 'http:'
+      ? parsed.toString()
+      : undefined;
+  } catch {
+    return undefined;
+  }
+};
+
+const sourceSha256Value = (source: ScheduleSource | undefined): string => {
+  const sha256 = sourceValue(source, 'sha256');
+  if (!sha256) return '—';
+  return formatTableValue(sha256);
+};
+
+/**
+ * Добавляет ссылку к уже сформированному значению SHA-256. Draft создаётся до
+ * checkout data-ветки, поэтому URL архива подключается только на этапе
+ * синхронизации Issue.
+ */
+const withSourceArchiveLink = (
+  body: string,
+  template: string | undefined,
+): string => {
+  if (!template) return body;
+  const sha256 = body.match(/^\| SHA-256 \| ([^|]+) \|$/mu)?.[1]?.trim();
+  const fileName = body.match(/^\| Файл \| ([^|]+) \|$/mu)?.[1]?.trim();
+  const archiveUrl = sourceArchiveUrl(sha256, fileName, template);
+  if (!sha256 || !archiveUrl) return body;
+  return body.replace(
+    /^\| SHA-256 \| [^|]+ \|$/mu,
+    `| SHA-256 | [\`${sha256}\`](${archiveUrl}) |`,
+  );
+};
+
+/**
  * Добавляет к черновику ссылки на неизменяемые revision code и data.
  *
  * Сами diagnostics остаются независимыми от GitHub: ссылки появляются только
@@ -416,8 +494,15 @@ export const withDiagnosticIssueLinks = (
   issue: DiagnosticIssueDraft,
   options: DiagnosticIssueLinkOptions,
 ): DiagnosticIssueDraft => {
-  if (!issue.evidence) return issue;
-  const body = `${issue.body}
+  const sourceLinkedBody = withSourceArchiveLink(
+    issue.body,
+    options.sourceArchiveUrlTemplate,
+  );
+  if (!issue.evidence)
+    return sourceLinkedBody === issue.body
+      ? issue
+      : { ...issue, body: sourceLinkedBody };
+  const body = `${sourceLinkedBody}
 <!-- diagnostics-links: ${options.dataRevision ?? 'unpublished'} -->
 
 ## Ревизии и данные
@@ -431,7 +516,10 @@ export const withDiagnosticIssueLinks = (
 | Evidence JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.jsonPath)} |
 | Evidence YAML | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.yamlPath)} |
 `;
-  return { ...issue, body };
+  return {
+    ...issue,
+    body,
+  };
 };
 
 /**
@@ -510,8 +598,8 @@ ${issueClassificationRows(diagnostics, source).join('\n')}
 | --- | --- |
 | Файл | ${formatTableValue(sourceValue(source, 'fileName'))} |
 | URL | ${formatTableValue(sourceValue(source, 'url'))} |
-| SHA-256 | ${formatTableValue(sourceValue(source, 'sha256'))} |
-| Загружен | ${formatTableValue(sourceValue(source, 'fetchedAt'))} |
+| SHA-256 | ${sourceSha256Value(source)} |
+| Загружен | ${formatMoscowDateTime(sourceValue(source, 'fetchedAt'))} |
 | Уровень | ${diagnostic.severity} |
 | Код | ${diagnostic.code} |
 
