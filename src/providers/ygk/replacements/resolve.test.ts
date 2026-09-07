@@ -582,6 +582,39 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('matches a compact practice code before a subgroup marker', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']?.days[0]?.lessons.find(
+      (item) => item.number === 2,
+    );
+    if (!lesson) throw new Error('Expected test lesson');
+    lesson.variants[0]!.subject = 'УП.04 Учебная практика п/гр2';
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [replacement([2], 'replace', 'УП 04 пгр', 'История')],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']?.groups['СТ1-11']?.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [{ subject: 'История' }],
+      replacements: [{ strategy: 'subject-module-code' }],
+    });
+  });
+
   it('reports a subgroup that is not scheduled in the replacement week', () => {
     const schedule = structuredClone(baseSchedule);
     const lesson = schedule.groups['СТ1-11']?.days[0]?.lessons.find(

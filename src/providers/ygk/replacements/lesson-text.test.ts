@@ -31,6 +31,15 @@ describe('YGK replacement lesson text parser', () => {
     });
   });
 
+  it('keeps a practice code before a subgroup marker', () => {
+    expect(parseYgkReplacementLessonText('УП 04 пгр')).toEqual({
+      subject: 'УП 04',
+      teachers: [],
+      subgroups: [],
+      theory: false,
+    });
+  });
+
   it('removes theory and finds adjacent teacher names', () => {
     expect(
       parseYgkReplacementLessonText('МДК 03.02/теория Юров А.А.Байдина Ю.А.'),

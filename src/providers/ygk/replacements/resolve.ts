@@ -41,14 +41,20 @@ const subjectWords = (value: string): string[] =>
     .match(/[\p{L}\p{N}]+/gu) ?? [];
 
 /**
- * Извлекает коды модулей из написаний «МДК 01.01» и «МДК.01.01».
+ * Извлекает коды дисциплины из написаний «МДК 01.01» и «УП.04».
  *
  * Это не нечёткий поиск предмета: код в строке замен однозначно указывает
- * конкретную дисциплину, когда одна ячейка перечисляет несколько пар.
+ * конкретную дисциплину или практику, когда одна ячейка перечисляет
+ * несколько пар.
  */
-const moduleCodes = (value: string): string[] =>
-  [...value.matchAll(/МДК\.?\s*(\d{1,2}\.\d{1,2})/giu)].map(
-    (match) => match[1]!,
+const subjectCodes = (value: string): string[] =>
+  [
+    ...value.matchAll(
+      /(?<kind>МДК|УП)\.?\s*(?<number>\d{1,2}(?:\.\d{1,2})?)/giu,
+    ),
+  ].map(
+    (match) =>
+      `${match.groups?.kind?.toLocaleUpperCase('ru-RU')}:${match.groups?.number}`,
   );
 
 /**
@@ -317,12 +323,12 @@ const findMatchingVariants = (
     .map(({ index, strategy }) => ({ index, strategy }));
   if (exactMatches.length) return exactMatches;
 
-  const originalModuleCodes = moduleCodes(resolvedOriginal);
-  if (originalModuleCodes.length) {
+  const originalSubjectCodes = subjectCodes(resolvedOriginal);
+  if (originalSubjectCodes.length) {
     const moduleMatches = candidates.flatMap(({ variant, index }) =>
-      moduleCodes(
+      subjectCodes(
         resolveReplacementAlias(aliases, 'subjects', variant.subject),
-      ).some((candidateCode) => originalModuleCodes.includes(candidateCode))
+      ).some((candidateCode) => originalSubjectCodes.includes(candidateCode))
         ? [
             {
               index,

@@ -38,7 +38,18 @@ export const parseYgkReplacementLessonText = (
   const subgroups: string[] = [];
   let withoutMarkers = normalized.replace(
     subgroupMarkerPattern,
-    (match, before: string | undefined, after: string | undefined) => {
+    (
+      match,
+      before: string | undefined,
+      after: string | undefined,
+      offset: number,
+      source: string,
+    ) => {
+      // В «УП 04 п/гр» число 04 — часть кода практики, а не подгруппа.
+      // Сохраняем его в названии предмета и удаляем только маркер «п/гр».
+      if (before && /(?:МДК|УП)\.?\s*$/iu.test(source.slice(0, offset)))
+        return `${before} `;
+
       for (const subgroup of [
         ...subgroupNumbers(before),
         ...subgroupNumbers(after),
