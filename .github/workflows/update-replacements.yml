@@ -2,10 +2,16 @@ name: update replacements
 
 on:
   schedule:
-    # GitHub интерпретирует cron в UTC; Москва круглый год UTC+3.
-    - cron: '0 10 * * *'
-    - cron: '0 14 * * *'
-    - cron: '0 17 * * *'
+    # Не запускаем jobs в начале часа: в это время GitHub Actions чаще
+    # откладывает scheduled workflow. Время задано явно по Москве.
+    - cron: '7 12 * * *' # около 12:07 МСК
+      timezone: Europe/Moscow
+    - cron: '13 14 * * *' # около 14:13 МСК
+      timezone: Europe/Moscow
+    - cron: '26 17 * * *' # около 17:26 МСК
+      timezone: Europe/Moscow
+    - cron: '31 19 * * *' # около 19:31 МСК
+      timezone: Europe/Moscow
   workflow_dispatch:
 
 permissions:
