@@ -599,7 +599,8 @@ ${issueClassificationRows(diagnostics, source).join('\n')}
 | Файл | ${formatTableValue(sourceValue(source, 'fileName'))} |
 | URL | ${formatTableValue(sourceValue(source, 'url'))} |
 | SHA-256 | ${sourceSha256Value(source)} |
-| Загружен | ${formatMoscowDateTime(sourceValue(source, 'fetchedAt'))} |
+| Изменён на сайте | ${formatMoscowDateTime(sourceValue(source, 'lastModified'))} |
+| Снимок впервые получен | ${formatMoscowDateTime(sourceValue(source, 'fetchedAt'))} |
 | Уровень | ${diagnostic.severity} |
 | Код | ${diagnostic.code} |
 

@@ -16,6 +16,7 @@ const source: ScheduleSource = {
   url: 'https://ygk.example/out.xlsx',
   sha256: 'source-hash',
   fetchedAt: '2026-09-03T12:00:00.000Z',
+  lastModified: 'Wed, 03 Sep 2026 10:30:00 GMT',
 };
 
 const diagnostic: Diagnostic = {
@@ -69,7 +70,12 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.body).toContain('<!-- diagnostic-observation-keys:');
     expect(issue.body).toContain('<!-- parser-fingerprint: fingerprint -->');
     expect(issue.body).toContain('| Файл | out.xlsx |');
-    expect(issue.body).toContain('| Загружен | 03.09.2026, 15:00 МСК |');
+    expect(issue.body).toContain(
+      '| Изменён на сайте | 03.09.2026, 13:30 МСК |',
+    );
+    expect(issue.body).toContain(
+      '| Снимок впервые получен | 03.09.2026, 15:00 МСК |',
+    );
     expect(issue.body).toContain(
       '| ЮР1-31 | 69 | 1 | ЮР1-33/ЮР1-34 | — | — | 0 |',
     );
@@ -177,6 +183,6 @@ describe('diagnostic Issue drafts', () => {
       fetchedAt: 'not-a-date',
     });
 
-    expect(issue.body).toContain('| Загружен | not-a-date |');
+    expect(issue.body).toContain('| Снимок впервые получен | not-a-date |');
   });
 });

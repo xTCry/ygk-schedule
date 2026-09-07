@@ -276,6 +276,31 @@ const formatDataReferences = (prefix: string, body: string): string[] => {
   ];
 };
 
+const sourceSha256 = (body: string): string | undefined => {
+  const value = tableValue(body, 'SHA-256');
+  const sha256 = value.match(/[a-f0-9]{64}/iu)?.[0];
+  return sha256?.toLocaleLowerCase('en-US');
+};
+
+const hasSourceChange = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): boolean => {
+  const previousSha256 = sourceSha256(existing.body);
+  const nextSha256 = sourceSha256(next.body);
+  return Boolean(previousSha256 && nextSha256 && previousSha256 !== nextSha256);
+};
+
+const sourceChangeRows = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): string[] => [
+  `| SHA-256 было | ${tableValue(existing.body, 'SHA-256')} |`,
+  `| SHA-256 стало | ${tableValue(next.body, 'SHA-256')} |`,
+  `| Изменён на сайте было | ${tableValue(existing.body, 'Изменён на сайте')} |`,
+  `| Изменён на сайте стало | ${tableValue(next.body, 'Изменён на сайте')} |`,
+];
+
 /**
  * История не перезаписывается в теле Issue: при изменении набора строк
  * отдельный комментарий фиксирует дельту и обе immutable ревизии data.
@@ -288,15 +313,32 @@ const formatUpdateComment = (
     existing.observationKeys,
     next.observationKeys,
   );
+  const observationsChanged = hasObservationChanges(existing, next);
+  const sourceChanged = hasSourceChange(existing, next);
   return `## Автоматическое обновление
 
-Изменился состав наблюдаемых diagnostics.
+${observationsChanged ? 'Изменился состав наблюдаемых diagnostics.' : ''}
+${sourceChanged ? 'Изменилось содержимое исходного файла, связанное с этой диагностикой.' : ''}
 
-| Показатель | Строк |
+${
+  observationsChanged
+    ? `| Показатель | Строк |
 | --- | ---: |
 | Добавлено | ${delta.added} |
 | Перестало наблюдаться | ${delta.removed} |
-| Осталось | ${delta.unchanged} |
+| Осталось | ${delta.unchanged} |`
+    : ''
+}
+
+${
+  sourceChanged
+    ? `## Источник
+
+| Показатель | Значение |
+| --- | --- |
+${sourceChangeRows(existing, next).join('\n')}`
+    : ''
+}
 
 ## Ссылки на снимки
 
@@ -478,9 +520,11 @@ export const syncDiagnosticIssues = async (
           result.unchanged += 1;
           continue;
         }
-        const comment = hasObservationChanges(existing, next)
-          ? formatUpdateComment(existing, next)
-          : undefined;
+        const comment =
+          hasObservationChanges(existing, next) ||
+          hasSourceChange(existing, next)
+            ? formatUpdateComment(existing, next)
+            : undefined;
         if (!canWrite(comment ? 2 : 1)) return deferForWriteLimit();
         await client.updateIssue(existing.number, next);
         writeOperations += 1;

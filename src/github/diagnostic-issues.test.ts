@@ -180,6 +180,58 @@ describe('diagnostic Issue synchronization', () => {
     );
   });
 
+  it('comments when the source changes but diagnostics stay the same', async () => {
+    const updateIssue = vi.fn(() => Promise.resolve());
+    const addComment = vi.fn(() => Promise.resolve());
+    const existing: ManagedDiagnosticIssue = {
+      ...managedIssue('known', 5),
+      body: `<!-- parser-issue-key: known -->
+
+| Поле | Значение |
+| --- | --- |
+| SHA-256 | ${'a'.repeat(64)} |
+| Изменён на сайте | 04.09.2026, 11:00 МСК |
+`,
+    };
+    const next: DiagnosticIssueDraft = {
+      ...draft('known'),
+      body: `<!-- parser-issue-key: known -->
+
+| Поле | Значение |
+| --- | --- |
+| SHA-256 | ${'b'.repeat(64)} |
+| Изменён на сайте | 07.09.2026, 11:00 МСК |
+`,
+    };
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () => Promise.resolve([existing]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment,
+      closeIssue: () => Promise.resolve(),
+    };
+
+    await expect(syncDiagnosticIssues([next], client)).resolves.toEqual({
+      created: 0,
+      updated: 1,
+      reopened: 0,
+      commented: 1,
+      closed: 0,
+      unchanged: 0,
+    });
+    expect(updateIssue).toHaveBeenCalledWith(5, next);
+    expect(addComment).toHaveBeenCalledWith(
+      5,
+      expect.stringContaining('Изменилось содержимое исходного файла'),
+    );
+    expect(addComment).toHaveBeenCalledWith(
+      5,
+      expect.stringContaining('SHA-256 было'),
+    );
+  });
+
   it('reopens a matching closed issue instead of creating another one', async () => {
     const createIssue = vi.fn(() => Promise.resolve());
     const reopenIssue = vi.fn(() => Promise.resolve());
