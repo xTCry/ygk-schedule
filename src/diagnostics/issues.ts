@@ -12,16 +12,40 @@ export interface DiagnosticIssueEvidenceReference {
 
 export interface DiagnosticIssueDraft {
   key: string;
+  /**
+   * Устойчивый ключ семьи одной проблемы. В отличие от `key`, не зависит от
+   * fingerprint конкретной диагностики и помогает обновить Issue после
+   * небольшой корректировки parser-а.
+   */
+  familyKey: string;
   fingerprint: string;
   scope: DiagnosticsScope;
+  /**
+   * Постоянные diagnostics base и ограниченные одной датой diagnostics замен
+   * имеют разный lifecycle в GitHub.
+   */
+  lifecycle: 'persistent' | 'dated';
+  /**
+   * Дата наблюдения для временной Issue замен в формате YYYY-MM-DD.
+   */
+  observedDate?: string;
   title: string;
   body: string;
   labels: string[];
   occurrenceCount: number;
+  /**
+   * Стабильные идентификаторы строк внутри одной Issue. Они не отображаются
+   * пользователю, но позволяют посчитать дельту между двумя снимками.
+   */
+  observationKeys: string[];
   evidence?: DiagnosticIssueEvidenceReference;
 }
 
 export const DIAGNOSTIC_ISSUE_KEY_MARKER = 'parser-issue-key';
+export const DIAGNOSTIC_ISSUE_FAMILY_KEY_MARKER = 'diagnostic-family-key';
+export const DIAGNOSTIC_ISSUE_LIFECYCLE_MARKER = 'diagnostic-lifecycle';
+export const DIAGNOSTIC_ISSUE_OBSERVATIONS_MARKER =
+  'diagnostic-observation-keys';
 export const SCHEDULE_DIAGNOSTIC_LABEL = 'schedule-diagnostic';
 
 const diagnosticLabelPrefix = 'diagnostic:';
@@ -157,6 +181,75 @@ const issueFingerprint = (
     ? sha256(getDiagnosticIssueGroupKey(diagnostic, source))
     : diagnostic.fingerprint;
 
+const normalizedContext = (value: unknown): unknown => {
+  if (Array.isArray(value)) return value.map(normalizedContext);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, item]) => [key, normalizedContext(item)]),
+  );
+};
+
+/**
+ * Идентифицирует отдельную строку внутри агрегированной Issue. В ключ не
+ * входят временные metadata загрузки, поэтому повторная проверка того же
+ * источника не создаёт ложную дельту.
+ */
+const diagnosticObservationKey = (diagnostic: Diagnostic): string =>
+  sha256(
+    JSON.stringify({
+      code: diagnostic.code,
+      severity: diagnostic.severity,
+      message: diagnostic.message,
+      sourceId: diagnostic.sourceId,
+      sheet: diagnostic.sheet,
+      row: diagnostic.row,
+      column: diagnostic.column,
+      normalizedGroup: diagnostic.normalizedGroup,
+      rawValue: diagnostic.rawValue,
+      context: normalizedContext(diagnostic.context),
+    }),
+  );
+
+/**
+ * Возвращает ключ семьи Issue без volatile fingerprint. Он намеренно
+ * консервативен: разные источник, группа или ячейка base-расписания не
+ * объединяются автоматически.
+ */
+export const getDiagnosticIssueFamilyKey = (
+  diagnostic: Diagnostic,
+  source: ScheduleSource | undefined,
+  scope: DiagnosticsScope,
+): string => {
+  if (diagnostic.code === 'UNRESOLVED_REPLACEMENT')
+    return sha256(
+      [
+        'replacement',
+        scope,
+        source?.id ?? '',
+        diagnostic.code,
+        diagnostic.severity,
+        contextString(diagnostic, 'reason') ?? '',
+        contextString(diagnostic, 'date') ?? '',
+      ].join('\0'),
+    );
+
+  return sha256(
+    [
+      'diagnostic',
+      scope,
+      source?.id ?? '',
+      diagnostic.code,
+      diagnostic.severity,
+      diagnostic.normalizedGroup ?? '',
+      diagnostic.sheet ?? '',
+      String(diagnostic.row ?? ''),
+      String(diagnostic.column ?? ''),
+    ].join('\0'),
+  );
+};
+
 const issueLabels = (
   diagnostic: Diagnostic,
   source: ScheduleSource | undefined,
@@ -233,6 +326,46 @@ export const getDiagnosticIssueKeyFromBody = (
     new RegExp(`<!-- ${DIAGNOSTIC_ISSUE_KEY_MARKER}: ([a-f0-9]{64}) -->`),
   );
   return match?.[1] ?? null;
+};
+
+const markerValue = (body: string | null, marker: string): string | null => {
+  const match = body?.match(new RegExp(`<!-- ${marker}: ([^\\n]+) -->`));
+  return match?.[1] ?? null;
+};
+
+/** Извлекает ключ семьи из managed Issue нового формата. */
+export const getDiagnosticIssueFamilyKeyFromBody = (
+  body: string | null,
+): string | null => {
+  const value = markerValue(body, DIAGNOSTIC_ISSUE_FAMILY_KEY_MARKER);
+  return value && /^[a-f0-9]{64}$/u.test(value) ? value : null;
+};
+
+/**
+ * Извлекает lifecycle Issue. Старые Issue замен распознаются по видимой дате,
+ * чтобы при миграции корректно закрываться как исторические.
+ */
+export const getDiagnosticIssueLifecycleFromBody = (
+  body: string | null,
+): { lifecycle: 'persistent' | 'dated'; observedDate?: string } => {
+  const lifecycle = markerValue(body, DIAGNOSTIC_ISSUE_LIFECYCLE_MARKER);
+  const observedDate = body?.match(
+    /^\| Дата замен \| (\d{4}-\d{2}-\d{2}) \|$/mu,
+  )?.[1];
+  return {
+    lifecycle: lifecycle === 'dated' || observedDate ? 'dated' : 'persistent',
+    ...(observedDate ? { observedDate } : {}),
+  };
+};
+
+/** Извлекает набор строк предыдущего снимка Issue для построения дельты. */
+export const getDiagnosticIssueObservationKeysFromBody = (
+  body: string | null,
+): string[] => {
+  const value = markerValue(body, DIAGNOSTIC_ISSUE_OBSERVATIONS_MARKER);
+  if (!value) return [];
+  const keys = value.split(',').filter((key) => /^[a-f0-9]{64}$/u.test(key));
+  return [...new Set(keys)].sort((left, right) => left.localeCompare(right));
 };
 
 /**
@@ -317,6 +450,15 @@ export const formatDiagnosticIssue = (
   const scope = options.scope ?? 'base';
   const fingerprint = issueFingerprint(diagnostic, source);
   const key = getDiagnosticIssueKey(fingerprint, source);
+  const observedDate = commonContextString(diagnostics, 'date');
+  const lifecycle =
+    diagnostic.code === 'UNRESOLVED_REPLACEMENT' && observedDate
+      ? 'dated'
+      : 'persistent';
+  const observationKeys = diagnostics
+    .map(diagnosticObservationKey)
+    .sort((left, right) => left.localeCompare(right));
+  const familyKey = getDiagnosticIssueFamilyKey(diagnostic, source, scope);
   const locations = diagnostics
     .map((item) => {
       const lessonNumber = contextNumber(item, 'lessonNumber');
@@ -327,11 +469,15 @@ export const formatDiagnosticIssue = (
 
   return {
     key,
+    familyKey,
     fingerprint,
     scope,
+    lifecycle,
+    ...(lifecycle === 'dated' && observedDate ? { observedDate } : {}),
     title: issueTitle(diagnostics, source, scope),
     labels: issueLabels(diagnostic, source, scope),
     occurrenceCount: diagnostics.length,
+    observationKeys,
     ...(options.evidence
       ? {
           evidence: {
@@ -343,6 +489,9 @@ export const formatDiagnosticIssue = (
         }
       : {}),
     body: `<!-- ${DIAGNOSTIC_ISSUE_KEY_MARKER}: ${key} -->
+<!-- ${DIAGNOSTIC_ISSUE_FAMILY_KEY_MARKER}: ${familyKey} -->
+<!-- ${DIAGNOSTIC_ISSUE_LIFECYCLE_MARKER}: ${lifecycle} -->
+<!-- ${DIAGNOSTIC_ISSUE_OBSERVATIONS_MARKER}: ${observationKeys.join(',')} -->
 <!-- parser-fingerprint: ${fingerprint} -->
 
 ## Причина

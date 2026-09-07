@@ -1,10 +1,11 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   SCHEDULE_DIAGNOSTIC_LABEL,
   withDiagnosticIssueLinks,
   type DiagnosticIssueDraft,
+  type DiagnosticsScope,
 } from '../diagnostics/issues.ts';
 import {
   GitHubDiagnosticIssuesClient,
@@ -18,6 +19,7 @@ import {
 import { formatIssueSyncSummary } from '../workflows/summary.ts';
 
 interface DiagnosticsReportInput {
+  scope: DiagnosticsScope;
   issues: DiagnosticIssueDraft[];
 }
 
@@ -30,6 +32,7 @@ interface SyncIssuesOptions {
   dataRoot?: string;
   dataRevision?: string;
   parserRevision?: string;
+  currentDate: string;
 }
 
 const isDiagnosticIssueDraft = (
@@ -53,28 +56,89 @@ const isDiagnosticIssueDraft = (
   );
 };
 
+const isDiagnosticsScope = (value: unknown): value is DiagnosticsScope =>
+  value === 'base' || value === 'replacements' || value === 'actual';
+
+const scopeFromDiagnosticsPath = (path: string): DiagnosticsScope => {
+  const scope = basename(dirname(path));
+  if (!isDiagnosticsScope(scope))
+    throw new Error(`Cannot infer diagnostics scope from path: ${path}`);
+  return scope;
+};
+
+const issueObservedDate = (
+  issue: Record<string, unknown>,
+): string | undefined =>
+  typeof issue.observedDate === 'string' &&
+  /^\d{4}-\d{2}-\d{2}$/u.test(issue.observedDate)
+    ? issue.observedDate
+    : undefined;
+
 const readDiagnosticsReport = async (
   path: string,
 ): Promise<DiagnosticsReportInput> => {
   const value: unknown = JSON.parse(await readFile(path, 'utf8'));
   if (!value || typeof value !== 'object')
     throw new Error('Diagnostics report must be a JSON object');
-  const issues = (value as Record<string, unknown>).issues;
+  const report = value as Record<string, unknown>;
+  const issues = report.issues;
   if (!Array.isArray(issues) || !issues.every(isDiagnosticIssueDraft))
     throw new Error('Diagnostics report has an invalid issues array');
   return {
+    scope: isDiagnosticsScope(report.scope)
+      ? report.scope
+      : scopeFromDiagnosticsPath(path),
     // Старые reports до schema v4 не содержат labels. Это нужно, чтобы
     // workflow мог синхронно мигрировать data-ветку без ручного шага.
-    issues: issues.map((issue) => {
+    issues: issues.map((rawIssue) => {
+      const issue = rawIssue as Record<string, unknown>;
       const labels =
         Array.isArray(issue.labels) && issue.labels.length
           ? [...new Set(issue.labels as string[])].sort((left, right) =>
               left.localeCompare(right),
             )
           : [SCHEDULE_DIAGNOSTIC_LABEL];
-      return { ...issue, labels };
+      const observedDate = issueObservedDate(issue);
+      const lifecycle =
+        issue.lifecycle === 'dated' || observedDate ? 'dated' : 'persistent';
+      const observationKeys = Array.isArray(issue.observationKeys)
+        ? [
+            ...new Set(
+              issue.observationKeys.filter(
+                (key): key is string =>
+                  typeof key === 'string' && /^[a-f0-9]{64}$/u.test(key),
+              ),
+            ),
+          ].sort((left, right) => left.localeCompare(right))
+        : [];
+      return {
+        ...issue,
+        familyKey:
+          typeof issue.familyKey === 'string' &&
+          /^[a-f0-9]{64}$/u.test(issue.familyKey)
+            ? issue.familyKey
+            : issue.key,
+        lifecycle,
+        ...(lifecycle === 'dated' && observedDate ? { observedDate } : {}),
+        observationKeys,
+        labels,
+      } as DiagnosticIssueDraft;
     }),
   };
+};
+
+const moscowDate = (): string => {
+  const values = new Map(
+    new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Moscow',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    })
+      .formatToParts(new Date())
+      .map((part) => [part.type, part.value]),
+  );
+  return `${values.get('year')}-${values.get('month')}-${values.get('day')}`;
 };
 
 const parseArgs = (args: string[]): SyncIssuesOptions => {
@@ -96,6 +160,7 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     10,
   );
   const dataRoot = values.get('output-dir');
+  const currentDate = values.get('current-date') ?? moscowDate();
   if (!diagnostics.length && dataRoot) {
     diagnostics.push(
       ...[
@@ -111,6 +176,8 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     );
   if (!Number.isSafeInteger(maxWriteOperations) || maxWriteOperations < 1)
     throw new Error('--max-writes must be a positive integer');
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(currentDate))
+    throw new Error('--current-date must have the YYYY-MM-DD format');
   return {
     diagnostics,
     repository,
@@ -124,6 +191,7 @@ const parseArgs = (args: string[]): SyncIssuesOptions => {
     ...(values.get('parser-revision')
       ? { parserRevision: values.get('parser-revision')! }
       : {}),
+    currentDate,
   };
 };
 
@@ -184,6 +252,12 @@ export const runSyncIssuesCli = async (
   const parserRevision = options.parserRevision ?? process.env.GITHUB_SHA;
   const drafts = loadedReports
     .flatMap((report) => report.issues)
+    .filter(
+      (issue) =>
+        issue.lifecycle !== 'dated' ||
+        !issue.observedDate ||
+        issue.observedDate >= options.currentDate,
+    )
     .map((issue) =>
       withDiagnosticIssueLinks(issue, {
         repository: options.repository,
@@ -196,6 +270,8 @@ export const runSyncIssuesCli = async (
     new GitHubDiagnosticIssuesClient(options),
     {
       maxWriteOperations: options.maxWriteOperations,
+      scopes: loadedReports.map((report) => report.scope),
+      currentDate: options.currentDate,
       prepareDraft: (issue, existing) =>
         preserveExistingLinks(issue, existing?.body),
     },

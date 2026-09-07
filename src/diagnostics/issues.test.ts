@@ -61,7 +61,12 @@ describe('diagnostic Issue drafts', () => {
       'scope:base',
     ]);
     expect(issue.occurrenceCount).toBe(2);
+    expect(issue.familyKey).toHaveLength(64);
+    expect(issue.lifecycle).toBe('persistent');
+    expect(issue.observationKeys).toHaveLength(2);
     expect(issue.body).toContain('<!-- parser-issue-key:');
+    expect(issue.body).toContain('<!-- diagnostic-family-key:');
+    expect(issue.body).toContain('<!-- diagnostic-observation-keys:');
     expect(issue.body).toContain('<!-- parser-fingerprint: fingerprint -->');
     expect(issue.body).toContain('| Файл | out.xlsx |');
     expect(issue.body).toContain(
@@ -106,6 +111,8 @@ describe('diagnostic Issue drafts', () => {
     const issue = formatDiagnosticIssue([first, second], replacementSource);
 
     expect(issue.occurrenceCount).toBe(2);
+    expect(issue.lifecycle).toBe('dated');
+    expect(issue.observedDate).toBe('2026-09-05');
     expect(issue.title).toBe(
       '[schedule][base][error] UNRESOLVED_REPLACEMENT / original-not-matched — 2026-09-05, первая смена',
     );

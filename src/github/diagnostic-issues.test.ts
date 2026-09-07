@@ -10,12 +10,15 @@ import {
 
 const draft = (key: string, suffix = ''): DiagnosticIssueDraft => ({
   key,
+  familyKey: `family-${key}`,
   fingerprint: `fingerprint-${key}`,
   scope: 'base',
+  lifecycle: 'persistent',
   title: `Проблема ${key}${suffix}`,
   body: `<!-- parser-issue-key: ${key} -->\nbody${suffix}`,
   labels: ['schedule-diagnostic'],
   occurrenceCount: 1,
+  observationKeys: [`observation-${key}`],
 });
 
 const managedIssue = (
@@ -25,6 +28,10 @@ const managedIssue = (
 ): ManagedDiagnosticIssue => ({
   number,
   key,
+  familyKey: `family-${key}`,
+  scope: 'base',
+  lifecycle: 'persistent',
+  observationKeys: [`observation-${key}`],
   title: `Проблема ${key}${suffix}`,
   body: `<!-- parser-issue-key: ${key} -->\nbody${suffix}`,
   labels: ['schedule-diagnostic'],
@@ -40,11 +47,15 @@ describe('diagnostic Issue synchronization', () => {
     );
     const createIssue = vi.fn(() => Promise.resolve());
     const updateIssue = vi.fn(() => Promise.resolve());
+    const addComment = vi.fn(() => Promise.resolve());
     const closeIssue = vi.fn(() => Promise.resolve());
     const client: DiagnosticIssuesClient = {
       listOpenManagedIssues,
+      listClosedManagedIssues: () => Promise.resolve([]),
       createIssue,
       updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment,
       closeIssue,
     };
 
@@ -56,6 +67,8 @@ describe('diagnostic Issue synchronization', () => {
     ).resolves.toEqual({
       created: 1,
       updated: 1,
+      reopened: 0,
+      commented: 1,
       closed: 1,
       unchanged: 0,
     });
@@ -63,6 +76,10 @@ describe('diagnostic Issue synchronization', () => {
     expect(updateIssue).toHaveBeenCalledWith(
       2,
       draft('changed', ' (обновлено)'),
+    );
+    expect(addComment).toHaveBeenCalledWith(
+      3,
+      expect.stringContaining('Автоматическое закрытие'),
     );
     expect(closeIssue).toHaveBeenCalledWith(3);
   });
@@ -76,8 +93,11 @@ describe('diagnostic Issue synchronization', () => {
     const closeIssue = vi.fn(() => Promise.resolve());
     const client: DiagnosticIssuesClient = {
       listOpenManagedIssues,
+      listClosedManagedIssues: () => Promise.resolve([]),
       createIssue,
       updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
       closeIssue,
     };
 
@@ -86,11 +106,181 @@ describe('diagnostic Issue synchronization', () => {
     ).resolves.toEqual({
       created: 0,
       updated: 0,
+      reopened: 0,
+      commented: 0,
       closed: 0,
       unchanged: 1,
     });
     expect(createIssue).not.toHaveBeenCalled();
     expect(updateIssue).not.toHaveBeenCalled();
+    expect(closeIssue).not.toHaveBeenCalled();
+  });
+
+  it('updates an open issue by family key and comments the observation delta', async () => {
+    const updateIssue = vi.fn(() => Promise.resolve());
+    const addComment = vi.fn(() => Promise.resolve());
+    const existing: ManagedDiagnosticIssue = {
+      ...managedIssue('old-key', 5),
+      familyKey: 'family-shared',
+      observationKeys: ['old-observation'],
+      body: `<!-- parser-issue-key: old-key -->
+<!-- diagnostics-links: old-data -->
+
+## Ревизии и данные
+
+| Поле | Значение |
+| --- | --- |
+| Ревизия data | [\`old\`](https://example.test/old) |
+| Diagnostics JSON | [\`old.json\`](https://example.test/old.json) |
+| Evidence JSON | [\`old-evidence.json\`](https://example.test/old-evidence.json) |
+`,
+    };
+    const next: DiagnosticIssueDraft = {
+      ...draft('new-key'),
+      familyKey: 'family-shared',
+      observationKeys: ['new-observation'],
+      body: `<!-- parser-issue-key: new-key -->
+<!-- diagnostics-links: new-data -->
+
+## Ревизии и данные
+
+| Поле | Значение |
+| --- | --- |
+| Ревизия data | [\`new\`](https://example.test/new) |
+| Diagnostics JSON | [\`new.json\`](https://example.test/new.json) |
+| Evidence JSON | [\`new-evidence.json\`](https://example.test/new-evidence.json) |
+`,
+    };
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () => Promise.resolve([existing]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment,
+      closeIssue: () => Promise.resolve(),
+    };
+
+    await expect(syncDiagnosticIssues([next], client)).resolves.toEqual({
+      created: 0,
+      updated: 1,
+      reopened: 0,
+      commented: 1,
+      closed: 0,
+      unchanged: 0,
+    });
+    expect(updateIssue).toHaveBeenCalledWith(5, next);
+    expect(addComment).toHaveBeenCalledWith(
+      5,
+      expect.stringMatching(/Добавлено \| 1/),
+    );
+    expect(addComment).toHaveBeenCalledWith(
+      5,
+      expect.stringMatching(/Перестало наблюдаться \| 1/),
+    );
+  });
+
+  it('reopens a matching closed issue instead of creating another one', async () => {
+    const createIssue = vi.fn(() => Promise.resolve());
+    const reopenIssue = vi.fn(() => Promise.resolve());
+    const addComment = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () => Promise.resolve([]),
+      listClosedManagedIssues: () =>
+        Promise.resolve([managedIssue('known', 7)]),
+      createIssue,
+      updateIssue: () => Promise.resolve(),
+      reopenIssue,
+      addComment,
+      closeIssue: () => Promise.resolve(),
+    };
+
+    await expect(
+      syncDiagnosticIssues([draft('known')], client),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 1,
+      commented: 1,
+      closed: 0,
+      unchanged: 0,
+    });
+    expect(createIssue).not.toHaveBeenCalled();
+    expect(reopenIssue).toHaveBeenCalledWith(7, draft('known'));
+    expect(addComment).toHaveBeenCalledWith(
+      7,
+      expect.stringContaining('Автоматическое переоткрытие'),
+    );
+  });
+
+  it('archives a past replacement issue without claiming that the source was fixed', async () => {
+    const addComment = vi.fn(() => Promise.resolve());
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([
+          {
+            ...managedIssue('past', 8),
+            scope: 'actual',
+            lifecycle: 'dated',
+            observedDate: '2026-09-05',
+          },
+        ]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment,
+      closeIssue,
+    };
+
+    await expect(
+      syncDiagnosticIssues([], client, {
+        scopes: ['actual'],
+        currentDate: '2026-09-07',
+      }),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 0,
+      commented: 1,
+      closed: 1,
+      unchanged: 0,
+    });
+    expect(addComment).toHaveBeenCalledWith(
+      8,
+      expect.stringContaining('закрыта как архивная'),
+    );
+    expect(addComment).toHaveBeenCalledWith(
+      8,
+      expect.stringContaining('не подтверждает исправление'),
+    );
+    expect(closeIssue).toHaveBeenCalledWith(8);
+  });
+
+  it('does not close issues outside the scopes of loaded diagnostics reports', async () => {
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([{ ...managedIssue('actual', 9), scope: 'actual' }]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
+      closeIssue,
+    };
+
+    await expect(
+      syncDiagnosticIssues([], client, { scopes: ['base'] }),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 0,
+      commented: 0,
+      closed: 0,
+      unchanged: 0,
+    });
     expect(closeIssue).not.toHaveBeenCalled();
   });
 
@@ -130,6 +320,8 @@ describe('diagnostic Issue synchronization', () => {
     ).resolves.toEqual({
       created: 0,
       updated: 1,
+      reopened: 0,
+      commented: 0,
       closed: 0,
       unchanged: 0,
     });
@@ -149,6 +341,7 @@ describe('diagnostic Issue synchronization', () => {
     const fetchMock = vi
       .fn<typeof fetch>()
       .mockResolvedValueOnce(new Response(JSON.stringify([])))
+      .mockResolvedValueOnce(new Response(JSON.stringify([])))
       .mockResolvedValueOnce(new Response('{}', { status: 404 }))
       .mockResolvedValueOnce(new Response('{}'))
       .mockResolvedValueOnce(new Response('{}'));
@@ -162,17 +355,22 @@ describe('diagnostic Issue synchronization', () => {
       {
         created: 1,
         updated: 0,
+        reopened: 0,
+        commented: 0,
         closed: 0,
         unchanged: 0,
       },
     );
-    expect(fetchMock.mock.calls[1]?.[0]).toBe(
-      'https://api.github.com/repos/owner/repository/labels/schedule-diagnostic',
+    expect(fetchMock.mock.calls[1]?.[0]).toContain(
+      '/repos/owner/repository/issues?state=closed',
     );
     expect(fetchMock.mock.calls[2]?.[0]).toBe(
+      'https://api.github.com/repos/owner/repository/labels/schedule-diagnostic',
+    );
+    expect(fetchMock.mock.calls[3]?.[0]).toBe(
       'https://api.github.com/repos/owner/repository/labels',
     );
-    const issueRequest = fetchMock.mock.calls[3]?.[1];
+    const issueRequest = fetchMock.mock.calls[4]?.[1];
     expect(issueRequest?.method).toBe('POST');
     expect(issueRequest?.body).toBe(
       JSON.stringify({
@@ -240,8 +438,11 @@ describe('diagnostic Issue synchronization', () => {
             labels: ['schedule-diagnostic', 'needs-review'],
           },
         ]),
+      listClosedManagedIssues: () => Promise.resolve([]),
       createIssue: () => Promise.resolve(),
       updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
       closeIssue: () => Promise.resolve(),
     };
 
@@ -261,8 +462,11 @@ describe('diagnostic Issue synchronization', () => {
     const client: DiagnosticIssuesClient = {
       listOpenManagedIssues: () =>
         Promise.resolve([managedIssue('resolved', 3)]),
+      listClosedManagedIssues: () => Promise.resolve([]),
       createIssue,
       updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
       closeIssue,
     };
 
@@ -271,6 +475,8 @@ describe('diagnostic Issue synchronization', () => {
     ).resolves.toEqual({
       created: 1,
       updated: 0,
+      reopened: 0,
+      commented: 0,
       closed: 0,
       unchanged: 0,
       deferred: { reason: 'write-limit' },
@@ -283,8 +489,11 @@ describe('diagnostic Issue synchronization', () => {
     const client: DiagnosticIssuesClient = {
       listOpenManagedIssues: () =>
         Promise.resolve([managedIssue('resolved', 3)]),
+      listClosedManagedIssues: () => Promise.resolve([]),
       createIssue: () => Promise.reject(new GitHubRateLimitError(403, 60)),
       updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
       closeIssue,
     };
 
@@ -292,6 +501,8 @@ describe('diagnostic Issue synchronization', () => {
       {
         created: 0,
         updated: 0,
+        reopened: 0,
+        commented: 0,
         closed: 0,
         unchanged: 0,
         deferred: { reason: 'rate-limit', retryAfterSeconds: 60 },

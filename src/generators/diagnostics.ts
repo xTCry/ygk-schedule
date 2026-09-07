@@ -15,7 +15,8 @@ export interface DiagnosticsReportItem extends Diagnostic {
 }
 
 export interface DiagnosticsReport {
-  schemaVersion: 5;
+  schemaVersion: 6;
+  scope: DiagnosticsScope;
   generatedAt: string;
   scheduleVersion: string;
   summary: Record<'info' | 'warning' | 'error' | 'fatal', number>;
@@ -24,10 +25,19 @@ export interface DiagnosticsReport {
 }
 
 export interface DiagnosticIssueEvidence {
-  schemaVersion: 1;
+  schemaVersion: 2;
   issue: Pick<
     ReturnType<typeof formatDiagnosticIssue>,
-    'key' | 'fingerprint' | 'scope' | 'title' | 'labels' | 'occurrenceCount'
+    | 'key'
+    | 'familyKey'
+    | 'fingerprint'
+    | 'scope'
+    | 'lifecycle'
+    | 'observedDate'
+    | 'title'
+    | 'labels'
+    | 'occurrenceCount'
+    | 'observationKeys'
   >;
   diagnosticsReport: Pick<
     DiagnosticIssueEvidenceReference,
@@ -69,6 +79,7 @@ export const buildDiagnosticsReport = (
   schedule: DiagnosticsReportSubject,
   options: BuildDiagnosticsReportOptions = {},
 ): DiagnosticsReport => {
+  const scope = options.scope ?? 'base';
   const sources = new Map(
     schedule.sources.map((source) => [source.id, source]),
   );
@@ -124,7 +135,8 @@ export const buildDiagnosticsReport = (
   const issues = [...draftsByGroupKey.values()];
 
   return {
-    schemaVersion: 5,
+    schemaVersion: 6,
+    scope,
     generatedAt: schedule.generatedAt,
     scheduleVersion: schedule.version.value,
     summary,
@@ -159,14 +171,18 @@ export const buildDiagnosticIssueEvidence = (
     if (!issue.evidence) return [];
     return [
       {
-        schemaVersion: 1,
+        schemaVersion: 2,
         issue: {
           key: issue.key,
+          familyKey: issue.familyKey,
           fingerprint: issue.fingerprint,
           scope: issue.scope,
+          lifecycle: issue.lifecycle,
+          ...(issue.observedDate ? { observedDate: issue.observedDate } : {}),
           title: issue.title,
           labels: issue.labels,
           occurrenceCount: issue.occurrenceCount,
+          observationKeys: issue.observationKeys,
         },
         diagnosticsReport: {
           diagnosticsJsonPath: issue.evidence.diagnosticsJsonPath,

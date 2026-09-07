@@ -1,7 +1,11 @@
 import {
+  getDiagnosticIssueFamilyKeyFromBody,
   getDiagnosticIssueKeyFromBody,
+  getDiagnosticIssueLifecycleFromBody,
+  getDiagnosticIssueObservationKeysFromBody,
   SCHEDULE_DIAGNOSTIC_LABEL,
   type DiagnosticIssueDraft,
+  type DiagnosticsScope,
 } from '../diagnostics/issues.ts';
 
 const API_VERSION = '2022-11-28';
@@ -16,6 +20,11 @@ const scheduleDiagnosticLabel = {
 export interface ManagedDiagnosticIssue {
   number: number;
   key: string;
+  familyKey: string | null;
+  scope: DiagnosticsScope | null;
+  lifecycle: 'persistent' | 'dated';
+  observedDate?: string;
+  observationKeys: string[];
   title: string;
   body: string;
   labels: string[];
@@ -23,17 +32,25 @@ export interface ManagedDiagnosticIssue {
 
 export interface DiagnosticIssuesClient {
   listOpenManagedIssues(): Promise<ManagedDiagnosticIssue[]>;
+  listClosedManagedIssues(): Promise<ManagedDiagnosticIssue[]>;
   createIssue(issue: DiagnosticIssueDraft): Promise<void>;
   updateIssue(
     number: number,
     issue: Pick<DiagnosticIssueDraft, 'title' | 'body' | 'labels'>,
   ): Promise<void>;
+  reopenIssue(
+    number: number,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body' | 'labels'>,
+  ): Promise<void>;
+  addComment(number: number, body: string): Promise<void>;
   closeIssue(number: number): Promise<void>;
 }
 
 export interface DiagnosticIssuesSyncResult {
   created: number;
   updated: number;
+  reopened: number;
+  commented: number;
   closed: number;
   unchanged: number;
   deferred?: {
@@ -57,6 +74,17 @@ export interface SyncDiagnosticIssuesOptions {
     draft: DiagnosticIssueDraft,
     existing: ManagedDiagnosticIssue | undefined,
   ) => DiagnosticIssueDraft;
+  /**
+   * Ограничивает автоматическое закрытие scopes, отчёты которых действительно
+   * были загружены этим запуском. Пустой report scope всё равно считается
+   * обработанным.
+   */
+  scopes?: readonly DiagnosticsScope[];
+  /**
+   * Дата запуска по Москве. Нужна, чтобы исторические Issue замен закрывались
+   * с архивной формулировкой, а не как будто источник был исправлен.
+   */
+  currentDate?: string;
 }
 
 interface RepositoryIssueResponse {
@@ -118,6 +146,21 @@ const buildIssueMap = <T extends { key: string }>(
   return result;
 };
 
+const buildIssueFamilyMap = (
+  issues: readonly ManagedDiagnosticIssue[],
+): Map<string, ManagedDiagnosticIssue> => {
+  const duplicates = new Set<string>();
+  const result = new Map<string, ManagedDiagnosticIssue>();
+  for (const issue of issues) {
+    if (!issue.familyKey || duplicates.has(issue.familyKey)) continue;
+    if (result.has(issue.familyKey)) {
+      result.delete(issue.familyKey);
+      duplicates.add(issue.familyKey);
+    } else result.set(issue.familyKey, issue);
+  }
+  return result;
+};
+
 const isSameIssue = (
   existing: ManagedDiagnosticIssue,
   next: DiagnosticIssueDraft,
@@ -137,6 +180,13 @@ const labelNames = (labels: readonly unknown[]): string[] =>
         : [],
     )
     .sort((left, right) => left.localeCompare(right));
+
+const issueScope = (labels: readonly string[]): DiagnosticsScope | null => {
+  const scope = labels.find((label) => label.startsWith('scope:'))?.slice(6);
+  return scope === 'base' || scope === 'replacements' || scope === 'actual'
+    ? scope
+    : null;
+};
 
 const isManagedDiagnosticLabel = (label: string): boolean =>
   label === SCHEDULE_DIAGNOSTIC_LABEL ||
@@ -159,6 +209,133 @@ const mergedIssueLabels = (
       ...existing.labels.filter((label) => !isManagedDiagnosticLabel(label)),
     ]),
   ].sort((left, right) => left.localeCompare(right));
+
+const tableValue = (body: string, field: string): string =>
+  body.match(new RegExp(`^\\| ${field} \\| (.+) \\|$`, 'mu'))?.[1] ?? '—';
+
+const observationDelta = (
+  previous: readonly string[],
+  next: readonly string[],
+): { added: number; removed: number; unchanged: number } => {
+  const previousSet = new Set(previous);
+  const nextSet = new Set(next);
+  return {
+    added: [...nextSet].filter((key) => !previousSet.has(key)).length,
+    removed: [...previousSet].filter((key) => !nextSet.has(key)).length,
+    unchanged: [...nextSet].filter((key) => previousSet.has(key)).length,
+  };
+};
+
+const hasObservationChanges = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): boolean =>
+  existing.observationKeys.length > 0 &&
+  JSON.stringify(existing.observationKeys) !==
+    JSON.stringify(
+      [...next.observationKeys].sort((left, right) =>
+        left.localeCompare(right),
+      ),
+    );
+
+const issueDataReferences = (
+  body: string,
+): {
+  dataRevision: string;
+  diagnostics: string;
+  evidence: string;
+} => ({
+  dataRevision: tableValue(body, 'Ревизия data'),
+  diagnostics: tableValue(body, 'Diagnostics JSON'),
+  evidence: tableValue(body, 'Evidence JSON'),
+});
+
+const formatDataReferences = (prefix: string, body: string): string[] => {
+  const references = issueDataReferences(body);
+  return [
+    `| ${prefix} data | ${references.dataRevision} |`,
+    `| ${prefix} diagnostics | ${references.diagnostics} |`,
+    `| ${prefix} evidence | ${references.evidence} |`,
+  ];
+};
+
+/**
+ * История не перезаписывается в теле Issue: при изменении набора строк
+ * отдельный комментарий фиксирует дельту и обе immutable ревизии data.
+ */
+const formatUpdateComment = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): string => {
+  const delta = observationDelta(
+    existing.observationKeys,
+    next.observationKeys,
+  );
+  return `## Автоматическое обновление
+
+Изменился состав наблюдаемых diagnostics.
+
+| Показатель | Строк |
+| --- | ---: |
+| Добавлено | ${delta.added} |
+| Перестало наблюдаться | ${delta.removed} |
+| Осталось | ${delta.unchanged} |
+
+## Ссылки на снимки
+
+| Поле | Значение |
+| --- | --- |
+${formatDataReferences('Предыдущие', existing.body).join('\n')}
+${formatDataReferences('Актуальные', next.body).join('\n')}
+`;
+};
+
+const formatCloseComment = (
+  issue: ManagedDiagnosticIssue,
+  currentDate: string | undefined,
+): string => {
+  const archive =
+    issue.lifecycle === 'dated' &&
+    issue.observedDate &&
+    currentDate &&
+    issue.observedDate < currentDate;
+  const message = archive
+    ? `Дата замен ${issue.observedDate} уже завершилась, поэтому Issue закрыта как архивная. Она больше не влияет на актуальное расписание.`
+    : 'Проблема больше не наблюдается в актуальной выгрузке.';
+  return `## Автоматическое закрытие
+
+${message}
+
+Это не подтверждает исправление первоисточника: исчезновение может быть
+вызвано обновлением файла, замен или parser-а.
+
+## Последний зафиксированный снимок
+
+| Поле | Значение |
+| --- | --- |
+${formatDataReferences('Последние', issue.body).join('\n')}
+`;
+};
+
+const formatReopenComment = (
+  existing: ManagedDiagnosticIssue,
+  next: DiagnosticIssueDraft,
+): string => `## Автоматическое переоткрытие
+
+Проблема снова наблюдается в актуальной выгрузке.
+
+## Ссылки на снимки
+
+| Поле | Значение |
+| --- | --- |
+${formatDataReferences('Предыдущие', existing.body).join('\n')}
+${formatDataReferences('Актуальные', next.body).join('\n')}
+`;
+
+const canCloseIssue = (
+  issue: ManagedDiagnosticIssue,
+  scopes: ReadonlySet<DiagnosticsScope> | undefined,
+): boolean => !scopes || (issue.scope !== null && scopes.has(issue.scope));
 
 const diagnosticLabelDefinition = (
   label: string,
@@ -202,10 +379,11 @@ const diagnosticLabelDefinition = (
 };
 
 /**
- * Синхронизирует с GitHub только открытые Issue с маркером parser.
+ * Синхронизирует с GitHub только Issue с маркером parser.
  *
- * Отсутствующая в актуальном отчете диагностическая Issue закрывается, а
- * вручную созданные Issue без служебного маркера остаются без изменений.
+ * Открытая Issue обновляется сначала по точному ключу, затем по ключу семьи.
+ * Закрытая Issue при повторном появлении переоткрывается. Вручную созданные
+ * Issue без служебного маркера остаются без изменений.
  */
 export const syncDiagnosticIssues = async (
   drafts: readonly DiagnosticIssueDraft[],
@@ -216,6 +394,8 @@ export const syncDiagnosticIssues = async (
   const result: DiagnosticIssuesSyncResult = {
     created: 0,
     updated: 0,
+    reopened: 0,
+    commented: 0,
     closed: 0,
     unchanged: 0,
   };
@@ -235,42 +415,89 @@ export const syncDiagnosticIssues = async (
         : {}),
     },
   });
-  const canWrite = (): boolean =>
+  const canWrite = (count = 1): boolean =>
     options.maxWriteOperations === undefined ||
-    writeOperations < options.maxWriteOperations;
+    writeOperations + count <= options.maxWriteOperations;
 
-  let existingByKey: Map<string, ManagedDiagnosticIssue>;
+  let openIssues: ManagedDiagnosticIssue[];
   try {
-    existingByKey = buildIssueMap(
-      await client.listOpenManagedIssues(),
-      'open managed Issue',
-    );
+    openIssues = await client.listOpenManagedIssues();
   } catch (error) {
     if (error instanceof GitHubRateLimitError) return deferForRateLimit(error);
     throw error;
   }
+  const openByKey = buildIssueMap(openIssues, 'open managed Issue');
+  const openByFamily = buildIssueFamilyMap(openIssues);
+  const draftWithoutOpenIssue = drafts.some(
+    (draft) => !openByKey.has(draft.key) && !openByFamily.has(draft.familyKey),
+  );
+  let closedByKey = new Map<string, ManagedDiagnosticIssue>();
+  let closedByFamily = new Map<string, ManagedDiagnosticIssue>();
+  if (draftWithoutOpenIssue) {
+    try {
+      const closedIssues = await client.listClosedManagedIssues();
+      closedByKey = buildIssueMap(closedIssues, 'closed managed Issue');
+      closedByFamily = buildIssueFamilyMap(closedIssues);
+    } catch (error) {
+      if (error instanceof GitHubRateLimitError)
+        return deferForRateLimit(error);
+      throw error;
+    }
+  }
+  const handledOpenIssueNumbers = new Set<number>();
 
   for (const draft of drafts) {
-    const existing = existingByKey.get(draft.key);
+    const existing =
+      openByKey.get(draft.key) ?? openByFamily.get(draft.familyKey);
     const prepared = options.prepareDraft?.(draft, existing) ?? draft;
     const next = existing
       ? { ...prepared, labels: mergedIssueLabels(existing, prepared) }
       : prepared;
-    if (existing && isSameIssue(existing, next)) {
-      result.unchanged += 1;
-      continue;
-    }
-    if (!canWrite()) return deferForWriteLimit();
 
     try {
       if (existing) {
+        handledOpenIssueNumbers.add(existing.number);
+        if (isSameIssue(existing, next)) {
+          result.unchanged += 1;
+          continue;
+        }
+        const comment = hasObservationChanges(existing, next)
+          ? formatUpdateComment(existing, next)
+          : undefined;
+        if (!canWrite(comment ? 2 : 1)) return deferForWriteLimit();
         await client.updateIssue(existing.number, next);
+        writeOperations += 1;
         result.updated += 1;
+        if (comment) {
+          await client.addComment(existing.number, comment);
+          writeOperations += 1;
+          result.commented += 1;
+        }
       } else {
-        await client.createIssue(next);
-        result.created += 1;
+        const closed =
+          closedByKey.get(draft.key) ?? closedByFamily.get(draft.familyKey);
+        if (closed) {
+          const reopened = {
+            ...prepared,
+            labels: mergedIssueLabels(closed, prepared),
+          };
+          if (!canWrite(2)) return deferForWriteLimit();
+          await client.reopenIssue(closed.number, reopened);
+          writeOperations += 1;
+          result.reopened += 1;
+          await client.addComment(
+            closed.number,
+            formatReopenComment(closed, reopened),
+          );
+          writeOperations += 1;
+          result.commented += 1;
+        } else {
+          if (!canWrite()) return deferForWriteLimit();
+          await client.createIssue(next);
+          writeOperations += 1;
+          result.created += 1;
+        }
       }
-      writeOperations += 1;
     } catch (error) {
       if (error instanceof GitHubRateLimitError)
         return deferForRateLimit(error);
@@ -279,13 +506,26 @@ export const syncDiagnosticIssues = async (
   }
 
   // Закрываем только после успешного создания и обновления актуальных Issue.
-  for (const issue of existingByKey.values()) {
-    if (desiredByKey.has(issue.key)) continue;
-    if (!canWrite()) return deferForWriteLimit();
+  // Scope без загруженного report намеренно не трогаем.
+  const scopes = options.scopes ? new Set(options.scopes) : undefined;
+  for (const issue of openIssues) {
+    if (
+      handledOpenIssueNumbers.has(issue.number) ||
+      desiredByKey.has(issue.key) ||
+      !canCloseIssue(issue, scopes)
+    )
+      continue;
+    if (!canWrite(2)) return deferForWriteLimit();
     try {
-      await client.closeIssue(issue.number);
-      result.closed += 1;
+      await client.addComment(
+        issue.number,
+        formatCloseComment(issue, options.currentDate),
+      );
       writeOperations += 1;
+      result.commented += 1;
+      await client.closeIssue(issue.number);
+      writeOperations += 1;
+      result.closed += 1;
     } catch (error) {
       if (error instanceof GitHubRateLimitError)
         return deferForRateLimit(error);
@@ -313,12 +553,14 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
 
   private readonly token: string;
 
-  public async listOpenManagedIssues(): Promise<ManagedDiagnosticIssue[]> {
+  private async listManagedIssues(
+    state: 'open' | 'closed',
+  ): Promise<ManagedDiagnosticIssue[]> {
     const issues: ManagedDiagnosticIssue[] = [];
 
     for (let page = 1; ; page += 1) {
       const response = await this.request(
-        `${this.baseUrl}?state=open&per_page=${ISSUES_PER_PAGE}&page=${page}`,
+        `${this.baseUrl}?state=${state}&per_page=${ISSUES_PER_PAGE}&page=${page}`,
       );
       const payload: unknown = await response.json();
       if (!Array.isArray(payload) || !payload.every(isRepositoryIssueResponse))
@@ -328,17 +570,35 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
         if (issue.pull_request) continue;
         const key = getDiagnosticIssueKeyFromBody(issue.body);
         if (!key) continue;
+        const body = issue.body ?? '';
+        const lifecycle = getDiagnosticIssueLifecycleFromBody(body);
+        const labels = labelNames(issue.labels);
         issues.push({
           number: issue.number,
           key,
+          familyKey: getDiagnosticIssueFamilyKeyFromBody(body),
+          scope: issueScope(labels),
+          lifecycle: lifecycle.lifecycle,
+          ...(lifecycle.observedDate
+            ? { observedDate: lifecycle.observedDate }
+            : {}),
+          observationKeys: getDiagnosticIssueObservationKeysFromBody(body),
           title: issue.title,
-          body: issue.body ?? '',
-          labels: labelNames(issue.labels),
+          body,
+          labels,
         });
       }
 
       if (payload.length < ISSUES_PER_PAGE) return issues;
     }
+  }
+
+  public async listOpenManagedIssues(): Promise<ManagedDiagnosticIssue[]> {
+    return this.listManagedIssues('open');
+  }
+
+  public async listClosedManagedIssues(): Promise<ManagedDiagnosticIssue[]> {
+    return this.listManagedIssues('closed');
   }
 
   public async createIssue(issue: DiagnosticIssueDraft): Promise<void> {
@@ -365,6 +625,29 @@ export class GitHubDiagnosticIssuesClient implements DiagnosticIssuesClient {
         body: issue.body,
         labels: issue.labels,
       }),
+    });
+  }
+
+  public async reopenIssue(
+    number: number,
+    issue: Pick<DiagnosticIssueDraft, 'title' | 'body' | 'labels'>,
+  ): Promise<void> {
+    await this.ensureDiagnosticLabels(issue.labels);
+    await this.request(`${this.baseUrl}/${number}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        title: issue.title,
+        body: issue.body,
+        labels: issue.labels,
+        state: 'open',
+      }),
+    });
+  }
+
+  public async addComment(number: number, body: string): Promise<void> {
+    await this.request(`${this.baseUrl}/${number}/comments`, {
+      method: 'POST',
+      body: JSON.stringify({ body }),
     });
   }
 

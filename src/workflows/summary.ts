@@ -74,6 +74,8 @@ export const formatIssueSyncSummary = (
   result: {
     created: number;
     updated: number;
+    reopened: number;
+    commented: number;
     closed: number;
     unchanged: number;
     deferred?: { reason: string; retryAfterSeconds?: number };
@@ -88,6 +90,8 @@ ${details}
 
 - Создано: **${result.created}**
 - Обновлено: **${result.updated}**
+- Переоткрыто: **${result.reopened}**
+- Комментариев lifecycle: **${result.commented}**
 - Закрыто: **${result.closed}**
 - Без изменений: **${result.unchanged}**`;
 };

@@ -116,7 +116,8 @@ describe('diagnostics metadata generator', () => {
       ],
     });
 
-    expect(report.schemaVersion).toBe(5);
+    expect(report.schemaVersion).toBe(6);
+    expect(report.scope).toBe('base');
     expect(report.issues).toHaveLength(1);
     const issueFingerprint = report.issues[0]?.fingerprint;
     if (!issueFingerprint)
@@ -146,8 +147,9 @@ describe('diagnostics metadata generator', () => {
       throw new Error('Expected one diagnostics Issue and its evidence');
 
     expect(evidence).toHaveLength(1);
-    expect(firstEvidence.schemaVersion).toBe(1);
+    expect(firstEvidence.schemaVersion).toBe(2);
     expect(firstEvidence.issue.key).toBe(issue.key);
+    expect(firstEvidence.issue.familyKey).toBe(issue.familyKey);
     expect(firstEvidence.issue.scope).toBe('base');
     expect(firstEvidence.diagnosticsReport).toEqual({
       diagnosticsJsonPath: 'base/90-diagnostics.json',
