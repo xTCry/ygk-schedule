@@ -471,6 +471,112 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('applies a replacement with an empty subgroup marker to both subgroups', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (item) => item.number === 2,
+    )!;
+    lesson.variants = [
+      {
+        subject: 'Математика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '1',
+        sourceRow: 2,
+      },
+      {
+        subject: 'Математика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '2',
+        sourceRow: 3,
+      },
+    ];
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement([2], 'replace', 'Математика п/гр', 'Информатика пгр'),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']!.groups['СТ1-11']!.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [
+        { subject: 'Информатика', subgroup: '1' },
+        { subject: 'Информатика', subgroup: '2' },
+      ],
+      replacements: [{ strategy: 'exact-subject', lessonNumber: 2 }],
+    });
+  });
+
+  it('cancels both explicitly listed subgroups', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (item) => item.number === 2,
+    )!;
+    lesson.variants = [
+      {
+        subject: 'Математика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '1',
+        sourceRow: 2,
+      },
+      {
+        subject: 'Математика',
+        teacher: '',
+        room: 'А201',
+        weekType: 'numerator',
+        subgroup: '2',
+        sourceRow: 3,
+      },
+    ];
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement([2], 'cancel', 'Математика пгр1,2', 'Снято'),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']!.groups['СТ1-11']!.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      status: 'cancelled',
+      variants: [],
+      replacements: [{ strategy: 'exact-subject', lessonNumber: 2 }],
+    });
+  });
+
   it('matches listed module codes and conservative subject abbreviations', () => {
     const schedule = structuredClone(baseSchedule);
     const scheduleGroup = schedule.groups['СТ1-11'];
@@ -614,6 +720,49 @@ describe('actual YGK schedule', () => {
       replacements: [{ strategy: 'subject-module-code' }],
     });
   });
+
+  it.each([
+    ['МДК.01.01', 'МДК.01.01 Компьютерные сети'],
+    ['МДК01.01', 'МДК.01.01 Компьютерные сети'],
+    ['УП.04', 'УП.04 Учебная практика'],
+    ['УП04', 'УП.04 Учебная практика'],
+  ])(
+    'matches a manually compacted subject code %s',
+    (originalCode, baseSubject) => {
+      const schedule = structuredClone(baseSchedule);
+      const lesson = schedule.groups['СТ1-11']?.days[0]?.lessons.find(
+        (item) => item.number === 2,
+      );
+      if (!lesson) throw new Error('Expected test lesson');
+      lesson.variants[0]!.subject = baseSubject;
+
+      const actual = buildActualSchedule(
+        schedule,
+        {
+          ...replacements,
+          dates: {
+            '2026-09-04': {
+              ...replacements.dates['2026-09-04']!,
+              replacements: [
+                replacement([2], 'replace', originalCode, 'История'),
+              ],
+            },
+          },
+        },
+        'actual-parser',
+        'config',
+      );
+
+      expect(
+        actual.dates['2026-09-04']?.groups['СТ1-11']?.lessons.find(
+          (item) => item.number === 2,
+        ),
+      ).toMatchObject({
+        variants: [{ subject: 'История' }],
+        replacements: [{ strategy: 'subject-module-code' }],
+      });
+    },
+  );
 
   it('reports a subgroup that is not scheduled in the replacement week', () => {
     const schedule = structuredClone(baseSchedule);

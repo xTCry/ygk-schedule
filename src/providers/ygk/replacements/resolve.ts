@@ -27,6 +27,7 @@ import { resolveYgkReplacementGroup } from './group.ts';
 import { compatibleReplacementSnapshots } from './history.ts';
 import { parseYgkReplacementLessonText } from './lesson-text.ts';
 import { findUniqueSimilarSubject } from './subject-match.ts';
+import { hasYgkSubgroupMarker } from '../subgroup.ts';
 
 const subjectKey = (value: string): string =>
   normalizeDashes(normalizeSingleLine(value))
@@ -143,7 +144,7 @@ const createReplacementVariant = (
     rawSubject,
     ...(parsedTeacher ? { rawTeacher: parsedTeacher } : {}),
     ...(replacement.replacement.room
-      ? { rawRoom: replacement.replacement.room }
+      ? { rawRoom: replacement.source.rawRoom || replacement.replacement.room }
       : {}),
     sourceRow: replacement.source.row,
   };
@@ -462,7 +463,20 @@ const applyReplacement = (
     );
     return;
   }
-  if (matches.length > 1) {
+  const mayApplyToAllSubgroups =
+    parsedOriginal !== null &&
+    hasYgkSubgroupMarker(replacement.original?.raw ?? '') &&
+    matches.length > 1 &&
+    (() => {
+      const subgroups = matches.map(
+        (match) => lesson.variants[match.index]?.subgroup,
+      );
+      return (
+        subgroups.every((subgroup): subgroup is string => Boolean(subgroup)) &&
+        new Set(subgroups).size === subgroups.length
+      );
+    })();
+  if (matches.length > 1 && !mayApplyToAllSubgroups) {
     unresolved(
       target,
       replacement,
@@ -473,22 +487,30 @@ const applyReplacement = (
     );
     return;
   }
-  const match = matches[0];
-  if (!match) return;
-
   if (replacement.type === 'cancel') {
-    lesson.variants.splice(match.index, 1);
+    for (const match of [...matches].sort(
+      (left, right) => right.index - left.index,
+    )) {
+      lesson.variants.splice(match.index, 1);
+    }
     lesson.status = lesson.variants.length ? 'scheduled' : 'cancelled';
-    applied(lesson, replacement, lessonNumber, match.strategy);
+    applied(
+      lesson,
+      replacement,
+      lessonNumber,
+      matches[0]?.strategy ?? 'exact-subject',
+    );
     return;
   }
 
-  const replacementVariant = createReplacementVariant(
-    replacement,
-    lesson.variants[match.index],
-    aliases,
+  const replacementVariants = matches.map((match) =>
+    createReplacementVariant(
+      replacement,
+      lesson.variants[match.index],
+      aliases,
+    ),
   );
-  if (!replacementVariant) {
+  if (replacementVariants.some((variant) => variant === null)) {
     unresolved(
       target,
       replacement,
@@ -499,9 +521,22 @@ const applyReplacement = (
     );
     return;
   }
-  lesson.variants.splice(match.index, 1, replacementVariant);
+  for (const { match, replacementVariant } of matches
+    .map((match, index) => ({
+      match,
+      replacementVariant: replacementVariants[index],
+    }))
+    .sort((left, right) => right.match.index - left.match.index)) {
+    if (!replacementVariant) continue;
+    lesson.variants.splice(match.index, 1, replacementVariant);
+  }
   lesson.status = 'scheduled';
-  applied(lesson, replacement, lessonNumber, match.strategy);
+  applied(
+    lesson,
+    replacement,
+    lessonNumber,
+    matches[0]?.strategy ?? 'exact-subject',
+  );
 };
 
 const cloneActualLesson = (lesson: ActualLesson): ActualLesson => ({

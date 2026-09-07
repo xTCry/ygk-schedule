@@ -142,6 +142,40 @@ describe('YGK replacements HTML parser', () => {
     ]);
   });
 
+  it('normalizes a bare room without inventing its building', () => {
+    const parsed = parseYgkReplacements(
+      `
+        <div><b>ИЗМЕНЕНИЯ</b></div>
+        <div>в расписании на 4 сентября 2026 года / пятница</div>
+        <div>(Числитель) Первая смена</div>
+        <table>
+          <tr>
+            <th>№</th>
+            <th>Группа</th>
+            <th>Номер</th>
+            <th>Дисциплина по расписанию</th>
+            <th>Дисциплина по замене</th>
+            <th>Аудитория</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>СТ1-11</td>
+            <td>2</td>
+            <td>Математика</td>
+            <td>История</td>
+            <td>к 25</td>
+          </tr>
+        </table>
+      `,
+      'first',
+    );
+
+    expect(parsed.replacements[0]).toMatchObject({
+      replacement: { raw: 'История', room: 'к.25' },
+      source: { rawRoom: 'к 25' },
+    });
+  });
+
   it('distinguishes an unpublished page from an empty table of changes', () => {
     const parsed = parseYgkReplacements(
       '<div>Обновление ожидается</div>',

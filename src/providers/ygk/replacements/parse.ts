@@ -12,6 +12,7 @@ import type {
   ReplacementType,
   WeekType,
 } from '../../../types.ts';
+import { normalizeYgkRoom } from '../room.ts';
 import { normalizeGroupCode, parseGroupCandidate } from '../schedule/group.ts';
 
 const dayByName = new Map<string, DayOfWeek>([
@@ -250,6 +251,7 @@ const parseReplacementRow = (
   const rawOriginal = cellText($, row, columns.original);
   const rawReplacement = cellText($, row, columns.replacement);
   const rawRoom = cellText($, row, columns.room);
+  const room = normalizeYgkRoom(rawRoom);
 
   // В исходной таблице встречаются строки с порядковым номером без данных.
   // Это не замена и не ошибка структуры страницы.
@@ -310,7 +312,7 @@ const parseReplacementRow = (
     type,
     original: rawOriginal ? { raw: rawOriginal } : null,
     replacement: rawReplacement
-      ? { raw: rawReplacement, ...(rawRoom ? { room: rawRoom } : {}) }
+      ? { raw: rawReplacement, ...(room ? { room } : {}) }
       : null,
     source,
   };

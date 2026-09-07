@@ -20,6 +20,8 @@ import {
 } from '../../../xlsx/workbook.ts';
 import type { XlsxCell, XlsxWorksheet } from '../../../xlsx/types.ts';
 import { YGK_DAY_INDEX, YGK_DAYS, YGK_EXPECTED_COLUMNS } from '../constants.ts';
+import { normalizeYgkRoom } from '../room.ts';
+import { stripYgkSubgroupMarkers } from '../subgroup.ts';
 import { normalizeGroupCode, parseGroupCandidate } from './group.ts';
 import {
   cellAppliesToWholeLesson,
@@ -98,13 +100,8 @@ const rawValue = (cell: XlsxCell | undefined): string => {
 };
 
 const extractSubgroup = (subject: string): string | undefined => {
-  const matches = [...subject.matchAll(/п\s*\/\s*гр\.?\s*([12])/giu)].map(
-    (match) => match[1],
-  );
-  const unique = [
-    ...new Set(matches.filter((value): value is string => Boolean(value))),
-  ];
-  return unique.length === 1 ? unique[0] : undefined;
+  const subgroups = stripYgkSubgroupMarkers(subject).subgroups;
+  return subgroups.length === 1 ? subgroups[0] : undefined;
 };
 
 const mergeSpansLesson = (
@@ -127,7 +124,8 @@ const parseVariantRow = (
   const roomCell = getEffectiveCell(sheet, row, 9);
   const subject = normalizeText(subjectCell?.value);
   const teacher = normalizeText(teacherCell?.value);
-  const room = normalizeText(roomCell?.value);
+  const rawRoom = rawValue(roomCell);
+  const room = normalizeYgkRoom(rawRoom);
   if (!subject) return null;
 
   const relevant = [
@@ -154,7 +152,7 @@ const parseVariantRow = (
     room,
     rawSubject: rawValue(subjectCell),
     rawTeacher: rawValue(teacherCell),
-    rawRoom: rawValue(roomCell),
+    rawRoom,
     numerator,
     unknownColor,
     allRelevantFieldsSpanLesson,
