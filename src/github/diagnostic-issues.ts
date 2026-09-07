@@ -146,6 +146,23 @@ const buildIssueMap = <T extends { key: string }>(
   return result;
 };
 
+/**
+ * Возвращает последнюю закрытую Issue для каждого ключа. Ранние версии
+ * workflow успели создать закрытые дубли до появления family key, поэтому
+ * такая история не должна блокировать новую выгрузку. Больший номер GitHub
+ * Issue однозначно означает более позднее создание.
+ */
+const buildLatestClosedIssueMap = (
+  issues: readonly ManagedDiagnosticIssue[],
+): Map<string, ManagedDiagnosticIssue> => {
+  const result = new Map<string, ManagedDiagnosticIssue>();
+  for (const issue of issues) {
+    const current = result.get(issue.key);
+    if (!current || issue.number > current.number) result.set(issue.key, issue);
+  }
+  return result;
+};
+
 const buildIssueFamilyMap = (
   issues: readonly ManagedDiagnosticIssue[],
 ): Map<string, ManagedDiagnosticIssue> => {
@@ -436,7 +453,7 @@ export const syncDiagnosticIssues = async (
   if (draftWithoutOpenIssue) {
     try {
       const closedIssues = await client.listClosedManagedIssues();
-      closedByKey = buildIssueMap(closedIssues, 'closed managed Issue');
+      closedByKey = buildLatestClosedIssueMap(closedIssues);
       closedByFamily = buildIssueFamilyMap(closedIssues);
     } catch (error) {
       if (error instanceof GitHubRateLimitError)

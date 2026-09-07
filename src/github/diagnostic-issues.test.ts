@@ -213,6 +213,40 @@ describe('diagnostic Issue synchronization', () => {
     );
   });
 
+  it('reopens the latest closed Issue when legacy duplicates have one key', async () => {
+    const reopenIssue = vi.fn(() => Promise.resolve());
+    const addComment = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () => Promise.resolve([]),
+      listClosedManagedIssues: () =>
+        Promise.resolve([
+          managedIssue('known', 7, ' (старый дубликат)'),
+          managedIssue('known', 18),
+        ]),
+      createIssue: () => Promise.resolve(),
+      updateIssue: () => Promise.resolve(),
+      reopenIssue,
+      addComment,
+      closeIssue: () => Promise.resolve(),
+    };
+
+    await expect(
+      syncDiagnosticIssues([draft('known')], client),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 1,
+      commented: 1,
+      closed: 0,
+      unchanged: 0,
+    });
+    expect(reopenIssue).toHaveBeenCalledWith(18, draft('known'));
+    expect(addComment).toHaveBeenCalledWith(
+      18,
+      expect.stringContaining('Автоматическое переоткрытие'),
+    );
+  });
+
   it('archives a past replacement issue without claiming that the source was fixed', async () => {
     const addComment = vi.fn(() => Promise.resolve());
     const closeIssue = vi.fn(() => Promise.resolve());
