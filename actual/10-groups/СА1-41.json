@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -51,7 +61,7 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "1,2 п/гр.",
+                  "subject": "МДК.03.02 Безопасность КС",
                   "teacher": "Грехова Е.И.",
                   "room": "Б305",
                   "weekType": "both",
@@ -104,7 +114,7 @@
               "number": 4,
               "variants": [
                 {
-                  "subject": "1,2 п/гр.",
+                  "subject": "МДК.02.03 Организация администрирования КС",
                   "teacher": "Зайцев Р.А.",
                   "room": "Б304",
                   "weekType": "both",
@@ -157,11 +167,14 @@
               "number": 5,
               "variants": [
                 {
-                  "subject": "УП 03 Учебная практика",
-                  "teacher": "Зайцев Р.А.\nГрехова Е.И.",
-                  "room": "Б309\nБ304",
+                  "subject": "МДК 02.01",
+                  "teacher": "Грехова Е.И.",
+                  "room": "Б304",
                   "weekType": "both",
-                  "sourceRow": 105
+                  "rawSubject": "МДК 02.01 Грехова Е.И.",
+                  "rawTeacher": "Грехова Е.И.",
+                  "rawRoom": "Б304",
+                  "sourceRow": 12
                 }
               ],
               "source": {
@@ -172,43 +185,39 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "СА1-41",
+                    "lessonNumbers": [
+                      5
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "УП 03"
+                    },
+                    "replacement": {
+                      "raw": "МДК 02.01 Грехова Е.И.",
+                      "room": "Б304"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 12,
+                      "rawGroupName": "СА1-41",
+                      "rawLessonNumbers": "5",
+                      "rawOriginal": "УП 03",
+                      "rawReplacement": "МДК 02.01 Грехова Е.И.",
+                      "rawRoom": "Б304"
+                    }
+                  },
+                  "lessonNumber": 5,
+                  "strategy": "subject-module-code"
+                }
+              ]
             }
           ],
           "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "СА1-41",
-                "lessonNumbers": [
-                  5
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "УП 03"
-                },
-                "replacement": {
-                  "raw": "МДК 02.01 Грехова Е.И.",
-                  "room": "Б304"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 12,
-                  "rawGroupName": "СА1-41",
-                  "rawLessonNumbers": "5",
-                  "rawOriginal": "УП 03",
-                  "rawReplacement": "МДК 02.01 Грехова Е.И.",
-                  "rawRoom": "Б304"
-                }
-              },
-              "lessonNumber": 5,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «УП 03». По замене: «МДК 02.01 Грехова Е.И.». Аудитория: «Б304».",
-                "room": "Б304"
-              }
-            },
             {
               "replacement": {
                 "date": "2026-09-07",
@@ -242,6 +251,200 @@
                 "room": "Б304"
               }
             }
+          ],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "МДК.03.02 Безопасность КС",
+                    "teacher": "Груздев В.В.\nГрехова Е.И.",
+                    "room": "Б304\nБ305",
+                    "weekType": "both",
+                    "sourceRow": 101
+                  }
+                ],
+                "source": {
+                  "sheet": "СА1-21 СА1-31  СА1-41",
+                  "rowStart": 101,
+                  "rowEnd": 102,
+                  "rawGroupName": "СА1-41/СА1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "МДК.02.03 Организация администрирования КС",
+                    "teacher": "Зайцев Р.А.\nГруздев В.В.",
+                    "room": "Б302\nБ304",
+                    "weekType": "denominator",
+                    "sourceRow": 103
+                  }
+                ],
+                "source": {
+                  "sheet": "СА1-21 СА1-31  СА1-41",
+                  "rowStart": 103,
+                  "rowEnd": 104,
+                  "rawGroupName": "СА1-41/СА1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 5,
+                "variants": [
+                  {
+                    "subject": "УП 03 Учебная практика",
+                    "teacher": "Зайцев Р.А.\nГрехова Е.И.",
+                    "room": "Б309\nБ304",
+                    "weekType": "both",
+                    "sourceRow": 105
+                  }
+                ],
+                "source": {
+                  "sheet": "СА1-21 СА1-31  СА1-41",
+                  "rowStart": 105,
+                  "rowEnd": 106,
+                  "rawGroupName": "СА1-41/СА1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "СА1-41": {
+          "group": "СА1-41",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "УП 03 Учебная практика",
+                  "teacher": "Зайцев Р.А.\nГрехова Е.И.",
+                  "room": "Б301\nБ304",
+                  "weekType": "both",
+                  "sourceRow": 112
+                }
+              ],
+              "source": {
+                "sheet": "СА1-21 СА1-31  СА1-41",
+                "rowStart": 112,
+                "rowEnd": 113,
+                "rawGroupName": "СА1-41/СА1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Куликова А.А.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "sourceRow": 114
+                }
+              ],
+              "source": {
+                "sheet": "СА1-21 СА1-31  СА1-41",
+                "rowStart": 114,
+                "rowEnd": 115,
+                "rawGroupName": "СА1-41/СА1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-08",
+                "group": "СА1-41",
+                "lessonNumbers": [
+                  3
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "Ин.язык"
+                },
+                "replacement": {
+                  "raw": "1,2 п/гр. Зубковская А.Е.",
+                  "room": "М101"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 8,
+                  "rawGroupName": "СА1-41",
+                  "rawLessonNumbers": "3",
+                  "rawOriginal": "Ин.язык",
+                  "rawReplacement": "1,2 п/гр. Зубковская А.Е.",
+                  "rawRoom": "М101"
+                }
+              },
+              "lessonNumber": 3,
+              "reason": "lesson-not-found",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «Ин.язык». По замене: «1,2 п/гр. Зубковская А.Е.». Аудитория: «М101».",
+                "room": "М101"
+              }
+            }
           ]
         }
       }
@@ -271,21 +474,21 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "5b4410bb0c6de89ec3696c4dff31fe7861c0e55302f1897341051c19ca255036",
+      "message": "Пара из замены отсутствует в базовом расписании",
+      "fingerprint": "77f3f8a1fabfad350bd56db14b66d90cbb125faa8c25e87733dec6570b3ed95f",
       "sheet": "Замены: Вторая смена",
-      "row": 12,
+      "row": 8,
       "normalizedGroup": "СА1-41",
-      "rawValue": "МДК 02.01 Грехова Е.И.",
+      "rawValue": "1,2 п/гр. Зубковская А.Е.",
       "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 5,
+        "date": "2026-09-08",
+        "lessonNumber": 3,
         "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "lesson-not-found"
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "bed9a239d691b7dbb1a6596fa40da13d86569d1f7bff4ded3f7acfa7ced99dea"
+  "semanticHash": "6c77324bdd77e41a8f28c6688b9352471f110c8b0080b493aee0b1427dcfce4e"
 }

@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       АР1-21:
         group: АР1-21
@@ -53,7 +61,7 @@ dates:
               rowStart: 4
               rowEnd: 5
               rawGroupName: АР1-21/АР1-22
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
           - number: 1
@@ -68,49 +76,126 @@ dates:
               rowStart: 6
               rowEnd: 7
               rawGroupName: АР1-21/АР1-22
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
           - number: 2
             variants:
-              - subject: Рисунок Багдасарьян В.В.
-                teacher: Багдасарьян О.Н.
+              - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
+                teacher: Вакансия
                 room: ДОТ
-                weekType: both
+                weekType: denominator
                 subgroup: "2"
-                rawSubject: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-                rawTeacher: Багдасарьян О.Н.
-                rawRoom: ДОТ
-                sourceRow: 21
+                sourceRow: 8
             source:
               sheet: АР1-21 АР1-31 АР1-32 АР1-41
               rowStart: 8
               rowEnd: 9
               rawGroupName: АР1-21/АР1-22
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
-            replacements:
-              - replacement:
-                  date: 2026-09-07
-                  group: АР1-21
-                  lessonNumbers:
-                    - 2
-                  type: replace
-                  original:
-                    raw: МДК 01.03 п/гр.1
-                  replacement:
-                    raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-                    room: ДОТ
-                  source:
-                    shift: first
-                    row: 21
-                    rawGroupName: АР1-21
-                    rawLessonNumbers: "2"
-                    rawOriginal: МДК 01.03 п/гр.1
-                    rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
-                    rawRoom: ДОТ
-                lessonNumber: 2
-                strategy: subject-module-code
-        unresolvedReplacements: []
-diagnostics: []
-semanticHash: 3f744f388b761c2abdf6f1e0df35f6080c853545b0b3ae86f442e7b170429c71
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-07
+              group: АР1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: МДК 01.03 п/гр.1
+              replacement:
+                raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                room: ДОТ
+              source:
+                shift: first
+                row: 21
+                rawGroupName: АР1-21
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 01.03 п/гр.1
+                rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                rawRoom: ДОТ
+            lessonNumber: 2
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.03 п/гр.1». По замене: «Рисунок Багдасарьян
+                В.В.Багдасарьян О.Н.». Аудитория: «ДОТ»."
+              room: ДОТ
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 4
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 4
+                rowEnd: 5
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: История архитектуры
+                  teacher: Шатрова М.П.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 6
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 6
+                rowEnd: 7
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 8
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 8
+                rowEnd: 9
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: ff393120ed15911ed789a3ea551dee37d811011fa520d1b827c1de55f1d1b321
+    sheet: "Замены: Первая смена"
+    row: 21
+    normalizedGroup: АР1-21
+    rawValue: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+    context:
+      date: 2026-09-07
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      requestedSubject: МДК 01.03
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
+          teacher: Вакансия
+          room: ДОТ
+          subgroup: "2"
+          sourceRow: 8
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 116b61ba2d3806a01069d263b7288086e7669d0a811ce08f16863c0a83ca3fa7

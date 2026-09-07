@@ -65,7 +65,10 @@
                   "teacher": "Ковалева С.В.",
                   "room": "ДОТ",
                   "weekType": "both",
-                  "sourceRow": 42
+                  "rawSubject": "Ковалева С.В.",
+                  "rawTeacher": "Ковалева С.В.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 19
                 }
               ],
               "source": {
@@ -76,7 +79,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-05",
+                    "group": "МО2-11",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Осн.бизнеса"
+                    },
+                    "replacement": {
+                      "raw": "Ковалева С.В.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 19,
+                      "rawGroupName": "МО2-11",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "Осн.бизнеса",
+                      "rawReplacement": "Ковалева С.В.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             },
             {
               "number": 4,
@@ -100,41 +132,7 @@
               "replacements": []
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-05",
-                "group": "МО2-11",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Осн.бизнеса"
-                },
-                "replacement": {
-                  "raw": "Ковалева С.В.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 19,
-                  "rawGroupName": "МО2-11",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "Осн.бизнеса",
-                  "rawReplacement": "Ковалева С.В.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Осн.бизнеса». По замене: «Ковалева С.В.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ],
+          "unresolvedReplacements": [],
           "frozenBase": {
             "scheduleVersion": "18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7",
             "dataRevision": "c34c18aa84659ba23ad4d53d490e962228a09521",
@@ -187,26 +185,6 @@
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "fb079a96d16e272c34d8833a6968da6bcbffbca15a205486acd4513f211cdb6f",
-      "sheet": "Замены: Первая смена",
-      "row": 19,
-      "normalizedGroup": "МО2-11",
-      "rawValue": "Ковалева С.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "edf53bef96e195397ea9b5eba176a50ec16856b2761853dd939bb43249f4c75f"
+  "diagnostics": [],
+  "semanticHash": "438173790e5d7a5c739ab411fe9e2eb5d3759f49183ee37a0dd2e00e0f009c60"
 }

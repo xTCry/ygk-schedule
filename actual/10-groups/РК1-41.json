@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -52,10 +62,67 @@
               "variants": [
                 {
                   "subject": "УП 01.03 Информационные технологии в профессиональной деятельности",
-                  "teacher": "Пономаренко В.С.\nВакансия",
+                  "teacher": "Пономаренко В.С.",
                   "room": "ДОТ",
                   "weekType": "both",
-                  "sourceRow": 255
+                  "rawSubject": "1,2 п/гр. Пономаренко В.С.",
+                  "rawTeacher": "Пономаренко В.С.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 22
+                }
+              ],
+              "source": {
+                "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                "rowStart": 253,
+                "rowEnd": 254,
+                "rawGroupName": "РК1-41/РК1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "РК1-41",
+                    "lessonNumbers": [
+                      3,
+                      4
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "УП 01.03"
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Пономаренко В.С.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 22,
+                      "rawGroupName": "РК1-41",
+                      "rawLessonNumbers": "3,4",
+                      "rawOriginal": "УП 01.03",
+                      "rawReplacement": "1,2 п/гр. Пономаренко В.С.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            },
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "УП 01.03 Информационные технологии в профессиональной деятельности",
+                  "teacher": "Пономаренко В.С.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "1,2 п/гр. Пономаренко В.С.",
+                  "rawTeacher": "Пономаренко В.С.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 22
                 }
               ],
               "source": {
@@ -63,146 +130,259 @@
                 "rowStart": 255,
                 "rowEnd": 256,
                 "rawGroupName": "РК1-41/РК1-42",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "РК1-41",
+                    "lessonNumbers": [
+                      3,
+                      4
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "УП 01.03"
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Пономаренко В.С.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 22,
+                      "rawGroupName": "РК1-41",
+                      "rawLessonNumbers": "3,4",
+                      "rawOriginal": "УП 01.03",
+                      "rawReplacement": "1,2 п/гр. Пономаренко В.С.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 4,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            }
+          ],
+          "unresolvedReplacements": [],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "УП 01.03 Информационные технологии в профессиональной деятельности",
+                    "teacher": "Пономаренко В.С.\nВакансия",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 253
+                  }
+                ],
+                "source": {
+                  "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                  "rowStart": 253,
+                  "rowEnd": 254,
+                  "rawGroupName": "РК1-41/РК1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "УП 01.03 Информационные технологии в профессиональной деятельности",
+                    "teacher": "Пономаренко В.С.\nВакансия",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 255
+                  }
+                ],
+                "source": {
+                  "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                  "rowStart": 255,
+                  "rowEnd": 256,
+                  "rawGroupName": "РК1-41/РК1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "РК1-41": {
+          "group": "РК1-41",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "по расписанию",
+                  "teacher": "Чупрова П.А.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "rawSubject": "по расписанию",
+                  "rawRoom": "Сп.зал",
+                  "sourceRow": 19
+                }
+              ],
+              "source": {
+                "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                "rowStart": 258,
+                "rowEnd": 259,
+                "rawGroupName": "РК1-41/РК1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "РК1-41",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Физкультура"
+                    },
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "Сп.зал"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 19,
+                      "rawGroupName": "РК1-41",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "Физкультура",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "Сп.зал"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-word-mention"
+                }
+              ]
             },
             {
               "number": 4,
               "variants": [
                 {
-                  "subject": "УП 01.03 Информационные технологии в профессиональной деятельности",
-                  "teacher": "Пономаренко В.С.\nВакансия",
-                  "room": "ДОТ",
+                  "subject": "История изобразительного искусства",
+                  "teacher": "Кожешкурт А.В.",
+                  "room": "Б502",
                   "weekType": "both",
-                  "sourceRow": 257
+                  "sourceRow": 260
                 }
               ],
               "source": {
                 "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
-                "rowStart": 257,
-                "rowEnd": 258,
+                "rowStart": 260,
+                "rowEnd": 261,
                 "rawGroupName": "РК1-41/РК1-42",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "Основы философии",
+                  "teacher": "Булычева Л.А.",
+                  "room": "М106",
+                  "weekType": "denominator",
+                  "sourceRow": 262
+                }
+              ],
+              "source": {
+                "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                "rowStart": 262,
+                "rowEnd": 263,
+                "rawGroupName": "РК1-41/РК1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "Эффективное поведение на рынке труда",
+                  "teacher": "Малашкевич Д.А.",
+                  "room": "Б101",
+                  "weekType": "both",
+                  "sourceRow": 264
+                }
+              ],
+              "source": {
+                "sheet": "РК121РК1-22РК1-31РК32РК1-41РК42",
+                "rowStart": 264,
+                "rowEnd": 265,
+                "rawGroupName": "РК1-41/РК1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": []
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "РК1-41",
-                "lessonNumbers": [
-                  3,
-                  4
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "УП 01.03"
-                },
-                "replacement": {
-                  "raw": "1,2 п/гр. Пономаренко В.С.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 22,
-                  "rawGroupName": "РК1-41",
-                  "rawLessonNumbers": "3,4",
-                  "rawOriginal": "УП 01.03",
-                  "rawReplacement": "1,2 п/гр. Пономаренко В.С.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «УП 01.03». По замене: «1,2 п/гр. Пономаренко В.С.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            },
-            {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "РК1-41",
-                "lessonNumbers": [
-                  3,
-                  4
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "УП 01.03"
-                },
-                "replacement": {
-                  "raw": "1,2 п/гр. Пономаренко В.С.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 22,
-                  "rawGroupName": "РК1-41",
-                  "rawLessonNumbers": "3,4",
-                  "rawOriginal": "УП 01.03",
-                  "rawReplacement": "1,2 п/гр. Пономаренко В.С.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 4,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «УП 01.03». По замене: «1,2 п/гр. Пономаренко В.С.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "168cc60764d3d5d1663c9ca5e1d1eabd58ae0e8ba75fe75f32cb2d59607890e9",
-      "sheet": "Замены: Вторая смена",
-      "row": 22,
-      "normalizedGroup": "РК1-41",
-      "rawValue": "1,2 п/гр. Пономаренко В.С.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "370d4d19801eebf47d80319ff299db4c69aa5e4867145abf1ff855d896561bdd",
-      "sheet": "Замены: Вторая смена",
-      "row": 22,
-      "normalizedGroup": "РК1-41",
-      "rawValue": "1,2 п/гр. Пономаренко В.С.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    }
-  ],
-  "semanticHash": "1d171141abf9ea59d6b7000e4abbde093ee646a784fdacb0927c1cd64784ad4c"
+  "diagnostics": [],
+  "semanticHash": "82f5ceaa2eba17cc3df7891250f93b1700a1086dde8cadf9b20cda635dea717b"
 }

@@ -12,7 +12,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -43,7 +43,75 @@ dates:
               rawReplacement: МДК 01.01 Каргина В.А.
               rawRoom: к.30
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
     replacements:
       - *a1
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        replacements:
+          - &a2
+            date: 2026-09-08
+            group: 2 РЭУ
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Матем.методы
+            replacement:
+              raw: Бахвалова К.Н.
+              room: к.31
+            source:
+              shift: first
+              row: 50
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "0"
+              rawOriginal: Матем.методы
+              rawReplacement: Бахвалова К.Н.
+              rawRoom: к.31
+          - &a3
+            date: 2026-09-08
+            group: 2 РЭУ
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: УП 01
+            replacement:
+              raw: МДК 01.02 Каргина В.А.
+              room: к.24
+            source:
+              shift: first
+              row: 51
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 01
+              rawReplacement: МДК 01.02 Каргина В.А.
+              rawRoom: к.24
+        diagnostics: []
+    replacements:
+      - *a2
+      - *a3
 diagnostics: []
-semanticHash: 7fdf7d8f520d7f2ab66ab03c5065138cddc8fd712a1162780fad8dbb9755b9a2
+semanticHash: 6fb61f603804b42da1b5ffa1d1f015e8b007ada59e0519508141d6b101a5b118

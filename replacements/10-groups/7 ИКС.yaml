@@ -59,7 +59,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -145,10 +145,115 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
     replacements:
       - *a2
       - *a3
       - *a4
       - *a5
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        replacements:
+          - &a6
+            date: 2026-09-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е
+              room: к.35
+            source:
+              shift: first
+              row: 57
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Петрушенко Е.Е
+              rawRoom: к.35
+          - &a7
+            date: 2026-09-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: к.34
+            source:
+              shift: first
+              row: 58
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: к.34
+          - &a8
+            date: 2026-09-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: История России МДК 01.01
+            replacement:
+              raw: Физкульт. Шпынов Ю.Г.
+              room: ДОТ
+            source:
+              shift: first
+              row: 59
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 2,3
+              rawOriginal: История России МДК 01.01
+              rawReplacement: Физкульт. Шпынов Ю.Г.
+              rawRoom: ДОТ
+          - &a9
+            date: 2026-09-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 60
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.02
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: 2dc3a1c2f2ca0142c1486ba3802a924113a571d33d37b2b3519062098f8f2616
+semanticHash: 0fe6be8f153a5cc603f21f30b32e10b02f119ba8745d77197ff4045b3bbec2d6

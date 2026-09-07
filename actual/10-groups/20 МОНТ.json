@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -46,266 +56,524 @@
           "group": "20 МОНТ",
           "date": "2026-09-07",
           "day": "Понедельник",
-          "lessons": [],
-          "unresolvedReplacements": [
+          "lessons": [
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  0
-                ],
-                "type": "cancel",
-                "original": {
-                  "raw": "УП 02"
-                },
-                "replacement": {
-                  "raw": "снято"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 57,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "0",
-                  "rawOriginal": "УП 02",
-                  "rawReplacement": "снято",
-                  "rawRoom": ""
-                }
+              "number": 0,
+              "variants": [],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 3,
+                "rowEnd": 4,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 0,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «УП 02». По замене: «снято»."
-              }
+              "status": "cancelled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      0
+                    ],
+                    "type": "cancel",
+                    "original": {
+                      "raw": "УП 02"
+                    },
+                    "replacement": {
+                      "raw": "снято"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 57,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "0",
+                      "rawOriginal": "УП 02",
+                      "rawReplacement": "снято",
+                      "rawRoom": ""
+                    }
+                  },
+                  "lessonNumber": 0,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  1
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "УП 02"
-                },
-                "replacement": {
-                  "raw": "Математика Рогачева Е.А.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 58,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "1",
-                  "rawOriginal": "УП 02",
-                  "rawReplacement": "Математика Рогачева Е.А.",
-                  "rawRoom": "ДОТ"
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Математика",
+                  "teacher": "Рогачева Е.А.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "Математика Рогачева Е.А.",
+                  "rawTeacher": "Рогачева Е.А.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 58
                 }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 5,
+                "rowEnd": 6,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 1,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «УП 02». По замене: «Математика Рогачева Е.А.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      1
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "УП 02"
+                    },
+                    "replacement": {
+                      "raw": "Математика Рогачева Е.А.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 58,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "1",
+                      "rawOriginal": "УП 02",
+                      "rawReplacement": "Математика Рогачева Е.А.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  2
-                ],
-                "type": "add",
-                "original": null,
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "ДОТ"
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "Математика",
+                  "teacher": "Рогачева Е.А.",
+                  "room": "к.29",
+                  "weekType": "both",
+                  "sourceRow": 7
                 },
-                "source": {
-                  "shift": "first",
-                  "row": 59,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "2",
-                  "rawOriginal": "",
-                  "rawReplacement": "по расписанию",
-                  "rawRoom": "ДОТ"
+                {
+                  "subject": "по расписанию",
+                  "teacher": "",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "по расписанию",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 59
                 }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 7,
+                "rowEnd": 8,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 2,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По замене: «по расписанию». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      2
+                    ],
+                    "type": "add",
+                    "original": null,
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 59,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "2",
+                      "rawOriginal": "",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "add"
+                }
+              ]
             },
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "add",
-                "original": null,
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "очно"
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Информатика",
+                  "teacher": "Ефимова А.С.",
+                  "room": "к.34",
+                  "weekType": "both",
+                  "sourceRow": 9
                 },
-                "source": {
-                  "shift": "first",
-                  "row": 60,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "",
-                  "rawReplacement": "по расписанию",
-                  "rawRoom": "очно"
+                {
+                  "subject": "по расписанию",
+                  "teacher": "",
+                  "room": "очно",
+                  "weekType": "both",
+                  "rawSubject": "по расписанию",
+                  "rawRoom": "очно",
+                  "sourceRow": 60
                 }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 9,
+                "rowEnd": 10,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 3,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По замене: «по расписанию». Аудитория: «очно».",
-                "room": "очно"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "add",
+                    "original": null,
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "очно"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 60,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "очно"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "add"
+                }
+              ]
             },
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  4
-                ],
-                "type": "add",
-                "original": null,
-                "replacement": {
-                  "raw": "Информ. Ефимова А.С",
-                  "room": "к.34"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 61,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "4",
-                  "rawOriginal": "",
-                  "rawReplacement": "Информ. Ефимова А.С",
-                  "rawRoom": "к.34"
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "Информ.",
+                  "teacher": "Ефимова А.С",
+                  "room": "к.34",
+                  "weekType": "both",
+                  "rawSubject": "Информ. Ефимова А.С",
+                  "rawTeacher": "Ефимова А.С",
+                  "rawRoom": "к.34",
+                  "sourceRow": 61
                 }
-              },
-              "lessonNumber": 4,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По замене: «Информ. Ефимова А.С». Аудитория: «к.34».",
-                "room": "к.34"
-              }
+              ],
+              "source": null,
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      4
+                    ],
+                    "type": "add",
+                    "original": null,
+                    "replacement": {
+                      "raw": "Информ. Ефимова А.С",
+                      "room": "к.34"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 61,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "4",
+                      "rawOriginal": "",
+                      "rawReplacement": "Информ. Ефимова А.С",
+                      "rawRoom": "к.34"
+                    }
+                  },
+                  "lessonNumber": 4,
+                  "strategy": "add"
+                }
+              ]
             }
-          ]
+          ],
+          "unresolvedReplacements": [],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 0,
+                "variants": [
+                  {
+                    "subject": "УП.02 Учебная практика",
+                    "teacher": "Вакансия",
+                    "room": "к.36",
+                    "weekType": "both",
+                    "rawSubject": "УП.02 Учебная практика ",
+                    "sourceRow": 3
+                  }
+                ],
+                "source": {
+                  "sheet": "2-2 курс",
+                  "rowStart": 3,
+                  "rowEnd": 4,
+                  "rawGroupName": "20 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 1,
+                "variants": [
+                  {
+                    "subject": "УП.02 Учебная практика",
+                    "teacher": "Вакансия",
+                    "room": "к.36",
+                    "weekType": "both",
+                    "rawSubject": "УП.02 Учебная практика ",
+                    "sourceRow": 5
+                  }
+                ],
+                "source": {
+                  "sheet": "2-2 курс",
+                  "rowStart": 5,
+                  "rowEnd": 6,
+                  "rawGroupName": "20 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "Математика",
+                    "teacher": "Рогачева Е.А.",
+                    "room": "к.29",
+                    "weekType": "both",
+                    "sourceRow": 7
+                  }
+                ],
+                "source": {
+                  "sheet": "2-2 курс",
+                  "rowStart": 7,
+                  "rowEnd": 8,
+                  "rawGroupName": "20 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "Информатика",
+                    "teacher": "Ефимова А.С.",
+                    "room": "к.34",
+                    "weekType": "both",
+                    "sourceRow": 9
+                  }
+                ],
+                "source": {
+                  "sheet": "2-2 курс",
+                  "rowStart": 9,
+                  "rowEnd": 10,
+                  "rawGroupName": "20 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "20 МОНТ": {
+          "group": "20 МОНТ",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 0,
+              "variants": [
+                {
+                  "subject": "МДК.01.02 Технологии сборки радиоэлектронной аппаратуры, аппаратуры проводной связи, элементов узлов импульсной и вычислительной техники",
+                  "teacher": "Каргина В.А.",
+                  "room": "к.биб.",
+                  "weekType": "both",
+                  "rawSubject": "МДК.01.02 Технологии сборки радиоэлектронной аппаратуры, аппаратуры проводной связи, элементов узлов импульсной и вычислительной техники ",
+                  "sourceRow": 12
+                }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 12,
+                "rowEnd": 13,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Иностранный язык в профессиональной деятельности",
+                  "teacher": "Петрушенко Е.Е",
+                  "room": "к.Библ",
+                  "weekType": "both",
+                  "rawSubject": "Петрушенко Е.Е",
+                  "rawTeacher": "Петрушенко Е.Е",
+                  "rawRoom": "к.Библ",
+                  "sourceRow": 53
+                }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 14,
+                "rowEnd": 15,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      1
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Ин.язык"
+                    },
+                    "replacement": {
+                      "raw": "Петрушенко Е.Е",
+                      "room": "к.Библ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 53,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "1",
+                      "rawOriginal": "Ин.язык",
+                      "rawReplacement": "Петрушенко Е.Е",
+                      "rawRoom": "к.Библ"
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "Безопасность жизнедеятельности",
+                  "teacher": "Ковалева Л.В.",
+                  "room": "к.42",
+                  "weekType": "both",
+                  "sourceRow": 16
+                }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 16,
+                "rowEnd": 17,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "МДК.03.01 Технология регулировки радиоэлектронной аппаратуры и приборов",
+                  "teacher": "Ковалев Н.В.",
+                  "room": "к.24",
+                  "weekType": "both",
+                  "sourceRow": 18
+                }
+              ],
+              "source": {
+                "sheet": "2-2 курс",
+                "rowStart": 18,
+                "rowEnd": 19,
+                "rawGroupName": "20 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "91240fefcde704d40979e9cd47fe37fd59c3b50cf5c31442d64e91af4fefff1c",
-      "sheet": "Замены: Первая смена",
-      "row": 59,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 2,
-        "type": "add",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "acab1ab8f94adfc2a9614f55d4ae4d592c498d32c39d2dbf9e5b0ff482d0ae6a",
-      "sheet": "Замены: Первая смена",
-      "row": 60,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 3,
-        "type": "add",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "c99f828f6e8a1cc66b76d6e4dc71224f7f51e463abe165891907feb46208f3a4",
-      "sheet": "Замены: Первая смена",
-      "row": 61,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "Информ. Ефимова А.С",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 4,
-        "type": "add",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "d6e0ced73931afb5f91ee536c358d1196e522c446baf1af01e23a6a518adc795",
-      "sheet": "Замены: Первая смена",
-      "row": 58,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "Математика Рогачева Е.А.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 1,
-        "type": "replace",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "eba511c61034dc56298139c18618de87410820ea9fb3295e1f4073d3985de930",
-      "sheet": "Замены: Первая смена",
-      "row": 57,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "снято",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 0,
-        "type": "cancel",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "1659a999904f3015e143b0e7e64e33bfeb3aa9d63e050ac504473a7810d7aa3a"
+  "diagnostics": [],
+  "semanticHash": "9d1a93172dd566056c4123faa0e5a4b027787d488402f7230cf6062a8eaa8b81"
 }

@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,54 +39,324 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       2 РЭУ:
         group: 2 РЭУ
         date: 2026-09-07
         day: Понедельник
-        lessons: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: 2 РЭУ
-              lessonNumbers:
-                - 0
-              type: replace
-              original:
-                raw: Осн.электр.
-              replacement:
-                raw: МДК 01.01 Каргина В.А.
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 01.01
+                teacher: Каргина В.А.
                 room: к.30
-              source:
-                shift: first
-                row: 50
-                rawGroupName: 2 РЭУ
-                rawLessonNumbers: "0"
-                rawOriginal: Осн.электр.
-                rawReplacement: МДК 01.01 Каргина В.А.
+                weekType: both
+                rawSubject: МДК 01.01 Каргина В.А.
+                rawTeacher: Каргина В.А.
                 rawRoom: к.30
-            lessonNumber: 0
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.электр.». По замене: «МДК 01.01 Каргина В.А.».
-                Аудитория: «к.30»."
-              room: к.30
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 0d123f9a731daf453d4f94259dc2e6f83303d5b5d168ea6894efe831b5f9b114
-    sheet: "Замены: Первая смена"
-    row: 50
-    normalizedGroup: 2 РЭУ
-    rawValue: МДК 01.01 Каргина В.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 0
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 08c0acca289e81b86e5e17d9355bebcfb1a79fabab63b97aca33a6b24978fb58
+                sourceRow: 50
+            source:
+              sheet: 2-2 курс
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: 2 РЭУ
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Осн.электр.
+                  replacement:
+                    raw: МДК 01.01 Каргина В.А.
+                    room: к.30
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: 2 РЭУ
+                    rawLessonNumbers: "0"
+                    rawOriginal: Осн.электр.
+                    rawReplacement: МДК 01.01 Каргина В.А.
+                    rawRoom: к.30
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: МДК.01.02 Технологические операции и процессы производства электронных
+                  устройств и систем
+                teacher: Каргина В.А.
+                room: к.24
+                weekType: both
+                sourceRow: 107
+            source:
+              sheet: 2-2 курс
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Ковалева Л.В.
+                room: к.39
+                weekType: both
+                sourceRow: 109
+            source:
+              sheet: 2-2 курс
+              rowStart: 109
+              rowEnd: 110
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Ковалева Л.В.
+                room: сл.м.
+                weekType: denominator
+                sourceRow: 111
+            source:
+              sheet: 2-2 курс
+              rowStart: 111
+              rowEnd: 112
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 0
+              variants:
+                - subject: Основы электротехники
+                  teacher: Крижановский В.С.
+                  room: к.33
+                  weekType: both
+                  sourceRow: 105
+              source:
+                sheet: 2-2 курс
+                rowStart: 105
+                rowEnd: 106
+                rawGroupName: 2 РЭУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.01.02 Технологические операции и процессы производства электронных
+                    устройств и систем
+                  teacher: Каргина В.А.
+                  room: к.24
+                  weekType: both
+                  sourceRow: 107
+              source:
+                sheet: 2-2 курс
+                rowStart: 107
+                rowEnd: 108
+                rawGroupName: 2 РЭУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Безопасность жизнедеятельности
+                  teacher: Ковалева Л.В.
+                  room: к.39
+                  weekType: both
+                  sourceRow: 109
+              source:
+                sheet: 2-2 курс
+                rowStart: 109
+                rowEnd: 110
+                rawGroupName: 2 РЭУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Безопасность жизнедеятельности
+                  teacher: Ковалева Л.В.
+                  room: сл.м.
+                  weekType: denominator
+                  sourceRow: 111
+              source:
+                sheet: 2-2 курс
+                rowStart: 111
+                rowEnd: 112
+                rawGroupName: 2 РЭУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      2 РЭУ:
+        group: 2 РЭУ
+        date: 2026-09-08
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математические методы решения типовых прикладных задач
+                teacher: Бахвалова К.Н.
+                room: к.31
+                weekType: both
+                rawSubject: Бахвалова К.Н.
+                rawTeacher: Бахвалова К.Н.
+                rawRoom: к.31
+                sourceRow: 50
+            source:
+              sheet: 2-2 курс
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-08
+                  group: 2 РЭУ
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Матем.методы
+                  replacement:
+                    raw: Бахвалова К.Н.
+                    room: к.31
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: 2 РЭУ
+                    rawLessonNumbers: "0"
+                    rawOriginal: Матем.методы
+                    rawReplacement: Бахвалова К.Н.
+                    rawRoom: к.31
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: МДК. 01.01 Технологии и оборудование производства изделий электронной
+                  техники
+                teacher: Каргина В.А.
+                room: к.24
+                weekType: both
+                sourceRow: 116
+            source:
+              sheet: 2-2 курс
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 01.02
+                teacher: Каргина В.А.
+                room: к.24
+                weekType: both
+                subgroup: "1"
+                rawSubject: МДК 01.02 Каргина В.А.
+                rawTeacher: Каргина В.А.
+                rawRoom: к.24
+                sourceRow: 51
+            source:
+              sheet: 2-2 курс
+              rowStart: 118
+              rowEnd: 119
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-08
+                  group: 2 РЭУ
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: УП 01
+                  replacement:
+                    raw: МДК 01.02 Каргина В.А.
+                    room: к.24
+                  source:
+                    shift: first
+                    row: 51
+                    rawGroupName: 2 РЭУ
+                    rawLessonNumbers: 2,3
+                    rawOriginal: УП 01
+                    rawReplacement: МДК 01.02 Каргина В.А.
+                    rawRoom: к.24
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: МДК 01.02
+                teacher: Каргина В.А.
+                room: к.24
+                weekType: both
+                subgroup: "1"
+                rawSubject: МДК 01.02 Каргина В.А.
+                rawTeacher: Каргина В.А.
+                rawRoom: к.24
+                sourceRow: 51
+            source:
+              sheet: 2-2 курс
+              rowStart: 120
+              rowEnd: 121
+              rawGroupName: 2 РЭУ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 566df6a649a512d7ac5327e0cea85202208520cd0824dfab1279fec38c7f2931

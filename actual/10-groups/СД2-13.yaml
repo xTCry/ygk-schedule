@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       СД2-13:
         group: СД2-13
@@ -127,18 +135,87 @@ dates:
                 rawReplacement: Инф.технол.п/гр.1 Сердцева О.Д.
                 rawRoom: ДОТ
             lessonNumber: 2
-            reason: original-not-matched
+            reason: subgroup-not-matched
             event:
               summary: Необработанная замена
               description: "По расписанию: «Тех.механика п/гр.1». По замене:
                 «Инф.технол.п/гр.1 Сердцева О.Д.». Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 2
+              variants:
+                - subject: Техническая механика п/гр2
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 53
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 53
+                rowEnd: 54
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.02.02 Т.2.5. Применение геопространственных технологий в
+                    строительстве п/гр2
+                  teacher: Рангелова Н.М.
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "2"
+                  rawSubject: МДК.02.02   Т.2.5. Применение геопространственных технологий в
+                    строительстве п/гр2
+                  sourceRow: 55
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 55
+                rowEnd: 56
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Математические методы решения прикладных профессиональных задач
+                  teacher: Гаврилова М.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 57
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 57
+                rowEnd: 58
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Информационные технологии в профессиональной деятельности
+                  teacher: Сердцева О.Д.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 59
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 59
+                rowEnd: 60
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 6f9d3578b383e154bf85e9e4c573744f4c05af657522448258b11d369a72e3fc
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 0ebf2f395604d5865484efc5ef0b11d5d05e1868c1aca11c138c6cc6a71e9c1f
     sheet: "Замены: Первая смена"
     row: 3
     normalizedGroup: СД2-13
@@ -147,7 +224,16 @@ diagnostics:
       date: 2026-09-07
       lessonNumber: 2
       type: replace
-      reason: original-not-matched
+      reason: subgroup-not-matched
+      requestedSubject: Тех.механика
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: Техническая механика п/гр2
+          teacher: Вакансия
+          room: ДОТ
+          subgroup: "2"
+          sourceRow: 53
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: feb0417000d21fa8840691d3529d32ad2e157aff664ca4e6f6dcbfff7a483905
+semanticHash: 98273f344870f3408bae9f8299d691ecf6e09af9131942d4296f2e432e92a0b8

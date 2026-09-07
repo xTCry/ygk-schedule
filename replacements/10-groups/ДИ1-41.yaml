@@ -60,7 +60,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -110,8 +110,76 @@ dates:
               rawReplacement: 1,2 п/гр. Выблова Т.В.
               rawRoom: Б407
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     replacements:
       - *a2
       - *a3
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        replacements:
+          - &a4
+            date: 2026-09-08
+            group: ДИ1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: 1,2 п/гр. Ремизова А.И.
+              room: Б310,Б503
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 02.02
+              rawReplacement: 1,2 п/гр. Ремизова А.И.
+              rawRoom: Б310,Б503
+          - &a5
+            date: 2026-09-08
+            group: ДИ1-41
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: 1,2 п/гр. Ремизова А.И.
+              room: Б407
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01
+              rawReplacement: 1,2 п/гр. Ремизова А.И.
+              rawRoom: Б407
+        diagnostics: []
+    replacements:
+      - *a4
+      - *a5
 diagnostics: []
-semanticHash: acc91a9947ce36c448ce3f1d49268105d26ec219c72574573c12e24337e4dc30
+semanticHash: ed7380c39ad05b826ed061f334989c0b3fe572649166702d0a9427e712852040

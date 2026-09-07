@@ -180,7 +180,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -190,11 +190,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -204,6 +208,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ЗМ1-41:
         group: ЗМ1-41
@@ -212,11 +220,14 @@ dates:
         lessons:
           - number: 1
             variants:
-              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+              - subject: МДК 03.02
                 teacher: Федорова А.А.
-                room: ДОТ
+                room: экскурсия
                 weekType: both
-                sourceRow: 4
+                rawSubject: МДК 03.02 Федорова А.А.
+                rawTeacher: Федорова А.А.
+                rawRoom: экскурсия
+                sourceRow: 26
             source:
               sheet: ЗМ1-41 ЗМ1-43
               rowStart: 4
@@ -224,17 +235,41 @@ dates:
               rawGroupName: ЗМ1-41/ЗМ1-42
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-07
+                  group: ЗМ1-41
+                  lessonNumbers:
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 03.02 МДК 04.01 Прав.обесп.
+                  replacement:
+                    raw: МДК 03.02 Федорова А.А.
+                    room: экскурсия
+                  source:
+                    shift: first
+                    row: 26
+                    rawGroupName: ЗМ1-41
+                    rawLessonNumbers: 1-4
+                    rawOriginal: МДК 03.02 МДК 04.01 Прав.обесп.
+                    rawReplacement: МДК 03.02 Федорова А.А.
+                    rawRoom: экскурсия
+                lessonNumber: 1
+                strategy: subject-module-code
           - number: 2
             variants:
-              - subject: МДК 04.01 Выполнение комплекса работ в рамках мониторинга состояния
-                  земель
-                teacher: Акиничева М.А.
-                room: ДОТ
+              - subject: МДК 03.02
+                teacher: Федорова А.А.
+                room: экскурсия
                 weekType: both
-                rawSubject: МДК 04.01 Выполнение комплекса  работ в рамках мониторинга состояния
-                  земель
-                sourceRow: 6
+                rawSubject: МДК 03.02 Федорова А.А.
+                rawTeacher: Федорова А.А.
+                rawRoom: экскурсия
+                sourceRow: 26
             source:
               sheet: ЗМ1-41 ЗМ1-43
               rowStart: 6
@@ -242,14 +277,20 @@ dates:
               rawGroupName: ЗМ1-41/ЗМ1-42
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: *a1
+                lessonNumber: 2
+                strategy: subject-module-code
           - number: 3
             variants:
-              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+              - subject: МДК 03.02
                 teacher: Федорова А.А.
-                room: ДОТ
+                room: экскурсия
                 weekType: both
-                sourceRow: 8
+                rawSubject: МДК 03.02 Федорова А.А.
+                rawTeacher: Федорова А.А.
+                rawRoom: экскурсия
+                sourceRow: 26
             source:
               sheet: ЗМ1-41 ЗМ1-43
               rowStart: 8
@@ -257,7 +298,10 @@ dates:
               rawGroupName: ЗМ1-41/ЗМ1-42
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: *a1
+                lessonNumber: 3
+                strategy: subject-module-code
           - number: 4
             variants:
               - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
@@ -275,51 +319,6 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement: &a1
-              date: 2026-09-07
-              group: ЗМ1-41
-              lessonNumbers:
-                - 1
-                - 2
-                - 3
-                - 4
-              type: replace
-              original:
-                raw: МДК 03.02 МДК 04.01 Прав.обесп.
-              replacement:
-                raw: МДК 03.02 Федорова А.А.
-                room: экскурсия
-              source:
-                shift: first
-                row: 26
-                rawGroupName: ЗМ1-41
-                rawLessonNumbers: 1-4
-                rawOriginal: МДК 03.02 МДК 04.01 Прав.обесп.
-                rawReplacement: МДК 03.02 Федорова А.А.
-                rawRoom: экскурсия
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
-                03.02 Федорова А.А.». Аудитория: «экскурсия»."
-              room: экскурсия
-          - replacement: *a1
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
-                03.02 Федорова А.А.». Аудитория: «экскурсия»."
-              room: экскурсия
-          - replacement: *a1
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
-                03.02 Федорова А.А.». Аудитория: «экскурсия»."
-              room: экскурсия
           - replacement: *a1
             lessonNumber: 4
             reason: original-not-matched
@@ -328,23 +327,75 @@ dates:
               description: "По расписанию: «МДК 03.02 МДК 04.01 Прав.обесп.». По замене: «МДК
                 03.02 Федорова А.А.». Аудитория: «экскурсия»."
               room: экскурсия
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                  teacher: Федорова А.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 4
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 4
+                rowEnd: 5
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 04.01 Выполнение комплекса работ в рамках мониторинга состояния
+                    земель
+                  teacher: Акиничева М.А.
+                  room: ДОТ
+                  weekType: both
+                  rawSubject: МДК 04.01 Выполнение комплекса  работ в рамках мониторинга состояния
+                    земель
+                  sourceRow: 6
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 6
+                rowEnd: 7
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                  teacher: Федорова А.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 8
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 8
+                rowEnd: 9
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                    градостроительстве
+                  teacher: Горохова Е.Б.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 10
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 10
+                rowEnd: 11
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 1d4c131bfb8b57e0878d5e0cb3a0e3521ff23418105db6799b36d636aa2ac71d
-    sheet: "Замены: Первая смена"
-    row: 26
-    normalizedGroup: ЗМ1-41
-    rawValue: МДК 03.02 Федорова А.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -359,38 +410,13 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
+      requestedSubject: МДК 03.02 МДК 04.01 Прав.обесп.
+      candidates:
+        - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+            градостроительстве
+          teacher: Горохова Е.Б.
+          room: ДОТ
+          sourceRow: 10
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: a741287f3e844d80bff62182047ce903f813da3fb7f5e32316149b39f40e839d
-    sheet: "Замены: Первая смена"
-    row: 26
-    normalizedGroup: ЗМ1-41
-    rawValue: МДК 03.02 Федорова А.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: e351f044c5932648e12da4e99b7f849be0e6bf424190cff3c5148a558c9f8d67
-    sheet: "Замены: Первая смена"
-    row: 26
-    normalizedGroup: ЗМ1-41
-    rawValue: МДК 03.02 Федорова А.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 3
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ad40ee69abdcc1d5e21f681405e65c697ef1470c2d81f7d71572d24dcfa86aa4
+semanticHash: d78007c1c5e60af2683c6d22cb81a11d9f0d54a405af6783b360e08f935d3408

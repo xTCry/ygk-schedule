@@ -61,7 +61,7 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "1,2 п/гр.",
+                  "subject": "МДК 01.01 Дизайн-проектирование",
                   "teacher": "Ремизова А.И.",
                   "room": "ДОТ",
                   "weekType": "both",
@@ -115,7 +115,7 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "1,2 п/гр.",
+                  "subject": "МДК 02.01 Выполнение дизайнерских проектов в материале",
                   "teacher": "Ремизова А.И.",
                   "room": "ДОТ",
                   "weekType": "both",
@@ -269,7 +269,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -279,13 +279,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -295,6 +300,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -309,10 +319,13 @@
               "variants": [
                 {
                   "subject": "Живопись с основами цветоведения",
-                  "teacher": "Вакансия\nИванов Ю.А.",
-                  "room": "Б207\nБ208",
+                  "teacher": "Иванов Ю.А.",
+                  "room": "Б207Б208",
                   "weekType": "both",
-                  "sourceRow": 4
+                  "rawSubject": "1,2 п/гр. Иванов Ю.А.",
+                  "rawTeacher": "Иванов Ю.А.",
+                  "rawRoom": "Б207Б208",
+                  "sourceRow": 30
                 }
               ],
               "source": {
@@ -320,16 +333,45 @@
                 "rowStart": 4,
                 "rowEnd": 5,
                 "rawGroupName": "ДИ1-41/1-42",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "ДИ1-41",
+                    "lessonNumbers": [
+                      4
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Живопись"
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Иванов Ю.А.",
+                      "room": "Б207Б208"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 30,
+                      "rawGroupName": "ДИ1-41",
+                      "rawLessonNumbers": "4",
+                      "rawOriginal": "Живопись",
+                      "rawReplacement": "1,2 п/гр. Иванов Ю.А.",
+                      "rawRoom": "Б207Б208"
+                    }
+                  },
+                  "lessonNumber": 4,
+                  "strategy": "subject-word-mention"
+                }
+              ]
             },
             {
               "number": 5,
               "variants": [
                 {
-                  "subject": "1,2 п/гр.",
+                  "subject": "МДК 01.02 Основы проектной и компьютерной графики",
                   "teacher": "Выблова Т.В.",
                   "room": "Б407",
                   "weekType": "both",
@@ -344,7 +386,7 @@
                 "rowStart": 6,
                 "rowEnd": 7,
                 "rawGroupName": "ДИ1-41/1-42",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": [
@@ -394,44 +436,270 @@
                 "rowStart": 8,
                 "rowEnd": 9,
                 "rawGroupName": "ДИ1-41/1-42",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": []
             }
           ],
+          "unresolvedReplacements": [],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "Живопись с основами цветоведения",
+                    "teacher": "Вакансия\nИванов Ю.А.",
+                    "room": "Б207\nБ208",
+                    "weekType": "both",
+                    "sourceRow": 4
+                  }
+                ],
+                "source": {
+                  "sheet": "ДИ-4курс",
+                  "rowStart": 4,
+                  "rowEnd": 5,
+                  "rawGroupName": "ДИ1-41/1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 5,
+                "variants": [
+                  {
+                    "subject": "МДК 01.02 Основы проектной и компьютерной графики",
+                    "teacher": "Выблова Т.В.\nВакансия",
+                    "room": "Б407",
+                    "weekType": "both",
+                    "sourceRow": 6
+                  }
+                ],
+                "source": {
+                  "sheet": "ДИ-4курс",
+                  "rowStart": 6,
+                  "rowEnd": 7,
+                  "rawGroupName": "ДИ1-41/1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 6,
+                "variants": [
+                  {
+                    "subject": "МДК 01.02 Основы проектной и компьютерной графики",
+                    "teacher": "Выблова Т.В.",
+                    "room": "Б204",
+                    "weekType": "both",
+                    "sourceRow": 8
+                  }
+                ],
+                "source": {
+                  "sheet": "ДИ-4курс",
+                  "rowStart": 8,
+                  "rowEnd": 9,
+                  "rawGroupName": "ДИ1-41/1-42",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ДИ1-41": {
+          "group": "ДИ1-41",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "МДК 02.02 Основы конструкторско-технологического обеспечения дизайна",
+                  "teacher": "Ремизова А.И.",
+                  "room": "Б310,Б503",
+                  "weekType": "both",
+                  "rawSubject": "1,2 п/гр. Ремизова А.И.",
+                  "rawTeacher": "Ремизова А.И.",
+                  "rawRoom": "Б310,Б503",
+                  "sourceRow": 15
+                }
+              ],
+              "source": {
+                "sheet": "ДИ-4курс",
+                "rowStart": 13,
+                "rowEnd": 14,
+                "rawGroupName": "ДИ1-41/1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "ДИ1-41",
+                    "lessonNumbers": [
+                      4,
+                      5
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 02.02"
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Ремизова А.И.",
+                      "room": "Б310,Б503"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 15,
+                      "rawGroupName": "ДИ1-41",
+                      "rawLessonNumbers": "4,5",
+                      "rawOriginal": "МДК 02.02",
+                      "rawReplacement": "1,2 п/гр. Ремизова А.И.",
+                      "rawRoom": "Б310,Б503"
+                    }
+                  },
+                  "lessonNumber": 5,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "МДК 01.01 Дизайн-проектирование КП",
+                  "teacher": "Ремизова А.И.",
+                  "room": "Б407",
+                  "weekType": "both",
+                  "rawSubject": "1,2 п/гр. Ремизова А.И.",
+                  "rawTeacher": "Ремизова А.И.",
+                  "rawRoom": "Б407",
+                  "sourceRow": 16
+                }
+              ],
+              "source": {
+                "sheet": "ДИ-4курс",
+                "rowStart": 15,
+                "rowEnd": 16,
+                "rawGroupName": "ДИ1-41/1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "ДИ1-41",
+                    "lessonNumbers": [
+                      6
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.01"
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Ремизова А.И.",
+                      "room": "Б407"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 16,
+                      "rawGroupName": "ДИ1-41",
+                      "rawLessonNumbers": "6",
+                      "rawOriginal": "МДК 01.01",
+                      "rawReplacement": "1,2 п/гр. Ремизова А.И.",
+                      "rawRoom": "Б407"
+                    }
+                  },
+                  "lessonNumber": 6,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            }
+          ],
           "unresolvedReplacements": [
             {
               "replacement": {
-                "date": "2026-09-07",
+                "date": "2026-09-08",
                 "group": "ДИ1-41",
                 "lessonNumbers": [
-                  4
+                  4,
+                  5
                 ],
                 "type": "replace",
                 "original": {
-                  "raw": "Живопись"
+                  "raw": "МДК 02.02"
                 },
                 "replacement": {
-                  "raw": "1,2 п/гр. Иванов Ю.А.",
-                  "room": "Б207Б208"
+                  "raw": "1,2 п/гр. Ремизова А.И.",
+                  "room": "Б310,Б503"
                 },
                 "source": {
                   "shift": "second",
-                  "row": 30,
+                  "row": 15,
                   "rawGroupName": "ДИ1-41",
-                  "rawLessonNumbers": "4",
-                  "rawOriginal": "Живопись",
-                  "rawReplacement": "1,2 п/гр. Иванов Ю.А.",
-                  "rawRoom": "Б207Б208"
+                  "rawLessonNumbers": "4,5",
+                  "rawOriginal": "МДК 02.02",
+                  "rawReplacement": "1,2 п/гр. Ремизова А.И.",
+                  "rawRoom": "Б310,Б503"
                 }
               },
               "lessonNumber": 4,
-              "reason": "original-not-matched",
+              "reason": "lesson-not-found",
               "event": {
                 "summary": "Необработанная замена",
-                "description": "По расписанию: «Живопись». По замене: «1,2 п/гр. Иванов Ю.А.». Аудитория: «Б207Б208».",
-                "room": "Б207Б208"
+                "description": "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. Ремизова А.И.». Аудитория: «Б310,Б503».",
+                "room": "Б310,Б503"
               }
             }
           ]
@@ -444,21 +712,21 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "0a608a94adaefde337b1fa0663aa9f7743cc2e16b47736ef3775dd161157d02a",
+      "message": "Пара из замены отсутствует в базовом расписании",
+      "fingerprint": "e80926f3e67f472bd1d80372bd5bc2c15238c69be4cd953ca38157b869477689",
       "sheet": "Замены: Вторая смена",
-      "row": 30,
+      "row": 15,
       "normalizedGroup": "ДИ1-41",
-      "rawValue": "1,2 п/гр. Иванов Ю.А.",
+      "rawValue": "1,2 п/гр. Ремизова А.И.",
       "context": {
-        "date": "2026-09-07",
+        "date": "2026-09-08",
         "lessonNumber": 4,
         "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "lesson-not-found"
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "dd12517ccc98ddf6d4913eb06920eb25bada6018c61767c722b1ca6adef58ca9"
+  "semanticHash": "5ea3789503ee24c7504e37f68457149437284a9556a2eeac57fc007807240501"
 }

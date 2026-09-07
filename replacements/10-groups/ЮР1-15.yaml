@@ -78,7 +78,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -145,9 +145,76 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
     replacements:
       - *a3
       - *a4
       - *a5
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        replacements:
+          - &a6
+            date: 2026-09-08
+            group: ЮР1-15
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Русский язык
+            replacement:
+              raw: Биология Малявкина Н.А.
+              room: Ф106
+            source:
+              shift: first
+              row: 30
+              rawGroupName: ЮР1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Русский язык
+              rawReplacement: Биология Малявкина Н.А.
+              rawRoom: Ф106
+          - &a7
+            date: 2026-09-08
+            group: ЮР1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Физкультура Калачин Н.И.
+              room: Сп.площ.
+            source:
+              shift: first
+              row: 31
+              rawGroupName: ЮР1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Физкультура Калачин Н.И.
+              rawRoom: Сп.площ.
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
 diagnostics: []
-semanticHash: df8bdd9db9e08a98b3df51079b1d13009568f42bcaad46e21b55d67eec02608e
+semanticHash: a263a452da240d47651724c1dcb9e7e5acba4d367958ae24a2589f1fb5debb1b

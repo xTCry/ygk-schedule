@@ -1,9 +1,12 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "issue": {
     "key": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d",
+    "familyKey": "9c009c0c50864e7cbaa76845cbb890197202c8898a1bf9695c50e3f7546566ed",
     "fingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
     "scope": "actual",
+    "lifecycle": "dated",
+    "observedDate": "2026-09-05",
     "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched — 2026-09-05, вторая смена",
     "labels": [
       "area:resolver",
@@ -14,75 +17,21 @@
       "scope:actual",
       "shift:second"
     ],
-    "occurrenceCount": 22
+    "occurrenceCount": 6,
+    "observationKeys": [
+      "20c97ca52f7ade227400c4f4533736e9bc495ebe6bdd73b4693ae7c37bf16848",
+      "3bc7df2a77e9c849de84c4a64e0db7d2ff3d83100d84b8aac5c985d16493a503",
+      "44bdd726fa3d3b5e05f024e6c71b831ca372fa16c095a8a4041cb8003e25c6b7",
+      "7df5116298e400e11aabbcdc04769ee04c0cde89689fd1db583b9279d525cca9",
+      "90ebe2587ac8ef17aaa506186508fe30116a9e9bbec9c31283be0b8abbeb48bf",
+      "b108a28bbb2a908dc12711d36a87e54db6c67ea84b372bd9c95695d2365f72a4"
+    ]
   },
   "diagnosticsReport": {
     "diagnosticsJsonPath": "actual/90-diagnostics.json",
     "diagnosticsYamlPath": "actual/90-diagnostics.yaml"
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "14066b7618a97ecf59a6c29897046f46cc3d088525066688dc2db1f636718810",
-      "sheet": "Замены: Вторая смена",
-      "row": 2,
-      "normalizedGroup": "ИБ1-31",
-      "rawValue": "МДК 01.04 Тимощук М.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "f109e7a11119055bc341925d6dad8adc71956689142322dc513c5cad45bae985",
-      "sheet": "Замены: Вторая смена",
-      "row": 2,
-      "normalizedGroup": "ИБ1-31",
-      "rawValue": "МДК 01.04 Тимощук М.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -97,7 +46,16 @@
         "date": "2026-09-05",
         "lessonNumber": 5,
         "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "МДК 03.01",
+        "candidates": [
+          {
+            "subject": "МДК.01.03 Сети и системы передачи данных",
+            "teacher": "Зайцев Р.А.\nГруздев В.В.",
+            "room": "ДОТ",
+            "sourceRow": 98
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
@@ -128,38 +86,16 @@
         "date": "2026-09-05",
         "lessonNumber": 5,
         "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "9fae6a2767a0ff0ae578c3c3654e1e4aed985b066d508e8223a2f70b057a7785",
-      "sheet": "Замены: Вторая смена",
-      "row": 5,
-      "normalizedGroup": "ИС1-43",
-      "rawValue": "1,2 п/гр. Васильченко М.О.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "УП 05",
+        "candidates": [
+          {
+            "subject": "УП.03 Учебная практика",
+            "teacher": "Васильченко М.О.\nВакансия",
+            "room": "ДОТ",
+            "sourceRow": 258
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
@@ -190,7 +126,16 @@
         "date": "2026-09-05",
         "lessonNumber": 4,
         "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "Эф.поведение",
+        "candidates": [
+          {
+            "subject": "МДК.02.02 Криптограф-ие средства защиты инф-ции",
+            "teacher": "Хожайнова М.Г.\nЗайцев Р.А.",
+            "room": "Б308\nБ309",
+            "sourceRow": 153
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
@@ -221,255 +166,16 @@
         "date": "2026-09-05",
         "lessonNumber": 4,
         "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "ae5204514b3ea774235ffd488b2e85756d62ed50f35c0ae4d752f71960cce9c5",
-      "sheet": "Замены: Вторая смена",
-      "row": 11,
-      "normalizedGroup": "СТ1-35",
-      "rawValue": "/теория Гасенина М.П.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "bf13fa2bd1de7535410df3ee399eb23801097867812d899d6c34fbd9783d35ca",
-      "sheet": "Замены: Вторая смена",
-      "row": 11,
-      "normalizedGroup": "СТ1-35",
-      "rawValue": "/теория Гасенина М.П.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 5,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "a5c25eb5a9870196085f430a31306ba0fbcf74d1187ba51c5924be9dedc65a31",
-      "sheet": "Замены: Вторая смена",
-      "row": 13,
-      "normalizedGroup": "РК1-33",
-      "rawValue": "1,2 п/гр. Пономаренко В.С.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 5,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "ff990d9737f1daa7e02d64de83975eaf4d04da6ff7919232f41cc37bf7d27f52",
-      "sheet": "Замены: Вторая смена",
-      "row": 13,
-      "normalizedGroup": "РК1-33",
-      "rawValue": "1,2 п/гр. Пономаренко В.С.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "1e2b43dc346d2caa57c4426b1005ed43fe5fa4ff85d7bc84c93769f6063097b9",
-      "sheet": "Замены: Вторая смена",
-      "row": 17,
-      "normalizedGroup": "ДИ1-43",
-      "rawValue": "1,2 п/гр. Выблова Т.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "807242cbf9c696328641d86795be02421c56b1dae5218d1958b672984e384d68",
-      "sheet": "Замены: Вторая смена",
-      "row": 17,
-      "normalizedGroup": "ДИ1-43",
-      "rawValue": "1,2 п/гр. Выблова Т.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "30bc2dd2c2d953bbebba2e7f85d9cb23420c2658ec9ab4f4c31f91024f9b7173",
-      "sheet": "Замены: Вторая смена",
-      "row": 18,
-      "normalizedGroup": "РК1-31",
-      "rawValue": "1,2 п/гр. МДК 04.03 Выблова Т.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "3a6e82a302d3f528362c67c04641b68a742998bc8f9b660f99bcbb169d4f9193",
-      "sheet": "Замены: Вторая смена",
-      "row": 18,
-      "normalizedGroup": "РК1-31",
-      "rawValue": "1,2 п/гр. МДК 04.03 Выблова Т.В.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 5,
-        "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "УП 01.02",
+        "candidates": [
+          {
+            "subject": "Основы алгоритмизации и программирования",
+            "teacher": "Вершинина Н.А.",
+            "room": "Б110",
+            "sourceRow": 97
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
@@ -500,7 +206,16 @@
         "date": "2026-09-05",
         "lessonNumber": 3,
         "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "Физкультура",
+        "candidates": [
+          {
+            "subject": "Математика",
+            "teacher": "Саввина Е.А.",
+            "room": "Ф202",
+            "sourceRow": 41
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
@@ -531,162 +246,16 @@
         "date": "2026-09-05",
         "lessonNumber": 4,
         "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "dfadb301f7984fe55defe7f2cee88b3303c6cc41d2d2de1b907b8a6b0b8cd60b",
-      "sheet": "Замены: Вторая смена",
-      "row": 24,
-      "normalizedGroup": "ЮР1-23",
-      "rawValue": "Снято",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "cancel",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "e9043ce125f94bdf8f8c1af47916c59913985eb17ac57112b1390657fab7166f",
-      "sheet": "Замены: Вторая смена",
-      "row": 25,
-      "normalizedGroup": "ЮР1-25",
-      "rawValue": "ДОУ Хватова Е.Ю.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "1c96f0b4a89acab3692e839a7912926f5f36daeaa715c6916dd373ea76deb06f",
-      "sheet": "Замены: Вторая смена",
-      "row": 26,
-      "normalizedGroup": "ЮР1-25",
-      "rawValue": "Физкультура Калачик Н.И.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 5,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "3672c07001f6a23848b28bd3e974eb97a38c5a0417d6604306e12e54eba987d0",
-      "sheet": "Замены: Вторая смена",
-      "row": 27,
-      "normalizedGroup": "ЮР1-25",
-      "rawValue": "Снято",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "cancel",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "source": {
-        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "fileName": "rasp_second.html",
-        "sha256": "b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382",
-        "fetchedAt": "2026-09-05T13:16:53.411Z",
-        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-        "shift": "second",
-        "etag": "W/\"6a9bf536-22e2\"",
-        "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
-      },
-      "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
-      "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "dcaa2a888cecbb48b3172f683d73418adb23fe97306af3f6cb225d5754a9c8e9",
-      "sheet": "Замены: Вторая смена",
-      "row": 27,
-      "normalizedGroup": "ЮР1-25",
-      "rawValue": "Снято",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 3,
-        "type": "cancel",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "История России ...",
+        "candidates": [
+          {
+            "subject": "Менеджмент в туризме и гостеприимстве",
+            "teacher": "Мартынова С.В.",
+            "room": "Ф104",
+            "sourceRow": 94
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",

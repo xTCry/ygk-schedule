@@ -198,7 +198,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -208,11 +208,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -222,6 +226,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ТУ1-21:
         group: ТУ1-21
@@ -230,11 +238,14 @@ dates:
         lessons:
           - number: 2
             variants:
-              - subject: Безопасность жизнедеятельности
-                teacher: Корсаков С.В.
-                room: Ф301
+              - subject: Инф.экс.деят.
+                teacher: Тюленева В.О.
+                room: Ф106
                 weekType: both
-                sourceRow: 54
+                rawSubject: Инф.экс.деят. Тюленева В.О.
+                rawTeacher: Тюленева В.О.
+                rawRoom: Ф106
+                sourceRow: 2
             source:
               sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
               rowStart: 54
@@ -242,7 +253,28 @@ dates:
               rawGroupName: ТУ1-21/ТУ1-22
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: БЖ
+                  replacement:
+                    raw: Инф.экс.деят. Тюленева В.О.
+                    room: Ф106
+                  source:
+                    shift: second
+                    row: 2
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: БЖ
+                    rawReplacement: Инф.экс.деят. Тюленева В.О.
+                    rawRoom: Ф106
+                lessonNumber: 2
+                strategy: subject-word-mention
           - number: 3
             variants:
               - subject: История России
@@ -313,50 +345,73 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ТУ1-21
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: БЖ
-              replacement:
-                raw: Инф.экс.деят. Тюленева В.О.
-                room: Ф106
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 2
+              variants:
+                - subject: Безопасность жизнедеятельности
+                  teacher: Корсаков С.В.
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 54
               source:
-                shift: second
-                row: 2
-                rawGroupName: ТУ1-21
-                rawLessonNumbers: "2"
-                rawOriginal: БЖ
-                rawReplacement: Инф.экс.деят. Тюленева В.О.
-                rawRoom: Ф106
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «БЖ». По замене: «Инф.экс.деят. Тюленева В.О.».
-                Аудитория: «Ф106»."
-              room: Ф106
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 54
+                rowEnd: 55
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: История России
+                  teacher: Горбачев В.Н.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 56
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 56
+                rowEnd: 57
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.03.01 Выполнение функций ассистента экскурсовода (гида)
+                  teacher: Тюленева В.О.
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 58
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 58
+                rowEnd: 59
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Основы финансовой грамотности
+                  teacher: Сафронова Л.Н
+                  room: Ф302
+                  weekType: both
+                  rawSubject: "Основы финансовой грамотности "
+                  sourceRow: 60
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 60
+                rowEnd: 61
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 97d782ad8a8fad654370c2bf34b77e8871f61a0081544aebccef6ad9f8092068
-    sheet: "Замены: Вторая смена"
-    row: 2
-    normalizedGroup: ТУ1-21
-    rawValue: Инф.экс.деят. Тюленева В.О.
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -371,6 +426,12 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
+      requestedSubject: История России ...
+      candidates:
+        - subject: Менеджмент в туризме и гостеприимстве
+          teacher: Мартынова С.В.
+          room: Ф104
+          sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2720224a438142b1d4bc1f4e5b89e57980de702990217355fb5c84d772fa76f5
+semanticHash: c1864288d705c968355681d0cada76e26dea5b086c8fe1eaaffee2dc0e7ddcf0

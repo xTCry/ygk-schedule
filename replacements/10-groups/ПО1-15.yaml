@@ -1,0 +1,49 @@
+schemaVersion: 5
+provider: ygk
+group: ПО1-15
+dates:
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        replacements:
+          - &a1
+            date: 2026-09-08
+            group: ПО1-15
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физика л/р
+            replacement:
+              raw: /теория Калинин Д.А.
+              room: М101
+            source:
+              shift: first
+              row: 2
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Физика л/р
+              rawReplacement: /теория Калинин Д.А.
+              rawRoom: М101
+        diagnostics: []
+    replacements:
+      - *a1
+diagnostics: []
+semanticHash: ff2f97e8683b4329ecdf8fde57f37b634ace38e20a0f22d4e7fc14d5f0bf5262

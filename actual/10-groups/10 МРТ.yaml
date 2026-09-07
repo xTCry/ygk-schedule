@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,54 +39,289 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       10 МРТ:
         group: 10 МРТ
         date: 2026-09-07
         day: Понедельник
-        lessons: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: 10 МРТ
-              lessonNumbers:
-                - 0
-              type: replace
-              original:
-                raw: Разговоры о важном
-              replacement:
-                raw: Вагушева Е.А.
+        lessons:
+          - number: 0
+            variants:
+              - subject: Разговоры о важном
+                teacher: Вагушева Е.А.
                 room: к.23
-              source:
-                shift: first
-                row: 63
-                rawGroupName: 10 МРТ
-                rawLessonNumbers: "0"
-                rawOriginal: Разговоры о важном
-                rawReplacement: Вагушева Е.А.
+                weekType: both
+                rawSubject: Вагушева Е.А.
+                rawTeacher: Вагушева Е.А.
                 rawRoom: к.23
-            lessonNumber: 0
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Разговоры о важном». По замене: «Вагушева Е.А.».
-                Аудитория: «к.23»."
-              room: к.23
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 135aad91c14f4a0c6716495017ee38c3496dc2b8e7b3d924c598ae4c5df4bd97
-    sheet: "Замены: Первая смена"
-    row: 63
-    normalizedGroup: 10 МРТ
-    rawValue: Вагушева Е.А.
-    context:
-      date: 2026-09-07
-      lessonNumber: 0
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c721f87eb2f0b26e62c797a8bd1a6c9d92afec4244959354292636a5be33036d
+                sourceRow: 63
+            source:
+              sheet: 1 курс
+              rowStart: 3
+              rowEnd: 4
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: 10 МРТ
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Разговоры о важном
+                  replacement:
+                    raw: Вагушева Е.А.
+                    room: к.23
+                  source:
+                    shift: first
+                    row: 63
+                    rawGroupName: 10 МРТ
+                    rawLessonNumbers: "0"
+                    rawOriginal: Разговоры о важном
+                    rawReplacement: Вагушева Е.А.
+                    rawRoom: к.23
+                lessonNumber: 0
+                strategy: exact-subject
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Вагушева Е.А.
+                room: к.23
+                weekType: both
+                sourceRow: 5
+            source:
+              sheet: 1 курс
+              rowStart: 5
+              rowEnd: 6
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Федотова Л.А.
+                room: к.31
+                weekType: both
+                sourceRow: 7
+            source:
+              sheet: 1 курс
+              rowStart: 7
+              rowEnd: 8
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физика
+                teacher: Крижановский В.С.
+                room: к.33
+                weekType: both
+                sourceRow: 9
+            source:
+              sheet: 1 курс
+              rowStart: 9
+              rowEnd: 10
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 0
+              variants:
+                - subject: Разговоры о важном
+                  teacher: Лебедева С.В.
+                  room: к.42
+                  weekType: both
+                  rawSubject: "Разговоры о важном "
+                  sourceRow: 3
+              source:
+                sheet: 1 курс
+                rowStart: 3
+                rowEnd: 4
+                rawGroupName: 10 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: История
+                  teacher: Вагушева Е.А.
+                  room: к.23
+                  weekType: both
+                  sourceRow: 5
+              source:
+                sheet: 1 курс
+                rowStart: 5
+                rowEnd: 6
+                rawGroupName: 10 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Литература
+                  teacher: Федотова Л.А.
+                  room: к.31
+                  weekType: both
+                  sourceRow: 7
+              source:
+                sheet: 1 курс
+                rowStart: 7
+                rowEnd: 8
+                rawGroupName: 10 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Физика
+                  teacher: Крижановский В.С.
+                  room: к.33
+                  weekType: both
+                  sourceRow: 9
+              source:
+                sheet: 1 курс
+                rowStart: 9
+                rowEnd: 10
+                rawGroupName: 10 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      10 МРТ:
+        group: 10 МРТ
+        date: 2026-09-08
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Крижановский В.С.
+                room: к.33
+                weekType: both
+                sourceRow: 12
+            source:
+              sheet: 1 курс
+              rowStart: 12
+              rowEnd: 13
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Федотова Л.А.
+                room: к.31
+                weekType: both
+                rawSubject: Русский язык Федотова Л.А.
+                rawTeacher: Федотова Л.А.
+                rawRoom: к.31
+                sourceRow: 63
+            source:
+              sheet: 1 курс
+              rowStart: 14
+              rowEnd: 15
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-08
+                  group: 10 МРТ
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: ОБиЗР
+                  replacement:
+                    raw: Русский язык Федотова Л.А.
+                    room: к.31
+                  source:
+                    shift: first
+                    row: 63
+                    rawGroupName: 10 МРТ
+                    rawLessonNumbers: "1"
+                    rawOriginal: ОБиЗР
+                    rawReplacement: Русский язык Федотова Л.А.
+                    rawRoom: к.31
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Индивидуальный проект
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: denominator
+                sourceRow: 16
+            source:
+              sheet: 1 курс
+              rowStart: 16
+              rowEnd: 17
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Информатика
+                teacher: Ефимова А.С.
+                room: к.34
+                weekType: both
+                sourceRow: 18
+            source:
+              sheet: 1 курс
+              rowStart: 18
+              rowEnd: 19
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 81b76fcb63b3effb8091b77f38da28296239beda544241a6418de05d046dc12e

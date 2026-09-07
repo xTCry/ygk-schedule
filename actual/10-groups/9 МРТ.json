@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -46,41 +56,127 @@
           "group": "9 МРТ",
           "date": "2026-09-07",
           "day": "Понедельник",
-          "lessons": [],
-          "unresolvedReplacements": [
+          "lessons": [
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "9 МРТ",
-                "lessonNumbers": [
-                  0
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 04.01"
-                },
-                "replacement": {
-                  "raw": "Физика Крижановский В.С.",
-                  "room": "к.33"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 51,
-                  "rawGroupName": "9 МРТ",
-                  "rawLessonNumbers": "0",
-                  "rawOriginal": "МДК 04.01",
-                  "rawReplacement": "Физика Крижановский В.С.",
-                  "rawRoom": "к.33"
+              "number": 0,
+              "variants": [
+                {
+                  "subject": "Физика",
+                  "teacher": "Крижановский В.С.",
+                  "room": "к.33",
+                  "weekType": "both",
+                  "rawSubject": "Физика Крижановский В.С.",
+                  "rawTeacher": "Крижановский В.С.",
+                  "rawRoom": "к.33",
+                  "sourceRow": 51
                 }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 3,
+                "rowEnd": 4,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 0,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 04.01». По замене: «Физика Крижановский В.С.». Аудитория: «к.33».",
-                "room": "к.33"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "9 МРТ",
+                    "lessonNumbers": [
+                      0
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 04.01"
+                    },
+                    "replacement": {
+                      "raw": "Физика Крижановский В.С.",
+                      "room": "к.33"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 51,
+                      "rawGroupName": "9 МРТ",
+                      "rawLessonNumbers": "0",
+                      "rawOriginal": "МДК 04.01",
+                      "rawReplacement": "Физика Крижановский В.С.",
+                      "rawRoom": "к.33"
+                    }
+                  },
+                  "lessonNumber": 0,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Физика",
+                  "teacher": "Крижановский В.С.",
+                  "room": "к.33",
+                  "weekType": "both",
+                  "sourceRow": 5
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 5,
+                "rowEnd": 6,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "УП.01 Учебная практика п/гр1",
+                  "teacher": "Филиппова А.С.",
+                  "room": "к.30",
+                  "weekType": "denominator",
+                  "subgroup": "1",
+                  "sourceRow": 7
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 7,
+                "rowEnd": 8,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "УП.01 Учебная практика п/гр1",
+                  "teacher": "Филиппова А.С.",
+                  "room": "к.30",
+                  "weekType": "denominator",
+                  "subgroup": "1",
+                  "sourceRow": 9
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 9,
+                "rowEnd": 10,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
             {
               "replacement": {
                 "date": "2026-09-07",
@@ -107,7 +203,7 @@
                 }
               },
               "lessonNumber": 2,
-              "reason": "group-not-found",
+              "reason": "subgroup-not-matched",
               "event": {
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «УП 01 п/гр.2». По замене: «снято»."
@@ -139,13 +235,271 @@
                 }
               },
               "lessonNumber": 3,
-              "reason": "group-not-found",
+              "reason": "subgroup-not-matched",
               "event": {
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «УП 01 п/гр.2». По замене: «снято»."
               }
             }
-          ]
+          ],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 0,
+                "variants": [
+                  {
+                    "subject": "МДК. 04.01 Технология выполнения работ",
+                    "teacher": "Филиппова А.С.",
+                    "room": "к.30",
+                    "weekType": "both",
+                    "rawSubject": "МДК. 04.01 Технология выполнения работ ",
+                    "sourceRow": 3
+                  }
+                ],
+                "source": {
+                  "sheet": "2 курс",
+                  "rowStart": 3,
+                  "rowEnd": 4,
+                  "rawGroupName": "9 МРТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 1,
+                "variants": [
+                  {
+                    "subject": "Физика",
+                    "teacher": "Крижановский В.С.",
+                    "room": "к.33",
+                    "weekType": "both",
+                    "sourceRow": 5
+                  }
+                ],
+                "source": {
+                  "sheet": "2 курс",
+                  "rowStart": 5,
+                  "rowEnd": 6,
+                  "rawGroupName": "9 МРТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "УП.01 Учебная практика п/гр1",
+                    "teacher": "Филиппова А.С.",
+                    "room": "к.30",
+                    "weekType": "denominator",
+                    "subgroup": "1",
+                    "sourceRow": 7
+                  }
+                ],
+                "source": {
+                  "sheet": "2 курс",
+                  "rowStart": 7,
+                  "rowEnd": 8,
+                  "rawGroupName": "9 МРТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "УП.01 Учебная практика п/гр1",
+                    "teacher": "Филиппова А.С.",
+                    "room": "к.30",
+                    "weekType": "denominator",
+                    "subgroup": "1",
+                    "sourceRow": 9
+                  }
+                ],
+                "source": {
+                  "sheet": "2 курс",
+                  "rowStart": 9,
+                  "rowEnd": 10,
+                  "rawGroupName": "9 МРТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "9 МРТ": {
+          "group": "9 МРТ",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 0,
+              "variants": [
+                {
+                  "subject": "Информатика",
+                  "teacher": "Ефимова А.С.",
+                  "room": "к.34",
+                  "weekType": "both",
+                  "sourceRow": 13
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 13,
+                "rowEnd": 14,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Метрология",
+                  "teacher": "Ковалев Н.В.",
+                  "room": "к.30",
+                  "weekType": "both",
+                  "rawSubject": "Метрология Ковалев Н.В.",
+                  "rawTeacher": "Ковалев Н.В.",
+                  "rawRoom": "к.30",
+                  "sourceRow": 52
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 15,
+                "rowEnd": 16,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "9 МРТ",
+                    "lessonNumbers": [
+                      1
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 04.01"
+                    },
+                    "replacement": {
+                      "raw": "Метрология Ковалев Н.В.",
+                      "room": "к.30"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 52,
+                      "rawGroupName": "9 МРТ",
+                      "rawLessonNumbers": "1",
+                      "rawOriginal": "МДК 04.01",
+                      "rawReplacement": "Метрология Ковалев Н.В.",
+                      "rawRoom": "к.30"
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "Математические методы решения типовых прикладных задач",
+                  "teacher": "Бахвалова К.",
+                  "room": "к.35",
+                  "weekType": "both",
+                  "sourceRow": 17
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 17,
+                "rowEnd": 18,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Шпынов Ю.Г.",
+                  "room": "сп.зал",
+                  "weekType": "both",
+                  "sourceRow": 19
+                }
+              ],
+              "source": {
+                "sheet": "2 курс",
+                "rowStart": 19,
+                "rowEnd": 20,
+                "rawGroupName": "9 МРТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": []
         }
       }
     }
@@ -155,27 +509,8 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "23a08f6c7b55f5b41ac21ad5f9e5d4069dc2f2aa40c208fc10f27d7995d36e0c",
-      "sheet": "Замены: Первая смена",
-      "row": 51,
-      "normalizedGroup": "9 МРТ",
-      "rawValue": "Физика Крижановский В.С.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 0,
-        "type": "replace",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "407658b9cbaa6d1c749e5577e1414db40a00e6fbb9efb5f326f203302ce415cc",
+      "message": "Подгруппа из замены не проводится в базовом расписании в эту неделю",
+      "fingerprint": "04580c58db640e9da1e1609328858912cf46753800f853ae12cb005185b01346",
       "sheet": "Замены: Первая смена",
       "row": 52,
       "normalizedGroup": "9 МРТ",
@@ -184,7 +519,20 @@
         "date": "2026-09-07",
         "lessonNumber": 3,
         "type": "cancel",
-        "reason": "group-not-found"
+        "reason": "subgroup-not-matched",
+        "requestedSubject": "УП 01",
+        "requestedSubgroups": [
+          "2"
+        ],
+        "candidates": [
+          {
+            "subject": "УП.01 Учебная практика п/гр1",
+            "teacher": "Филиппова А.С.",
+            "room": "к.30",
+            "subgroup": "1",
+            "sourceRow": 9
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
@@ -193,8 +541,8 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "b1e5e15a77b84d36ae0166898e50f4c4e1ed9038c7eca1723109ac5010373c58",
+      "message": "Подгруппа из замены не проводится в базовом расписании в эту неделю",
+      "fingerprint": "a7bbd8da3dc5a46f5955bd82160dc1f2f5279a277172b1d24652611a7bac7b07",
       "sheet": "Замены: Первая смена",
       "row": 52,
       "normalizedGroup": "9 МРТ",
@@ -203,11 +551,24 @@
         "date": "2026-09-07",
         "lessonNumber": 2,
         "type": "cancel",
-        "reason": "group-not-found"
+        "reason": "subgroup-not-matched",
+        "requestedSubject": "УП 01",
+        "requestedSubgroups": [
+          "2"
+        ],
+        "candidates": [
+          {
+            "subject": "УП.01 Учебная практика п/гр1",
+            "teacher": "Филиппова А.С.",
+            "room": "к.30",
+            "subgroup": "1",
+            "sourceRow": 7
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "77f703641fbec8dc4eb25f52b3d68477a731d10ec671e8825198ee0debf04031"
+  "semanticHash": "6dbf34be62e9f79c0492e8c9bf0162659df56de7fc42e14186487106cffb1b21"
 }

@@ -78,7 +78,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -129,8 +129,75 @@ dates:
               rawReplacement: МДК 05.02 Королева П.Д.Неделяева Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     replacements:
       - *a3
       - *a4
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        replacements:
+          - &a5
+            date: 2026-09-08
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Б501
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Б501
+          - &a6
+            date: 2026-09-08
+            group: ИС1-41
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 05.03 пгр
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              room: Б202
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 05.03 пгр
+              rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 9997f48551bfee81e2b47ec6301694d2d1b594ba1db8d00db4f03c91ccd1a52b
+semanticHash: 0f1515f042d16a3c5ed051fe57c5bac4d0f6d986848b39d0608695e60a606c69

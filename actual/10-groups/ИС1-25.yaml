@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ИС1-25:
         group: ИС1-25
@@ -44,10 +52,13 @@ dates:
           - number: 1
             variants:
               - subject: Архитектура аппаратных средств
-                teacher: Груздев В.В.
+                teacher: Серова А.М.
                 room: ДОТ
-                weekType: denominator
-                sourceRow: 104
+                weekType: both
+                rawSubject: 1,2 п/гр. Серова А.М.
+                rawTeacher: Серова А.М.
+                rawRoom: ДОТ
+                sourceRow: 8
             source:
               sheet: "ИС1-21 ИС1-25 ИС1-23 "
               rowStart: 104
@@ -55,7 +66,28 @@ dates:
               rawGroupName: ИС1-25/ИС1-26/ИС2-13
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ИС1-25
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Арх.аппар.ср.
+                  replacement:
+                    raw: 1,2 п/гр. Серова А.М.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 8
+                    rawGroupName: ИС1-25
+                    rawLessonNumbers: "1"
+                    rawOriginal: Арх.аппар.ср.
+                    rawReplacement: 1,2 п/гр. Серова А.М.
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: subject-abbreviation
           - number: 2
             variants:
               - subject: МДК.06.01 Внедрение ИС
@@ -88,48 +120,181 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ИС1-25
-              lessonNumbers:
-                - 1
-              type: replace
-              original:
-                raw: Арх.аппар.ср.
-              replacement:
-                raw: 1,2 п/гр. Серова А.М.
-                room: ДОТ
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 1
+              variants:
+                - subject: Архитектура аппаратных средств
+                  teacher: Груздев В.В.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 104
               source:
-                shift: first
-                row: 8
-                rawGroupName: ИС1-25
-                rawLessonNumbers: "1"
-                rawOriginal: Арх.аппар.ср.
-                rawReplacement: 1,2 п/гр. Серова А.М.
-                rawRoom: ДОТ
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Арх.аппар.ср.». По замене: «1,2 п/гр. Серова
-                А.М.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 0f73dac7e11b0bfadad01b3a568fc7a7f1de31f45f137a307004b123d6b3bd69
-    sheet: "Замены: Первая смена"
-    row: 8
-    normalizedGroup: ИС1-25
-    rawValue: 1,2 п/гр. Серова А.М.
-    context:
-      date: 2026-09-07
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: cec251b5b29a9044dbbe1f67cde03f061f19ae11f08f9f8bf6f0d673f7b08086
+                sheet: "ИС1-21 ИС1-25 ИС1-23 "
+                rowStart: 104
+                rowEnd: 105
+                rawGroupName: ИС1-25/ИС1-26/ИС2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.06.01 Внедрение ИС
+                  teacher: Пронина Л.Ю.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 106
+              source:
+                sheet: "ИС1-21 ИС1-25 ИС1-23 "
+                rowStart: 106
+                rowEnd: 107
+                rawGroupName: ИС1-25/ИС1-26/ИС2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Загороднева Е.С.
+                    Смирнова Е.Ф.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 108
+              source:
+                sheet: "ИС1-21 ИС1-25 ИС1-23 "
+                rowStart: 108
+                rowEnd: 109
+                rawGroupName: ИС1-25/ИС1-26/ИС2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      ИС1-25:
+        group: ИС1-25
+        date: 2026-09-08
+        day: Вторник
+        lessons:
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Свбодина Н.В.
+                room: Б508
+                weekType: both
+                sourceRow: 113
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 113
+              rowEnd: 114
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Информационные технологии
+                teacher: Садилова К.А.
+                room: Б403
+                weekType: both
+                rawSubject: 1,2 п/гр. Садилова К.А.
+                rawTeacher: Садилова К.А.
+                rawRoom: Б403
+                sourceRow: 20
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 115
+              rowEnd: 116
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-08
+                  group: ИС1-25
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Инф.технол.
+                  replacement:
+                    raw: 1,2 п/гр. Садилова К.А.
+                    room: Б403
+                  source:
+                    shift: first
+                    row: 20
+                    rawGroupName: ИС1-25
+                    rawLessonNumbers: "2"
+                    rawOriginal: Инф.технол.
+                    rawReplacement: 1,2 п/гр. Садилова К.А.
+                    rawRoom: Б403
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: Основы фин.грам-ти
+                teacher: Сафронова Л.Н.
+                room: Б504
+                weekType: both
+                sourceRow: 117
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 117
+              rowEnd: 118
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Основы алгоритмизации и программирования
+                teacher: Вершинина Н.А.
+                room: Б101
+                weekType: denominator
+                sourceRow: 119
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 119
+              rowEnd: 120
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 7acd2374c9d4db66996de8a48b72a46b7abab7b65fa934c7102e677af053ead9

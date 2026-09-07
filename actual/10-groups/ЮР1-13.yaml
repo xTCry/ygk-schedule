@@ -113,7 +113,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -123,11 +123,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -137,6 +141,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ЮР1-13:
         group: ЮР1-13
@@ -216,6 +224,128 @@ dates:
               description: "По расписанию: «Математика...». По замене: «ОБиЗР Корсаков С.В.».
                 Аудитория: «Ф301»."
               room: Ф301
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      ЮР1-13:
+        group: ЮР1-13
+        date: 2026-09-08
+        day: Вторник
+        lessons: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-08
+              group: ЮР1-13
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Инд.проект
+              replacement:
+                raw: 1,2 п/гр. Малявкина Н.А.
+                room: Ф106
+              source:
+                shift: first
+                row: 27
+                rawGroupName: ЮР1-13
+                rawLessonNumbers: "1"
+                rawOriginal: Инд.проект
+                rawReplacement: 1,2 п/гр. Малявкина Н.А.
+                rawRoom: Ф106
+            lessonNumber: 1
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инд.проект». По замене: «1,2 п/гр. Малявкина
+                Н.А.». Аудитория: «Ф106»."
+              room: Ф106
+          - replacement:
+              date: 2026-09-08
+              group: ЮР1-13
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Рус.язык
+              replacement:
+                raw: Биология Малявкина Н.А.
+                room: Ф106, Ф406
+              source:
+                shift: first
+                row: 28
+                rawGroupName: ЮР1-13
+                rawLessonNumbers: "2"
+                rawOriginal: Рус.язык
+                rawReplacement: Биология Малявкина Н.А.
+                rawRoom: Ф106, Ф406
+            lessonNumber: 2
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Рус.язык». По замене: «Биология Малявкина Н.А.».
+                Аудитория: «Ф106, Ф406»."
+              room: Ф106, Ф406
+          - replacement: &a4
+              date: 2026-09-08
+              group: ЮР1-13
+              lessonNumbers:
+                - 3
+                - 4
+              type: cancel
+              original:
+                raw: Литер Инд.проект п/гр
+              replacement:
+                raw: Снято
+              source:
+                shift: first
+                row: 29
+                rawGroupName: ЮР1-13
+                rawLessonNumbers: 3,4
+                rawOriginal: Литер Инд.проект п/гр
+                rawReplacement: Снято
+                rawRoom: ""
+            lessonNumber: 3
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Литер Инд.проект п/гр». По замене: «Снято»."
+          - replacement: *a4
+            lessonNumber: 4
+            reason: group-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Литер Инд.проект п/гр». По замене: «Снято»."
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -317,6 +447,38 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Группа из замены не найдена в базовом расписании
+    fingerprint: 6a0882ef44625486b6349f9452067a4d88fdf7b0847a5ffa8aabe4673317ac22
+    sheet: "Замены: Первая смена"
+    row: 29
+    normalizedGroup: ЮР1-13
+    rawValue: Снято
+    context:
+      date: 2026-09-08
+      lessonNumber: 3
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: 7bb09a67176e575bc3506eeccb5639f38725560fb848daa3f2f804d2a6a736d6
+    sheet: "Замены: Первая смена"
+    row: 29
+    normalizedGroup: ЮР1-13
+    rawValue: Снято
+    context:
+      date: 2026-09-08
+      lessonNumber: 4
+      type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
     fingerprint: b10dd6e8ba126af4711b6ff39cd21e57cae7e7266b92e4ba681ce78579027447
     sheet: "Замены: Первая смена"
     row: 29
@@ -326,6 +488,38 @@ diagnostics:
       date: 2026-09-05
       lessonNumber: 0
       type: cancel
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: bda81d09495d69521e74028e9f6da0ac5a21e7540ffa5a420429d262cc1ea26e
+    sheet: "Замены: Первая смена"
+    row: 27
+    normalizedGroup: ЮР1-13
+    rawValue: 1,2 п/гр. Малявкина Н.А.
+    context:
+      date: 2026-09-08
+      lessonNumber: 1
+      type: replace
+      reason: group-not-found
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Группа из замены не найдена в базовом расписании
+    fingerprint: d13d8252ab98568aceaf86f8285f97a6b7ee1528de9584dbe2c69e47b4de4731
+    sheet: "Замены: Первая смена"
+    row: 28
+    normalizedGroup: ЮР1-13
+    rawValue: Биология Малявкина Н.А.
+    context:
+      date: 2026-09-08
+      lessonNumber: 2
+      type: replace
       reason: group-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -345,4 +539,4 @@ diagnostics:
       reason: group-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 9dbb450df6eb6898a31daa2d90604f1591b64442204bf81b5291dda42ca322f5
+semanticHash: 505878475c4068bca188c6d275ce96a70f2ea02a2ff5eb9eeabc30f663efb5a3

@@ -51,11 +51,14 @@ dates:
         lessons:
           - number: 0
             variants:
-              - subject: Физика
-                teacher: Вакансия
-                room: Б402
+              - subject: Литер. Рус.язык
+                teacher: Бабарыкова Э.В.
+                room: А202
                 weekType: both
-                sourceRow: 91
+                rawSubject: Литер. Рус.язык Бабарыкова Э.В.
+                rawTeacher: Бабарыкова Э.В.
+                rawRoom: А202
+                sourceRow: 40
             source:
               sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
               rowStart: 91
@@ -63,14 +66,39 @@ dates:
               rawGroupName: ЗМ1-13/ЗМ1-14
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-05
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original:
+                    raw: Физика ОБиЗР
+                  replacement:
+                    raw: Литер. Рус.язык Бабарыкова Э.В.
+                    room: А202
+                  source:
+                    shift: first
+                    row: 40
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: 0,1
+                    rawOriginal: Физика ОБиЗР
+                    rawReplacement: Литер. Рус.язык Бабарыкова Э.В.
+                    rawRoom: А202
+                lessonNumber: 0
+                strategy: subject-word-mention
           - number: 1
             variants:
-              - subject: Основы безопасности и защиты Родины
-                teacher: Зевахина О.Б.
-                room: Б401
+              - subject: Литер. Рус.язык
+                teacher: Бабарыкова Э.В.
+                room: А202
                 weekType: both
-                sourceRow: 93
+                rawSubject: Литер. Рус.язык Бабарыкова Э.В.
+                rawTeacher: Бабарыкова Э.В.
+                rawRoom: А202
+                sourceRow: 40
             source:
               sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
               rowStart: 93
@@ -78,7 +106,10 @@ dates:
               rawGroupName: ЗМ1-13/ЗМ1-14
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: *a1
+                lessonNumber: 1
+                strategy: subject-word-mention
           - number: 2
             variants:
               - subject: Биология
@@ -109,42 +140,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement: &a1
-              date: 2026-09-05
-              group: ЗМ1-13
-              lessonNumbers:
-                - 0
-                - 1
-              type: replace
-              original:
-                raw: Физика ОБиЗР
-              replacement:
-                raw: Литер. Рус.язык Бабарыкова Э.В.
-                room: А202
-              source:
-                shift: first
-                row: 40
-                rawGroupName: ЗМ1-13
-                rawLessonNumbers: 0,1
-                rawOriginal: Физика ОБиЗР
-                rawReplacement: Литер. Рус.язык Бабарыкова Э.В.
-                rawRoom: А202
-            lessonNumber: 0
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Физика ОБиЗР». По замене: «Литер. Рус.язык
-                Бабарыкова Э.В.». Аудитория: «А202»."
-              room: А202
-          - replacement: *a1
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Физика ОБиЗР». По замене: «Литер. Рус.язык
-                Бабарыкова Э.В.». Аудитория: «А202»."
-              room: А202
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -209,37 +205,5 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 037d087d0dcba164fdab9cb982a8d6906e5b81fedb64d227883e8a79fb5ecc18
-    sheet: "Замены: Первая смена"
-    row: 40
-    normalizedGroup: ЗМ1-13
-    rawValue: Литер. Рус.язык Бабарыкова Э.В.
-    context:
-      date: 2026-09-05
-      lessonNumber: 0
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 4b052f53d207332fe9d0ef4fc29b53415df1f37c7b13af63f4fe360f7765cfbf
-    sheet: "Замены: Первая смена"
-    row: 40
-    normalizedGroup: ЗМ1-13
-    rawValue: Литер. Рус.язык Бабарыкова Э.В.
-    context:
-      date: 2026-09-05
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 7e29593e6f8c2de4003c2df4cd97532b4f929d5d3471b16a9ea4cee758bbf791
+diagnostics: []
+semanticHash: 24dd3d0025bac06746ee003c8717446f76b4b3b779859a68f3ef7fe7b85a05c0

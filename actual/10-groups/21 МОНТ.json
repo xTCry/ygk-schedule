@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -46,116 +56,240 @@
           "group": "21 МОНТ",
           "date": "2026-09-07",
           "day": "Понедельник",
-          "lessons": [],
-          "unresolvedReplacements": [
+          "lessons": [
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "21 МОНТ",
-                "lessonNumbers": [
-                  1
-                ],
-                "type": "cancel",
-                "original": {
-                  "raw": "Ин.язык"
-                },
-                "replacement": {
-                  "raw": "снято"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 68,
-                  "rawGroupName": "21 МОНТ",
-                  "rawLessonNumbers": "1",
-                  "rawOriginal": "Ин.язык",
-                  "rawReplacement": "снято",
-                  "rawRoom": ""
-                }
+              "number": 1,
+              "variants": [],
+              "source": {
+                "sheet": "1 курс",
+                "rowStart": 155,
+                "rowEnd": 156,
+                "rawGroupName": "21 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 1,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Ин.язык». По замене: «снято»."
-              }
+              "status": "cancelled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "21 МОНТ",
+                    "lessonNumbers": [
+                      1
+                    ],
+                    "type": "cancel",
+                    "original": {
+                      "raw": "Ин.язык"
+                    },
+                    "replacement": {
+                      "raw": "снято"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 68,
+                      "rawGroupName": "21 МОНТ",
+                      "rawLessonNumbers": "1",
+                      "rawOriginal": "Ин.язык",
+                      "rawReplacement": "снято",
+                      "rawRoom": ""
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             },
             {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "21 МОНТ",
-                "lessonNumbers": [
-                  4
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Разговоры о важном"
-                },
-                "replacement": {
-                  "raw": "Каргина В.А.",
-                  "room": "к.42"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 67,
-                  "rawGroupName": "21 МОНТ",
-                  "rawLessonNumbers": "4",
-                  "rawOriginal": "Разговоры о важном",
-                  "rawReplacement": "Каргина В.А.",
-                  "rawRoom": "к.42"
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "МДК.01.01 Технология монтажа радиоэлектронной аппаратуры, аппаратуры проводной связи, элементов узлов импульсной и вычислительной техники",
+                  "teacher": "Каргина В.А.",
+                  "room": "к.24",
+                  "weekType": "both",
+                  "sourceRow": 157
                 }
+              ],
+              "source": {
+                "sheet": "1 курс",
+                "rowStart": 157,
+                "rowEnd": 158,
+                "rawGroupName": "21 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
-              "lessonNumber": 4,
-              "reason": "group-not-found",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Разговоры о важном». По замене: «Каргина В.А.». Аудитория: «к.42».",
-                "room": "к.42"
-              }
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Основы безопасности и защиты Родины",
+                  "teacher": "Шпынов Ю.Г.",
+                  "room": "к.32",
+                  "weekType": "both",
+                  "sourceRow": 159
+                }
+              ],
+              "source": {
+                "sheet": "1 курс",
+                "rowStart": 159,
+                "rowEnd": 160,
+                "rawGroupName": "21 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "Разговоры о важном",
+                  "teacher": "Каргина В.А.",
+                  "room": "к.42",
+                  "weekType": "both",
+                  "rawSubject": "Каргина В.А.",
+                  "rawTeacher": "Каргина В.А.",
+                  "rawRoom": "к.42",
+                  "sourceRow": 67
+                }
+              ],
+              "source": {
+                "sheet": "1 курс",
+                "rowStart": 161,
+                "rowEnd": 162,
+                "rawGroupName": "21 МОНТ",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "21 МОНТ",
+                    "lessonNumbers": [
+                      4
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Разговоры о важном"
+                    },
+                    "replacement": {
+                      "raw": "Каргина В.А.",
+                      "room": "к.42"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 67,
+                      "rawGroupName": "21 МОНТ",
+                      "rawLessonNumbers": "4",
+                      "rawOriginal": "Разговоры о важном",
+                      "rawReplacement": "Каргина В.А.",
+                      "rawRoom": "к.42"
+                    }
+                  },
+                  "lessonNumber": 4,
+                  "strategy": "exact-subject"
+                }
+              ]
             }
-          ]
+          ],
+          "unresolvedReplacements": [],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 1,
+                "variants": [
+                  {
+                    "subject": "Иностранный язык",
+                    "teacher": "Вакансия",
+                    "room": "к.биб.",
+                    "weekType": "both",
+                    "sourceRow": 155
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 155,
+                  "rowEnd": 156,
+                  "rawGroupName": "21 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "МДК.01.01 Технология монтажа радиоэлектронной аппаратуры, аппаратуры проводной связи, элементов узлов импульсной и вычислительной техники",
+                    "teacher": "Каргина В.А.",
+                    "room": "к.24",
+                    "weekType": "both",
+                    "sourceRow": 157
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 157,
+                  "rowEnd": 158,
+                  "rawGroupName": "21 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "Основы безопасности и защиты Родины",
+                    "teacher": "Шпынов Ю.Г.",
+                    "room": "к.32",
+                    "weekType": "both",
+                    "sourceRow": 159
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 159,
+                  "rowEnd": 160,
+                  "rawGroupName": "21 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "Разговоры о важном",
+                    "teacher": "Лебедева С.В.",
+                    "room": "к.42",
+                    "weekType": "both",
+                    "rawSubject": "Разговоры о важном ",
+                    "sourceRow": 161
+                  }
+                ],
+                "source": {
+                  "sheet": "1 курс",
+                  "rowStart": 161,
+                  "rowEnd": 162,
+                  "rawGroupName": "21 МОНТ",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "7c2aab7663c14f149e5409e0a76b488ba412e5716e253fc3863455f1dc8b736c",
-      "sheet": "Замены: Первая смена",
-      "row": 68,
-      "normalizedGroup": "21 МОНТ",
-      "rawValue": "снято",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 1,
-        "type": "cancel",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Группа из замены не найдена в базовом расписании",
-      "fingerprint": "989edc89008b066bc47a8c59781adf2382e61a9802ec6c00452647e5684c47d7",
-      "sheet": "Замены: Первая смена",
-      "row": 67,
-      "normalizedGroup": "21 МОНТ",
-      "rawValue": "Каргина В.А.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 4,
-        "type": "replace",
-        "reason": "group-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "f19794d8a2afd9e52184934e7a6549404e6cbe00a61a0c9743f542b5ecd994ba"
+  "diagnostics": [],
+  "semanticHash": "9943b8d94f563d4989509f984175549a34ab6214dfe86f158721ec75d4f054fa"
 }

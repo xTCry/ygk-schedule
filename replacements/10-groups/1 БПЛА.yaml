@@ -12,7 +12,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -43,7 +43,53 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
     replacements:
       - *a1
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        replacements:
+          - &a2
+            date: 2026-09-08
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 66
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a2
 diagnostics: []
-semanticHash: 5a519638c5b64ad7291f5026d15c732ba28cb869c15d00612f04ca695e2ff118
+semanticHash: e4020907f8d40321ec13ac3e6c827f8e2d2776c19298fea966b5e57117ba3c51

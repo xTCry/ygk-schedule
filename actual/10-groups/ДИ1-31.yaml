@@ -11,7 +11,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -21,11 +21,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -35,6 +39,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ДИ1-31:
         group: ДИ1-31
@@ -47,33 +55,57 @@ dates:
                 teacher: Малявкина Н.А.
                 room: М102
                 weekType: both
-                sourceRow: 51
+                sourceRow: 104
             source:
               sheet: "ДИ-2 курс ДИ-3 курс "
-              rowStart: 51
-              rowEnd: 52
+              rowStart: 104
+              rowEnd: 105
               rawGroupName: ДИ1-31/2-21
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
           - number: 5
             variants:
-              - subject: Безопасность жизнедеятельности
-                teacher: Зевахина О.Б.
+              - subject: МДК 01.02 Т.2.2.
+                teacher: Махоткина Д.Е.
                 room: Б101
                 weekType: both
-                sourceRow: 53
+                rawSubject: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
+                rawTeacher: Махоткина Д.Е.
+                rawRoom: Б101
+                sourceRow: 26
             source:
               sheet: "ДИ-2 курс ДИ-3 курс "
-              rowStart: 53
-              rowEnd: 54
+              rowStart: 106
+              rowEnd: 107
               rawGroupName: ДИ1-31/2-21
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-07
+                  group: ДИ1-31
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: БЖ
+                  replacement:
+                    raw: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
+                    room: Б101
+                  source:
+                    shift: second
+                    row: 26
+                    rawGroupName: ДИ1-31
+                    rawLessonNumbers: "5"
+                    rawOriginal: БЖ
+                    rawReplacement: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
+                    rawRoom: Б101
+                lessonNumber: 5
+                strategy: subject-word-mention
           - number: 6
             variants:
-              - subject: 1,2 п/гр.
+              - subject: МДК 01.02 Основы проектной и компьютерной графики Т.2.2.
                 teacher: Махоткина Д.Е.
                 room: Б407
                 weekType: both
@@ -83,10 +115,10 @@ dates:
                 sourceRow: 27
             source:
               sheet: "ДИ-2 курс ДИ-3 курс "
-              rowStart: 55
-              rowEnd: 56
+              rowStart: 108
+              rowEnd: 109
               rawGroupName: ДИ1-31/2-21
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements:
               - replacement:
@@ -110,48 +142,57 @@ dates:
                     rawRoom: Б407
                 lessonNumber: 6
                 strategy: subject-module-code
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-07
-              group: ДИ1-31
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: БЖ
-              replacement:
-                raw: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
-                room: Б101
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 4
+              variants:
+                - subject: Экологические основы природопользования
+                  teacher: Малявкина Н.А.
+                  room: М102
+                  weekType: both
+                  sourceRow: 104
               source:
-                shift: second
-                row: 26
-                rawGroupName: ДИ1-31
-                rawLessonNumbers: "5"
-                rawOriginal: БЖ
-                rawReplacement: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
-                rawRoom: Б101
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «БЖ». По замене: «МДК 01.02 Т.2.2./теория Махоткина
-                Д.Е.». Аудитория: «Б101»."
-              room: Б101
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 0483eae33435b824ab997b93e1d50785ac78e2736b584211ed9bbd44eacd13e4
-    sheet: "Замены: Вторая смена"
-    row: 26
-    normalizedGroup: ДИ1-31
-    rawValue: МДК 01.02 Т.2.2./теория Махоткина Д.Е.
-    context:
-      date: 2026-09-07
-      lessonNumber: 5
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: db651c4b98038e3b7ac03ec522f6fcc10abed465b63fd100ed40553578802fb3
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 104
+                rowEnd: 105
+                rawGroupName: ДИ1-31/2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Безопасность жизнедеятельности
+                  teacher: Зевахина О.Б.
+                  room: Б101
+                  weekType: both
+                  sourceRow: 106
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 106
+                rowEnd: 107
+                rawGroupName: ДИ1-31/2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики Т.2.2.
+                  teacher: |-
+                    Махоткина Д.Е.
+                    Вакансия
+                  room: Б407
+                  weekType: both
+                  sourceRow: 108
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 108
+                rowEnd: 109
+                rawGroupName: ДИ1-31/2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+diagnostics: []
+semanticHash: 2f6ba804b051e85eeef68e00efeabaca710cf718e1eb1235c6698fd3e4d71b7e

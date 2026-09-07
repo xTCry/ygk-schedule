@@ -82,11 +82,14 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "Физическая культура",
-                  "teacher": "Чупрова П.А.",
-                  "room": "Спорт.зал",
+                  "subject": "Информ.",
+                  "teacher": "Садилова К.А.",
+                  "room": "В102",
                   "weekType": "both",
-                  "sourceRow": 251
+                  "rawSubject": "Информ. Садилова К.А.",
+                  "rawTeacher": "Садилова К.А.",
+                  "rawRoom": "В102",
+                  "sourceRow": 5
                 }
               ],
               "source": {
@@ -97,7 +100,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-05",
+                    "group": "РК1-11",
+                    "lessonNumbers": [
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Физкультура"
+                    },
+                    "replacement": {
+                      "raw": "Информ. Садилова К.А.",
+                      "room": "В102"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 5,
+                      "rawGroupName": "РК1-11",
+                      "rawLessonNumbers": "2",
+                      "rawOriginal": "Физкультура",
+                      "rawReplacement": "Информ. Садилова К.А.",
+                      "rawRoom": "В102"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "subject-word-mention"
+                }
+              ]
             },
             {
               "number": 3,
@@ -122,39 +154,6 @@
             }
           ],
           "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-05",
-                "group": "РК1-11",
-                "lessonNumbers": [
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Физкультура"
-                },
-                "replacement": {
-                  "raw": "Информ. Садилова К.А.",
-                  "room": "В102"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 5,
-                  "rawGroupName": "РК1-11",
-                  "rawLessonNumbers": "2",
-                  "rawOriginal": "Физкультура",
-                  "rawReplacement": "Информ. Садилова К.А.",
-                  "rawRoom": "В102"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Физкультура». По замене: «Информ. Садилова К.А.». Аудитория: «В102».",
-                "room": "В102"
-              }
-            },
             {
               "replacement": {
                 "date": "2026-09-05",
@@ -277,30 +276,20 @@
         "date": "2026-09-05",
         "lessonNumber": 3,
         "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "822437b4e159963ed9a083d77b1d404993df0e6caa369ddb3434583958a7cb19",
-      "sheet": "Замены: Первая смена",
-      "row": 5,
-      "normalizedGroup": "РК1-11",
-      "rawValue": "Информ. Садилова К.А.",
-      "context": {
-        "date": "2026-09-05",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched"
+        "reason": "original-not-matched",
+        "requestedSubject": "Осн.шах.игры",
+        "candidates": [
+          {
+            "subject": "Математика",
+            "teacher": "Пухова Ю.Г.",
+            "room": "М208",
+            "sourceRow": 254
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "5815b799896c9e88a79bd3f27b5cd03bc8455b35931c373d756e9e27d0dd463e"
+  "semanticHash": "11c58ca59a315433b6760c4aa3e92c981e5164f18be66ed8b06199533c7e9ee7"
 }

@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -51,15 +61,12 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "/теория",
-                  "teacher": "Секацкая Н.А.",
+                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
+                  "teacher": "Секацкая Н. А.",
                   "room": "ДОТ",
-                  "weekType": "both",
+                  "weekType": "denominator",
                   "subgroup": "1",
-                  "rawSubject": "/теория Секацкая Н.А.",
-                  "rawTeacher": "Секацкая Н.А.",
-                  "rawRoom": "ДОТ",
-                  "sourceRow": 7
+                  "sourceRow": 57
                 }
               ],
               "source": {
@@ -70,36 +77,7 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
               },
               "status": "scheduled",
-              "replacements": [
-                {
-                  "replacement": {
-                    "date": "2026-09-07",
-                    "group": "СТ1-33",
-                    "lessonNumbers": [
-                      3
-                    ],
-                    "type": "replace",
-                    "original": {
-                      "raw": "МДК 01.01 п/гр.2"
-                    },
-                    "replacement": {
-                      "raw": "/теория Секацкая Н.А.",
-                      "room": "ДОТ"
-                    },
-                    "source": {
-                      "shift": "second",
-                      "row": 7,
-                      "rawGroupName": "СТ1-33",
-                      "rawLessonNumbers": "3",
-                      "rawOriginal": "МДК 01.01 п/гр.2",
-                      "rawReplacement": "/теория Секацкая Н.А.",
-                      "rawRoom": "ДОТ"
-                    }
-                  },
-                  "lessonNumber": 3,
-                  "strategy": "subject-module-code"
-                }
-              ]
+              "replacements": []
             },
             {
               "number": 4,
@@ -177,11 +155,319 @@
               ]
             }
           ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-07",
+                "group": "СТ1-33",
+                "lessonNumbers": [
+                  3
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "МДК 01.01 п/гр.2"
+                },
+                "replacement": {
+                  "raw": "/теория Секацкая Н.А.",
+                  "room": "ДОТ"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 7,
+                  "rawGroupName": "СТ1-33",
+                  "rawLessonNumbers": "3",
+                  "rawOriginal": "МДК 01.01 п/гр.2",
+                  "rawReplacement": "/теория Секацкая Н.А.",
+                  "rawRoom": "ДОТ"
+                }
+              },
+              "lessonNumber": 3,
+              "reason": "subgroup-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «МДК 01.01 п/гр.2». По замене: «/теория Секацкая Н.А.». Аудитория: «ДОТ».",
+                "room": "ДОТ"
+              }
+            }
+          ],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
+                    "teacher": "Секацкая Н. А.",
+                    "room": "ДОТ",
+                    "weekType": "denominator",
+                    "subgroup": "1",
+                    "sourceRow": 57
+                  }
+                ],
+                "source": {
+                  "sheet": "CТ 3 курс",
+                  "rowStart": 57,
+                  "rowEnd": 58,
+                  "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "МДК.01.01 Т.1.2.Архитектура зданий п/гр1\nИнформационные технологии в профессиональной деятельности п/гр2",
+                    "teacher": "Секацкая Н. А.\nКостерина Е.В.",
+                    "room": "ДОТ",
+                    "weekType": "denominator",
+                    "rawSubject": "МДК.01.01  Т.1.2.Архитектура зданий п/гр1\nИнформационные технологии в профессиональной деятельности п/гр2",
+                    "sourceRow": 59
+                  }
+                ],
+                "source": {
+                  "sheet": "CТ 3 курс",
+                  "rowStart": 59,
+                  "rowEnd": 60,
+                  "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 5,
+                "variants": [
+                  {
+                    "subject": "Основы философии",
+                    "teacher": "Вакансия",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 61
+                  }
+                ],
+                "source": {
+                  "sheet": "CТ 3 курс",
+                  "rowStart": 61,
+                  "rowEnd": 62,
+                  "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "СТ1-33": {
+          "group": "СТ1-33",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Информационные технологии в профессиональной деятельности п/гр1",
+                  "teacher": "Костерина Е.В.",
+                  "room": "Б406",
+                  "weekType": "denominator",
+                  "subgroup": "1",
+                  "sourceRow": 64
+                }
+              ],
+              "source": {
+                "sheet": "CТ 3 курс",
+                "rowStart": 64,
+                "rowEnd": 65,
+                "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "МДК.02.01 Т.1.4 Ценообразование и проектно-сметное дело в строительстве п/гр1",
+                  "teacher": "Андреева Ю.Р.",
+                  "room": "Б204",
+                  "weekType": "denominator",
+                  "subgroup": "1",
+                  "rawSubject": "МДК.02.01   Т.1.4 Ценообразование и проектно-сметное дело в строительстве п/гр1",
+                  "sourceRow": 66
+                }
+              ],
+              "source": {
+                "sheet": "CТ 3 курс",
+                "rowStart": 66,
+                "rowEnd": 67,
+                "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр2",
+                  "teacher": "Секацкая Н.А",
+                  "room": "Б502",
+                  "weekType": "both",
+                  "subgroup": "2",
+                  "rawSubject": "/теория Секацкая Н.А",
+                  "rawTeacher": "Секацкая Н.А",
+                  "rawRoom": "Б502",
+                  "sourceRow": 24
+                }
+              ],
+              "source": {
+                "sheet": "CТ 3 курс",
+                "rowStart": 68,
+                "rowEnd": 69,
+                "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "СТ1-33",
+                    "lessonNumbers": [
+                      5
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.01"
+                    },
+                    "replacement": {
+                      "raw": "/теория Секацкая Н.А",
+                      "room": "Б502"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 24,
+                      "rawGroupName": "СТ1-33",
+                      "rawLessonNumbers": "5",
+                      "rawOriginal": "МДК 01.01",
+                      "rawReplacement": "/теория Секацкая Н.А",
+                      "rawRoom": "Б502"
+                    }
+                  },
+                  "lessonNumber": 5,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр2",
+                  "teacher": "Секацкая Н. А.",
+                  "room": "Б502",
+                  "weekType": "denominator",
+                  "subgroup": "2",
+                  "sourceRow": 70
+                }
+              ],
+              "source": {
+                "sheet": "CТ 3 курс",
+                "rowStart": 70,
+                "rowEnd": 71,
+                "rawGroupName": "СТ1-33/СТ1-34/СТ1-37",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
           "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [],
-  "semanticHash": "2cdf083c5ce97c004598ec3c9983fa6994c7b11710482aedefcb7f15e01ecd66"
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Подгруппа из замены не проводится в базовом расписании в эту неделю",
+      "fingerprint": "fe3fcffef9bbb9580293647b4406d20f249207fe0d784a559ccf91e6a4782224",
+      "sheet": "Замены: Вторая смена",
+      "row": 7,
+      "normalizedGroup": "СТ1-33",
+      "rawValue": "/теория Секацкая Н.А.",
+      "context": {
+        "date": "2026-09-07",
+        "lessonNumber": 3,
+        "type": "replace",
+        "reason": "subgroup-not-matched",
+        "requestedSubject": "МДК 01.01",
+        "requestedSubgroups": [
+          "2"
+        ],
+        "candidates": [
+          {
+            "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
+            "teacher": "Секацкая Н. А.",
+            "room": "ДОТ",
+            "subgroup": "1",
+            "sourceRow": 57
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    }
+  ],
+  "semanticHash": "9ccad9e17d752a180833c517870c8688d35bf021ffbc3d02fb793dd167da1657"
 }

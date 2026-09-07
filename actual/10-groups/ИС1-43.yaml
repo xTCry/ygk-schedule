@@ -108,12 +108,13 @@ dates:
           - number: 4
             variants:
               - subject: УП.05 Учебная практика
-                teacher: |-
-                  Васильченко М.О.
-                  Вакансия
+                teacher: Васильченко М.О.
                 room: ДОТ
                 weekType: both
-                sourceRow: 256
+                rawSubject: 1,2 п/гр. Васильченко М.О.
+                rawTeacher: Васильченко М.О.
+                rawRoom: ДОТ
+                sourceRow: 5
             source:
               sheet: ИС-3 курс ИС-4 курс
               rowStart: 256
@@ -121,7 +122,29 @@ dates:
               rawGroupName: ИС1-43/ИС1-44
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-05
+                  group: ИС1-43
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: УП 05
+                  replacement:
+                    raw: 1,2 п/гр. Васильченко М.О.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ИС1-43
+                    rawLessonNumbers: 4,5
+                    rawOriginal: УП 05
+                    rawReplacement: 1,2 п/гр. Васильченко М.О.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-module-code
           - number: 5
             variants:
               - subject: УП.03 Учебная практика
@@ -140,33 +163,6 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements:
-          - replacement: &a1
-              date: 2026-09-05
-              group: ИС1-43
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: УП 05
-              replacement:
-                raw: 1,2 п/гр. Васильченко М.О.
-                room: ДОТ
-              source:
-                shift: second
-                row: 5
-                rawGroupName: ИС1-43
-                rawLessonNumbers: 4,5
-                rawOriginal: УП 05
-                rawReplacement: 1,2 п/гр. Васильченко М.О.
-                rawRoom: ДОТ
-            lessonNumber: 4
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «УП 05». По замене: «1,2 п/гр. Васильченко М.О.».
-                Аудитория: «ДОТ»."
-              room: ДОТ
           - replacement: *a1
             lessonNumber: 5
             reason: original-not-matched
@@ -254,7 +250,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -264,11 +260,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -278,6 +278,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       ИС1-43:
         group: ИС1-43
@@ -362,6 +366,178 @@ dates:
               description: "По расписанию: «УП 03». По замене: «1,2 п/гр. Васильченко М.О.».
                 Аудитория: «Б308»."
               room: Б308
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.03.02 Управление проектами
+                  teacher: Юров А.А.
+                  room: Б202
+                  weekType: denominator
+                  sourceRow: 213
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 213
+                rowEnd: 214
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.05.02 Разработка кода ИС КП
+                  teacher: |-
+                    Васильченко М.О.
+                    Королева П.Д.
+                  room: |-
+                    Б302
+                    Б308
+                  weekType: both
+                  sourceRow: 215
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 215
+                rowEnd: 216
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: УП.05 Учебная практика
+                  teacher: |-
+                    Васильченко М.О.
+                    Вакансия
+                  room: Б308
+                  weekType: both
+                  sourceRow: 217
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 217
+                rowEnd: 218
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      ИС1-43:
+        group: ИС1-43
+        date: 2026-09-08
+        day: Вторник
+        lessons:
+          - number: 3
+            variants:
+              - subject: Иностранный язык
+                teacher: |-
+                  Зубковская А.Е.
+                  Загородних Е.С.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 220
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 220
+              rowEnd: 221
+              rawGroupName: ИС1-43/ИС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.05.02 Разработка кода ИС
+                teacher: |-
+                  Васильченко М.О.
+                  Королева П.Д.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 222
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 222
+              rowEnd: 223
+              rawGroupName: ИС1-43/ИС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.05.02 Разработка кода ИС
+                teacher: |-
+                  Васильченко М.О.
+                  Королева П.Д.
+                room: ДОТ
+                weekType: both
+                sourceRow: 224
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 224
+              rowEnd: 225
+              rawGroupName: ИС1-43/ИС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-08
+              group: ИС1-43
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: УП 05
+              replacement:
+                raw: 1,2 п/гр. Васильченко М.О.
+                room: ДОТ
+              source:
+                shift: second
+                row: 4
+                rawGroupName: ИС1-43
+                rawLessonNumbers: "3"
+                rawOriginal: УП 05
+                rawReplacement: 1,2 п/гр. Васильченко М.О.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 05». По замене: «1,2 п/гр. Васильченко М.О.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -377,6 +553,14 @@ diagnostics:
       lessonNumber: 5
       type: replace
       reason: original-not-matched
+      requestedSubject: УП 05
+      candidates:
+        - subject: УП.03 Учебная практика
+          teacher: |-
+            Васильченко М.О.
+            Вакансия
+          room: ДОТ
+          sourceRow: 258
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
@@ -393,22 +577,38 @@ diagnostics:
       lessonNumber: 6
       type: replace
       reason: original-not-matched
+      requestedSubject: УП 03
+      candidates:
+        - subject: УП.05 Учебная практика
+          teacher: |-
+            Васильченко М.О.
+            Вакансия
+          room: Б308
+          sourceRow: 217
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 9fae6a2767a0ff0ae578c3c3654e1e4aed985b066d508e8223a2f70b057a7785
+    fingerprint: 81971d21f8863ce17e9e132ac28f9ed49d53f478408c02e234250cf4e926f2c7
     sheet: "Замены: Вторая смена"
-    row: 5
+    row: 4
     normalizedGroup: ИС1-43
     rawValue: 1,2 п/гр. Васильченко М.О.
     context:
-      date: 2026-09-05
-      lessonNumber: 4
+      date: 2026-09-08
+      lessonNumber: 3
       type: replace
       reason: original-not-matched
+      requestedSubject: УП 05
+      candidates:
+        - subject: Иностранный язык
+          teacher: |-
+            Зубковская А.Е.
+            Загородних Е.С.
+          room: ДОТ
+          sourceRow: 220
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0618fb9a674f522091b23730472ac9ceb2452fcff2b24f670d859b85e7b34524
+semanticHash: 4c7792aed6614e519e7c14f41b811719f03449c828ac79a4a88a07574f18d89f

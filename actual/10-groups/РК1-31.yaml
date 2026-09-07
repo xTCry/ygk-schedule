@@ -51,12 +51,14 @@ dates:
         lessons:
           - number: 4
             variants:
-              - subject: МДК 02.02 Разработка и размещение рекламного контента для продвижения
-                  торговой марки
-                teacher: Павлова О.В.
-                room: Б204
+              - subject: МДК 04.03
+                teacher: Выблова Т.В.
+                room: ДОТ
                 weekType: both
-                sourceRow: 198
+                rawSubject: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: ДОТ
+                sourceRow: 18
             source:
               sheet: РК121РК1-22РК1-31РК32РК1-41РК42
               rowStart: 198
@@ -64,15 +66,39 @@ dates:
               rawGroupName: РК1-31/РК1-32
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-05
+                  group: РК1-31
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 02.02
+                  replacement:
+                    raw: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 18
+                    rawGroupName: РК1-31
+                    rawLessonNumbers: 4,5
+                    rawOriginal: МДК 02.02
+                    rawReplacement: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-module-code
           - number: 5
             variants:
-              - subject: МДК 02.02 Разработка и размещение рекламного контента для продвижения
-                  торговой марки
-                teacher: Павлова О.В.
-                room: Б204
+              - subject: МДК 04.03
+                teacher: Выблова Т.В.
+                room: ДОТ
                 weekType: both
-                sourceRow: 200
+                rawSubject: 1,2 п/гр. МДК 04.03 Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: ДОТ
+                sourceRow: 18
             source:
               sheet: РК121РК1-22РК1-31РК32РК1-41РК42
               rowStart: 200
@@ -80,43 +106,11 @@ dates:
               rawGroupName: РК1-31/РК1-32
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement: &a1
-              date: 2026-09-05
-              group: РК1-31
-              lessonNumbers:
-                - 4
-                - 5
-              type: replace
-              original:
-                raw: МДК 02.02
-              replacement:
-                raw: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-                room: ДОТ
-              source:
-                shift: second
-                row: 18
-                rawGroupName: РК1-31
-                rawLessonNumbers: 4,5
-                rawOriginal: МДК 02.02
-                rawReplacement: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-                rawRoom: ДОТ
-            lessonNumber: 4
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. МДК 04.03
-                Выблова Т.В.». Аудитория: «ДОТ»."
-              room: ДОТ
-          - replacement: *a1
-            lessonNumber: 5
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. МДК 04.03
-                Выблова Т.В.». Аудитория: «ДОТ»."
-              room: ДОТ
+            replacements:
+              - replacement: *a1
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
         frozenBase:
           scheduleVersion: 18a7ea5b35fd10c87100db42eb86d7aa7d14904b6c2e64b56389473f227d3cb7
           dataRevision: c34c18aa84659ba23ad4d53d490e962228a09521
@@ -162,7 +156,7 @@ dates:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -172,11 +166,15 @@ dates:
           shift: first
           etag: W/"6a9bd178-3b8a"
           lastModified: Sat, 05 Sep 2026 08:23:20 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
       second:
         date: 2026-09-07
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -186,6 +184,10 @@ dates:
           shift: second
           etag: W/"6a9bf536-22e2"
           lastModified: Sat, 05 Sep 2026 10:55:50 GMT
+        finalizedBy:
+          date: 2026-09-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     groups:
       РК1-31:
         group: РК1-31
@@ -206,12 +208,14 @@ dates:
               rowStart: 159
               rowEnd: 160
               rawGroupName: РК1-31/РК1-32
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
           - number: 4
             variants:
-              - subject: МДК 03.02 Правовое обеспечение рекламной деятельности
+              - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                  Интернет инструментами поисковой оптимизации,
+                  контекстно-медийной рекламы и маркетинга в социальных сетях
                 teacher: Вепрева Ю.Ю.
                 room: Б502
                 weekType: denominator
@@ -221,12 +225,14 @@ dates:
               rowStart: 161
               rowEnd: 162
               rawGroupName: РК1-31/РК1-32
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
           - number: 5
             variants:
-              - subject: 1,2 п/гр.
+              - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                  Интернет инструментами поисковой оптимизации,
+                  контекстно-медийной рекламы и маркетинга в социальных сетях
                 teacher: Вепрева Ю.Ю.
                 room: Б406
                 weekType: both
@@ -239,7 +245,7 @@ dates:
               rowStart: 163
               rowEnd: 164
               rawGroupName: РК1-31/РК1-32
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements:
               - replacement:
@@ -265,10 +271,12 @@ dates:
                 strategy: subject-module-code
           - number: 6
             variants:
-              - subject: МДК 03.02 Правовое обеспечение рекламной деятельности
+              - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                  Интернет инструментами поисковой оптимизации,
+                  контекстно-медийной рекламы и маркетинга в социальных сетях
                 teacher: |-
                   Вепрева Ю.Ю.
-                  Павлова О.В.
+                  Вакансия
                 room: |-
                   Б406
                   Б309
@@ -279,7 +287,7 @@ dates:
               rowStart: 165
               rowEnd: 166
               rawGroupName: РК1-31/РК1-32
-              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
             replacements: []
         unresolvedReplacements:
@@ -335,6 +343,187 @@ dates:
               description: "По расписанию: «Осн.фин.гр.». По замене: «1,2 п/гр.МДК 03.02
                 Вепрева Ю.Ю.». Аудитория: «Б309»."
               room: Б309
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 3
+              variants:
+                - subject: Информационные технологии в профессиональной деятельности
+                  teacher: |-
+                    Выблова Т.В.
+                    Вакансия
+                  room: Б309
+                  weekType: both
+                  sourceRow: 159
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 159
+                rowEnd: 160
+                rawGroupName: РК1-31/РК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                    Интернет инструментами поисковой оптимизации,
+                    контекстно-медийной рекламы и маркетинга в социальных сетях
+                  teacher: Вепрева Ю.Ю.
+                  room: Б502
+                  weekType: denominator
+                  sourceRow: 161
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 161
+                rowEnd: 162
+                rawGroupName: РК1-31/РК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                    Интернет инструментами поисковой оптимизации,
+                    контекстно-медийной рекламы и маркетинга в социальных сетях
+                  teacher: |-
+                    Вепрева Ю.Ю.
+                    Вакансия
+                  room: |-
+                    Б406
+                    Б403
+                  weekType: both
+                  sourceRow: 163
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 163
+                rowEnd: 164
+                rawGroupName: РК1-31/РК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+                    Интернет инструментами поисковой оптимизации,
+                    контекстно-медийной рекламы и маркетинга в социальных сетях
+                  teacher: |-
+                    Вепрева Ю.Ю.
+                    Вакансия
+                  room: |-
+                    Б406
+                    Б309
+                  weekType: denominator
+                  sourceRow: 165
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 165
+                rowEnd: 166
+                rawGroupName: РК1-31/РК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-08:
+    date: 2026-09-08
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5
+          fetchedAt: 2026-09-07T14:35:21.134Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9ea119-3ad1"
+          lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+      second:
+        date: 2026-09-08
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
+          fetchedAt: 2026-09-07T14:35:21.140Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9ea0d9-1878"
+          lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+    groups:
+      РК1-31:
+        group: РК1-31
+        date: 2026-09-08
+        day: Вторник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                teacher: Выблова Т.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: ДОТ
+                sourceRow: 13
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 168
+              rowEnd: 169
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-08
+                  group: РК1-31
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 04.03 УП 04.03
+                  replacement:
+                    raw: 1,2 п/гр. Выблова Т.В.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 13
+                    rawGroupName: РК1-31
+                    rawLessonNumbers: 3,4
+                    rawOriginal: МДК 04.03 УП 04.03
+                    rawReplacement: 1,2 п/гр. Выблова Т.В.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: УП 04.03
+                teacher: Выблова Т.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: ДОТ
+                sourceRow: 13
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 170
+              rowEnd: 171
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 4
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -350,38 +539,14 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 30bc2dd2c2d953bbebba2e7f85d9cb23420c2658ec9ab4f4c31f91024f9b7173
-    sheet: "Замены: Вторая смена"
-    row: 18
-    normalizedGroup: РК1-31
-    rawValue: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-    context:
-      date: 2026-09-05
-      lessonNumber: 4
-      type: replace
-      reason: original-not-matched
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 3a6e82a302d3f528362c67c04641b68a742998bc8f9b660f99bcbb169d4f9193
-    sheet: "Замены: Вторая смена"
-    row: 18
-    normalizedGroup: РК1-31
-    rawValue: 1,2 п/гр. МДК 04.03 Выблова Т.В.
-    context:
-      date: 2026-09-05
-      lessonNumber: 5
-      type: replace
-      reason: original-not-matched
+      requestedSubject: МДК 02.02
+      candidates:
+        - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+            Интернет инструментами поисковой оптимизации, контекстно-медийной
+            рекламы и маркетинга в социальных сетях
+          teacher: Вепрева Ю.Ю.
+          room: Б502
+          sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
@@ -398,6 +563,18 @@ diagnostics:
       lessonNumber: 6
       type: replace
       reason: original-not-matched
+      requestedSubject: Осн.фин.гр.
+      candidates:
+        - subject: МДК 03.02 Разработка и реализация рекламных кампаний бренда в сети
+            Интернет инструментами поисковой оптимизации, контекстно-медийной
+            рекламы и маркетинга в социальных сетях
+          teacher: |-
+            Вепрева Ю.Ю.
+            Вакансия
+          room: |-
+            Б406
+            Б309
+          sourceRow: 165
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 15ffbe358eeb63e0c9c3c3c163c7456c088160fe42b087efadb86b4eb3fa6bc9
+semanticHash: b692f43fc63d6f3cbfe5979569f37a17e2860b03a4c413c80dbafb6c3048598d

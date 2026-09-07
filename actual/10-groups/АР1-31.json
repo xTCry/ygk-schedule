@@ -12,7 +12,7 @@
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -22,13 +22,18 @@
             "shift": "first",
             "etag": "W/\"6a9bd178-3b8a\"",
             "lastModified": "Sat, 05 Sep 2026 08:23:20 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5"
           }
         },
         "second": {
           "date": "2026-09-07",
           "day": "Понедельник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -38,6 +43,11 @@
             "shift": "second",
             "etag": "W/\"6a9bf536-22e2\"",
             "lastModified": "Sat, 05 Sep 2026 10:55:50 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-08",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e"
           }
         }
       },
@@ -48,13 +58,13 @@
           "day": "Понедельник",
           "lessons": [
             {
-              "number": 3,
+              "number": 2,
               "variants": [
                 {
-                  "subject": "МДК 01.02 Объемно-пространственная композиция с элементами макетирования п/гр 1\nМДК 01.05 Конструкции зданий и сооружений с элементами статики п/гр 2",
-                  "teacher": "Иванов Ю.А.\nВакансия",
+                  "subject": "МДК 01.01 Начальное архитектурное проектирование",
+                  "teacher": "Жарова Н.И.",
                   "room": "ДОТ",
-                  "weekType": "denominator",
+                  "weekType": "both",
                   "sourceRow": 108
                 }
               ],
@@ -63,20 +73,23 @@
                 "rowStart": 108,
                 "rowEnd": 109,
                 "rawGroupName": "АР1-31/1-32",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": []
             },
             {
-              "number": 4,
+              "number": 3,
               "variants": [
                 {
-                  "subject": "МДК 01.01 Начальное архитектурное проектирование",
-                  "teacher": "Жарова Н.И.\nШатрова М.П.",
+                  "subject": "МДК 01.02",
+                  "teacher": "Иванов Ю.А.",
                   "room": "ДОТ",
                   "weekType": "both",
-                  "sourceRow": 110
+                  "rawSubject": "МДК 01.02/теория Иванов Ю.А.",
+                  "rawTeacher": "Иванов Ю.А.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 23
                 }
               ],
               "source": {
@@ -84,13 +97,42 @@
                 "rowStart": 110,
                 "rowEnd": 111,
                 "rawGroupName": "АР1-31/1-32",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-07",
+                    "group": "АР1-31",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.02 МДК 01.05 п/гр."
+                    },
+                    "replacement": {
+                      "raw": "МДК 01.02/теория Иванов Ю.А.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 23,
+                      "rawGroupName": "АР1-31",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "МДК 01.02 МДК 01.05 п/гр.",
+                      "rawReplacement": "МДК 01.02/теория Иванов Ю.А.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
-              "number": 5,
+              "number": 4,
               "variants": [
                 {
                   "subject": "МДК 01.01 Начальное архитектурное проектирование",
@@ -105,17 +147,17 @@
                 "rowStart": 112,
                 "rowEnd": 113,
                 "rawGroupName": "АР1-31/1-32",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": []
             },
             {
-              "number": 6,
+              "number": 5,
               "variants": [
                 {
                   "subject": "МДК 01.01 Начальное архитектурное проектирование",
-                  "teacher": "Жарова Н.И.",
+                  "teacher": "Жарова Н.И.\nШатрова М.П.",
                   "room": "ДОТ",
                   "weekType": "both",
                   "sourceRow": 114
@@ -126,71 +168,251 @@
                 "rowStart": 114,
                 "rowEnd": 115,
                 "rawGroupName": "АР1-31/1-32",
-                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx"
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
               "replacements": []
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-07",
-                "group": "АР1-31",
-                "lessonNumbers": [
-                  3
+          "unresolvedReplacements": [],
+          "frozenBase": {
+            "scheduleVersion": "2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae",
+            "dataRevision": "bd1c4d0677ff7503d8c801325aa17d365a0329f8",
+            "lessons": [
+              {
+                "number": 2,
+                "variants": [
+                  {
+                    "subject": "МДК 01.01 Начальное архитектурное проектирование",
+                    "teacher": "Жарова Н.И.",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 108
+                  }
                 ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 01.02 МДК 01.05 п/гр."
-                },
-                "replacement": {
-                  "raw": "МДК 01.02/теория Иванов Ю.А.",
-                  "room": "ДОТ"
-                },
                 "source": {
-                  "shift": "second",
-                  "row": 23,
-                  "rawGroupName": "АР1-31",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "МДК 01.02 МДК 01.05 п/гр.",
-                  "rawReplacement": "МДК 01.02/теория Иванов Ю.А.",
-                  "rawRoom": "ДОТ"
-                }
+                  "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                  "rowStart": 108,
+                  "rowEnd": 109,
+                  "rawGroupName": "АР1-31/1-32",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
               },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 01.02 МДК 01.05 п/гр.». По замене: «МДК 01.02/теория Иванов Ю.А.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
+              {
+                "number": 3,
+                "variants": [
+                  {
+                    "subject": "МДК 01.02 Основы градостроительного проектирования с элементами благоустройства п/гр 1\nМДК 01.05 Конструкции зданий и сооружений с элементами Т.1.1. статики п/гр 2",
+                    "teacher": "Иванов Ю.А.\nВакансия",
+                    "room": "ДОТ",
+                    "weekType": "denominator",
+                    "sourceRow": 110
+                  }
+                ],
+                "source": {
+                  "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                  "rowStart": 110,
+                  "rowEnd": 111,
+                  "rawGroupName": "АР1-31/1-32",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 4,
+                "variants": [
+                  {
+                    "subject": "МДК 01.01 Начальное архитектурное проектирование",
+                    "teacher": "Жарова Н.И.\nШатрова М.П.",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 112
+                  }
+                ],
+                "source": {
+                  "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                  "rowStart": 112,
+                  "rowEnd": 113,
+                  "rawGroupName": "АР1-31/1-32",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
+              },
+              {
+                "number": 5,
+                "variants": [
+                  {
+                    "subject": "МДК 01.01 Начальное архитектурное проектирование",
+                    "teacher": "Жарова Н.И.\nШатрова М.П.",
+                    "room": "ДОТ",
+                    "weekType": "both",
+                    "sourceRow": 114
+                  }
+                ],
+                "source": {
+                  "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                  "rowStart": 114,
+                  "rowEnd": 115,
+                  "rawGroupName": "АР1-31/1-32",
+                  "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+                },
+                "status": "scheduled",
+                "replacements": []
               }
+            ]
+          }
+        }
+      }
+    },
+    "2026-09-08": {
+      "date": "2026-09-08",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "a8fbec073a64fad1f2591f7e5233ba92a35d3a5847e37c3f6384e0a4e0a6a8f5",
+            "fetchedAt": "2026-09-07T14:35:21.134Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9ea119-3ad1\"",
+            "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e",
+            "fetchedAt": "2026-09-07T14:35:21.140Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9ea0d9-1878\"",
+            "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          }
+        }
+      },
+      "groups": {
+        "АР1-31": {
+          "group": "АР1-31",
+          "date": "2026-09-08",
+          "day": "Вторник",
+          "lessons": [
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "МДК 01.02 /теор",
+                  "teacher": "Иванов Ю.А.",
+                  "room": "Б507",
+                  "weekType": "both",
+                  "rawSubject": "МДК 01.02 /теор Иванов Ю.А.",
+                  "rawTeacher": "Иванов Ю.А.",
+                  "rawRoom": "Б507",
+                  "sourceRow": 20
+                }
+              ],
+              "source": {
+                "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                "rowStart": 117,
+                "rowEnd": 118,
+                "rawGroupName": "АР1-31/1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-08",
+                    "group": "АР1-31",
+                    "lessonNumbers": [
+                      4
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.02 МДК 01.05"
+                    },
+                    "replacement": {
+                      "raw": "МДК 01.02 /теор Иванов Ю.А.",
+                      "room": "Б507"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 20,
+                      "rawGroupName": "АР1-31",
+                      "rawLessonNumbers": "4",
+                      "rawOriginal": "МДК 01.02 МДК 01.05",
+                      "rawReplacement": "МДК 01.02 /теор Иванов Ю.А.",
+                      "rawRoom": "Б507"
+                    }
+                  },
+                  "lessonNumber": 4,
+                  "strategy": "subject-module-code"
+                }
+              ]
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Дворниченко Г.В.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "sourceRow": 119
+                }
+              ],
+              "source": {
+                "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                "rowStart": 119,
+                "rowEnd": 120,
+                "rawGroupName": "АР1-31/1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "Основы экономики архитектурного проектирования",
+                  "teacher": "Сафронова Л.Н.",
+                  "room": "Б402",
+                  "weekType": "both",
+                  "sourceRow": 121
+                }
+              ],
+              "source": {
+                "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                "rowStart": 121,
+                "rowEnd": 122,
+                "rawGroupName": "АР1-31/1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
             }
-          ]
+          ],
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "eb603b409f28193b12ebad79bb72f7b50d2e6fc0d8e6529cfd5cdbf577cb141a",
-      "sheet": "Замены: Вторая смена",
-      "row": 23,
-      "normalizedGroup": "АР1-31",
-      "rawValue": "МДК 01.02/теория Иванов Ю.А.",
-      "context": {
-        "date": "2026-09-07",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    }
-  ],
-  "semanticHash": "2012ec182b9f949723e093b65aa30fae59995434cb73d667b09546c15cacf3f7"
+  "diagnostics": [],
+  "semanticHash": "538ea6aa9df1c6bbe8d87178c8dbdd7f9ef60012eda6a35a6359263a45147ba0"
 }
