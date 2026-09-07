@@ -26,7 +26,10 @@ import { resolveReplacementAlias, type ReplacementAliases } from './config.ts';
 import { resolveYgkReplacementGroup } from './group.ts';
 import { compatibleReplacementSnapshots } from './history.ts';
 import { parseYgkReplacementLessonText } from './lesson-text.ts';
-import { findUniqueSimilarSubject } from './subject-match.ts';
+import {
+  findUniqueMentionedSubject,
+  findUniqueSimilarSubject,
+} from './subject-match.ts';
 import { hasYgkSubgroupMarker } from '../subgroup.ts';
 
 const subjectKey = (value: string): string =>
@@ -156,12 +159,45 @@ const sourceForReplacement = (
 ): ReplacementPageSource | undefined =>
   sources.find((source) => source.shift === replacement.source.shift);
 
+/**
+ * Возвращает компактный контекст сопоставления для ручной проверки.
+ *
+ * Он попадает только в diagnostic unresolved-строки: публичную модель самой
+ * замены не раздуваем техническими кандидатами, но Issue и отчёт точно
+ * показывают, что было проверено resolver-ом.
+ */
+const unresolvedMatchContext = (
+  replacement: Replacement,
+  lesson: ActualLesson,
+): Record<string, unknown> => {
+  const parsed = replacement.original?.raw
+    ? parseYgkReplacementLessonText(replacement.original.raw)
+    : null;
+  return {
+    ...(parsed?.subject ? { requestedSubject: parsed.subject } : {}),
+    ...(parsed?.teachers.length === 1
+      ? { requestedTeacher: parsed.teachers[0] }
+      : {}),
+    ...(parsed?.subgroups.length
+      ? { requestedSubgroups: parsed.subgroups }
+      : {}),
+    candidates: lesson.variants.map((variant) => ({
+      subject: variant.subject,
+      ...(variant.teacher ? { teacher: variant.teacher } : {}),
+      ...(variant.room ? { room: variant.room } : {}),
+      ...(variant.subgroup ? { subgroup: variant.subgroup } : {}),
+      sourceRow: variant.sourceRow,
+    })),
+  };
+};
+
 const resolutionDiagnostic = (
   replacement: Replacement,
   resolvedGroup: string,
   lessonNumber: number,
   reason: UnresolvedReplacementReason,
   source: ReplacementPageSource | undefined,
+  details: Record<string, unknown> = {},
 ): Diagnostic => {
   const reasonMessage: Record<UnresolvedReplacementReason, string> = {
     'group-not-found': 'Группа из замены не найдена в базовом расписании',
@@ -188,6 +224,7 @@ const resolutionDiagnostic = (
       lessonNumber,
       type: replacement.type,
       reason,
+      ...details,
     },
     fingerprintContext: [
       'replacements',
@@ -215,6 +252,7 @@ const unresolved = (
   reason: UnresolvedReplacementReason,
   sources: readonly ReplacementPageSource[],
   diagnostics: Diagnostic[],
+  details: Record<string, unknown> = {},
 ): void => {
   const description = [
     replacement.original?.raw
@@ -250,6 +288,7 @@ const unresolved = (
       lessonNumber,
       reason,
       sourceForReplacement(sources, replacement),
+      details,
     ),
   );
 };
@@ -351,6 +390,16 @@ const findMatchingVariants = (
   );
   if (abbreviationMatches.length) return abbreviationMatches;
 
+  const mentioned = findUniqueMentionedSubject(
+    resolvedOriginal,
+    candidates.map(({ index, variant }) => ({
+      index,
+      subject: resolveReplacementAlias(aliases, 'subjects', variant.subject),
+    })),
+  );
+  if (mentioned)
+    return [{ index: mentioned.index, strategy: 'subject-word-mention' }];
+
   const similar = findUniqueSimilarSubject(
     resolvedOriginal,
     candidates.map(({ index, variant }) => ({
@@ -447,6 +496,7 @@ const applyReplacement = (
       'subgroup-not-matched',
       sources,
       diagnostics,
+      unresolvedMatchContext(replacement, lesson),
     );
     return;
   }
@@ -460,6 +510,7 @@ const applyReplacement = (
       'original-not-matched',
       sources,
       diagnostics,
+      unresolvedMatchContext(replacement, lesson),
     );
     return;
   }
@@ -484,6 +535,7 @@ const applyReplacement = (
       'ambiguous-original',
       sources,
       diagnostics,
+      unresolvedMatchContext(replacement, lesson),
     );
     return;
   }

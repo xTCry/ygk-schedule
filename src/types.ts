@@ -281,6 +281,7 @@ export type ReplacementApplyStrategy =
   | 'subject-alias'
   | 'subject-module-code'
   | 'subject-abbreviation'
+  | 'subject-word-mention'
   | 'subject-similarity';
 
 export type UnresolvedReplacementReason =
