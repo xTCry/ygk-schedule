@@ -547,6 +547,74 @@ describe('actual YGK schedule', () => {
     ).toEqual([]);
   });
 
+  it('matches one listed module code across several lesson numbers', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lessons = schedule.groups['СТ1-11']?.days[0]?.lessons;
+    if (!lessons) throw new Error('Expected test lessons');
+    lessons[0]!.variants[0]!.subject = 'МДК.01.05 Конструкции зданий';
+    lessons[1]!.variants[0]!.subject = 'МДК.01.05 Архитектурные решения';
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement([0, 2], 'replace', 'МДК 01.05 п/гр', 'Практика'),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    const actualLessons = actual.dates['2026-09-04']?.groups['СТ1-11']?.lessons;
+    expect(actualLessons?.find((lesson) => lesson.number === 0)).toMatchObject({
+      variants: [{ subject: 'Практика' }],
+      replacements: [{ strategy: 'subject-module-code' }],
+    });
+    expect(actualLessons?.find((lesson) => lesson.number === 2)).toMatchObject({
+      variants: [{ subject: 'Практика' }],
+      replacements: [{ strategy: 'subject-module-code' }],
+    });
+  });
+
+  it('reports a subgroup that is not scheduled in the replacement week', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']?.days[0]?.lessons.find(
+      (item) => item.number === 2,
+    );
+    if (!lesson) throw new Error('Expected test lesson');
+    lesson.variants[0] = {
+      ...lesson.variants[0]!,
+      subgroup: '1',
+    };
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement([2], 'replace', 'Математика п/гр.2', 'История'),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']?.groups['СТ1-11']?.unresolvedReplacements,
+    ).toEqual([expect.objectContaining({ reason: 'subgroup-not-matched' })]);
+  });
+
   it('keeps a frozen base for a finalized shift after the XLSX schedule changes', () => {
     const finalizedFirst: ReplacementSnapshot = {
       date: '2026-09-04',

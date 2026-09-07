@@ -26,6 +26,7 @@ import { resolveReplacementAlias, type ReplacementAliases } from './config.ts';
 import { resolveYgkReplacementGroup } from './group.ts';
 import { compatibleReplacementSnapshots } from './history.ts';
 import { parseYgkReplacementLessonText } from './lesson-text.ts';
+import { findUniqueSimilarSubject } from './subject-match.ts';
 
 const subjectKey = (value: string): string =>
   normalizeDashes(normalizeSingleLine(value))
@@ -159,6 +160,8 @@ const resolutionDiagnostic = (
     'group-not-found': 'Группа из замены не найдена в базовом расписании',
     'day-not-found': 'День замены отсутствует в базовом расписании группы',
     'lesson-not-found': 'Пара из замены отсутствует в базовом расписании',
+    'subgroup-not-matched':
+      'Подгруппа из замены не проводится в базовом расписании в эту неделю',
     'original-not-matched':
       'Исходная дисциплина из замены не совпала с парой базового расписания',
     'ambiguous-original':
@@ -256,7 +259,6 @@ const applied = (
 const findMatchingVariants = (
   lesson: ActualLesson,
   replacement: Replacement,
-  lessonNumber: number,
   aliases: ReplacementAliases,
 ): { index: number; strategy: AppliedReplacement['strategy'] }[] => {
   const original = replacement.original?.raw;
@@ -316,17 +318,11 @@ const findMatchingVariants = (
   if (exactMatches.length) return exactMatches;
 
   const originalModuleCodes = moduleCodes(resolvedOriginal);
-  const lessonIndex = replacement.lessonNumbers.indexOf(lessonNumber);
-  if (
-    lessonIndex >= 0 &&
-    originalModuleCodes.length === replacement.lessonNumbers.length &&
-    new Set(originalModuleCodes).size === originalModuleCodes.length
-  ) {
-    const expectedModuleCode = originalModuleCodes[lessonIndex];
+  if (originalModuleCodes.length) {
     const moduleMatches = candidates.flatMap(({ variant, index }) =>
       moduleCodes(
         resolveReplacementAlias(aliases, 'subjects', variant.subject),
-      ).includes(expectedModuleCode ?? '')
+      ).some((candidateCode) => originalModuleCodes.includes(candidateCode))
         ? [
             {
               index,
@@ -338,19 +334,26 @@ const findMatchingVariants = (
     if (moduleMatches.length) return moduleMatches;
   }
 
-  return candidates.flatMap(({ variant, index }) =>
+  const abbreviationMatches = candidates.flatMap(({ variant, index }) =>
     isSubjectAbbreviationOf(
       resolvedOriginal,
       resolveReplacementAlias(aliases, 'subjects', variant.subject),
     )
-      ? [
-          {
-            index,
-            strategy: 'subject-abbreviation' as const,
-          },
-        ]
+      ? [{ index, strategy: 'subject-abbreviation' as const }]
       : [],
   );
+  if (abbreviationMatches.length) return abbreviationMatches;
+
+  const similar = findUniqueSimilarSubject(
+    resolvedOriginal,
+    candidates.map(({ index, variant }) => ({
+      index,
+      subject: resolveReplacementAlias(aliases, 'subjects', variant.subject),
+    })),
+  );
+  return similar
+    ? [{ index: similar.index, strategy: 'subject-similarity' }]
+    : [];
 };
 
 const applyReplacement = (
@@ -419,12 +422,29 @@ const applyReplacement = (
     return;
   }
 
-  const matches = findMatchingVariants(
-    lesson,
-    replacement,
-    lessonNumber,
-    aliases,
-  );
+  const parsedOriginal = replacement.original?.raw
+    ? parseYgkReplacementLessonText(replacement.original.raw)
+    : null;
+  if (
+    parsedOriginal?.subgroups.length &&
+    !lesson.variants.some(
+      (variant) =>
+        variant.subgroup !== undefined &&
+        parsedOriginal.subgroups.includes(variant.subgroup),
+    )
+  ) {
+    unresolved(
+      target,
+      replacement,
+      lessonNumber,
+      'subgroup-not-matched',
+      sources,
+      diagnostics,
+    );
+    return;
+  }
+
+  const matches = findMatchingVariants(lesson, replacement, aliases);
   if (!matches.length) {
     unresolved(
       target,

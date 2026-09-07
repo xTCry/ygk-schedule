@@ -22,6 +22,15 @@ describe('YGK replacement lesson text parser', () => {
     });
   });
 
+  it('does not treat the module code suffix as a subgroup number', () => {
+    expect(parseYgkReplacementLessonText('МДК 01.05 п/гр')).toEqual({
+      subject: 'МДК 01.05',
+      teachers: [],
+      subgroups: [],
+      theory: false,
+    });
+  });
+
   it('removes theory and finds adjacent teacher names', () => {
     expect(
       parseYgkReplacementLessonText('МДК 03.02/теория Юров А.А.Байдина Ю.А.'),

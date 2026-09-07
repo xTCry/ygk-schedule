@@ -8,7 +8,7 @@ export interface ParsedYgkReplacementLessonText {
 }
 
 const subgroupMarkerPattern =
-  /(?:(?<before>\d+(?:\s*[,;]\s*\d+)*)\s*)?п\s*\/?\s*гр\.?\s*(?<after>\d+(?:\s*[,;]\s*\d+)*)?/giu;
+  /(?:(?<![\p{L}\p{N}.])(?<before>\d+(?:\s*[,;]\s*\d+)*)\s*)?п\s*\/?\s*гр\.?\s*(?<after>\d+(?:\s*[,;]\s*\d+)*)?/giu;
 const theoryMarkerPattern = /(?:^|[\s/;,-])теория(?=$|[\s/;,-])/giu;
 const teacherPattern =
   /(?<surname>[А-ЯЁ][а-яё-]+)\s+(?<first>[А-ЯЁ])\.\s*(?<second>[А-ЯЁ])\.?/gu;

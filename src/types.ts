@@ -280,12 +280,14 @@ export type ReplacementApplyStrategy =
   | 'exact-subject'
   | 'subject-alias'
   | 'subject-module-code'
-  | 'subject-abbreviation';
+  | 'subject-abbreviation'
+  | 'subject-similarity';
 
 export type UnresolvedReplacementReason =
   | 'group-not-found'
   | 'day-not-found'
   | 'lesson-not-found'
+  | 'subgroup-not-matched'
   | 'original-not-matched'
   | 'ambiguous-original'
   | 'unsupported-type';
