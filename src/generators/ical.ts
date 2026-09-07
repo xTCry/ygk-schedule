@@ -3,6 +3,7 @@ import type {
   CanonicalSchedule,
   DayOfWeek,
   GroupSchedule,
+  LessonVariant,
   WeekType,
 } from '../types.ts';
 import { weekTypeForDate } from '../calendar/academic-year.ts';
@@ -67,6 +68,22 @@ export interface IcalVariantExclusion {
   dates: readonly string[];
 }
 
+export type IcalLessonSummaryFormatter = (
+  lessonNumber: number,
+  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'subgroup'>,
+) => string;
+
+/**
+ * Базовый формат заголовка календарного события. Провайдер может заменить его
+ * через `IcalOptions.formatLessonSummary`, если у него есть дополнительные
+ * правила представления занятия.
+ */
+export const defaultIcalLessonSummary: IcalLessonSummaryFormatter = (
+  lessonNumber,
+  variant,
+): string =>
+  `${lessonNumber}. ${variant.subgroup ? `[${variant.subgroup}] ` : ''}${variant.subject || `Пара ${lessonNumber}`}`;
+
 export interface IcalOptions {
   group: string;
   /**
@@ -123,6 +140,11 @@ export interface IcalOptions {
    * неразрешенные строки.
    */
   additionalEvents?: readonly IcalDateEvent[];
+  /**
+   * Правило подписи занятия для провайдера. Оно влияет только на отображение
+   * ICS и не меняет каноническую модель или выбор подгруппы.
+   */
+  formatLessonSummary?: IcalLessonSummaryFormatter;
 }
 
 interface IcalEventDetails {
@@ -287,6 +309,24 @@ const descriptionForLesson = (
   return description || undefined;
 };
 
+const formatAdditionalEventSummary = (
+  lessonNumber: number,
+  summary: string,
+): string =>
+  summary.startsWith(`${lessonNumber}. `)
+    ? summary
+    : `${lessonNumber}. ${summary || `Пара ${lessonNumber}`}`;
+
+const formatLessonSummary = (
+  options: IcalOptions,
+  lessonNumber: number,
+  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'subgroup'>,
+): string =>
+  (options.formatLessonSummary ?? defaultIcalLessonSummary)(
+    lessonNumber,
+    variant,
+  );
+
 const sortedDates = (dates: readonly string[] | undefined): string[] =>
   [...new Set(dates ?? [])].sort((left, right) => left.localeCompare(right));
 
@@ -405,7 +445,7 @@ export const generateIcalWithReport = (
             day: day.day,
             lessonNumber: lesson.number,
             room: variant.room,
-            summary: variant.subject || `Пара ${lesson.number}`,
+            summary: formatLessonSummary(options, lesson.number, variant),
             reason: resolution.reason ?? 'Не удалось определить время пары',
           });
           return;
@@ -436,7 +476,7 @@ export const generateIcalWithReport = (
                   lesson.number,
                   variant.subgroup,
                 ),
-                summary: variant.subject || `Пара ${lesson.number}`,
+                summary: formatLessonSummary(options, lesson.number, variant),
                 ...(variant.room ? { room: variant.room } : {}),
                 ...(description ? { description } : {}),
               },
@@ -471,7 +511,10 @@ export const generateIcalWithReport = (
         date: event.date,
         lessonNumber: event.lessonNumber,
         room: event.timeRoom ?? event.room ?? '',
-        summary: event.summary,
+        summary: formatAdditionalEventSummary(
+          event.lessonNumber,
+          event.summary,
+        ),
         reason: resolution.reason ?? 'Не удалось определить время пары',
       });
       continue;
@@ -491,7 +534,10 @@ export const generateIcalWithReport = (
             ),
             start: formatLocalDateTime(date, time.start),
             end: formatLocalDateTime(date, time.end),
-            summary: event.summary,
+            summary: formatAdditionalEventSummary(
+              event.lessonNumber,
+              event.summary,
+            ),
             ...(event.room ? { room: event.room } : {}),
             ...(event.description ? { description: event.description } : {}),
           },

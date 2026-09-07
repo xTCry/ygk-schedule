@@ -55,8 +55,8 @@ const schedule: CanonicalSchedule = {
               },
               variants: [
                 {
-                  subject: 'Тестовая пара',
-                  teacher: '',
+                  subject: 'Иностранный язык',
+                  teacher: 'Темофеева Е.Н.\nМишуринская Е.Ю.',
                   room: 'А101',
                   weekType: 'both',
                   sourceRow: 1,
@@ -152,7 +152,9 @@ describe('generate iCalendar CLI', () => {
     expect(result.generatedGroups).toEqual(['СТ1-11']);
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
-    ).resolves.toContain('SUMMARY:Тестовая пара');
+    ).resolves.toMatch(
+      /SUMMARY:1\. \[Темофеева \/ Мишуринская] Иностран\r\n ный язык/,
+    );
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toContain('DTSTART;TZID=Europe/Moscow:20260907T092000');
@@ -169,10 +171,10 @@ describe('generate iCalendar CLI', () => {
     );
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11-1.ics'), 'utf8'),
-    ).resolves.toContain('SUMMARY:Тестовая пара подгруппы 1');
+    ).resolves.toContain('SUMMARY:1. [1] Тестовая пара подгруппы 1');
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11-1.ics'), 'utf8'),
-    ).resolves.not.toContain('SUMMARY:Тестовая пара подгруппы 2');
+    ).resolves.not.toContain('SUMMARY:1. [2] Тестовая пара подгруппы 2');
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11-2.ics'), 'utf8'),
     ).resolves.toContain(
@@ -187,6 +189,8 @@ describe('generate iCalendar CLI', () => {
     expect(noProfileResult.generatedGroups).toEqual(['СТ1-11']);
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
-    ).resolves.toContain('SUMMARY:Тестовая пара');
+    ).resolves.toMatch(
+      /SUMMARY:1\. \[Темофеева \/ Мишуринская] Иностран\r\n ный язык/,
+    );
   });
 });

@@ -8,6 +8,7 @@ import type {
 } from '../calendar/config.ts';
 import type { ActualSchedule, CanonicalSchedule } from '../types.ts';
 import { createYgkRoomTimeResolver } from '../providers/ygk/calendar/room-profile.ts';
+import { formatYgkLessonSummary } from '../providers/ygk/lesson-label.ts';
 import { writeFileAtomic } from '../utils/fs.ts';
 import { generateActualIcalWithReport } from './actual-ical.ts';
 import { getGroupFileName } from './group-file-name.ts';
@@ -156,6 +157,7 @@ export const writeIcalArtifacts = async (
         referenceWeekType: options.term.weekAnchor.weekType,
         timezone: options.timezone,
         lessonTimeResolver,
+        formatLessonSummary: formatYgkLessonSummary,
         ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
         ...(options.publication?.refreshInterval
           ? { refreshInterval: options.publication.refreshInterval }
@@ -182,6 +184,7 @@ export const writeIcalArtifacts = async (
           referenceWeekType: options.term.weekAnchor.weekType,
           timezone: options.timezone,
           lessonTimeResolver,
+          formatLessonSummary: formatYgkLessonSummary,
           ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
           ...(options.publication?.refreshInterval
             ? { refreshInterval: options.publication.refreshInterval }

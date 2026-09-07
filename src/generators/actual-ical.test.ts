@@ -205,10 +205,10 @@ describe('actual iCalendar generator', () => {
     expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T080000');
     expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T110000');
     expect(ical).not.toContain('EXDATE;TZID=Europe/Moscow:20260904T150500');
-    expect(ical).toContain('SUMMARY:История');
-    expect(ical).toContain('SUMMARY:Биология');
-    expect(ical).toContain('SUMMARY:Необработанная замена');
-    expect(ical).toContain('SUMMARY:Базовая пара 4');
+    expect(ical).toContain('SUMMARY:2. История');
+    expect(ical).toContain('SUMMARY:4. Биология');
+    expect(ical).toContain('SUMMARY:6. Необработанная замена');
+    expect(ical).toContain('SUMMARY:4. Базовая пара 4');
   });
 
   it('materializes a finalized date and excludes every current base pair', () => {
@@ -222,9 +222,9 @@ describe('actual iCalendar generator', () => {
 
     for (const time of ['080000', '110000', '150500', '184500'])
       expect(ical).toContain(`EXDATE;TZID=Europe/Moscow:20260904T${time}`);
-    expect(ical).toContain('SUMMARY:История');
-    expect(ical).toContain('SUMMARY:Базовая пара 4');
-    expect(ical).not.toContain('SUMMARY:Новая базовая пара\\r\\n');
+    expect(ical).toContain('SUMMARY:2. История');
+    expect(ical).toContain('SUMMARY:4. Базовая пара 4');
+    expect(ical).not.toContain('SUMMARY:6. Новая базовая пара\\r\\n');
   });
 
   it('keeps a replacement of one subgroup out of the other subgroup calendar', () => {
@@ -280,9 +280,9 @@ describe('actual iCalendar generator', () => {
       subgroup: '2',
     });
 
-    expect(firstSubgroup).toContain('SUMMARY:История');
-    expect(firstSubgroup).not.toContain('SUMMARY:Пара подгруппы 2');
-    expect(secondSubgroup).not.toContain('SUMMARY:История');
-    expect(secondSubgroup).toContain('SUMMARY:Пара подгруппы 2');
+    expect(firstSubgroup).toContain('SUMMARY:2. [1] История');
+    expect(firstSubgroup).not.toContain('SUMMARY:2. [2] Пара подгруппы 2');
+    expect(secondSubgroup).not.toContain('SUMMARY:2. [1] История');
+    expect(secondSubgroup).toContain('SUMMARY:2. [2] Пара подгруппы 2');
   });
 });

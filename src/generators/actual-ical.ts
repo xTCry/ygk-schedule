@@ -5,13 +5,16 @@ import type {
   AppliedReplacement,
   CanonicalSchedule,
   DayOfWeek,
+  LessonVariant,
   WeekType,
 } from '../types.ts';
 import { sha256 } from '../utils/hash.ts';
 import {
   generateIcalWithReport,
+  defaultIcalLessonSummary,
   type IcalDateEvent,
   type IcalGenerationResult,
+  type IcalLessonSummaryFormatter,
   type IcalOptions,
   type IcalVariantExclusion,
 } from './ical.ts';
@@ -79,6 +82,7 @@ const actualLessonEvents = (
   prefix: string,
   fallbackTimeRoom: string,
   subgroups?: ReadonlySet<string | undefined>,
+  formatLessonSummary: IcalLessonSummaryFormatter = defaultIcalLessonSummary,
 ): IcalDateEvent[] =>
   lesson.variants
     .filter((variant) => !subgroups || subgroups.has(variant.subgroup))
@@ -94,7 +98,7 @@ const actualLessonEvents = (
           variant.subgroup ?? '',
         ].join('\0'),
       )}`,
-      summary: variant.subject || `Пара ${lesson.number}`,
+      summary: formatLessonSummary(lesson.number, variant),
       ...(variant.subgroup ? { subgroup: variant.subgroup } : {}),
       ...(variant.room ? { room: variant.room } : {}),
       ...(variant.room || fallbackTimeRoom
@@ -105,19 +109,44 @@ const actualLessonEvents = (
         : {}),
     }));
 
+/**
+ * Находит вариант, созданный из примененной строки замен.
+ *
+ * `sourceRow` в base XLSX и HTML замен имеют разные системы координат и могут
+ * случайно совпасть, поэтому он используется только как последний fallback.
+ */
+const replacementVariantForApplied = (
+  lesson: ActualLesson,
+  applied: AppliedReplacement,
+): LessonVariant | undefined => {
+  const rawReplacement = applied.replacement.replacement?.raw;
+  if (rawReplacement) {
+    const byRawSubject = lesson.variants.find(
+      (variant) => variant.rawSubject === rawReplacement,
+    );
+    if (byRawSubject) return byRawSubject;
+    const bySubject = lesson.variants.find(
+      (variant) => variant.subject === rawReplacement,
+    );
+    if (bySubject) return bySubject;
+  }
+  return lesson.variants.find(
+    (variant) => variant.sourceRow === applied.replacement.source.row,
+  );
+};
+
 const addReplacementEvents = (
   date: string,
   lesson: ActualLesson,
   fallbackTimeRoom: string,
+  formatLessonSummary: IcalLessonSummaryFormatter = defaultIcalLessonSummary,
 ): IcalDateEvent[] =>
   lesson.replacements
     .filter((applied) => applied.replacement.type === 'add')
     .flatMap((applied, index) => {
       const replacement = applied.replacement.replacement;
       if (!replacement) return [];
-      const subgroup = lesson.variants.find(
-        (variant) => variant.sourceRow === applied.replacement.source.row,
-      )?.subgroup;
+      const variant = replacementVariantForApplied(lesson, applied);
       const description = [
         'Добавленная замена.',
         replacement.room ? `Аудитория: ${replacement.room}.` : '',
@@ -136,8 +165,13 @@ const addReplacementEvents = (
               replacement.room ?? '',
             ].join('\0'),
           )}`,
-          summary: replacement.raw || `Добавленная пара ${lesson.number}`,
-          ...(subgroup ? { subgroup } : {}),
+          summary: variant
+            ? formatLessonSummary(lesson.number, variant)
+            : defaultIcalLessonSummary(lesson.number, {
+                subject: replacement.raw,
+                teacher: '',
+              }),
+          ...(variant?.subgroup ? { subgroup: variant.subgroup } : {}),
           ...(replacement.room ? { room: replacement.room } : {}),
           ...(replacement.room || fallbackTimeRoom
             ? { timeRoom: replacement.room || fallbackTimeRoom }
@@ -164,9 +198,7 @@ const subgroupForAppliedReplacement = (
   lesson: ActualLesson,
   applied: AppliedReplacement,
 ): string | undefined => {
-  const replacementVariant = lesson.variants.find(
-    (variant) => variant.sourceRow === applied.replacement.source.row,
-  );
+  const replacementVariant = replacementVariantForApplied(lesson, applied);
   if (replacementVariant) return replacementVariant.subgroup;
 
   const original = applied.replacement.original?.raw;
@@ -214,6 +246,7 @@ const addFrozenDate = (
   actualGroup: ActualGroupSchedule,
   excludedDates: Map<number, Set<string>>,
   events: IcalDateEvent[],
+  formatLessonSummary: IcalLessonSummaryFormatter,
 ): void => {
   const baseDay = schedule.groups[group]?.days.find(
     (item) => item.day === actualGroup.day,
@@ -235,6 +268,8 @@ const addFrozenDate = (
           lesson.number,
           'both',
         ),
+        undefined,
+        formatLessonSummary,
       ),
     );
   }
@@ -279,6 +314,8 @@ export const generateActualIcalWithReport = (
   const excludedDates = new Map<number, Set<string>>();
   const excludedDatesByVariant = new Map<string, Set<string>>();
   const events: IcalDateEvent[] = [];
+  const formatLessonSummary =
+    options.formatLessonSummary ?? defaultIcalLessonSummary;
 
   for (const [date, actualDate] of Object.entries(actual.dates)) {
     const actualGroup = actualDate.groups[options.group];
@@ -292,6 +329,7 @@ export const generateActualIcalWithReport = (
         actualGroup,
         excludedDates,
         events,
+        formatLessonSummary,
       );
     } else {
       for (const lesson of actualGroup.lessons) {
@@ -333,10 +371,18 @@ export const generateActualIcalWithReport = (
               'replace',
               fallbackTimeRoom,
               replacedSubgroups,
+              formatLessonSummary,
             ),
           );
         if (!replacedSubgroups.size && !cancelledSubgroups.size)
-          events.push(...addReplacementEvents(date, lesson, fallbackTimeRoom));
+          events.push(
+            ...addReplacementEvents(
+              date,
+              lesson,
+              fallbackTimeRoom,
+              formatLessonSummary,
+            ),
+          );
       }
     }
 

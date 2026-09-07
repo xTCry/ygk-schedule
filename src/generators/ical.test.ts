@@ -141,7 +141,7 @@ describe('schedule generators', () => {
         4: { start: '13:40', end: '15:10' },
       },
     });
-    expect(ical).toMatch(/SUMMARY:Общий\\, предмет/);
+    expect(ical).toMatch(/SUMMARY:1\. Общий\\, предмет/);
     expect(ical).toMatch(/LOCATION:101\\;A/);
     expect(ical).toMatch(/DTSTART;TZID=Europe\/Moscow:20260907T083000/);
     expect(ical).toMatch(/DTSTART;TZID=Europe\/Moscow:20260907T101000/);
@@ -204,9 +204,9 @@ describe('schedule generators', () => {
       ],
     });
 
-    expect(ical).toContain('SUMMARY:Общая пара');
-    expect(ical).toContain('SUMMARY:Пара подгруппы 1');
-    expect(ical).not.toContain('SUMMARY:Пара подгруппы 2');
+    expect(ical).toContain('SUMMARY:1. Общая пара');
+    expect(ical).toContain('SUMMARY:1. [1] Пара подгруппы 1');
+    expect(ical).not.toContain('SUMMARY:1. [2] Пара подгруппы 2');
     expect(ical.match(/EXDATE;TZID=Europe\/Moscow/g)).toHaveLength(1);
   });
 
@@ -236,7 +236,7 @@ describe('schedule generators', () => {
     expect(result.content).toContain(
       'DTSTART;TZID=Europe/Moscow:20260907T110000',
     );
-    expect(result.content).not.toContain('SUMMARY:Знаменатель');
+    expect(result.content).not.toContain('SUMMARY:3. Знаменатель');
     expect(result.skippedEvents).toEqual([
       expect.objectContaining({
         lessonNumber: 3,
@@ -302,11 +302,12 @@ describe('schedule generators', () => {
     const second = generateIcal(schedule, options);
 
     expect(first).toBe(second);
-    expect(first.match(/SUMMARY:Числитель/g) ?? []).toHaveLength(2);
+    expect(first.match(/SUMMARY:2\. Числитель/g) ?? []).toHaveLength(2);
     expect(first).toContain('EXDATE;TZID=Europe/Moscow:20260907T110000');
     expect(first).toContain('EXDATE;TZID=Europe/Moscow:20260907T122500');
     expect(first).toContain('DTSTART;TZID=Europe/Moscow:20260905T164500');
     expect(first).toContain('DTEND;TZID=Europe/Moscow:20260905T181500');
     expect(first).toContain('DTSTAMP:20000101T000000Z');
+    expect(first).toContain('SUMMARY:5. Необработанная замена');
   });
 });
