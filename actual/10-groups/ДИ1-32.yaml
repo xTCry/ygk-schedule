@@ -245,7 +245,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -255,11 +255,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -269,6 +273,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       ДИ1-32:
         group: ДИ1-32
@@ -352,6 +360,60 @@ dates:
               description: "По расписанию: «Живопись». По замене: «1,2 п/гр. Осипова М.Э.».
                 Аудитория: «Б207Б208»."
               room: Б207Б208
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК 01.03 Методы расчета основных технико-экономических показателей
+                    проектирования
+                  teacher: Белогорская Я.В.
+                  room: А201
+                  weekType: both
+                  sourceRow: 158
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 158
+                rowEnd: 159
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.03.01 Основы стандартизации сертификации и метрологии
+                  teacher: Парамонов В.И.
+                  room: М101
+                  weekType: both
+                  sourceRow: 160
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 160
+                rowEnd: 161
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Рисунок с основами перспективы
+                  teacher: |-
+                    Осипова М.Э.
+                    Вакансия
+                  room: |-
+                    Б208
+                    Б207
+                  weekType: denominator
+                  sourceRow: 162
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 162
+                rowEnd: 163
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -425,4 +487,4 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 06e06a482ddcb5db69d8f44783dc8fd9bec7722e17aaf15c28f514114e8d0d03
+semanticHash: 36e1e7208a47ae09bbf2c96656be7ba9d73ff9d53ed1e26dc1d2aed1919807f8

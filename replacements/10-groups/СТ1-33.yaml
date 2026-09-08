@@ -79,7 +79,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -110,7 +110,54 @@ dates:
               rawReplacement: /теория Секацкая Н.А
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     replacements:
       - *a3
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        replacements:
+          - &a4
+            date: 2026-09-09
+            group: СТ1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.философии
+            replacement:
+              raw: МДК 01.01 Т.1.2. Секацкая Н.А.
+              room: Б502
+            source:
+              shift: second
+              row: 4
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.философии
+              rawReplacement: МДК 01.01 Т.1.2. Секацкая Н.А.
+              rawRoom: Б502
+        diagnostics: []
+    replacements:
+      - *a4
 diagnostics: []
-semanticHash: 63cc154748616888e1656c93d73b2c536a17c4bc586894693882aafcbd3c8af1
+semanticHash: 055c93cf7e365966f35e463ecab8310920410b9b5b334411a728a5fab1e2a5fd

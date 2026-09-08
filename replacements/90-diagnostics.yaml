@@ -1,11 +1,44 @@
 schemaVersion: 6
 scope: replacements
-generatedAt: 2026-09-07T14:35:21.208Z
-scheduleVersion: f7e08ea4b2aaf13ce36b56a3836026d0d2e5f93468ba6802428c735869464dc1
+generatedAt: 2026-09-08T16:35:53.403Z
+scheduleVersion: d4daf028be7b60ff2798002f735ce13033f12bca5f0f37f24d577cc0e77b8ed4
 summary:
   info: 0
-  warning: 0
+  warning: 2
   error: 0
   fatal: 0
-diagnostics: []
+diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 6d204c1d194fd16a65e2c5303e7a7bb6c23ea82c39fad049c7ffcec32e696a33
+    sheet: "Замены: Первая смена"
+    row: 60
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: &a1
+      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      fileName: rasp_first.html
+      sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+      fetchedAt: 2026-09-08T16:35:53.336Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      shift: first
+      etag: W/"6a9fd7d4-34db"
+      lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+    issueFingerprint: null
+    issueKey: null
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: ed91eb0282434f08ea19db3c56a672b9bcc88e5fa370d73223e4684b17054f1b
+    sheet: "Замены: Первая смена"
+    row: 60
+    rawValue: " |  |  | "
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: null
+    issueKey: null
 issues: []

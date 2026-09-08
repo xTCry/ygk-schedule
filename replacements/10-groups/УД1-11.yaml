@@ -106,7 +106,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -137,7 +137,54 @@ dates:
               rawReplacement: Коровкина А.М.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
     replacements:
       - *a3
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+        replacements:
+          - &a4
+            date: 2026-09-09
+            group: УД1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Коровкина А.М.
+              room: М106
+            source:
+              shift: first
+              row: 18
+              rawGroupName: УД1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Коровкина А.М.
+              rawRoom: М106
+        diagnostics: []
+    replacements:
+      - *a4
 diagnostics: []
-semanticHash: b1ed5990ec7e9e506b25f617b31f20179d9d440f8abcc044a90418a21873550f
+semanticHash: 96602cfec0d6569314350c3edb3ae60545969e8ff15a971dd185aa5acce2d23d

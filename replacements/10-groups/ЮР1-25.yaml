@@ -136,5 +136,66 @@ dates:
           sourceSha256: 55cd4add239aabe879e83e75a8eeb2eaf293b6e3e28ff86ae1a65e99918f2a9e
     replacements:
       - *a4
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        replacements:
+          - &a5
+            date: 2026-09-09
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.зал
+          - &a6
+            date: 2026-09-09
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: История России
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: История России
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 326e43205002e85a48e049ed85fa68d46608cb2c8737305a781b94a6d0b46b08
+semanticHash: 1d3edc9c5b4f7c804eb949ed9e44ecea03243adada4f46bbf4fee64b8e252d14

@@ -107,7 +107,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -138,7 +138,54 @@ dates:
               rawReplacement: /теория Гасенина М.П.
               rawRoom: Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     replacements:
       - *a3
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        replacements:
+          - &a4
+            date: 2026-09-09
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.01 Т.1.4. п/гр.2-по расписанию МДК 01.01 Т.1.2.п/гр.1-снято
+              room: Б204
+            source:
+              shift: second
+              row: 5
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: МДК 02.01 Т.1.4. п/гр.2-по расписанию МДК 01.01
+                Т.1.2.п/гр.1-снято
+              rawRoom: Б204
+        diagnostics: []
+    replacements:
+      - *a4
 diagnostics: []
-semanticHash: fe5ebca76ea11d7e1fde6d1e5cbf90ae0e0f45617f9f7e8e83db17b61286c5d2
+semanticHash: 58d837be2216cd9b86e010975a5ae3a9a3c7e11e8b0565aee9aacd509dd82d19

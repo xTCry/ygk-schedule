@@ -205,5 +205,145 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 24dd3d0025bac06746ee003c8717446f76b4b3b779859a68f3ef7fe7b85a05c0
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      ЗМ1-13:
+        group: ЗМ1-13
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Кашурина Н.Н.
+                room: М207
+                weekType: both
+                sourceRow: 68
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 68
+              rowEnd: 69
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Литература
+                teacher: Бабарыкова Э.В.
+                room: А202
+                weekType: denominator
+                sourceRow: 70
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Бабарыкова Э.В.
+                room: А202
+                weekType: both
+                rawSubject: Литература Бабарыкова Э.В.
+                rawTeacher: Бабарыкова Э.В.
+                rawRoom: А202
+                sourceRow: 33
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-09
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Физкультура История
+                  replacement:
+                    raw: Литература Бабарыкова Э.В.
+                    room: А202
+                  source:
+                    shift: first
+                    row: 33
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Физкультура История
+                    rawReplacement: Литература Бабарыкова Э.В.
+                    rawRoom: А202
+                lessonNumber: 2
+                strategy: subject-word-mention
+        unresolvedReplacements:
+          - replacement: *a2
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкультура История». По замене: «Литература
+                Бабарыкова Э.В.». Аудитория: «А202»."
+              room: А202
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 879f74cd7985f68110baad9fe04bd8b85c2186ad870111741e5f0b2f51f96a02
+    sheet: "Замены: Первая смена"
+    row: 33
+    normalizedGroup: ЗМ1-13
+    rawValue: Литература Бабарыкова Э.В.
+    context:
+      date: 2026-09-09
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      requestedSubject: Физкультура История
+      candidates:
+        - subject: Литература
+          teacher: Бабарыкова Э.В.
+          room: А202
+          sourceRow: 70
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: b81f15b5f0db8355bc76374c4aa128a27beb471e75a825fadaa128ef2be8d2c5

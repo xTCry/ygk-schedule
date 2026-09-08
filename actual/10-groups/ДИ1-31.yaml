@@ -194,5 +194,140 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 2f6ba804b051e85eeef68e00efeabaca710cf718e1eb1235c6698fd3e4d71b7e
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      ДИ1-31:
+        group: ДИ1-31
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК 03.01 Основы стандартизации сертификации и метрологии
+                teacher: Масленникова Т.Л.
+                room: ДОТ
+                weekType: both
+                sourceRow: 118
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 118
+              rowEnd: 119
+              rawGroupName: ДИ1-31/2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.01.01 Дизайн-проектирование Т.1.2.
+                teacher: |-
+                  Амерханова К.А.
+                  Сосновских А.Л.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 120
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 120
+              rowEnd: 121
+              rawGroupName: ДИ1-31/2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+                teacher: Сосновских А.Л.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 122
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 122
+              rowEnd: 123
+              rawGroupName: ДИ1-31/2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-09
+              group: ДИ1-31
+              lessonNumbers:
+                - 6
+              type: replace
+              original:
+                raw: МДК 01.02
+              replacement:
+                raw: 1,2 п/гр. Махоткина Д.Е.
+                room: ДОТ
+              source:
+                shift: second
+                row: 15
+                rawGroupName: ДИ1-31
+                rawLessonNumbers: "6"
+                rawOriginal: МДК 01.02
+                rawReplacement: 1,2 п/гр. Махоткина Д.Е.
+                rawRoom: ДОТ
+            lessonNumber: 6
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.02». По замене: «1,2 п/гр. Махоткина Д.Е.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 02bb68c44b7031b97b90bcca84e01caffb9a2ebf11002fcd883194fcbbcedffe
+    sheet: "Замены: Вторая смена"
+    row: 15
+    normalizedGroup: ДИ1-31
+    rawValue: 1,2 п/гр. Махоткина Д.Е.
+    context:
+      date: 2026-09-09
+      lessonNumber: 6
+      type: replace
+      reason: original-not-matched
+      requestedSubject: МДК 01.02
+      candidates:
+        - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+          teacher: Сосновских А.Л.
+          room: ДОТ
+          sourceRow: 122
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 4b603c327873ba5f8f6b8657870daf4166be7a3626185da9da1ba72632060820

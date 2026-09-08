@@ -194,7 +194,7 @@
           "date": "2026-09-08",
           "day": "Вторник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
             "fileName": "rasp_first.html",
@@ -204,13 +204,18 @@
             "shift": "first",
             "etag": "W/\"6a9ea119-3ad1\"",
             "lastModified": "Mon, 07 Sep 2026 11:33:45 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-09",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "sourceSha256": "fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21"
           }
         },
         "second": {
           "date": "2026-09-08",
           "day": "Вторник",
           "weekType": "denominator",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -220,6 +225,11 @@
             "shift": "second",
             "etag": "W/\"6a9ea0d9-1878\"",
             "lastModified": "Mon, 07 Sep 2026 11:32:41 GMT"
+          },
+          "finalizedBy": {
+            "date": "2026-09-09",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5"
           }
         }
       },
@@ -266,9 +276,110 @@
           ]
         }
       }
+    },
+    "2026-09-09": {
+      "date": "2026-09-09",
+      "day": "Среда",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-09",
+          "day": "Среда",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21",
+            "fetchedAt": "2026-09-08T16:35:53.336Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6a9fd7d4-34db\"",
+            "lastModified": "Tue, 08 Sep 2026 09:39:32 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-09",
+          "day": "Среда",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5",
+            "fetchedAt": "2026-09-08T16:35:53.337Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6a9fe035-17ea\"",
+            "lastModified": "Tue, 08 Sep 2026 10:15:17 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ЮР1-11": {
+          "group": "ЮР1-11",
+          "date": "2026-09-09",
+          "day": "Среда",
+          "lessons": [],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-09",
+                "group": "ЮР1-11",
+                "lessonNumbers": [
+                  1
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "История"
+                },
+                "replacement": {
+                  "raw": "1,2 п/гр.Инд.проект Супагина К.И.",
+                  "room": "Ф201"
+                },
+                "source": {
+                  "shift": "first",
+                  "row": 35,
+                  "rawGroupName": "ЮР1-11",
+                  "rawLessonNumbers": "1",
+                  "rawOriginal": "История",
+                  "rawReplacement": "1,2 п/гр.Инд.проект Супагина К.И.",
+                  "rawRoom": "Ф201"
+                }
+              },
+              "lessonNumber": 1,
+              "reason": "group-not-found",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «История». По замене: «1,2 п/гр.Инд.проект Супагина К.И.». Аудитория: «Ф201».",
+                "room": "Ф201"
+              }
+            }
+          ]
+        }
+      }
     }
   },
   "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Группа из замены не найдена в базовом расписании",
+      "fingerprint": "0957d66f169b92628379f2fd3dad17fcf8146d5876257e2ee8caa4cbc10d7ba5",
+      "sheet": "Замены: Первая смена",
+      "row": 35,
+      "normalizedGroup": "ЮР1-11",
+      "rawValue": "1,2 п/гр.Инд.проект Супагина К.И.",
+      "context": {
+        "date": "2026-09-09",
+        "lessonNumber": 1,
+        "type": "replace",
+        "reason": "group-not-found"
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -327,5 +438,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "d226d12a2f39d877576b21af9148c80f7c69b437d1ce6e54e0382e8a8aa212b0"
+  "semanticHash": "bba4aaac1e4855545ad82284686365d9939210684c856dc03ba3909a0c8e058e"
 }

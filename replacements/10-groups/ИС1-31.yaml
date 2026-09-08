@@ -1,0 +1,49 @@
+schemaVersion: 5
+provider: ygk
+group: ИС1-31
+dates:
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        replacements:
+          - &a1
+            date: 2026-09-09
+            group: ИС1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 06.02
+            replacement:
+              raw: 1,2 п/гр. Неделяева Н.А.
+              room: Б302
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 06.02
+              rawReplacement: 1,2 п/гр. Неделяева Н.А.
+              rawRoom: Б302
+        diagnostics: []
+    replacements:
+      - *a1
+diagnostics: []
+semanticHash: 4d30183dbf2b2f7a213a7298a60820409dc44565987a34abecd193bbce131a24

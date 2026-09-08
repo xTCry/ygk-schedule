@@ -470,7 +470,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -480,11 +480,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -494,6 +498,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       СА1-21:
         group: СА1-21
@@ -587,6 +595,158 @@ dates:
               description: "По расписанию: «История России, ...». По замене: «МДК 01.01
                 Хожайнова М.Г.». Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 2
+              variants:
+                - subject: История России
+                  teacher: Свободина Н.В.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 14
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 14
+                rowEnd: 15
+                rawGroupName: СА1-21/СА1-22/СА2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Основы электротехники
+                  teacher: Леонидова Н.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 16
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 16
+                rowEnd: 17
+                rawGroupName: СА1-21/СА1-22/СА2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      СА1-21:
+        group: СА1-21
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК.01.01 Компьютерные сети
+                teacher: Хожайнова М.Г.
+                room: Б309
+                weekType: both
+                rawSubject: 1,2 п/гр. Хожайнова М.Г.
+                rawTeacher: Хожайнова М.Г.
+                rawRoom: Б309
+                sourceRow: 5
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 19
+              rowEnd: 20
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: СА1-21
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: 1,2 п/гр. Хожайнова М.Г.
+                    room: Б309
+                  source:
+                    shift: first
+                    row: 5
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: 1,2 п/гр. Хожайнова М.Г.
+                    rawRoom: Б309
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: МДК 01.01
+                teacher: Хожайнова М.Г.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+                rawTeacher: Хожайнова М.Г.
+                rawRoom: Б308
+                sourceRow: 6
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 21
+              rowEnd: 22
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: СА1-21
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: МДК 04.01
+                  replacement:
+                    raw: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 6
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 04.01
+                    rawReplacement: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+                    rawRoom: Б308
+                lessonNumber: 1
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -626,4 +786,4 @@ diagnostics:
       reason: lesson-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f8faf3afb7154949a920016fe71eede73625d906009bbfc100433a4f2a5a3c63
+semanticHash: e3d859b1931d5453881a745013a023b90b619a867a145e0f9cefbf356c6d595a

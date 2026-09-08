@@ -179,7 +179,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -189,11 +189,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -203,6 +207,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       ЭК1-21:
         group: ЭК1-21
@@ -288,6 +296,55 @@ dates:
               description: "По расписанию: «Математика». По замене: «Нал.и налогообл. Бежина
                 М.И.». Аудитория: «Ф202»."
               room: Ф202
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 3
+              variants:
+                - subject: Математика
+                  teacher: Саввина Е.А.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 12
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 12
+                rowEnd: 13
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Основы бухгалтерского учета
+                  teacher: Ноева О.В.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 14
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 14
+                rowEnd: 15
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Основы бухгалтерского учета
+                  teacher: Ноева О.В.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 16
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 16
+                rowEnd: 17
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -327,4 +384,4 @@ diagnostics:
           sourceRow: 41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 252bf879450ffb9e66b2517d0194244fc199159b6b21c042d3255d781a8bc717
+semanticHash: 1343bd03d7d8a4ccb2e5e68003b68f3dc0824bc54c3680eae7b9e3c14333fc60

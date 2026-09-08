@@ -177,7 +177,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -187,11 +187,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -201,6 +205,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       МС1-11:
         group: МС1-11
@@ -282,5 +290,59 @@ dates:
                 lessonNumber: 2
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 0
+              variants:
+                - subject: Математика
+                  teacher: Кашурина Н.Н.
+                  room: Б501
+                  weekType: both
+                  sourceRow: 13
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 13
+                rowEnd: 14
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Трусова Е.В.
+                    Махрова Н.Н.
+                  room: Акт.зал
+                  weekType: both
+                  rawTeacher: |-
+                    Трусова Е.В.
+                    Махрова Н.Н. 
+                  sourceRow: 15
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 15
+                rowEnd: 16
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Информатика
+                  teacher: Яковлева Е.Н.
+                  room: Б204
+                  weekType: denominator
+                  sourceRow: 17
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 17
+                rowEnd: 18
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: da2c520e82d60606df80a6337cc79d86a515e89a2cea7bd416ca072c45a62617
+semanticHash: 54d495a5c9b6b056c43ea8bf0e594d0f4bcc0d42f6a392d6b8f44f86cc528302

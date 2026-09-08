@@ -406,5 +406,123 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      ЮР1-25:
+        group: ЮР1-25
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 3
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.зал
+                sourceRow: 2
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: ЮР1-25
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Калачик Н.И.
+                    room: Сп.зал
+                  source:
+                    shift: second
+                    row: 2
+                    rawGroupName: ЮР1-25
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Калачик Н.И.
+                    rawRoom: Сп.зал
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Административное право
+                teacher: Малышева Н.А.
+                room: Ф401
+                weekType: both
+                sourceRow: 123
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 123
+              rowEnd: 124
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants: []
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 125
+              rowEnd: 126
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: ЮР1-25
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 3
+                    rawGroupName: ЮР1-25
+                    rawLessonNumbers: "5"
+                    rawOriginal: История России
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 6e98408dcee65e323b571eec8ba8339a9b83be5c50801c81b32b62ad1fa534be
+semanticHash: 7c3ff5c1412ed8559f01ead2c3437d3ecd5a7f8b149673eeea54590ad4302a89

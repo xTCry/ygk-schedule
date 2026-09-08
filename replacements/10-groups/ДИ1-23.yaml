@@ -143,7 +143,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -174,7 +174,74 @@ dates:
               rawReplacement: 1,2 п/гр МДК 05.01 Рочева А.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
     replacements:
       - *a5
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+        replacements:
+          - &a6
+            date: 2026-09-09
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 7
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: Рисунок
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: Б207Б208
+          - &a7
+            date: 2026-09-09
+            group: ДИ1-23
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Живопись
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 8
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "1"
+              rawOriginal: Живопись
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: Б207Б208
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
 diagnostics: []
-semanticHash: f203568dbcedba66f6a053712aec9f70c672ddcc59266beb7b94c1c4120574a7
+semanticHash: 586e6e6d00b96932fabe1032bb092d66767a52b6bf16056eec9357e8929b051b

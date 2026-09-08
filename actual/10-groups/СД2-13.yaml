@@ -210,6 +210,145 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      СД2-13:
+        group: СД2-13
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК.06.01Производство работ по профессии каменщик, маляр, штукатур,
+                  монтажник каркасно-обшивных конструкций
+                teacher: Гасенина М.П.
+                room: Б101
+                weekType: both
+                sourceRow: 71
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 71
+              rowEnd: 72
+              rawGroupName: СД2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.01 Т.1.2. МДК 02.02 Т.2.5.
+                teacher: |-
+                  Вакансия
+                  Рангелова Н.М.
+                room: В102А202
+                weekType: both
+                subgroup: "2"
+                rawSubject: МДК 01.01 Т.1.2.п/гр.2 Краснянская Е.В. МДК 02.02 Т.2.5.п/гр.1
+                  Рангелова Н.М.
+                rawRoom: В102А202
+                sourceRow: 2
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 73
+              rowEnd: 74
+              rawGroupName: СД2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: СД2-13
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: Тех.мех.МДК 02.02 Т.2.5. п/гр.
+                  replacement:
+                    raw: МДК 01.01 Т.1.2.п/гр.2 Краснянская Е.В. МДК 02.02 Т.2.5.п/гр.1 Рангелова
+                      Н.М.
+                    room: В102А202
+                  source:
+                    shift: first
+                    row: 2
+                    rawGroupName: СД2-13
+                    rawLessonNumbers: "5"
+                    rawOriginal: Тех.мех.МДК 02.02 Т.2.5. п/гр.
+                    rawReplacement: МДК 01.01 Т.1.2.п/гр.2 Краснянская Е.В. МДК 02.02 Т.2.5.п/гр.1
+                      Рангелова Н.М.
+                    rawRoom: В102А202
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК 01.01 Т.1.2.
+                teacher: Краснянская Е.В.
+                room: В102
+                weekType: both
+                rawSubject: МДК 01.01 Т.1.2. Краснянская Е.В.
+                rawTeacher: Краснянская Е.В.
+                rawRoom: В102
+                sourceRow: 3
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: СД2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: СД2-13
+                  lessonNumbers:
+                    - 6
+                  type: replace
+                  original:
+                    raw: Тех.механика
+                  replacement:
+                    raw: МДК 01.01 Т.1.2. Краснянская Е.В.
+                    room: В102
+                  source:
+                    shift: first
+                    row: 3
+                    rawGroupName: СД2-13
+                    rawLessonNumbers: "6"
+                    rawOriginal: Тех.механика
+                    rawReplacement: МДК 01.01 Т.1.2. Краснянская Е.В.
+                    rawRoom: В102
+                lessonNumber: 6
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -236,4 +375,4 @@ diagnostics:
           sourceRow: 53
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 98273f344870f3408bae9f8299d691ecf6e09af9131942d4296f2e432e92a0b8
+semanticHash: 075f701874c6a59db86377aa9841ba43e4cb5af4d5320669b13cd3e16f630a2f

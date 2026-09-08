@@ -207,7 +207,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -217,11 +217,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -231,6 +235,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       ДИ1-11:
         group: ДИ1-11
@@ -316,5 +324,39 @@ dates:
                 lessonNumber: 2
                 strategy: exact-subject
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 1
+              variants:
+                - subject: История
+                  teacher: Смирнов Б.Е.
+                  room: А201
+                  weekType: both
+                  sourceRow: 117
+              source:
+                sheet: 1 курс
+                rowStart: 117
+                rowEnd: 118
+                rawGroupName: ДИ1-11/ДИ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Климова А.А.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 119
+              source:
+                sheet: 1 курс
+                rowStart: 119
+                rowEnd: 120
+                rawGroupName: ДИ1-11/ДИ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: 381174683414126230eaf0a201458d5edcc8a7078c441d0e4683e577d9054a35
+semanticHash: 4a1abb02baa8bd2d6482c64dfc750f0dc901701770b535da9e344d79ed25ef80

@@ -127,7 +127,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -157,7 +157,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     replacements:
       - *a4
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        replacements:
+          - &a5
+            date: 2026-09-09
+            group: РК1-33
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.02 МДК 03.02
+            replacement:
+              raw: 1,2 п/гр.МДК 03.02 Вепрева Ю.Ю.
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: РК1-33
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 02.02 МДК 03.02
+              rawReplacement: 1,2 п/гр.МДК 03.02 Вепрева Ю.Ю.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a5
 diagnostics: []
-semanticHash: a39aa72b469a618e80752f9dbb7152726782c1b20286d3f6501fefe17e005fd2
+semanticHash: ed4786684ea39c13b8808fae22b89ed8ef5994b9e60c1065ee762b02fd5db65b

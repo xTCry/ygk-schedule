@@ -263,7 +263,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -273,11 +273,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -287,6 +291,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       СА1-41:
         group: СА1-41
@@ -354,6 +362,163 @@ dates:
               description: "По расписанию: «Ин.язык». По замене: «1,2 п/гр. Зубковская А.Е.».
                 Аудитория: «М101»."
               room: М101
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 4
+              variants:
+                - subject: УП 03 Учебная практика
+                  teacher: |-
+                    Зайцев Р.А.
+                    Грехова Е.И.
+                  room: |-
+                    Б301
+                    Б304
+                  weekType: both
+                  sourceRow: 112
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 112
+                rowEnd: 113
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Физическая культура
+                  teacher: Куликова А.А.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 114
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 114
+                rowEnd: 115
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+      second:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+          fetchedAt: 2026-09-08T16:35:53.337Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6a9fe035-17ea"
+          lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    groups:
+      СА1-41:
+        group: СА1-41
+        date: 2026-09-09
+        day: Среда
+        lessons:
+          - number: 4
+            variants:
+              - subject: Экономика отрасли
+                teacher: Сафронова Л.Н.
+                room: А202
+                weekType: both
+                sourceRow: 119
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 119
+              rowEnd: 120
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Web-программирование
+                teacher: |-
+                  Серова А.М.
+                  Грехова Е.И.
+                room: |-
+                  Б403
+                  Б406
+                weekType: denominator
+                sourceRow: 121
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 121
+              rowEnd: 122
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: Web-программирование
+                teacher: |-
+                  Серова А.М.
+                  Грехова Е.И.
+                room: |-
+                  Б305
+                  Б403
+                weekType: both
+                sourceRow: 123
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 123
+              rowEnd: 124
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-09
+              group: СА1-41
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: Здоровьесбер.
+              replacement:
+                raw: Эф.поведение Малашкевич Д.А.
+                room: Б110
+              source:
+                shift: second
+                row: 6
+                rawGroupName: СА1-41
+                rawLessonNumbers: "5"
+                rawOriginal: Здоровьесбер.
+                rawReplacement: Эф.поведение Малашкевич Д.А.
+                rawRoom: Б110
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Здоровьесбер.». По замене: «Эф.поведение
+                Малашкевич Д.А.». Аудитория: «Б110»."
+              room: Б110
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -387,4 +552,30 @@ diagnostics:
       reason: lesson-not-found
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6c77324bdd77e41a8f28c6688b9352471f110c8b0080b493aee0b1427dcfce4e
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7833479822024205461f753ffb2c1240b06da71dd1a37439947d231b25627728
+    sheet: "Замены: Вторая смена"
+    row: 6
+    normalizedGroup: СА1-41
+    rawValue: Эф.поведение Малашкевич Д.А.
+    context:
+      date: 2026-09-09
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      requestedSubject: Здоровьесбер.
+      candidates:
+        - subject: Web-программирование
+          teacher: |-
+            Серова А.М.
+            Грехова Е.И.
+          room: |-
+            Б403
+            Б406
+          sourceRow: 121
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 02ac527f908c6d332e982addf98c6a45c04aa26409376dbe8135c80bb9300a6b

@@ -480,7 +480,7 @@ dates:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -490,11 +490,15 @@ dates:
           shift: first
           etag: W/"6a9ea119-3ad1"
           lastModified: Mon, 07 Sep 2026 11:33:45 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
       second:
         date: 2026-09-08
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -504,6 +508,10 @@ dates:
           shift: second
           etag: W/"6a9ea0d9-1878"
           lastModified: Mon, 07 Sep 2026 11:32:41 GMT
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     groups:
       ИС1-41:
         group: ИС1-41
@@ -605,6 +613,58 @@ dates:
                 lessonNumber: 6
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 2fe7ee215a5b675c1ed169ca56879550850865ae5192ef2c088a790b052ab8ae
+          dataRevision: bd1c4d0677ff7503d8c801325aa17d365a0329f8
+          lessons:
+            - number: 4
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Зубковская А.Е.
+                    Загородних Е.С.
+                  room: Б501
+                  weekType: both
+                  sourceRow: 166
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 166
+                rowEnd: 167
+                rawGroupName: ИС1-41/ИС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Эффективное поведение на рынке труда
+                  teacher: Малашкевич Д.А.
+                  room: Б110
+                  weekType: denominator
+                  sourceRow: 168
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 168
+                rowEnd: 169
+                rawGroupName: ИС1-41/ИС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК.05.03 Тестирование ИС п/гр1
+                  teacher: Вакансия
+                  room: Б308
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 170
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 170
+                rowEnd: 171
+                rawGroupName: ИС1-41/ИС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -678,4 +738,4 @@ diagnostics:
           sourceRow: 157
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 65d5e461b819e35e99023686394c6877d2d5bfbfc3f75c37d4527cfccec68de1
+semanticHash: c712c9e73a7c0fb7869e3118bdbe2e97a334f0be7262da2245fdc3e4624f8e9f

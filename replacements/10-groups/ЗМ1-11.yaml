@@ -59,7 +59,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -109,8 +109,74 @@ dates:
               rawReplacement: Физкультура Кургузова М.С.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
     replacements:
       - *a2
       - *a3
+  2026-09-09:
+    date: 2026-09-09
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-09
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+          fetchedAt: 2026-09-08T16:35:53.336Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6a9fd7d4-34db"
+          lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+        replacements:
+          - &a4
+            date: 2026-09-09
+            group: ЗМ1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 30
+              rawGroupName: ЗМ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: снято
+              rawRoom: ""
+          - &a5
+            date: 2026-09-09
+            group: ЗМ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Информ. Яковлева Е.Н.
+              room: Б204
+            source:
+              shift: first
+              row: 31
+              rawGroupName: ЗМ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Информ. Яковлева Е.Н.
+              rawRoom: Б204
+        diagnostics: []
+    replacements:
+      - *a4
+      - *a5
 diagnostics: []
-semanticHash: e7157024d305e85805b843793e9b4a1f9bdc9ea2b9eb23401668ee30386a91c9
+semanticHash: 678aee3ec577f751612be9383b761afae7739535d5ccd0f5e3d8f800f7a89023
