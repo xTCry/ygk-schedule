@@ -263,8 +263,8 @@ const issueDataReferences = (
   evidence: string;
 } => ({
   dataRevision: tableValue(body, 'Ревизия data'),
-  diagnostics: tableValue(body, 'Diagnostics JSON'),
-  evidence: tableValue(body, 'Evidence JSON'),
+  diagnostics: tableValue(body, 'Diagnostics YAML'),
+  evidence: tableValue(body, 'Evidence YAML'),
 });
 
 const formatDataReferences = (prefix: string, body: string): string[] => {

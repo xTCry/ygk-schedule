@@ -66,6 +66,7 @@ export const formatUpdateReplacementsCliOutput = (
       written: result.written,
       replacementsChanged: result.replacementsChanged,
       actualChanged: result.actualChanged,
+      sourcesChanged: result.sourcesChanged,
       replacementDates: Object.keys(result.replacements.dates).length,
       replacements: Object.values(result.replacements.dates).reduce(
         (count, date) => count + date.replacements.length,

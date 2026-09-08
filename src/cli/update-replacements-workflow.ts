@@ -94,7 +94,7 @@ export const updateReplacementsWorkflow = async (
   if (!replacements || !actual || !diagnostics)
     throw new Error('Replacement artifacts were not generated');
 
-  const changed = result.replacementsChanged || result.actualChanged;
+  const changed = result.written;
   await appendGitHubSummary(
     formatReplacementsUpdateSummary(replacements, actual, diagnostics, changed),
   );

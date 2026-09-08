@@ -419,6 +419,7 @@ const applyReplacement = (
   sources: readonly ReplacementPageSource[],
   diagnostics: Diagnostic[],
   aliases: ReplacementAliases,
+  baseContext: Record<string, unknown>,
 ): void => {
   const lesson = target.lessons.find((item) => item.number === lessonNumber);
 
@@ -436,6 +437,7 @@ const applyReplacement = (
         'unsupported-type',
         sources,
         diagnostics,
+        baseContext,
       );
       return;
     }
@@ -462,6 +464,7 @@ const applyReplacement = (
       'unsupported-type',
       sources,
       diagnostics,
+      baseContext,
     );
     return;
   }
@@ -474,6 +477,7 @@ const applyReplacement = (
       'lesson-not-found',
       sources,
       diagnostics,
+      baseContext,
     );
     return;
   }
@@ -496,7 +500,7 @@ const applyReplacement = (
       'subgroup-not-matched',
       sources,
       diagnostics,
-      unresolvedMatchContext(replacement, lesson),
+      { ...baseContext, ...unresolvedMatchContext(replacement, lesson) },
     );
     return;
   }
@@ -510,7 +514,7 @@ const applyReplacement = (
       'original-not-matched',
       sources,
       diagnostics,
-      unresolvedMatchContext(replacement, lesson),
+      { ...baseContext, ...unresolvedMatchContext(replacement, lesson) },
     );
     return;
   }
@@ -535,7 +539,7 @@ const applyReplacement = (
       'ambiguous-original',
       sources,
       diagnostics,
-      unresolvedMatchContext(replacement, lesson),
+      { ...baseContext, ...unresolvedMatchContext(replacement, lesson) },
     );
     return;
   }
@@ -570,6 +574,7 @@ const applyReplacement = (
       'unsupported-type',
       sources,
       diagnostics,
+      baseContext,
     );
     return;
   }
@@ -611,6 +616,35 @@ const baseLessons = (
   return scheduleDay.lessons
     .map((lesson) => toActualLesson(lesson, weekType))
     .filter((lesson) => lesson.variants.length > 0);
+};
+
+/**
+ * Добавляет к diagnostics ссылки на базовые данные, которые resolver проверял.
+ *
+ * Эти поля нужны только для ручной проверки Issue и не влияют на решение о
+ * применении замены.
+ */
+const baseDiagnosticContext = (
+  schedule: CanonicalSchedule,
+  group: string,
+): Record<string, unknown> => {
+  const baseGroup = schedule.groups[group];
+  if (!baseGroup) return {};
+  const sourceNames = new Map(
+    schedule.sources.map((source) => [source.id, source.fileName]),
+  );
+  const baseSourceFiles = [
+    ...new Set(
+      baseGroup.sourceBlocks
+        .map((source) => source.sourceId)
+        .filter((sourceId): sourceId is string => Boolean(sourceId))
+        .map((sourceId) => sourceNames.get(sourceId) ?? sourceId),
+    ),
+  ].sort((left, right) => left.localeCompare(right, 'ru-RU'));
+  return {
+    baseGroup: group,
+    ...(baseSourceFiles.length ? { baseSourceFiles } : {}),
+  };
 };
 
 const frozenBase = (
@@ -971,6 +1005,7 @@ export const buildActualSchedule = (
           replacementGroup,
           snapshot.status === 'finalized',
         );
+        const baseContext = baseDiagnosticContext(schedule, replacementGroup);
         const hasBaseDay =
           Boolean(schedule.groups[replacementGroup]) &&
           Boolean(
@@ -995,6 +1030,7 @@ export const buildActualSchedule = (
               reason,
               replacements.sources,
               diagnostics,
+              baseContext,
             );
           continue;
         }
@@ -1007,6 +1043,7 @@ export const buildActualSchedule = (
             replacements.sources,
             diagnostics,
             aliases,
+            baseContext,
           );
       }
     }

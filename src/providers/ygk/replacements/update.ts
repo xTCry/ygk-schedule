@@ -8,6 +8,7 @@ import {
   serializeReplacementsYaml,
   writeReplacementArtifacts,
 } from '../../../generators/replacements.ts';
+import { writeRawSourceArtifact } from '../../../generators/sources.ts';
 import type {
   ActualSchedule,
   CanonicalReplacements,
@@ -53,6 +54,7 @@ export interface UpdateReplacementsResult {
   written: boolean;
   replacementsChanged: boolean;
   actualChanged: boolean;
+  sourcesChanged: boolean;
   replacements: CanonicalReplacements;
   actual: ActualSchedule;
 }
@@ -188,6 +190,18 @@ export const updateYgkReplacements = async (
     artifactPaths.replacementsJson,
   );
   const pages = await loadPages(options);
+  const sourcesChanged = (
+    await Promise.all(
+      pages.map((page) =>
+        writeRawSourceArtifact(
+          options.outputDir,
+          'replacements',
+          `rasp_${page.source.shift}.html`,
+          page.html,
+        ),
+      ),
+    )
+  ).some(Boolean);
   const { parserHash, configHash } =
     await calculateReplacementProjectHashes(projectRoot);
   const aliases = await loadYgkReplacementAliases(projectRoot);
@@ -241,9 +255,10 @@ export const updateYgkReplacements = async (
 
   if (!replacementsChanged && !actualChanged && artifactsExist) {
     return {
-      written: false,
+      written: sourcesChanged,
       replacementsChanged: false,
       actualChanged: false,
+      sourcesChanged,
       replacements,
       actual: previousActual ?? actual,
     };
@@ -258,6 +273,7 @@ export const updateYgkReplacements = async (
     written: true,
     replacementsChanged,
     actualChanged,
+    sourcesChanged,
     replacements,
     actual: actualChanged ? actual : (previousActual ?? actual),
   };

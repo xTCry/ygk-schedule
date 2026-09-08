@@ -14,6 +14,7 @@ import {
 } from '../generators/artifacts.ts';
 import type { ScheduleArtifactPaths } from '../generators/artifacts.ts';
 import { serializeSchedule } from '../generators/json.ts';
+import { writeRawSourceArtifact } from '../generators/sources.ts';
 import { aggregateYgkSchedules } from '../providers/ygk/schedule/aggregate.ts';
 import { discoverScheduleFiles } from '../providers/ygk/schedule/discover.ts';
 import { downloadScheduleFile } from '../providers/ygk/schedule/download.ts';
@@ -47,6 +48,7 @@ export interface UpdateResult {
   written: boolean;
   versionChanged: boolean;
   semanticChanged: boolean;
+  sourcesChanged: boolean;
   schedule: CanonicalSchedule;
   diff: ReturnType<typeof compareSchedules>;
   sourceChanges: ScheduleSourceChange[];
@@ -56,6 +58,7 @@ export interface UpdateCliOutput {
   written: boolean;
   versionChanged: boolean;
   semanticChanged: boolean;
+  sourcesChanged?: boolean;
   schedule: Pick<CanonicalSchedule, 'groups' | 'diagnostics'>;
   diff: ScheduleDiff;
   sourceChanges?: ScheduleSourceChange[];
@@ -284,6 +287,20 @@ export const updateSchedule = async (
   const output = resolveOutputTarget(options);
   const previous = await readJsonIfExists<CanonicalSchedule>(output.json);
   const sources = await loadSources(options);
+  const sourcesChanged = output.artifacts
+    ? (
+        await Promise.all(
+          sources.map(({ buffer, source }) =>
+            writeRawSourceArtifact(
+              options.outputDir!,
+              'schedule',
+              source.fileName,
+              buffer,
+            ),
+          ),
+        )
+      ).some(Boolean)
+    : false;
   const { parserHash, configHash } = await calculateProjectHashes(projectRoot);
   const version = buildScheduleVersion({
     sourceSetHash: calculateSourceSetHash(
@@ -306,9 +323,10 @@ export const updateSchedule = async (
   if (!versionChanged && previous && allArtifactsExist) {
     const diff = compareSchedules(previous, previous);
     return {
-      written: false,
+      written: sourcesChanged,
       versionChanged: false,
       semanticChanged: false,
+      sourcesChanged,
       schedule: previous,
       diff,
       sourceChanges: [],
@@ -355,9 +373,10 @@ export const updateSchedule = async (
 
   if (hasFatalDiagnostics(schedule.diagnostics)) {
     return {
-      written: false,
+      written: sourcesChanged,
       versionChanged,
       semanticChanged,
+      sourcesChanged,
       schedule,
       diff,
       sourceChanges,
@@ -373,15 +392,17 @@ export const updateSchedule = async (
         written: true,
         versionChanged,
         semanticChanged: false,
+        sourcesChanged,
         schedule: previous,
         diff,
         sourceChanges,
       };
     }
     return {
-      written: false,
+      written: sourcesChanged,
       versionChanged,
       semanticChanged: false,
+      sourcesChanged,
       schedule: previous,
       diff,
       sourceChanges,
@@ -395,6 +416,7 @@ export const updateSchedule = async (
     written: true,
     versionChanged,
     semanticChanged,
+    sourcesChanged,
     schedule,
     diff,
     sourceChanges,
@@ -459,6 +481,7 @@ export const formatUpdateCliOutput = (
       written: result.written,
       versionChanged: result.versionChanged,
       semanticChanged: result.semanticChanged,
+      sourcesChanged: result.sourcesChanged,
       groups: Object.keys(result.schedule.groups).length,
       diagnostics: result.schedule.diagnostics.length,
       diff,

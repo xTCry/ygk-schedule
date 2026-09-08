@@ -34,7 +34,14 @@ describe('YGK replacements update', () => {
     expect(first.written).toBe(true);
     expect(first.replacementsChanged).toBe(true);
     expect(first.actualChanged).toBe(true);
+    expect(first.sourcesChanged).toBe(true);
     await expect(readFile(basePath, 'utf8')).resolves.toBe(baseBefore);
+    await expect(
+      readFile(join(root, 'sources', 'replacements', 'rasp_first.html')),
+    ).resolves.toBeTruthy();
+    await expect(
+      readFile(join(root, 'sources', 'replacements', 'rasp_second.html')),
+    ).resolves.toBeTruthy();
 
     const replacementsJson = JSON.parse(
       await readFile(
@@ -113,6 +120,7 @@ describe('YGK replacements update', () => {
     expect(second.written).toBe(false);
     expect(second.replacementsChanged).toBe(false);
     expect(second.actualChanged).toBe(false);
+    expect(second.sourcesChanged).toBe(false);
     await expect(
       readFile(join(root, 'replacements', '10-groups', 'ДИ1-13.json'), 'utf8'),
     ).resolves.toBe(replacementGroup);

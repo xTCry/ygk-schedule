@@ -197,6 +197,9 @@ describe('actual YGK schedule', () => {
         severity: 'error',
       }),
     ]);
+    expect(actual.diagnostics[0]?.context).toMatchObject({
+      baseGroup: 'СТ1-11',
+    });
   });
 
   it('changes only the matching subgroup variant of a lesson', () => {

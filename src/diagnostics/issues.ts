@@ -1,5 +1,10 @@
-import { sha256 } from '../utils/hash.ts';
 import type { Diagnostic, DiagnosticCode, ScheduleSource } from '../types.ts';
+import { getGroupFileName } from '../generators/group-file-name.ts';
+import {
+  getRawSourceArtifactRelativePath,
+  type RawSourceKind,
+} from '../generators/sources.ts';
+import { sha256 } from '../utils/hash.ts';
 
 export type DiagnosticsScope = 'base' | 'replacements' | 'actual';
 
@@ -60,6 +65,12 @@ const issueWarningCodes = new Set<DiagnosticCode>([
   'EMPTY_SCHEDULE_BLOCK',
 ]);
 
+const rawSourceMarker = (kind: RawSourceKind, fileName: string): string =>
+  `{{raw-source:${kind}:${encodeURIComponent(fileName)}}}`;
+
+const groupYamlMarker = (directory: 'actual' | 'base', group: string): string =>
+  `{{group-yaml:${directory}:${encodeURIComponent(group)}}}`;
+
 const formatTableValue = (value: string | number | undefined): string =>
   value === undefined || value === ''
     ? '—'
@@ -86,6 +97,18 @@ const contextNumber = (
   return typeof value === 'number' && Number.isFinite(value)
     ? value
     : undefined;
+};
+
+const contextStringList = (diagnostic: Diagnostic, key: string): string[] => {
+  const value = diagnostic.context?.[key];
+  if (!Array.isArray(value)) return [];
+  return [
+    ...new Set(
+      value.filter(
+        (item): item is string => typeof item === 'string' && Boolean(item),
+      ),
+    ),
+  ].sort((left, right) => left.localeCompare(right, 'ru-RU'));
 };
 
 const labelSegment = (value: string): string =>
@@ -388,6 +411,11 @@ export interface DiagnosticIssueLinkOptions {
   dataRevision?: string;
   parserRevision?: string;
   /**
+   * Пути raw-источников, фактически опубликованные в текущей data revision.
+   * Если путь отсутствует, Issue не создаёт заведомо битую ссылку.
+   */
+  availableRawSourcePaths?: ReadonlySet<string>;
+  /**
    * Шаблон постоянного URL архива исходных файлов. Поддерживает плейсхолдеры
    * `{sha256}` и `{fileName}`; значения URL-кодируются перед подстановкой.
    */
@@ -410,6 +438,53 @@ const dataFileLink = (
   revision
     ? `[\`${path}\`](https://github.com/${repository}/blob/${revision}/${path})`
     : `\`${path}\``;
+
+const rawSourceKind = (fileName: string): RawSourceKind =>
+  fileName.toLocaleLowerCase('en-US').endsWith('.html')
+    ? 'replacements'
+    : 'schedule';
+
+const rawSourceLink = (
+  options: DiagnosticIssueLinkOptions,
+  kind: RawSourceKind,
+  fileName: string,
+): string => {
+  const path = getRawSourceArtifactRelativePath(kind, fileName);
+  if (
+    options.availableRawSourcePaths &&
+    !options.availableRawSourcePaths.has(path)
+  )
+    return '—';
+  return dataFileLink(options.repository, options.dataRevision, path);
+};
+
+const resolveRawSourceMarkers = (
+  body: string,
+  options: DiagnosticIssueLinkOptions,
+): string =>
+  body.replaceAll(
+    /\{\{raw-source:(replacements|schedule):([^}]+)\}\}/gu,
+    (_marker, kind: RawSourceKind, encodedFileName: string) => {
+      const fileName = decodeURIComponent(encodedFileName);
+      return rawSourceLink(options, kind, fileName);
+    },
+  );
+
+const resolveGroupYamlMarkers = (
+  body: string,
+  options: DiagnosticIssueLinkOptions,
+): string =>
+  body.replaceAll(
+    /\{\{group-yaml:(actual|base):([^}]+)\}\}/gu,
+    (_marker, directory: 'actual' | 'base', encodedGroup: string) => {
+      const group = decodeURIComponent(encodedGroup);
+      return dataFileLink(
+        options.repository,
+        options.dataRevision,
+        `${directory}/10-groups/${getGroupFileName(group)}.yaml`,
+      );
+    },
+  );
 
 /**
  * Переводит ISO-время загрузки в московское время. Если старый report
@@ -495,7 +570,10 @@ export const withDiagnosticIssueLinks = (
   options: DiagnosticIssueLinkOptions,
 ): DiagnosticIssueDraft => {
   const sourceLinkedBody = withSourceArchiveLink(
-    issue.body,
+    resolveGroupYamlMarkers(
+      resolveRawSourceMarkers(issue.body, options),
+      options,
+    ),
     options.sourceArchiveUrlTemplate,
   );
   if (!issue.evidence)
@@ -511,10 +589,10 @@ export const withDiagnosticIssueLinks = (
 | --- | --- |
 | Ревизия parser | ${commitLink(options.repository, options.parserRevision)} |
 | Ревизия data | ${commitLink(options.repository, options.dataRevision)} |
-| Diagnostics JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.diagnosticsJsonPath)} |
 | Diagnostics YAML | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.diagnosticsYamlPath)} |
-| Evidence JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.jsonPath)} |
 | Evidence YAML | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.yamlPath)} |
+| Diagnostics JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.diagnosticsJsonPath)} |
+| Evidence JSON | ${dataFileLink(options.repository, options.dataRevision, issue.evidence.jsonPath)} |
 `;
   return {
     ...issue,
@@ -551,7 +629,10 @@ export const formatDiagnosticIssue = (
     .map((item) => {
       const lessonNumber = contextNumber(item, 'lessonNumber');
       const replacementType = contextString(item, 'type');
-      return `| ${formatTableValue(item.sheet)} | ${formatTableValue(item.row)} | ${formatTableValue(item.column)} | ${formatTableValue(item.normalizedGroup)} | ${formatTableValue(lessonNumber)} | ${formatTableValue(replacementType)} | ${formatTableValue(item.rawValue)} |`;
+      const group = item.normalizedGroup;
+      const baseGroup = contextString(item, 'baseGroup');
+      const baseSources = contextStringList(item, 'baseSourceFiles');
+      return `| ${formatTableValue(item.sheet)} | ${formatTableValue(item.row)} | ${formatTableValue(item.column)} | ${formatTableValue(group)} | ${formatTableValue(lessonNumber)} | ${formatTableValue(replacementType)} | ${formatTableValue(item.rawValue)} | ${source ? rawSourceMarker(rawSourceKind(source.fileName), source.fileName) : '—'} | ${baseGroup ? groupYamlMarker('base', baseGroup) : '—'} | ${scope === 'actual' && group ? groupYamlMarker('actual', group) : '—'} | ${baseSources.length ? baseSources.map((fileName) => rawSourceMarker('schedule', fileName)).join('<br>') : '—'} |`;
     })
     .join('\n');
 
@@ -606,8 +687,11 @@ ${issueClassificationRows(diagnostics, source).join('\n')}
 
 ## Затронутые ячейки
 
-| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
-| --- | --- | --- | --- | --- | --- | --- |
+Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+успеть измениться после получения снимка.
+
+| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 ${locations}
 `,
   };

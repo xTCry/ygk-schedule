@@ -195,6 +195,9 @@ describe('schedule update', () => {
     expect(second.written).toBe(false);
     expect(second.versionChanged).toBe(false);
     await expect(
+      readFile(join(outputDir, 'sources', 'schedule', '2026-09-so.xlsx')),
+    ).resolves.toBeTruthy();
+    await expect(
       readFile(join(outputDir, 'base/00-schedule.json'), 'utf8'),
     ).resolves.toBe(firstSchedule);
   });

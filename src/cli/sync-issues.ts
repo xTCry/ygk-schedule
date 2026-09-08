@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { basename, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -259,6 +259,31 @@ const getDataRevision = async (
 };
 
 /**
+ * Читает только имена опубликованных raw-источников. Это защищает Issue от
+ * ссылок на XLSX, которые ещё не были опубликованы текущей data-веткой.
+ */
+const availableRawSourcePaths = async (
+  dataRoot: string | undefined,
+): Promise<Set<string> | undefined> => {
+  if (!dataRoot) return undefined;
+  const result = new Set<string>();
+  await Promise.all(
+    (['replacements', 'schedule'] as const).map(async (kind) => {
+      try {
+        const entries = await readdir(resolve(dataRoot, 'sources', kind), {
+          withFileTypes: true,
+        });
+        for (const entry of entries)
+          if (entry.isFile()) result.add(`sources/${kind}/${entry.name}`);
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+      }
+    }),
+  );
+  return result;
+};
+
+/**
  * Синхронизирует Issue по diagnostics report, созданному в ветке data.
  */
 export const runSyncIssuesCli = async (
@@ -284,6 +309,7 @@ export const runSyncIssuesCli = async (
       'No diagnostics reports were found for Issue synchronization',
     );
   const dataRevision = await getDataRevision(options);
+  const rawSourcePaths = await availableRawSourcePaths(options.dataRoot);
   const parserRevision = options.parserRevision ?? process.env.GITHUB_SHA;
   const drafts = loadedReports
     .flatMap((report) => report.issues)
@@ -301,6 +327,7 @@ export const runSyncIssuesCli = async (
         ...(options.sourceArchiveUrlTemplate
           ? { sourceArchiveUrlTemplate: options.sourceArchiveUrlTemplate }
           : {}),
+        ...(rawSourcePaths ? { availableRawSourcePaths: rawSourcePaths } : {}),
       }),
     );
   const result = await syncDiagnosticIssues(

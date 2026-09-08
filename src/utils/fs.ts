@@ -32,3 +32,24 @@ export const writeFileAtomic = async (
   await writeFile(temporary, content);
   await rename(temporary, path);
 };
+
+/**
+ * Атомарно обновляет файл только при фактическом изменении байтов.
+ *
+ * Это нужно для raw-источников: повторная загрузка одинакового HTML/XLSX не
+ * должна создавать ложный Git diff только из-за времени запуска workflow.
+ */
+export const writeFileIfChangedAtomic = async (
+  path: string,
+  content: string | Buffer,
+): Promise<boolean> => {
+  const next = Buffer.isBuffer(content) ? content : Buffer.from(content);
+  try {
+    const previous = await readFile(path);
+    if (previous.equals(next)) return false;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+  }
+  await writeFileAtomic(path, next);
+  return true;
+};

@@ -162,6 +162,78 @@ describe('diagnostic Issue drafts', () => {
     expect(linked.body).toContain(
       'https://github.com/xTCry/ygk-schedule/commit/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
     );
+    expect(linked.body).toContain('| Evidence YAML |');
+  });
+
+  it('links exact raw sources and related YAML files from the data revision', () => {
+    const issue = formatDiagnosticIssue(
+      [
+        {
+          ...diagnostic,
+          code: 'UNRESOLVED_REPLACEMENT',
+          context: {
+            date: '2026-09-08',
+            lessonNumber: 4,
+            type: 'replace',
+            reason: 'lesson-not-found',
+            baseGroup: 'МА1-12',
+            baseSourceFiles: ['so.xlsx'],
+          },
+        },
+      ],
+      {
+        ...source,
+        fileName: 'rasp_first.html',
+        shift: 'first',
+      } as ReplacementPageSource,
+      {
+        scope: 'actual',
+        evidence: {
+          diagnosticsJsonPath: 'actual/90-diagnostics.json',
+          diagnosticsYamlPath: 'actual/90-diagnostics.yaml',
+          directory: 'actual/91-issue-evidence',
+        },
+      },
+    );
+
+    const linked = withDiagnosticIssueLinks(issue, {
+      repository: 'xTCry/ygk-schedule',
+      dataRevision: 'a'.repeat(40),
+    });
+
+    expect(linked.body).toContain(
+      'blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/sources/replacements/rasp_first.html',
+    );
+    expect(linked.body).toContain(
+      'blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/base/10-groups/МА1-12.yaml',
+    );
+    expect(linked.body).toContain(
+      'blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/actual/10-groups/ЮР1-33%2FЮР1-34.yaml',
+    );
+    expect(linked.body).toContain(
+      'blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/sources/schedule/so.xlsx',
+    );
+  });
+
+  it('does not create raw source links that are absent from the data revision', () => {
+    const issue = formatDiagnosticIssue([diagnostic], {
+      ...source,
+      fileName: 'rasp_first.html',
+      shift: 'first',
+    } as ReplacementPageSource);
+
+    const linked = withDiagnosticIssueLinks(issue, {
+      repository: 'xTCry/ygk-schedule',
+      dataRevision: 'a'.repeat(40),
+      availableRawSourcePaths: new Set([
+        'sources/replacements/rasp_first.html',
+      ]),
+    });
+
+    expect(linked.body).toContain(
+      'blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/sources/replacements/rasp_first.html',
+    );
+    expect(linked.body).not.toContain('sources/schedule/');
   });
 
   it('links the source SHA-256 only when an external archive is configured', () => {
