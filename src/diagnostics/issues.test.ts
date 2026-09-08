@@ -139,6 +139,38 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.body).toContain('| РК1-11 | 2 | replace | Информатика |');
   });
 
+  it('shows the week-type context for a lesson excluded from this week', () => {
+    const replacementSource: ReplacementPageSource = {
+      ...source,
+      fileName: 'rasp_first.html',
+      shift: 'first',
+    };
+    const issue = formatDiagnosticIssue(
+      [
+        {
+          ...diagnostic,
+          code: 'UNRESOLVED_REPLACEMENT',
+          message:
+            'Пара из замены есть в базовом расписании, но не проводится в указанную неделю',
+          fingerprint: 'week-type-fingerprint',
+          context: {
+            date: '2026-09-09',
+            lessonNumber: 1,
+            type: 'cancel',
+            reason: 'lesson-not-scheduled-for-week',
+            replacementWeekType: 'denominator',
+            availableWeekTypes: ['numerator'],
+          },
+        },
+      ],
+      replacementSource,
+    );
+
+    expect(issue.labels).toContain('reason:lesson-not-scheduled-for-week');
+    expect(issue.body).toContain('| Тип недели в заменах | denominator |');
+    expect(issue.body).toContain('| Типы недель пары в base | numerator |');
+  });
+
   it('adds immutable data and parser links only for Issue evidence', () => {
     const issue = formatDiagnosticIssue([diagnostic], source, {
       scope: 'base',

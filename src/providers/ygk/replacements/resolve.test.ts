@@ -202,6 +202,52 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('distinguishes an absent lesson from a lesson not scheduled for this week', () => {
+    const denominatorReplacements: CanonicalReplacements = {
+      ...replacements,
+      dates: {
+        '2026-09-04': {
+          ...replacements.dates['2026-09-04']!,
+          weekType: 'denominator',
+          replacements: [
+            replacement([2], 'cancel', 'Математика', 'Снято'),
+            replacement([5], 'cancel', 'Неизвестный предмет', 'Снято'),
+          ],
+        },
+      },
+    };
+
+    const actual = buildActualSchedule(
+      baseSchedule,
+      denominatorReplacements,
+      'actual-parser',
+      'config',
+    );
+    const group = actual.dates['2026-09-04']?.groups['СТ1-11'];
+
+    expect(group?.lessons.map((lesson) => lesson.number)).toEqual([0, 4]);
+    expect(group?.unresolvedReplacements).toEqual([
+      expect.objectContaining({
+        lessonNumber: 2,
+        reason: 'lesson-not-scheduled-for-week',
+      }),
+      expect.objectContaining({
+        lessonNumber: 5,
+        reason: 'lesson-not-found',
+      }),
+    ]);
+    const unavailableWeekDiagnostic = actual.diagnostics.find(
+      (diagnostic) =>
+        diagnostic.context?.reason === 'lesson-not-scheduled-for-week',
+    );
+    expect(unavailableWeekDiagnostic?.context).toMatchObject({
+      reason: 'lesson-not-scheduled-for-week',
+      replacementWeekType: 'denominator',
+      availableWeekTypes: ['numerator'],
+      candidates: [{ subject: 'Математика', sourceRow: 2 }],
+    });
+  });
+
   it('changes only the matching subgroup variant of a lesson', () => {
     const schedule = structuredClone(baseSchedule);
     const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(

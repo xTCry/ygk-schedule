@@ -203,6 +203,8 @@ const resolutionDiagnostic = (
     'group-not-found': 'Группа из замены не найдена в базовом расписании',
     'day-not-found': 'День замены отсутствует в базовом расписании группы',
     'lesson-not-found': 'Пара из замены отсутствует в базовом расписании',
+    'lesson-not-scheduled-for-week':
+      'Пара из замены есть в базовом расписании, но не проводится в указанную неделю',
     'subgroup-not-matched':
       'Подгруппа из замены не проводится в базовом расписании в эту неделю',
     'original-not-matched':
@@ -603,20 +605,46 @@ const cloneActualLesson = (lesson: ActualLesson): ActualLesson => ({
   replacements: [],
 });
 
+/**
+ * Возвращает день из базового расписания без отбора по типу недели.
+ *
+ * Resolver использует его только для объяснения неразрешенной замены:
+ * опубликованный actual по-прежнему содержит лишь пары нужной недели.
+ */
+const baseScheduleDay = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: ActualScheduleDate['day'],
+) => schedule.groups[group]?.days.find((item) => item.day === day);
+
 const baseLessons = (
   schedule: CanonicalSchedule,
   group: string,
   day: ActualScheduleDate['day'],
   weekType: WeekType,
 ): ActualLesson[] | null => {
-  const scheduleDay = schedule.groups[group]?.days.find(
-    (item) => item.day === day,
-  );
+  const scheduleDay = baseScheduleDay(schedule, group, day);
   if (!scheduleDay) return null;
   return scheduleDay.lessons
     .map((lesson) => toActualLesson(lesson, weekType))
     .filter((lesson) => lesson.variants.length > 0);
 };
+
+/**
+ * Строит evidence для случая, когда номер пары существует, но все варианты
+ * исключены типом недели из заголовка страницы замен.
+ */
+const unavailableWeekLessonContext = (
+  replacement: Replacement,
+  lesson: Lesson,
+  weekType: WeekType,
+): Record<string, unknown> => ({
+  replacementWeekType: weekType,
+  availableWeekTypes: [
+    ...new Set(lesson.variants.map((variant) => variant.weekType)),
+  ].sort((left, right) => left.localeCompare(right)),
+  ...unresolvedMatchContext(replacement, toActualLesson(lesson, 'unknown')),
+});
 
 /**
  * Добавляет к diagnostics ссылки на базовые данные, которые resolver проверял.
@@ -1006,16 +1034,12 @@ export const buildActualSchedule = (
           snapshot.status === 'finalized',
         );
         const baseContext = baseDiagnosticContext(schedule, replacementGroup);
-        const hasBaseDay =
-          Boolean(schedule.groups[replacementGroup]) &&
-          Boolean(
-            baseLessons(
-              schedule,
-              replacementGroup,
-              replacementDate.day,
-              replacementDate.weekType,
-            ),
-          );
+        const scheduleDay = baseScheduleDay(
+          schedule,
+          replacementGroup,
+          replacementDate.day,
+        );
+        const hasBaseDay = Boolean(scheduleDay);
         const hasFrozenBase = Boolean(group.frozenBase);
 
         if (!hasBaseDay && !hasFrozenBase) {
@@ -1035,7 +1059,36 @@ export const buildActualSchedule = (
           continue;
         }
 
-        for (const lessonNumber of replacement.lessonNumbers)
+        for (const lessonNumber of replacement.lessonNumbers) {
+          const baseLesson = scheduleDay?.lessons.find(
+            (lesson) => lesson.number === lessonNumber,
+          );
+          const activeLesson = group.lessons.find(
+            (lesson) => lesson.number === lessonNumber,
+          );
+          if (
+            replacement.type !== 'add' &&
+            !activeLesson &&
+            baseLesson?.variants.length
+          ) {
+            unresolved(
+              group,
+              replacement,
+              lessonNumber,
+              'lesson-not-scheduled-for-week',
+              replacements.sources,
+              diagnostics,
+              {
+                ...baseContext,
+                ...unavailableWeekLessonContext(
+                  replacement,
+                  baseLesson,
+                  replacementDate.weekType,
+                ),
+              },
+            );
+            continue;
+          }
           applyReplacement(
             group,
             replacement,
@@ -1045,6 +1098,7 @@ export const buildActualSchedule = (
             aliases,
             baseContext,
           );
+        }
       }
     }
 

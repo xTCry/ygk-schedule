@@ -288,6 +288,7 @@ export type UnresolvedReplacementReason =
   | 'group-not-found'
   | 'day-not-found'
   | 'lesson-not-found'
+  | 'lesson-not-scheduled-for-week'
   | 'subgroup-not-matched'
   | 'original-not-matched'
   | 'ambiguous-original'

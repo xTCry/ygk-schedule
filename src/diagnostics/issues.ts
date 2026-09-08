@@ -161,6 +161,16 @@ const commonContextString = (
   return values.size === 1 ? [...values][0] : undefined;
 };
 
+const commonContextStringList = (
+  diagnostics: readonly Diagnostic[],
+  key: string,
+): string[] =>
+  [
+    ...new Set(
+      diagnostics.flatMap((diagnostic) => contextStringList(diagnostic, key)),
+    ),
+  ].sort((left, right) => left.localeCompare(right, 'ru-RU'));
+
 const commonGroup = (
   diagnostics: readonly Diagnostic[],
 ): string | undefined => {
@@ -320,12 +330,28 @@ const issueClassificationRows = (
   const reason = commonContextString(diagnostics, 'reason');
   const date = commonContextString(diagnostics, 'date');
   const shift = replacementShiftLabel(source);
+  const replacementWeekType = commonContextString(
+    diagnostics,
+    'replacementWeekType',
+  );
+  const availableWeekTypes = commonContextStringList(
+    diagnostics,
+    'availableWeekTypes',
+  );
   return [
     `| Уровень | ${formatTableValue(diagnostic.severity)} |`,
     `| Код | ${formatTableValue(diagnostic.code)} |`,
     ...(reason ? [`| Причина | ${formatTableValue(reason)} |`] : []),
     ...(date ? [`| Дата замен | ${formatTableValue(date)} |`] : []),
     ...(shift ? [`| Смена | ${formatTableValue(shift)} |`] : []),
+    ...(replacementWeekType
+      ? [`| Тип недели в заменах | ${formatTableValue(replacementWeekType)} |`]
+      : []),
+    ...(availableWeekTypes.length
+      ? [
+          `| Типы недель пары в base | ${formatTableValue(availableWeekTypes.join(', '))} |`,
+        ]
+      : []),
     `| Строк в Issue | ${diagnostics.length} |`,
   ];
 };
