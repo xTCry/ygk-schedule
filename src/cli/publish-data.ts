@@ -28,6 +28,21 @@ const publishTargets: Record<
   },
 };
 
+/**
+ * Возвращает Git-команду для публикации generated data.
+ *
+ * Ветка `data` использует whitelist `.gitignore`: это защищает её от
+ * случайных файлов workflow, но не должно блокировать контролируемые
+ * генератором raw-источники в `sources/`.
+ */
+export const getPublishStageArgs = (
+  kind: PublishKind,
+): ['add', '--force', ...string[]] => [
+  'add',
+  '--force',
+  ...publishTargets[kind].directories,
+];
+
 const parseArgs = (args: string[]): PublishDataOptions => {
   const values = new Map<string, string>();
   for (let index = 0; index < args.length; index += 1) {
@@ -53,7 +68,7 @@ export const publishData = async (
   options: PublishDataOptions,
 ): Promise<{ changed: boolean; files: number; revision: string }> => {
   const target = publishTargets[options.kind];
-  await runGit(options.outputDir, ['add', ...target.directories]);
+  await runGit(options.outputDir, getPublishStageArgs(options.kind));
   if (!(await hasStagedChanges(options.outputDir))) {
     const revision = await runGit(options.outputDir, ['rev-parse', 'HEAD']);
     await appendGitHubSummary(
