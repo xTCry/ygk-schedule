@@ -31,6 +31,14 @@ describe('YGK group parsing', () => {
     });
   });
 
+  it('accepts an accidental space between a group prefix and its course number', () => {
+    expect(parseGroupCandidate('ЮР 1-11 / ЮР1-12')).toEqual({
+      raw: 'ЮР 1-11 / ЮР1-12',
+      normalizedSource: 'ЮР 1-11 / ЮР1-12',
+      groups: ['ЮР1-11', 'ЮР1-12'],
+    });
+  });
+
   it('accepts numbered specialty group names from the new base schedule', () => {
     expect(parseGroupCandidate('36 ЭМЕХ, 2 БПЛА, 4 ИКС.')).toEqual({
       raw: '36 ЭМЕХ, 2 БПЛА, 4 ИКС.',

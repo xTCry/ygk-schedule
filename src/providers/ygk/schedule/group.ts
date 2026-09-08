@@ -15,7 +15,7 @@ const confusables: Record<string, string> = {
   Y: 'У',
 };
 
-const canonicalGroupPattern = /[А-ЯЁA-Z]{1,5}\d{0,2}-\d{1,3}(?![-\d])/giu;
+const canonicalGroupPattern = /[А-ЯЁA-Z]{1,5}\s*\d{0,2}-\d{1,3}(?![-\d])/giu;
 const numberedSpecialtyGroupPattern =
   /\d{1,3}\s+[А-ЯЁA-Z]{2,5}(?![\p{L}\p{N}])/giu;
 const fullCanonicalGroupPattern = /^([А-ЯЁ]{1,5})\d{0,2}-\d{1,3}$/u;
@@ -36,7 +36,10 @@ const groupsInPart = (value: string): string[] =>
     })),
   ]
     .sort((left, right) => left.index - right.index)
-    .map((match) => match.group);
+    .map((match) => {
+      const compact = match.group.replace(/\s+/gu, '');
+      return fullCanonicalGroupPattern.test(compact) ? compact : match.group;
+    });
 
 /**
  * Раскрывает распространенное в документах сокращение группы:
