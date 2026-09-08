@@ -295,6 +295,10 @@ const parseReplacementRow = (
     );
   }
 
+  // Строку без названия группы нельзя безопасно привязать к расписанию.
+  // Сохраняем её в diagnostics, но не публикуем как замену с пустым ключом.
+  if (!group) return null;
+
   const source: ReplacementSource = {
     shift,
     row: tableRow,

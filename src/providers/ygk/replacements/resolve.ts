@@ -954,6 +954,11 @@ export const buildActualSchedule = (
 
     for (const snapshot of snapshots) {
       for (const replacement of snapshot.replacements) {
+        // Старый артефакт мог быть создан до запрета пустой группы в parser-е.
+        // Такую строку уже отражает parser diagnostic; в actual она не должна
+        // создавать группу с пустым именем.
+        if (!replacement.group.trim()) continue;
+
         const resolvedGroup = resolveYgkReplacementGroup(
           replacement.group,
           Object.keys(schedule.groups),

@@ -293,11 +293,21 @@ const getGroupArtifactPaths = (
   };
 };
 
+/**
+ * Проверяет, можно ли публиковать отдельный файл группы.
+ *
+ * Parser не создаёт пустые группы, но эта защита сохраняет генерацию
+ * работоспособной при чтении старого или вручную повреждённого артефакта.
+ */
+const isPublishableGroup = (group: string): boolean => Boolean(group.trim());
+
 const replacementGroups = (replacements: CanonicalReplacements): string[] =>
   [
     ...new Set(
       Object.values(replacements.dates).flatMap((date) =>
-        date.replacements.map((replacement) => replacement.group),
+        date.replacements
+          .map((replacement) => replacement.group)
+          .filter(isPublishableGroup),
       ),
     ),
   ].sort(compareText);
@@ -349,7 +359,9 @@ const replacementShiftsForGroup = (
 const actualGroups = (schedule: ActualSchedule): string[] =>
   [
     ...new Set(
-      Object.values(schedule.dates).flatMap((date) => Object.keys(date.groups)),
+      Object.values(schedule.dates).flatMap((date) =>
+        Object.keys(date.groups).filter(isPublishableGroup),
+      ),
     ),
   ].sort(compareText);
 

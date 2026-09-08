@@ -74,6 +74,65 @@ describe('replacement artifact file names', () => {
     expect(getReplacementGroupFileName('Группа/1')).toBe('Группа%2F1');
   });
 
+  it('does not create a group file for a legacy empty group', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'ygk-replacement-artifacts-'));
+    const replacements: CanonicalReplacements = {
+      schemaVersion: 5,
+      provider: 'ygk',
+      generatedAt: '2026-09-05T00:00:00.000Z',
+      sources: [source],
+      version,
+      dates: {
+        '2026-09-05': {
+          date: '2026-09-05',
+          day: 'Суббота',
+          weekType: 'numerator',
+          replacements: [replacement('', 1)],
+        },
+      },
+      diagnostics: [],
+      semanticHash: 'replacements',
+    };
+    const legacyActual: ActualSchedule = {
+      ...actual,
+      dates: {
+        '2026-09-05': {
+          date: '2026-09-05',
+          day: 'Суббота',
+          weekType: 'numerator',
+          groups: {
+            '': {
+              group: '',
+              date: '2026-09-05',
+              day: 'Суббота',
+              lessons: [],
+              unresolvedReplacements: [],
+            },
+          },
+        },
+      },
+    };
+
+    await expect(
+      writeReplacementArtifacts(
+        getReplacementArtifactPaths(root),
+        replacements,
+        legacyActual,
+      ),
+    ).resolves.toBeUndefined();
+
+    const paths = getReplacementArtifactPaths(root);
+    await expect(readFile(paths.replacementsJson, 'utf8')).resolves.toContain(
+      '"group": ""',
+    );
+    await expect(
+      readFile(join(root, 'replacements', '10-groups', '.json'), 'utf8'),
+    ).rejects.toMatchObject({ code: 'ENOENT' });
+    await expect(
+      readFile(join(root, 'actual', '10-groups', '.json'), 'utf8'),
+    ).rejects.toMatchObject({ code: 'ENOENT' });
+  });
+
   it('writes only one group into group replacements and reuses YAML aliases', async () => {
     const targetReplacement = replacement('СТ1-11', 1);
     const otherReplacement = replacement('ДИ1-11', 2);

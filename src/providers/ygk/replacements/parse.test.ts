@@ -142,6 +142,46 @@ describe('YGK replacements HTML parser', () => {
     ]);
   });
 
+  it('keeps a row without a group only in diagnostics', () => {
+    const parsed = parseYgkReplacements(
+      `
+        <div><b>ИЗМЕНЕНИЯ</b></div>
+        <div>в расписании на 4 сентября 2026 года / пятница</div>
+        <div>(Числитель) Первая смена</div>
+        <table>
+          <tr>
+            <th>№</th>
+            <th>Группа</th>
+            <th>Номер</th>
+            <th>Дисциплина по расписанию</th>
+            <th>Дисциплина по замене</th>
+            <th>Аудитория</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td>2</td>
+            <td>Математика</td>
+            <td>История</td>
+            <td>А201</td>
+          </tr>
+        </table>
+      `,
+      'first',
+    );
+
+    expect(parsed.replacements).toEqual([]);
+    expect(parsed.diagnostics).toEqual([
+      expect.objectContaining({
+        code: 'UNKNOWN_REPLACEMENT_TYPE',
+        sheet: 'Замены: Первая смена',
+        row: 2,
+        rawValue: ' | 2 | Математика | История',
+      }),
+    ]);
+    expect(parsed.diagnostics[0]).not.toHaveProperty('normalizedGroup');
+  });
+
   it('normalizes a bare room without inventing its building', () => {
     const parsed = parseYgkReplacements(
       `
