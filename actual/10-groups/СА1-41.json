@@ -244,7 +244,7 @@
                 }
               },
               "lessonNumber": 6,
-              "reason": "lesson-not-found",
+              "reason": "lesson-not-scheduled-for-week",
               "event": {
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «МДК 02.02 п/гр.1». По замене: «п/гр.2 Грехова Е.И.». Аудитория: «Б304».",
@@ -448,7 +448,7 @@
                 }
               },
               "lessonNumber": 3,
-              "reason": "lesson-not-found",
+              "reason": "lesson-not-scheduled-for-week",
               "event": {
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «Ин.язык». По замене: «1,2 п/гр. Зубковская А.Е.». Аудитория: «М101».",
@@ -659,8 +659,8 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Пара из замены отсутствует в базовом расписании",
-      "fingerprint": "195e23416fbe0a72292aaf638eca3b2d8da6ee3feaacda1addc79504ad7516f7",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "6ce09498e7d01eb02a378bd396d9c48eaf9b90b15c6c6798cf99c53c9407875a",
       "sheet": "Замены: Вторая смена",
       "row": 13,
       "normalizedGroup": "СА1-41",
@@ -669,26 +669,28 @@
         "date": "2026-09-07",
         "lessonNumber": 6,
         "type": "replace",
-        "reason": "lesson-not-found"
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Пара из замены отсутствует в базовом расписании",
-      "fingerprint": "77f3f8a1fabfad350bd56db14b66d90cbb125faa8c25e87733dec6570b3ed95f",
-      "sheet": "Замены: Вторая смена",
-      "row": 8,
-      "normalizedGroup": "СА1-41",
-      "rawValue": "1,2 п/гр. Зубковская А.Е.",
-      "context": {
-        "date": "2026-09-08",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "lesson-not-found"
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "СА1-41",
+        "baseSourceFiles": [
+          "oit_1sem.xlsx"
+        ],
+        "replacementWeekType": "denominator",
+        "availableWeekTypes": [
+          "numerator"
+        ],
+        "requestedSubject": "МДК 02.02",
+        "requestedSubgroups": [
+          "1"
+        ],
+        "candidates": [
+          {
+            "subject": "МДК.02.02 Программное обеспечение КС п/гр1",
+            "teacher": "Грехова Е.И.",
+            "room": "Б304",
+            "subgroup": "1",
+            "sourceRow": 108
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
@@ -708,6 +710,10 @@
         "lessonNumber": 5,
         "type": "replace",
         "reason": "original-not-matched",
+        "baseGroup": "СА1-41",
+        "baseSourceFiles": [
+          "oit_1sem.xlsx"
+        ],
         "requestedSubject": "Здоровьесбер.",
         "candidates": [
           {
@@ -720,7 +726,43 @@
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "ff80fa486bbfb7ca2db866cdf423cd193a20623f903a21051bdddc2e01d17539",
+      "sheet": "Замены: Вторая смена",
+      "row": 8,
+      "normalizedGroup": "СА1-41",
+      "rawValue": "1,2 п/гр. Зубковская А.Е.",
+      "context": {
+        "date": "2026-09-08",
+        "lessonNumber": 3,
+        "type": "replace",
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "СА1-41",
+        "baseSourceFiles": [
+          "oit_1sem.xlsx"
+        ],
+        "replacementWeekType": "denominator",
+        "availableWeekTypes": [
+          "numerator"
+        ],
+        "requestedSubject": "Ин.язык",
+        "candidates": [
+          {
+            "subject": "Иностранный язык в проф. деят.",
+            "teacher": "Зубковская А.Е.\nЗагородних Е.С.",
+            "room": "М101",
+            "sourceRow": 111
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "02ac527f908c6d332e982addf98c6a45c04aa26409376dbe8135c80bb9300a6b"
+  "semanticHash": "d19cc784075388e05e611207243167e52d61c8817130e3f8452a603e46501ff5"
 }

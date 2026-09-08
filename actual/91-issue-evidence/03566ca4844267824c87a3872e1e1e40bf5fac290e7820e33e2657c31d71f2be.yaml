@@ -16,11 +16,13 @@ issue:
     - schedule-diagnostic
     - scope:actual
     - shift:first
-  occurrenceCount: 3
+  occurrenceCount: 5
   observationKeys:
-    - 6f61f8a34d9543e03bf4f84905c0a3fafacc82f43052a51b1f7f4e1072fc0a0f
-    - 8ca3d643d160c88017568fdbf8d5e6d8d0934003daaed3c02634364492a08416
-    - c85143edd98cadc8ae5959422c4e831c19d4b01f78279264edcdb631cf2e5dc2
+    - 689173ee915f96de123dc303506b14ffe2bc682cd9e86cc14f61b136c6b1af36
+    - ae4b37a2a8a7626b0e8f8a50873c3cdbdac55f9de3e168db8b8ca9ca779097c2
+    - bd1ddc8adad1e252e8738cf9934e20f0254e94b6c66c235cc16f6d7f44fa0fe9
+    - eaee6eb13ecae56d120937923a05bebf13c75e0c782bd2c94de299143f1072e1
+    - f6b743cce9c55789a26e5c745e5baee7168c744affb7147826544c7c77aa6ebe
 diagnosticsReport:
   diagnosticsJsonPath: actual/90-diagnostics.json
   diagnosticsYamlPath: actual/90-diagnostics.yaml
@@ -39,6 +41,9 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
+      baseGroup: СТ1-25
+      baseSourceFiles:
+        - so.xlsx
       requestedSubject: Тех.механика/т
       candidates:
         - subject: МДК.01.01 Т.1.2.Строительные материалы и изделия
@@ -72,6 +77,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: ПО1-11
+      baseSourceFiles:
+        - oit_1sem.xlsx
       requestedSubject: Осн.проф.деят.
       candidates:
         - subject: Литература
@@ -97,6 +105,9 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
+      baseGroup: ЗМ1-41
+      baseSourceFiles:
+        - oeis.xlsx
       requestedSubject: МДК 03.02 МДК 04.01 Прав.обесп.
       candidates:
         - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
@@ -104,6 +115,62 @@ diagnostics:
           teacher: Горохова Е.Б.
           room: ДОТ
           sourceRow: 10
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 21ac873665aff5a7609f869b9731871dea2c877ed66f0b61e13c2ab13aa78fcf
+    issueKey: 03566ca4844267824c87a3872e1e1e40bf5fac290e7820e33e2657c31d71f2be
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 764a3d2fc7ae8ebdb6f69957d68993632773c58e0d3d764021504f8281c3c32e
+    sheet: "Замены: Первая смена"
+    row: 34
+    normalizedGroup: ЮР1-11
+    rawValue: 1,2 п/гр. Супагина К.И.
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-11
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Инд.проект
+      candidates:
+        - subject: Математика
+          teacher: Саввина Е.А.
+          room: Ф202
+          sourceRow: 9
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 21ac873665aff5a7609f869b9731871dea2c877ed66f0b61e13c2ab13aa78fcf
+    issueKey: 03566ca4844267824c87a3872e1e1e40bf5fac290e7820e33e2657c31d71f2be
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7b001851d18da0461e6ed01a97f30363235a84e94ae713d2c856bc6dcc72682f
+    sheet: "Замены: Первая смена"
+    row: 39
+    normalizedGroup: ЮР1-13
+    rawValue: ОБиЗР Корсаков С.В.
+    context:
+      date: 2026-09-07
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Математика...
+      candidates:
+        - subject: Литература
+          teacher: Вакансия
+          room: Ф405
+          sourceRow: 61
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1

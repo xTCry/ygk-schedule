@@ -504,7 +504,7 @@ dates:
         unresolvedReplacements:
           - replacement: *a2
             lessonNumber: 4
-            reason: lesson-not-found
+            reason: lesson-not-scheduled-for-week
             event:
               summary: Необработанная замена
               description: "По расписанию: «МДК 02.02». По замене: «1,2 п/гр. Ремизова А.И.».
@@ -687,8 +687,9 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Пара из замены отсутствует в базовом расписании
-    fingerprint: e80926f3e67f472bd1d80372bd5bc2c15238c69be4cd953ca38157b869477689
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: ad27c6637cd6360bb4ce9a6f2ecfc9f6aa1b6c1513c0334d1954972e72545ce9
     sheet: "Замены: Вторая смена"
     row: 15
     normalizedGroup: ДИ1-41
@@ -697,7 +698,21 @@ diagnostics:
       date: 2026-09-08
       lessonNumber: 4
       type: replace
-      reason: lesson-not-found
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ДИ1-41
+      baseSourceFiles:
+        - oar.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: МДК 02.02
+      candidates:
+        - subject: МДК 02.02 Основы конструкторско-технологического обеспечения дизайна
+          teacher: |-
+            Ремизова А.И.
+            Вакансия
+          room: Б310
+          sourceRow: 12
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: af6783cb7613ce8f774b48a784a350d4a176aad439c5db441b101e6aae265ecf
+semanticHash: 647e4bdd1095354dd399c88e0658e13252eeba56103583e8d41f87f40f4eeb70

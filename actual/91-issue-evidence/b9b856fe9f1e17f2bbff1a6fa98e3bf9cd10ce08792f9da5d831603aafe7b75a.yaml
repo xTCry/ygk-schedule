@@ -16,11 +16,13 @@ issue:
     - schedule-diagnostic
     - scope:actual
     - shift:first
-  occurrenceCount: 3
+  occurrenceCount: 5
   observationKeys:
-    - 5f94d040463c8da319b1dd0a8e3cc84be380f1b8d8ee409ab5aec19b9fb5a37b
-    - 73671200671a06c8b2afd1d1281f35b42845eebbe8dfad0c6e09b1f1fd8c69f5
-    - ed1f306a788570a73866b9cf392c9b65a9d340cba7696250f1d8db80d0f4c4ce
+    - 6594efea4412d4de12c25edd499b336a3003f323a31b9f1513be80f00335e8b2
+    - 8da24e58dfbd26dee8199662d23aa44aa3c38a27f853576df35dd1a6927a60f3
+    - ae77d8e9c39a5f2737625ce8d56aa9c46e363df7f577d605849f4e6f43d73dba
+    - c82866bda8c2280dab3afa7b936ae20d1087905a099a0150a672a859e93f2227
+    - d9433f404bcf4ae52a5583129294e558f6ddf11fc77675c8dd8e6e0950975d09
 diagnosticsReport:
   diagnosticsJsonPath: actual/90-diagnostics.json
   diagnosticsYamlPath: actual/90-diagnostics.yaml
@@ -39,6 +41,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: СА1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
       requestedSubject: История России, ...
       candidates:
         - subject: Основы электротехники
@@ -72,6 +77,9 @@ diagnostics:
       lessonNumber: 2
       type: replace
       reason: original-not-matched
+      baseGroup: ДИ1-23
+      baseSourceFiles:
+        - oar.xlsx
       requestedSubject: История
       candidates:
         - subject: Рисунок с основами перспективы
@@ -80,6 +88,66 @@ diagnostics:
             Лапина А.А.
           room: ДОТ
           sourceRow: 66
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 83c0667297845cad53ef8907c4304ca473ce1a5c10afa928bb633643e6ade58a
+    issueKey: b9b856fe9f1e17f2bbff1a6fa98e3bf9cd10ce08792f9da5d831603aafe7b75a
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3c45f611a5588350d9a8bb1694529545a5c0d46855b264f02971e45b0ac873bf
+    sheet: "Замены: Первая смена"
+    row: 27
+    normalizedGroup: ЮР1-13
+    rawValue: 1,2 п/гр. Малявкина Н.А.
+    context:
+      date: 2026-09-08
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Инд.проект
+      candidates:
+        - subject: Обществознание
+          teacher: Вакансия
+          room: Ф201
+          sourceRow: 64
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 83c0667297845cad53ef8907c4304ca473ce1a5c10afa928bb633643e6ade58a
+    issueKey: b9b856fe9f1e17f2bbff1a6fa98e3bf9cd10ce08792f9da5d831603aafe7b75a
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5a78b4b2da503effdcab019db4518fea5221c839c040c89b0cd03d41ecc35e63
+    sheet: "Замены: Первая смена"
+    row: 31
+    normalizedGroup: ЮР1-15
+    rawValue: Физкультура Калачин Н.И.
+    context:
+      date: 2026-09-08
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-15
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Обществ.
+      candidates:
+        - subject: Индивидуальный проект
+          teacher: |-
+            Малявкина Н.А.
+            Нестерова А.В.
+          room: |-
+            Ф306
+            Ф402
+          sourceRow: 120
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -99,6 +167,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: МА1-21
+      baseSourceFiles:
+        - oeis.xlsx
       requestedSubject: История России
       candidates:
         - subject: Обществознание

@@ -511,7 +511,7 @@
                 }
               },
               "lessonNumber": 1,
-              "reason": "lesson-not-found",
+              "reason": "lesson-not-scheduled-for-week",
               "event": {
                 "summary": "Необработанная замена",
                 "description": "По расписанию: «УП 02». По замене: «МДК 02.02 Ковалева Л.В.». Аудитория: «к.36».",
@@ -597,8 +597,8 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Пара из замены отсутствует в базовом расписании",
-      "fingerprint": "d6b29f39cbab5502a9655932a5eac1bb72bfdb048b6650d4f3e072f7450470b5",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "128fb9478523e9cb726c3b4b63dde07ae705e62ab03efcc3fe6c2a2386e486fa",
       "sheet": "Замены: Первая смена",
       "row": 55,
       "normalizedGroup": "35 ЭМЕХ",
@@ -607,11 +607,28 @@
         "date": "2026-09-08",
         "lessonNumber": 1,
         "type": "replace",
-        "reason": "lesson-not-found"
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "35 ЭМЕХ",
+        "baseSourceFiles": [
+          "ort.xlsx"
+        ],
+        "replacementWeekType": "denominator",
+        "availableWeekTypes": [
+          "numerator"
+        ],
+        "requestedSubject": "УП 02",
+        "candidates": [
+          {
+            "subject": "УП.02 Учебная практика",
+            "teacher": "Вакансия",
+            "room": "к.36",
+            "sourceRow": 119
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "76de40bedbf3dc04544128b09731f0b7e59ea506f0cebb99f183a95e84bc21f6"
+  "semanticHash": "33fa372ae066eff7b8c6fd760e4555bf699febb374f0b6a8964a6b308d55d9ba"
 }

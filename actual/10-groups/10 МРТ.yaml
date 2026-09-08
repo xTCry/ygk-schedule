@@ -500,7 +500,7 @@ dates:
                 rawReplacement: Физика Крижановский В.С.
                 rawRoom: к.33
             lessonNumber: 3
-            reason: lesson-not-found
+            reason: lesson-not-scheduled-for-week
             event:
               summary: Необработанная замена
               description: "По расписанию: «Ин.язык». По замене: «Физика Крижановский В.С.».
@@ -510,8 +510,9 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Пара из замены отсутствует в базовом расписании
-    fingerprint: e43d542c677b024446cf8f9d2daa96479c0c840f470fb6ab48070dede06e9126
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: a9ee416311205b04efc9dba5e215922c2f27d50a8c51c61a16d04b834476a821
     sheet: "Замены: Первая смена"
     row: 45
     normalizedGroup: 10 МРТ
@@ -520,7 +521,19 @@ diagnostics:
       date: 2026-09-09
       lessonNumber: 3
       type: replace
-      reason: lesson-not-found
+      reason: lesson-not-scheduled-for-week
+      baseGroup: 10 МРТ
+      baseSourceFiles:
+        - ort.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Ин.язык
+      candidates:
+        - subject: Иностранный язык
+          teacher: Вакансия
+          room: к. биб.
+          sourceRow: 28
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2ff363a26746df6477a84a2f8169fbb07854eb9ddf114fd042ab5084e0e75678
+semanticHash: 498004afe01275e7f37e88c0c85b2027e9a2529dc3d326e0b6f8bdbd50149f71

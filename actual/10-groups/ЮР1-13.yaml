@@ -48,62 +48,157 @@ dates:
         group: ЮР1-13
         date: 2026-09-05
         day: Суббота
-        lessons: []
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-05
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: cancel
+                  original:
+                    raw: Физкультура Общ.
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 29
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: 0,1
+                    rawOriginal: Физкультура Общ.
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: Обществознание
+                teacher: Вакансия
+                room: Ф201
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                sourceRow: 102
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 30
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-05
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Калачик Н.И.
+                    room: Сп.площ.
+                  source:
+                    shift: first
+                    row: 30
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Калачик Н.И.
+                    rawRoom: Сп.площ.
+                lessonNumber: 3
+                strategy: add
         unresolvedReplacements:
-          - replacement: &a1
-              date: 2026-09-05
-              group: ЮР1-13
-              lessonNumbers:
-                - 0
-                - 1
-              type: cancel
-              original:
-                raw: Физкультура Общ.
-              replacement:
-                raw: Снято
-              source:
-                shift: first
-                row: 29
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: 0,1
-                rawOriginal: Физкультура Общ.
-                rawReplacement: Снято
-                rawRoom: ""
-            lessonNumber: 0
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Физкультура Общ.». По замене: «Снято»."
           - replacement: *a1
             lessonNumber: 1
-            reason: group-not-found
+            reason: original-not-matched
             event:
               summary: Необработанная замена
               description: "По расписанию: «Физкультура Общ.». По замене: «Снято»."
-          - replacement:
-              date: 2026-09-05
-              group: ЮР1-13
-              lessonNumbers:
-                - 3
-              type: add
-              original: null
-              replacement:
-                raw: Физкультура Калачик Н.И.
-                room: Сп.площ.
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 0
+              variants:
+                - subject: Физическая культура
+                  teacher: Калачик Н.И.
+                  room: Сп.площ.
+                  weekType: both
+                  sourceRow: 98
               source:
-                shift: first
-                row: 30
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: "3"
-                rawOriginal: ""
-                rawReplacement: Физкультура Калачик Н.И.
-                rawRoom: Сп.площ.
-            lessonNumber: 3
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По замене: «Физкультура Калачик Н.И.». Аудитория: «Сп.площ.»."
-              room: Сп.площ.
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 98
+                rowEnd: 99
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Обществознание
+                  teacher: Вакансия
+                  room: Ф201
+                  weekType: both
+                  sourceRow: 100
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 100
+                rowEnd: 101
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Основы безопасности и защиты Родины
+                  teacher: Корсаков С.В.
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 102
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 102
+                rowEnd: 103
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
   2026-09-07:
     date: 2026-09-07
     day: Понедельник
@@ -150,45 +245,81 @@ dates:
         group: ЮР1-13
         date: 2026-09-07
         day: Понедельник
-        lessons: []
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 55
+              rowEnd: 56
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-07
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: cancel
+                  original:
+                    raw: Разговоры История Математ.
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 38
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: 0-2
+                    rawOriginal: Разговоры История Математ.
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 59
+              rowEnd: 60
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: Литература
+                teacher: Вакансия
+                room: Ф405
+                weekType: denominator
+                sourceRow: 61
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 61
+              rowEnd: 62
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
         unresolvedReplacements:
-          - replacement: &a2
-              date: 2026-09-07
-              group: ЮР1-13
-              lessonNumbers:
-                - 0
-                - 1
-                - 2
-              type: cancel
-              original:
-                raw: Разговоры История Математ.
-              replacement:
-                raw: снято
-              source:
-                shift: first
-                row: 38
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: 0-2
-                rawOriginal: Разговоры История Математ.
-                rawReplacement: снято
-                rawRoom: ""
-            lessonNumber: 0
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Разговоры История Математ.». По замене: «снято»."
-          - replacement: *a2
-            lessonNumber: 1
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Разговоры История Математ.». По замене: «снято»."
-          - replacement: *a2
-            lessonNumber: 2
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Разговоры История Математ.». По замене: «снято»."
           - replacement: &a3
               date: 2026-09-07
               group: ЮР1-13
@@ -210,7 +341,7 @@ dates:
                 rawReplacement: ОБиЗР Корсаков С.В.
                 rawRoom: Ф301
             lessonNumber: 3
-            reason: group-not-found
+            reason: original-not-matched
             event:
               summary: Необработанная замена
               description: "По расписанию: «Математика...». По замене: «ОБиЗР Корсаков С.В.».
@@ -218,12 +349,76 @@ dates:
               room: Ф301
           - replacement: *a3
             lessonNumber: 4
-            reason: group-not-found
+            reason: lesson-not-found
             event:
               summary: Необработанная замена
               description: "По расписанию: «Математика...». По замене: «ОБиЗР Корсаков С.В.».
                 Аудитория: «Ф301»."
               room: Ф301
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 0
+              variants:
+                - subject: Разговоры о важном
+                  teacher: Вакансия
+                  room: Ф201
+                  weekType: both
+                  sourceRow: 55
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 55
+                rowEnd: 56
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: История
+                  teacher: Вакансия
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 57
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 57
+                rowEnd: 58
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Саввина Е.А.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 59
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 59
+                rowEnd: 60
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Литература
+                  teacher: Вакансия
+                  room: Ф405
+                  weekType: denominator
+                  sourceRow: 61
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 61
+                rowEnd: 62
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
   2026-09-08:
     date: 2026-09-08
     day: Вторник
@@ -270,7 +465,92 @@ dates:
         group: ЮР1-13
         date: 2026-09-08
         day: Вторник
-        lessons: []
+        lessons:
+          - number: 1
+            variants:
+              - subject: Обществознание
+                teacher: Вакансия
+                room: Ф201
+                weekType: denominator
+                sourceRow: 64
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 64
+              rowEnd: 65
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Биология
+                teacher: Малявкина Н.А.
+                room: Ф106, Ф406
+                weekType: both
+                rawSubject: Биология Малявкина Н.А.
+                rawTeacher: Малявкина Н.А.
+                rawRoom: Ф106, Ф406
+                sourceRow: 28
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 66
+              rowEnd: 67
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-08
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Рус.язык
+                  replacement:
+                    raw: Биология Малявкина Н.А.
+                    room: Ф106, Ф406
+                  source:
+                    shift: first
+                    row: 28
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: Рус.язык
+                    rawReplacement: Биология Малявкина Н.А.
+                    rawRoom: Ф106, Ф406
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 68
+              rowEnd: 69
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a4
+                  date: 2026-09-08
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Литер Инд.проект п/гр
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 29
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Литер Инд.проект п/гр
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-word-mention
         unresolvedReplacements:
           - replacement:
               date: 2026-09-08
@@ -292,68 +572,67 @@ dates:
                 rawReplacement: 1,2 п/гр. Малявкина Н.А.
                 rawRoom: Ф106
             lessonNumber: 1
-            reason: group-not-found
+            reason: original-not-matched
             event:
               summary: Необработанная замена
               description: "По расписанию: «Инд.проект». По замене: «1,2 п/гр. Малявкина
                 Н.А.». Аудитория: «Ф106»."
               room: Ф106
-          - replacement:
-              date: 2026-09-08
-              group: ЮР1-13
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: Рус.язык
-              replacement:
-                raw: Биология Малявкина Н.А.
-                room: Ф106, Ф406
-              source:
-                shift: first
-                row: 28
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: "2"
-                rawOriginal: Рус.язык
-                rawReplacement: Биология Малявкина Н.А.
-                rawRoom: Ф106, Ф406
-            lessonNumber: 2
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Рус.язык». По замене: «Биология Малявкина Н.А.».
-                Аудитория: «Ф106, Ф406»."
-              room: Ф106, Ф406
-          - replacement: &a4
-              date: 2026-09-08
-              group: ЮР1-13
-              lessonNumbers:
-                - 3
-                - 4
-              type: cancel
-              original:
-                raw: Литер Инд.проект п/гр
-              replacement:
-                raw: Снято
-              source:
-                shift: first
-                row: 29
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: 3,4
-                rawOriginal: Литер Инд.проект п/гр
-                rawReplacement: Снято
-                rawRoom: ""
-            lessonNumber: 3
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Литер Инд.проект п/гр». По замене: «Снято»."
           - replacement: *a4
             lessonNumber: 4
-            reason: group-not-found
+            reason: lesson-not-scheduled-for-week
             event:
               summary: Необработанная замена
               description: "По расписанию: «Литер Инд.проект п/гр». По замене: «Снято»."
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 1
+              variants:
+                - subject: Обществознание
+                  teacher: Вакансия
+                  room: Ф201
+                  weekType: denominator
+                  sourceRow: 64
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 64
+                rowEnd: 65
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Русский язык
+                  teacher: Вакансия
+                  room: Ф405
+                  weekType: both
+                  sourceRow: 66
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 66
+                rowEnd: 67
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Литература
+                  teacher: Вакансия
+                  room: Ф406
+                  weekType: both
+                  sourceRow: 68
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 68
+                rowEnd: 69
+                rawGroupName: ЮР 1-13 / ЮР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
   2026-09-09:
     date: 2026-09-09
     day: Среда
@@ -392,242 +671,111 @@ dates:
         group: ЮР1-13
         date: 2026-09-09
         day: Среда
-        lessons: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-09
-              group: ЮР1-13
-              lessonNumbers:
-                - 0
-              type: replace
-              original:
-                raw: Математика
-              replacement:
-                raw: ОБиЗР Корсаков С.В.
+        lessons:
+          - number: 0
+            variants:
+              - subject: ОБиЗР
+                teacher: Корсаков С.В.
                 room: Ф301
-              source:
-                shift: first
-                row: 37
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: "0"
-                rawOriginal: Математика
-                rawReplacement: ОБиЗР Корсаков С.В.
+                weekType: both
+                rawSubject: ОБиЗР Корсаков С.В.
+                rawTeacher: Корсаков С.В.
                 rawRoom: Ф301
-            lessonNumber: 0
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Математика». По замене: «ОБиЗР Корсаков С.В.».
-                Аудитория: «Ф301»."
-              room: Ф301
-          - replacement:
-              date: 2026-09-09
-              group: ЮР1-13
-              lessonNumbers:
-                - 2
-              type: replace
-              original:
-                raw: История
-              replacement:
-                raw: ОБиЗР Корсаков С.В.
+                sourceRow: 37
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 73
+              rowEnd: 74
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: ОБиЗР Корсаков С.В.
+                    room: Ф301
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: "0"
+                    rawOriginal: Математика
+                    rawReplacement: ОБиЗР Корсаков С.В.
+                    rawRoom: Ф301
+                lessonNumber: 0
+                strategy: exact-subject
+          - number: 1
+            variants:
+              - subject: Информатика л/р
+                teacher: |-
+                  Хватова Е.Ю.
+                  Нестерова А.В.
+                room: |-
+                  Ф305
+                  Ф306
+                weekType: denominator
+                sourceRow: 75
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: ОБиЗР
+                teacher: Корсаков С.В.
                 room: Ф301
-              source:
-                shift: first
-                row: 38
-                rawGroupName: ЮР1-13
-                rawLessonNumbers: "2"
-                rawOriginal: История
-                rawReplacement: ОБиЗР Корсаков С.В.
+                weekType: both
+                rawSubject: ОБиЗР Корсаков С.В.
+                rawTeacher: Корсаков С.В.
                 rawRoom: Ф301
-            lessonNumber: 2
-            reason: group-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «История». По замене: «ОБиЗР Корсаков С.В.».
-                Аудитория: «Ф301»."
-              room: Ф301
+                sourceRow: 38
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 77
+              rowEnd: 78
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-09
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: История
+                  replacement:
+                    raw: ОБиЗР Корсаков С.В.
+                    room: Ф301
+                  source:
+                    shift: first
+                    row: 38
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: История
+                    rawReplacement: ОБиЗР Корсаков С.В.
+                    rawRoom: Ф301
+                lessonNumber: 2
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 0cb90f34e70d6f10035e7ca8196a7a285bb57345e7da57fcc16fa22bdf27e75b
-    sheet: "Замены: Первая смена"
-    row: 38
-    normalizedGroup: ЮР1-13
-    rawValue: снято
-    context:
-      date: 2026-09-07
-      lessonNumber: 1
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 1081439eacebe0a577e92dc66ef68be6ed3f6a121508b7091aed767b975faec1
-    sheet: "Замены: Первая смена"
-    row: 38
-    normalizedGroup: ЮР1-13
-    rawValue: снято
-    context:
-      date: 2026-09-07
-      lessonNumber: 0
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 1337bede0446a66220792fa6e1794efd14212e65c298e80e116426ecc8e03644
-    sheet: "Замены: Первая смена"
-    row: 38
-    normalizedGroup: ЮР1-13
-    rawValue: ОБиЗР Корсаков С.В.
-    context:
-      date: 2026-09-09
-      lessonNumber: 2
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 1370db7521609972d04c085b1f771917c974b7c4f8882ba48ca2b30e9940ffed
-    sheet: "Замены: Первая смена"
-    row: 38
-    normalizedGroup: ЮР1-13
-    rawValue: снято
-    context:
-      date: 2026-09-07
-      lessonNumber: 2
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 1d1a52c50bc8a40e207631ef5030be9ff37bcc6ec2febd8f94c4487e6fa46511
-    sheet: "Замены: Первая смена"
-    row: 39
-    normalizedGroup: ЮР1-13
-    rawValue: ОБиЗР Корсаков С.В.
-    context:
-      date: 2026-09-07
-      lessonNumber: 3
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 1e4864f57f103ba202957b608a0b8d83db2ffe99312688c436530de09c21d494
-    sheet: "Замены: Первая смена"
-    row: 39
-    normalizedGroup: ЮР1-13
-    rawValue: ОБиЗР Корсаков С.В.
-    context:
-      date: 2026-09-07
-      lessonNumber: 4
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 50444bc2ef51048e865e43650d5e8c37129bbc070984f6011a6ca41910904073
-    sheet: "Замены: Первая смена"
-    row: 37
-    normalizedGroup: ЮР1-13
-    rawValue: ОБиЗР Корсаков С.В.
-    context:
-      date: 2026-09-09
-      lessonNumber: 0
-      type: replace
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 5515b7a6f20673cc575dc6b2a7063f1dab9b229ab01a19f80408452fb220c846
-    sheet: "Замены: Первая смена"
-    row: 30
-    normalizedGroup: ЮР1-13
-    rawValue: Физкультура Калачик Н.И.
-    context:
-      date: 2026-09-05
-      lessonNumber: 3
-      type: add
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 6a0882ef44625486b6349f9452067a4d88fdf7b0847a5ffa8aabe4673317ac22
-    sheet: "Замены: Первая смена"
-    row: 29
-    normalizedGroup: ЮР1-13
-    rawValue: Снято
-    context:
-      date: 2026-09-08
-      lessonNumber: 3
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: 7bb09a67176e575bc3506eeccb5639f38725560fb848daa3f2f804d2a6a736d6
-    sheet: "Замены: Первая смена"
-    row: 29
-    normalizedGroup: ЮР1-13
-    rawValue: Снято
-    context:
-      date: 2026-09-08
-      lessonNumber: 4
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: b10dd6e8ba126af4711b6ff39cd21e57cae7e7266b92e4ba681ce78579027447
-    sheet: "Замены: Первая смена"
-    row: 29
-    normalizedGroup: ЮР1-13
-    rawValue: Снято
-    context:
-      date: 2026-09-05
-      lessonNumber: 0
-      type: cancel
-      reason: group-not-found
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: bda81d09495d69521e74028e9f6da0ac5a21e7540ffa5a420429d262cc1ea26e
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3c45f611a5588350d9a8bb1694529545a5c0d46855b264f02971e45b0ac873bf
     sheet: "Замены: Первая смена"
     row: 27
     normalizedGroup: ЮР1-13
@@ -636,30 +784,66 @@ diagnostics:
       date: 2026-09-08
       lessonNumber: 1
       type: replace
-      reason: group-not-found
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Инд.проект
+      candidates:
+        - subject: Обществознание
+          teacher: Вакансия
+          room: Ф201
+          sourceRow: 64
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: d13d8252ab98568aceaf86f8285f97a6b7ee1528de9584dbe2c69e47b4de4731
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7b001851d18da0461e6ed01a97f30363235a84e94ae713d2c856bc6dcc72682f
     sheet: "Замены: Первая смена"
-    row: 28
+    row: 39
     normalizedGroup: ЮР1-13
-    rawValue: Биология Малявкина Н.А.
+    rawValue: ОБиЗР Корсаков С.В.
     context:
-      date: 2026-09-08
-      lessonNumber: 2
+      date: 2026-09-07
+      lessonNumber: 3
       type: replace
-      reason: group-not-found
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles: &a5
+        - out.xlsx
+      requestedSubject: Математика...
+      candidates:
+        - subject: Литература
+          teacher: Вакансия
+          room: Ф405
+          sourceRow: 61
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Группа из замены не найдена в базовом расписании
-    fingerprint: ffebd986a0ab8e6bf6c40122b1b88323fbc1ca6b01ad120ab79367c6835f457c
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 918885af6cb7306bf8da5ed64491c62afab0cf560b11362c925ee610a56d540e
+    sheet: "Замены: Первая смена"
+    row: 39
+    normalizedGroup: ЮР1-13
+    rawValue: ОБиЗР Корсаков С.В.
+    context:
+      date: 2026-09-07
+      lessonNumber: 4
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЮР1-13
+      baseSourceFiles: *a5
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cd5f3d23414c872a375b4c34f5e8a10257472d7711eb9c0989ce124a5eff533b
     sheet: "Замены: Первая смена"
     row: 29
     normalizedGroup: ЮР1-13
@@ -668,7 +852,45 @@ diagnostics:
       date: 2026-09-05
       lessonNumber: 1
       type: cancel
-      reason: group-not-found
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Физкультура Общ.
+      candidates:
+        - subject: Обществознание
+          teacher: Вакансия
+          room: Ф201
+          sourceRow: 100
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ede76a8a1aad86b355e6e69ba86363fc93ceb9bd8d3f877ba30f206b857c3722
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: f02d8b769e7a0cce678eb3d11adcf37f6cebd7eda094c4dde2428e88942e8547
+    sheet: "Замены: Первая смена"
+    row: 29
+    normalizedGroup: ЮР1-13
+    rawValue: Снято
+    context:
+      date: 2026-09-08
+      lessonNumber: 4
+      type: cancel
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Литер Инд.проект
+      candidates:
+        - subject: Индивидуальный проект п/гр
+          teacher: Вакансия
+          room: Ф201
+          sourceRow: 71
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 1f3d6e1a77195a40b24095255dc2cf517b03b4aa89bc93f9a6e1bebffbb37f96

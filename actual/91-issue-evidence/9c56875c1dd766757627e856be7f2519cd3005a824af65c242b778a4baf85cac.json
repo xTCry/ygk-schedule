@@ -1,25 +1,25 @@
 {
   "schemaVersion": 2,
   "issue": {
-    "key": "f0da5693cd24ce0f2f3faeefe067cf44c09f531760b7cde4e5f0d6654af744e9",
-    "familyKey": "170cd932b8aec3f7f8939b87425b3301f3ebf0ea82024c021bd91115a371c5e1",
-    "fingerprint": "e37a94b07f250ba346e9269aef4770a855aac14298aa3795ec09b8009acee180",
+    "key": "9c56875c1dd766757627e856be7f2519cd3005a824af65c242b778a4baf85cac",
+    "familyKey": "8b507e5c584ca4dcdba32e2fa534b93d70b212c035a792a2f997330342ed27e3",
+    "fingerprint": "3c2a49563a0e8426569a32cb981eec9692dc0b3d6bc1c5b8314c936b9f2c1a4e",
     "scope": "actual",
     "lifecycle": "dated",
     "observedDate": "2026-09-09",
-    "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found — 2026-09-09, первая смена",
+    "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-scheduled-for-week — 2026-09-09, первая смена",
     "labels": [
       "area:resolver",
       "diagnostic:error",
       "diagnostic:unresolved-replacement",
-      "reason:lesson-not-found",
+      "reason:lesson-not-scheduled-for-week",
       "schedule-diagnostic",
       "scope:actual",
       "shift:first"
     ],
     "occurrenceCount": 1,
     "observationKeys": [
-      "3409ea9e43ea99219b50fbcf9e346c16e7db26fa6f285b5ab11c6482ae2b1ec4"
+      "d2bd4744bfbdd48808f702c6df7a392afeaa8aca43787657124b9cee25dcf6ab"
     ]
   },
   "diagnosticsReport": {
@@ -31,8 +31,8 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Пара из замены отсутствует в базовом расписании",
-      "fingerprint": "e43d542c677b024446cf8f9d2daa96479c0c840f470fb6ab48070dede06e9126",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "a9ee416311205b04efc9dba5e215922c2f27d50a8c51c61a16d04b834476a821",
       "sheet": "Замены: Первая смена",
       "row": 45,
       "normalizedGroup": "10 МРТ",
@@ -41,7 +41,24 @@
         "date": "2026-09-09",
         "lessonNumber": 3,
         "type": "replace",
-        "reason": "lesson-not-found"
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "10 МРТ",
+        "baseSourceFiles": [
+          "ort.xlsx"
+        ],
+        "replacementWeekType": "denominator",
+        "availableWeekTypes": [
+          "numerator"
+        ],
+        "requestedSubject": "Ин.язык",
+        "candidates": [
+          {
+            "subject": "Иностранный язык",
+            "teacher": "Вакансия",
+            "room": "к. биб.",
+            "sourceRow": 28
+          }
+        ]
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
@@ -55,8 +72,8 @@
         "etag": "W/\"6a9fd7d4-34db\"",
         "lastModified": "Tue, 08 Sep 2026 09:39:32 GMT"
       },
-      "issueFingerprint": "e37a94b07f250ba346e9269aef4770a855aac14298aa3795ec09b8009acee180",
-      "issueKey": "f0da5693cd24ce0f2f3faeefe067cf44c09f531760b7cde4e5f0d6654af744e9"
+      "issueFingerprint": "3c2a49563a0e8426569a32cb981eec9692dc0b3d6bc1c5b8314c936b9f2c1a4e",
+      "issueKey": "9c56875c1dd766757627e856be7f2519cd3005a824af65c242b778a4baf85cac"
     }
   ]
 }

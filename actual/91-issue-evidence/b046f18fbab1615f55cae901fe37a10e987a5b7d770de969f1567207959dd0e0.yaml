@@ -16,14 +16,15 @@ issue:
     - schedule-diagnostic
     - scope:actual
     - shift:first
-  occurrenceCount: 6
+  occurrenceCount: 7
   observationKeys:
-    - 18d736af4729e139a1d7ec078c2db1eb32d8345147d0678bffec2338b9850bd7
-    - 40de56971bf5066449df82606dcd6c1c2ddc3f72a5436d7ba5a65b325375bd06
-    - 5989d2579460a989ed253fb5b5cedc7c9f8cd6b5384796334a0e0f64913375c5
-    - 75e815b5f87e9fa7c9d8efb81f7d2dba56e34a27b1a203be5ba6541c60e450b5
-    - 794db79653d48b59c28120cef189b0e1d37af676871119e7cff60f0cbfbf3d56
-    - b8fb904ea46463401ed873a646719759503fa126b5e5b0fb86b75c56b68ebe48
+    - 4599fee72d2a9c66b3cb416291eb0ee027d0e8080c574c68c1c94a569f22f668
+    - 5ced610235fbb5cf090554b4a6929394e2918bc343335c98817ea164999f797a
+    - 6917be147257604879067f6ed927e9e68cc836bfa9beeb6e0bb560bf8bc9837a
+    - ee7b86c5958a21ee5fb156c7fa42af4e6a301a71f646fbe9a73be4315e035dd4
+    - f0584690305aec5e3a44834c844ab4e0fa2c53eef220c32f6898fec189ac2893
+    - fb73fb7ca763bb88e86de984c95a945d6d93212d5a1bd96d4977fd6da3a1a4d6
+    - fddb96ba77482f4061a43acded221f23e6e6e521895ea287673ae1b378d52cb1
 diagnosticsReport:
   diagnosticsJsonPath: actual/90-diagnostics.json
   diagnosticsYamlPath: actual/90-diagnostics.yaml
@@ -42,6 +43,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: МА1-21
+      baseSourceFiles:
+        - oeis.xlsx
       requestedSubject: Обществ.
       candidates:
         - subject: Литература
@@ -75,6 +79,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: ТТ1-41
+      baseSourceFiles:
+        - oeis.xlsx
       requestedSubject: МДК 04.02
       candidates:
         - subject: Основы экономики
@@ -100,12 +107,43 @@ diagnostics:
       lessonNumber: 1
       type: replace
       reason: original-not-matched
+      baseGroup: ЗМ1-13
+      baseSourceFiles:
+        - oeis.xlsx
       requestedSubject: Физкультура История
       candidates:
         - subject: Литература
           teacher: Бабарыкова Э.В.
           room: А202
           sourceRow: 70
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 999f102a8be7ecdc87f607d9297aaf423c4ae71793e91b11d9d4264dc06cec8d
+    issueKey: b046f18fbab1615f55cae901fe37a10e987a5b7d770de969f1567207959dd0e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 353b4335d3be26d468d24547394aa27b244078742a4c5f726c808c8e7c5a8ecf
+    sheet: "Замены: Первая смена"
+    row: 34
+    normalizedGroup: ЮР1-17
+    rawValue: 1,2 п/гр. Зеленцова Л.В.
+    context:
+      date: 2026-09-09
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-17
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Инд.проект
+      candidates:
+        - subject: Физическая культура
+          teacher: Калачик Н.И.
+          room: Сп.площ.
+          sourceRow: 182
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -125,6 +163,9 @@ diagnostics:
       lessonNumber: 4
       type: replace
       reason: original-not-matched
+      baseGroup: 5 ИКС
+      baseSourceFiles:
+        - ort.xlsx
       requestedSubject: МДК 03.01
       candidates:
         - subject: УП.03 Учебная практика
@@ -150,6 +191,9 @@ diagnostics:
       lessonNumber: 1
       type: replace
       reason: original-not-matched
+      baseGroup: 9 МРТ
+      baseSourceFiles:
+        - ort.xlsx
       requestedSubject: Информ.МДК 01.01
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -175,6 +219,9 @@ diagnostics:
       lessonNumber: 3
       type: cancel
       reason: original-not-matched
+      baseGroup: 9 МРТ
+      baseSourceFiles:
+        - ort.xlsx
       requestedSubject: Электротехника
       candidates:
         - subject: МДК. 04.01 Технология выполнения работ

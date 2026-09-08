@@ -583,7 +583,7 @@ dates:
                 rawReplacement: Снято
                 rawRoom: ""
             lessonNumber: 1
-            reason: lesson-not-found
+            reason: lesson-not-scheduled-for-week
             event:
               summary: Необработанная замена
               description: "По расписанию: «Инф.технол.». По замене: «Снято»."
@@ -762,6 +762,9 @@ diagnostics:
       lessonNumber: 3
       type: replace
       reason: original-not-matched
+      baseGroup: СА1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
       requestedSubject: История России, ...
       candidates:
         - subject: Основы электротехники
@@ -773,8 +776,9 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Пара из замены отсутствует в базовом расписании
-    fingerprint: 16220bb281eb8465414c5250960855cfccb4a77b30de685325d85aa36fa07bfd
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 146238341b3b06ba24d68164aa858c7703cc5461b5cf37776d08c4ca78ff120e
     sheet: "Замены: Первая смена"
     row: 17
     normalizedGroup: СА1-21
@@ -783,7 +787,21 @@ diagnostics:
       date: 2026-09-08
       lessonNumber: 1
       type: cancel
-      reason: lesson-not-found
+      reason: lesson-not-scheduled-for-week
+      baseGroup: СА1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Инф.технол.
+      candidates:
+        - subject: Информационные технологии
+          teacher: |-
+            Лужина А.С.
+            Комиссарова О.В.
+          room: ДОТ
+          sourceRow: 13
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e3d859b1931d5453881a745013a023b90b619a867a145e0f9cefbf356c6d595a
+semanticHash: 3e8a595f55ee85fc9c66bfd410b0b1f1fb6ad3b390f6f97152c2bc199991cfed
