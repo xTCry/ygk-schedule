@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 5,
+  "provider": "ygk",
+  "group": "ТУ1-11",
+  "dates": {
+    "2026-09-10": {
+      "date": "2026-09-10",
+      "day": "Четверг",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-10",
+          "day": "Четверг",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7",
+            "fetchedAt": "2026-09-09T13:39:52.262Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6aa13669-4c40\"",
+            "lastModified": "Wed, 09 Sep 2026 10:35:21 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-10",
+          "day": "Четверг",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13",
+            "fetchedAt": "2026-09-09T13:39:52.261Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6aa14cce-1c62\"",
+            "lastModified": "Wed, 09 Sep 2026 12:10:54 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ТУ1-11": {
+          "group": "ТУ1-11",
+          "date": "2026-09-10",
+          "day": "Четверг",
+          "lessons": [
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Литература",
+                  "teacher": "Головкина С.А.",
+                  "room": "Ф303",
+                  "weekType": "both",
+                  "sourceRow": 28
+                }
+              ],
+              "source": {
+                "sheet": "ТУ1-11 ТУ1-21 ТУ1-31 ",
+                "rowStart": 28,
+                "rowEnd": 29,
+                "rawGroupName": "ТУ1-11 / ТУ1-12",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "Иностранный язык",
+                  "teacher": "Петрова У.В.\nАбрамова К.В.",
+                  "room": "Ф204\nФ403",
+                  "weekType": "both",
+                  "sourceRow": 30
+                }
+              ],
+              "source": {
+                "sheet": "ТУ1-11 ТУ1-21 ТУ1-31 ",
+                "rowStart": 30,
+                "rowEnd": 31,
+                "rawGroupName": "ТУ1-11 / ТУ1-12",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Иностранный язык",
+                  "teacher": "Петрова У.В.\nАбрамова К.В.",
+                  "room": "Ф204\nФ403",
+                  "weekType": "denominator",
+                  "sourceRow": 32
+                }
+              ],
+              "source": {
+                "sheet": "ТУ1-11 ТУ1-21 ТУ1-31 ",
+                "rowStart": 32,
+                "rowEnd": 33,
+                "rawGroupName": "ТУ1-11 / ТУ1-12",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-10",
+                "group": "ТУ1-11",
+                "lessonNumbers": [
+                  3
+                ],
+                "type": "cancel",
+                "original": {
+                  "raw": "Математика"
+                },
+                "replacement": {
+                  "raw": "снято"
+                },
+                "source": {
+                  "shift": "first",
+                  "row": 56,
+                  "rawGroupName": "ТУ1-11",
+                  "rawLessonNumbers": "3",
+                  "rawOriginal": "Математика",
+                  "rawReplacement": "снято",
+                  "rawRoom": ""
+                }
+              },
+              "lessonNumber": 3,
+              "reason": "original-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «Математика». По замене: «снято»."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "73898390c42dfb2f068c7a61ffbb7133f403f8be80c64243369cad98f8cbb002",
+      "sheet": "Замены: Первая смена",
+      "row": 56,
+      "normalizedGroup": "ТУ1-11",
+      "rawValue": "снято",
+      "context": {
+        "date": "2026-09-10",
+        "lessonNumber": 3,
+        "type": "cancel",
+        "reason": "original-not-matched",
+        "baseGroup": "ТУ1-11",
+        "baseSourceFiles": [
+          "out.xlsx"
+        ],
+        "requestedSubject": "Математика",
+        "candidates": [
+          {
+            "subject": "Иностранный язык",
+            "teacher": "Петрова У.В.\nАбрамова К.В.",
+            "room": "Ф204\nФ403",
+            "sourceRow": 32
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    }
+  ],
+  "semanticHash": "f0fb78c401d7bab969e0a7b7f50aa4d7dd79dc61632d25e7b4819794818f3f75"
+}

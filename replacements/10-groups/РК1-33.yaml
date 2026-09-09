@@ -173,7 +173,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -205,7 +205,74 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 03.02 Вепрева Ю.Ю.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     replacements:
       - *a5
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        replacements:
+          - &a6
+            date: 2026-09-10
+            group: РК1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 02 МДК 02.01 п/гр.
+            replacement:
+              raw: МДК 02.01 п/гр.1 Кожешкурт А.В.
+              room: Б502
+            source:
+              shift: second
+              row: 21
+              rawGroupName: РК1-33
+              rawLessonNumbers: "4"
+              rawOriginal: УП 02 МДК 02.01 п/гр.
+              rawReplacement: МДК 02.01 п/гр.1 Кожешкурт А.В.
+              rawRoom: Б502
+          - &a7
+            date: 2026-09-10
+            group: РК1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 02 МДК 02.01 п/гр.
+            replacement:
+              raw: МДК 02.01/теория Кожешкурт А.В.
+              room: Б502
+            source:
+              shift: second
+              row: 22
+              rawGroupName: РК1-33
+              rawLessonNumbers: "5"
+              rawOriginal: УП 02 МДК 02.01 п/гр.
+              rawReplacement: МДК 02.01/теория Кожешкурт А.В.
+              rawRoom: Б502
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
 diagnostics: []
-semanticHash: ed4786684ea39c13b8808fae22b89ed8ef5994b9e60c1065ee762b02fd5db65b
+semanticHash: 131e52dcfb70d9d28de1b2f0a36f7df44a05b4ba35e1ba6bb5cb12420bac2392

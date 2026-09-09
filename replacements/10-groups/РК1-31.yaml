@@ -195,7 +195,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -226,7 +226,93 @@ dates:
               rawReplacement: 1,2 п/гр. Выблова Т.В.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     replacements:
       - *a6
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        replacements:
+          - &a7
+            date: 2026-09-10
+            group: РК1-31
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.01 п/гр.2-по расписанию УП 02 п/гр.1-снято
+              room: ДОТ
+            source:
+              shift: second
+              row: 25
+              rawGroupName: РК1-31
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 02.01 п/гр.2-по расписанию УП 02 п/гр.1-снято
+              rawRoom: ДОТ
+          - &a8
+            date: 2026-09-10
+            group: РК1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: /теория Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: РК1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 04.01
+              rawReplacement: /теория Пономаренко В.С.
+              rawRoom: ДОТ
+          - &a9
+            date: 2026-09-10
+            group: РК1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.03
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 27
+              rawGroupName: РК1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 04.03
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: dc37cde4b8d7542cfe4e1e90e2e54e506132f63a2aa81ccb5d60c1f764a7ba01
+semanticHash: 6834b37840af1cf7bfc8d8216352e8939d620a4376745f2d57d494f2ed011bcf

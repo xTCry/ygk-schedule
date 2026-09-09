@@ -213,5 +213,159 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 1639faeb9aa0921aa760bc93dfd03d2908749981529f2dc3dc0a7f2cd18a034e
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      ЗМ1-33:
+        group: ЗМ1-33
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 05.01 Выполнение работ по одной или нескольким профессиям рабочих,
+                  должностям служащих
+                teacher: Федорова А.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 69
+            source:
+              sheet: ЗМ1-31 ЗМ1-33
+              rowStart: 69
+              rowEnd: 70
+              rawGroupName: ЗМ1-33/ЗМ1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК 05.01 Выполнение работ по одной или нескольким профессиям рабочих,
+                  должностям служащих
+                teacher: Федорова А.А.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 71
+            source:
+              sheet: ЗМ1-31 ЗМ1-33
+              rowStart: 71
+              rowEnd: 72
+              rawGroupName: ЗМ1-33/ЗМ1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы экономики организации, менеджмента и маркетинга
+                teacher: Белогорская Я.В.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 73
+            source:
+              sheet: ЗМ1-31 ЗМ1-33
+              rowStart: 73
+              rowEnd: 74
+              rawGroupName: ЗМ1-33/ЗМ1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Парамонов В.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 75
+            source:
+              sheet: ЗМ1-31 ЗМ1-33
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: ЗМ1-33/ЗМ1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: ЗМ1-33
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Осн.экон.
+              replacement:
+                raw: МДК 05.01 Федорова А.А.
+                room: ДОТ
+              source:
+                shift: first
+                row: 49
+                rawGroupName: ЗМ1-33
+                rawLessonNumbers: "1"
+                rawOriginal: Осн.экон.
+                rawReplacement: МДК 05.01 Федорова А.А.
+                rawRoom: ДОТ
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.экон.». По замене: «МДК 05.01 Федорова А.А.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9d2d2c9d28b322cec4981268ad572ed06e8c96807208bdd23504a9d414537814
+    sheet: "Замены: Первая смена"
+    row: 49
+    normalizedGroup: ЗМ1-33
+    rawValue: МДК 05.01 Федорова А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-33
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Осн.экон.
+      candidates:
+        - subject: МДК 05.01 Выполнение работ по одной или нескольким профессиям рабочих,
+            должностям служащих
+          teacher: Федорова А.А.
+          room: ДОТ
+          sourceRow: 71
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 5ae27d0f1db933b5cd779dcf32407762b13d4b90be1700d72f143e835dfbb356

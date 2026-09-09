@@ -358,5 +358,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 4a1abb02baa8bd2d6482c64dfc750f0dc901701770b535da9e344d79ed25ef80
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      ДИ1-11:
+        group: ДИ1-11
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Литература
+                teacher: Баранова С.Г.
+                room: Б507
+                weekType: denominator
+                sourceRow: 129
+            source:
+              sheet: 1 курс
+              rowStart: 129
+              rowEnd: 130
+              rawGroupName: ДИ1-11/ДИ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Литература
+                teacher: Баранова С.Г.
+                room: Б202
+                weekType: denominator
+                sourceRow: 131
+            source:
+              sheet: 1 курс
+              rowStart: 131
+              rowEnd: 132
+              rawGroupName: ДИ1-11/ДИ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Русский язык
+                teacher: Баранова С.Г.
+                room: Б507
+                weekType: denominator
+                sourceRow: 133
+            source:
+              sheet: 1 курс
+              rowStart: 133
+              rowEnd: 134
+              rawGroupName: ДИ1-11/ДИ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: ДИ1-11
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: Математика
+              replacement:
+                raw: Литература Баранова С.Г.
+                room: Б507
+              source:
+                shift: first
+                row: 24
+                rawGroupName: ДИ1-11
+                rawLessonNumbers: "0"
+                rawOriginal: Математика
+                rawReplacement: Литература Баранова С.Г.
+                rawRoom: Б507
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Математика». По замене: «Литература Баранова
+                С.Г.». Аудитория: «Б507»."
+              room: Б507
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: f6fc688908ec36ff39b8a9c8e1df89a00d2473c5aeef1f511031e8ab45a0c479
+    sheet: "Замены: Первая смена"
+    row: 24
+    normalizedGroup: ДИ1-11
+    rawValue: Литература Баранова С.Г.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ДИ1-11
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Математика
+      candidates:
+        - subject: Литература
+          teacher: Баранова С.Г.
+          room: Б507
+          sourceRow: 129
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 4766452cdfa08a8408dee09f176630f8249a62a56fcd2cbaac72cb6d462a13b8

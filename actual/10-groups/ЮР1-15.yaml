@@ -614,7 +614,7 @@ dates:
         date: 2026-09-09
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -624,11 +624,15 @@ dates:
           shift: first
           etag: W/"6a9fd7d4-34db"
           lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
       second:
         date: 2026-09-09
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -638,6 +642,10 @@ dates:
           shift: second
           etag: W/"6a9fe035-17ea"
           lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     groups:
       ЮР1-15:
         group: ЮР1-15
@@ -703,6 +711,158 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Саввина Е.А.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 127
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 127
+                rowEnd: 128
+                rawGroupName: ЮР 1-15 / ЮР1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Информатика л/р
+                  teacher: |-
+                    Хватова Е.Ю.
+                    Нестерова А.В.
+                  room: |-
+                    Ф305
+                    Ф306
+                  weekType: denominator
+                  sourceRow: 129
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 129
+                rowEnd: 130
+                rawGroupName: ЮР 1-15 / ЮР1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      ЮР1-15:
+        group: ЮР1-15
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 134
+              rowEnd: 135
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-10
+                  group: ЮР1-15
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: cancel
+                  original:
+                    raw: Литература Обществ.
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: ЮР1-15
+                    rawLessonNumbers: 0,1
+                    rawOriginal: Литература Обществ.
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 136
+              rowEnd: 137
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                sourceRow: 138
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 138
+              rowEnd: 139
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физика л/р
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: denominator
+                sourceRow: 140
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 140
+              rowEnd: 141
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -762,4 +922,4 @@ diagnostics:
           sourceRow: 120
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fe78b5da3c0bdf9e8c0933a3b5a0bba4f143ad64e03e4b290eab6345ac4bcfc2
+semanticHash: bec73b51dff4f92ff8f0030cbfc8617d89d13682e987843b7a9079bb56c6a88f

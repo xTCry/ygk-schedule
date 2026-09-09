@@ -174,5 +174,190 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      СТ1-31:
+        group: СТ1-31
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 3
+            variants:
+              - subject: Основы электротехники
+                teacher: Леонидова Н.А.
+                room: М208
+                weekType: both
+                sourceRow: 29
+              - subject: МДК 01.01 Т.2.3.
+                teacher: Голованова Н.М.
+                room: Б504
+                weekType: both
+                subgroup: "1"
+                rawSubject: МДК 01.01 Т.2.3.п/гр.1 Голованова Н.М.
+                rawTeacher: Голованова Н.М.
+                rawRoom: Б504
+                sourceRow: 28
+            source:
+              sheet: CТ 3 курс
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-10
+                  group: СТ1-31
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 01.01 Т.2.3.п/гр.1 Голованова Н.М.
+                    room: Б504
+                  source:
+                    shift: second
+                    row: 28
+                    rawGroupName: СТ1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: МДК 01.01 Т.2.3.п/гр.1 Голованова Н.М.
+                    rawRoom: Б504
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: МДК 02.02
+                teacher: Топчиян Е.А.
+                room: Б401
+                weekType: both
+                rawSubject: МДК 02.02 Топчиян Е.А.
+                rawTeacher: Топчиян Е.А.
+                rawRoom: Б401
+                sourceRow: 5
+            source:
+              sheet: CТ 3 курс
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-10
+                  group: СТ1-31
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 02.01
+                  replacement:
+                    raw: МДК 02.02 Топчиян Е.А.
+                    room: Б401
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: СТ1-31
+                    rawLessonNumbers: 4,5
+                    rawOriginal: МДК 02.01
+                    rawReplacement: МДК 02.02 Топчиян Е.А.
+                    rawRoom: Б401
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК 02.02
+                teacher: Топчиян Е.А.
+                room: Б401
+                weekType: both
+                rawSubject: МДК 02.02 Топчиян Е.А.
+                rawTeacher: Топчиян Е.А.
+                rawRoom: Б401
+                sourceRow: 5
+            source:
+              sheet: CТ 3 курс
+              rowStart: 33
+              rowEnd: 34
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК 01.01 Т.2.3.
+                teacher: Голованова Н.М.
+                room: Б504
+                weekType: both
+                subgroup: "2"
+                rawSubject: МДК 01.01 Т.2.3.п/гр.2 Голованова Н.М.
+                rawTeacher: Голованова Н.М.
+                rawRoom: Б504
+                sourceRow: 6
+            source:
+              sheet: CТ 3 курс
+              rowStart: 35
+              rowEnd: 36
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-10
+                  group: СТ1-31
+                  lessonNumbers:
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 02.02
+                  replacement:
+                    raw: МДК 01.01 Т.2.3.п/гр.2 Голованова Н.М.
+                    room: Б504
+                  source:
+                    shift: second
+                    row: 6
+                    rawGroupName: СТ1-31
+                    rawLessonNumbers: "6"
+                    rawOriginal: МДК 02.02
+                    rawReplacement: МДК 01.01 Т.2.3.п/гр.2 Голованова Н.М.
+                    rawRoom: Б504
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: c15a6ee50f8a7453193797bb6e7e328806d08ab224c026d86e9af90ac4dc7571
+semanticHash: a0620221e902fcf0467e1595c6899b4016b73210c6fcab0bcdea4e76b3fd322b

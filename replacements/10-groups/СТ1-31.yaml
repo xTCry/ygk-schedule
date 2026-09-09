@@ -49,5 +49,88 @@ dates:
           sourceSha256: b694600adb7bc803c8efc8764318599f8a74993a2e529de700b419247b1f5382
     replacements:
       - *a1
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        replacements:
+          - &a2
+            date: 2026-09-10
+            group: СТ1-31
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.01 Т.2.3.п/гр.1 Голованова Н.М.
+              room: Б504
+            source:
+              shift: second
+              row: 28
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 01.01 Т.2.3.п/гр.1 Голованова Н.М.
+              rawRoom: Б504
+          - &a3
+            date: 2026-09-10
+            group: СТ1-31
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: МДК 02.02 Топчиян Е.А.
+              room: Б401
+            source:
+              shift: second
+              row: 5
+              rawGroupName: СТ1-31
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 02.01
+              rawReplacement: МДК 02.02 Топчиян Е.А.
+              rawRoom: Б401
+          - &a4
+            date: 2026-09-10
+            group: СТ1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 01.01 Т.2.3.п/гр.2 Голованова Н.М.
+              room: Б504
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 01.01 Т.2.3.п/гр.2 Голованова Н.М.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a2
+      - *a3
+      - *a4
 diagnostics: []
-semanticHash: 1530664191d2cf370f1bc7f98da145420f08175fb1d03f38afa6a1e32f63a2bd
+semanticHash: 626770b8fdd48ff92b0b7ac78f2239aa9f7ed94603a32995d49df03713893c6a

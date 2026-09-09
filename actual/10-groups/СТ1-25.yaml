@@ -588,7 +588,210 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      СТ1-25:
+        group: СТ1-25
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр2
+                teacher: Краснянская Е. В.
+                room: В102
+                weekType: denominator
+                subgroup: "2"
+                sourceRow: 133
+            source:
+              sheet: СТ 2 курс
+              rowStart: 133
+              rowEnd: 134
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Инженерная графика
+                teacher: |-
+                  Дегтева И.Е.
+                  Костерина Е. В.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 135
+            source:
+              sheet: СТ 2 курс
+              rowStart: 135
+              rowEnd: 136
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Инженерная графика
+                teacher: |-
+                  Дегтева И.Е.
+                  Костерина Е. В.
+                room: |-
+                  Б509
+                  Б510
+                weekType: denominator
+                sourceRow: 137
+            source:
+              sheet: СТ 2 курс
+              rowStart: 137
+              rowEnd: 138
+              rawGroupName: СТ1-25/СТ1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: СТ1-25
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: МДК 01.01 Т.1.2.п/гр.1
+              replacement:
+                raw: /теория Краснянская Е.В.
+                room: В102
+              source:
+                shift: first
+                row: 2
+                rawGroupName: СТ1-25
+                rawLessonNumbers: "3"
+                rawOriginal: МДК 01.01 Т.1.2.п/гр.1
+                rawReplacement: /теория Краснянская Е.В.
+                rawRoom: В102
+            lessonNumber: 3
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.01 Т.1.2.п/гр.1». По замене: «/теория
+                Краснянская Е.В.». Аудитория: «В102»."
+              room: В102
+          - replacement:
+              date: 2026-09-10
+              group: СТ1-25
+              lessonNumbers:
+                - 5
+              type: replace
+              original:
+                raw: МДК 02.02 Т.2.5.
+              replacement:
+                raw: МДК 06.01 Гасенина М.П.
+                room: А201
+              source:
+                shift: first
+                row: 3
+                rawGroupName: СТ1-25
+                rawLessonNumbers: "5"
+                rawOriginal: МДК 02.02 Т.2.5.
+                rawReplacement: МДК 06.01 Гасенина М.П.
+                rawRoom: А201
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 02.02 Т.2.5.». По замене: «МДК 06.01 Гасенина
+                М.П.». Аудитория: «А201»."
+              room: А201
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0faad8c6efcffd24123b77eba33aef050ece55377450116e4e9bdad279d75a2b
+    sheet: "Замены: Первая смена"
+    row: 3
+    normalizedGroup: СТ1-25
+    rawValue: МДК 06.01 Гасенина М.П.
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: СТ1-25
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: МДК 02.02 Т.2.5.
+      candidates:
+        - subject: Инженерная графика
+          teacher: |-
+            Дегтева И.Е.
+            Костерина Е. В.
+          room: |-
+            Б509
+            Б510
+          sourceRow: 137
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 4f082880d38b0ca3a84a977258efff8f13e4b07031bcaa2ecb8ba21a5e0d6eca
+    sheet: "Замены: Первая смена"
+    row: 2
+    normalizedGroup: СТ1-25
+    rawValue: /теория Краснянская Е.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: СТ1-25
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: МДК 01.01 Т.1.2.
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр2
+          teacher: Краснянская Е. В.
+          room: В102
+          subgroup: "2"
+          sourceRow: 133
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -614,4 +817,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fc89cd4fbe57415132fff81dfdd74ad479d93e90ea2f742408e5d5ced8f382a7
+semanticHash: 64908dec2e9f51c5965cae05b32619cad73b645aa523a18146bd279df53d8fac

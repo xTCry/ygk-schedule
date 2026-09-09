@@ -393,7 +393,7 @@ dates:
         date: 2026-09-09
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -403,11 +403,15 @@ dates:
           shift: first
           etag: W/"6a9fd7d4-34db"
           lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
       second:
         date: 2026-09-09
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -417,6 +421,10 @@ dates:
           shift: second
           etag: W/"6a9fe035-17ea"
           lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     groups:
       ИБ1-41:
         group: ИБ1-41
@@ -510,6 +518,59 @@ dates:
                 lessonNumber: 5
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК.03.01 Техническая защита информации п/гр1
+                  teacher: Вакансия
+                  room: Б310
+                  weekType: both
+                  subgroup: "1"
+                  sourceRow: 121
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 121
+                rowEnd: 122
+                rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Иностранный язык в проф. деят.
+                  teacher: |-
+                    Смирнова Е.Ф.
+                    Зубковская А.Е.
+                  room: Б110
+                  weekType: both
+                  sourceRow: 123
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 123
+                rowEnd: 124
+                rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.03.01 Техническая защита информации п/гр2
+                  teacher: Вакансия
+                  room: Б310
+                  weekType: both
+                  subgroup: "2"
+                  sourceRow: 125
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 125
+                rowEnd: 126
+                rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -569,4 +630,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d6cbbb5382911e1b1bc3743c0b5bb3fbb5f08419c5faa4b9733fd671e2a96638
+semanticHash: 9c8eb58a10e86cf8debe2327c1615ba01875bd887fb834217e2b24eeedec6cb2

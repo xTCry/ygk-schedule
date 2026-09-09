@@ -414,6 +414,118 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      ДИ1-32:
+        group: ДИ1-32
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Темофеева Е.Н.
+                  Мишуринская Е.Ю
+                room: Б501
+                weekType: denominator
+                sourceRow: 172
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 172
+              rowEnd: 173
+              rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.02 Основы проектной и компьютерной графики Т.2.2.
+                teacher: Махоткина Д.Е.
+                room: Б204
+                weekType: both
+                rawSubject: 1,2 п/гр. Махоткина Д.Е.
+                rawTeacher: Махоткина Д.Е.
+                rawRoom: Б204
+                sourceRow: 23
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 174
+              rowEnd: 175
+              rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-10
+                  group: ДИ1-32
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 01.02
+                  replacement:
+                    raw: 1,2 п/гр. Махоткина Д.Е.
+                    room: Б204
+                  source:
+                    shift: second
+                    row: 23
+                    rawGroupName: ДИ1-32
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 01.02
+                    rawReplacement: 1,2 п/гр. Махоткина Д.Е.
+                    rawRoom: Б204
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК.03.01 Основы стандартизации сертификации и метрологии п/гр1
+                teacher: Парамонов В.И.
+                room: Б204
+                weekType: denominator
+                subgroup: "1"
+                sourceRow: 176
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 176
+              rowEnd: 177
+              rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -496,4 +608,4 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 36e1e7208a47ae09bbf2c96656be7ba9d73ff9d53ed1e26dc1d2aed1919807f8
+semanticHash: 4cfefc152137f3013bee13cb320278c2a602ef1a40f423874ed0d27b8c743517

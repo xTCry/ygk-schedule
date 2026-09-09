@@ -194,6 +194,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar_0.xlsx
               status: scheduled
               replacements: []
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      РК1-11:
+        group: РК1-11
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Биология
+                teacher: Малявкина Н.А.
+                room: Б110
+                weekType: both
+                sourceRow: 231
+            source:
+              sheet: 1 курс
+              rowStart: 231
+              rowEnd: 232
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Физика
+                teacher: Овсова К.С.
+                room: Б202,В102
+                weekType: both
+                rawSubject: Физика Овсова К.С.
+                rawTeacher: Овсова К.С.
+                rawRoom: Б202,В102
+                sourceRow: 32
+            source:
+              sheet: 1 курс
+              rowStart: 233
+              rowEnd: 234
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-10
+                  group: РК1-11
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Рус.яз.Литер.
+                  replacement:
+                    raw: Физика Овсова К.С.
+                    room: Б202,В102
+                  source:
+                    shift: first
+                    row: 32
+                    rawGroupName: РК1-11
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Рус.яз.Литер.
+                    rawReplacement: Физика Овсова К.С.
+                    rawRoom: Б202,В102
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Физика
+                teacher: Овсова К.С.
+                room: Б202,В102
+                weekType: both
+                rawSubject: Физика Овсова К.С.
+                rawTeacher: Овсова К.С.
+                rawRoom: Б202,В102
+                sourceRow: 32
+            source:
+              sheet: 1 курс
+              rowStart: 235
+              rowEnd: 236
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: Индивидуальный проект
+                teacher: Климов П.А.
+                room: Б310
+                weekType: both
+                sourceRow: 237
+            source:
+              sheet: 1 курс
+              rowStart: 237
+              rowEnd: 238
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -220,4 +351,4 @@ diagnostics:
           sourceRow: 254
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 11c58ca59a315433b6760c4aa3e92c981e5164f18be66ed8b06199533c7e9ee7
+semanticHash: 1b4d3f08d082534b5cce5f9e7e8015519abebca4b97a6bc93d8dbbe7a9e215f6

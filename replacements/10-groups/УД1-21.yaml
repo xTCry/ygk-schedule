@@ -60,7 +60,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -90,7 +90,53 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
     replacements:
       - *a2
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        replacements:
+          - &a3
+            date: 2026-09-10
+            group: УД1-21
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Осн.фин.гр.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 36
+              rawGroupName: УД1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.фин.гр.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a3
 diagnostics: []
-semanticHash: acdda9e71586799b5169786a00c28db6e802e2db55ee33d752df7813e1127cf3
+semanticHash: 32f6b4ab597be1ede2a2df7d271dd2ce57c75742b5455f7f96bd139ff76236c6

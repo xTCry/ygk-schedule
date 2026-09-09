@@ -359,5 +359,139 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: f93a0d6fba4c5bc3084e1521d5d1861756f3481ba90ff53b80a9f82c64a0809b
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      ЮР1-21:
+        group: ЮР1-21
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 3
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 27
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 27
+              rowEnd: 28
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Административное право
+                teacher: Малышева Н.А.
+                room: Ф401
+                weekType: both
+                sourceRow: 29
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Информационные технологии в юридической деятельности
+                teacher: Нестерова А.В.
+                room: Ф306
+                weekType: denominator
+                rawSubject: "Информационные технологии в юридической деятельности "
+                sourceRow: 31
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: ЮР1-21
+              lessonNumbers:
+                - 5
+              type: cancel
+              original:
+                raw: ДОУ
+              replacement:
+                raw: снято
+              source:
+                shift: second
+                row: 4
+                rawGroupName: ЮР1-21
+                rawLessonNumbers: "5"
+                rawOriginal: ДОУ
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 5
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ДОУ». По замене: «снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cab3072984bbc66b2d523b84b96b5543e9397dea3dfb2fa81c2ccc11b87646c6
+    sheet: "Замены: Вторая смена"
+    row: 4
+    normalizedGroup: ЮР1-21
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ЮР1-21
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: ДОУ
+      candidates:
+        - subject: Информационные технологии в юридической деятельности
+          teacher: Нестерова А.В.
+          room: Ф306
+          sourceRow: 31
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 2c7cee8eb1b9d8576e86c2a5f52a20f7a6d656e77d5d4ccbaf93ab24888ab396

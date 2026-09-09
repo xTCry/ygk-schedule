@@ -68,5 +68,87 @@ dates:
     replacements:
       - *a1
       - *a2
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        replacements:
+          - &a3
+            date: 2026-09-10
+            group: СТ1-13
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 30
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: снято
+              rawRoom: ""
+          - &a4
+            date: 2026-09-10
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 29
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+          - &a5
+            date: 2026-09-10
+            group: СТ1-13
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Жданова Н.А.
+              room: Б403
+            source:
+              shift: first
+              row: 28
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Жданова Н.А.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a3
+      - *a4
+      - *a5
 diagnostics: []
-semanticHash: 3c9630be7f9a1aa9ffda74a52ce510ddd2a162cabe8bc35e0e0c8ba2ac0850c8
+semanticHash: 2280309216f3d25fde930a7e0d3be6e22bd0ac0ee71453ad1ed6cf700ebcbf7e

@@ -1,13 +1,52 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-08T16:35:53.403Z
-scheduleVersion: 48ca70917bfe486d8a97ae8ba4943fc89518b55037adeffaa991387ebc614e14
+generatedAt: 2026-09-09T13:39:52.312Z
+scheduleVersion: 379c4ed0ee571c80ecb16e5ed85d71a637324259692f059425700dbd93aca807
 summary:
   info: 0
   warning: 2
-  error: 81
+  error: 135
   fatal: 0
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 4f082880d38b0ca3a84a977258efff8f13e4b07031bcaa2ecb8ba21a5e0d6eca
+    sheet: "Замены: Первая смена"
+    row: 2
+    normalizedGroup: СТ1-25
+    rawValue: /теория Краснянская Е.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: СТ1-25
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: МДК 01.01 Т.1.2.
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр2
+          teacher: Краснянская Е. В.
+          room: В102
+          subgroup: "2"
+          sourceRow: 133
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: &a1
+      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      fileName: rasp_first.html
+      sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+      fetchedAt: 2026-09-08T16:35:53.336Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      shift: first
+      etag: W/"6a9fd7d4-34db"
+      lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -36,17 +75,41 @@ diagnostics:
           sourceRow: 53
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    source: &a1
-      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
-      fileName: rasp_first.html
-      sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
-      fetchedAt: 2026-09-08T16:35:53.336Z
-      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
-      shift: first
-      etag: W/"6a9fd7d4-34db"
-      lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+    source: *a1
     issueFingerprint: 089ef8432fb0caab97b5d48edbe40e0e12333c076983930566988c8ebdd67a3d
     issueKey: 6e759f380ccdf729eb3c29a847a97cb52d952b2dbec5dfea866c983b3e032da6
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0faad8c6efcffd24123b77eba33aef050ece55377450116e4e9bdad279d75a2b
+    sheet: "Замены: Первая смена"
+    row: 3
+    normalizedGroup: СТ1-25
+    rawValue: МДК 06.01 Гасенина М.П.
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: СТ1-25
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: МДК 02.02 Т.2.5.
+      candidates:
+        - subject: Инженерная графика
+          teacher: |-
+            Дегтева И.Е.
+            Костерина Е. В.
+          room: |-
+            Б509
+            Б510
+          sourceRow: 137
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -109,6 +172,38 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 88309ce26bc42cfdd9946e6e46f916946b151172900c409f2d178be47e6cd88b
+    sheet: "Замены: Первая смена"
+    row: 4
+    normalizedGroup: ИБ1-21
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИБ1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Информ.
+      candidates:
+        - subject: Информатика п/гр
+          teacher: Лужина А.С.
+          room: Б204
+          sourceRow: 37
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    issueKey: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 71c347624e5d2bd67f7a6bf28e911365fe5313cee44f09377711debbb6c54abb
     sheet: "Замены: Первая смена"
@@ -134,6 +229,38 @@ diagnostics:
     source: *a1
     issueFingerprint: 3ecc044560d74b53d0de8a5e4377df5e9e9eb0e9c3c805e3e90f206430087840
     issueKey: 5164db470f8229ec1e6bbdef6ee269bc280514957f7e94d83a641e0c3fc880b0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 10404efc9a8831cd876388558953809c07d640b1082a182b0ff0ce39c59339b7
+    sheet: "Замены: Первая смена"
+    row: 7
+    normalizedGroup: ИС1-25
+    rawValue: 1,2 п/гр. Васильченко М.О.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-25
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: Опер.системы
+      candidates:
+        - subject: Основы алгоритмизации и программирования
+          teacher: |-
+            Вершинина Н.А.
+            Панасюк А.Д.
+          room: |-
+            Б304
+            Б305
+          sourceRow: 129
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -165,6 +292,38 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d8d3b1667190e3db0b8e74302e6616f4739b67d63a3ee92a62186ae1ab2563a8
+    sheet: "Замены: Первая смена"
+    row: 8
+    normalizedGroup: ИС1-25
+    rawValue: 1,2 п/гр. Вершинина Н.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-25
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 02.01
+      candidates:
+        - subject: Основы алгоритмизации и программирования
+          teacher: |-
+            Вершинина Н.А.
+            Панасюк А.Д.
+          room: |-
+            Б304
+            Б305
+          sourceRow: 131
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: День замены отсутствует в базовом расписании группы
     fingerprint: 436522b62970d08b473ac6be69a857d7a91434719e035391a872aa4883e46ade
     sheet: "Замены: Первая смена"
@@ -184,6 +343,131 @@ diagnostics:
     source: *a1
     issueFingerprint: 4256d2dbffa0a909aa9e8cfadb15987c2685d80bc6b58aeadf2bb229d72a4622
     issueKey: 45004aabe16b898c7a811ef8f065e1457cd5f29597c6df5c991f6a429ef985ea
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 6baac4af32b31cb215d3c35a1c83b7ebad2895be8bd63f1fd72fae886a06bb02
+    sheet: "Замены: Первая смена"
+    row: 9
+    normalizedGroup: ИС1-25
+    rawValue: Осн.алгорит. Вершинина Н.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-25
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 02.01
+      candidates:
+        - subject: МДК.06.01 Внедрение ИС
+          teacher: |-
+            Пронина Л.Ю.
+            Байдина Ю.А.
+          room: |-
+            Б305
+            Б302
+          sourceRow: 127
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 9a70041cf6cf3c868d97c275d3474a618a748a66f0843f29029f9e44cf1f8430
+    sheet: "Замены: Первая смена"
+    row: 13
+    normalizedGroup: АР1-23
+    rawValue: Тех.механика Калугина М.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: АР1-23
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.03
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
+          teacher: Вакансия
+          room: Б310
+          subgroup: "2"
+          sourceRow: 82
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: ce4b1236e9a25558791ba1da7fdc91f6681f590935daa4a5d067702d1c469b57
+    sheet: "Замены: Первая смена"
+    row: 14
+    normalizedGroup: АР1-23
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: АР1-23
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.03
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 2
+          teacher: Вакансия
+          room: Б409
+          subgroup: "2"
+          sourceRow: 84
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 16c92f2f2b570a2aa4cf44587a420b685e0e5d2a022b5ff2631832a6742aad5d
+    sheet: "Замены: Первая смена"
+    row: 16
+    normalizedGroup: АР1-21
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: АР1-21
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.03
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 1
+          teacher: Вакансия
+          room: Б509
+          subgroup: "1"
+          sourceRow: 29
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -283,6 +567,37 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: e2ce598bbf0cbff9006e390c6fe3ce417964b1c141f6b0508f484ca08d296cc8
+    sheet: "Замены: Первая смена"
+    row: 17
+    normalizedGroup: ДИ1-21
+    rawValue: Инф.обесп. Вепрева Ю.Ю.Подковкин А.Г.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: ДИ1-21
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Рисунок
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: Рисунок с основами перспективы п/гр.2
+          teacher: Вакансия
+          room: ДОТ
+          subgroup: "2"
+          sourceRow: 31
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 0f51398ef6a867677e8df0e7b23dc9c50dbc208e1f5c01b8e2a15950c9a7a0a4
     sheet: "Замены: Первая смена"
@@ -343,6 +658,37 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: baef573bd5119255d3076ebc57bd1704ba54113a45b380d3d591876e18880c7e
+    sheet: "Замены: Первая смена"
+    row: 18
+    normalizedGroup: ДИ1-21
+    rawValue: Ин.язык Темофеева Е.Н.Мишуринская Е.Ю.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: ДИ1-21
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Живопись
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: Живопись с основами цветоведения п/гр.2
+          teacher: Вакансия
+          room: ДОТ
+          subgroup: "2"
+          sourceRow: 33
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: 63f01a32e73258aef7baf75ff999adc7c09b463dcf7d5cb51b6da0142b1a8502
     sheet: "Замены: Первая смена"
     row: 19
@@ -371,6 +717,34 @@ diagnostics:
     source: *a1
     issueFingerprint: 089ef8432fb0caab97b5d48edbe40e0e12333c076983930566988c8ebdd67a3d
     issueKey: 6e759f380ccdf729eb3c29a847a97cb52d952b2dbec5dfea866c983b3e032da6
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 83ad886a413d55e00c9a92f268732e45de7cf8cb879a16f645441a889a83afc8
+    sheet: "Замены: Первая смена"
+    row: 20
+    normalizedGroup: ПО1-15
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ПО1-15
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: Литература
+      candidates:
+        - subject: Основы шахматной игры
+          teacher: Дворниченко Г.В.
+          room: А202
+          sourceRow: 132
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -463,6 +837,34 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 94e8c6d1bd120e518ae4177a7a3e5ada61aa51f2867b8af55eb7872e5cc9cc53
+    sheet: "Замены: Первая смена"
+    row: 22
+    normalizedGroup: РК1-23
+    rawValue: БЖ Акиничева М.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: РК1-23
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Рус.яз.и культ.речи
+      candidates:
+        - subject: Безопасность жизнедеятельности
+          teacher: Акиничева М.А.
+          room: Б503
+          sourceRow: 131
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: d3fc7da195325dfca6c1f5fbea4825532ab6e06e629aeeafad1768ff35997cac
     sheet: "Замены: Первая смена"
@@ -519,6 +921,62 @@ diagnostics:
     source: *a1
     issueFingerprint: 21ac873665aff5a7609f869b9731871dea2c877ed66f0b61e13c2ab13aa78fcf
     issueKey: 03566ca4844267824c87a3872e1e1e40bf5fac290e7820e33e2657c31d71f2be
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: f6fc688908ec36ff39b8a9c8e1df89a00d2473c5aeef1f511031e8ab45a0c479
+    sheet: "Замены: Первая смена"
+    row: 24
+    normalizedGroup: ДИ1-11
+    rawValue: Литература Баранова С.Г.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ДИ1-11
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Математика
+      candidates:
+        - subject: Литература
+          teacher: Баранова С.Г.
+          room: Б507
+          sourceRow: 129
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5b285439a7e2ce45987b8d41035edaca738e927a725accc50652c434b8bbf920
+    sheet: "Замены: Первая смена"
+    row: 25
+    normalizedGroup: ДИ1-13
+    rawValue: Осн.проф.деят. Сосновских А.Л.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ДИ1-13
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Инд.проект
+      candidates:
+        - subject: Математика
+          teacher: Климова А.А.
+          room: Б101
+          sourceRow: 185
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -722,6 +1180,34 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: a61f76f5407c1f325d828c830f4fcbe2b036945d6cb2749002af54fb293be7c3
+    sheet: "Замены: Первая смена"
+    row: 30
+    normalizedGroup: СТ1-13
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: cancel
+      reason: original-not-matched
+      baseGroup: СТ1-13
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: Информ.
+      candidates:
+        - subject: Литература
+          teacher: Шалаева А.А.
+          room: А203
+          sourceRow: 77
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 5a78b4b2da503effdcab019db4518fea5221c839c040c89b0cd03d41ecc35e63
     sheet: "Замены: Первая смена"
     row: 31
@@ -750,6 +1236,34 @@ diagnostics:
     source: *a1
     issueFingerprint: 83c0667297845cad53ef8907c4304ca473ce1a5c10afa928bb633643e6ade58a
     issueKey: b9b856fe9f1e17f2bbff1a6fa98e3bf9cd10ce08792f9da5d831603aafe7b75a
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cf99956b08cb39df5b03501c5903c154f4df2fef7eb36ff6fd643dd13349e0f0
+    sheet: "Замены: Первая смена"
+    row: 31
+    normalizedGroup: СТ1-11
+    rawValue: Русский язык Шалаева А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: СТ1-11
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: Информ.
+      candidates:
+        - subject: Литература
+          teacher: Шалаева А.А.
+          room: А203
+          sourceRow: 31
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -929,6 +1443,73 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 0961cc222cfbf6f646bd69e4772b01910a8d760818ad89c475553b4c44b7916d
+    sheet: "Замены: Первая смена"
+    row: 38
+    normalizedGroup: ТТ1-21
+    rawValue: 1,2 п/гр. Яковлева Е.Н.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ТТ1-21
+      baseSourceFiles: &a2
+        - oeis.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Информ.
+      candidates:
+        - subject: Информатика
+          teacher: |-
+            Яковлева Е.Н.
+            Вакансия
+          room: Б301
+          sourceRow: 76
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    issueKey: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: d91daa2689ca9660230a2e5557c05699b83d0b6290e2c76edfc63dcd3575eb2c
+    sheet: "Замены: Первая смена"
+    row: 38
+    normalizedGroup: ТТ1-21
+    rawValue: 1,2 п/гр. Яковлева Е.Н.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ТТ1-21
+      baseSourceFiles: *a2
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Информ.
+      candidates:
+        - subject: Информатика
+          teacher: |-
+            Яковлева Е.Н.
+            Вакансия
+          room: Б301
+          sourceRow: 78
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    issueKey: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 7b001851d18da0461e6ed01a97f30363235a84e94ae713d2c856bc6dcc72682f
     sheet: "Замены: Первая смена"
@@ -941,7 +1522,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-13
-      baseSourceFiles: &a2
+      baseSourceFiles: &a3
         - out.xlsx
       requestedSubject: Математика...
       candidates:
@@ -969,12 +1550,67 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЮР1-13
-      baseSourceFiles: *a2
+      baseSourceFiles: *a3
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
     issueFingerprint: 215e783c41edd178d147b16edf8fe7461964a5ffbb304d62aaa9e012fe24e1db
     issueKey: 4a3a97cd2f390caa6f2070e00968935c3e33a3fe93e081375188faab0b151468
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0e379ca6e71bff8d9c6581949e5b3f24b92c74f2c9356064d672bff33310c7cd
+    sheet: "Замены: Первая смена"
+    row: 40
+    normalizedGroup: МА1-21
+    rawValue: Коровкина А.М.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: МА1-21
+      baseSourceFiles: &a4
+        - oeis.xlsx
+      requestedSubject: Общ-полит.монитор.
+      candidates:
+        - subject: Обществознание
+          teacher: Вакансия
+          room: ДОТ
+          sourceRow: 146
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: eb8fa35c2c4bf816bda1eee89c65b8cd1f1330c9726dff368b23433f95056bd4
+    sheet: "Замены: Первая смена"
+    row: 40
+    normalizedGroup: МА1-21
+    rawValue: Коровкина А.М.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: МА1-21
+      baseSourceFiles: *a4
+      requestedSubject: Общ-полит.монитор.
+      candidates:
+        - subject: История России
+          teacher: Вакансия
+          room: ДОТ
+          sourceRow: 142
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -1006,6 +1642,62 @@ diagnostics:
     source: *a1
     issueFingerprint: 2e0f73029cde9d42b99fe9701277f077380a018c0f375a117eea270f6418e3a4
     issueKey: 14fbe8c08948ac344cb3ab1e4d7f7cd7d5a17e539182fdc85216b8497d4033ed
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0c2d79491d9cb4ccd5a4811bc6870f93a2281c638ccc11d7bf9f79d322ef93e8
+    sheet: "Замены: Первая смена"
+    row: 43
+    normalizedGroup: МС1-21
+    rawValue: Коровина А.М.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: МС1-21
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: История России
+      candidates:
+        - subject: Инженерная графика
+          teacher: Дегтева И.Е.
+          room: ДОТ
+          sourceRow: 79
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: e55bc8e7fbbab0b5a3acc77b7f527edafb44590a9173a8d1690f8bce6706c644
+    sheet: "Замены: Первая смена"
+    row: 44
+    normalizedGroup: МС1-21
+    rawValue: Инж.гр. Дегтева И.Е.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: МС1-21
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Осн.электр.
+      candidates:
+        - subject: Основы строительного производства
+          teacher: Попов Д.М.
+          room: ДОТ
+          sourceRow: 81
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -1104,6 +1796,96 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7768e3c5197012a54b570f7284802de2a205bde851e5b0fa189da4b128024a90
+    sheet: "Замены: Первая смена"
+    row: 47
+    normalizedGroup: МС1-31
+    rawValue: МДК 03.02 Нечипорук О.Л.
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+      baseGroup: МС1-31
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Физкультура Экон.и прав.
+      candidates:
+        - subject: МДК.03.02 Выполнение работ по техническому обслуживанию систем
+            вентиляции и кондиционирования воздуха
+          teacher: Нечипорук О.Л.
+          room: Б110
+          sourceRow: 127
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 85c3c618c34a7b242855582bd8e1fab6a59445f6d31399f25cb2a8dcdf016bdb
+    sheet: "Замены: Первая смена"
+    row: 48
+    normalizedGroup: ЗМ1-31
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: cancel
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ЗМ1-31
+      baseSourceFiles:
+        - oeis.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Осн.экон.
+      candidates:
+        - subject: Основы экономики организации, менеджмента и маркетинга
+          teacher: Белогорская Я.В.
+          room: Б308
+          sourceRow: 30
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    issueKey: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9d2d2c9d28b322cec4981268ad572ed06e8c96807208bdd23504a9d414537814
+    sheet: "Замены: Первая смена"
+    row: 49
+    normalizedGroup: ЗМ1-33
+    rawValue: МДК 05.01 Федорова А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-33
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Осн.экон.
+      candidates:
+        - subject: МДК 05.01 Выполнение работ по одной или нескольким профессиям рабочих,
+            должностям служащих
+          teacher: Федорова А.А.
+          room: ДОТ
+          sourceRow: 71
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: d4d362e8efcd59451a4e572b6f207f388909f2ff42169965cb17f5d8ae3281f0
     sheet: "Замены: Первая смена"
     row: 50
@@ -1143,7 +1925,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: &a3
+      baseSourceFiles: &a5
         - ort.xlsx
       requestedSubject: УП 01
       requestedSubgroups:
@@ -1174,7 +1956,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: *a3
+      baseSourceFiles: *a5
       requestedSubject: УП 01
       requestedSubgroups:
         - "2"
@@ -1315,6 +2097,38 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 73898390c42dfb2f068c7a61ffbb7133f403f8be80c64243369cad98f8cbb002
+    sheet: "Замены: Первая смена"
+    row: 56
+    normalizedGroup: ТУ1-11
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ТУ1-11
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Математика
+      candidates:
+        - subject: Иностранный язык
+          teacher: |-
+            Петрова У.В.
+            Абрамова К.В.
+          room: |-
+            Ф204
+            Ф403
+          sourceRow: 32
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: c08f924e1bbfd50a317370237204efc1faf63f4070eada781a4aebf044f3e927
     sheet: "Замены: Первая смена"
     row: 56
@@ -1342,6 +2156,62 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d7a3ea3da2a01fb133db928942a1e9713b8e6795f742040b6d05e0630e7e7622
+    sheet: "Замены: Первая смена"
+    row: 59
+    normalizedGroup: ЮР2-11
+    rawValue: МДК 03.01 Богданова В.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР2-11
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Истори России
+      candidates:
+        - subject: Административное право
+          teacher: Грак А.М.
+          room: Ф202
+          sourceRow: 36
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 1715d3d44a1086f46494648410ae3942f62742347db81d19c38158b877522147
+    sheet: "Замены: Первая смена"
+    row: 62
+    normalizedGroup: ЮР1-17
+    rawValue: ОБиЗР Корсаков С.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-17
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Математика
+      candidates:
+        - subject: Литература
+          teacher: Головкина С.А.
+          room: Ф303.
+          sourceRow: 191
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: 834de5fe138c2f57231404fc3bd7c565bc2bbeac991ab627d27d6a99914f7b22
     sheet: "Замены: Первая смена"
@@ -1354,7 +2224,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a4
+      baseSourceFiles: &a6
         - ort.xlsx
       requestedSubject: УП 02
       requestedSubgroups:
@@ -1385,7 +2255,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a4
+      baseSourceFiles: *a6
       requestedSubject: УП 02
       requestedSubgroups:
         - "2"
@@ -1415,7 +2285,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a5
+      baseSourceFiles: &a7
         - ort.xlsx
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
@@ -1446,7 +2316,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a5
+      baseSourceFiles: *a7
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -1464,6 +2334,28 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 8adf9ab8c555017f8be601f405fff2fd2f87561581d64101befa987c60b60802
+    sheet: "Замены: Первая смена"
+    row: 66
+    normalizedGroup: ЗМ1-41
+    rawValue: МДК 03.02 Федорова А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЗМ1-41
+      baseSourceFiles:
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 57775d3e1b1d3a8d7906ea87cbb135ae7ad886da7b466e838a8aecc4ba83e87a
+    issueKey: 29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: eacef2d92a588d41fef6da2a2c1db046902e86b4d2c0693e7a37e27a6e7ef0b2
     sheet: "Замены: Первая смена"
@@ -1476,7 +2368,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a5
+      baseSourceFiles: *a7
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -1491,6 +2383,500 @@ diagnostics:
     source: *a1
     issueFingerprint: 089ef8432fb0caab97b5d48edbe40e0e12333c076983930566988c8ebdd67a3d
     issueKey: 6e759f380ccdf729eb3c29a847a97cb52d952b2dbec5dfea866c983b3e032da6
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 1d8c1f271e611f35d6e344ba30699e4ae74dd0d1c53591ff324f08c0a2bcd3aa
+    sheet: "Замены: Первая смена"
+    row: 68
+    normalizedGroup: 7 МРТ
+    rawValue: Псих.общ. Кобзарь Т.М.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-found
+      baseGroup: 7 МРТ
+      baseSourceFiles:
+        - ort.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 57775d3e1b1d3a8d7906ea87cbb135ae7ad886da7b466e838a8aecc4ba83e87a
+    issueKey: 29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d2aa174314a36e99e9c15a3949cf0cb0a1e82dcd3fee3fd73b0fc4b041bee8a4
+    sheet: "Замены: Первая смена"
+    row: 69
+    normalizedGroup: 7 МРТ
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 7 МРТ
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: Физкультура
+      candidates:
+        - subject: Психология общения
+          teacher: Кобзарь Т.М.
+          room: к.23
+          sourceRow: 34
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: cbe470ec4155e67846d25c421929d907e4da59f6c70d60dc5ef6ba3ec31faeb3
+    sheet: "Замены: Первая смена"
+    row: 71
+    normalizedGroup: 7 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: 7 ИКС
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: УП 01
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: УП.01 Учебная практика п/гр1
+          teacher: Вакансия
+          room: к.1
+          subgroup: "1"
+          sourceRow: 85
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 73198bc1c3c06509b589777ded7b60469a3a1111eef3081fadf1e15dca6d3c0f
+    sheet: "Замены: Первая смена"
+    row: 73
+    normalizedGroup: 4 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: 4 ИКС
+      baseSourceFiles: &a8
+        - ort.xlsx
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: УП.06 Учебная практика п/гр1
+          teacher: Вакансия
+          room: к.29
+          subgroup: "1"
+          sourceRow: 36
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: c2e267e916f40cf5361466ce3ac6d85b6d29c78ee634bae4c3bf8d0d17324a90
+    sheet: "Замены: Первая смена"
+    row: 73
+    normalizedGroup: 4 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: 4 ИКС
+      baseSourceFiles: *a8
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: УП.06 Учебная практика п/гр1
+          teacher: Вакансия
+          room: к.39
+          subgroup: "1"
+          sourceRow: 34
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 61edac8bd683f3cd56c38cbc942c127a7e59d8b6f14f135ab3456b1589445298
+    sheet: "Замены: Первая смена"
+    row: 77
+    normalizedGroup: 1 БПЛА
+    rawValue: Ин.язык Петрушенко Е.Е.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: 1 БПЛА
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: МДК 01.01
+      candidates:
+        - subject: Математика
+          teacher: Бахвалова К.
+          room: к.32
+          sourceRow: 132
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 05cdbfccd2e24ce0e1d494036a03dd2def08d81ddbd0c15b9bb4aba8bca6df0f
+    sheet: "Замены: Первая смена"
+    row: 79
+    normalizedGroup: 1 БПЛА
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 1 БПЛА
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: МДК 01.01 Осн.авиац.
+      candidates:
+        - subject: Электротехника и электроника
+          teacher: Ковалев Н.В.
+          room: к.33
+          sourceRow: 138
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 4e776742fdfa86fef2f41a51413b390880ec6423f7b9f52038a5138e68db4473
+    sheet: "Замены: Первая смена"
+    row: 81
+    normalizedGroup: 5 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 5 ИКС
+      baseSourceFiles: &a9
+        - ort.xlsx
+      requestedSubject: МДК 04.01, 03.01, 03.02
+      candidates:
+        - subject: МДК. 03.01 Применение программноаппаратных средств защиты информации в
+            инфокоммуникационных системах и сетях связи
+          teacher: Елистратов А.М.
+          room: к.43
+          sourceRow: 81
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 82fa23c123e45cdefa175ec1e2d458f6b8acceacdc868c0980d18b3088f09eff
+    sheet: "Замены: Первая смена"
+    row: 81
+    normalizedGroup: 5 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 5 ИКС
+      baseSourceFiles: *a9
+      requestedSubject: МДК 04.01, 03.01, 03.02
+      candidates:
+        - subject: МДК.03.02 Применение комплексной системы защиты информации в
+            инфокоммуникационных системах и сетях связи
+          teacher: Елистратов А.М.
+          room: к.43
+          sourceRow: 83
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9ea7a302132475de4e757e76619b9631a7e4d1abaae412b9d412ce3522837958
+    sheet: "Замены: Первая смена"
+    row: 81
+    normalizedGroup: 5 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 5 ИКС
+      baseSourceFiles: *a9
+      requestedSubject: МДК 04.01, 03.01, 03.02
+      candidates:
+        - subject: МДК.03.02 Применение комплексной системы защиты информации в
+            инфокоммуникационных системах и сетях связи
+          teacher: Елистратов А.М.
+          room: к.43
+          sourceRow: 85
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: f416caa80855b49a21edd897929e18319259fcbb138aeab2f9ab2709b0bbf19a
+    sheet: "Замены: Первая смена"
+    row: 81
+    normalizedGroup: 5 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 5 ИКС
+      baseSourceFiles: *a9
+      requestedSubject: МДК 04.01, 03.01, 03.02
+      candidates:
+        - subject: Иностранный язык в профессиональной деятельности
+          teacher: Вакансия
+          room: к.33
+          sourceRow: 79
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: ca6588c55860b764d91e3af3770e4da61f15c5c95ee4a2536dc3d7b39940ea5f
+    sheet: "Замены: Первая смена"
+    row: 85
+    normalizedGroup: 2 РЭУ
+    rawValue: Бахвалова К.Н.
+    context:
+      date: 2026-09-10
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: 2 РЭУ
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: Матем.методы
+      candidates:
+        - subject: Основы электротехники
+          teacher: Крижановский В.С.
+          room: к.33
+          sourceRow: 130
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 539eb5a0066f58794bb7dd515527f19028753542d1ae172317e4138f8b649937
+    sheet: "Замены: Первая смена"
+    row: 87
+    normalizedGroup: 13 ДОУ
+    rawValue: Петрушенко Е.Е.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: 13 ДОУ
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: Ин.язык
+      candidates:
+        - subject: Экономика организации
+          teacher: Матвеичева О.В.
+          room: к.38
+          sourceRow: 187
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 87d548b305254ca89be6c5306a812eba13edd590a6b773af4cc1007e38018787
+    sheet: "Замены: Первая смена"
+    row: 89
+    normalizedGroup: 21 МОНТ
+    rawValue: Ефимова А.С.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: 21 МОНТ
+      baseSourceFiles:
+        - ort.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: Информ.
+      candidates:
+        - subject: Информатика
+          teacher: Ефимова А.С.
+          room: к.34
+          sourceRow: 187
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    issueKey: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: c681c5d79da26c4a491f3fd27052ff1c77faed2dad7eea51c72c75b963c673c0
+    sheet: "Замены: Первая смена"
+    row: 90
+    normalizedGroup: ЭК1-31
+    rawValue: МДК 04.01 Бежина М.И.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЭК1-31
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: МДК 04.02
+      candidates:
+        - subject: МДК.04.01 Технология составления бухгалтерской отчетности
+          teacher: Бежина М.И.
+          room: Ф302
+          sourceRow: 77
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9036f3f29ff186d7926b4babcc70e92d3dc695e693fb895da1f202b5acf38c2a
+    sheet: "Замены: Вторая смена"
+    row: 2
+    normalizedGroup: ЮР1-25
+    rawValue: /теория Хватова Е.Ю.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-25
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: ДОУ
+      candidates:
+        - subject: Информационные технологии в юридической деятельности
+          teacher: |-
+            Нестерова А.В.
+            Хватова Е.Ю.
+          room: |-
+            Ф306
+            Ф305
+          sourceRow: 130
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: &a10
+      id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+      fileName: rasp_second.html
+      sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
+      fetchedAt: 2026-09-08T16:35:53.337Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+      shift: second
+      etag: W/"6a9fe035-17ea"
+      lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 48cf9e9eaed349ced75673030f9d0af060c40a0284f13ae083c1cbcda8c21df3
+    sheet: "Замены: Вторая смена"
+    row: 3
+    normalizedGroup: ЮР1-25
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ЮР1-25
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Инф.технол.
+      candidates:
+        - subject: Конституционное право России
+          teacher: Богданова В.В
+          room: Ф404
+          sourceRow: 128
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -1518,15 +2904,7 @@ diagnostics:
           sourceRow: 98
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: &a6
-      id: https://menu.sttec.yar.ru/timetable/rasp_second.html
-      fileName: rasp_second.html
-      sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
-      fetchedAt: 2026-09-08T16:35:53.337Z
-      url: https://menu.sttec.yar.ru/timetable/rasp_second.html
-      shift: second
-      etag: W/"6a9fe035-17ea"
-      lastModified: Tue, 08 Sep 2026 10:15:17 GMT
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -1558,7 +2936,7 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -1586,7 +2964,7 @@ diagnostics:
           sourceRow: 73
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -1616,9 +2994,37 @@ diagnostics:
           sourceRow: 220
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cab3072984bbc66b2d523b84b96b5543e9397dea3dfb2fa81c2ccc11b87646c6
+    sheet: "Замены: Вторая смена"
+    row: 4
+    normalizedGroup: ЮР1-21
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ЮР1-21
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: ДОУ
+      candidates:
+        - subject: Информационные технологии в юридической деятельности
+          teacher: Нестерова А.В.
+          room: Ф306
+          sourceRow: 31
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -1646,7 +3052,7 @@ diagnostics:
           sourceRow: 258
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -1678,7 +3084,7 @@ diagnostics:
           sourceRow: 121
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -1710,7 +3116,7 @@ diagnostics:
           sourceRow: 153
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -1742,7 +3148,7 @@ diagnostics:
           sourceRow: 57
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -1770,7 +3176,7 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -1804,7 +3210,7 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -1836,9 +3242,100 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 9f1da6188631de1e9ff0fc4a91e7274ab9d1171f0de02e6544137ce40f393245
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИС1-43
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 6
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: ИС1-43
+      baseSourceFiles: &a11
+        - oit_1sem.xlsx
+      requestedSubject: МДК 05.03
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК.05.03 Тестирование ИС п/гр2
+          teacher: Вакансия
+          room: Б310
+          subgroup: "2"
+          sourceRow: 242
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
+    issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: c05263aa5cacf97008e60dcec2357893cd331715164fae95475e0247ad2f205a
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИС1-43
+    rawValue: снято
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: ИС1-43
+      baseSourceFiles: *a11
+      requestedSubject: МДК 05.03
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК.05.03 Тестирование ИС п/гр2
+          teacher: Вакансия
+          room: Б310
+          subgroup: "2"
+          sourceRow: 240
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
+    issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 943dcd9ebf0b0122ab923214d1a7e388ef5442bbe800ead855650871b3deba77
+    sheet: "Замены: Вторая смена"
+    row: 11
+    normalizedGroup: СА1-41
+    rawValue: Физкультура Куликова А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: СА1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 03.02
+      candidates:
+        - subject: Иностранный язык в проф. деят.
+          teacher: |-
+            Зубковская А.Е.
+            Загородних Е.С.
+          room: ДОТ
+          sourceRow: 130
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -1867,7 +3364,7 @@ diagnostics:
           sourceRow: 219
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 521a6aa25f20cd28b2f8e71de1df8939408a4760c43a4320b401b1d951562276
     issueKey: a0ae7eca7525c9891356c9762210660c70e7f3aec385ad3c59b23184937374be
   - provider: ygk
@@ -1902,7 +3399,7 @@ diagnostics:
           sourceRow: 108
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
   - provider: ygk
@@ -1934,7 +3431,7 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -1962,7 +3459,7 @@ diagnostics:
           sourceRow: 122
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -1996,7 +3493,7 @@ diagnostics:
           sourceRow: 12
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -2024,9 +3521,39 @@ diagnostics:
           sourceRow: 157
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: c5bad15261d16a25d6defcb709cc3d18c06429c79fb0395cbfafa2e536217201
+    sheet: "Замены: Вторая смена"
+    row: 16
+    normalizedGroup: ДИ1-41
+    rawValue: 1,2 п/гр. Иванов Ю.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+      baseGroup: ДИ1-41
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Живопись
+      candidates:
+        - subject: Рисунок с основами перспективы
+          teacher: |-
+            Вакансия
+            Иванов Ю.А.
+          room: ДОТ
+          sourceRow: 29
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -2042,7 +3569,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: &a7
+      baseSourceFiles: &a12
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -2055,7 +3582,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -2085,7 +3612,7 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -2103,7 +3630,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: *a7
+      baseSourceFiles: *a12
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -2115,7 +3642,7 @@ diagnostics:
           sourceRow: 163
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -2147,7 +3674,7 @@ diagnostics:
           sourceRow: 264
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2175,7 +3702,7 @@ diagnostics:
           sourceRow: 311
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -2205,7 +3732,7 @@ diagnostics:
           sourceRow: 217
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2233,7 +3760,7 @@ diagnostics:
           sourceRow: 41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -2261,9 +3788,37 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3de218c16cb948a88062abbff50c8bdc98268635809f92aa8bca66f02205cc11
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: РК1-41
+    rawValue: Эф.поведение Малашкевич Д.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: РК1-41
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Осн.фин.гр.
+      candidates:
+        - subject: История изобразительного искусства
+          teacher: Кожешкурт А.В.
+          room: ДОТ
+          sourceRow: 276
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -2279,11 +3834,11 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: АР1-41
-      baseSourceFiles: &a8
+      baseSourceFiles: &a13
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 1882b049c824dc37d2486818976429a1a351858d792447cccdc7c281d2bcba4b
     issueKey: aa35a7d1d0e826af12c28e2610e1f138ee413dc4ed69bea383ccb5a896f30aab
   - provider: ygk
@@ -2302,7 +3857,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: АР1-41
-      baseSourceFiles: *a8
+      baseSourceFiles: *a13
       replacementWeekType: denominator
       availableWeekTypes:
         - numerator
@@ -2314,9 +3869,39 @@ diagnostics:
           sourceRow: 164
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: fa4793e68575364029211e33401cccb8644b6beaf4968191620897445f272a20
+    sheet: "Замены: Вторая смена"
+    row: 27
+    normalizedGroup: РК1-31
+    rawValue: 1,2 п/гр. Выблова Т.В.
+    context:
+      date: 2026-09-10
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: РК1-31
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 04.03
+      candidates:
+        - subject: Информационные технологии в профессиональной деятельности
+          teacher: |-
+            Выблова Т.В.
+            Вакансия
+          room: ДОТ
+          sourceRow: 186
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -2342,7 +3927,7 @@ diagnostics:
           sourceRow: 155
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2372,7 +3957,7 @@ diagnostics:
           sourceRow: 151
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2402,7 +3987,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2436,7 +4021,7 @@ diagnostics:
           sourceRow: 165
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a6
+    source: *a10
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -2465,6 +4050,88 @@ diagnostics:
     issueFingerprint: null
     issueKey: null
 issues:
+  - key: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+    familyKey: 1ba9c6148ad6b4da54c561103872f05107414e661e10eb7961aa9666901e6d6a
+    fingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+      — 2026-09-10, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:subgroup-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 9
+    observationKeys:
+      - 26b004ad6aa44ac6f5af24daf68f5cff5def9e3a661d2c8f27aa8d532b4afc42
+      - 41214957913a7f77d4202cf16fb63cbb923b2c7b6502929488594e0c970deed7
+      - 41c0429732be30a2485b1c235136bf8d36fde58c049333aed9526793d033eea7
+      - 663ca995b548abf73457778efa9d17621afc3a5152acb46d9709420d17446c34
+      - dc0792690a7bdee2eeb4cbe2eb29dcffec2021efc96c96a67aeb8c8bfd5b4bd3
+      - e2ddf37ca4591501328b74584ae79a4789fb37496dff06a2d76913eb0590ca3c
+      - e4b2e0abccad51819e7b8563c8df9dabf1b9c916462904e72fd8b440d4a0e1e6
+      - f249a0532d2b7129b465dc8ca1b09dba3dae5cd3ac418d8dd63152729b68b80c
+      - f99659dd068f7c797145f5ea5a860dbd420db2674c54ec172761ea07f1e70a7d
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034.json
+      yamlPath: actual/91-issue-evidence/bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034.yaml
+    body: |
+      <!-- parser-issue-key: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034 -->
+      <!-- diagnostic-family-key: 1ba9c6148ad6b4da54c561103872f05107414e661e10eb7961aa9666901e6d6a -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 26b004ad6aa44ac6f5af24daf68f5cff5def9e3a661d2c8f27aa8d532b4afc42,41214957913a7f77d4202cf16fb63cbb923b2c7b6502929488594e0c970deed7,41c0429732be30a2485b1c235136bf8d36fde58c049333aed9526793d033eea7,663ca995b548abf73457778efa9d17621afc3a5152acb46d9709420d17446c34,dc0792690a7bdee2eeb4cbe2eb29dcffec2021efc96c96a67aeb8c8bfd5b4bd3,e2ddf37ca4591501328b74584ae79a4789fb37496dff06a2d76913eb0590ca3c,e4b2e0abccad51819e7b8563c8df9dabf1b9c916462904e72fd8b440d4a0e1e6,f249a0532d2b7129b465dc8ca1b09dba3dae5cd3ac418d8dd63152729b68b80c,f99659dd068f7c797145f5ea5a860dbd420db2674c54ec172761ea07f1e70a7d -->
+      <!-- parser-fingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d -->
+
+      ## Причина
+
+      Подгруппа из замены не проводится в базовом расписании в эту неделю
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | subgroup-not-matched |
+      | Дата замен | 2026-09-10 |
+      | Смена | первая смена |
+      | Строк в Issue | 9 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 2 | — | СТ1-25 | 3 | replace | /теория Краснянская Е.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-25}} | {{group-yaml:actual:%D0%A1%D0%A21-25}} | {{raw-source:schedule:so.xlsx}} |
+      | Замены: Первая смена | 13 | — | АР1-23 | 2 | replace | Тех.механика Калугина М.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-23}} | {{group-yaml:actual:%D0%90%D0%A01-23}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 14 | — | АР1-23 | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-23}} | {{group-yaml:actual:%D0%90%D0%A01-23}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 16 | — | АР1-21 | 0 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-21}} | {{group-yaml:actual:%D0%90%D0%A01-21}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 17 | — | ДИ1-21 | 0 | replace | Инф.обесп. Вепрева Ю.Ю.Подковкин А.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 18 | — | ДИ1-21 | 1 | replace | Ин.язык Темофеева Е.Н.Мишуринская Е.Ю. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 71 | — | 7 ИКС | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:7%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 73 | — | 4 ИКС | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:4%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:4%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 73 | — | 4 ИКС | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:4%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:4%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
   - key: 6e759f380ccdf729eb3c29a847a97cb52d952b2dbec5dfea866c983b3e032da6
     familyKey: ae5cff65d97f76b8875c58cadc980aec8a2cc95b58037443624e43dcb615c3b2
     fingerprint: 089ef8432fb0caab97b5d48edbe40e0e12333c076983930566988c8ebdd67a3d
@@ -2563,6 +4230,128 @@ issues:
       | Замены: Первая смена | 66 | — | 6 ИКС | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:6%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:6%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
       | Замены: Первая смена | 66 | — | 6 ИКС | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:6%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:6%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
       | Замены: Первая смена | 66 | — | 6 ИКС | 4 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:6%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:6%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+  - key: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+    familyKey: 639f87b1096199b42f21e502bc50aba8a42a8b618b3c410091f38ce4cbaa6444
+    fingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-09-10, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 29
+    observationKeys:
+      - 010740316dcf72652dc85b7e5ea0131eae5363d19a39cf55ec5c8bfb9da400df
+      - 1161b4613e9dbbe4d806a2e108e0daf9551709bf5852e57b4bf7c523ed98a98a
+      - 26c7c20d2b629495ffc799e6f533ffa7642ca61651b5f3b219266bbfebbf70b8
+      - 2f888638c2145606dfca8091a972595e5422a77b92c0b53a78cca2032c5c4d84
+      - 356352d352213ffb5e86c33e2114ce46889e32fb8d3932188aabc5dd188711d7
+      - 3837bda489a938bf866aea9ab4f096bdfa92e1e8c6c7057ff0c373de6aea6cde
+      - 3fb1d1a7127665ce1a4d6e9111403e1f1c76699227dd0a5cfd7f1eeb7bcb9680
+      - 402e05872073fe27a9d41ac4c93bdb6d5bd95cb7335f937398df4ac0c19d91b4
+      - 428d344fea774e926f5bae75be811f783b6cf6c904e7acd48d9961a02a237691
+      - 54114e102312251cd78963d1f98717c3811c26aeecb27903825958963f532ecf
+      - 71a48730c4959854ac3cb19e24f97ca590359e5aed0571efe8cad200b6b57643
+      - 77983bc4945a88d3f71017e4bc8565d112f038933fe97ad41fd89ff530827d63
+      - 7801edeb63d98eaeed2b3ee01b32eda7b5f0d944ba863cbcd90b82ab1e95285f
+      - 7ff86b5a1d3faf96fc744bfd09bc697b27188057b91aa59fa5830637f945e9f3
+      - 806724fb9a29f23a5d31ab49072c85a9ce4ac3b5eb9966b089768bc21c1866d1
+      - 89fb79e18633d7d72d47a2d962531c3f103532cfc4e92633966cfbdee1407d0a
+      - 8c7271ac17333e5739dc8cad4e9065e01c339baa08ffc31d10d1fd16ba0cc31c
+      - 91d0f8e8614dcf6034d89496dfb9d572605ca2fa0ea1dbe051f04c608ea1e312
+      - a5cda65219ffe60f80b44bf5996304a1e8095a4a29a8d6afa2975b3221d1740b
+      - a97d562c7747bc50daa577631f0c1df0595b1e0447babe703a2f7b022a4c227d
+      - b0af11de67a6cf2e213395477b66a71a1afdb6b9aa98bff868a6a965e1a123b9
+      - b1f958c5213bd426d1cbb44007f69d33b04b17d737cb9c6c624ced969999edd8
+      - bdb2b6df7c97fd3e3a0d7604b1a87db05afc8be2ac8c79849429b57470fecd56
+      - ce260c6dc9d6ed7ff23706d23d81fb0a236158f75a37878ab7905c8490b5e4d4
+      - d9976010570605e21677d0e249d56961f764ecbd24360203bc8317ad0de8915d
+      - e657dc57dd2a622113fa258650476f723b38ef1a54d286266322e5758d98247d
+      - e9ce88459039f754f8dc0bfc4c867e914cd74db6681436e5935a7f2a072b60a1
+      - f66d1608abe4461e1a30be09dc3139481aeb39423a888a0966776588cfb0ab0b
+      - fa845929b816e5cd4c4bc0554535f4bff499f6b644503951bd1558f453e88ff1
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0.json
+      yamlPath: actual/91-issue-evidence/2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0.yaml
+    body: |
+      <!-- parser-issue-key: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0 -->
+      <!-- diagnostic-family-key: 639f87b1096199b42f21e502bc50aba8a42a8b618b3c410091f38ce4cbaa6444 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 010740316dcf72652dc85b7e5ea0131eae5363d19a39cf55ec5c8bfb9da400df,1161b4613e9dbbe4d806a2e108e0daf9551709bf5852e57b4bf7c523ed98a98a,26c7c20d2b629495ffc799e6f533ffa7642ca61651b5f3b219266bbfebbf70b8,2f888638c2145606dfca8091a972595e5422a77b92c0b53a78cca2032c5c4d84,356352d352213ffb5e86c33e2114ce46889e32fb8d3932188aabc5dd188711d7,3837bda489a938bf866aea9ab4f096bdfa92e1e8c6c7057ff0c373de6aea6cde,3fb1d1a7127665ce1a4d6e9111403e1f1c76699227dd0a5cfd7f1eeb7bcb9680,402e05872073fe27a9d41ac4c93bdb6d5bd95cb7335f937398df4ac0c19d91b4,428d344fea774e926f5bae75be811f783b6cf6c904e7acd48d9961a02a237691,54114e102312251cd78963d1f98717c3811c26aeecb27903825958963f532ecf,71a48730c4959854ac3cb19e24f97ca590359e5aed0571efe8cad200b6b57643,77983bc4945a88d3f71017e4bc8565d112f038933fe97ad41fd89ff530827d63,7801edeb63d98eaeed2b3ee01b32eda7b5f0d944ba863cbcd90b82ab1e95285f,7ff86b5a1d3faf96fc744bfd09bc697b27188057b91aa59fa5830637f945e9f3,806724fb9a29f23a5d31ab49072c85a9ce4ac3b5eb9966b089768bc21c1866d1,89fb79e18633d7d72d47a2d962531c3f103532cfc4e92633966cfbdee1407d0a,8c7271ac17333e5739dc8cad4e9065e01c339baa08ffc31d10d1fd16ba0cc31c,91d0f8e8614dcf6034d89496dfb9d572605ca2fa0ea1dbe051f04c608ea1e312,a5cda65219ffe60f80b44bf5996304a1e8095a4a29a8d6afa2975b3221d1740b,a97d562c7747bc50daa577631f0c1df0595b1e0447babe703a2f7b022a4c227d,b0af11de67a6cf2e213395477b66a71a1afdb6b9aa98bff868a6a965e1a123b9,b1f958c5213bd426d1cbb44007f69d33b04b17d737cb9c6c624ced969999edd8,bdb2b6df7c97fd3e3a0d7604b1a87db05afc8be2ac8c79849429b57470fecd56,ce260c6dc9d6ed7ff23706d23d81fb0a236158f75a37878ab7905c8490b5e4d4,d9976010570605e21677d0e249d56961f764ecbd24360203bc8317ad0de8915d,e657dc57dd2a622113fa258650476f723b38ef1a54d286266322e5758d98247d,e9ce88459039f754f8dc0bfc4c867e914cd74db6681436e5935a7f2a072b60a1,f66d1608abe4461e1a30be09dc3139481aeb39423a888a0966776588cfb0ab0b,fa845929b816e5cd4c4bc0554535f4bff499f6b644503951bd1558f453e88ff1 -->
+      <!-- parser-fingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-09-10 |
+      | Смена | первая смена |
+      | Строк в Issue | 29 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 3 | — | СТ1-25 | 5 | replace | МДК 06.01 Гасенина М.П. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-25}} | {{group-yaml:actual:%D0%A1%D0%A21-25}} | {{raw-source:schedule:so.xlsx}} |
+      | Замены: Первая смена | 7 | — | ИС1-25 | 2 | replace | 1,2 п/гр. Васильченко М.О. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-25}} | {{group-yaml:actual:%D0%98%D0%A11-25}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 8 | — | ИС1-25 | 3 | replace | 1,2 п/гр. Вершинина Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-25}} | {{group-yaml:actual:%D0%98%D0%A11-25}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 9 | — | ИС1-25 | 1 | replace | Осн.алгорит. Вершинина Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-25}} | {{group-yaml:actual:%D0%98%D0%A11-25}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 20 | — | ПО1-15 | 4 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-15}} | {{group-yaml:actual:%D0%9F%D0%9E1-15}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 22 | — | РК1-23 | 0 | replace | БЖ Акиничева М.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-23}} | {{group-yaml:actual:%D0%A0%D0%9A1-23}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 24 | — | ДИ1-11 | 0 | replace | Литература Баранова С.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-11}} | {{group-yaml:actual:%D0%94%D0%981-11}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 25 | — | ДИ1-13 | 3 | replace | Осн.проф.деят. Сосновских А.Л. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-13}} | {{group-yaml:actual:%D0%94%D0%981-13}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 30 | — | СТ1-13 | 1 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-13}} | {{group-yaml:actual:%D0%A1%D0%A21-13}} | {{raw-source:schedule:so.xlsx}} |
+      | Замены: Первая смена | 31 | — | СТ1-11 | 2 | replace | Русский язык Шалаева А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-11}} | {{group-yaml:actual:%D0%A1%D0%A21-11}} | {{raw-source:schedule:so.xlsx}} |
+      | Замены: Первая смена | 40 | — | МА1-21 | 3 | replace | Коровкина А.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-21}} | {{group-yaml:actual:%D0%9C%D0%901-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 40 | — | МА1-21 | 1 | replace | Коровкина А.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-21}} | {{group-yaml:actual:%D0%9C%D0%901-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 43 | — | МС1-21 | 2 | replace | Коровина А.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%A11-21}} | {{group-yaml:actual:%D0%9C%D0%A11-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 44 | — | МС1-21 | 3 | replace | Инж.гр. Дегтева И.Е. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%A11-21}} | {{group-yaml:actual:%D0%9C%D0%A11-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 47 | — | МС1-31 | 4 | replace | МДК 03.02 Нечипорук О.Л. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%A11-31}} | {{group-yaml:actual:%D0%9C%D0%A11-31}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 49 | — | ЗМ1-33 | 1 | replace | МДК 05.01 Федорова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-33}} | {{group-yaml:actual:%D0%97%D0%9C1-33}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 56 | — | ТУ1-11 | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A31-11}} | {{group-yaml:actual:%D0%A2%D0%A31-11}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Первая смена | 59 | — | ЮР2-11 | 4 | replace | МДК 03.01 Богданова В.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A02-11}} | {{group-yaml:actual:%D0%AE%D0%A02-11}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Первая смена | 62 | — | ЮР1-17 | 3 | replace | ОБиЗР Корсаков С.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-17}} | {{group-yaml:actual:%D0%AE%D0%A01-17}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Первая смена | 69 | — | 7 МРТ | 4 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:7%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 77 | — | 1 БПЛА | 0 | replace | Ин.язык Петрушенко Е.Е. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:1%20%D0%91%D0%9F%D0%9B%D0%90}} | {{group-yaml:actual:1%20%D0%91%D0%9F%D0%9B%D0%90}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 79 | — | 1 БПЛА | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:1%20%D0%91%D0%9F%D0%9B%D0%90}} | {{group-yaml:actual:1%20%D0%91%D0%9F%D0%9B%D0%90}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 81 | — | 5 ИКС | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:5%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:5%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 81 | — | 5 ИКС | 4 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:5%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:5%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 81 | — | 5 ИКС | 5 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:5%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:5%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 81 | — | 5 ИКС | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:5%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:5%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 85 | — | 2 РЭУ | 0 | replace | Бахвалова К.Н. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:2%20%D0%A0%D0%AD%D0%A3}} | {{group-yaml:actual:2%20%D0%A0%D0%AD%D0%A3}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 87 | — | 13 ДОУ | 2 | replace | Петрушенко Е.Е. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:13%20%D0%94%D0%9E%D0%A3}} | {{group-yaml:actual:13%20%D0%94%D0%9E%D0%A3}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 90 | — | ЭК1-31 | 2 | replace | МДК 04.01 Бежина М.И. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AD%D0%9A1-31}} | {{group-yaml:actual:%D0%AD%D0%9A1-31}} | {{raw-source:schedule:out.xlsx}} |
   - key: 5164db470f8229ec1e6bbdef6ee269bc280514957f7e94d83a641e0c3fc880b0
     familyKey: 60fc427b2b3854f452413cb4464d62402b14482232b0bdb3a17ad2d81a3b1197
     fingerprint: 3ecc044560d74b53d0de8a5e4377df5e9e9eb0e9c3c805e3e90f206430087840
@@ -2635,6 +4424,82 @@ issues:
       | Замены: Первая смена | 6 | — | РК1-11 | 3 | replace | Физика Овсова К.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-11}} | {{group-yaml:actual:%D0%A0%D0%9A1-11}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 25 | — | ДИ1-23 | 1 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-23}} | {{group-yaml:actual:%D0%94%D0%981-23}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 29 | — | ЮР1-13 | 1 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-13}} | {{group-yaml:actual:%D0%AE%D0%A01-13}} | {{raw-source:schedule:out.xlsx}} |
+  - key: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb
+    familyKey: 116cdf851cfb771a6781864d97ebe3aeba39ccbc13728d0f28aaa5db74e18b57
+    fingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT /
+      lesson-not-scheduled-for-week — 2026-09-10, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-scheduled-for-week
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 5
+    observationKeys:
+      - 81600582d5b4d9ea3e8da9dd67aaff2775ea33db7f3748fbc26e89e8ac8dcc3e
+      - 9a9db6570258abc3f8311cd58ebbde293c09419577e3cdbd9c21c53dd1c5c5a8
+      - ca3fdb992755f9baeb4f8329b17eb9866234c104737a8c765a7495e9c30b397e
+      - f61fa75b3f4c834a00dcbdaeaa10af7b42e3fc43698fc1eda5b697b45e9a25a4
+      - f80578d1ebd97c1b85554a5305d392f1543a00a0dd4819a0e0aaca5aeefd0f6a
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb.json
+      yamlPath: actual/91-issue-evidence/8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb.yaml
+    body: |
+      <!-- parser-issue-key: 8443da1ad3055920b652423fb80629acabc701b86cdcaf7a8d49c9edd92013fb -->
+      <!-- diagnostic-family-key: 116cdf851cfb771a6781864d97ebe3aeba39ccbc13728d0f28aaa5db74e18b57 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 81600582d5b4d9ea3e8da9dd67aaff2775ea33db7f3748fbc26e89e8ac8dcc3e,9a9db6570258abc3f8311cd58ebbde293c09419577e3cdbd9c21c53dd1c5c5a8,ca3fdb992755f9baeb4f8329b17eb9866234c104737a8c765a7495e9c30b397e,f61fa75b3f4c834a00dcbdaeaa10af7b42e3fc43698fc1eda5b697b45e9a25a4,f80578d1ebd97c1b85554a5305d392f1543a00a0dd4819a0e0aaca5aeefd0f6a -->
+      <!-- parser-fingerprint: c4929c14d4b98c1292eb68e03a64ea22bce188e28e89bcddeae2bb1ffe0b0edb -->
+
+      ## Причина
+
+      Пара из замены есть в базовом расписании, но не проводится в указанную неделю
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | lesson-not-scheduled-for-week |
+      | Дата замен | 2026-09-10 |
+      | Смена | первая смена |
+      | Тип недели в заменах | denominator |
+      | Типы недель пары в base | numerator |
+      | Строк в Issue | 5 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 4 | — | ИБ1-21 | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%911-21}} | {{group-yaml:actual:%D0%98%D0%911-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 38 | — | ТТ1-21 | 1 | replace | 1,2 п/гр. Яковлева Е.Н. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A21-21}} | {{group-yaml:actual:%D0%A2%D0%A21-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 38 | — | ТТ1-21 | 2 | replace | 1,2 п/гр. Яковлева Е.Н. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A21-21}} | {{group-yaml:actual:%D0%A2%D0%A21-21}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 48 | — | ЗМ1-31 | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-31}} | {{group-yaml:actual:%D0%97%D0%9C1-31}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 89 | — | 21 МОНТ | 3 | replace | Ефимова А.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:21%20%D0%9C%D0%9E%D0%9D%D0%A2}} | {{group-yaml:actual:21%20%D0%9C%D0%9E%D0%9D%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
   - key: 03566ca4844267824c87a3872e1e1e40bf5fac290e7820e33e2657c31d71f2be
     familyKey: 30c9bb628ac44b401acb72c5b0601c1ab76de3b482dcaa7465787a7ad1aa73df
     fingerprint: 21ac873665aff5a7609f869b9731871dea2c877ed66f0b61e13c2ab13aa78fcf
@@ -3513,6 +5378,152 @@ issues:
       {{group-yaml:base:10%20%D0%9C%D0%A0%D0%A2}} |
       {{group-yaml:actual:10%20%D0%9C%D0%A0%D0%A2}} |
       {{raw-source:schedule:ort.xlsx}} |
+  - key: 29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951
+    familyKey: 3318ef33d49511ddb231c319a82f2b207237fddb34eaf089c2ec39d94de8f541
+    fingerprint: 57775d3e1b1d3a8d7906ea87cbb135ae7ad886da7b466e838a8aecc4ba83e87a
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-09-10, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 2
+    observationKeys:
+      - 36a2cdc37d4779ab3140cf997c3a76e69a08e179f4edb79002708d29eada330d
+      - 5ae7d1ecea4e12131ff10b2ee355c938bca91ba3f0d9aef697a3a8946b831759
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951.json
+      yamlPath: actual/91-issue-evidence/29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951.yaml
+    body: |
+      <!-- parser-issue-key: 29655258f597a36cd5d11c80fe3b765e91374e8036c749b606f93d80e4eeb951 -->
+      <!-- diagnostic-family-key: 3318ef33d49511ddb231c319a82f2b207237fddb34eaf089c2ec39d94de8f541 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 36a2cdc37d4779ab3140cf997c3a76e69a08e179f4edb79002708d29eada330d,5ae7d1ecea4e12131ff10b2ee355c938bca91ba3f0d9aef697a3a8946b831759 -->
+      <!-- parser-fingerprint: 57775d3e1b1d3a8d7906ea87cbb135ae7ad886da7b466e838a8aecc4ba83e87a -->
+
+      ## Причина
+
+      Пара из замены отсутствует в базовом расписании
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | lesson-not-found |
+      | Дата замен | 2026-09-10 |
+      | Смена | первая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 66 | — | ЗМ1-41 | 2 | replace | МДК 03.02 Федорова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-41}} | {{group-yaml:actual:%D0%97%D0%9C1-41}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 68 | — | 7 МРТ | 0 | replace | Псих.общ. Кобзарь Т.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:7%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
+  - key: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
+    familyKey: 1fc09ce86934147f84b97ecfe4d94d0b5d96b4e74d3f0870e6fb7cf2a68d72c2
+    fingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-09-10, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 7
+    observationKeys:
+      - 1233b9edf41f8b017503550fc3dfdd217e4ebbd0f72e0a110d6ca69e5a10e7b6
+      - 1cd8807c4855245754e8c6c044f10624321f5c8664394f5624319d40e07ea83e
+      - 6a0d1cbff7cd7ff4513646595af238e1860bb72566ea5b81a7de4e68739073cd
+      - 72a2f235f79fdd79f13184bf215240a239d2abedc65f41bfaac48ff4e492e4ff
+      - 86f11b19a1fbd0ba98da09ede60c888bbc23a72b28c44f7c06fc95c2956dfef3
+      - d88aef45d7bd66b5188cf05f6442a76e7d54dc8bb415dbc6d30a26b986e71cdd
+      - eb9eb19cf21ddfe976adbe165c63f4a5a5f602c0e7de4a26cb7b45ef8bde89e9
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848.json
+      yamlPath: actual/91-issue-evidence/087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848.yaml
+    body: |
+      <!-- parser-issue-key: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848 -->
+      <!-- diagnostic-family-key: 1fc09ce86934147f84b97ecfe4d94d0b5d96b4e74d3f0870e6fb7cf2a68d72c2 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 1233b9edf41f8b017503550fc3dfdd217e4ebbd0f72e0a110d6ca69e5a10e7b6,1cd8807c4855245754e8c6c044f10624321f5c8664394f5624319d40e07ea83e,6a0d1cbff7cd7ff4513646595af238e1860bb72566ea5b81a7de4e68739073cd,72a2f235f79fdd79f13184bf215240a239d2abedc65f41bfaac48ff4e492e4ff,86f11b19a1fbd0ba98da09ede60c888bbc23a72b28c44f7c06fc95c2956dfef3,d88aef45d7bd66b5188cf05f6442a76e7d54dc8bb415dbc6d30a26b986e71cdd,eb9eb19cf21ddfe976adbe165c63f4a5a5f602c0e7de4a26cb7b45ef8bde89e9 -->
+      <!-- parser-fingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4 -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-09-10 |
+      | Смена | вторая смена |
+      | Строк в Issue | 7 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5 |
+      | Изменён на сайте | 08.09.2026, 13:15 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 2 | — | ЮР1-25 | 3 | replace | /теория Хватова Е.Ю. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Вторая смена | 3 | — | ЮР1-25 | 2 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Вторая смена | 4 | — | ЮР1-21 | 5 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-21}} | {{group-yaml:actual:%D0%AE%D0%A01-21}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Вторая смена | 11 | — | СА1-41 | 3 | replace | Физкультура Куликова А.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-41}} | {{group-yaml:actual:%D0%A1%D0%901-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 16 | — | ДИ1-41 | 4 | replace | 1,2 п/гр. Иванов Ю.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-41}} | {{group-yaml:actual:%D0%94%D0%981-41}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Вторая смена | 24 | — | РК1-41 | 3 | replace | Эф.поведение Малашкевич Д.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A0%D0%9A1-41}} | {{group-yaml:actual:%D0%A0%D0%9A1-41}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Вторая смена | 27 | — | РК1-31 | 5 | replace | 1,2 п/гр. Выблова Т.В. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A0%D0%9A1-31}} | {{group-yaml:actual:%D0%A0%D0%9A1-31}} | {{raw-source:schedule:oar.xlsx}} |
   - key: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
     familyKey: 9c009c0c50864e7cbaa76845cbb890197202c8898a1bf9695c50e3f7546566ed
     fingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
@@ -3875,6 +5886,74 @@ issues:
       | Замены: Вторая смена | 7 | — | СТ1-33 | 3 | replace | /теория Секацкая Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%A21-33}} | {{group-yaml:actual:%D0%A1%D0%A21-33}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Вторая смена | 17 | — | ИС1-41 | 4 | replace | МДК 05.02 Королева П.Д.Неделяева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 17 | — | ИС1-41 | 5 | replace | МДК 05.02 Королева П.Д.Неделяева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+  - key: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
+    familyKey: c75f5f009797773913ed97fd3f164afed8471be1f4db45a64b87714662d23da4
+    fingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-10
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+      — 2026-09-10, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:subgroup-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 2
+    observationKeys:
+      - 3421165c885b853a2367bd58782f39ce7abbf2ae7dbe8d132b3e8262cb3cc7e3
+      - c0f1497dc292ab004c1c51942d87c90a56de3e4d5977a36831add0675f8037e0
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a.json
+      yamlPath: actual/91-issue-evidence/9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a.yaml
+    body: |
+      <!-- parser-issue-key: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a -->
+      <!-- diagnostic-family-key: c75f5f009797773913ed97fd3f164afed8471be1f4db45a64b87714662d23da4 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 3421165c885b853a2367bd58782f39ce7abbf2ae7dbe8d132b3e8262cb3cc7e3,c0f1497dc292ab004c1c51942d87c90a56de3e4d5977a36831add0675f8037e0 -->
+      <!-- parser-fingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106 -->
+
+      ## Причина
+
+      Подгруппа из замены не проводится в базовом расписании в эту неделю
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | subgroup-not-matched |
+      | Дата замен | 2026-09-10 |
+      | Смена | вторая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5 |
+      | Изменён на сайте | 08.09.2026, 13:15 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 10 | — | ИС1-43 | 6 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 10 | — | ИС1-43 | 5 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: a0ae7eca7525c9891356c9762210660c70e7f3aec385ad3c59b23184937374be
     familyKey: 907856a0b6261fc5a8bfe0899141b4125cd2c20badc462517a4b6b43a107afc4
     fingerprint: 521a6aa25f20cd28b2f8e71de1df8939408a4760c43a4320b401b1d951562276

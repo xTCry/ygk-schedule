@@ -154,7 +154,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -185,7 +185,75 @@ dates:
                 Т.1.2.п/гр.1-снято
               rawRoom: Б204
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     replacements:
       - *a4
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        replacements:
+          - &a5
+            date: 2026-09-10
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.тех.МДК 01.01 п/гр.
+            replacement:
+              raw: Инф.техн.п/гр.1 Краснянская Е.В. МДК 01.01 Т.1.2.п/гр.2 Гасенина М.П.
+              room: Б204Б202
+            source:
+              shift: second
+              row: 7
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.тех.МДК 01.01 п/гр.
+              rawReplacement: Инф.техн.п/гр.1 Краснянская Е.В. МДК 01.01 Т.1.2.п/гр.2 Гасенина
+                М.П.
+              rawRoom: Б204Б202
+          - &a6
+            date: 2026-09-10
+            group: СТ1-35
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Осн.электр.
+            replacement:
+              raw: МДК 01.01 Т.1.3. Ткачев М.С.
+              room: Б504
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "5"
+              rawOriginal: Осн.электр.
+              rawReplacement: МДК 01.01 Т.1.3. Ткачев М.С.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 58d837be2216cd9b86e010975a5ae3a9a3c7e11e8b0565aee9aacd509dd82d19
+semanticHash: 53bf5fa3c3fe30fa444374eaf17a753cd7701a86000cf83ee57ac43acfca941d

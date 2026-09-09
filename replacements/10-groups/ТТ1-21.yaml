@@ -12,7 +12,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -43,7 +43,55 @@ dates:
               rawReplacement: Коровкина А.М.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
     replacements:
       - *a1
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        replacements:
+          - &a2
+            date: 2026-09-10
+            group: ТТ1-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Яковлева Е.Н.
+              room: Б301
+            source:
+              shift: first
+              row: 38
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: 1,2
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Яковлева Е.Н.
+              rawRoom: Б301
+        diagnostics: []
+    replacements:
+      - *a2
 diagnostics: []
-semanticHash: ea35235437df7a897ac76c06cc77b8b25910754530f45b14ad5d4a359d633a08
+semanticHash: 07bf122ce057f5dcd1c1abc94f0f472f2e7214b8aa982bc2507d9cde6aac440e

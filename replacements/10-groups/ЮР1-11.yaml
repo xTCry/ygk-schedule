@@ -152,7 +152,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -183,7 +183,73 @@ dates:
               rawReplacement: 1,2 п/гр.Инд.проект Супагина К.И.
               rawRoom: Ф201
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
     replacements:
       - *a4
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        replacements:
+          - &a5
+            date: 2026-09-10
+            group: ЮР1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 63
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: снято
+              rawRoom: ""
+          - &a6
+            date: 2026-09-10
+            group: ЮР1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: 1,2 п/гр.Инд.проект Супагина К.И.
+              room: Ф201
+            source:
+              shift: first
+              row: 64
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Обществ.
+              rawReplacement: 1,2 п/гр.Инд.проект Супагина К.И.
+              rawRoom: Ф201
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: bebc70c30b427c3353de02f14bad46d7353e53a2dd7481d082f4907c1eeeb3d6
+semanticHash: 0e89be3a475f7b319d2d2229598752e341870abaab570d878ff7ef52e1e72482

@@ -344,5 +344,143 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: b84a6b93aef2ea4240aeb7df0f88da574ee720f0c5f5d87c41d500f1b30db08b
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      РК1-41:
+        group: РК1-41
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 2
+            variants:
+              - subject: Рисунок с основами перспективы
+                teacher: |-
+                  Багдасарьян В.В.
+                  Багдасарьян О.Н.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 274
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 274
+              rowEnd: 275
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: История изобразительного искусства
+                teacher: Кожешкурт А.В.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 276
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 276
+              rowEnd: 277
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 03.01 Маркетинг в рекламе
+                teacher: Девятаева Н.Ф.
+                room: ДОТ
+                weekType: both
+                sourceRow: 278
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 278
+              rowEnd: 279
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: РК1-41
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Осн.фин.гр.
+              replacement:
+                raw: Эф.поведение Малашкевич Д.А.
+                room: ДОТ
+              source:
+                shift: second
+                row: 24
+                rawGroupName: РК1-41
+                rawLessonNumbers: "3"
+                rawOriginal: Осн.фин.гр.
+                rawReplacement: Эф.поведение Малашкевич Д.А.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.фин.гр.». По замене: «Эф.поведение Малашкевич
+                Д.А.». Аудитория: «ДОТ»."
+              room: ДОТ
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3de218c16cb948a88062abbff50c8bdc98268635809f92aa8bca66f02205cc11
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: РК1-41
+    rawValue: Эф.поведение Малашкевич Д.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: РК1-41
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Осн.фин.гр.
+      candidates:
+        - subject: История изобразительного искусства
+          teacher: Кожешкурт А.В.
+          room: ДОТ
+          sourceRow: 276
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 5d6451cc4c8db631af59b958cb9811921998b82c84fb3681525bdc712ad969a9

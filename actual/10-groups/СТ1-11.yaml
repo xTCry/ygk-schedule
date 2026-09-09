@@ -383,5 +383,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 17ecd7dcd2d6fb5e4cbd56227ce1edbddde5b841732bfb375fb87cda27ad8059
+  2026-09-10:
+    date: 2026-09-10
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d09155dd550099a9ceebe551648f1ab4814964616262ed91de47a9b2c2353bd7
+          fetchedAt: 2026-09-09T13:39:52.262Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa13669-4c40"
+          lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+      second:
+        date: 2026-09-10
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
+          fetchedAt: 2026-09-09T13:39:52.261Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa14cce-1c62"
+          lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+    groups:
+      СТ1-11:
+        group: СТ1-11
+        date: 2026-09-10
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Гаврилова М.А.
+                room: А201
+                weekType: both
+                sourceRow: 29
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Шалаева А.А.
+                room: А203
+                weekType: denominator
+                sourceRow: 31
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Грязева А.В.
+                room: А202
+                weekType: both
+                sourceRow: 33
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 33
+              rowEnd: 34
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-10
+              group: СТ1-11
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Информ.
+              replacement:
+                raw: Русский язык Шалаева А.А.
+                room: А203
+              source:
+                shift: first
+                row: 31
+                rawGroupName: СТ1-11
+                rawLessonNumbers: "2"
+                rawOriginal: Информ.
+                rawReplacement: Русский язык Шалаева А.А.
+                rawRoom: А203
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Информ.». По замене: «Русский язык Шалаева А.А.».
+                Аудитория: «А203»."
+              room: А203
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cf99956b08cb39df5b03501c5903c154f4df2fef7eb36ff6fd643dd13349e0f0
+    sheet: "Замены: Первая смена"
+    row: 31
+    normalizedGroup: СТ1-11
+    rawValue: Русский язык Шалаева А.А.
+    context:
+      date: 2026-09-10
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: СТ1-11
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: Информ.
+      candidates:
+        - subject: Литература
+          teacher: Шалаева А.А.
+          room: А203
+          sourceRow: 31
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 715a6ffd44a18ad49ca2a68366dd2f8994e75fd7aae76f235f25213e3c4a487d
