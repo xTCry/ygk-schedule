@@ -277,6 +277,7 @@ export interface GroupReplacementsArtifact {
 
 export type ReplacementApplyStrategy =
   | 'add'
+  | 'scheduled-room'
   | 'exact-subject'
   | 'subject-alias'
   | 'subject-module-code'

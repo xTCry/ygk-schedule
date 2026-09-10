@@ -83,31 +83,36 @@ const actualLessonEvents = (
   fallbackTimeRoom: string,
   subgroups?: ReadonlySet<string | undefined>,
   formatLessonSummary: IcalLessonSummaryFormatter = defaultIcalLessonSummary,
+  timeRoomForVariant?: (variant: LessonVariant) => string,
 ): IcalDateEvent[] =>
   lesson.variants
     .filter((variant) => !subgroups || subgroups.has(variant.subgroup))
-    .map((variant, index) => ({
-      date,
-      lessonNumber: lesson.number,
-      key: `${prefix}:${index}:${sha256(
-        [
-          variant.subject,
-          variant.teacher,
-          variant.room,
-          variant.weekType,
-          variant.subgroup ?? '',
-        ].join('\0'),
-      )}`,
-      summary: formatLessonSummary(lesson.number, variant),
-      ...(variant.subgroup ? { subgroup: variant.subgroup } : {}),
-      ...(variant.room ? { room: variant.room } : {}),
-      ...(variant.room || fallbackTimeRoom
-        ? { timeRoom: variant.room || fallbackTimeRoom }
-        : {}),
-      ...(variant.teacher
-        ? { description: `Преподаватель: ${variant.teacher}` }
-        : {}),
-    }));
+    .map((variant, index) => {
+      const timeRoom =
+        timeRoomForVariant?.(variant) || variant.room || fallbackTimeRoom;
+      return {
+        date,
+        lessonNumber: lesson.number,
+        key: `${prefix}:${index}:${sha256(
+          [
+            variant.subject,
+            variant.teacher,
+            variant.room,
+            variant.weekType,
+            variant.subgroup ?? '',
+          ].join('\0'),
+        )}`,
+        summary: formatLessonSummary(lesson.number, variant, {
+          changed: lesson.replacements.length > 0,
+        }),
+        ...(variant.subgroup ? { subgroup: variant.subgroup } : {}),
+        ...(variant.room ? { room: variant.room } : {}),
+        ...(timeRoom ? { timeRoom } : {}),
+        ...(variant.teacher
+          ? { description: `Преподаватель: ${variant.teacher}` }
+          : {}),
+      };
+    });
 
 /**
  * Находит вариант, созданный из примененной строки замен.
@@ -166,11 +171,16 @@ const addReplacementEvents = (
             ].join('\0'),
           )}`,
           summary: variant
-            ? formatLessonSummary(lesson.number, variant)
-            : defaultIcalLessonSummary(lesson.number, {
-                subject: replacement.raw,
-                teacher: '',
-              }),
+            ? formatLessonSummary(lesson.number, variant, { changed: true })
+            : defaultIcalLessonSummary(
+                lesson.number,
+                {
+                  subject: replacement.raw,
+                  teacher: '',
+                  room: replacement.room ?? '',
+                },
+                { changed: true },
+              ),
           ...(variant?.subgroup ? { subgroup: variant.subgroup } : {}),
           ...(replacement.room ? { room: replacement.room } : {}),
           ...(replacement.room || fallbackTimeRoom
@@ -227,17 +237,65 @@ const subgroupsForReplacementType = (
   new Set(
     lesson.replacements
       .filter((applied) => applied.replacement.type === type)
-      .map((applied) =>
-        subgroupForAppliedReplacement(
-          schedule,
-          group,
-          day,
-          weekType,
-          lesson,
-          applied,
-        ),
+      .flatMap((applied) =>
+        applied.strategy === 'scheduled-room'
+          ? lesson.variants.map((variant) => variant.subgroup)
+          : [
+              subgroupForAppliedReplacement(
+                schedule,
+                group,
+                day,
+                weekType,
+                lesson,
+                applied,
+              ),
+            ],
       ),
   );
+
+/**
+ * Формирует прозрачное уведомление об отмененной паре.
+ *
+ * Recurring-событие уже исключено через EXDATE, но отдельная запись делает
+ * отмену заметной в календаре, а не превращает ее в тихое исчезновение.
+ */
+const cancelledLessonEvents = (
+  date: string,
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  weekType: WeekType,
+  lesson: ActualLesson,
+  subgroups: ReadonlySet<string | undefined>,
+): IcalDateEvent[] =>
+  [...subgroups].map((subgroup, index) => ({
+    date,
+    lessonNumber: lesson.number,
+    key: `cancel:${index}:${subgroup ?? 'all'}:${sha256(
+      lesson.replacements
+        .filter((applied) => applied.replacement.type === 'cancel')
+        .map((applied) =>
+          [
+            applied.replacement.source.shift,
+            String(applied.replacement.source.row),
+            applied.replacement.original?.raw ?? '',
+          ].join('\0'),
+        )
+        .join('\0'),
+    )}`,
+    summary: `${lesson.number}. ✳ ${subgroup ? `[${subgroup}] ` : ''}ОТМЕНЕНО`,
+    ...(subgroup ? { subgroup } : {}),
+    description: 'Занятие отменено опубликованной заменой.',
+    transparency: 'transparent',
+    timeRoom: baseRoomForVariant(
+      schedule,
+      group,
+      day,
+      lesson.number,
+      weekType,
+      subgroup,
+    ),
+  }));
 
 const addFrozenDate = (
   schedule: CanonicalSchedule,
@@ -255,7 +313,29 @@ const addFrozenDate = (
     addExcludedDate(excludedDates, lesson.number, date);
 
   for (const lesson of actualGroup.lessons) {
-    if (lesson.status === 'cancelled') continue;
+    if (lesson.status === 'cancelled') {
+      const cancelledSubgroups = subgroupsForReplacementType(
+        schedule,
+        group,
+        actualGroup.day,
+        'both',
+        lesson,
+        'cancel',
+      );
+      if (cancelledSubgroups.size)
+        events.push(
+          ...cancelledLessonEvents(
+            date,
+            schedule,
+            group,
+            actualGroup.day,
+            'both',
+            lesson,
+            cancelledSubgroups,
+          ),
+        );
+      continue;
+    }
     events.push(
       ...actualLessonEvents(
         date,
@@ -296,6 +376,34 @@ const baseRoomForLesson = (
         variant.weekType === weekType ||
         weekType === 'unknown',
     )?.room ?? ''
+  );
+};
+
+/**
+ * Возвращает аудиторию исходного варианта пары.
+ *
+ * В строке «по расписанию → ДОТ» LOCATION меняется на ДОТ, но время пары
+ * продолжает определяться исходным корпусом и не распадается на сегменты А/М.
+ */
+const baseRoomForVariant = (
+  schedule: CanonicalSchedule,
+  group: string,
+  day: DayOfWeek,
+  lessonNumber: number,
+  weekType: WeekType,
+  subgroup: string | undefined,
+): string => {
+  const lesson = schedule.groups[group]?.days
+    .find((item) => item.day === day)
+    ?.lessons.find((item) => item.number === lessonNumber);
+  return (
+    lesson?.variants.find(
+      (variant) =>
+        (variant.weekType === 'both' ||
+          variant.weekType === weekType ||
+          weekType === 'unknown') &&
+        variant.subgroup === subgroup,
+    )?.room ?? baseRoomForLesson(schedule, group, day, lessonNumber, weekType)
   );
 };
 
@@ -363,7 +471,22 @@ export const generateActualIcalWithReport = (
             subgroup,
             date,
           );
-        if (replacedSubgroups.size && lesson.status !== 'cancelled')
+        if (cancelledSubgroups.size)
+          events.push(
+            ...cancelledLessonEvents(
+              date,
+              schedule,
+              options.group,
+              actualDate.day,
+              actualDate.weekType,
+              lesson,
+              cancelledSubgroups,
+            ),
+          );
+        if (replacedSubgroups.size && lesson.status !== 'cancelled') {
+          const retainsBaseTimes = lesson.replacements.some(
+            (applied) => applied.strategy === 'scheduled-room',
+          );
           events.push(
             ...actualLessonEvents(
               date,
@@ -372,8 +495,20 @@ export const generateActualIcalWithReport = (
               fallbackTimeRoom,
               replacedSubgroups,
               formatLessonSummary,
+              retainsBaseTimes
+                ? (variant) =>
+                    baseRoomForVariant(
+                      schedule,
+                      options.group,
+                      actualDate.day,
+                      lesson.number,
+                      actualDate.weekType,
+                      variant.subgroup,
+                    )
+                : undefined,
             ),
           );
+        }
         if (!replacedSubgroups.size && !cancelledSubgroups.size)
           events.push(
             ...addReplacementEvents(
@@ -406,7 +541,7 @@ export const generateActualIcalWithReport = (
             unresolved.replacement.replacement?.raw ?? '',
           ].join('\0'),
         )}`,
-        summary: unresolved.event.summary,
+        summary: `✳ ${unresolved.event.summary}`,
         description: unresolved.event.description,
         ...(unresolved.event.room ? { room: unresolved.event.room } : {}),
         ...(unresolved.event.room || fallbackTimeRoom

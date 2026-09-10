@@ -6,6 +6,7 @@ import { initializeGroupPicker } from './components/group-picker.ts';
 import { renderSchedule } from './components/schedule.ts';
 import { formatScheduleDate, formatUpdate } from './date.ts';
 import { createElement, requiredElement } from './dom.ts';
+import { replacementSourceUrlForGroup } from './replacement-source.ts';
 import { initializeThemeControl } from './theme.ts';
 import type {
   ActualGroup,
@@ -125,6 +126,7 @@ const renderUpdates = (
 
 const openReplacementDialog = (
   date: string,
+  group: string,
   actual: ActualGroup,
   actualDate: ActualDate,
   diagnostics: readonly Diagnostic[],
@@ -148,7 +150,7 @@ const openReplacementDialog = (
         shift === 'first' ? '1 смена' : '2 смена'
       }`;
       if (source instanceof HTMLAnchorElement && snapshot.source.url) {
-        source.href = snapshot.source.url;
+        source.href = replacementSourceUrlForGroup(snapshot.source.url, group);
         source.target = '_blank';
         source.rel = 'noreferrer';
       }
@@ -175,6 +177,9 @@ const openReplacementDialog = (
       .map((replacement) => {
         const before = replacement.replacement.original?.raw;
         const after = replacement.replacement.replacement?.raw;
+        const room = replacement.replacement.replacement?.room;
+        if (after?.toLocaleLowerCase('ru-RU') === 'по расписанию')
+          return room ? `По расписанию · аудитория: ${room}` : 'По расписанию';
         return before && after
           ? `${before} → ${after}`
           : 'Изменение опубликовано';
@@ -261,7 +266,7 @@ const renderGroup = async (
     subgroup,
     showOtherSubgroups,
     onOpenReplacementDetails: (date, actualGroup, actualDate) =>
-      openReplacementDialog(date, actualGroup, actualDate, [
+      openReplacementDialog(date, group.code, actualGroup, actualDate, [
         ...base.diagnostics,
         ...(actual?.diagnostics ?? []),
       ]),

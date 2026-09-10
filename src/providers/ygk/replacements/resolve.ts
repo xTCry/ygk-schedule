@@ -94,6 +94,17 @@ const emptyAliases = (): ReplacementAliases => ({
   rooms: new Map(),
 });
 
+/**
+ * Определяет служебное написание ЯГК «по расписанию».
+ *
+ * Такая строка не добавляет новый предмет: исходная пара сохраняется, а
+ * опубликованная аудитория применяется ко всем ее вариантам.
+ */
+const isScheduledAsUsualReplacement = (replacement: Replacement): boolean =>
+  normalizeSingleLine(replacement.replacement?.raw ?? '')
+    .normalize('NFKC')
+    .toLocaleLowerCase('ru-RU') === 'по расписанию';
+
 const variantAppliesToWeek = (
   variant: LessonVariant,
   weekType: WeekType,
@@ -481,6 +492,24 @@ const applyReplacement = (
       diagnostics,
       baseContext,
     );
+    return;
+  }
+
+  if (isScheduledAsUsualReplacement(replacement)) {
+    const room = replacement.replacement?.room
+      ? resolveReplacementAlias(aliases, 'rooms', replacement.replacement.room)
+      : '';
+    // Без новой аудитории строка «по расписанию» не меняет actual-модель.
+    // Ее не публикуем как новую пару и не создаем ложную диагностику.
+    if (!room) return;
+    const rawRoom =
+      replacement.source.rawRoom || replacement.replacement?.room || '';
+    lesson.variants = lesson.variants.map((variant) => ({
+      ...variant,
+      room,
+      ...(rawRoom ? { rawRoom } : {}),
+    }));
+    applied(lesson, replacement, lessonNumber, 'scheduled-room');
     return;
   }
 

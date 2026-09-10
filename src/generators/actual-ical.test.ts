@@ -205,9 +205,11 @@ describe('actual iCalendar generator', () => {
     expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T080000');
     expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T110000');
     expect(ical).not.toContain('EXDATE;TZID=Europe/Moscow:20260904T150500');
-    expect(ical).toContain('SUMMARY:2. История');
-    expect(ical).toContain('SUMMARY:4. Биология');
-    expect(ical).toContain('SUMMARY:6. Необработанная замена');
+    expect(ical).toContain('SUMMARY:2. ✳ История');
+    expect(ical).toContain('SUMMARY:0. ✳ ОТМЕНЕНО');
+    expect(ical).toContain('TRANSP:TRANSPARENT');
+    expect(ical).toContain('SUMMARY:4. ✳ Биология');
+    expect(ical).toContain('SUMMARY:6. ✳ Необработанная замена');
     expect(ical).toContain('SUMMARY:4. Базовая пара 4');
   });
 
@@ -222,7 +224,7 @@ describe('actual iCalendar generator', () => {
 
     for (const time of ['080000', '110000', '150500', '184500'])
       expect(ical).toContain(`EXDATE;TZID=Europe/Moscow:20260904T${time}`);
-    expect(ical).toContain('SUMMARY:2. История');
+    expect(ical).toContain('SUMMARY:2. ✳ История');
     expect(ical).toContain('SUMMARY:4. Базовая пара 4');
     expect(ical).not.toContain('SUMMARY:6. Новая базовая пара\\r\\n');
   });
@@ -280,9 +282,65 @@ describe('actual iCalendar generator', () => {
       subgroup: '2',
     });
 
-    expect(firstSubgroup).toContain('SUMMARY:2. [1] История');
+    expect(firstSubgroup).toContain('SUMMARY:2. ✳ [1] История');
     expect(firstSubgroup).not.toContain('SUMMARY:2. [2] Пара подгруппы 2');
     expect(secondSubgroup).not.toContain('SUMMARY:2. [1] История');
     expect(secondSubgroup).toContain('SUMMARY:2. [2] Пара подгруппы 2');
+  });
+
+  it('keeps the original time profile for a “по расписанию → ДОТ” replacement', () => {
+    const schedule = makeSchedule();
+    const baseLesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (lesson) => lesson.number === 2,
+    )!;
+    baseLesson.variants = [
+      {
+        subject: 'МДК.06.01',
+        teacher: 'Иванова И.И.',
+        room: 'Б406',
+        weekType: 'both',
+        sourceRow: 3,
+      },
+    ];
+    const group = makeActualGroup();
+    const actualLesson = group.lessons.find((lesson) => lesson.number === 2)!;
+    actualLesson.variants = [
+      {
+        subject: 'МДК.06.01',
+        teacher: 'Иванова И.И.',
+        room: 'ДОТ',
+        weekType: 'both',
+        sourceRow: 3,
+      },
+    ];
+    actualLesson.replacements = [
+      {
+        ...replacement('replace', 2, 'по расписанию'),
+        strategy: 'scheduled-room',
+      },
+    ];
+
+    const ical = generateActualIcal(schedule, makeActual(group), {
+      ...options,
+      lessonTimeResolver: ({ room }) =>
+        room === 'Б406'
+          ? { slots: [{ start: '11:00', end: '12:30' }] }
+          : {
+              slots: [
+                { start: '11:00', end: '11:45' },
+                { start: '12:25', end: '13:10' },
+              ],
+            },
+    });
+
+    expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T110000');
+    expect(ical).toMatch(
+      /DTSTART;TZID=Europe\/Moscow:20260904T110000\r\nDTEND;TZID=Europe\/Moscow:20260904T123000\r\nSUMMARY:2\. ✳ 💻 МДК\.06\.01\r\nLOCATION:ДОТ/,
+    );
+    const remoteEvent = ical
+      .split('BEGIN:VEVENT')
+      .find((event) => event.includes('SUMMARY:2. ✳ 💻 МДК.06.01'));
+    expect(remoteEvent).toBeDefined();
+    expect(remoteEvent).not.toContain('20260904T122500');
   });
 });

@@ -205,8 +205,14 @@ const classifyReplacementType = (
   original: string,
   replacement: string,
 ): ReplacementType => {
-  if (replacement.toLocaleLowerCase('ru-RU') === 'снято') return 'cancel';
+  const normalizedReplacement = normalizeSingleLine(replacement)
+    .normalize('NFKC')
+    .toLocaleLowerCase('ru-RU');
+  if (normalizedReplacement === 'снято') return 'cancel';
   if (!replacement) return 'unknown';
+  // ЯГК использует «по расписанию» как сокращение: дисциплина сохраняется,
+  // а в строке обычно меняется только аудитория. Это именно replace, а не add.
+  if (normalizedReplacement === 'по расписанию') return 'replace';
   return original ? 'replace' : 'add';
 };
 

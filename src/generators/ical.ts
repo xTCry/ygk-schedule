@@ -34,6 +34,11 @@ export interface IcalDateEvent {
   description?: string;
   room?: string;
   /**
+   * Прозрачное событие не занимает время в календаре пользователя.
+   * Используется для уведомления об отмененной паре.
+   */
+  transparency?: 'transparent';
+  /**
    * Аудитория, по которой определяется время. Может отличаться от LOCATION:
    * например, в замене новая аудитория не указана, но известна исходная пара.
    */
@@ -68,9 +73,15 @@ export interface IcalVariantExclusion {
   dates: readonly string[];
 }
 
+export interface IcalLessonSummaryContext {
+  /** Одноразовое actual-событие, созданное опубликованной заменой. */
+  changed?: boolean;
+}
+
 export type IcalLessonSummaryFormatter = (
   lessonNumber: number,
-  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'subgroup'>,
+  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'room' | 'subgroup'>,
+  context?: IcalLessonSummaryContext,
 ) => string;
 
 /**
@@ -81,8 +92,9 @@ export type IcalLessonSummaryFormatter = (
 export const defaultIcalLessonSummary: IcalLessonSummaryFormatter = (
   lessonNumber,
   variant,
+  context,
 ): string =>
-  `${lessonNumber}. ${variant.subgroup ? `[${variant.subgroup}] ` : ''}${variant.subject || `Пара ${lessonNumber}`}`;
+  `${lessonNumber}. ${context?.changed ? '✳ ' : ''}${variant.subgroup ? `[${variant.subgroup}] ` : ''}${/(?:дот|дистанцион)/iu.test(variant.room) ? '💻 ' : ''}${variant.subject || `Пара ${lessonNumber}`}`;
 
 export interface IcalOptions {
   group: string;
@@ -154,6 +166,7 @@ interface IcalEventDetails {
   summary: string;
   room?: string;
   description?: string;
+  transparency?: 'transparent';
   rule?: string;
   excludedDates?: readonly string[];
 }
@@ -320,11 +333,13 @@ const formatAdditionalEventSummary = (
 const formatLessonSummary = (
   options: IcalOptions,
   lessonNumber: number,
-  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'subgroup'>,
+  variant: Pick<LessonVariant, 'subject' | 'teacher' | 'room' | 'subgroup'>,
+  context?: IcalLessonSummaryContext,
 ): string =>
   (options.formatLessonSummary ?? defaultIcalLessonSummary)(
     lessonNumber,
     variant,
+    context,
   );
 
 const sortedDates = (dates: readonly string[] | undefined): string[] =>
@@ -371,6 +386,7 @@ const serializeEvent = (
     : []),
   `SUMMARY:${escapeIcal(event.summary)}`,
   ...(event.room ? [`LOCATION:${escapeIcal(event.room)}`] : []),
+  ...(event.transparency === 'transparent' ? ['TRANSP:TRANSPARENT'] : []),
   ...(event.description
     ? [`DESCRIPTION:${escapeIcal(event.description)}`]
     : []),
@@ -540,6 +556,7 @@ export const generateIcalWithReport = (
             ),
             ...(event.room ? { room: event.room } : {}),
             ...(event.description ? { description: event.description } : {}),
+            ...(event.transparency ? { transparency: event.transparency } : {}),
           },
           timezone,
         ),

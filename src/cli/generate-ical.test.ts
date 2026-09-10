@@ -153,7 +153,7 @@ describe('generate iCalendar CLI', () => {
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toMatch(
-      /SUMMARY:1\. \[Темофеева \/ Мишуринская] Иностран\r\n ный язык/,
+      /SUMMARY:1\. \[Темофеева \/ Мишуринская] 💻 Иност\r\n ранный язык/,
     );
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
@@ -190,7 +190,7 @@ describe('generate iCalendar CLI', () => {
     await expect(
       readFile(join(root, 'ical', 'base', 'СТ1-11.ics'), 'utf8'),
     ).resolves.toMatch(
-      /SUMMARY:1\. \[Темофеева \/ Мишуринская] Иностран\r\n ный язык/,
+      /SUMMARY:1\. \[Темофеева \/ Мишуринская] 💻 Иност\r\n ранный язык/,
     );
   });
 });

@@ -4,8 +4,12 @@ import type { LessonVariant } from '../../types.ts';
 
 type LessonLabelVariant = Pick<
   LessonVariant,
-  'subject' | 'teacher' | 'subgroup'
+  'subject' | 'teacher' | 'room' | 'subgroup'
 >;
+
+interface LessonLabelContext {
+  changed?: boolean;
+}
 
 const foreignLanguageSubject = (subject: string): boolean => {
   const normalized = normalizeSingleLine(subject)
@@ -43,6 +47,7 @@ const teacherSurnames = (teacher: string): string[] => {
 export const formatYgkLessonSummary = (
   lessonNumber: number,
   variant: LessonLabelVariant,
+  context?: LessonLabelContext,
 ): string => {
   const subject = stripYgkSubgroupMarkers(variant.subject).text;
   const label = variant.subgroup
@@ -50,5 +55,6 @@ export const formatYgkLessonSummary = (
     : foreignLanguageSubject(subject)
       ? teacherSurnames(variant.teacher).join(' / ')
       : '';
-  return `${lessonNumber}. ${label ? `[${label}] ` : ''}${subject || `Пара ${lessonNumber}`}`;
+  const remote = /(?:дот|дистанцион)/iu.test(variant.room);
+  return `${lessonNumber}. ${context?.changed ? '✳ ' : ''}${label ? `[${label}] ` : ''}${remote ? '💻 ' : ''}${subject || `Пара ${lessonNumber}`}`;
 };

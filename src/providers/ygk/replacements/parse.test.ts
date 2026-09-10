@@ -62,6 +62,45 @@ describe('YGK replacements HTML parser', () => {
     });
   });
 
+  it('treats “по расписанию” as a replacement instead of an added lesson', () => {
+    const parsed = parseYgkReplacements(
+      `
+        <div><b>ИЗМЕНЕНИЯ</b></div>
+        <div>в расписании на 11 сентября 2026 года / пятница</div>
+        <div>(Числитель) Первая смена</div>
+        <table>
+          <tr>
+            <th>№</th>
+            <th>Группа</th>
+            <th>Номер</th>
+            <th>Дисциплина по расписанию</th>
+            <th>Дисциплина по замене</th>
+            <th>Аудитория</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>СД2-31</td>
+            <td>2-5</td>
+            <td></td>
+            <td> по расписанию </td>
+            <td>ДОТ</td>
+          </tr>
+        </table>
+      `,
+      'first',
+    );
+
+    expect(parsed.replacements).toEqual([
+      expect.objectContaining({
+        group: 'СД2-31',
+        lessonNumbers: [2, 3, 4, 5],
+        type: 'replace',
+        original: null,
+        replacement: { raw: 'по расписанию', room: 'ДОТ' },
+      }),
+    ]);
+  });
+
   it('expands lesson ranges that include the zero lesson', async () => {
     const parsed = parseYgkReplacements(
       await readReplacementFixture('first'),

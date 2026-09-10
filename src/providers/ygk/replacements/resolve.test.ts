@@ -324,6 +324,78 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('keeps every scheduled variant and changes only its room for “по расписанию”', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lesson = schedule.groups['СТ1-11']!.days[0]!.lessons.find(
+      (item) => item.number === 2,
+    )!;
+    lesson.variants = [
+      {
+        subject: 'МДК.06.01',
+        teacher: 'Иванова И.И.',
+        room: 'Б406',
+        weekType: 'numerator',
+        subgroup: '1',
+        sourceRow: 2,
+      },
+      {
+        subject: 'Учебная практика',
+        teacher: 'Петров П.П.',
+        room: 'Б406',
+        weekType: 'numerator',
+        subgroup: '2',
+        sourceRow: 3,
+      },
+    ];
+    const roomOnlyReplacement: Replacement = {
+      ...replacement([2], 'replace', null, 'по расписанию'),
+      replacement: { raw: 'по расписанию', room: 'ДОТ' },
+      source: {
+        ...replacement([2], 'replace', null, 'по расписанию').source,
+        rawOriginal: '',
+        rawReplacement: 'по расписанию',
+        rawRoom: 'ДОТ',
+      },
+    };
+
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [roomOnlyReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+
+    expect(
+      actual.dates['2026-09-04']!.groups['СТ1-11']!.lessons.find(
+        (item) => item.number === 2,
+      ),
+    ).toMatchObject({
+      variants: [
+        {
+          subject: 'МДК.06.01',
+          teacher: 'Иванова И.И.',
+          room: 'ДОТ',
+          subgroup: '1',
+        },
+        {
+          subject: 'Учебная практика',
+          teacher: 'Петров П.П.',
+          room: 'ДОТ',
+          subgroup: '2',
+        },
+      ],
+      replacements: [{ strategy: 'scheduled-room', lessonNumber: 2 }],
+    });
+  });
+
   it('uses aliases only for an unambiguous match and preserves raw values', async () => {
     const root = await mkdtemp(join(tmpdir(), 'ygk-resolver-aliases-'));
     const directory = join(root, 'config', 'ygk');

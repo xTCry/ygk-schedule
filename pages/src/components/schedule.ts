@@ -116,6 +116,19 @@ const replacementLabel = (lesson: ActualLesson): string | null => {
   return null;
 };
 
+const replacementDescription = (lesson: ActualLesson): string | null =>
+  lesson.replacements
+    .map((item) => {
+      const original = item.replacement.original?.raw;
+      const replacement = item.replacement.replacement?.raw;
+      const room = item.replacement.replacement?.room;
+      if (replacement?.toLocaleLowerCase('ru-RU') === 'по расписанию')
+        return room ? `По расписанию · аудитория: ${room}` : 'По расписанию';
+      return original && replacement ? `${original} → ${replacement}` : null;
+    })
+    .filter((value): value is string => Boolean(value))
+    .join('; ') || null;
+
 const createVariant = (
   variant: LessonVariant,
   selectedSubgroup: string | null,
@@ -148,7 +161,11 @@ const createVariant = (
   item.append(location, title);
   if (variant.subgroup) {
     const chip = createElement('span', 'chip');
-    chip.textContent = `Подгруппа ${variant.subgroup}`;
+    chip.textContent = `Подгруппа ${variant.subgroup}${isRemoteVariant(variant) ? ' · 💻' : ''}`;
+    item.append(chip);
+  } else if (isRemoteVariant(variant)) {
+    const chip = createElement('span', 'chip');
+    chip.textContent = '💻 ДОТ';
     item.append(chip);
   }
   return item;
@@ -168,7 +185,11 @@ const createLesson = (
   card.dataset.lessonNumber = String(lesson.number);
   const numberColumn = createElement('div', 'lesson-number-column');
   const number = createElement('div', 'lesson-number');
-  number.textContent = `${lesson.number}`;
+  const changed =
+    actual &&
+    (actualLesson.status === 'cancelled' ||
+      actualLesson.replacements.length > 0);
+  number.textContent = `${lesson.number}${changed ? ' ✳' : ''}`;
   const time = createLessonTiming(variants);
   numberColumn.append(number, time);
   const content = createElement('div', 'min-w-0 space-y-2');
@@ -181,14 +202,7 @@ const createLesson = (
   for (const variant of variants)
     content.append(createVariant(variant, selectedSubgroup));
   if (actual && actualLesson.replacements.length) {
-    const source = actualLesson.replacements
-      .map((item) => {
-        const original = item.replacement.original?.raw;
-        const replacement = item.replacement.replacement?.raw;
-        return original && replacement ? `${original} → ${replacement}` : null;
-      })
-      .filter((value): value is string => Boolean(value))
-      .join('; ');
+    const source = replacementDescription(actualLesson);
     if (source) {
       const note = createElement(
         'p',
@@ -277,7 +291,11 @@ export const renderSchedule = (
           options.showOtherSubgroups,
         ),
       }))
-      .filter((item) => item.variants.length > 0);
+      .filter(
+        (item) =>
+          item.variants.length > 0 ||
+          (actualGroup && (item.lesson as ActualLesson).status === 'cancelled'),
+      );
     const isRemoteDay =
       lessons.length > 0 &&
       lessons.every((item) =>
