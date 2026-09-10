@@ -21,7 +21,7 @@ describe('week colour semantics', () => {
     );
   });
 
-  it('recognizes numerator red and rejects neutral colours', () => {
+  it('recognizes denominator red and rejects neutral colours', () => {
     expect(isRedLike('DA9694')).toBe(true);
     expect(isRedLike('C0504D')).toBe(true);
     expect(isRedLike('000000')).toBe(false);
@@ -29,7 +29,7 @@ describe('week colour semantics', () => {
     expect(isRedLike('4F81BD')).toBe(false);
   });
 
-  it('classifies numerator, neutral and unknown fills', () => {
+  it('classifies denominator, neutral and unknown fills', () => {
     expect(classifyWeekFill(undefined)).toBe('neutral');
     expect(
       classifyWeekFill({
@@ -42,7 +42,7 @@ describe('week colour semantics', () => {
         patternType: 'solid',
         foreground: { type: 'rgb', rgb: 'FFDA9694', resolvedRgb: 'DA9694' },
       }),
-    ).toBe('numerator');
+    ).toBe('denominator');
     expect(
       classifyWeekFill({
         patternType: 'solid',
@@ -53,10 +53,10 @@ describe('week colour semantics', () => {
 
   it('resolves both week variants', () => {
     expect(resolveVariantWeekType(false, false, true, false)).toBe('both');
-    expect(resolveVariantWeekType(false, false, false, true)).toBe(
+    expect(resolveVariantWeekType(false, false, false, true)).toBe('numerator');
+    expect(resolveVariantWeekType(true, false, false, true)).toBe(
       'denominator',
     );
-    expect(resolveVariantWeekType(true, false, false, true)).toBe('numerator');
     expect(resolveVariantWeekType(false, true, false, true)).toBe('unknown');
   });
 });

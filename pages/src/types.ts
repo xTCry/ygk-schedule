@@ -64,6 +64,7 @@ export interface ActualGroup {
 export interface ActualDate {
   date: string;
   day: DayOfWeek;
+  weekType: 'numerator' | 'denominator' | 'both' | 'unknown';
   shifts?: Partial<
     Record<
       'first' | 'second',

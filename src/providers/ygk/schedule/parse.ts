@@ -46,7 +46,7 @@ interface VariantRow {
   rawSubject: string;
   rawTeacher: string;
   rawRoom: string;
-  numerator: boolean;
+  denominator: boolean;
   unknownColor: boolean;
   allRelevantFieldsSpanLesson: boolean;
 }
@@ -137,8 +137,8 @@ const parseVariantRow = (
   const fillClasses = relevant.map((item) =>
     classifyWeekFill(getCellFill(item.cell)),
   );
-  const numerator = fillClasses.includes('numerator');
-  const unknownColor = !numerator && fillClasses.includes('unknown');
+  const denominator = fillClasses.includes('denominator');
+  const unknownColor = !denominator && fillClasses.includes('unknown');
   const allRelevantFieldsSpanLesson =
     relevant.length > 0 &&
     relevant.every((item) =>
@@ -153,7 +153,7 @@ const parseVariantRow = (
     rawSubject: rawValue(subjectCell),
     rawTeacher: rawValue(teacherCell),
     rawRoom,
-    numerator,
+    denominator,
     unknownColor,
     allRelevantFieldsSpanLesson,
   };
@@ -172,14 +172,14 @@ const buildLessonVariants = (
   for (const row of rows) {
     const key = variantKey(row);
     const existing = unique.get(key);
-    if (!existing || row.numerator) unique.set(key, row);
+    if (!existing || row.denominator) unique.set(key, row);
   }
 
   const distinctRows = [...unique.values()];
   const hasDistinctSibling = distinctRows.length > 1;
   const variants = distinctRows.map((row) => {
     const weekType = resolveVariantWeekType(
-      row.numerator,
+      row.denominator,
       row.unknownColor,
       row.allRelevantFieldsSpanLesson,
       hasDistinctSibling,

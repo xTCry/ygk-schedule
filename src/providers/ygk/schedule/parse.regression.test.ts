@@ -53,7 +53,7 @@ describe('YGK schedule regression fixture', () => {
     );
     const parsed = await parseYgkSchedule(buffer);
     expect(semanticScheduleHash(parsed.groups)).toBe(
-      '06383632b0d0eb5d8873c530b527635ddf1475110ea79d132f9e1f4b79c5845a',
+      'a37ed972016972f7a1423cf68ac71531c6da5f80d089245b79269be1c477b244',
     );
   });
 
@@ -126,7 +126,7 @@ describe('YGK schedule regression fixture', () => {
     ).toBe(false);
   });
 
-  it('maps numerator and denominator colours to Tuesday variants', async () => {
+  it('maps denominator and numerator colours to Tuesday variants', async () => {
     const parsed = await parseYgkSchedule(await readFixture());
     const group = parsed.groups['СТ1-11'];
     expect(group).toBeDefined();
@@ -142,12 +142,12 @@ describe('YGK schedule regression fixture', () => {
     ).toEqual([
       {
         subject: 'Иностранный язык п/гр.1',
-        weekType: 'denominator',
+        weekType: 'numerator',
         subgroup: '1',
       },
       {
         subject: 'Иностранный язык п/гр.2',
-        weekType: 'numerator',
+        weekType: 'denominator',
         subgroup: '2',
       },
     ]);

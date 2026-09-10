@@ -10,6 +10,7 @@ import type {
   Lesson,
   LessonVariant,
 } from '../types.ts';
+import { describeLessonReplacement } from '../replacement-summary.ts';
 
 export interface ScheduleRenderOptions {
   group: string;
@@ -116,19 +117,6 @@ const replacementLabel = (lesson: ActualLesson): string | null => {
   return null;
 };
 
-const replacementDescription = (lesson: ActualLesson): string | null =>
-  lesson.replacements
-    .map((item) => {
-      const original = item.replacement.original?.raw;
-      const replacement = item.replacement.replacement?.raw;
-      const room = item.replacement.replacement?.room;
-      if (replacement?.toLocaleLowerCase('ru-RU') === 'по расписанию')
-        return room ? `По расписанию · аудитория: ${room}` : 'По расписанию';
-      return original && replacement ? `${original} → ${replacement}` : null;
-    })
-    .filter((value): value is string => Boolean(value))
-    .join('; ') || null;
-
 const createVariant = (
   variant: LessonVariant,
   selectedSubgroup: string | null,
@@ -176,6 +164,7 @@ const createLesson = (
   variants: readonly LessonVariant[],
   actual: boolean,
   selectedSubgroup: string | null,
+  replacementDetails: string | null,
 ): HTMLElement => {
   const actualLesson = lesson as ActualLesson;
   const card = createElement(
@@ -202,13 +191,12 @@ const createLesson = (
   for (const variant of variants)
     content.append(createVariant(variant, selectedSubgroup));
   if (actual && actualLesson.replacements.length) {
-    const source = replacementDescription(actualLesson);
-    if (source) {
+    if (replacementDetails) {
       const note = createElement(
         'p',
         'text-sm leading-5 text-stone-600 dark:text-stone-300',
       );
-      note.textContent = source;
+      note.textContent = replacementDetails;
       content.append(note);
     }
   }
@@ -290,6 +278,13 @@ export const renderSchedule = (
           options.subgroup,
           options.showOtherSubgroups,
         ),
+        replacementDetails: actualGroup
+          ? describeLessonReplacement(
+              lesson as ActualLesson,
+              baseDay?.lessons,
+              actualDate?.weekType,
+            )
+          : null,
       }))
       .filter(
         (item) =>
@@ -321,13 +316,14 @@ export const renderSchedule = (
         'div',
         'mt-4 divide-y divide-stone-200 dark:divide-stone-800',
       );
-      for (const { lesson, variants } of lessons)
+      for (const { lesson, variants, replacementDetails } of lessons)
         list.append(
           createLesson(
             lesson,
             variants,
             Boolean(actualGroup),
             options.subgroup,
+            replacementDetails,
           ),
         );
       card.append(list);

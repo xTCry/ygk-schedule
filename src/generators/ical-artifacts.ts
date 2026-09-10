@@ -6,6 +6,7 @@ import type {
   CalendarRoomProfiles,
   CalendarTerm,
 } from '../calendar/config.ts';
+import { resolveWeekAnchor } from '../calendar/week-anchor.ts';
 import type { ActualSchedule, CanonicalSchedule } from '../types.ts';
 import { createYgkRoomTimeResolver } from '../providers/ygk/calendar/room-profile.ts';
 import { formatYgkLessonSummary } from '../providers/ygk/lesson-label.ts';
@@ -131,6 +132,11 @@ export const writeIcalArtifacts = async (
     options.profiles,
     options.roomProfiles,
   );
+  const weekAnchor = resolveWeekAnchor(
+    options.term.weekAnchor,
+    actual,
+    options.term,
+  );
 
   for (const group of [...new Set(requestedGroups)].sort(compareGroups)) {
     if (!schedule.groups[group]) throw new Error(`Group not found: ${group}`);
@@ -153,8 +159,8 @@ export const writeIcalArtifacts = async (
         calendarName: `ЯГК: ${group}${subgroupLabel}`,
         termStart: termRange.start,
         termEnd: termRange.end,
-        referenceDate: options.term.weekAnchor.date,
-        referenceWeekType: options.term.weekAnchor.weekType,
+        referenceDate: weekAnchor.date,
+        referenceWeekType: weekAnchor.weekType,
         timezone: options.timezone,
         lessonTimeResolver,
         formatLessonSummary: formatYgkLessonSummary,
@@ -180,8 +186,8 @@ export const writeIcalArtifacts = async (
           calendarName: `ЯГК: ${group}${subgroupLabel} (actual)`,
           termStart: termRange.start,
           termEnd: termRange.end,
-          referenceDate: options.term.weekAnchor.date,
-          referenceWeekType: options.term.weekAnchor.weekType,
+          referenceDate: weekAnchor.date,
+          referenceWeekType: weekAnchor.weekType,
           timezone: options.timezone,
           lessonTimeResolver,
           formatLessonSummary: formatYgkLessonSummary,

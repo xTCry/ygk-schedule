@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { YgkCalendarConfig } from '../calendar/config.ts';
-import type { GroupScheduleArtifact } from '../types.ts';
-import { presentGroupScheduleArtifact } from './presentation.ts';
+import type {
+  ActualGroupScheduleArtifact,
+  GroupScheduleArtifact,
+} from '../types.ts';
+import {
+  presentActualGroupScheduleArtifact,
+  presentGroupScheduleArtifact,
+} from './presentation.ts';
 
 const config: YgkCalendarConfig = {
   timezone: 'Europe/Moscow',
@@ -20,10 +26,17 @@ const config: YgkCalendarConfig = {
       },
       lessonTimesByDay: {},
     },
+    'b-v': {
+      lessonTimes: {
+        2: { start: '11:00', end: '12:30' },
+      },
+      lessonTimesByDay: {},
+    },
   },
   roomProfiles: {
     buildings: {
       А: { profile: 'a-m', courseProfiles: {}, groupOverrides: {} },
+      Б: { profile: 'b-v', courseProfiles: {}, groupOverrides: {} },
     },
     specialRooms: {},
   },
@@ -73,6 +86,107 @@ describe('Pages presentation', () => {
       profile: 'a-m',
       slots: [{ start: '09:20', end: '10:50' }],
       breakAfterMinutes: 10,
+    });
+  });
+
+  it('keeps the original room time for a room-only actual replacement', () => {
+    const base: GroupScheduleArtifact = {
+      ...artifact,
+      group: {
+        ...artifact.group,
+        days: [
+          {
+            day: 'Понедельник',
+            lessons: [
+              {
+                ...artifact.group.days[0]!.lessons[0]!,
+                number: 2,
+                variants: [
+                  {
+                    subject: 'МДК.06.01',
+                    teacher: 'Преподаватель',
+                    room: 'Б406',
+                    weekType: 'denominator',
+                    subgroup: '2',
+                    sourceRow: 1,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    };
+    const actual: ActualGroupScheduleArtifact = {
+      schemaVersion: 1,
+      provider: 'ygk',
+      group: 'СТ1-11',
+      diagnostics: [],
+      semanticHash: 'actual',
+      dates: {
+        '2026-09-11': {
+          date: '2026-09-11',
+          day: 'Понедельник',
+          weekType: 'denominator',
+          groups: {
+            'СТ1-11': {
+              group: 'СТ1-11',
+              date: '2026-09-11',
+              day: 'Понедельник',
+              lessons: [
+                {
+                  number: 2,
+                  source: null,
+                  status: 'scheduled',
+                  replacements: [
+                    {
+                      lessonNumber: 2,
+                      strategy: 'scheduled-room',
+                      replacement: {
+                        date: '2026-09-11',
+                        group: 'СТ1-11',
+                        lessonNumbers: [2],
+                        type: 'replace',
+                        original: null,
+                        replacement: { raw: 'по расписанию', room: 'ДОТ' },
+                        source: {
+                          shift: 'first',
+                          row: 1,
+                          rawGroupName: 'СТ1-11',
+                          rawLessonNumbers: '2',
+                          rawOriginal: '',
+                          rawReplacement: 'по расписанию',
+                          rawRoom: 'ДОТ',
+                        },
+                      },
+                    },
+                  ],
+                  variants: [
+                    {
+                      subject: 'МДК.06.01',
+                      teacher: 'Преподаватель',
+                      room: 'ДОТ',
+                      weekType: 'denominator',
+                      subgroup: '2',
+                      sourceRow: 1,
+                    },
+                  ],
+                },
+              ],
+              unresolvedReplacements: [],
+            },
+          },
+        },
+      },
+    };
+
+    expect(
+      presentActualGroupScheduleArtifact(actual, base, config).dates[
+        '2026-09-11'
+      ]!.groups['СТ1-11']!.lessons[0]!.variants[0]!.timing,
+    ).toMatchObject({
+      profile: 'b-v',
+      slots: [{ start: '11:00', end: '12:30' }],
     });
   });
 });

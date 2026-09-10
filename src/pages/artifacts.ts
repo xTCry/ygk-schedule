@@ -126,10 +126,17 @@ const copyGroupJsonArtifacts = async (
             await readJsonIfExists<ActualGroupScheduleArtifact>(source);
           if (!artifact)
             throw new Error(`Group artifact was not found: ${source}`);
+          const baseArtifact = await readJsonIfExists<GroupScheduleArtifact>(
+            join(dataDirectory, 'base', '10-groups', entry.name),
+          );
           await writeFile(
             destination,
             `${JSON.stringify(
-              presentActualGroupScheduleArtifact(artifact, calendarConfig),
+              presentActualGroupScheduleArtifact(
+                artifact,
+                baseArtifact ?? undefined,
+                calendarConfig,
+              ),
               null,
               2,
             )}\n`,

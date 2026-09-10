@@ -7,6 +7,7 @@ import { renderSchedule } from './components/schedule.ts';
 import { formatScheduleDate, formatUpdate } from './date.ts';
 import { createElement, requiredElement } from './dom.ts';
 import { replacementSourceUrlForGroup } from './replacement-source.ts';
+import { describeLessonReplacement } from './replacement-summary.ts';
 import { initializeThemeControl } from './theme.ts';
 import type {
   ActualGroup,
@@ -129,6 +130,7 @@ const openReplacementDialog = (
   group: string,
   actual: ActualGroup,
   actualDate: ActualDate,
+  base: BaseGroupArtifact,
   diagnostics: readonly Diagnostic[],
 ): void => {
   const dialog = requiredElement<HTMLDialogElement>('#replacement-dialog');
@@ -173,18 +175,12 @@ const openReplacementDialog = (
       'p',
       'mt-1 text-sm leading-5 text-stone-600 dark:text-stone-300',
     );
-    text.textContent = lesson.replacements
-      .map((replacement) => {
-        const before = replacement.replacement.original?.raw;
-        const after = replacement.replacement.replacement?.raw;
-        const room = replacement.replacement.replacement?.room;
-        if (after?.toLocaleLowerCase('ru-RU') === 'по расписанию')
-          return room ? `По расписанию · аудитория: ${room}` : 'По расписанию';
-        return before && after
-          ? `${before} → ${after}`
-          : 'Изменение опубликовано';
-      })
-      .join('; ');
+    text.textContent =
+      describeLessonReplacement(
+        lesson,
+        base.group.days.find((day) => day.day === actualDate.day)?.lessons,
+        actualDate.weekType,
+      ) ?? 'Изменение опубликовано';
     item.append(heading, text);
     details.append(item);
   }
@@ -266,7 +262,7 @@ const renderGroup = async (
     subgroup,
     showOtherSubgroups,
     onOpenReplacementDetails: (date, actualGroup, actualDate) =>
-      openReplacementDialog(date, group.code, actualGroup, actualDate, [
+      openReplacementDialog(date, group.code, actualGroup, actualDate, base, [
         ...base.diagnostics,
         ...(actual?.diagnostics ?? []),
       ]),

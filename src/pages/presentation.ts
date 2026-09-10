@@ -101,6 +101,7 @@ const addTiming = (
   lessonNumber: number,
   variant: LessonVariant,
   config: YgkCalendarConfig,
+  timeRoom = variant.room,
 ): PagesLessonVariant => {
   const resolution = createYgkRoomTimeResolver(
     config.profiles,
@@ -109,7 +110,7 @@ const addTiming = (
     group,
     day,
     lessonNumber,
-    room: variant.room,
+    room: timeRoom,
   });
   const profile = resolution.profile
     ? config.profiles[resolution.profile]
@@ -124,6 +125,43 @@ const addTiming = (
       ...(pause === undefined ? {} : { breakAfterMinutes: pause }),
     },
   };
+};
+
+const variantAppliesToWeek = (
+  variant: LessonVariant,
+  weekType: ActualGroupScheduleArtifact['dates'][string]['weekType'],
+): boolean =>
+  weekType === 'unknown' ||
+  variant.weekType === 'unknown' ||
+  variant.weekType === 'both' ||
+  variant.weekType === weekType;
+
+/**
+ * Для «по расписанию → ДОТ» время должно остаться от исходной аудитории.
+ *
+ * Иначе пара корпуса Б/В ошибочно получает раздельные слоты профиля ДОТ
+ * (А/М), хотя меняется только место проведения занятия.
+ */
+const originalRoomForActualVariant = (
+  base: GroupScheduleArtifact | undefined,
+  actualDate: ActualGroupScheduleArtifact['dates'][string],
+  actualLesson: ActualLesson,
+  variant: LessonVariant,
+): string | undefined => {
+  if (
+    !actualLesson.replacements.some(
+      (replacement) => replacement.strategy === 'scheduled-room',
+    )
+  )
+    return undefined;
+  return base?.group.days
+    .find((day) => day.day === actualDate.day)
+    ?.lessons.find((lesson) => lesson.number === actualLesson.number)
+    ?.variants.find(
+      (baseVariant) =>
+        variantAppliesToWeek(baseVariant, actualDate.weekType) &&
+        baseVariant.subgroup === variant.subgroup,
+    )?.room;
 };
 
 /**
@@ -161,6 +199,7 @@ export const presentGroupScheduleArtifact = (
  */
 export const presentActualGroupScheduleArtifact = (
   artifact: ActualGroupScheduleArtifact,
+  base: GroupScheduleArtifact | undefined,
   config: YgkCalendarConfig,
 ): PagesActualGroupScheduleArtifact => ({
   ...artifact,
@@ -183,6 +222,12 @@ export const presentActualGroupScheduleArtifact = (
                     lesson.number,
                     variant,
                     config,
+                    originalRoomForActualVariant(
+                      base,
+                      actualDate,
+                      lesson,
+                      variant,
+                    ),
                   ),
                 ),
               })),
