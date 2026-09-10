@@ -72,7 +72,7 @@ jobs:
       - name: synchronize diagnostic issues
         id: sync-issues
         working-directory: parser
-        run: npm run sync-issues -- --output-dir "$GITHUB_WORKSPACE" --repo "$GITHUB_REPOSITORY" --max-writes 2
+        run: npm run sync-issues -- --output-dir "$GITHUB_WORKSPACE" --repo "$GITHUB_REPOSITORY" --max-writes 8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
