@@ -803,7 +803,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         lessons:
-          - number: 3
+          - number: 2
             variants:
               - subject: МДК.04.02 Установка и настройка аппаратных и программных средств
                   доступа в сеть Интернет
@@ -812,12 +812,12 @@ dates:
                   Тимощук М.В..
                 room: ДОТ
                 weekType: denominator
-                sourceRow: 89
+                sourceRow: 88
                 rawRoom: ДОТ
             source:
               sheet: ИБ1-21 ИБ1-31 ИБ41
-              rowStart: 89
-              rowEnd: 90
+              rowStart: 87
+              rowEnd: 88
               rawGroupName: ИБ1-31/ИБ1-32
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
@@ -841,6 +841,28 @@ dates:
                     rawOriginal: ""
                     rawReplacement: по расписанию
                     rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: scheduled-room
+          - number: 3
+            variants:
+              - subject: МДК.04.02 Установка и настройка аппаратных и программных средств
+                  доступа в сеть Интернет
+                teacher: |-
+                  Хожайнова М.Г.
+                  Тимощук М.В..
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 90
+                rawRoom: ДОТ
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: ИБ1-31/ИБ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a2
                 lessonNumber: 3
                 strategy: scheduled-room
           - number: 4
@@ -882,48 +904,8 @@ dates:
                     rawRoom: ДОТ
                 lessonNumber: 4
                 strategy: subject-word-mention
-        unresolvedReplacements:
-          - replacement: *a2
-            lessonNumber: 2
-            reason: lesson-not-scheduled-for-week
-            event:
-              summary: Необработанная замена
-              description: "По замене: «по расписанию». Аудитория: «ДОТ»."
-              room: ДОТ
+        unresolvedReplacements: []
 diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены есть в базовом расписании, но не проводится в указанную
-      неделю
-    fingerprint: 5d78d61fb301e2095a53343210e19a0d7159dc1bb473839087b577678eb09170
-    sheet: "Замены: Вторая смена"
-    row: 18
-    normalizedGroup: ИБ1-31
-    rawValue: по расписанию
-    context:
-      date: 2026-09-11
-      lessonNumber: 2
-      type: replace
-      reason: lesson-not-scheduled-for-week
-      baseGroup: ИБ1-31
-      baseSourceFiles:
-        - oit_1sem.xlsx
-      replacementWeekType: denominator
-      availableWeekTypes:
-        - numerator
-      candidates:
-        - subject: МДК.04.02 Установка и настройка аппаратных и программных средств
-            доступа в сеть Интернет
-          teacher: |-
-            Хожайнова М.Г.
-            Тимощук М.В..
-          room: |-
-            Б308
-            Б309
-          sourceRow: 88
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -951,4 +933,4 @@ diagnostics:
           sourceRow: 98
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0759336ca46ce2deab12a533c8e51913da5c773b2aac8290c2affe2eea76e041
+semanticHash: 161e506ca2232120d437eb2a9a47d3acdbb23c2f91ef38f364168ae109c0723e

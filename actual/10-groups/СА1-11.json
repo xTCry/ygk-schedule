@@ -295,7 +295,7 @@
               "number": 1,
               "variants": [
                 {
-                  "subject": "Информатика л/р",
+                  "subject": "Информатика",
                   "teacher": "Садилова К.А.",
                   "room": "Б301",
                   "weekType": "both",
@@ -401,11 +401,14 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "Основы проф. Деятельности",
-                  "teacher": "Вакансия",
-                  "room": "Б310",
-                  "weekType": "denominator",
-                  "sourceRow": 188
+                  "subject": "Математика",
+                  "teacher": "Холманова В.М.",
+                  "room": "Акт.зал",
+                  "weekType": "both",
+                  "rawSubject": "Математика Холманова В.М.",
+                  "rawTeacher": "Холманова В.М.",
+                  "rawRoom": "Акт.зал",
+                  "sourceRow": 10
                 }
               ],
               "source": {
@@ -416,81 +419,43 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "СА1-11",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Инд.проект"
+                    },
+                    "replacement": {
+                      "raw": "Математика Холманова В.М.",
+                      "room": "Акт.зал"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 10,
+                      "rawGroupName": "СА1-11",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "Инд.проект",
+                      "rawReplacement": "Математика Холманова В.М.",
+                      "rawRoom": "Акт.зал"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "СА1-11",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Инд.проект"
-                },
-                "replacement": {
-                  "raw": "Математика Холманова В.М.",
-                  "room": "Акт.зал"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 10,
-                  "rawGroupName": "СА1-11",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "Инд.проект",
-                  "rawReplacement": "Математика Холманова В.М.",
-                  "rawRoom": "Акт.зал"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Инд.проект». По замене: «Математика Холманова В.М.». Аудитория: «Акт.зал».",
-                "room": "Акт.зал"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "06fcddb63d31155899fe6422165832b8a6ef6a4eb3aede973b60811adc196194",
-      "sheet": "Замены: Первая смена",
-      "row": 10,
-      "normalizedGroup": "СА1-11",
-      "rawValue": "Математика Холманова В.М.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "СА1-11",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "requestedSubject": "Инд.проект",
-        "candidates": [
-          {
-            "subject": "Основы проф. Деятельности",
-            "teacher": "Вакансия",
-            "room": "Б310",
-            "sourceRow": 188
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "3475a19e503aa3d1267bd07a3d735985ebc739ce49924716cadf0e03c2632904"
+  "diagnostics": [],
+  "semanticHash": "1e27f28128feec74a326457d7b32ecfd36322630172c0fd716d6c8eb73f19f9f"
 }

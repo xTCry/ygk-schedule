@@ -1025,11 +1025,14 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "Информатика",
-                  "teacher": "Яковлева Е.Н.\nВакансия",
-                  "room": "Б308",
-                  "weekType": "denominator",
-                  "sourceRow": 155
+                  "subject": "Электротехника",
+                  "teacher": "Леонидова Н.А.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "Электротехника Леонидова Н.А.",
+                  "rawTeacher": "Леонидова Н.А.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 77
                 }
               ],
               "source": {
@@ -1040,7 +1043,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "МА1-21",
+                    "lessonNumbers": [
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Физкультура"
+                    },
+                    "replacement": {
+                      "raw": "Электротехника Леонидова Н.А.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 77,
+                      "rawGroupName": "МА1-21",
+                      "rawLessonNumbers": "2",
+                      "rawOriginal": "Физкультура",
+                      "rawReplacement": "Электротехника Леонидова Н.А.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "subject-word-mention"
+                }
+              ]
             },
             {
               "number": 3,
@@ -1064,41 +1096,7 @@
               "replacements": []
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "МА1-21",
-                "lessonNumbers": [
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Физкультура"
-                },
-                "replacement": {
-                  "raw": "Электротехника Леонидова Н.А.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 77,
-                  "rawGroupName": "МА1-21",
-                  "rawLessonNumbers": "2",
-                  "rawOriginal": "Физкультура",
-                  "rawReplacement": "Электротехника Леонидова Н.А.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Физкультура». По замене: «Электротехника Леонидова Н.А.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
@@ -1130,38 +1128,6 @@
             "teacher": "Вакансия",
             "room": "ДОТ",
             "sourceRow": 146
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "278af2ab848c7f986483ac5b16ecf86735b81b0d0a628f01998a9bfdda3329f5",
-      "sheet": "Замены: Первая смена",
-      "row": 77,
-      "normalizedGroup": "МА1-21",
-      "rawValue": "Электротехника Леонидова Н.А.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "МА1-21",
-        "baseSourceFiles": [
-          "oeis.xlsx"
-        ],
-        "requestedSubject": "Физкультура",
-        "candidates": [
-          {
-            "subject": "Информатика",
-            "teacher": "Яковлева Е.Н.\nВакансия",
-            "room": "Б308",
-            "sourceRow": 155
           }
         ]
       },
@@ -1265,5 +1231,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "fcee6f63a1f42af0a30d2b8ec240302af6ff26f3b0925f02ee2adfca6d3f3734"
+  "semanticHash": "6a0b2efe298184655d71a69c2b7424fd4f44a937566a173e7be7d75169afc437"
 }

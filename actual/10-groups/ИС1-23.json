@@ -869,11 +869,14 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "Информационные технологии",
-                  "teacher": "Комиссарова О.В.",
+                  "subject": "МДК 06.01",
+                  "teacher": "Пронина Л.Ю.",
                   "room": "ДОТ",
-                  "weekType": "denominator",
-                  "sourceRow": 91
+                  "weekType": "both",
+                  "rawSubject": "МДК 06.01/теория Пронина Л.Ю.",
+                  "rawTeacher": "Пронина Л.Ю.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 59
                 }
               ],
               "source": {
@@ -884,81 +887,43 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ИС1-23",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Арх.аппар.ср."
+                    },
+                    "replacement": {
+                      "raw": "МДК 06.01/теория Пронина Л.Ю.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 59,
+                      "rawGroupName": "ИС1-23",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "Арх.аппар.ср.",
+                      "rawReplacement": "МДК 06.01/теория Пронина Л.Ю.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ИС1-23",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Арх.аппар.ср."
-                },
-                "replacement": {
-                  "raw": "МДК 06.01/теория Пронина Л.Ю.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 59,
-                  "rawGroupName": "ИС1-23",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "Арх.аппар.ср.",
-                  "rawReplacement": "МДК 06.01/теория Пронина Л.Ю.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Арх.аппар.ср.». По замене: «МДК 06.01/теория Пронина Л.Ю.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "a81ecb013999ce018a55b9b7b828abd40cfc9fe345e6b58e8e1fc3b76ebd1be3",
-      "sheet": "Замены: Первая смена",
-      "row": 59,
-      "normalizedGroup": "ИС1-23",
-      "rawValue": "МДК 06.01/теория Пронина Л.Ю.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "ИС1-23",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "requestedSubject": "Арх.аппар.ср.",
-        "candidates": [
-          {
-            "subject": "Информационные технологии",
-            "teacher": "Комиссарова О.В.",
-            "room": "ДОТ",
-            "sourceRow": 91
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "d2991ddaac929c1ddc05d697e282c773303db22f86421eaf753ca52d768d43c0"
+  "diagnostics": [],
+  "semanticHash": "f5fe4de9d59cec36601343036d8d052e940b0cf21679bdc8fbeeacfc3e40a6ff"
 }

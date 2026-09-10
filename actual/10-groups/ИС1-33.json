@@ -361,83 +361,64 @@
                   "strategy": "scheduled-room"
                 }
               ]
-            }
-          ],
-          "unresolvedReplacements": [
+            },
             {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ИС1-33",
-                "lessonNumbers": [
-                  4,
-                  5,
-                  6
-                ],
-                "type": "replace",
-                "original": null,
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 20,
-                  "rawGroupName": "ИС1-33",
-                  "rawLessonNumbers": "4-6",
-                  "rawOriginal": "",
-                  "rawReplacement": "по расписанию",
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "Экономика отрасли",
+                  "teacher": "Сафронова Л.Н.",
+                  "room": "ДОТ",
+                  "weekType": "denominator",
+                  "sourceRow": 92,
                   "rawRoom": "ДОТ"
                 }
+              ],
+              "source": {
+                "sheet": "ИС-3 курс ИС-4 курс",
+                "rowStart": 91,
+                "rowEnd": 92,
+                "rawGroupName": "ИС1-33/ИС1-34",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
-              "lessonNumber": 6,
-              "reason": "lesson-not-scheduled-for-week",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По замене: «по расписанию». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ИС1-33",
+                    "lessonNumbers": [
+                      4,
+                      5,
+                      6
+                    ],
+                    "type": "replace",
+                    "original": null,
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 20,
+                      "rawGroupName": "ИС1-33",
+                      "rawLessonNumbers": "4-6",
+                      "rawOriginal": "",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 6,
+                  "strategy": "scheduled-room"
+                }
+              ]
             }
-          ]
+          ],
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
-      "fingerprint": "280502f1e47e7413b89aafdf6d68346aa3f8b668a4e2acc247dd5b43b4415545",
-      "sheet": "Замены: Вторая смена",
-      "row": 20,
-      "normalizedGroup": "ИС1-33",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 6,
-        "type": "replace",
-        "reason": "lesson-not-scheduled-for-week",
-        "baseGroup": "ИС1-33",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "replacementWeekType": "denominator",
-        "availableWeekTypes": [
-          "numerator"
-        ],
-        "candidates": [
-          {
-            "subject": "Экономика отрасли",
-            "teacher": "Сафронова Л.Н.",
-            "room": "Б402",
-            "sourceRow": 92
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    }
-  ],
-  "semanticHash": "a8e78bfe0eb0c4886ad85eed7adcfe22d037e16353e8ddba63380ff0179f283b"
+  "diagnostics": [],
+  "semanticHash": "25a3ba686f76c43534ebe9f3f95bbe220bfec5682c91b2f5c75f1a4e09ab4f9b"
 }

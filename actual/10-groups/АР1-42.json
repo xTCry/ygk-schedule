@@ -980,11 +980,14 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "Основы экономики архитектурного проектирования",
-                  "teacher": "Сафронова Л.Н.",
-                  "room": "В102",
-                  "weekType": "denominator",
-                  "sourceRow": 244
+                  "subject": "МДК 01.05 Т.5.1.",
+                  "teacher": "Балина С.А.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "МДК 01.05 Т.5.1. Балина С.А.",
+                  "rawTeacher": "Балина С.А.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 38
                 }
               ],
               "source": {
@@ -995,7 +998,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "АР1-42",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 02.02"
+                    },
+                    "replacement": {
+                      "raw": "МДК 01.05 Т.5.1. Балина С.А.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 38,
+                      "rawGroupName": "АР1-42",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "МДК 02.02",
+                      "rawReplacement": "МДК 01.05 Т.5.1. Балина С.А.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
               "number": 4,
@@ -1119,78 +1151,11 @@
               ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "АР1-42",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 02.02"
-                },
-                "replacement": {
-                  "raw": "МДК 01.05 Т.5.1. Балина С.А.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 38,
-                  "rawGroupName": "АР1-42",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "МДК 02.02",
-                  "rawReplacement": "МДК 01.05 Т.5.1. Балина С.А.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 02.02». По замене: «МДК 01.05 Т.5.1. Балина С.А.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "6ed47f9164ee5fa37475244a32e3f5d1ed49f5dda27add19f74229066372e6c7",
-      "sheet": "Замены: Вторая смена",
-      "row": 38,
-      "normalizedGroup": "АР1-42",
-      "rawValue": "МДК 01.05 Т.5.1. Балина С.А.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "АР1-42",
-        "baseSourceFiles": [
-          "oar.xlsx"
-        ],
-        "requestedSubject": "МДК 02.02",
-        "candidates": [
-          {
-            "subject": "Основы экономики архитектурного проектирования",
-            "teacher": "Сафронова Л.Н.",
-            "room": "В102",
-            "sourceRow": 244
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    }
-  ],
-  "semanticHash": "4fd25b85884c6d1f1eab8ed16529089c5e75e1718776d8d6dd2496762b2ecf73"
+  "diagnostics": [],
+  "semanticHash": "3b0efc3feabf41a0b74060a8bb46a2058c4aeb12cf6260972fa275775d03b477"
 }

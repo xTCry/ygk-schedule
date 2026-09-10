@@ -1219,13 +1219,15 @@
               "number": 0,
               "variants": [
                 {
-                  "subject": "МДК.01.01 Устройство автомобильных средств п/гр 1",
-                  "teacher": "Тепляков А.Б.",
-                  "room": "Т103",
-                  "weekType": "denominator",
-                  "subgroup": "1",
-                  "rawSubject": "МДК.01.01 Устройство автомобильных средств п/гр 1 ",
-                  "sourceRow": 98
+                  "subject": "Слесарное дело",
+                  "teacher": "Щеглов И.А.",
+                  "room": "МТ103",
+                  "weekType": "both",
+                  "subgroup": "2",
+                  "rawSubject": "Слесарное дело/теория Щеглов И.А.",
+                  "rawTeacher": "Щеглов И.А.",
+                  "rawRoom": "МТ103",
+                  "sourceRow": 81
                 }
               ],
               "source": {
@@ -1236,18 +1238,47 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "МА1-12",
+                    "lessonNumbers": [
+                      0
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.01 п/гр.2"
+                    },
+                    "replacement": {
+                      "raw": "Слесарное дело/теория Щеглов И.А.",
+                      "room": "МТ103"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 81,
+                      "rawGroupName": "МА1-12",
+                      "rawLessonNumbers": "0",
+                      "rawOriginal": "МДК 01.01 п/гр.2",
+                      "rawReplacement": "Слесарное дело/теория Щеглов И.А.",
+                      "rawRoom": "МТ103"
+                    }
+                  },
+                  "lessonNumber": 0,
+                  "strategy": "subject-module-code"
+                }
+              ]
             },
             {
               "number": 1,
               "variants": [
                 {
-                  "subject": "МДК.01.01 Устройство автомобильных средств п/гр 1\nСлесарное дело п/гр 2",
+                  "subject": "МДК.01.01 Устройство автомобильных средств п/гр 2\nСлесарное дело п/гр 1",
                   "teacher": "Тепляков А.Б.\nЩеглов И.А.",
                   "room": "МТ106\nМТ103",
                   "weekType": "denominator",
-                  "rawSubject": "МДК.01.01 Устройство автомобильных средств п/гр 1 \nСлесарное дело п/гр 2",
-                  "sourceRow": 100
+                  "rawSubject": "МДК.01.01 Устройство автомобильных средств п/гр 2 \nСлесарное дело п/гр 1",
+                  "sourceRow": 101
                 }
               ],
               "source": {
@@ -1314,82 +1345,12 @@
               ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "МА1-12",
-                "lessonNumbers": [
-                  0
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 01.01 п/гр.2"
-                },
-                "replacement": {
-                  "raw": "Слесарное дело/теория Щеглов И.А.",
-                  "room": "МТ103"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 81,
-                  "rawGroupName": "МА1-12",
-                  "rawLessonNumbers": "0",
-                  "rawOriginal": "МДК 01.01 п/гр.2",
-                  "rawReplacement": "Слесарное дело/теория Щеглов И.А.",
-                  "rawRoom": "МТ103"
-                }
-              },
-              "lessonNumber": 0,
-              "reason": "subgroup-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 01.01 п/гр.2». По замене: «Слесарное дело/теория Щеглов И.А.». Аудитория: «МТ103».",
-                "room": "МТ103"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Подгруппа из замены не проводится в базовом расписании в эту неделю",
-      "fingerprint": "600b212815b074e62f10a597c0e00b6092ac94f3547ef0e36b9818cb4ac9f4fe",
-      "sheet": "Замены: Первая смена",
-      "row": 81,
-      "normalizedGroup": "МА1-12",
-      "rawValue": "Слесарное дело/теория Щеглов И.А.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 0,
-        "type": "replace",
-        "reason": "subgroup-not-matched",
-        "baseGroup": "МА1-12",
-        "baseSourceFiles": [
-          "oeis.xlsx"
-        ],
-        "requestedSubject": "МДК 01.01",
-        "requestedSubgroups": [
-          "2"
-        ],
-        "candidates": [
-          {
-            "subject": "МДК.01.01 Устройство автомобильных средств п/гр 1",
-            "teacher": "Тепляков А.Б.",
-            "room": "Т103",
-            "subgroup": "1",
-            "sourceRow": 98
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -1411,7 +1372,7 @@
         ],
         "replacementWeekType": "denominator",
         "availableWeekTypes": [
-          "numerator"
+          "denominator"
         ],
         "requestedSubject": "Инд.проект",
         "candidates": [
@@ -1427,5 +1388,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "ccaf88190db3bbe4342d53efa2512782e124528657c66e038deecf7f583434fb"
+  "semanticHash": "e23dec8709bc21ee13ac0185efe378c7d27e1f564550e85fdbe8d8d7c093b4f1"
 }

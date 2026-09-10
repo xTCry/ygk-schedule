@@ -327,11 +327,14 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "Основы проф. Деятельности",
-                  "teacher": "Вакансия",
-                  "room": "Б403",
-                  "weekType": "denominator",
-                  "sourceRow": 286
+                  "subject": "Информ.",
+                  "teacher": "Комиссарова О.В.",
+                  "room": "Б302",
+                  "weekType": "both",
+                  "rawSubject": "Информ. Комиссарова О.В.",
+                  "rawTeacher": "Комиссарова О.В.",
+                  "rawRoom": "Б302",
+                  "sourceRow": 6
                 }
               ],
               "source": {
@@ -342,7 +345,36 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ИТ1-11",
+                    "lessonNumbers": [
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Инд.проект"
+                    },
+                    "replacement": {
+                      "raw": "Информ. Комиссарова О.В.",
+                      "room": "Б302"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 6,
+                      "rawGroupName": "ИТ1-11",
+                      "rawLessonNumbers": "2",
+                      "rawOriginal": "Инд.проект",
+                      "rawReplacement": "Информ. Комиссарова О.В.",
+                      "rawRoom": "Б302"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             },
             {
               "number": 3,
@@ -398,78 +430,11 @@
               ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ИТ1-11",
-                "lessonNumbers": [
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Инд.проект"
-                },
-                "replacement": {
-                  "raw": "Информ. Комиссарова О.В.",
-                  "room": "Б302"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 6,
-                  "rawGroupName": "ИТ1-11",
-                  "rawLessonNumbers": "2",
-                  "rawOriginal": "Инд.проект",
-                  "rawReplacement": "Информ. Комиссарова О.В.",
-                  "rawRoom": "Б302"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Инд.проект». По замене: «Информ. Комиссарова О.В.». Аудитория: «Б302».",
-                "room": "Б302"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "54a8d09799270d76fba1ea663e5371b80b255ad4778635a1a78f3899c66ad014",
-      "sheet": "Замены: Первая смена",
-      "row": 6,
-      "normalizedGroup": "ИТ1-11",
-      "rawValue": "Информ. Комиссарова О.В.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "ИТ1-11",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "requestedSubject": "Инд.проект",
-        "candidates": [
-          {
-            "subject": "Основы проф. Деятельности",
-            "teacher": "Вакансия",
-            "room": "Б403",
-            "sourceRow": 286
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "6826e271be49be0f862ced390432d3ab7bf0a8e64eb9665fd847236333828572"
+  "diagnostics": [],
+  "semanticHash": "30fe87ee92fdbff5b0243f6c897a5f425a1bf1cd7a8efc7ad694f8f712b4ef21"
 }

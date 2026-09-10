@@ -287,12 +287,14 @@ dates:
             variants:
               - subject: МДК.02.02 Тема 2.5 Применение геопространственных технологий в
                   строительстве
-                teacher: Сивачева М.С.
+                teacher: |-
+                  Сивачева М.С.
+                  Рангелова Н.М.
                 room: ДОТ
                 weekType: denominator
                 rawSubject: МДК.02.02  Тема 2.5 Применение геопространственных технологий в
                   строительстве
-                sourceRow: 89
+                sourceRow: 90
                 rawRoom: ДОТ
             source:
               sheet: СТ 2 курс
@@ -308,17 +310,14 @@ dates:
           - number: 4
             variants:
               - subject: |-
-                  Техническая механика п/гр2
-                  МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр1
+                  Техническая механика п/гр1
+                  МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр2
                 teacher: |-
                   Кощеев В. В.
                   Краснянская Е. В.
                 room: ДОТ
                 weekType: denominator
-                rawSubject: |-
-                  Техническая механика п/гр2
-                  МДК.01.01  Т.1.2.Строительные материалы и изделия п/гр1
-                sourceRow: 91
+                sourceRow: 92
                 rawRoom: ДОТ
             source:
               sheet: СТ 2 курс
@@ -333,12 +332,15 @@ dates:
                 strategy: scheduled-room
           - number: 5
             variants:
-              - subject: Техническая механика п/гр2
-                teacher: Кощеев В. В.
-                room: М207
-                weekType: denominator
+              - subject: Техническая механика п/гр1
+                teacher: Кощеев В.В.
+                room: ДОТ
+                weekType: both
                 subgroup: "2"
-                sourceRow: 93
+                rawSubject: п/гр.2 Кощеев В.В.
+                rawTeacher: Кощеев В.В.
+                rawRoom: ДОТ
+                sourceRow: 52
             source:
               sheet: СТ 2 курс
               rowStart: 93
@@ -346,61 +348,28 @@ dates:
               rawGroupName: СТ1-23/СТ1-24
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: СТ1-23
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: Тех.механика п/гр.1
-              replacement:
-                raw: п/гр.2 Кощеев В.В.
-                room: ДОТ
-              source:
-                shift: first
-                row: 52
-                rawGroupName: СТ1-23
-                rawLessonNumbers: "5"
-                rawOriginal: Тех.механика п/гр.1
-                rawReplacement: п/гр.2 Кощеев В.В.
-                rawRoom: ДОТ
-            lessonNumber: 5
-            reason: subgroup-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Тех.механика п/гр.1». По замене: «п/гр.2 Кощеев
-                В.В.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
-    fingerprint: 99acb6197d66f4f51751563853ec3dbc964ed933e6ab0a7b5062d2a89859fdbf
-    sheet: "Замены: Первая смена"
-    row: 52
-    normalizedGroup: СТ1-23
-    rawValue: п/гр.2 Кощеев В.В.
-    context:
-      date: 2026-09-11
-      lessonNumber: 5
-      type: replace
-      reason: subgroup-not-matched
-      baseGroup: СТ1-23
-      baseSourceFiles:
-        - so.xlsx
-      requestedSubject: Тех.механика
-      requestedSubgroups:
-        - "1"
-      candidates:
-        - subject: Техническая механика п/гр2
-          teacher: Кощеев В. В.
-          room: М207
-          subgroup: "2"
-          sourceRow: 93
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ee5538c574911c023931a44a5331efaaef12de440b7856dc816ba124c9a0f3a5
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: СТ1-23
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: Тех.механика п/гр.1
+                  replacement:
+                    raw: п/гр.2 Кощеев В.В.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 52
+                    rawGroupName: СТ1-23
+                    rawLessonNumbers: "5"
+                    rawOriginal: Тех.механика п/гр.1
+                    rawReplacement: п/гр.2 Кощеев В.В.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 79c3cc036f1d0ca0be3b1de9f950d86f8b81c33a6a18e1ddb54535d75d32ab66

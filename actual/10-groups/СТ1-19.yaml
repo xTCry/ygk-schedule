@@ -285,6 +285,42 @@ dates:
         date: 2026-09-11
         day: Пятница
         lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 241
+                rawRoom: ДОТ
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 240
+              rowEnd: 241
+              rawGroupName: СТ1-19
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: СТ1-19
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 41
+                    rawGroupName: СТ1-19
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: scheduled-room
           - number: 1
             variants:
               - subject: Литература
@@ -363,58 +399,6 @@ dates:
                     rawRoom: ДОТ
                 lessonNumber: 2
                 strategy: subject-abbreviation
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: СТ1-19
-              lessonNumbers:
-                - 0
-              type: replace
-              original: null
-              replacement:
-                raw: по расписанию
-                room: ДОТ
-              source:
-                shift: first
-                row: 41
-                rawGroupName: СТ1-19
-                rawLessonNumbers: "0"
-                rawOriginal: ""
-                rawReplacement: по расписанию
-                rawRoom: ДОТ
-            lessonNumber: 0
-            reason: lesson-not-scheduled-for-week
-            event:
-              summary: Необработанная замена
-              description: "По замене: «по расписанию». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены есть в базовом расписании, но не проводится в указанную
-      неделю
-    fingerprint: c40d353e2f384c1615be9ab3d10f8866ccb938496b5eae5313b9e787155cb587
-    sheet: "Замены: Первая смена"
-    row: 41
-    normalizedGroup: СТ1-19
-    rawValue: по расписанию
-    context:
-      date: 2026-09-11
-      lessonNumber: 0
-      type: replace
-      reason: lesson-not-scheduled-for-week
-      baseGroup: СТ1-19
-      baseSourceFiles:
-        - so.xlsx
-      replacementWeekType: denominator
-      availableWeekTypes:
-        - numerator
-      candidates:
-        - subject: Математика
-          teacher: Пухова Ю.Г.
-          room: М208
-          sourceRow: 241
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1d2b4a1586b0b0bf2ce1b39fae7acce7a1c47e1709b709aa33589de3e99d5993
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: c18eeb9e0435390f416e73cb7d938a87524b4f8a8364c0faec876984e0376b29

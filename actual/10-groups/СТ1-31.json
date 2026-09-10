@@ -670,11 +670,11 @@
               "number": 4,
               "variants": [
                 {
-                  "subject": "Основы электротехники",
-                  "teacher": "Леонидова Н.А.",
+                  "subject": "Основы философии",
+                  "teacher": "Смирнов Б.Е.",
                   "room": "ДОТ",
                   "weekType": "denominator",
-                  "sourceRow": 40
+                  "sourceRow": 41
                 }
               ],
               "source": {
@@ -691,15 +691,12 @@
               "number": 5,
               "variants": [
                 {
-                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр2",
-                  "teacher": "Секацкая Н.А.",
+                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
+                  "teacher": "Секацкая Н. А.",
                   "room": "ДОТ",
-                  "weekType": "both",
-                  "subgroup": "2",
-                  "rawSubject": "/теория Секацкая Н.А.",
-                  "rawTeacher": "Секацкая Н.А.",
-                  "rawRoom": "ДОТ",
-                  "sourceRow": 5
+                  "weekType": "denominator",
+                  "subgroup": "1",
+                  "sourceRow": 43
                 }
               ],
               "source": {
@@ -710,47 +707,18 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx"
               },
               "status": "scheduled",
-              "replacements": [
-                {
-                  "replacement": {
-                    "date": "2026-09-11",
-                    "group": "СТ1-31",
-                    "lessonNumbers": [
-                      5
-                    ],
-                    "type": "replace",
-                    "original": {
-                      "raw": "МДК 01.01 Т.1.2.п/гр.2"
-                    },
-                    "replacement": {
-                      "raw": "/теория Секацкая Н.А.",
-                      "room": "ДОТ"
-                    },
-                    "source": {
-                      "shift": "second",
-                      "row": 5,
-                      "rawGroupName": "СТ1-31",
-                      "rawLessonNumbers": "5",
-                      "rawOriginal": "МДК 01.01 Т.1.2.п/гр.2",
-                      "rawReplacement": "/теория Секацкая Н.А.",
-                      "rawRoom": "ДОТ"
-                    }
-                  },
-                  "lessonNumber": 5,
-                  "strategy": "subject-module-code"
-                }
-              ]
+              "replacements": []
             },
             {
               "number": 6,
               "variants": [
                 {
-                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр2",
+                  "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
                   "teacher": "Секацкая Н. А.",
                   "room": "ДОТ",
                   "weekType": "denominator",
-                  "subgroup": "2",
-                  "sourceRow": 44
+                  "subgroup": "1",
+                  "sourceRow": 45
                 }
               ],
               "source": {
@@ -764,11 +732,82 @@
               "replacements": []
             }
           ],
-          "unresolvedReplacements": []
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-11",
+                "group": "СТ1-31",
+                "lessonNumbers": [
+                  5
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "МДК 01.01 Т.1.2.п/гр.2"
+                },
+                "replacement": {
+                  "raw": "/теория Секацкая Н.А.",
+                  "room": "ДОТ"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 5,
+                  "rawGroupName": "СТ1-31",
+                  "rawLessonNumbers": "5",
+                  "rawOriginal": "МДК 01.01 Т.1.2.п/гр.2",
+                  "rawReplacement": "/теория Секацкая Н.А.",
+                  "rawRoom": "ДОТ"
+                }
+              },
+              "lessonNumber": 5,
+              "reason": "subgroup-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «МДК 01.01 Т.1.2.п/гр.2». По замене: «/теория Секацкая Н.А.». Аудитория: «ДОТ».",
+                "room": "ДОТ"
+              }
+            }
+          ]
         }
       }
     }
   },
-  "diagnostics": [],
-  "semanticHash": "94a52e2b4d21d065de0d01480eb22e6e2c1a159ccff7ba384d8d5b1a57520f03"
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Подгруппа из замены не проводится в базовом расписании в эту неделю",
+      "fingerprint": "664fd1a898ae06b28b51d5415e780911b54a281ef44336749efa9e0b1babbd04",
+      "sheet": "Замены: Вторая смена",
+      "row": 5,
+      "normalizedGroup": "СТ1-31",
+      "rawValue": "/теория Секацкая Н.А.",
+      "context": {
+        "date": "2026-09-11",
+        "lessonNumber": 5,
+        "type": "replace",
+        "reason": "subgroup-not-matched",
+        "baseGroup": "СТ1-31",
+        "baseSourceFiles": [
+          "so.xlsx"
+        ],
+        "requestedSubject": "МДК 01.01 Т.1.2.",
+        "requestedSubgroups": [
+          "2"
+        ],
+        "candidates": [
+          {
+            "subject": "МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий п/гр1",
+            "teacher": "Секацкая Н. А.",
+            "room": "ДОТ",
+            "subgroup": "1",
+            "sourceRow": 43
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    }
+  ],
+  "semanticHash": "cbf1ea7aceb46a78d0de3267ee7cc229e369721407466bd397921e676d134df8"
 }

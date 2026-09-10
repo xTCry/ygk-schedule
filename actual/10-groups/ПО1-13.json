@@ -557,15 +557,7 @@
           "lessons": [
             {
               "number": 0,
-              "variants": [
-                {
-                  "subject": "Основы профессиональной деятельности",
-                  "teacher": "Вакансия",
-                  "room": "Б403",
-                  "weekType": "denominator",
-                  "sourceRow": 82
-                }
-              ],
+              "variants": [],
               "source": {
                 "sheet": "ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11",
                 "rowStart": 82,
@@ -573,8 +565,36 @@
                 "rawGroupName": "ПО1-13/ПО1-14",
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
-              "status": "scheduled",
-              "replacements": []
+              "status": "cancelled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ПО1-13",
+                    "lessonNumbers": [
+                      0
+                    ],
+                    "type": "cancel",
+                    "original": {
+                      "raw": "Литература"
+                    },
+                    "replacement": {
+                      "raw": "снято"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 14,
+                      "rawGroupName": "ПО1-13",
+                      "rawLessonNumbers": "0",
+                      "rawOriginal": "Литература",
+                      "rawReplacement": "снято",
+                      "rawRoom": ""
+                    }
+                  },
+                  "lessonNumber": 0,
+                  "strategy": "exact-subject"
+                }
+              ]
             },
             {
               "number": 1,
@@ -633,11 +653,14 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "Индивидуальный проект",
-                  "teacher": "Харавинина Л.Н.\nШереметьева Н.В.",
-                  "room": "М106",
-                  "weekType": "denominator",
-                  "sourceRow": 86
+                  "subject": "Математика",
+                  "teacher": "Шереметьева Н.В.",
+                  "room": "Акт.зал",
+                  "weekType": "both",
+                  "rawSubject": "Математика Шереметьева Н.В.",
+                  "rawTeacher": "Шереметьева Н.В.",
+                  "rawRoom": "Акт.зал",
+                  "sourceRow": 16
                 }
               ],
               "source": {
@@ -648,75 +671,40 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ПО1-13",
+                    "lessonNumbers": [
+                      2,
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Математика..."
+                    },
+                    "replacement": {
+                      "raw": "Математика Шереметьева Н.В.",
+                      "room": "Акт.зал"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 16,
+                      "rawGroupName": "ПО1-13",
+                      "rawLessonNumbers": "2,3",
+                      "rawOriginal": "Математика...",
+                      "rawReplacement": "Математика Шереметьева Н.В.",
+                      "rawRoom": "Акт.зал"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "exact-subject"
+                }
+              ]
             }
           ],
           "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ПО1-13",
-                "lessonNumbers": [
-                  0
-                ],
-                "type": "cancel",
-                "original": {
-                  "raw": "Литература"
-                },
-                "replacement": {
-                  "raw": "снято"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 14,
-                  "rawGroupName": "ПО1-13",
-                  "rawLessonNumbers": "0",
-                  "rawOriginal": "Литература",
-                  "rawReplacement": "снято",
-                  "rawRoom": ""
-                }
-              },
-              "lessonNumber": 0,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Литература». По замене: «снято»."
-              }
-            },
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ПО1-13",
-                "lessonNumbers": [
-                  2,
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Математика..."
-                },
-                "replacement": {
-                  "raw": "Математика Шереметьева Н.В.",
-                  "room": "Акт.зал"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 16,
-                  "rawGroupName": "ПО1-13",
-                  "rawLessonNumbers": "2,3",
-                  "rawOriginal": "Математика...",
-                  "rawReplacement": "Математика Шереметьева Н.В.",
-                  "rawRoom": "Акт.зал"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Математика...». По замене: «Математика Шереметьева Н.В.». Аудитория: «Акт.зал».",
-                "room": "Акт.зал"
-              }
-            },
             {
               "replacement": {
                 "date": "2026-09-11",
@@ -761,70 +749,6 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "154ed9ee7eafe15b813bd54793549f6c0d51ffcd297526b9e0d46ab086bfc7d8",
-      "sheet": "Замены: Первая смена",
-      "row": 16,
-      "normalizedGroup": "ПО1-13",
-      "rawValue": "Математика Шереметьева Н.В.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "ПО1-13",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "requestedSubject": "Математика...",
-        "candidates": [
-          {
-            "subject": "Индивидуальный проект",
-            "teacher": "Харавинина Л.Н.\nШереметьева Н.В.",
-            "room": "М106",
-            "sourceRow": 86
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "22b05a016b5acb0f65c43f5315ca7e5e57b8b21209e3a65013e8d3b16c5a57e8",
-      "sheet": "Замены: Первая смена",
-      "row": 14,
-      "normalizedGroup": "ПО1-13",
-      "rawValue": "снято",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 0,
-        "type": "cancel",
-        "reason": "original-not-matched",
-        "baseGroup": "ПО1-13",
-        "baseSourceFiles": [
-          "oit_1sem.xlsx"
-        ],
-        "requestedSubject": "Литература",
-        "candidates": [
-          {
-            "subject": "Основы профессиональной деятельности",
-            "teacher": "Вакансия",
-            "room": "Б403",
-            "sourceRow": 82
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
       "message": "Пара из замены отсутствует в базовом расписании",
       "fingerprint": "a73e95dd24360324eaa174e9758f589da5dac2be2ada925daddbba3213f56852",
       "sheet": "Замены: Первая смена",
@@ -845,5 +769,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "f691c336d1001f2ac27e918152565de1b301f86726dba55fecc2b64363297f93"
+  "semanticHash": "47c92c7e41e13d21645fd84ac18454a793640f89d64a4fcbf19d9af8b7b8be81"
 }

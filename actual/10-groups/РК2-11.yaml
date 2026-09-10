@@ -635,61 +635,45 @@ dates:
               - replacement: *a2
                 lessonNumber: 3
                 strategy: scheduled-room
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: РК2-11
-              lessonNumbers:
-                - 4
-              type: replace
-              original:
-                raw: Рус.яз.и культ.речи
-              replacement:
-                raw: МДК 04.01 Анисимова С.А.
+          - number: 4
+            variants:
+              - subject: МДК 04.01
+                teacher: Анисимова С.А.
                 room: ДОТ
-              source:
-                shift: first
-                row: 63
-                rawGroupName: РК2-11
-                rawLessonNumbers: "4"
-                rawOriginal: Рус.яз.и культ.речи
-                rawReplacement: МДК 04.01 Анисимова С.А.
+                weekType: both
+                rawSubject: МДК 04.01 Анисимова С.А.
+                rawTeacher: Анисимова С.А.
                 rawRoom: ДОТ
-            lessonNumber: 4
-            reason: lesson-not-scheduled-for-week
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Рус.яз.и культ.речи». По замене: «МДК 04.01
-                Анисимова С.А.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены есть в базовом расписании, но не проводится в указанную
-      неделю
-    fingerprint: 25c7516baf5e36121cf17611b0380a25635d2f028193409edec3a3c8cfd0a6ce
-    sheet: "Замены: Первая смена"
-    row: 63
-    normalizedGroup: РК2-11
-    rawValue: МДК 04.01 Анисимова С.А.
-    context:
-      date: 2026-09-11
-      lessonNumber: 4
-      type: replace
-      reason: lesson-not-scheduled-for-week
-      baseGroup: РК2-11
-      baseSourceFiles:
-        - oar.xlsx
-      replacementWeekType: denominator
-      availableWeekTypes:
-        - numerator
-      requestedSubject: Рус.яз.и культ.речи
-      candidates:
-        - subject: Русский язык и культура речи
-          teacher: Новикова М.А.
-          room: А203
-          sourceRow: 41
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e02c1002d31ac05f90aa742e75f4d5e5828af705dd95712099f3c7a3a3f21ddb
+                sourceRow: 63
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 40
+              rowEnd: 41
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: РК2-11
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: Рус.яз.и культ.речи
+                  replacement:
+                    raw: МДК 04.01 Анисимова С.А.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 63
+                    rawGroupName: РК2-11
+                    rawLessonNumbers: "4"
+                    rawOriginal: Рус.яз.и культ.речи
+                    rawReplacement: МДК 04.01 Анисимова С.А.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 136a5c855a13b0405912549f471917296ab212fdd062a1746c651a42a4a5a36d

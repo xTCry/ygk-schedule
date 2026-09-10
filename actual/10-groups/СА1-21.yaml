@@ -1013,22 +1013,35 @@ dates:
         day: Пятница
         lessons:
           - number: 0
-            variants:
-              - subject: Информационные технологии
-                teacher: |-
-                  Лужина А.С.
-                  Комиссарова О.В.
-                room: ДОТ
-                weekType: denominator
-                sourceRow: 33
+            variants: []
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 33
               rowEnd: 34
               rawGroupName: СА1-21/СА1-22/СА2-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
-            status: scheduled
-            replacements: []
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: СА1-21
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: МДК 04.01
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 53
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 04.01
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
           - number: 1
             variants:
               - subject: Основы электротехники
@@ -1046,11 +1059,11 @@ dates:
             replacements: []
           - number: 2
             variants:
-              - subject: Информационные технологии
-                teacher: Лужина А.С.
+              - subject: Операционные системы и среды
+                teacher: Гудкова А.Л.
                 room: ДОТ
                 weekType: denominator
-                sourceRow: 37
+                sourceRow: 38
             source:
               sheet: СА1-21 СА1-31  СА1-41
               rowStart: 37
@@ -1105,30 +1118,7 @@ dates:
                     rawRoom: ДОТ
                 lessonNumber: 3
                 strategy: add
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: СА1-21
-              lessonNumbers:
-                - 0
-              type: cancel
-              original:
-                raw: МДК 04.01
-              replacement:
-                raw: снято
-              source:
-                shift: first
-                row: 53
-                rawGroupName: СА1-21
-                rawLessonNumbers: "0"
-                rawOriginal: МДК 04.01
-                rawReplacement: снято
-                rawRoom: ""
-            lessonNumber: 0
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 04.01». По замене: «снято»."
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1175,7 +1165,7 @@ diagnostics:
         - oit_1sem.xlsx
       replacementWeekType: denominator
       availableWeekTypes:
-        - numerator
+        - denominator
       requestedSubject: Инф.технол.
       candidates:
         - subject: Информационные технологии
@@ -1186,31 +1176,4 @@ diagnostics:
           sourceRow: 13
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 2f45cda5d84766752edf9dd04335c58903bd83060370eb326a920127a4e574ea
-    sheet: "Замены: Первая смена"
-    row: 53
-    normalizedGroup: СА1-21
-    rawValue: снято
-    context:
-      date: 2026-09-11
-      lessonNumber: 0
-      type: cancel
-      reason: original-not-matched
-      baseGroup: СА1-21
-      baseSourceFiles:
-        - oit_1sem.xlsx
-      requestedSubject: МДК 04.01
-      candidates:
-        - subject: Информационные технологии
-          teacher: |-
-            Лужина А.С.
-            Комиссарова О.В.
-          room: ДОТ
-          sourceRow: 33
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 9e81d9a58c6e4f2154756add94a4fe3103b1d7c9f3b5aff9d8d15246b6c18669
+semanticHash: fc9f81afcbc9511a7119dff8a4f0325e3a849b5063427ff24549d8e46779716e

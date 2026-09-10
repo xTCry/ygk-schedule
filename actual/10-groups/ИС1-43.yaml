@@ -1048,13 +1048,11 @@ dates:
         lessons:
           - number: 3
             variants:
-              - subject: МДК.09.03 Обеспечение безопасности веб-приложений
-                teacher: |-
-                  Гудкова А.Л.
-                  Серова А.М.
+              - subject: Эффектиное поведение на рынке труда
+                teacher: Малашкевич Д.А.
                 room: ДОТ
                 weekType: denominator
-                sourceRow: 245
+                sourceRow: 246
                 rawRoom: ДОТ
             source:
               sheet: ИС-3 курс ИС-4 курс
@@ -1108,12 +1106,15 @@ dates:
                 strategy: scheduled-room
           - number: 5
             variants:
-              - subject: МДК.05.03 Тестирование ИС п/гр1
-                teacher: Вакансия
-                room: Б305
-                weekType: denominator
-                subgroup: "1"
-                sourceRow: 249
+              - subject: УП 05
+                teacher: Васильченко М.О.
+                room: ДОТ
+                weekType: both
+                subgroup: "2"
+                rawSubject: 1,2 п/гр.УП 05 Васильченко М.О.
+                rawTeacher: Васильченко М.О.
+                rawRoom: ДОТ
+                sourceRow: 22
             source:
               sheet: ИС-3 курс ИС-4 курс
               rowStart: 249
@@ -1121,34 +1122,29 @@ dates:
               rawGroupName: ИС1-43/ИС1-44
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: ИС1-43
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: МДК 05.03 п/гр.2
-              replacement:
-                raw: 1,2 п/гр.УП 05 Васильченко М.О.
-                room: ДОТ
-              source:
-                shift: second
-                row: 22
-                rawGroupName: ИС1-43
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 05.03 п/гр.2
-                rawReplacement: 1,2 п/гр.УП 05 Васильченко М.О.
-                rawRoom: ДОТ
-            lessonNumber: 5
-            reason: subgroup-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 05.03 п/гр.2». По замене: «1,2 п/гр.УП 05
-                Васильченко М.О.». Аудитория: «ДОТ»."
-              room: ДОТ
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: ИС1-43
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 05.03 п/гр.2
+                  replacement:
+                    raw: 1,2 п/гр.УП 05 Васильченко М.О.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 22
+                    rawGroupName: ИС1-43
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 05.03 п/гр.2
+                    rawReplacement: 1,2 п/гр.УП 05 Васильченко М.О.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1263,34 +1259,6 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
-    fingerprint: aac229f5722407bfda3769c29054b7cbd38aa8bf171d1419929620e5fa74a8e9
-    sheet: "Замены: Вторая смена"
-    row: 22
-    normalizedGroup: ИС1-43
-    rawValue: 1,2 п/гр.УП 05 Васильченко М.О.
-    context:
-      date: 2026-09-11
-      lessonNumber: 5
-      type: replace
-      reason: subgroup-not-matched
-      baseGroup: ИС1-43
-      baseSourceFiles:
-        - oit_1sem.xlsx
-      requestedSubject: МДК 05.03
-      requestedSubgroups:
-        - "2"
-      candidates:
-        - subject: МДК.05.03 Тестирование ИС п/гр1
-          teacher: Вакансия
-          room: Б305
-          subgroup: "1"
-          sourceRow: 249
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: c05263aa5cacf97008e60dcec2357893cd331715164fae95475e0247ad2f205a
     sheet: "Замены: Вторая смена"
     row: 10
@@ -1314,4 +1282,4 @@ diagnostics:
           sourceRow: 240
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2ef91ed81d384d4d059a8311a3142db32423bfbb8e60c9b662b378ac127dcb30
+semanticHash: c8afd905fb8d8a615a14b5b4b83fb0a0d8e0b964bd1ffeba6b5c074e80c3950a

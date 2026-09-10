@@ -58,13 +58,14 @@ dates:
             replacements: []
           - number: 1
             variants:
-              - subject: Индивидуальный проект
-                teacher: |-
-                  Холманова В.М.
-                  Харавинина Л.Н.
+              - subject: Математика
+                teacher: Холманова В.М.
                 room: М102
-                weekType: denominator
-                sourceRow: 234
+                weekType: both
+                rawSubject: Математика Холманова В.М.
+                rawTeacher: Холманова В.М.
+                rawRoom: М102
+                sourceRow: 2
             source:
               sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
               rowStart: 234
@@ -72,7 +73,28 @@ dates:
               rawGroupName: ИБ1-11/ИБ1-12
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: ИБ1-11
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Осн.проф.деят.
+                  replacement:
+                    raw: Математика Холманова В.М.
+                    room: М102
+                  source:
+                    shift: first
+                    row: 2
+                    rawGroupName: ИБ1-11
+                    rawLessonNumbers: "1"
+                    rawOriginal: Осн.проф.деят.
+                    rawReplacement: Математика Холманова В.М.
+                    rawRoom: М102
+                lessonNumber: 1
+                strategy: subject-abbreviation
           - number: 2
             variants:
               - subject: Инфор.
@@ -151,59 +173,6 @@ dates:
                     rawRoom: Акт.зал
                 lessonNumber: 3
                 strategy: exact-subject
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: ИБ1-11
-              lessonNumbers:
-                - 1
-              type: replace
-              original:
-                raw: Осн.проф.деят.
-              replacement:
-                raw: Математика Холманова В.М.
-                room: М102
-              source:
-                shift: first
-                row: 2
-                rawGroupName: ИБ1-11
-                rawLessonNumbers: "1"
-                rawOriginal: Осн.проф.деят.
-                rawReplacement: Математика Холманова В.М.
-                rawRoom: М102
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.проф.деят.». По замене: «Математика Холманова
-                В.М.». Аудитория: «М102»."
-              room: М102
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: f4ffdcb574e5b257a88a97a34b373df75761a0380d3d76473d63c70209bdadc0
-    sheet: "Замены: Первая смена"
-    row: 2
-    normalizedGroup: ИБ1-11
-    rawValue: Математика Холманова В.М.
-    context:
-      date: 2026-09-11
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-      baseGroup: ИБ1-11
-      baseSourceFiles:
-        - oit_1sem.xlsx
-      requestedSubject: Осн.проф.деят.
-      candidates:
-        - subject: Индивидуальный проект
-          teacher: |-
-            Холманова В.М.
-            Харавинина Л.Н.
-          room: М102
-          sourceRow: 234
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 285290240389dd3df2d33afe4e145f93528e33925b42ba7f6c36f9d5eb7def67
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 9353e99b7dd98101108c35a268ac84743e2b4dca4ef487b6dfb3d25c77598dc8

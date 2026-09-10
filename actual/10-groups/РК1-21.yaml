@@ -672,11 +672,11 @@ dates:
                 strategy: scheduled-room
           - number: 2
             variants:
-              - subject: Основы бережливого производства
-                teacher: Парамонов В.И.
+              - subject: Психология рекламы
+                teacher: Шалаева М.А.
                 room: ДОТ
                 weekType: denominator
-                sourceRow: 93
+                sourceRow: 94
                 rawRoom: ДОТ
             source:
               sheet: РК121РК1-22РК1-31РК32РК1-41РК42
@@ -689,33 +689,46 @@ dates:
               - replacement: *a1
                 lessonNumber: 2
                 strategy: scheduled-room
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: РК1-21
-              lessonNumbers:
-                - 3
-              type: replace
-              original:
-                raw: МДК 04.01
-              replacement:
-                raw: /теория Пономаренко В.С.
+          - number: 3
+            variants:
+              - subject: МДК 04.01 Разработка творческих рекламных решений
+                teacher: Пономаренко В.С.
                 room: ДОТ
-              source:
-                shift: first
-                row: 65
-                rawGroupName: РК1-21
-                rawLessonNumbers: "3"
-                rawOriginal: МДК 04.01
-                rawReplacement: /теория Пономаренко В.С.
+                weekType: both
+                rawSubject: /теория Пономаренко В.С.
+                rawTeacher: Пономаренко В.С.
                 rawRoom: ДОТ
-            lessonNumber: 3
-            reason: lesson-not-scheduled-for-week
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 04.01». По замене: «/теория Пономаренко В.С.».
-                Аудитория: «ДОТ»."
-              room: ДОТ
+                sourceRow: 65
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: РК1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 04.01
+                  replacement:
+                    raw: /теория Пономаренко В.С.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: РК1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 04.01
+                    rawReplacement: /теория Пономаренко В.С.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -746,37 +759,4 @@ diagnostics:
           sourceRow: 59
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены есть в базовом расписании, но не проводится в указанную
-      неделю
-    fingerprint: 8bed751c6aa1cf36202ae9ed43bb6f9d92924bbbb53a1d5049e88738903d45fa
-    sheet: "Замены: Первая смена"
-    row: 65
-    normalizedGroup: РК1-21
-    rawValue: /теория Пономаренко В.С.
-    context:
-      date: 2026-09-11
-      lessonNumber: 3
-      type: replace
-      reason: lesson-not-scheduled-for-week
-      baseGroup: РК1-21
-      baseSourceFiles:
-        - oar.xlsx
-      replacementWeekType: denominator
-      availableWeekTypes:
-        - numerator
-      requestedSubject: МДК 04.01
-      candidates:
-        - subject: МДК 04.01 Разработка творческих рекламных решений
-          teacher: |-
-            Пономаренко В.С.
-            Анисимова С.А.
-          room: |-
-            Б304
-            Б305
-          sourceRow: 96
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 98e924d126c288a94775ee773471fafa42de9bcdb38c913579f30add04a54d6f
+semanticHash: 25db75a4591a96c79d90db4c7314f362424243a0ac8c31a92dcab1ec00c6ab6d

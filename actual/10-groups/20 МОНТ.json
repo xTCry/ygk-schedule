@@ -1372,11 +1372,14 @@
               "number": 3,
               "variants": [
                 {
-                  "subject": "Физическая культура",
-                  "teacher": "Шпынов Ю.Г.",
-                  "room": "сп.зал",
-                  "weekType": "denominator",
-                  "sourceRow": 43
+                  "subject": "Информатика",
+                  "teacher": "Ефимова А.С.",
+                  "room": "ДОТ",
+                  "weekType": "both",
+                  "rawSubject": "Ефимова А.С.",
+                  "rawTeacher": "Ефимова А.С.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 115
                 }
               ],
               "source": {
@@ -1387,81 +1390,43 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "20 МОНТ",
+                    "lessonNumbers": [
+                      3
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Информ."
+                    },
+                    "replacement": {
+                      "raw": "Ефимова А.С.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 115,
+                      "rawGroupName": "20 МОНТ",
+                      "rawLessonNumbers": "3",
+                      "rawOriginal": "Информ.",
+                      "rawReplacement": "Ефимова А.С.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "subject-abbreviation"
+                }
+              ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "20 МОНТ",
-                "lessonNumbers": [
-                  3
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Информ."
-                },
-                "replacement": {
-                  "raw": "Ефимова А.С.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 115,
-                  "rawGroupName": "20 МОНТ",
-                  "rawLessonNumbers": "3",
-                  "rawOriginal": "Информ.",
-                  "rawReplacement": "Ефимова А.С.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 3,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Информ.». По замене: «Ефимова А.С.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "72d0a7d6946ac546b2aec5774c4d8ba0a05e7a9d59969baf9350c212e35a710b",
-      "sheet": "Замены: Первая смена",
-      "row": 115,
-      "normalizedGroup": "20 МОНТ",
-      "rawValue": "Ефимова А.С.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "20 МОНТ",
-        "baseSourceFiles": [
-          "ort.xlsx"
-        ],
-        "requestedSubject": "Информ.",
-        "candidates": [
-          {
-            "subject": "Физическая культура",
-            "teacher": "Шпынов Ю.Г.",
-            "room": "сп.зал",
-            "sourceRow": 43
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "e7b5d698007e34d33ea5c7561431d813ef5dfb68f3a6e37a4e8f6ed9659b1169"
+  "diagnostics": [],
+  "semanticHash": "379eb21005e9aa38e09e42fc7aef36a40bd0b5e76ef26570433e13f691ae7d51"
 }

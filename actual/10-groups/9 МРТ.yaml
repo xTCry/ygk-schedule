@@ -757,68 +757,50 @@ dates:
                 lessonNumber: 1
                 strategy: subject-word-mention
           - number: 2
-            variants:
-              - subject: УП.04 Учебная практика п/гр2
-                teacher: Филиппова А.С.
-                room: к.30
-                weekType: denominator
-                subgroup: "2"
-                sourceRow: 44
+            variants: []
             source:
               sheet: 2 курс
               rowStart: 44
               rowEnd: 45
               rawGroupName: 9 МРТ
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
-            status: scheduled
-            replacements: []
+            status: cancelled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-11
+                  group: 9 МРТ
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: УП 04 п/гр.1
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 124
+                    rawGroupName: 9 МРТ
+                    rawLessonNumbers: 2,3
+                    rawOriginal: УП 04 п/гр.1
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
           - number: 3
-            variants:
-              - subject: УП.04 Учебная практика п/гр2
-                teacher: Филиппова А.С.
-                room: к.30
-                weekType: denominator
-                subgroup: "2"
-                sourceRow: 46
+            variants: []
             source:
               sheet: 2 курс
               rowStart: 46
               rowEnd: 47
               rawGroupName: 9 МРТ
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
-            status: scheduled
-            replacements: []
-        unresolvedReplacements:
-          - replacement: &a3
-              date: 2026-09-11
-              group: 9 МРТ
-              lessonNumbers:
-                - 2
-                - 3
-              type: cancel
-              original:
-                raw: УП 04 п/гр.1
-              replacement:
-                raw: снято
-              source:
-                shift: first
-                row: 124
-                rawGroupName: 9 МРТ
-                rawLessonNumbers: 2,3
-                rawOriginal: УП 04 п/гр.1
-                rawReplacement: снято
-                rawRoom: ""
-            lessonNumber: 2
-            reason: subgroup-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «УП 04 п/гр.1». По замене: «снято»."
-          - replacement: *a3
-            lessonNumber: 3
-            reason: subgroup-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «УП 04 п/гр.1». По замене: «снято»."
+            status: cancelled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -860,7 +842,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: &a5
+      baseSourceFiles: &a4
         - ort.xlsx
       requestedSubject: УП 01
       requestedSubgroups:
@@ -871,61 +853,6 @@ diagnostics:
           room: к.30
           subgroup: "1"
           sourceRow: 9
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
-    fingerprint: 154a0c989b4bf24446b7347a93322dd55c4f56adfe6f388660be547e281fb1c1
-    sheet: "Замены: Первая смена"
-    row: 124
-    normalizedGroup: 9 МРТ
-    rawValue: снято
-    context:
-      date: 2026-09-11
-      lessonNumber: 2
-      type: cancel
-      reason: subgroup-not-matched
-      baseGroup: 9 МРТ
-      baseSourceFiles: &a4
-        - ort.xlsx
-      requestedSubject: УП 04
-      requestedSubgroups:
-        - "1"
-      candidates:
-        - subject: УП.04 Учебная практика п/гр2
-          teacher: Филиппова А.С.
-          room: к.30
-          subgroup: "2"
-          sourceRow: 44
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
-    fingerprint: 7d60001258ede70dd18e4029743b329d69ee4d6702340482c71f92b13b3a73ca
-    sheet: "Замены: Первая смена"
-    row: 124
-    normalizedGroup: 9 МРТ
-    rawValue: снято
-    context:
-      date: 2026-09-11
-      lessonNumber: 3
-      type: cancel
-      reason: subgroup-not-matched
-      baseGroup: 9 МРТ
-      baseSourceFiles: *a4
-      requestedSubject: УП 04
-      requestedSubgroups:
-        - "1"
-      candidates:
-        - subject: УП.04 Учебная практика п/гр2
-          teacher: Филиппова А.С.
-          room: к.30
-          subgroup: "2"
-          sourceRow: 46
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -943,7 +870,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: *a5
+      baseSourceFiles: *a4
       requestedSubject: УП 01
       requestedSubgroups:
         - "2"
@@ -980,4 +907,4 @@ diagnostics:
           sourceRow: 28
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e2305b79f33d0e2385410fcca353d0560c819bb555a6d0672b97237b7fba90cc
+semanticHash: 175552430b21496aa934270723b1eef115bf638c35ff9f2e8778a612732a8822

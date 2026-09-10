@@ -772,12 +772,12 @@
               "number": 0,
               "variants": [
                 {
-                  "subject": "Информатика п/гр 1",
+                  "subject": "Информатика п/гр 2",
                   "teacher": "Яковлева Е.Н.",
                   "room": "ДОТ",
                   "weekType": "denominator",
-                  "subgroup": "1",
-                  "sourceRow": 34,
+                  "subgroup": "2",
+                  "sourceRow": 35,
                   "rawRoom": "ДОТ"
                 }
               ],
@@ -877,11 +877,11 @@
               "number": 2,
               "variants": [
                 {
-                  "subject": "Индивидуальный проект",
-                  "teacher": "Волкова К.Д.\nБабарыкова Э.В.",
+                  "subject": "Физическая культура",
+                  "teacher": "Кургузова М.С.",
                   "room": "ДОТ",
                   "weekType": "denominator",
-                  "sourceRow": 38,
+                  "sourceRow": 39,
                   "rawRoom": "ДОТ"
                 }
               ],
@@ -924,84 +924,65 @@
                   "strategy": "scheduled-room"
                 }
               ]
-            }
-          ],
-          "unresolvedReplacements": [
+            },
             {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ЗМ1-11",
-                "lessonNumbers": [
-                  0,
-                  1,
-                  2,
-                  3
-                ],
-                "type": "replace",
-                "original": null,
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 80,
-                  "rawGroupName": "ЗМ1-11",
-                  "rawLessonNumbers": "0-3",
-                  "rawOriginal": "",
-                  "rawReplacement": "по расписанию",
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Кургузова М.С.",
+                  "room": "ДОТ",
+                  "weekType": "denominator",
+                  "sourceRow": 41,
                   "rawRoom": "ДОТ"
                 }
+              ],
+              "source": {
+                "sheet": "ЗМ1-11 ЗМ1-13 ЗМ1-15",
+                "rowStart": 40,
+                "rowEnd": 41,
+                "rawGroupName": "ЗМ1-11/ЗМ1-12",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx"
               },
-              "lessonNumber": 3,
-              "reason": "lesson-not-scheduled-for-week",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По замене: «по расписанию». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ЗМ1-11",
+                    "lessonNumbers": [
+                      0,
+                      1,
+                      2,
+                      3
+                    ],
+                    "type": "replace",
+                    "original": null,
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 80,
+                      "rawGroupName": "ЗМ1-11",
+                      "rawLessonNumbers": "0-3",
+                      "rawOriginal": "",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 3,
+                  "strategy": "scheduled-room"
+                }
+              ]
             }
-          ]
+          ],
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
-      "fingerprint": "d6abbb14184f2fe5506aae453c77d00f00ced317a9cddcf752d0990de658db11",
-      "sheet": "Замены: Первая смена",
-      "row": 80,
-      "normalizedGroup": "ЗМ1-11",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 3,
-        "type": "replace",
-        "reason": "lesson-not-scheduled-for-week",
-        "baseGroup": "ЗМ1-11",
-        "baseSourceFiles": [
-          "oeis.xlsx"
-        ],
-        "replacementWeekType": "denominator",
-        "availableWeekTypes": [
-          "numerator"
-        ],
-        "candidates": [
-          {
-            "subject": "Физическая культура",
-            "teacher": "Кургузова М.С.",
-            "room": "Сп.зал",
-            "sourceRow": 41
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "85bdf99a932330177039da73bda41196d525aaa1447293216a1d38774bd17394"
+  "diagnostics": [],
+  "semanticHash": "ed22e7f3510402348bb84fe7d5e119668818657b276874c1361a90eaf0a2a62e"
 }

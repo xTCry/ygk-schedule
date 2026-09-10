@@ -825,10 +825,10 @@
               "variants": [
                 {
                   "subject": "МДК 01.01 Дизайн-проектирование Т.1.2",
-                  "teacher": "Амерханова К.А.",
+                  "teacher": "Амерханова К.А.\nСосновских А.Л.",
                   "room": "ДОТ",
                   "weekType": "denominator",
-                  "sourceRow": 181
+                  "sourceRow": 182
                 }
               ],
               "source": {
@@ -845,11 +845,14 @@
               "number": 5,
               "variants": [
                 {
-                  "subject": "МДК 01.01 Дизайн-проектирование Т.1.2",
-                  "teacher": "Амерханова К.А.",
+                  "subject": "МДК.01.02 Основы проектной и компьютерной графики Т.2.2.",
+                  "teacher": "Махоткина Д.Е.",
                   "room": "ДОТ",
-                  "weekType": "denominator",
-                  "sourceRow": 183
+                  "weekType": "both",
+                  "rawSubject": "1,2 п/гр. Махоткина Д.Е.",
+                  "rawTeacher": "Махоткина Д.Е.",
+                  "rawRoom": "ДОТ",
+                  "sourceRow": 43
                 }
               ],
               "source": {
@@ -860,81 +863,44 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ДИ1-32",
+                    "lessonNumbers": [
+                      5
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "МДК 01.02 Т.2.2."
+                    },
+                    "replacement": {
+                      "raw": "1,2 п/гр. Махоткина Д.Е.",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "second",
+                      "row": 43,
+                      "rawGroupName": "ДИ1-32",
+                      "rawLessonNumbers": "5",
+                      "rawOriginal": "МДК 01.02 Т.2.2.",
+                      "rawReplacement": "1,2 п/гр. Махоткина Д.Е.",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 5,
+                  "strategy": "subject-module-code"
+                }
+              ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ДИ1-32",
-                "lessonNumbers": [
-                  5
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "МДК 01.02 Т.2.2."
-                },
-                "replacement": {
-                  "raw": "1,2 п/гр. Махоткина Д.Е.",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "second",
-                  "row": 43,
-                  "rawGroupName": "ДИ1-32",
-                  "rawLessonNumbers": "5",
-                  "rawOriginal": "МДК 01.02 Т.2.2.",
-                  "rawReplacement": "1,2 п/гр. Махоткина Д.Е.",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 5,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «МДК 01.02 Т.2.2.». По замене: «1,2 п/гр. Махоткина Д.Е.». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "08a31936d305ca06b0e9eebe833c7c6fe635c8ae6bb1a5991a5704971cce8ff1",
-      "sheet": "Замены: Вторая смена",
-      "row": 43,
-      "normalizedGroup": "ДИ1-32",
-      "rawValue": "1,2 п/гр. Махоткина Д.Е.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 5,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "ДИ1-32",
-        "baseSourceFiles": [
-          "oar.xlsx"
-        ],
-        "requestedSubject": "МДК 01.02 Т.2.2.",
-        "candidates": [
-          {
-            "subject": "МДК 01.01 Дизайн-проектирование Т.1.2",
-            "teacher": "Амерханова К.А.",
-            "room": "ДОТ",
-            "sourceRow": 183
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -1032,5 +998,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "c264ee7af3ddc2b75fde3686b04d379be98f03bfe532cd91a6c604abba78b45c"
+  "semanticHash": "7a14ace22300f08a55b079b5cf04e88d929b9aa81c62868144873f731882060a"
 }

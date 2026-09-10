@@ -751,6 +751,59 @@
           "day": "Пятница",
           "lessons": [
             {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Чупрова П.А.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "rawSubject": "Чупрова П.А.",
+                  "rawTeacher": "Чупрова П.А.",
+                  "rawRoom": "Сп.зал",
+                  "sourceRow": 20
+                }
+              ],
+              "source": {
+                "sheet": "1 курс",
+                "rowStart": 138,
+                "rowEnd": 139,
+                "rawGroupName": "ДИ1-11/ДИ1-12",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "ДИ1-11",
+                    "lessonNumbers": [
+                      1
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Физкультура"
+                    },
+                    "replacement": {
+                      "raw": "Чупрова П.А.",
+                      "room": "Сп.зал"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 20,
+                      "rawGroupName": "ДИ1-11",
+                      "rawLessonNumbers": "1",
+                      "rawOriginal": "Физкультура",
+                      "rawReplacement": "Чупрова П.А.",
+                      "rawRoom": "Сп.зал"
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "subject-word-mention"
+                }
+              ]
+            },
+            {
               "number": 2,
               "variants": [
                 {
@@ -878,82 +931,12 @@
               "replacements": []
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "ДИ1-11",
-                "lessonNumbers": [
-                  1
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Физкультура"
-                },
-                "replacement": {
-                  "raw": "Чупрова П.А.",
-                  "room": "Сп.зал"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 20,
-                  "rawGroupName": "ДИ1-11",
-                  "rawLessonNumbers": "1",
-                  "rawOriginal": "Физкультура",
-                  "rawReplacement": "Чупрова П.А.",
-                  "rawRoom": "Сп.зал"
-                }
-              },
-              "lessonNumber": 1,
-              "reason": "lesson-not-scheduled-for-week",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Физкультура». По замене: «Чупрова П.А.». Аудитория: «Сп.зал».",
-                "room": "Сп.зал"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
   "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
-      "fingerprint": "c2399761b97eebf61a74bdee9cafd84194d0c31755f2925bb3d3ce85b73a9ef1",
-      "sheet": "Замены: Первая смена",
-      "row": 20,
-      "normalizedGroup": "ДИ1-11",
-      "rawValue": "Чупрова П.А.",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 1,
-        "type": "replace",
-        "reason": "lesson-not-scheduled-for-week",
-        "baseGroup": "ДИ1-11",
-        "baseSourceFiles": [
-          "oar.xlsx"
-        ],
-        "replacementWeekType": "denominator",
-        "availableWeekTypes": [
-          "numerator"
-        ],
-        "requestedSubject": "Физкультура",
-        "candidates": [
-          {
-            "subject": "Физическая культура",
-            "teacher": "Чупрова П.А.",
-            "room": "Спорт.зал",
-            "sourceRow": 139
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -987,5 +970,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "92f41ade2143f65bc81955ee74403366ec123a1045285fadf4bfe2e0f6e5cc4c"
+  "semanticHash": "1a867f7e721a69095ff9250d1d6899beb132ac12aa418158860f49d6519f6d49"
 }

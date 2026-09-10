@@ -1038,12 +1038,12 @@ dates:
         lessons:
           - number: 2
             variants:
-              - subject: Информационные технологии в профессиональной деятельности п/гр2
+              - subject: Информационные технологии в профессиональной деятельности п/гр1
                 teacher: Краснянская Е. В.
                 room: ДОТ
                 weekType: denominator
-                subgroup: "2"
-                sourceRow: 135
+                subgroup: "1"
+                sourceRow: 136
             source:
               sheet: CТ 3 курс
               rowStart: 135
@@ -1086,65 +1086,47 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: СТ1-35
-              lessonNumbers:
-                - 5
-              type: replace
-              original:
-                raw: МДК 01.01 Т.1.2.п/гр.2
-              replacement:
-                raw: Гасенина М.П.
+          - number: 5
+            variants:
+              - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                  п/гр2
+                teacher: Гасенина М.П.
                 room: ДОТ
-              source:
-                shift: second
-                row: 8
-                rawGroupName: СТ1-35
-                rawLessonNumbers: "5"
-                rawOriginal: МДК 01.01 Т.1.2.п/гр.2
-                rawReplacement: Гасенина М.П.
+                weekType: both
+                subgroup: "2"
+                rawSubject: Гасенина М.П.
+                rawTeacher: Гасенина М.П.
                 rawRoom: ДОТ
-            lessonNumber: 5
-            reason: lesson-not-scheduled-for-week
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «МДК 01.01 Т.1.2.п/гр.2». По замене: «Гасенина
-                М.П.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены есть в базовом расписании, но не проводится в указанную
-      неделю
-    fingerprint: 4c39cbeec2824705bf3f2b59b7791557e28cc5c894b9893f932ccf83fe9f7172
-    sheet: "Замены: Вторая смена"
-    row: 8
-    normalizedGroup: СТ1-35
-    rawValue: Гасенина М.П.
-    context:
-      date: 2026-09-11
-      lessonNumber: 5
-      type: replace
-      reason: lesson-not-scheduled-for-week
-      baseGroup: СТ1-35
-      baseSourceFiles:
-        - so.xlsx
-      replacementWeekType: denominator
-      availableWeekTypes:
-        - numerator
-      requestedSubject: МДК 01.01 Т.1.2.
-      requestedSubgroups:
-        - "2"
-      candidates:
-        - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
-            п/гр2
-          teacher: Хухарева Н.Е.
-          room: ДОТ
-          subgroup: "2"
-          sourceRow: 142
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: b38a89e4eda1c35ecd2544183f719ab1e60eb567943648b8ffdd082671ab996d
+                sourceRow: 8
+            source:
+              sheet: CТ 3 курс
+              rowStart: 141
+              rowEnd: 142
+              rawGroupName: СТ1-35/СТ1-36/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: СТ1-35
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 01.01 Т.1.2.п/гр.2
+                  replacement:
+                    raw: Гасенина М.П.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 8
+                    rawGroupName: СТ1-35
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 01.01 Т.1.2.п/гр.2
+                    rawReplacement: Гасенина М.П.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 3b9ee65d9d48b6e5587de217f15db52bda282da1b494628ee36aae0aaba76bd4

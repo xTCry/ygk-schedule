@@ -951,11 +951,14 @@ dates:
                 strategy: scheduled-room
           - number: 1
             variants:
-              - subject: Литература
-                teacher: Андрокович М.В.
-                room: Б507
-                weekType: denominator
-                sourceRow: 38
+              - subject: История
+                teacher: Коровкина А.М.
+                room: ДОТ
+                weekType: both
+                rawSubject: История Коровкина А.М.
+                rawTeacher: Коровкина А.М.
+                rawRoom: ДОТ
+                sourceRow: 87
             source:
               sheet: УД1-11 УД1-21 УД1-31
               rowStart: 38
@@ -963,7 +966,28 @@ dates:
               rawGroupName: УД1-11
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: УД1-11
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Осн.шах.игр.
+                  replacement:
+                    raw: История Коровкина А.М.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 87
+                    rawGroupName: УД1-11
+                    rawLessonNumbers: "1"
+                    rawOriginal: Осн.шах.игр.
+                    rawReplacement: История Коровкина А.М.
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: subject-abbreviation
           - number: 2
             variants:
               - subject: Русский язык
@@ -1000,57 +1024,6 @@ dates:
                     rawRoom: ДОТ
                 lessonNumber: 2
                 strategy: scheduled-room
-        unresolvedReplacements:
-          - replacement:
-              date: 2026-09-11
-              group: УД1-11
-              lessonNumbers:
-                - 1
-              type: replace
-              original:
-                raw: Осн.шах.игр.
-              replacement:
-                raw: История Коровкина А.М.
-                room: ДОТ
-              source:
-                shift: first
-                row: 87
-                rawGroupName: УД1-11
-                rawLessonNumbers: "1"
-                rawOriginal: Осн.шах.игр.
-                rawReplacement: История Коровкина А.М.
-                rawRoom: ДОТ
-            lessonNumber: 1
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.шах.игр.». По замене: «История Коровкина
-                А.М.». Аудитория: «ДОТ»."
-              room: ДОТ
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: d4f160f50b20ae23023d3e97962e7201489a0bb53258abc223e7560bf5aa5f37
-    sheet: "Замены: Первая смена"
-    row: 87
-    normalizedGroup: УД1-11
-    rawValue: История Коровкина А.М.
-    context:
-      date: 2026-09-11
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-      baseGroup: УД1-11
-      baseSourceFiles:
-        - oeis.xlsx
-      requestedSubject: Осн.шах.игр.
-      candidates:
-        - subject: Литература
-          teacher: Андрокович М.В.
-          room: Б507
-          sourceRow: 38
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 5a0773c7a6755f5916bb92a6b9f81f0677e710ee64227cedbcf8461d85879017
+        unresolvedReplacements: []
+diagnostics: []
+semanticHash: 2d53b3db5cd6d9b395b37d70623b1d10c1b28528f738f9952f28f8cf0bbf665e
