@@ -82,6 +82,9 @@ describe('diagnostic Issue drafts', () => {
     expect(issue.body).toContain(
       '| ЮР1-31 | 70 | 1 | ЮР1-33/ЮР1-34 | — | — | 0 |',
     );
+    expect(issue.body).toContain(
+      '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    );
   });
 
   it('aggregates unresolved replacements from one source, date and reason', () => {
