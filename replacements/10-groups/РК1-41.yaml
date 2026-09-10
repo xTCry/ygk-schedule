@@ -107,7 +107,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -138,7 +138,74 @@ dates:
               rawReplacement: Эф.поведение Малашкевич Д.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     replacements:
       - *a3
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a4
+            date: 2026-09-11
+            group: РК1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: МДК 03.01 Девятаева Н.Ф.
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: РК1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: МДК 03.01 Девятаева Н.Ф.
+              rawRoom: ДОТ
+          - &a5
+            date: 2026-09-11
+            group: РК1-41
+            lessonNumbers:
+              - 5
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: second
+              row: 29
+              rawGroupName: РК1-41
+              rawLessonNumbers: 5,6
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+        diagnostics: []
+    replacements:
+      - *a4
+      - *a5
 diagnostics: []
-semanticHash: 7769d0e56c72abf5e4c4de57f0dacdd6b2eaf407a8b847f407b64f7e2f25bb58
+semanticHash: e78bd1d863bdec7c63bad4b67aeeda935edfdffdc504281f8bff9082ddcad228

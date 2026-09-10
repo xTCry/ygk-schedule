@@ -77,7 +77,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -108,7 +108,55 @@ dates:
               rawReplacement: БЖ Акиничева М.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a3
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a4
+            date: 2026-09-11
+            group: РК1-23
+            lessonNumbers:
+              - 2
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 66
+              rawGroupName: РК1-23
+              rawLessonNumbers: 2-4
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a4
 diagnostics: []
-semanticHash: 63a68773a62ad932405bb4903b030c41e1b2e9559f2b590b35815eb30405bacd
+semanticHash: f134558bed719e1289797a94cfce7a753b9868b0a1b24ea628208ea3fb433385

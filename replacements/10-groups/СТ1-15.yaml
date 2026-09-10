@@ -79,7 +79,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -129,8 +129,75 @@ dates:
               rawReplacement: Физкультура Герман О.Г.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a3
       - *a4
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a5
+            date: 2026-09-11
+            group: СТ1-15
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 37
+              rawGroupName: СТ1-15
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a6
+            date: 2026-09-11
+            group: СТ1-15
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: /теория Жданова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 38
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: /теория Жданова Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 3f7bac567680afb7f8cd2affdfc73f61f30dce287113a0ac5733397830f77fd9
+semanticHash: 559ebf7fab17684efd525144dcbf9b2ad321a46bfa16e5a6087811719492e664

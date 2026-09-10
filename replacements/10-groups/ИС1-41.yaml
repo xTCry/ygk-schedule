@@ -213,7 +213,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -244,7 +244,54 @@ dates:
               rawReplacement: 1,2 п/гр. Неделяева Н.А.
               rawRoom: Б302
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     replacements:
       - *a7
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a8
+            date: 2026-09-11
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: 1,2 п/гр. Неделяева Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: УП 02
+              rawReplacement: 1,2 п/гр. Неделяева Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a8
 diagnostics: []
-semanticHash: 07479b636d5ab45ff3dfb74ff0ed1ac4aaae48d918741d4f2f234d221dbb3c86
+semanticHash: 52b53c7c6dd5e6477966c8323e387fcb9c0011cb02b11876ddc436982264c595

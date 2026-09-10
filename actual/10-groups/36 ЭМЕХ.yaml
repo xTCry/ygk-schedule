@@ -250,5 +250,143 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+    groups:
+      36 ЭМЕХ:
+        group: 36 ЭМЕХ
+        date: 2026-09-11
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Химия
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: both
+                rawSubject: Химия Царькова Н.А.
+                rawTeacher: Царькова Н.А.
+                rawRoom: к.25
+                sourceRow: 120
+            source:
+              sheet: 2-2 курс
+              rowStart: 90
+              rowEnd: 91
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: Химия Царькова Н.А.
+                    room: к.25
+                  source:
+                    shift: first
+                    row: 120
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: "0"
+                    rawOriginal: Математика
+                    rawReplacement: Химия Царькова Н.А.
+                    rawRoom: к.25
+                lessonNumber: 0
+                strategy: exact-subject
+          - number: 1
+            variants:
+              - subject: МДК. 02.01 Холодильное оборудование
+                teacher: Ковалева Л.В.
+                room: к.31
+                weekType: both
+                sourceRow: 92
+            source:
+              sheet: 2-2 курс
+              rowStart: 92
+              rowEnd: 93
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: 2-2 курс
+              rowStart: 94
+              rowEnd: 95
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-11
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: УП 01
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 121
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: 2,3
+                    rawOriginal: УП 01
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: 2-2 курс
+              rowStart: 96
+              rowEnd: 97
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: cc90f75f208c2a45c180102d81695ceb2c00d27a1fc93bb84d4c08a7ecbcc017
+semanticHash: f00100054761cf846d4edf80219826bd3fcff328bb830b112c81c07e7aeb9359

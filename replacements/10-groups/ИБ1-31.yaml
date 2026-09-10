@@ -230,5 +230,68 @@ dates:
           sourceSha256: 418ef85202072a584824becef14101d9dab6d564cffdecff564a7c3fdd034e13
     replacements:
       - *a6
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a7
+            date: 2026-09-11
+            group: ИБ1-31
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a8
+            date: 2026-09-11
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: ТСИ
+            replacement:
+              raw: 1,2 п/гр. Садилова К.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: ТСИ
+              rawReplacement: 1,2 п/гр. Садилова К.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: af912eac19a087db147527f770f32ea414b668616ea9f6d7de3326f98fcc5b5e
+semanticHash: 01cb07cfbeb6a75bdea95b9758e97d99d166a79b9b005f87aa52beb74085bb9b

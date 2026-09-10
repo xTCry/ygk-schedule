@@ -50,5 +50,67 @@ dates:
           sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     replacements:
       - *a1
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a2
+            date: 2026-09-11
+            group: РК1-43
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: РК1-43
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a3
+            date: 2026-09-11
+            group: РК1-43
+            lessonNumbers:
+              - 5
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: second
+              row: 42
+              rawGroupName: РК1-43
+              rawLessonNumbers: 5,6
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+        diagnostics: []
+    replacements:
+      - *a2
+      - *a3
 diagnostics: []
-semanticHash: bb596516507d98c1f44b9ac2bfddd5650f7f03a262439347c02f669cdfbe33ec
+semanticHash: d83e4fc5f97f85001d5371b356e3e4686cb9933573dcb4340daf03b099023327

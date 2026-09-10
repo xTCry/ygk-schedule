@@ -12,7 +12,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -81,9 +81,55 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a1
       - *a2
       - *a3
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a4
+            date: 2026-09-11
+            group: 7 МРТ
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Псих.общ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 113
+              rawGroupName: 7 МРТ
+              rawLessonNumbers: "1"
+              rawOriginal: Псих.общ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a4
 diagnostics: []
-semanticHash: e0a2b91d049000ffcaac5afc82f9ade1ef9ac4fc3928c0a82384f0ec34a64c30
+semanticHash: 39b68ac1a0d96c2b63fd6d8ba2c0764ee6cc8a74ee3fd23c110f85f9cafe6947

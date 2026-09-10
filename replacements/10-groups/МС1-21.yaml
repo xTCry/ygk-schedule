@@ -78,7 +78,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -129,8 +129,73 @@ dates:
               rawReplacement: Инж.гр. Дегтева И.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a3
       - *a4
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a5
+            date: 2026-09-11
+            group: МС1-21
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Псих.общ. Зеленцова Л.В.
+              room: Ф405
+            source:
+              shift: first
+              row: 98
+              rawGroupName: МС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Псих.общ. Зеленцова Л.В.
+              rawRoom: Ф405
+          - &a6
+            date: 2026-09-11
+            group: МС1-21
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Псих.общ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 99
+              rawGroupName: МС1-21
+              rawLessonNumbers: "5"
+              rawOriginal: Псих.общ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: ba01385f39642a766e99dbbbd35d3ad835d94ead7322004678f2d5b174db7cde
+semanticHash: 780c6e9e2d173452aaf81e26bf5b5d251bff303e1c71501e0b427279beca62d2

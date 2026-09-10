@@ -597,7 +597,7 @@ dates:
         date: 2026-09-10
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -607,11 +607,15 @@ dates:
           shift: first
           etag: W/"6aa13669-4c40"
           lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
       second:
         date: 2026-09-10
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -621,6 +625,10 @@ dates:
           shift: second
           etag: W/"6aa14cce-1c62"
           lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     groups:
       СТ1-25:
         group: СТ1-25
@@ -734,6 +742,64 @@ dates:
               description: "По расписанию: «МДК 02.02 Т.2.5.». По замене: «МДК 06.01 Гасенина
                 М.П.». Аудитория: «А201»."
               room: А201
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК.01.01 Т.1.2.Строительные материалы и изделия п/гр2
+                  teacher: Краснянская Е. В.
+                  room: В102
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 133
+              source:
+                sheet: СТ 2 курс
+                rowStart: 133
+                rowEnd: 134
+                rawGroupName: СТ1-25/СТ1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Инженерная графика
+                  teacher: |-
+                    Дегтева И.Е.
+                    Костерина Е. В.
+                  room: |-
+                    Б509
+                    Б510
+                  weekType: both
+                  sourceRow: 135
+              source:
+                sheet: СТ 2 курс
+                rowStart: 135
+                rowEnd: 136
+                rawGroupName: СТ1-25/СТ1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Инженерная графика
+                  teacher: |-
+                    Дегтева И.Е.
+                    Костерина Е. В.
+                  room: |-
+                    Б509
+                    Б510
+                  weekType: denominator
+                  sourceRow: 137
+              source:
+                sheet: СТ 2 курс
+                rowStart: 137
+                rowEnd: 138
+                rawGroupName: СТ1-25/СТ1-26
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -817,4 +883,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 64908dec2e9f51c5965cae05b32619cad73b645aa523a18146bd279df53d8fac
+semanticHash: 15cce431975b2ee1e5c9697088459c60b611034b585f405d30f32ba84e78aa28

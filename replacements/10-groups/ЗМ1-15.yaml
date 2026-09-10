@@ -49,5 +49,87 @@ dates:
           sourceSha256: 366b6ddcb5f2e8719706b024bbb5565b66abe36585b9e7446aa95f328e0cc759
     replacements:
       - *a1
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a2
+            date: 2026-09-11
+            group: ЗМ1-15
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 72
+              rawGroupName: ЗМ1-15
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a3
+            date: 2026-09-11
+            group: ЗМ1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: Ермолаева Т.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 73
+              rawGroupName: ЗМ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Физика
+              rawReplacement: Ермолаева Т.В.
+              rawRoom: ДОТ
+          - &a4
+            date: 2026-09-11
+            group: ЗМ1-15
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 74
+              rawGroupName: ЗМ1-15
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a2
+      - *a3
+      - *a4
 diagnostics: []
-semanticHash: ca922718bb537b4e960746fa565d624286e7b24d500b50b5857e4fb1a5bbada9
+semanticHash: e1c54ba30bab68d0cbb7736787abe33b8225fd92c4894f0835798f541933db81

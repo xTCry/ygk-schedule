@@ -193,7 +193,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -245,8 +245,94 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a6
       - *a7
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a8
+            date: 2026-09-11
+            group: 5 ИКС
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: МДК 04.01 Матвеичева О.В.
+              room: к.38
+            source:
+              shift: first
+              row: 126
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: МДК 04.01 Матвеичева О.В.
+              rawRoom: к.38
+          - &a9
+            date: 2026-09-11
+            group: 5 ИКС
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.23
+            source:
+              shift: first
+              row: 127
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.23
+          - &a10
+            date: 2026-09-11
+            group: 5 ИКС
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 128
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: a7b3a94f639c7855081f46fb97106744e8ce83793154876febbc8ca4ee4a8ac1
+semanticHash: 03fe307f518835c6b258bc4ce12cd1a8a42791a93378c9f0106f9107ca14c9ab

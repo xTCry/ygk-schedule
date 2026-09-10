@@ -211,7 +211,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -260,8 +260,54 @@ dates:
               rawReplacement: /теория Хватова Е.Ю.
               rawRoom: Ф305
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     replacements:
       - *a7
       - *a8
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a9
+            date: 2026-09-11
+            group: ЮР1-25
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Рус.яз.и культ.речи
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "2"
+              rawOriginal: Рус.яз.и культ.речи
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a9
 diagnostics: []
-semanticHash: 519a8e9e19a4e7b815a4c3235b1a6a360e22c4c23cfeb949a5a75c8273468af2
+semanticHash: 0d66860f34c93c6952fcd96938aa327eec4a2439fe7d96a30d9e43c7a7400f41

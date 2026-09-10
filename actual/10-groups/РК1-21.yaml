@@ -592,6 +592,144 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+    groups:
+      РК1-21:
+        group: РК1-21
+        date: 2026-09-11
+        day: Пятница
+        lessons:
+          - number: 1
+            variants:
+              - subject: Основы композиции, рисунка, живописи в рекламе
+                teacher: |-
+                  Сосновских А.Л.
+                  Махоткина Д.Е.
+                room: |-
+                  Б207
+                  Б208
+                weekType: both
+                sourceRow: 91
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 64
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-11
+                  group: РК1-21
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: add
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 64
+                    rawGroupName: РК1-21
+                    rawLessonNumbers: 1,2
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Парамонов В.И.
+                room: Б501
+                weekType: denominator
+                sourceRow: 93
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 64
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 2
+                strategy: add
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-11
+              group: РК1-21
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: МДК 04.01
+              replacement:
+                raw: /теория Пономаренко В.С.
+                room: ДОТ
+              source:
+                shift: first
+                row: 65
+                rawGroupName: РК1-21
+                rawLessonNumbers: "3"
+                rawOriginal: МДК 04.01
+                rawReplacement: /теория Пономаренко В.С.
+                rawRoom: ДОТ
+            lessonNumber: 3
+            reason: lesson-not-scheduled-for-week
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 04.01». По замене: «/теория Пономаренко В.С.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -622,4 +760,37 @@ diagnostics:
           sourceRow: 59
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 275af1ee9c827d7926bc5596abf85f27a86312542c2326ef13c288fa56067723
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 8bed751c6aa1cf36202ae9ed43bb6f9d92924bbbb53a1d5049e88738903d45fa
+    sheet: "Замены: Первая смена"
+    row: 65
+    normalizedGroup: РК1-21
+    rawValue: /теория Пономаренко В.С.
+    context:
+      date: 2026-09-11
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: РК1-21
+      baseSourceFiles:
+        - oar.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      requestedSubject: МДК 04.01
+      candidates:
+        - subject: МДК 04.01 Разработка творческих рекламных решений
+          teacher: |-
+            Пономаренко В.С.
+            Анисимова С.А.
+          room: |-
+            Б304
+            Б305
+          sourceRow: 96
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 63b2a977897588602a122a316f4e823c8dd285e6938b0d4f28309283f5bff85e

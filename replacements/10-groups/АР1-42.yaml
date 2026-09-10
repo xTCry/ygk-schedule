@@ -172,7 +172,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -203,7 +203,92 @@ dates:
               rawReplacement: МДК 01.05 Т.5.1. Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     replacements:
       - *a5
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a6
+            date: 2026-09-11
+            group: АР1-42
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 01.05 Т.5.1. Балина С.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 38
+              rawGroupName: АР1-42
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 01.05 Т.5.1. Балина С.А.
+              rawRoom: ДОТ
+          - &a7
+            date: 2026-09-11
+            group: АР1-42
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+            source:
+              shift: second
+              row: 39
+              rawGroupName: АР1-42
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ""
+          - &a8
+            date: 2026-09-11
+            group: АР1-42
+            lessonNumbers:
+              - 5
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: second
+              row: 40
+              rawGroupName: АР1-42
+              rawLessonNumbers: 5,6
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: e58687ad2caaf8af40efee4316d24f7a6f52435af52b1978cb70b74ece8647cd
+semanticHash: 08b20eb9cb547f06862c25db06137c9e662e456e4c5504035dad3eb95c17e00b

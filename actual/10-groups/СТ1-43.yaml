@@ -176,5 +176,128 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+    groups:
+      СТ1-43:
+        group: СТ1-43
+        date: 2026-09-11
+        day: Пятница
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК.03.01 Т.1.3. Правовое обеспечение профессиональной деятельности
+                teacher: Серых Л.В.
+                room: Б402
+                weekType: both
+                sourceRow: 85
+            source:
+              sheet: СТ 4 курс
+              rowStart: 85
+              rowEnd: 86
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Экономика отрасли
+                teacher: Сафронова Л.Н.
+                room: Б402
+                weekType: both
+                sourceRow: 87
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 47
+            source:
+              sheet: СТ 4 курс
+              rowStart: 87
+              rowEnd: 88
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-11
+                  group: СТ1-43
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: add
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: СТ1-43
+                    rawLessonNumbers: 4,5
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: add
+          - number: 5
+            variants:
+              - subject: МДК.03.01Т.1.2. Менеджмент организации
+                teacher: Малашкевич Д.А.
+                room: Б110
+                weekType: denominator
+                sourceRow: 89
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 47
+            source:
+              sheet: СТ 4 курс
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 5
+                strategy: add
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 290c2584b552bf7ec0b9ea33309b90426ff9301b043580870994793b095c9f1f
+semanticHash: 866a20ba27d339aa45ba971139c83ef573e15f73b25236dc7c5f412f4b7518ea

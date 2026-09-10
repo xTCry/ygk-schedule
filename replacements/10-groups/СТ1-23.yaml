@@ -49,5 +49,69 @@ dates:
           sourceSha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
     replacements:
       - *a1
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a2
+            date: 2026-09-11
+            group: СТ1-23
+            lessonNumbers:
+              - 2
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 51
+              rawGroupName: СТ1-23
+              rawLessonNumbers: 2-4
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a3
+            date: 2026-09-11
+            group: СТ1-23
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Тех.механика п/гр.1
+            replacement:
+              raw: п/гр.2 Кощеев В.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 52
+              rawGroupName: СТ1-23
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика п/гр.1
+              rawReplacement: п/гр.2 Кощеев В.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a2
+      - *a3
 diagnostics: []
-semanticHash: eed24e6b2055cd31b9c758edd9108da32e2d088e4439b23b8fe89fdff237b48b
+semanticHash: ffd181a93bfaf55934c1af013a99f20a6cb5c9273793b41e88926e1c683598f7

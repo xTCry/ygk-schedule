@@ -97,5 +97,67 @@ dates:
           sourceSha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
     replacements:
       - *a2
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        replacements:
+          - &a3
+            date: 2026-09-11
+            group: ЭК1-21
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Псих.общен. Зеленцова Л.В.
+              room: Ф305
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Псих.общен. Зеленцова Л.В.
+              rawRoom: Ф305
+          - &a4
+            date: 2026-09-11
+            group: ЭК1-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Псих.общен.
+            replacement:
+              raw: Консультация к ВПР Карпова Е.В.
+              room: Ф202
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "4"
+              rawOriginal: Псих.общен.
+              rawReplacement: Консультация к ВПР Карпова Е.В.
+              rawRoom: Ф202
+        diagnostics: []
+    replacements:
+      - *a3
+      - *a4
 diagnostics: []
-semanticHash: cae6e425d5449f367da9212be90f8d2fdd6ae849e1b97e457d003b1d00cd1e51
+semanticHash: 7aff5410b4cbddfbdc593f8243c27dd5c35ae637bab86c001dabe3beb7512239

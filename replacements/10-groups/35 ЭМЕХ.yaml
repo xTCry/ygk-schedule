@@ -137,5 +137,69 @@ dates:
     replacements:
       - *a3
       - *a4
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a5
+            date: 2026-09-11
+            group: 35 ЭМЕХ
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: Бархатов Ю.Л.
+              room: сл.м
+            source:
+              shift: first
+              row: 111
+              rawGroupName: 35 ЭМЕХ
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 02
+              rawReplacement: Бархатов Ю.Л.
+              rawRoom: сл.м
+          - &a6
+            date: 2026-09-11
+            group: 35 ЭМЕХ
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 112
+              rawGroupName: 35 ЭМЕХ
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: b53f24b63da53b0beb6e5d53dfd8257b2660b57336e0bb8ddd0595bbbc6e531c
+semanticHash: 9d3b5e0c439e3619ecafd695162938732edcc2fa89b7bd104cd7e8beef7a0d68

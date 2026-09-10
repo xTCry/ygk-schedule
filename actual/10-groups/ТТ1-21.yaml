@@ -181,7 +181,7 @@ dates:
         date: 2026-09-10
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -191,11 +191,15 @@ dates:
           shift: first
           etag: W/"6aa13669-4c40"
           lastModified: Wed, 09 Sep 2026 10:35:21 GMT
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
       second:
         date: 2026-09-10
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -205,6 +209,10 @@ dates:
           shift: second
           etag: W/"6aa14cce-1c62"
           lastModified: Wed, 09 Sep 2026 12:10:54 GMT
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     groups:
       ТТ1-21:
         group: ТТ1-21
@@ -277,6 +285,40 @@ dates:
               description: "По расписанию: «Информ.». По замене: «1,2 п/гр. Яковлева Е.Н.».
                 Аудитория: «Б301»."
               room: Б301
+        frozenBase:
+          scheduleVersion: 3c9002f478b7805659a4adb151cdc404322b3f124a02bcf3d81683460add667d
+          dataRevision: 400afe7160feed3c7f82b6c9f89fc870546fd5e8
+          lessons:
+            - number: 3
+              variants:
+                - subject: Физическая культура
+                  teacher: Кургузова М.С.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 79
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 79
+                rowEnd: 80
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Основы философии
+                  teacher: Новиков М.П.
+                  room: Б402
+                  weekType: denominator
+                  sourceRow: 81
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 81
+                rowEnd: 82
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -339,4 +381,4 @@ diagnostics:
           sourceRow: 78
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 91f91be644da42e55f133c5b20964970f67cd63e9ce5d95cd1b1a07272ee9f49
+semanticHash: fab937abd687245e5b3a085939bb20648fbdc631cbb6172702662ce7c2571c61

@@ -217,7 +217,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -267,8 +267,55 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a6
       - *a7
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a8
+            date: 2026-09-11
+            group: 4 ИКС
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Псих.общ.
+            replacement:
+              raw: Эф.поведение Царькова Н.А.
+              room: к.25
+            source:
+              shift: first
+              row: 102
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: Псих.общ.
+              rawReplacement: Эф.поведение Царькова Н.А.
+              rawRoom: к.25
+        diagnostics: []
+    replacements:
+      - *a8
 diagnostics: []
-semanticHash: f698a434e7839c190f914080569667c71ce715cf33a5fdea02020f9c8f749cad
+semanticHash: 9e76413cdafd120ee64aa09b6761f5dc7d16742df0ea9e4954ab84967b5e1eff

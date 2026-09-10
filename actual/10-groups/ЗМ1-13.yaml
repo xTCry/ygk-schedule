@@ -380,6 +380,153 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+      second:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
+          fetchedAt: 2026-09-10T13:31:20.135Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa29c7a-2f05"
+          lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+    groups:
+      ЗМ1-13:
+        group: ЗМ1-13
+        date: 2026-09-11
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика л/р
+                teacher: Ермолаева Т.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Ермолаева Т.В.
+                rawTeacher: Ермолаева Т.В.
+                rawRoom: ДОТ
+                sourceRow: 70
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 84
+              rowEnd: 85
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-11
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Физика
+                  replacement:
+                    raw: Ермолаева Т.В.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 70
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: "0"
+                    rawOriginal: Физика
+                    rawReplacement: Ермолаева Т.В.
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: Физическая культура
+                teacher: Кургузова М.С.
+                room: Сп.зал
+                weekType: denominator
+                sourceRow: 86
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 71
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 86
+              rowEnd: 87
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-11
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: add
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 71
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: 1,2
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: Математика
+                teacher: Кашурина Н.Н.
+                room: Б504
+                weekType: both
+                sourceRow: 88
+              - subject: по расписанию
+                teacher: ""
+                room: ДОТ
+                weekType: both
+                rawSubject: по расписанию
+                rawRoom: ДОТ
+                sourceRow: 71
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 88
+              rowEnd: 89
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 2
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -406,4 +553,4 @@ diagnostics:
           sourceRow: 70
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 5fadfaf8f7bb1fb98c76b4d46217ec25b39b7109324c0e4cfdcb64752671c758
+semanticHash: d6453c38873880a962931ead1d7f3885a4ec80c216907ac77d37993d74d24edb

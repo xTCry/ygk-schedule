@@ -193,7 +193,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -224,7 +224,74 @@ dates:
               rawReplacement: Ермолаева Т.В.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a6
+  2026-09-11:
+    date: 2026-09-11
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-11
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
+          fetchedAt: 2026-09-10T13:31:20.094Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa27d67-6963"
+          lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        replacements:
+          - &a7
+            date: 2026-09-11
+            group: МА1-12
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: МДК 01.01 п/гр.2
+            replacement:
+              raw: Слесарное дело/теория Щеглов И.А.
+              room: МТ103
+            source:
+              shift: first
+              row: 81
+              rawGroupName: МА1-12
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.01 п/гр.2
+              rawReplacement: Слесарное дело/теория Щеглов И.А.
+              rawRoom: МТ103
+          - &a8
+            date: 2026-09-11
+            group: МА1-12
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01 Слес.дело п/гр.
+            replacement:
+              raw: МДК 01.01/теория Тепляков А.Б.
+              room: МТ106
+            source:
+              shift: first
+              row: 82
+              rawGroupName: МА1-12
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01 Слес.дело п/гр.
+              rawReplacement: МДК 01.01/теория Тепляков А.Б.
+              rawRoom: МТ106
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: 4b70a408d712cd5c735801b1691014062b5dba332dd9a6b104b924da4fa693d6
+semanticHash: 29456d2f7d6ba44d4f0cd6fa6d0883128c1c1af5a13898eb2481dcb12f9f8118
