@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-10T13:31:20.235Z
-scheduleVersion: 5257f43f07b341093158d975f53117e886d616be51e8b1dba9eef6cd37803a3d
+generatedAt: 2026-09-10T17:45:59.573Z
+scheduleVersion: 6bebad63c35e27cd97d48b90f2f8816407fc73a50324e5abcbfdd5809777ad1f
 summary:
   info: 0
   warning: 2
-  error: 175
+  error: 180
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -1603,61 +1603,6 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 9584ee8ce5387109340eb65a38286bb9ba989678fc9e1a74659d1ba47ad76d3f
-    sheet: "Замены: Первая смена"
-    row: 34
-    normalizedGroup: РК1-12
-    rawValue: по расписанию
-    context:
-      date: 2026-09-11
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-      baseGroup: РК1-12
-      baseSourceFiles: &a3
-        - oar.xlsx
-      requestedSubject: Информ.
-      candidates:
-        - subject: Литература
-          teacher: Новикова М.А.
-          room: Б510
-          sourceRow: 296
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    source: *a1
-    issueFingerprint: 9d205c8e17fb7bbddf9b1a220cf902dee40ab2dde94e5115d58160d547a32569
-    issueKey: a824395c0162f14d99dd69eddcee8cdd4b6d0c773ea343d0249dfa196e8aa5ef
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: d97f3a3edb147cca37b1d1fb3dc2b27feeb6de76d603effcedbc5f94cf616bd4
-    sheet: "Замены: Первая смена"
-    row: 34
-    normalizedGroup: РК1-12
-    rawValue: по расписанию
-    context:
-      date: 2026-09-11
-      lessonNumber: 1
-      type: replace
-      reason: original-not-matched
-      baseGroup: РК1-12
-      baseSourceFiles: *a3
-      requestedSubject: Информ.
-      candidates:
-        - subject: Математика
-          teacher: Пухова Ю.Г.
-          room: М208
-          sourceRow: 294
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    source: *a1
-    issueFingerprint: 9d205c8e17fb7bbddf9b1a220cf902dee40ab2dde94e5115d58160d547a32569
-    issueKey: a824395c0162f14d99dd69eddcee8cdd4b6d0c773ea343d0249dfa196e8aa5ef
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: f6cbb587eb9c257b40952fb40e7353292ed65833b72b8cdc3a7e07666efb1a93
     sheet: "Замены: Первая смена"
     row: 34
@@ -1762,7 +1707,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: &a4
+      baseSourceFiles: &a3
         - oeis.xlsx
       replacementWeekType: denominator
       availableWeekTypes:
@@ -1796,7 +1741,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: *a4
+      baseSourceFiles: *a3
       replacementWeekType: denominator
       availableWeekTypes:
         - numerator
@@ -1828,7 +1773,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-13
-      baseSourceFiles: &a5
+      baseSourceFiles: &a4
         - out.xlsx
       requestedSubject: Математика...
       candidates:
@@ -1856,7 +1801,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЮР1-13
-      baseSourceFiles: *a5
+      baseSourceFiles: *a4
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -1877,7 +1822,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МА1-21
-      baseSourceFiles: &a6
+      baseSourceFiles: &a5
         - oeis.xlsx
       requestedSubject: Общ-полит.монитор.
       candidates:
@@ -1905,7 +1850,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МА1-21
-      baseSourceFiles: *a6
+      baseSourceFiles: *a5
       requestedSubject: Общ-полит.монитор.
       candidates:
         - subject: История России
@@ -1948,6 +1893,37 @@ diagnostics:
     source: *a1
     issueFingerprint: 2e0f73029cde9d42b99fe9701277f077380a018c0f375a117eea270f6418e3a4
     issueKey: 14fbe8c08948ac344cb3ab1e4d7f7cd7d5a17e539182fdc85216b8497d4033ed
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: c40d353e2f384c1615be9ab3d10f8866ccb938496b5eae5313b9e787155cb587
+    sheet: "Замены: Первая смена"
+    row: 41
+    normalizedGroup: СТ1-19
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: СТ1-19
+      baseSourceFiles:
+        - so.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: Математика
+          teacher: Пухова Ю.Г.
+          room: М208
+          sourceRow: 241
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 3f8faccc037f64e010c6d5d52e8b8cee60d0a44ac86e0239d98d0c7e4224a365
+    issueKey: 1289c960dc49f4e701bb6c0a63d4879cad820a1a13b9d357c855e7138f070bc3
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -2231,7 +2207,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: &a7
+      baseSourceFiles: &a6
         - ort.xlsx
       requestedSubject: УП 01
       requestedSubgroups:
@@ -2293,7 +2269,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: *a7
+      baseSourceFiles: *a6
       requestedSubject: УП 01
       requestedSubgroups:
         - "2"
@@ -2651,7 +2627,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a8
+      baseSourceFiles: &a7
         - ort.xlsx
       requestedSubject: УП 02
       requestedSubgroups:
@@ -2718,7 +2694,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a8
+      baseSourceFiles: *a7
       requestedSubject: УП 02
       requestedSubgroups:
         - "2"
@@ -2748,7 +2724,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a9
+      baseSourceFiles: &a8
         - ort.xlsx
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
@@ -2779,7 +2755,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a8
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -2831,7 +2807,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a8
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -2942,7 +2918,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: &a10
+      baseSourceFiles: &a9
         - ort.xlsx
       requestedSubject: УП 06
       requestedSubgroups:
@@ -2973,7 +2949,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: *a10
+      baseSourceFiles: *a9
       requestedSubject: УП 06
       requestedSubgroups:
         - "2"
@@ -3077,6 +3053,37 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: d6abbb14184f2fe5506aae453c77d00f00ced317a9cddcf752d0990de658db11
+    sheet: "Замены: Первая смена"
+    row: 80
+    normalizedGroup: ЗМ1-11
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ЗМ1-11
+      baseSourceFiles:
+        - oeis.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: Физическая культура
+          teacher: Кургузова М.С.
+          room: Сп.зал
+          sourceRow: 41
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 3f8faccc037f64e010c6d5d52e8b8cee60d0a44ac86e0239d98d0c7e4224a365
+    issueKey: 1289c960dc49f4e701bb6c0a63d4879cad820a1a13b9d357c855e7138f070bc3
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 4e776742fdfa86fef2f41a51413b390880ec6423f7b9f52038a5138e68db4473
     sheet: "Замены: Первая смена"
@@ -3089,7 +3096,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a11
+      baseSourceFiles: &a10
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -3149,7 +3156,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a11
+      baseSourceFiles: *a10
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -3177,7 +3184,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a11
+      baseSourceFiles: *a10
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -3205,7 +3212,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a11
+      baseSourceFiles: *a10
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -3635,7 +3642,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: &a12
+      baseSourceFiles: &a11
         - ort.xlsx
       requestedSubject: УП 04
       requestedSubgroups:
@@ -3666,7 +3673,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: *a12
+      baseSourceFiles: *a11
       requestedSubject: УП 04
       requestedSubgroups:
         - "1"
@@ -3710,7 +3717,7 @@ diagnostics:
           sourceRow: 130
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: &a13
+    source: &a12
       id: https://menu.sttec.yar.ru/timetable/rasp_second.html
       fileName: rasp_second.html
       sha256: f12e1a21b79937c7de53f572b28964d307c62fd07644bd850476596f5750a4f5
@@ -3746,7 +3753,7 @@ diagnostics:
           sourceRow: 128
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -3776,7 +3783,7 @@ diagnostics:
           sourceRow: 98
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -3808,7 +3815,7 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -3836,7 +3843,7 @@ diagnostics:
           sourceRow: 73
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -3866,7 +3873,7 @@ diagnostics:
           sourceRow: 220
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -3894,7 +3901,7 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -3924,7 +3931,7 @@ diagnostics:
           sourceRow: 258
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -3956,7 +3963,7 @@ diagnostics:
           sourceRow: 121
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -3988,7 +3995,7 @@ diagnostics:
           sourceRow: 153
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -4020,7 +4027,7 @@ diagnostics:
           sourceRow: 57
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -4048,7 +4055,7 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -4084,7 +4091,7 @@ diagnostics:
           sourceRow: 142
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
     issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
@@ -4118,7 +4125,7 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -4148,7 +4155,7 @@ diagnostics:
           sourceRow: 191
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -4180,7 +4187,7 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -4208,7 +4215,7 @@ diagnostics:
           sourceRow: 298
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -4226,7 +4233,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: &a14
+      baseSourceFiles: &a13
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -4239,7 +4246,7 @@ diagnostics:
           sourceRow: 242
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
     issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
   - provider: ygk
@@ -4257,7 +4264,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: *a14
+      baseSourceFiles: *a13
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -4269,7 +4276,7 @@ diagnostics:
           sourceRow: 240
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
     issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
   - provider: ygk
@@ -4299,7 +4306,7 @@ diagnostics:
           sourceRow: 130
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -4330,7 +4337,7 @@ diagnostics:
           sourceRow: 219
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 521a6aa25f20cd28b2f8e71de1df8939408a4760c43a4320b401b1d951562276
     issueKey: a0ae7eca7525c9891356c9762210660c70e7f3aec385ad3c59b23184937374be
   - provider: ygk
@@ -4365,9 +4372,40 @@ diagnostics:
           sourceRow: 108
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: a35344e0e368805771a3f9bc56d2aad9ed79d3c12e997fa35f8c967416a57009
+    sheet: "Замены: Вторая смена"
+    row: 13
+    normalizedGroup: СА1-31
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: СА1-31
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: Теория вероятностей и мат. Статистика
+          teacher: Шереметьева Н.В.
+          room: М106
+          sourceRow: 86
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4397,7 +4435,7 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -4425,7 +4463,7 @@ diagnostics:
           sourceRow: 122
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -4459,7 +4497,7 @@ diagnostics:
           sourceRow: 12
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -4487,7 +4525,7 @@ diagnostics:
           sourceRow: 157
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -4517,7 +4555,7 @@ diagnostics:
           sourceRow: 29
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -4535,7 +4573,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: &a15
+      baseSourceFiles: &a14
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -4548,7 +4586,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -4578,7 +4616,7 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -4596,7 +4634,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: *a15
+      baseSourceFiles: *a14
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -4608,7 +4646,7 @@ diagnostics:
           sourceRow: 163
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -4640,7 +4678,7 @@ diagnostics:
           sourceRow: 264
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -4668,9 +4706,45 @@ diagnostics:
           sourceRow: 311
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 5d78d61fb301e2095a53343210e19a0d7159dc1bb473839087b577678eb09170
+    sheet: "Замены: Вторая смена"
+    row: 18
+    normalizedGroup: ИБ1-31
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИБ1-31
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: МДК.04.02 Установка и настройка аппаратных и программных средств
+            доступа в сеть Интернет
+          teacher: |-
+            Хожайнова М.Г.
+            Тимощук М.В..
+          room: |-
+            Б308
+            Б309
+          sourceRow: 88
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4698,9 +4772,40 @@ diagnostics:
           sourceRow: 217
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 280502f1e47e7413b89aafdf6d68346aa3f8b668a4e2acc247dd5b43b4415545
+    sheet: "Замены: Вторая смена"
+    row: 20
+    normalizedGroup: ИС1-33
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 6
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИС1-33
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: Экономика отрасли
+          teacher: Сафронова Л.Н.
+          room: Б402
+          sourceRow: 92
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4726,7 +4831,7 @@ diagnostics:
           sourceRow: 41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -4757,7 +4862,7 @@ diagnostics:
           sourceRow: 249
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: ccc29309c9aaf6a7232779518dfdedfbf147fee0176abc4512e91231e8ccbd36
     issueKey: 40e3721994f6ce0a611f0eacfd76445326449a2325b9d13bad90f9f7f3ac816a
   - provider: ygk
@@ -4785,7 +4890,7 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -4813,9 +4918,74 @@ diagnostics:
           sourceRow: 276
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 3f1aff8c2056eff6beb71af455aa167e2b0c0d1af4c97ef1a325f9875ea2fb4e
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ИБ1-41
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 5
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИБ1-41
+      baseSourceFiles: &a15
+        - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: МДК.02.02 Криптограф-ие средства защиты инф-ции
+          teacher: Хожайнова М.Г.
+          room: Б308
+          sourceRow: 146
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: a6b40d08166bcbf43915d4fabf7a39c0c38c488ebe73c03f2dc730445ef613c3
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ИБ1-41
+    rawValue: по расписанию
+    context:
+      date: 2026-09-11
+      lessonNumber: 6
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИБ1-41
+      baseSourceFiles: *a15
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
+      candidates:
+        - subject: Web-программирование
+          teacher: |-
+            Серова А.М.
+            Грехова Е.И.
+          room: |-
+            Б301
+            Б302
+          sourceRow: 148
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4835,7 +5005,7 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 1882b049c824dc37d2486818976429a1a351858d792447cccdc7c281d2bcba4b
     issueKey: aa35a7d1d0e826af12c28e2610e1f138ee413dc4ed69bea383ccb5a896f30aab
   - provider: ygk
@@ -4866,7 +5036,7 @@ diagnostics:
           sourceRow: 164
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
   - provider: ygk
@@ -4896,7 +5066,7 @@ diagnostics:
           sourceRow: 186
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -4924,7 +5094,7 @@ diagnostics:
           sourceRow: 155
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -4954,7 +5124,7 @@ diagnostics:
           sourceRow: 151
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -4984,7 +5154,7 @@ diagnostics:
           sourceRow: 242
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -5014,7 +5184,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -5048,7 +5218,7 @@ diagnostics:
           sourceRow: 165
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -5076,7 +5246,7 @@ diagnostics:
           sourceRow: 244
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -5104,7 +5274,7 @@ diagnostics:
           sourceRow: 183
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -5132,7 +5302,7 @@ diagnostics:
           sourceRow: 138
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -5164,14 +5334,15 @@ diagnostics:
           sourceRow: 137
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
+    source: *a12
     issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
     issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: 4a3d280a533df181cef15a5a56e0c2f99da405e2dad04dd05b63b1591213a389
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 684b23341e9d9bde7adbb618543ee21754d4f8909b9bd2dd165077599ae4314e
     sheet: "Замены: Вторая смена"
     row: 54
     normalizedGroup: СА1-31
@@ -5180,20 +5351,24 @@ diagnostics:
       date: 2026-09-11
       lessonNumber: 3
       type: replace
-      reason: original-not-matched
+      reason: lesson-not-scheduled-for-week
       baseGroup: СА1-31
       baseSourceFiles:
         - oit_1sem.xlsx
+      replacementWeekType: denominator
+      availableWeekTypes:
+        - numerator
       requestedSubject: Теор.вероят.
       candidates:
-        - subject: по расписанию
-          room: ДОТ
-          sourceRow: 13
+        - subject: Теория вероятностей и мат. Статистика
+          teacher: Шереметьева Н.В.
+          room: М106
+          sourceRow: 86
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a13
-    issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
-    issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
+    source: *a12
+    issueFingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e
+    issueKey: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
     severity: warning
@@ -5292,7 +5467,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 2 | — | СТ1-25 | 3 | replace | /теория Краснянская Е.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-25}} | {{group-yaml:actual:%D0%A1%D0%A21-25}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 13 | — | АР1-23 | 2 | replace | Тех.механика Калугина М.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-23}} | {{group-yaml:actual:%D0%90%D0%A01-23}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 14 | — | АР1-23 | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-23}} | {{group-yaml:actual:%D0%90%D0%A01-23}} | {{raw-source:schedule:oar.xlsx}} |
@@ -5318,12 +5493,11 @@ issues:
       - schedule-diagnostic
       - scope:actual
       - shift:first
-    occurrenceCount: 19
+    occurrenceCount: 17
     observationKeys:
       - 09e42a721ab8e0fcd9bf4547b15d8f06e67d65b2d1363e27f2fe51e74c014ab9
       - 0f730aafb12a1f8fcf78e52f56c1cf42035c623daf30c913666af61f1d5cf6ec
       - 10ca88c470a22a7c818b945bc5d88af1af0e4aa7154f597dee45286b00ac4f8d
-      - 28e6ce8b48fc21578bd21261580d2a20324d6f81f5362a7b4d2e853adf4f3411
       - 420cda3e8870f0b74b2f08cd3b7621830a354676632078655381f5d85bc390d9
       - 5c849a5136dadb5ed95e6b1d33ca24f76c6cebfd922f999ed111eab1b9b46e3f
       - 65993cbea4ede1ef679553385d9a857acd1261fc9e82df49ed65507fee81c61b
@@ -5337,7 +5511,6 @@ issues:
       - a906986d8627ed6501392d3ea4df563f8d4e63bf584252fcb25331815eadb5c5
       - ab2b7a5f70cc010e3c9919a5172bc15758ff578891479e9591d87c459c707b70
       - b015b6589d264805af0f93d1a004db72ab9be588c9b55dfbe341ccb6a10f9d7f
-      - c096df29fa04a1a566e2a571ce275b596d76b52426a164739596dd565fa74ee2
       - c4f13ae9834236829ee991fe93ecb77c793fcd6bd8be0ef0733d9af6e29bb833
     evidence:
       diagnosticsJsonPath: actual/90-diagnostics.json
@@ -5348,7 +5521,7 @@ issues:
       <!-- parser-issue-key: a824395c0162f14d99dd69eddcee8cdd4b6d0c773ea343d0249dfa196e8aa5ef -->
       <!-- diagnostic-family-key: c2874fd194e0cb6c3ae64cf1e824e9748c0a4222b6bf021b9531f11146a2a6e3 -->
       <!-- diagnostic-lifecycle: dated -->
-      <!-- diagnostic-observation-keys: 09e42a721ab8e0fcd9bf4547b15d8f06e67d65b2d1363e27f2fe51e74c014ab9,0f730aafb12a1f8fcf78e52f56c1cf42035c623daf30c913666af61f1d5cf6ec,10ca88c470a22a7c818b945bc5d88af1af0e4aa7154f597dee45286b00ac4f8d,28e6ce8b48fc21578bd21261580d2a20324d6f81f5362a7b4d2e853adf4f3411,420cda3e8870f0b74b2f08cd3b7621830a354676632078655381f5d85bc390d9,5c849a5136dadb5ed95e6b1d33ca24f76c6cebfd922f999ed111eab1b9b46e3f,65993cbea4ede1ef679553385d9a857acd1261fc9e82df49ed65507fee81c61b,6b7c136edf61a48b88ea936c5ecc6f9cdc7b2ac21828f2b17bc67688faaea802,7af2d518c3f8b315530b8912fb645ed4682c10e7a13cfac9d5e5cb8cec778601,7cc357507f47b8aa4706e19537f0335137396510c1a0aa09a4b76d67725f25b4,800b4ebb97e3ae44ce6dcb546d8b1dfe1c58c87b0f65024b274fc08decd5aeab,8359b57bf02efab775a128308fc473ce31c3ff4e6075aaeb3419c6eb12f0f4f2,83b138e936964b1c6813f64f3145e198baf62eff81fff131aafdfa360c5042e8,a84ca2d80d7eb984ca8abb96224c456ec6066b144a5a016c559700a1a4160f75,a906986d8627ed6501392d3ea4df563f8d4e63bf584252fcb25331815eadb5c5,ab2b7a5f70cc010e3c9919a5172bc15758ff578891479e9591d87c459c707b70,b015b6589d264805af0f93d1a004db72ab9be588c9b55dfbe341ccb6a10f9d7f,c096df29fa04a1a566e2a571ce275b596d76b52426a164739596dd565fa74ee2,c4f13ae9834236829ee991fe93ecb77c793fcd6bd8be0ef0733d9af6e29bb833 -->
+      <!-- diagnostic-observation-keys: 09e42a721ab8e0fcd9bf4547b15d8f06e67d65b2d1363e27f2fe51e74c014ab9,0f730aafb12a1f8fcf78e52f56c1cf42035c623daf30c913666af61f1d5cf6ec,10ca88c470a22a7c818b945bc5d88af1af0e4aa7154f597dee45286b00ac4f8d,420cda3e8870f0b74b2f08cd3b7621830a354676632078655381f5d85bc390d9,5c849a5136dadb5ed95e6b1d33ca24f76c6cebfd922f999ed111eab1b9b46e3f,65993cbea4ede1ef679553385d9a857acd1261fc9e82df49ed65507fee81c61b,6b7c136edf61a48b88ea936c5ecc6f9cdc7b2ac21828f2b17bc67688faaea802,7af2d518c3f8b315530b8912fb645ed4682c10e7a13cfac9d5e5cb8cec778601,7cc357507f47b8aa4706e19537f0335137396510c1a0aa09a4b76d67725f25b4,800b4ebb97e3ae44ce6dcb546d8b1dfe1c58c87b0f65024b274fc08decd5aeab,8359b57bf02efab775a128308fc473ce31c3ff4e6075aaeb3419c6eb12f0f4f2,83b138e936964b1c6813f64f3145e198baf62eff81fff131aafdfa360c5042e8,a84ca2d80d7eb984ca8abb96224c456ec6066b144a5a016c559700a1a4160f75,a906986d8627ed6501392d3ea4df563f8d4e63bf584252fcb25331815eadb5c5,ab2b7a5f70cc010e3c9919a5172bc15758ff578891479e9591d87c459c707b70,b015b6589d264805af0f93d1a004db72ab9be588c9b55dfbe341ccb6a10f9d7f,c4f13ae9834236829ee991fe93ecb77c793fcd6bd8be0ef0733d9af6e29bb833 -->
       <!-- parser-fingerprint: 9d205c8e17fb7bbddf9b1a220cf902dee40ab2dde94e5115d58160d547a32569 -->
 
       ## Причина
@@ -5364,7 +5537,7 @@ issues:
       | Причина | original-not-matched |
       | Дата замен | 2026-09-11 |
       | Смена | первая смена |
-      | Строк в Issue | 19 |
+      | Строк в Issue | 17 |
 
       ## Источник
 
@@ -5384,14 +5557,12 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 2 | — | ИБ1-11 | 1 | replace | Математика Холманова В.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%911-11}} | {{group-yaml:actual:%D0%98%D0%911-11}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 6 | — | ИТ1-11 | 2 | replace | Информ. Комиссарова О.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A21-11}} | {{group-yaml:actual:%D0%98%D0%A21-11}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 10 | — | СА1-11 | 3 | replace | Математика Холманова В.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%901-11}} | {{group-yaml:actual:%D0%A1%D0%901-11}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 14 | — | ПО1-13 | 0 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-13}} | {{group-yaml:actual:%D0%9F%D0%9E1-13}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 16 | — | ПО1-13 | 2 | replace | Математика Шереметьева Н.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-13}} | {{group-yaml:actual:%D0%9F%D0%9E1-13}} | {{raw-source:schedule:oit_1sem.xlsx}} |
-      | Замены: Первая смена | 34 | — | РК1-12 | 2 | replace | по расписанию | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-12}} | {{group-yaml:actual:%D0%A0%D0%9A1-12}} | {{raw-source:schedule:oar.xlsx}} |
-      | Замены: Первая смена | 34 | — | РК1-12 | 1 | replace | по расписанию | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-12}} | {{group-yaml:actual:%D0%A0%D0%9A1-12}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 53 | — | СА1-21 | 0 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%901-21}} | {{group-yaml:actual:%D0%A1%D0%901-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 59 | — | ИС1-23 | 3 | replace | МДК 06.01/теория Пронина Л.Ю. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-23}} | {{group-yaml:actual:%D0%98%D0%A11-23}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 77 | — | МА1-21 | 2 | replace | Электротехника Леонидова Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-21}} | {{group-yaml:actual:%D0%9C%D0%901-21}} | {{raw-source:schedule:oeis.xlsx}} |
@@ -5484,7 +5655,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 3 | — | СД2-13 | 2 | replace | Инф.технол.п/гр.1 Сердцева О.Д. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%942-13}} | {{group-yaml:actual:%D0%A1%D0%942-13}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 4 | — | СД2-11 | 5 | replace | /теория Краснянская Е.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%942-11}} | {{group-yaml:actual:%D0%A1%D0%942-11}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 17 | — | ДИ1-21 | 0 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
@@ -5594,7 +5765,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 3 | — | СТ1-25 | 5 | replace | МДК 06.01 Гасенина М.П. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-25}} | {{group-yaml:actual:%D0%A1%D0%A21-25}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 7 | — | ИС1-25 | 2 | replace | 1,2 п/гр. Васильченко М.О. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-25}} | {{group-yaml:actual:%D0%98%D0%A11-25}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 8 | — | ИС1-25 | 3 | replace | 1,2 п/гр. Вершинина Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%A11-25}} | {{group-yaml:actual:%D0%98%D0%A11-25}} | {{raw-source:schedule:oit_1sem.xlsx}} |
@@ -5691,7 +5862,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 3 | — | СТ1-15 | 1 | replace | /теория Овсова К.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-15}} | {{group-yaml:actual:%D0%A1%D0%A21-15}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 6 | — | РК1-11 | 3 | replace | Физика Овсова К.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-11}} | {{group-yaml:actual:%D0%A0%D0%9A1-11}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 25 | — | ДИ1-23 | 1 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-23}} | {{group-yaml:actual:%D0%94%D0%981-23}} | {{raw-source:schedule:oar.xlsx}} |
@@ -5766,7 +5937,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 4 | — | ИБ1-21 | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%98%D0%911-21}} | {{group-yaml:actual:%D0%98%D0%911-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 38 | — | ТТ1-21 | 1 | replace | 1,2 п/гр. Яковлева Е.Н. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A21-21}} | {{group-yaml:actual:%D0%A2%D0%A21-21}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 38 | — | ТТ1-21 | 2 | replace | 1,2 п/гр. Яковлева Е.Н. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A21-21}} | {{group-yaml:actual:%D0%A2%D0%A21-21}} | {{raw-source:schedule:oeis.xlsx}} |
@@ -5840,7 +6011,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 7 | — | СТ1-25 | 4 | replace | п/гр.2 Кощеев В.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-25}} | {{group-yaml:actual:%D0%A1%D0%A21-25}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 24 | — | ПО1-11 | 3 | replace | 1,2 п/гр.Информ. Садилова К.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-11}} | {{group-yaml:actual:%D0%9F%D0%9E1-11}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 26 | — | ЗМ1-41 | 4 | replace | МДК 03.02 Федорова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-41}} | {{group-yaml:actual:%D0%97%D0%9C1-41}} | {{raw-source:schedule:oeis.xlsx}} |
@@ -5947,7 +6118,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Первая смена | 9 | — | ДИ1-13 | 2 | cancel | Снято |
       {{raw-source:replacements:rasp_first.html}} |
@@ -6019,7 +6190,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 13 | — | ПО1-11 | 3 | replace | Физкультура Куликова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-11}} | {{group-yaml:actual:%D0%9F%D0%9E1-11}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 16 | — | ПО1-13 | 3 | replace | Математика Шереметьева Н.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9F%D0%9E1-13}} | {{group-yaml:actual:%D0%9F%D0%9E1-13}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 3f93f9869d6d26e5947e7674bd436abd8faeebd63960aa35f517d4ed39743bca
@@ -6087,7 +6258,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 16 | — | СД2-11 | 5 | replace | Инф.технол. п/гр 2 Сердцева О.Д. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%942-11}} | {{group-yaml:actual:%D0%A1%D0%942-11}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 23 | — | ДИ1-21 | 0 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
   - key: ca0dd9e585936b7a7856e41b941d2a28733d4df2265cdb89055ea066f63c1aef
@@ -6159,7 +6330,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 17 | — | СА1-21 | 1 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%901-21}} | {{group-yaml:actual:%D0%A1%D0%901-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 29 | — | ЮР1-13 | 4 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-13}} | {{group-yaml:actual:%D0%AE%D0%A01-13}} | {{raw-source:schedule:out.xlsx}} |
       | Замены: Первая смена | 37 | — | МА1-12 | 4 | replace | Физкультура Николаенко Ю.А | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-12}} | {{group-yaml:actual:%D0%9C%D0%901-12}} | {{raw-source:schedule:oeis.xlsx}} |
@@ -6232,7 +6403,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 18 | — | СА1-21 | 3 | replace | МДК 01.01 Хожайнова М.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%901-21}} | {{group-yaml:actual:%D0%A1%D0%901-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Первая смена | 22 | — | ДИ1-23 | 2 | replace | 1,2 п/гр МДК 05.01 Рочева А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-23}} | {{group-yaml:actual:%D0%94%D0%981-23}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 27 | — | ЮР1-13 | 1 | replace | 1,2 п/гр. Малявкина Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-13}} | {{group-yaml:actual:%D0%AE%D0%A01-13}} | {{raw-source:schedule:out.xlsx}} |
@@ -6254,9 +6425,11 @@ issues:
       - schedule-diagnostic
       - scope:actual
       - shift:first
-    occurrenceCount: 5
+    occurrenceCount: 7
     observationKeys:
+      - 13117037923313b85262737340f8655b9f2702c6f8ac5103f90835d4153ff9a5
       - 3964101ef0c10a64f798a9096329762453e4f1dd1bd6f7f0f96fe000d0cf3a82
+      - 60ec3867b96b3261d78837b58fcc90dd35285ed08dcc28a89a11781ce0eb3af3
       - 8ee88b47c50ad13248ae1775563f0159cf0076b8bb79135464cf515fb76dc331
       - 92525afc07c3c3cc0d3fe09604aa69711924e403ef80da479570161f1100e402
       - e85ea5567b8c53e639397becc81a6f01dbdf1fb5f8ebf66f21a43cd6fc5a0c5c
@@ -6270,7 +6443,7 @@ issues:
       <!-- parser-issue-key: 1289c960dc49f4e701bb6c0a63d4879cad820a1a13b9d357c855e7138f070bc3 -->
       <!-- diagnostic-family-key: 817c5455bdcf6c35570218da683900258187a943738a0e28f1c8ebe4abd82d17 -->
       <!-- diagnostic-lifecycle: dated -->
-      <!-- diagnostic-observation-keys: 3964101ef0c10a64f798a9096329762453e4f1dd1bd6f7f0f96fe000d0cf3a82,8ee88b47c50ad13248ae1775563f0159cf0076b8bb79135464cf515fb76dc331,92525afc07c3c3cc0d3fe09604aa69711924e403ef80da479570161f1100e402,e85ea5567b8c53e639397becc81a6f01dbdf1fb5f8ebf66f21a43cd6fc5a0c5c,ed8dc5981f75033ed268fc7d6f2b9f23217c0e7df4bfa150d65015696601fb59 -->
+      <!-- diagnostic-observation-keys: 13117037923313b85262737340f8655b9f2702c6f8ac5103f90835d4153ff9a5,3964101ef0c10a64f798a9096329762453e4f1dd1bd6f7f0f96fe000d0cf3a82,60ec3867b96b3261d78837b58fcc90dd35285ed08dcc28a89a11781ce0eb3af3,8ee88b47c50ad13248ae1775563f0159cf0076b8bb79135464cf515fb76dc331,92525afc07c3c3cc0d3fe09604aa69711924e403ef80da479570161f1100e402,e85ea5567b8c53e639397becc81a6f01dbdf1fb5f8ebf66f21a43cd6fc5a0c5c,ed8dc5981f75033ed268fc7d6f2b9f23217c0e7df4bfa150d65015696601fb59 -->
       <!-- parser-fingerprint: 3f8faccc037f64e010c6d5d52e8b8cee60d0a44ac86e0239d98d0c7e4224a365 -->
 
       ## Причина
@@ -6288,7 +6461,7 @@ issues:
       | Смена | первая смена |
       | Тип недели в заменах | denominator |
       | Типы недель пары в base | numerator |
-      | Строк в Issue | 5 |
+      | Строк в Issue | 7 |
 
       ## Источник
 
@@ -6308,11 +6481,13 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 20 | — | ДИ1-11 | 1 | replace | Чупрова П.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-11}} | {{group-yaml:actual:%D0%94%D0%981-11}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 31 | — | АР1-13 | 4 | replace | Литература Баранова С.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%90%D0%A01-13}} | {{group-yaml:actual:%D0%90%D0%A01-13}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 41 | — | СТ1-19 | 0 | replace | по расписанию | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-19}} | {{group-yaml:actual:%D0%A1%D0%A21-19}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 63 | — | РК2-11 | 4 | replace | МДК 04.01 Анисимова С.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A2-11}} | {{group-yaml:actual:%D0%A0%D0%9A2-11}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Первая смена | 65 | — | РК1-21 | 3 | replace | /теория Пономаренко В.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-21}} | {{group-yaml:actual:%D0%A0%D0%9A1-21}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Первая смена | 80 | — | ЗМ1-11 | 3 | replace | по расписанию | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-11}} | {{group-yaml:actual:%D0%97%D0%9C1-11}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 94 | — | ЗМ1-41 | 5 | replace | МДК 03.02 Федорова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-41}} | {{group-yaml:actual:%D0%97%D0%9C1-41}} | {{raw-source:schedule:oeis.xlsx}} |
   - key: b046f18fbab1615f55cae901fe37a10e987a5b7d770de969f1567207959dd0e0
     familyKey: 1cc5f01e3de040e7d933db5c4ad142932b88f7f4c0c096edc415b6bbccc39beb
@@ -6384,7 +6559,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 22 | — | МА1-21 | 3 | replace | Коровкина А.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-21}} | {{group-yaml:actual:%D0%9C%D0%901-21}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 29 | — | ТТ1-41 | 3 | replace | Охрана труда Зевахина О.Б. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A2%D0%A21-41}} | {{group-yaml:actual:%D0%A2%D0%A21-41}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 33 | — | ЗМ1-13 | 1 | replace | Литература Бабарыкова Э.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-13}} | {{group-yaml:actual:%D0%97%D0%9C1-13}} | {{raw-source:schedule:oeis.xlsx}} |
@@ -6457,7 +6632,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 27 | — | ЗМ1-43 | 1 | replace | Шумилова Т.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-43}} | {{group-yaml:actual:%D0%97%D0%9C1-43}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 39 | — | ЮР1-13 | 4 | replace | ОБиЗР Корсаков С.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-13}} | {{group-yaml:actual:%D0%AE%D0%A01-13}} | {{raw-source:schedule:out.xlsx}} |
   - key: 22569b159c2cd2a8b7295bc26fc05aab9531a004cdcb870811723574eabab584
@@ -6566,7 +6741,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Первая смена | 36 | — | ЮР1-15 | 3 | cancel | снято |
       {{raw-source:replacements:rasp_first.html}} |
@@ -6674,7 +6849,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Первая смена | 41 | — | 4 ИКС | 2 | cancel | снято |
       {{raw-source:replacements:rasp_first.html}} |
@@ -6787,7 +6962,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Первая смена | 45 | — | 10 МРТ | 3 | replace | Физика
       Крижановский В.С. | {{raw-source:replacements:rasp_first.html}} |
@@ -6861,7 +7036,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 52 | — | СТ1-23 | 5 | replace | п/гр.2 Кощеев В.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-23}} | {{group-yaml:actual:%D0%A1%D0%A21-23}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 81 | — | МА1-12 | 0 | replace | Слесарное дело/теория Щеглов И.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-12}} | {{group-yaml:actual:%D0%9C%D0%901-12}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 124 | — | 9 МРТ | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:9%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:9%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
@@ -6931,7 +7106,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 66 | — | ЗМ1-41 | 2 | replace | МДК 03.02 Федорова А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-41}} | {{group-yaml:actual:%D0%97%D0%9C1-41}} | {{raw-source:schedule:oeis.xlsx}} |
       | Замены: Первая смена | 68 | — | 7 МРТ | 0 | replace | Псих.общ. Кобзарь Т.М. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:7%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
   - key: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
@@ -7004,7 +7179,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 2 | — | ЮР1-25 | 3 | replace | /теория Хватова Е.Ю. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
       | Замены: Вторая смена | 3 | — | ЮР1-25 | 2 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
       | Замены: Вторая смена | 4 | — | ЮР1-21 | 5 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-21}} | {{group-yaml:actual:%D0%AE%D0%A01-21}} | {{raw-source:schedule:out.xlsx}} |
@@ -7081,7 +7256,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 3 | — | ИБ1-31 | 5 | replace | 1,2 п/гр. Зайцев Р.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-31}} | {{group-yaml:actual:%D0%98%D0%911-31}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 5 | — | ИС1-43 | 5 | replace | 1,2 п/гр. Васильченко М.О. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 7 | — | ИБ1-41 | 4 | replace | МДК 02.02 Хожайнова М.Г. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-41}} | {{group-yaml:actual:%D0%98%D0%911-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
@@ -7156,7 +7331,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 3 | — | ЭК1-21 | 2 | replace | Нал.и налогообл. Бежина М.И. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AD%D0%9A1-21}} | {{group-yaml:actual:%D0%AD%D0%9A1-21}} | {{raw-source:schedule:out.xlsx}} |
       | Замены: Вторая смена | 8 | — | СА1-41 | 3 | replace | 1,2 п/гр. Зубковская А.Е. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-41}} | {{group-yaml:actual:%D0%A1%D0%901-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 15 | — | ДИ1-41 | 4 | replace | 1,2 п/гр. Ремизова А.И. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-41}} | {{group-yaml:actual:%D0%94%D0%981-41}} | {{raw-source:schedule:oar.xlsx}} |
@@ -7226,7 +7401,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 4 | — | СТ1-33 | 4 | replace | МДК 01.01 Т.1.2. Секацкая Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%A21-33}} | {{group-yaml:actual:%D0%A1%D0%A21-33}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Вторая смена | 6 | — | СА1-41 | 5 | replace | Эф.поведение Малашкевич Д.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-41}} | {{group-yaml:actual:%D0%A1%D0%901-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 15 | — | ДИ1-31 | 6 | replace | 1,2 п/гр. Махоткина Д.Е. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-31}} | {{group-yaml:actual:%D0%94%D0%981-31}} | {{raw-source:schedule:oar.xlsx}} |
@@ -7298,7 +7473,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 4 | — | ИС1-43 | 3 | replace | 1,2 п/гр. Васильченко М.О. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 9 | — | ИБ1-41 | 3 | replace | Эф.поведение Малашкевич Д.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-41}} | {{group-yaml:actual:%D0%98%D0%911-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 14 | — | ДИ1-32 | 6 | replace | 1,2 п/гр. Осипова М.Э. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-32}} | {{group-yaml:actual:%D0%94%D0%981-32}} | {{raw-source:schedule:oar.xlsx}} |
@@ -7370,7 +7545,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 7 | — | СТ1-33 | 3 | replace | /теория Секацкая Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%A21-33}} | {{group-yaml:actual:%D0%A1%D0%A21-33}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Вторая смена | 17 | — | ИС1-41 | 4 | replace | МДК 05.02 Королева П.Д.Неделяева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 17 | — | ИС1-41 | 5 | replace | МДК 05.02 Королева П.Д.Неделяева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
@@ -7390,10 +7565,16 @@ issues:
       - schedule-diagnostic
       - scope:actual
       - shift:second
-    occurrenceCount: 2
+    occurrenceCount: 8
     observationKeys:
       - 0773d561a72b34886024c3d398c956b4589946ac90224344d5fad1179696f896
+      - 35772bad1c34656d497ff515ddcdf1d69730751afe0b411730d9f23fc62f11f6
+      - 68f1e92483e92a3e864a0a67ba57a69c371bb77e4895962316793becc7d760ad
+      - 7fe07974749ed4f8d6f11c488aab87dfeeeb196698542e3523c99f2ff2f300dc
       - 93d6c1ec55f2599a006bd7b20845e07298ac9275dbb3c8626d0f374ad26f81bb
+      - baa4b379e8c67b9b5359531f9d9a53cc9e4a07469736db45de0e5d4252cbc48e
+      - bee79bbdfd00cf2f44b2c9b83af3acb72760dd11eb0a0bb8755ba56c46ddcb75
+      - d3e363af5f084d6e53de0c1f713dd11d472b43403e2b50d8e1ad28abeb7bbac2
     evidence:
       diagnosticsJsonPath: actual/90-diagnostics.json
       diagnosticsYamlPath: actual/90-diagnostics.yaml
@@ -7403,7 +7584,7 @@ issues:
       <!-- parser-issue-key: 59472081a09c0b658713d7970d20ac5353cdf67e7c9e218584cdeb8158844fa0 -->
       <!-- diagnostic-family-key: d2e375252d1de2188fee123c6e83a9046b4523b522d6170af1f8508a357583c6 -->
       <!-- diagnostic-lifecycle: dated -->
-      <!-- diagnostic-observation-keys: 0773d561a72b34886024c3d398c956b4589946ac90224344d5fad1179696f896,93d6c1ec55f2599a006bd7b20845e07298ac9275dbb3c8626d0f374ad26f81bb -->
+      <!-- diagnostic-observation-keys: 0773d561a72b34886024c3d398c956b4589946ac90224344d5fad1179696f896,35772bad1c34656d497ff515ddcdf1d69730751afe0b411730d9f23fc62f11f6,68f1e92483e92a3e864a0a67ba57a69c371bb77e4895962316793becc7d760ad,7fe07974749ed4f8d6f11c488aab87dfeeeb196698542e3523c99f2ff2f300dc,93d6c1ec55f2599a006bd7b20845e07298ac9275dbb3c8626d0f374ad26f81bb,baa4b379e8c67b9b5359531f9d9a53cc9e4a07469736db45de0e5d4252cbc48e,bee79bbdfd00cf2f44b2c9b83af3acb72760dd11eb0a0bb8755ba56c46ddcb75,d3e363af5f084d6e53de0c1f713dd11d472b43403e2b50d8e1ad28abeb7bbac2 -->
       <!-- parser-fingerprint: ea1ee809d91df41aebe04b3435cccfbac85046005cffe2a3606d1c8dacac5f8e -->
 
       ## Причина
@@ -7421,7 +7602,7 @@ issues:
       | Смена | вторая смена |
       | Тип недели в заменах | denominator |
       | Типы недель пары в base | numerator |
-      | Строк в Issue | 2 |
+      | Строк в Issue | 8 |
 
       ## Источник
 
@@ -7441,9 +7622,15 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 8 | — | СТ1-35 | 5 | replace | Гасенина М.П. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%A21-35}} | {{group-yaml:actual:%D0%A1%D0%A21-35}} | {{raw-source:schedule:so.xlsx}} |
+      | Замены: Вторая смена | 13 | — | СА1-31 | 3 | replace | по расписанию | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-31}} | {{group-yaml:actual:%D0%A1%D0%901-31}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 18 | — | ИБ1-31 | 2 | replace | по расписанию | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-31}} | {{group-yaml:actual:%D0%98%D0%911-31}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 20 | — | ИС1-33 | 6 | replace | по расписанию | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-33}} | {{group-yaml:actual:%D0%98%D0%A11-33}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 24 | — | ИБ1-41 | 5 | replace | по расписанию | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-41}} | {{group-yaml:actual:%D0%98%D0%911-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 24 | — | ИБ1-41 | 6 | replace | по расписанию | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%911-41}} | {{group-yaml:actual:%D0%98%D0%911-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 47 | — | ДИ1-45 | 6 | replace | Рисунок Осипова М.Э. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-45}} | {{group-yaml:actual:%D0%94%D0%981-45}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Вторая смена | 54 | — | СА1-31 | 3 | replace | БЖ Корсаков С.В. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-31}} | {{group-yaml:actual:%D0%A1%D0%901-31}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
     familyKey: 7c18e03938c32424038723d39c1e5c3ac3d86cdabd3a03547c063d3c5d1a69cf
     fingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
@@ -7460,12 +7647,11 @@ issues:
       - schedule-diagnostic
       - scope:actual
       - shift:second
-    occurrenceCount: 7
+    occurrenceCount: 6
     observationKeys:
       - 01a560ba0dbcc29b99cd2b8346cdc28d9545f8b866f328a1a18f8554c64b80e3
       - 4940bc99f708a840b539dd4174e8ae78ec365266b7f2dd8c3dba9b5d6d8b5c56
       - 4c1f04c2d626bb3ad2c6f83bfd7a614809c27a6a5dc749c8db570d57e080d05a
-      - 50d22fc491cd172446809768a67df0ba2b62ded7bfd3ad7534424493bac9746d
       - 8dfcd349dd9f3090474ebf1907145c077d08afb248ce2b173a4d1346cc858ce0
       - ac56e9da662fff1eb2f99c87731b39e489127049ca1f2fa2c3aa2f8e28b2a019
       - c6f1b04b492442512475e43e816d81deceb08e614d265741dfab6c7d62510585
@@ -7478,7 +7664,7 @@ issues:
       <!-- parser-issue-key: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9 -->
       <!-- diagnostic-family-key: 7c18e03938c32424038723d39c1e5c3ac3d86cdabd3a03547c063d3c5d1a69cf -->
       <!-- diagnostic-lifecycle: dated -->
-      <!-- diagnostic-observation-keys: 01a560ba0dbcc29b99cd2b8346cdc28d9545f8b866f328a1a18f8554c64b80e3,4940bc99f708a840b539dd4174e8ae78ec365266b7f2dd8c3dba9b5d6d8b5c56,4c1f04c2d626bb3ad2c6f83bfd7a614809c27a6a5dc749c8db570d57e080d05a,50d22fc491cd172446809768a67df0ba2b62ded7bfd3ad7534424493bac9746d,8dfcd349dd9f3090474ebf1907145c077d08afb248ce2b173a4d1346cc858ce0,ac56e9da662fff1eb2f99c87731b39e489127049ca1f2fa2c3aa2f8e28b2a019,c6f1b04b492442512475e43e816d81deceb08e614d265741dfab6c7d62510585 -->
+      <!-- diagnostic-observation-keys: 01a560ba0dbcc29b99cd2b8346cdc28d9545f8b866f328a1a18f8554c64b80e3,4940bc99f708a840b539dd4174e8ae78ec365266b7f2dd8c3dba9b5d6d8b5c56,4c1f04c2d626bb3ad2c6f83bfd7a614809c27a6a5dc749c8db570d57e080d05a,8dfcd349dd9f3090474ebf1907145c077d08afb248ce2b173a4d1346cc858ce0,ac56e9da662fff1eb2f99c87731b39e489127049ca1f2fa2c3aa2f8e28b2a019,c6f1b04b492442512475e43e816d81deceb08e614d265741dfab6c7d62510585 -->
       <!-- parser-fingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500 -->
 
       ## Причина
@@ -7494,7 +7680,7 @@ issues:
       | Причина | original-not-matched |
       | Дата замен | 2026-09-11 |
       | Смена | вторая смена |
-      | Строк в Issue | 7 |
+      | Строк в Issue | 6 |
 
       ## Источник
 
@@ -7514,14 +7700,13 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 9 | — | ИС1-41 | 2 | replace | 1,2 п/гр. Неделяева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 10 | — | ИС1-45 | 2 | replace | 1,2 п/гр. Панасюк А.Д. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-45}} | {{group-yaml:actual:%D0%98%D0%A11-45}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 31 | — | РК1-33 | 4 | replace | 1,2 п/гр. Пономаренко В.С. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A0%D0%9A1-33}} | {{group-yaml:actual:%D0%A0%D0%9A1-33}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Вторая смена | 38 | — | АР1-42 | 3 | replace | МДК 01.05 Т.5.1. Балина С.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%90%D0%A01-42}} | {{group-yaml:actual:%D0%90%D0%A01-42}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Вторая смена | 43 | — | ДИ1-32 | 5 | replace | 1,2 п/гр. Махоткина Д.Е. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-32}} | {{group-yaml:actual:%D0%94%D0%981-32}} | {{raw-source:schedule:oar.xlsx}} |
       | Замены: Вторая смена | 45 | — | ДИ1-31 | 5 | replace | Сосновских А.Л.Лапина А.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-31}} | {{group-yaml:actual:%D0%94%D0%981-31}} | {{raw-source:schedule:oar.xlsx}} |
-      | Замены: Вторая смена | 54 | — | СА1-31 | 3 | replace | БЖ Корсаков С.В. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-31}} | {{group-yaml:actual:%D0%A1%D0%901-31}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
     familyKey: c75f5f009797773913ed97fd3f164afed8471be1f4db45a64b87714662d23da4
     fingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
@@ -7587,7 +7772,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 10 | — | ИС1-43 | 6 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 10 | — | ИС1-43 | 5 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: a0ae7eca7525c9891356c9762210660c70e7f3aec385ad3c59b23184937374be
@@ -7691,7 +7876,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Вторая смена | 12 | — | РК1-33 | 6 | cancel | Снято |
       {{raw-source:replacements:rasp_second.html}} |
@@ -7765,7 +7950,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 13 | — | СА1-41 | 6 | replace | п/гр.2 Грехова Е.И. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-41}} | {{group-yaml:actual:%D0%A1%D0%901-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 25 | — | АР1-41 | 5 | replace | МДК 01.05 Т.5.1. Балина С.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%90%D0%A01-41}} | {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}} |
   - key: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
@@ -7838,7 +8023,7 @@ issues:
       успеть измениться после получения снимка.
 
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 16 | — | ИС1-41 | 2 | replace | МДК 03.02 Юров А.А.Байдина Ю.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 18 | — | ИС1-45 | 4 | replace | 1,2 п/гр. Юров А.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-45}} | {{group-yaml:actual:%D0%98%D0%A11-45}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 19 | — | ИС1-43 | 6 | replace | 1,2 п/гр. Васильченко М.О. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-43}} | {{group-yaml:actual:%D0%98%D0%A11-43}} | {{raw-source:schedule:oit_1sem.xlsx}} |
@@ -7947,7 +8132,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Вторая смена | 22 | — | ИС1-43 | 5 | replace | 1,2 п/гр.УП 05
       Васильченко М.О. | {{raw-source:replacements:rasp_second.html}} |
@@ -8055,7 +8240,7 @@ issues:
       | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
       Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
 
-      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Вторая смена | 25 | — | АР1-41 | 6 | replace | МДК 01.05 Т.5.1.
       Балина С.А. | {{raw-source:replacements:rasp_second.html}} |

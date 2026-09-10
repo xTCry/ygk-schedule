@@ -329,9 +329,10 @@
                 {
                   "subject": "Математика",
                   "teacher": "Пухова Ю.Г.",
-                  "room": "М208",
+                  "room": "ДОТ",
                   "weekType": "both",
-                  "sourceRow": 294
+                  "sourceRow": 294,
+                  "rawRoom": "ДОТ"
                 }
               ],
               "source": {
@@ -342,7 +343,37 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "РК1-12",
+                    "lessonNumbers": [
+                      1,
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Информ."
+                    },
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 34,
+                      "rawGroupName": "РК1-12",
+                      "rawLessonNumbers": "1,2",
+                      "rawOriginal": "Информ.",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 1,
+                  "strategy": "scheduled-room"
+                }
+              ]
             },
             {
               "number": 2,
@@ -350,9 +381,10 @@
                 {
                   "subject": "Литература",
                   "teacher": "Новикова М.А.",
-                  "room": "Б510",
+                  "room": "ДОТ",
                   "weekType": "denominator",
-                  "sourceRow": 296
+                  "sourceRow": 296,
+                  "rawRoom": "ДОТ"
                 }
               ],
               "source": {
@@ -363,148 +395,44 @@
                 "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
               },
               "status": "scheduled",
-              "replacements": []
+              "replacements": [
+                {
+                  "replacement": {
+                    "date": "2026-09-11",
+                    "group": "РК1-12",
+                    "lessonNumbers": [
+                      1,
+                      2
+                    ],
+                    "type": "replace",
+                    "original": {
+                      "raw": "Информ."
+                    },
+                    "replacement": {
+                      "raw": "по расписанию",
+                      "room": "ДОТ"
+                    },
+                    "source": {
+                      "shift": "first",
+                      "row": 34,
+                      "rawGroupName": "РК1-12",
+                      "rawLessonNumbers": "1,2",
+                      "rawOriginal": "Информ.",
+                      "rawReplacement": "по расписанию",
+                      "rawRoom": "ДОТ"
+                    }
+                  },
+                  "lessonNumber": 2,
+                  "strategy": "scheduled-room"
+                }
+              ]
             }
           ],
-          "unresolvedReplacements": [
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "РК1-12",
-                "lessonNumbers": [
-                  1,
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Информ."
-                },
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 34,
-                  "rawGroupName": "РК1-12",
-                  "rawLessonNumbers": "1,2",
-                  "rawOriginal": "Информ.",
-                  "rawReplacement": "по расписанию",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 1,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Информ.». По замене: «по расписанию». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            },
-            {
-              "replacement": {
-                "date": "2026-09-11",
-                "group": "РК1-12",
-                "lessonNumbers": [
-                  1,
-                  2
-                ],
-                "type": "replace",
-                "original": {
-                  "raw": "Информ."
-                },
-                "replacement": {
-                  "raw": "по расписанию",
-                  "room": "ДОТ"
-                },
-                "source": {
-                  "shift": "first",
-                  "row": 34,
-                  "rawGroupName": "РК1-12",
-                  "rawLessonNumbers": "1,2",
-                  "rawOriginal": "Информ.",
-                  "rawReplacement": "по расписанию",
-                  "rawRoom": "ДОТ"
-                }
-              },
-              "lessonNumber": 2,
-              "reason": "original-not-matched",
-              "event": {
-                "summary": "Необработанная замена",
-                "description": "По расписанию: «Информ.». По замене: «по расписанию». Аудитория: «ДОТ».",
-                "room": "ДОТ"
-              }
-            }
-          ]
+          "unresolvedReplacements": []
         }
       }
     }
   },
-  "diagnostics": [
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "9584ee8ce5387109340eb65a38286bb9ba989678fc9e1a74659d1ba47ad76d3f",
-      "sheet": "Замены: Первая смена",
-      "row": 34,
-      "normalizedGroup": "РК1-12",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 2,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "РК1-12",
-        "baseSourceFiles": [
-          "oar.xlsx"
-        ],
-        "requestedSubject": "Информ.",
-        "candidates": [
-          {
-            "subject": "Литература",
-            "teacher": "Новикова М.А.",
-            "room": "Б510",
-            "sourceRow": 296
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    },
-    {
-      "provider": "ygk",
-      "code": "UNRESOLVED_REPLACEMENT",
-      "severity": "error",
-      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
-      "fingerprint": "d97f3a3edb147cca37b1d1fb3dc2b27feeb6de76d603effcedbc5f94cf616bd4",
-      "sheet": "Замены: Первая смена",
-      "row": 34,
-      "normalizedGroup": "РК1-12",
-      "rawValue": "по расписанию",
-      "context": {
-        "date": "2026-09-11",
-        "lessonNumber": 1,
-        "type": "replace",
-        "reason": "original-not-matched",
-        "baseGroup": "РК1-12",
-        "baseSourceFiles": [
-          "oar.xlsx"
-        ],
-        "requestedSubject": "Информ.",
-        "candidates": [
-          {
-            "subject": "Математика",
-            "teacher": "Пухова Ю.Г.",
-            "room": "М208",
-            "sourceRow": 294
-          }
-        ]
-      },
-      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
-      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
-    }
-  ],
-  "semanticHash": "6e7a868379d58dd9cde1b0217d36713450a42dc5a2bfd53e47613311d5a71f35"
+  "diagnostics": [],
+  "semanticHash": "fec509e0701d94cc68bd376b0b4c7a33d5b2afacc4f43748690beadc4b9aeee8"
 }

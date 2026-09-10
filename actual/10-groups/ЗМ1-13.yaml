@@ -462,16 +462,10 @@ dates:
             variants:
               - subject: Физическая культура
                 teacher: Кургузова М.С.
-                room: Сп.зал
+                room: ДОТ
                 weekType: denominator
                 sourceRow: 86
-              - subject: по расписанию
-                teacher: ""
-                room: ДОТ
-                weekType: both
-                rawSubject: по расписанию
                 rawRoom: ДОТ
-                sourceRow: 71
             source:
               sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
               rowStart: 86
@@ -486,7 +480,7 @@ dates:
                   lessonNumbers:
                     - 1
                     - 2
-                  type: add
+                  type: replace
                   original: null
                   replacement:
                     raw: по расписанию
@@ -500,21 +494,15 @@ dates:
                     rawReplacement: по расписанию
                     rawRoom: ДОТ
                 lessonNumber: 1
-                strategy: add
+                strategy: scheduled-room
           - number: 2
             variants:
               - subject: Математика
                 teacher: Кашурина Н.Н.
-                room: Б504
-                weekType: both
-                sourceRow: 88
-              - subject: по расписанию
-                teacher: ""
                 room: ДОТ
                 weekType: both
-                rawSubject: по расписанию
+                sourceRow: 88
                 rawRoom: ДОТ
-                sourceRow: 71
             source:
               sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
               rowStart: 88
@@ -525,7 +513,7 @@ dates:
             replacements:
               - replacement: *a3
                 lessonNumber: 2
-                strategy: add
+                strategy: scheduled-room
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -553,4 +541,4 @@ diagnostics:
           sourceRow: 70
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d6453c38873880a962931ead1d7f3885a4ec80c216907ac77d37993d74d24edb
+semanticHash: f019a84bafa723162f100a440d1185f38f7e8a6444b93742d683429d64f7dc8a

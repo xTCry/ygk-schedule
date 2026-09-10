@@ -755,12 +755,6 @@ dates:
                 room: Б508
                 weekType: both
                 sourceRow: 246
-              - subject: по расписанию
-                teacher: ""
-                room: ""
-                weekType: both
-                rawSubject: по расписанию
-                sourceRow: 39
             source:
               sheet: АР1-21 АР1-31 АР1-32 АР1-41
               rowStart: 246
@@ -768,40 +762,15 @@ dates:
               rawGroupName: АР1-42
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
             status: scheduled
-            replacements:
-              - replacement:
-                  date: 2026-09-11
-                  group: АР1-42
-                  lessonNumbers:
-                    - 4
-                  type: add
-                  original: null
-                  replacement:
-                    raw: по расписанию
-                  source:
-                    shift: second
-                    row: 39
-                    rawGroupName: АР1-42
-                    rawLessonNumbers: "4"
-                    rawOriginal: ""
-                    rawReplacement: по расписанию
-                    rawRoom: ""
-                lessonNumber: 4
-                strategy: add
+            replacements: []
           - number: 5
             variants:
               - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
                 teacher: Жарова Н.И.
-                room: Б508
-                weekType: both
-                sourceRow: 248
-              - subject: по расписанию
-                teacher: ""
                 room: очно
                 weekType: both
-                rawSubject: по расписанию
+                sourceRow: 248
                 rawRoom: очно
-                sourceRow: 40
             source:
               sheet: АР1-21 АР1-31 АР1-32 АР1-41
               rowStart: 248
@@ -816,7 +785,7 @@ dates:
                   lessonNumbers:
                     - 5
                     - 6
-                  type: add
+                  type: replace
                   original: null
                   replacement:
                     raw: по расписанию
@@ -830,21 +799,15 @@ dates:
                     rawReplacement: по расписанию
                     rawRoom: очно
                 lessonNumber: 5
-                strategy: add
+                strategy: scheduled-room
           - number: 6
             variants:
               - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
                 teacher: Жарова Н.И.
-                room: Б508
-                weekType: both
-                sourceRow: 250
-              - subject: по расписанию
-                teacher: ""
                 room: очно
                 weekType: both
-                rawSubject: по расписанию
+                sourceRow: 250
                 rawRoom: очно
-                sourceRow: 40
             source:
               sheet: АР1-21 АР1-31 АР1-32 АР1-41
               rowStart: 250
@@ -855,7 +818,7 @@ dates:
             replacements:
               - replacement: *a1
                 lessonNumber: 6
-                strategy: add
+                strategy: scheduled-room
         unresolvedReplacements:
           - replacement:
               date: 2026-09-11
@@ -909,4 +872,4 @@ diagnostics:
           sourceRow: 244
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 1ebbadab540af09abf2b9a808b2be2d39db4d35237766ac6f6fc0611c714da53
+semanticHash: 4fd25b85884c6d1f1eab8ed16529089c5e75e1718776d8d6dd2496762b2ecf73

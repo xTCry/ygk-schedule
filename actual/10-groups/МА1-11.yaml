@@ -486,16 +486,10 @@ dates:
             variants:
               - subject: Химия
                 teacher: Козырева Д.А.
-                room: Б110
-                weekType: both
-                sourceRow: 42
-              - subject: по расписанию
-                teacher: ""
                 room: ДОТ
                 weekType: both
-                rawSubject: по расписанию
+                sourceRow: 42
                 rawRoom: ДОТ
-                sourceRow: 78
             source:
               sheet: "МА1-11 МА1-13 МА1-21 "
               rowStart: 42
@@ -511,7 +505,7 @@ dates:
                     - 0
                     - 1
                     - 2
-                  type: add
+                  type: replace
                   original: null
                   replacement:
                     raw: по расписанию
@@ -525,21 +519,15 @@ dates:
                     rawReplacement: по расписанию
                     rawRoom: ДОТ
                 lessonNumber: 0
-                strategy: add
+                strategy: scheduled-room
           - number: 1
             variants:
               - subject: Химия л/р
                 teacher: Козырева Д.А.
-                room: Б110
+                room: ДОТ
                 weekType: denominator
                 sourceRow: 44
-              - subject: по расписанию
-                teacher: ""
-                room: ДОТ
-                weekType: both
-                rawSubject: по расписанию
                 rawRoom: ДОТ
-                sourceRow: 78
             source:
               sheet: "МА1-11 МА1-13 МА1-21 "
               rowStart: 44
@@ -550,21 +538,15 @@ dates:
             replacements:
               - replacement: *a1
                 lessonNumber: 1
-                strategy: add
+                strategy: scheduled-room
           - number: 2
             variants:
               - subject: Иностранный язык
                 teacher: Трусова Е.В.
-                room: Б409
-                weekType: both
-                sourceRow: 46
-              - subject: по расписанию
-                teacher: ""
                 room: ДОТ
                 weekType: both
-                rawSubject: по расписанию
+                sourceRow: 46
                 rawRoom: ДОТ
-                sourceRow: 78
             source:
               sheet: "МА1-11 МА1-13 МА1-21 "
               rowStart: 46
@@ -575,7 +557,7 @@ dates:
             replacements:
               - replacement: *a1
                 lessonNumber: 2
-                strategy: add
+                strategy: scheduled-room
           - number: 3
             variants:
               - subject: Физика л/р
@@ -617,4 +599,4 @@ dates:
                 strategy: exact-subject
         unresolvedReplacements: []
 diagnostics: []
-semanticHash: e887403fae8c42fbee0122bbd1f79514d8811f20c37c8d62ee1b03d4b29029dd
+semanticHash: eaf760e2d0057dfa6632fd77dec3bd81a816301d7dc0b181e9346e5a04a040b5

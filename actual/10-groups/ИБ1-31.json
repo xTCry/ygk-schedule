@@ -1070,68 +1070,15 @@
           "day": "Пятница",
           "lessons": [
             {
-              "number": 2,
-              "variants": [
-                {
-                  "subject": "по расписанию",
-                  "teacher": "",
-                  "room": "ДОТ",
-                  "weekType": "both",
-                  "rawSubject": "по расписанию",
-                  "rawRoom": "ДОТ",
-                  "sourceRow": 18
-                }
-              ],
-              "source": null,
-              "status": "scheduled",
-              "replacements": [
-                {
-                  "replacement": {
-                    "date": "2026-09-11",
-                    "group": "ИБ1-31",
-                    "lessonNumbers": [
-                      2,
-                      3
-                    ],
-                    "type": "add",
-                    "original": null,
-                    "replacement": {
-                      "raw": "по расписанию",
-                      "room": "ДОТ"
-                    },
-                    "source": {
-                      "shift": "second",
-                      "row": 18,
-                      "rawGroupName": "ИБ1-31",
-                      "rawLessonNumbers": "2,3",
-                      "rawOriginal": "",
-                      "rawReplacement": "по расписанию",
-                      "rawRoom": "ДОТ"
-                    }
-                  },
-                  "lessonNumber": 2,
-                  "strategy": "add"
-                }
-              ]
-            },
-            {
               "number": 3,
               "variants": [
                 {
                   "subject": "МДК.04.02 Установка и настройка аппаратных и программных средств доступа в сеть Интернет",
                   "teacher": "Хожайнова М.Г.\nТимощук М.В..",
-                  "room": "Б309\nБ304",
-                  "weekType": "denominator",
-                  "sourceRow": 89
-                },
-                {
-                  "subject": "по расписанию",
-                  "teacher": "",
                   "room": "ДОТ",
-                  "weekType": "both",
-                  "rawSubject": "по расписанию",
-                  "rawRoom": "ДОТ",
-                  "sourceRow": 18
+                  "weekType": "denominator",
+                  "sourceRow": 89,
+                  "rawRoom": "ДОТ"
                 }
               ],
               "source": {
@@ -1151,7 +1098,7 @@
                       2,
                       3
                     ],
-                    "type": "add",
+                    "type": "replace",
                     "original": null,
                     "replacement": {
                       "raw": "по расписанию",
@@ -1168,7 +1115,7 @@
                     }
                   },
                   "lessonNumber": 3,
-                  "strategy": "add"
+                  "strategy": "scheduled-room"
                 }
               ]
             },
@@ -1226,12 +1173,80 @@
               ]
             }
           ],
-          "unresolvedReplacements": []
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-09-11",
+                "group": "ИБ1-31",
+                "lessonNumbers": [
+                  2,
+                  3
+                ],
+                "type": "replace",
+                "original": null,
+                "replacement": {
+                  "raw": "по расписанию",
+                  "room": "ДОТ"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 18,
+                  "rawGroupName": "ИБ1-31",
+                  "rawLessonNumbers": "2,3",
+                  "rawOriginal": "",
+                  "rawReplacement": "по расписанию",
+                  "rawRoom": "ДОТ"
+                }
+              },
+              "lessonNumber": 2,
+              "reason": "lesson-not-scheduled-for-week",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По замене: «по расписанию». Аудитория: «ДОТ».",
+                "room": "ДОТ"
+              }
+            }
+          ]
         }
       }
     }
   },
   "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "5d78d61fb301e2095a53343210e19a0d7159dc1bb473839087b577678eb09170",
+      "sheet": "Замены: Вторая смена",
+      "row": 18,
+      "normalizedGroup": "ИБ1-31",
+      "rawValue": "по расписанию",
+      "context": {
+        "date": "2026-09-11",
+        "lessonNumber": 2,
+        "type": "replace",
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "ИБ1-31",
+        "baseSourceFiles": [
+          "oit_1sem.xlsx"
+        ],
+        "replacementWeekType": "denominator",
+        "availableWeekTypes": [
+          "numerator"
+        ],
+        "candidates": [
+          {
+            "subject": "МДК.04.02 Установка и настройка аппаратных и программных средств доступа в сеть Интернет",
+            "teacher": "Хожайнова М.Г.\nТимощук М.В..",
+            "room": "Б308\nБ309",
+            "sourceRow": 88
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
     {
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
@@ -1265,5 +1280,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "57648cd7d03e90ae682839ed39bd0d3962172e4a7370fdb4bc3aba54be01dadd"
+  "semanticHash": "0759336ca46ce2deab12a533c8e51913da5c773b2aac8290c2affe2eea76e041"
 }
