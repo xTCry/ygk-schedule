@@ -19,6 +19,21 @@ XLSX- и HTML-данные.
 Полные версии, источники и diagnostics доступны в
 [`data/meta/00-status.json`](https://github.com/xTCry/ygk-schedule/blob/data/meta/00-status.json).
 
+### Официальные XLSX расписания
+
+Дата на badge меняется только при изменении SHA-256 файла, а не при повторной
+загрузке тех же байтов. Если сервер отдаёт `Last-Modified`, используется его
+время; иначе показывается момент первого получения текущей версии файла.
+
+| Файл                                                                                              | Содержимое изменилось                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`oar.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/oar.xlsx)           | [![oar.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Foar.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json)           |
+| [`oeis.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/oeis.xlsx)         | [![oeis.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Foeis.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json)         |
+| [`oit_1sem.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/oit_1sem.xlsx) | [![oit_1sem.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Foit_1sem.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json) |
+| [`ort.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/ort.xlsx)           | [![ort.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Fort.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json)           |
+| [`out.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/out.xlsx)           | [![out.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Fout.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json)           |
+| [`so.xlsx`](https://github.com/xTCry/ygk-schedule/blob/data/sources/schedule/so.xlsx)             | [![so.xlsx](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FxTCry%2Fygk-schedule%2Fdata%2Fmeta%2F10-badges%2Fschedule-sources%2Fso.xlsx.json)](https://github.com/xTCry/ygk-schedule/blob/data/meta/01-schedule-sources.json)             |
+
 ## Ветки репозитория
 
 - [`main`](https://github.com/xTCry/ygk-schedule/tree/main) — исходный код,

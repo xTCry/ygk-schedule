@@ -9,7 +9,9 @@ import type {
   ScheduleVersion,
 } from '../types.ts';
 import {
+  getScheduleSourceBadgePath,
   getPublicationStatusPaths,
+  writePublicationScheduleSourcesStatus,
   writePublicationStatus,
 } from './publication-status.ts';
 
@@ -85,17 +87,27 @@ describe('publication status generator', () => {
 
     const status = await writePublicationStatus(root);
     const paths = getPublicationStatusPaths(root);
-    const [statusYaml, scheduleBadge, replacementsBadge] = await Promise.all([
-      readFile(paths.statusYaml, 'utf8'),
-      readFile(paths.scheduleBadge, 'utf8'),
-      readFile(paths.replacementsBadge, 'utf8'),
-    ]);
+    const [statusYaml, scheduleBadge, replacementsBadge, sourceBadge] =
+      await Promise.all([
+        readFile(paths.statusYaml, 'utf8'),
+        readFile(paths.scheduleBadge, 'utf8'),
+        readFile(paths.replacementsBadge, 'utf8'),
+        readFile(getScheduleSourceBadgePath(root, 'test.xlsx'), 'utf8'),
+      ]);
 
     expect(status).toMatchObject({
+      schemaVersion: 1,
       updatedAt: '2026-09-05T13:16:53.414Z',
       schedule: {
         parserVersion: '1234567890ab',
         groups: 1,
+        sourceFiles: [
+          {
+            fileName: 'test.xlsx',
+            sha256: 'source',
+            updatedAt: '2026-09-04T20:32:25.329Z',
+          },
+        ],
         diagnostics: { warning: 1 },
       },
       replacements: {
@@ -114,5 +126,43 @@ describe('publication status generator', () => {
       label: 'Замены',
       message: '05.09.2026, 16:16 МСК',
     });
+    expect(JSON.parse(sourceBadge)).toMatchObject({
+      label: 'test.xlsx',
+      message: '04.09.2026, 23:32 МСК',
+    });
+  });
+
+  it('keeps the source update date through an unchanged re-download', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'ygk-publication-sources-'));
+    const paths = getPublicationStatusPaths(root);
+    const initial = await writePublicationScheduleSourcesStatus(root, [
+      schedule.sources[0]!,
+    ]);
+    const unchanged = await writePublicationScheduleSourcesStatus(root, [
+      {
+        ...schedule.sources[0]!,
+        fetchedAt: '2026-09-05T20:00:00.000Z',
+      },
+    ]);
+    const changed = await writePublicationScheduleSourcesStatus(root, [
+      {
+        ...schedule.sources[0]!,
+        sha256: 'updated-source',
+        fetchedAt: '2026-09-06T08:00:00.000Z',
+      },
+    ]);
+    const stored = JSON.parse(
+      await readFile(paths.scheduleSourcesJson, 'utf8'),
+    ) as { sources: Array<{ sha256: string; updatedAt: string }> };
+
+    expect(initial.changed).toBe(true);
+    expect(unchanged.changed).toBe(false);
+    expect(changed.changed).toBe(true);
+    expect(stored.sources).toEqual([
+      expect.objectContaining({
+        sha256: 'updated-source',
+        updatedAt: '2026-09-06T08:00:00.000Z',
+      }),
+    ]);
   });
 });

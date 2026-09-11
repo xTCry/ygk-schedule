@@ -14,6 +14,7 @@ import {
 } from '../generators/artifacts.ts';
 import type { ScheduleArtifactPaths } from '../generators/artifacts.ts';
 import { serializeSchedule } from '../generators/json.ts';
+import { writePublicationScheduleSourcesStatus } from '../generators/publication-status.ts';
 import { writeRawSourceArtifact } from '../generators/sources.ts';
 import { aggregateYgkSchedules } from '../providers/ygk/schedule/aggregate.ts';
 import { discoverScheduleFiles } from '../providers/ygk/schedule/discover.ts';
@@ -301,6 +302,14 @@ export const updateSchedule = async (
         )
       ).some(Boolean)
     : false;
+  const sourceStatusChanged = output.artifacts
+    ? (
+        await writePublicationScheduleSourcesStatus(
+          options.outputDir!,
+          sources.map((loadedSource) => loadedSource.source),
+        )
+      ).changed
+    : false;
   const { parserHash, configHash } = await calculateProjectHashes(projectRoot);
   const version = buildScheduleVersion({
     sourceSetHash: calculateSourceSetHash(
@@ -323,7 +332,7 @@ export const updateSchedule = async (
   if (!versionChanged && previous && allArtifactsExist) {
     const diff = compareSchedules(previous, previous);
     return {
-      written: sourcesChanged,
+      written: sourcesChanged || sourceStatusChanged,
       versionChanged: false,
       semanticChanged: false,
       sourcesChanged,
@@ -373,7 +382,7 @@ export const updateSchedule = async (
 
   if (hasFatalDiagnostics(schedule.diagnostics)) {
     return {
-      written: sourcesChanged,
+      written: sourcesChanged || sourceStatusChanged,
       versionChanged,
       semanticChanged,
       sourcesChanged,
@@ -399,7 +408,7 @@ export const updateSchedule = async (
       };
     }
     return {
-      written: sourcesChanged,
+      written: sourcesChanged || sourceStatusChanged,
       versionChanged,
       semanticChanged: false,
       sourcesChanged,

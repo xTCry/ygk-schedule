@@ -4,8 +4,14 @@ import type {
   CanonicalReplacements,
   CanonicalSchedule,
   Diagnostic,
+  ScheduleSource,
 } from '../types.ts';
-import { readJsonIfExists, writeFileAtomic } from '../utils/fs.ts';
+import {
+  readJsonIfExists,
+  writeFileAtomic,
+  writeFileIfChangedAtomic,
+} from '../utils/fs.ts';
+import { getGroupFileName } from './group-file-name.ts';
 import { serializeYaml } from './yaml.ts';
 
 const moscowTimeZone = 'Europe/Moscow';
@@ -29,6 +35,25 @@ export interface PublicationDiagnosticsStatus {
 }
 
 /**
+ * Состояние одного XLSX-источника для публикации в README.
+ *
+ * `updatedAt` — не время последней проверки. Это дата изменения содержимого:
+ * HTTP Last-Modified при наличии либо момент первого получения текущего SHA.
+ */
+export interface PublicationScheduleSourceStatus {
+  id: string;
+  fileName: string;
+  sha256: string;
+  updatedAt: string;
+  url?: string;
+}
+
+export interface PublicationScheduleSourcesStatus {
+  schemaVersion: 1;
+  sources: PublicationScheduleSourceStatus[];
+}
+
+/**
  * Компактные сведения о последней опубликованной выгрузке.
  *
  * Полные hashes остаются в JSON для проверки происхождения. Для README
@@ -40,6 +65,7 @@ export interface PublicationStatus {
   schedule: PublicationArtifactStatus & {
     groups: number;
     sources: number;
+    sourceFiles: PublicationScheduleSourceStatus[];
     diagnostics: PublicationDiagnosticsStatus;
   };
   replacements: PublicationArtifactStatus | null;
@@ -57,10 +83,13 @@ export interface BadgeEndpoint {
 export interface PublicationStatusPaths {
   statusJson: string;
   statusYaml: string;
+  scheduleSourcesJson: string;
+  scheduleSourcesYaml: string;
   scheduleBadge: string;
   replacementsBadge: string;
   scheduleParserBadge: string;
   replacementsParserBadge: string;
+  scheduleSourcesBadgesDirectory: string;
 }
 
 const compactHash = (hash: string): string => hash.slice(0, 12);
@@ -142,6 +171,11 @@ const artifactBadge = (
     ? badge(label, formatMoscowDateTime(artifact.generatedAt), color)
     : badge(label, 'нет данных', '6b7280');
 
+const scheduleSourceBadge = (
+  source: PublicationScheduleSourceStatus,
+): BadgeEndpoint =>
+  badge(source.fileName, formatMoscowDateTime(source.updatedAt), '0369a1');
+
 const parserBadge = (
   label: string,
   artifact: PublicationArtifactStatus | null,
@@ -161,11 +195,101 @@ export const getPublicationStatusPaths = (
   return {
     statusJson: join(metadataDirectory, '00-status.json'),
     statusYaml: join(metadataDirectory, '00-status.yaml'),
+    scheduleSourcesJson: join(metadataDirectory, '01-schedule-sources.json'),
+    scheduleSourcesYaml: join(metadataDirectory, '01-schedule-sources.yaml'),
     scheduleBadge: join(badgesDirectory, 'schedule.json'),
     replacementsBadge: join(badgesDirectory, 'replacements.json'),
     scheduleParserBadge: join(badgesDirectory, 'xlsx-parser.json'),
     replacementsParserBadge: join(badgesDirectory, 'replacements-parser.json'),
+    scheduleSourcesBadgesDirectory: join(badgesDirectory, 'schedule-sources'),
   };
+};
+
+export const getScheduleSourceBadgePath = (
+  outputDirectory: string,
+  fileName: string,
+): string =>
+  join(
+    getPublicationStatusPaths(outputDirectory).scheduleSourcesBadgesDirectory,
+    `${getGroupFileName(fileName)}.json`,
+  );
+
+const asIsoDate = (value: string | undefined): string | null => {
+  if (!value) return null;
+  const date = new Date(value);
+  return Number.isNaN(date.valueOf()) ? null : date.toISOString();
+};
+
+const sourceUpdatedAt = (source: ScheduleSource): string =>
+  asIsoDate(source.lastModified) ?? source.fetchedAt;
+
+/**
+ * Обновляет отдельный manifest XLSX-источников.
+ *
+ * Одинаковый SHA сохраняет прежнюю дату изменения даже при новой загрузке.
+ * Благодаря этому repeated workflow не меняет badges и не создаёт ложный
+ * сигнал, будто расписание на сайте обновилось.
+ */
+export const buildPublicationScheduleSourcesStatus = (
+  sources: readonly ScheduleSource[],
+  previous: PublicationScheduleSourcesStatus | null,
+): PublicationScheduleSourcesStatus => {
+  const previousById = new Map(
+    previous?.sources.map((source) => [source.id, source]) ?? [],
+  );
+  return {
+    schemaVersion: 1,
+    sources: sources
+      .map((source) => {
+        const previousSource = previousById.get(source.id);
+        return {
+          id: source.id,
+          fileName: source.fileName,
+          sha256: source.sha256,
+          updatedAt:
+            previousSource?.sha256 === source.sha256
+              ? previousSource.updatedAt
+              : sourceUpdatedAt(source),
+          ...(source.url ? { url: source.url } : {}),
+        };
+      })
+      .sort(
+        (left, right) =>
+          left.fileName.localeCompare(right.fileName, 'ru-RU') ||
+          left.id.localeCompare(right.id),
+      ),
+  };
+};
+
+/**
+ * Сохраняет даты изменения XLSX и endpoint-файлы Shields.
+ *
+ * Функция вызывается прямо из update, поэтому фиксирует новый источник даже
+ * если его байты изменились, но parser не нашёл изменения учебных занятий.
+ */
+export const writePublicationScheduleSourcesStatus = async (
+  outputDirectory: string,
+  sources: readonly ScheduleSource[],
+): Promise<{
+  changed: boolean;
+  status: PublicationScheduleSourcesStatus;
+}> => {
+  const paths = getPublicationStatusPaths(outputDirectory);
+  const previous = await readJsonIfExists<PublicationScheduleSourcesStatus>(
+    paths.scheduleSourcesJson,
+  );
+  const status = buildPublicationScheduleSourcesStatus(sources, previous);
+  const written = await Promise.all([
+    writeFileIfChangedAtomic(paths.scheduleSourcesJson, serializeJson(status)),
+    writeFileIfChangedAtomic(paths.scheduleSourcesYaml, serializeYaml(status)),
+    ...status.sources.map((source) =>
+      writeFileIfChangedAtomic(
+        getScheduleSourceBadgePath(outputDirectory, source.fileName),
+        serializeJson(scheduleSourceBadge(source)),
+      ),
+    ),
+  ]);
+  return { changed: written.some(Boolean), status };
 };
 
 /**
@@ -193,6 +317,15 @@ export const buildPublicationStatus = async (
 
   const scheduleStatus = artifactStatus(schedule);
   if (!scheduleStatus) throw new Error('Expected base schedule status');
+  const paths = getPublicationStatusPaths(directory);
+  const savedScheduleSources =
+    await readJsonIfExists<PublicationScheduleSourcesStatus>(
+      paths.scheduleSourcesJson,
+    );
+  const scheduleSources =
+    savedScheduleSources?.sources ??
+    (await writePublicationScheduleSourcesStatus(directory, schedule.sources))
+      .status.sources;
   const replacementsStatus = artifactStatus(replacements);
   const actualStatus = artifactStatus(actual);
   return {
@@ -206,6 +339,7 @@ export const buildPublicationStatus = async (
       ...scheduleStatus,
       groups: Object.keys(schedule.groups).length,
       sources: schedule.sources.length,
+      sourceFiles: scheduleSources,
       diagnostics: diagnosticsSummary(schedule.diagnostics),
     },
     replacements: replacementsStatus,
@@ -242,6 +376,12 @@ export const writePublicationStatus = async (
     writeFileAtomic(
       paths.replacementsParserBadge,
       serializeJson(parserBadge('HTML parser', status.replacements)),
+    ),
+    ...status.schedule.sourceFiles.map((source) =>
+      writeFileAtomic(
+        getScheduleSourceBadgePath(outputDirectory, source.fileName),
+        serializeJson(scheduleSourceBadge(source)),
+      ),
     ),
   ]);
   return status;
