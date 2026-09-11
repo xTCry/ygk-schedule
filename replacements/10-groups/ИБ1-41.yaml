@@ -192,7 +192,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -242,8 +242,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: очно
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     replacements:
       - *a6
       - *a7
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        replacements:
+          - &a8
+            date: 2026-09-12
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.01 п/гр.2
+            replacement:
+              raw: МДК 02.02 Хожайнова М.Г.
+              room: Б308
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 п/гр.2
+              rawReplacement: МДК 02.02 Хожайнова М.Г.
+              rawRoom: Б308
+          - &a9
+            date: 2026-09-12
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 03.01 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: 6194f0f0f33b13999df4d28d343daa675abe041e893a360b2e9324615db596ac
+semanticHash: 2abd1af7991a04a028e63058a13e177b9be40a9032353e69add19ed7dc5fdb94

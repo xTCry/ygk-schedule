@@ -260,7 +260,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -291,7 +291,112 @@ dates:
               rawReplacement: 1,2 п/гр. Неделяева Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     replacements:
       - *a8
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        replacements:
+          - &a9
+            date: 2026-09-12
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 03.02 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 03.02 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+          - &a10
+            date: 2026-09-12
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              room: Акт.зал
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              rawRoom: Акт.зал
+          - &a11
+            date: 2026-09-12
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр.2
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: М102
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.03 п/гр.2
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: М102
+          - &a12
+            date: 2026-09-12
+            group: ИС1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 05.03 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.03 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
+      - *a11
+      - *a12
 diagnostics: []
-semanticHash: 52b53c7c6dd5e6477966c8323e387fcb9c0011cb02b11876ddc436982264c595
+semanticHash: 8e6e0838c92255d4bb7fa00b1d87cd7735c7efa8c880bbcc21ca88527ba3264a

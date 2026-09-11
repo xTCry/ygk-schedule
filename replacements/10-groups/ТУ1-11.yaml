@@ -48,5 +48,48 @@ dates:
           sourceSha256: 937307369fd52786e64733043536342b0e7294d963f87c9b0dd9af587f7f41f0
     replacements:
       - *a1
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        replacements:
+          - &a2
+            date: 2026-09-12
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: География Климова Ю.И.
+              room: Ф107
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: География Климова Ю.И.
+              rawRoom: Ф107
+        diagnostics: []
+    replacements:
+      - *a2
 diagnostics: []
-semanticHash: 5f479184be5fbf86c1835135f00947e9cef6be8192d3c832892815aa009a8f21
+semanticHash: 8645cca98317ad77a5285bf7d0e7cdbdd6d36c923af72f79f084bac57d51acd4

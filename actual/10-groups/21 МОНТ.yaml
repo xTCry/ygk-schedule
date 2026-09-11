@@ -395,7 +395,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -405,11 +405,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -419,6 +423,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       21 МОНТ:
         group: 21 МОНТ
@@ -489,11 +497,14 @@ dates:
                 strategy: subject-word-mention
           - number: 2
             variants:
-              - subject: Информатика
-                teacher: Ефимова А.С.
-                room: к.34
+              - subject: МДК 01.01
+                teacher: Каргина В.А.
+                room: к.24
                 weekType: both
-                sourceRow: 193
+                rawSubject: МДК 01.01 Каргина В.А.
+                rawTeacher: Каргина В.А.
+                rawRoom: к.24
+                sourceRow: 103
             source:
               sheet: 1 курс
               rowStart: 193
@@ -501,7 +512,10 @@ dates:
               rawGroupName: 21 МОНТ
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement: *a1
+                lessonNumber: 2
+                strategy: subject-word-mention
           - number: 3
             variants:
               - subject: Биология
@@ -517,15 +531,71 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
             status: scheduled
             replacements: []
-        unresolvedReplacements:
-          - replacement: *a1
-            lessonNumber: 2
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Ин.яз. Осн.электр. Инф.». По замене: «МДК 01.01
-                Каргина В.А.». Аудитория: «к.24»."
-              room: к.24
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Иностранный язык
+                  teacher: Вакансия
+                  room: к.25
+                  weekType: both
+                  sourceRow: 189
+              source:
+                sheet: 1 курс
+                rowStart: 189
+                rowEnd: 190
+                rawGroupName: 21 МОНТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Основы электротехники и электроники
+                  teacher: Филиппова А.С.
+                  room: к.30
+                  weekType: both
+                  sourceRow: 191
+              source:
+                sheet: 1 курс
+                rowStart: 191
+                rowEnd: 192
+                rawGroupName: 21 МОНТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Информатика
+                  teacher: Ефимова А.С.
+                  room: к.34
+                  weekType: both
+                  sourceRow: 193
+              source:
+                sheet: 1 курс
+                rowStart: 193
+                rowEnd: 194
+                rawGroupName: 21 МОНТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Биология
+                  teacher: Царькова Н.А.
+                  room: к.25
+                  weekType: both
+                  sourceRow: 195
+              source:
+                sheet: 1 курс
+                rowStart: 195
+                rowEnd: 196
+                rawGroupName: 21 МОНТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -556,29 +626,4 @@ diagnostics:
           sourceRow: 187
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: ef73b5a9d4617ac3ebcbfebc8237728691087e2f072b09593c7943d4c642db3d
-    sheet: "Замены: Первая смена"
-    row: 103
-    normalizedGroup: 21 МОНТ
-    rawValue: МДК 01.01 Каргина В.А.
-    context:
-      date: 2026-09-11
-      lessonNumber: 2
-      type: replace
-      reason: original-not-matched
-      baseGroup: 21 МОНТ
-      baseSourceFiles:
-        - ort.xlsx
-      requestedSubject: Ин.яз. Осн.электр. Инф.
-      candidates:
-        - subject: Информатика
-          teacher: Ефимова А.С.
-          room: к.34
-          sourceRow: 193
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 01243cef6e4648fc2b75d03c7e6689c687ab2d774320b6ff7541555acbc3bc21
+semanticHash: 0e617831d36a6c1d6b2f1d8354d377a2536677e7cadaf6148f5b649a667a2402

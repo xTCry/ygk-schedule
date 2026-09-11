@@ -277,7 +277,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -307,7 +307,55 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     replacements:
       - *a9
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        replacements:
+          - &a10
+            date: 2026-09-12
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык п/гр.2
+            replacement:
+              raw: Адм.право Малышева Н.А.
+              room: Ф401
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: 4,5
+              rawOriginal: Ин.язык п/гр.2
+              rawReplacement: Адм.право Малышева Н.А.
+              rawRoom: Ф401
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: 0d66860f34c93c6952fcd96938aa327eec4a2439fe7d96a30d9e43c7a7400f41
+semanticHash: b1f33f405acfe03fc07d902b3c7a0a1209f763a88b404559612c0330d2832272

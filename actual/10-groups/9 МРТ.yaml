@@ -672,7 +672,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -682,11 +682,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -696,6 +700,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       9 МРТ:
         group: 9 МРТ
@@ -801,6 +809,72 @@ dates:
                 lessonNumber: 3
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: История России
+                  teacher: Вагушева Е.А.
+                  room: к.23
+                  weekType: both
+                  sourceRow: 40
+              source:
+                sheet: 2 курс
+                rowStart: 40
+                rowEnd: 41
+                rawGroupName: 9 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Метрология, стандартизация и сертификация
+                  teacher: Седова Н.А.
+                  room: к.29
+                  weekType: both
+                  sourceRow: 42
+              source:
+                sheet: 2 курс
+                rowStart: 42
+                rowEnd: 43
+                rawGroupName: 9 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: УП.04 Учебная практика п/гр1
+                  teacher: Филиппова А.С.
+                  room: к.30
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 45
+              source:
+                sheet: 2 курс
+                rowStart: 44
+                rowEnd: 45
+                rawGroupName: 9 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: УП.04 Учебная практика п/гр1
+                  teacher: Филиппова А.С.
+                  room: к.30
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 47
+              source:
+                sheet: 2 курс
+                rowStart: 46
+                rowEnd: 47
+                rawGroupName: 9 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -907,4 +981,4 @@ diagnostics:
           sourceRow: 28
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 175552430b21496aa934270723b1eef115bf638c35ff9f2e8778a612732a8822
+semanticHash: 82223ae10e4a0cfd08364e15125fd4c570783eba704848c4e0dceff1284ba717

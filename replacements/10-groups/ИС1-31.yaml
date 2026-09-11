@@ -96,5 +96,47 @@ dates:
           sourceSha256: 3a385c1179cbb54b38fb7ff55ba94ccadd1f31a01f71bfaf80a9f5a17998fc59
     replacements:
       - *a2
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        replacements:
+          - &a3
+            date: 2026-09-12
+            group: ИС1-31
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "3"
+              rawOriginal: Ин.язык
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a3
 diagnostics: []
-semanticHash: 6e10462d911f6ccfe05fb97714dde480529b6b5b38d2aa7f075c71697f889896
+semanticHash: 1cfe92b67f98f677dfd3fc2e11affea2daed45b198c7b3587e34ceb22fed8fdf

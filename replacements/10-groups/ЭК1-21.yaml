@@ -107,7 +107,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -156,8 +156,55 @@ dates:
               rawReplacement: Консультация к ВПР Карпова Е.В.
               rawRoom: Ф202
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     replacements:
       - *a3
       - *a4
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        replacements:
+          - &a5
+            date: 2026-09-12
+            group: ЭК1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Налоги и налог. Бежина М.И.
+              room: Ф302
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Математика
+              rawReplacement: Налоги и налог. Бежина М.И.
+              rawRoom: Ф302
+        diagnostics: []
+    replacements:
+      - *a5
 diagnostics: []
-semanticHash: 7aff5410b4cbddfbdc593f8243c27dd5c35ae637bab86c001dabe3beb7512239
+semanticHash: b2cd8fc3d402822c0ff4e8c6868de174dc30dfda3915bbf7045c2bb530815349

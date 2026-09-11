@@ -388,7 +388,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -398,11 +398,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -412,6 +416,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       ПО1-13:
         group: ПО1-13
@@ -527,33 +535,71 @@ dates:
                     rawRoom: Акт.зал
                 lessonNumber: 2
                 strategy: exact-subject
-        unresolvedReplacements:
-          - replacement: *a1
-            lessonNumber: 3
-            reason: lesson-not-found
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Математика...». По замене: «Математика Шереметьева
-                Н.В.». Аудитория: «Акт.зал»."
-              room: Акт.зал
-diagnostics:
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Пара из замены отсутствует в базовом расписании
-    fingerprint: a73e95dd24360324eaa174e9758f589da5dac2be2ada925daddbba3213f56852
-    sheet: "Замены: Первая смена"
-    row: 16
-    normalizedGroup: ПО1-13
-    rawValue: Математика Шереметьева Н.В.
-    context:
-      date: 2026-09-11
-      lessonNumber: 3
-      type: replace
-      reason: lesson-not-found
-      baseGroup: ПО1-13
-      baseSourceFiles:
-        - oit_1sem.xlsx
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 47c92c7e41e13d21645fd84ac18454a793640f89d64a4fcbf19d9af8b7b8be81
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Шереметьева Н.В.
+                room: Акт.зал
+                weekType: both
+                rawSubject: Математика Шереметьева Н.В.
+                rawTeacher: Шереметьева Н.В.
+                rawRoom: Акт.зал
+                sourceRow: 16
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 3
+                strategy: ellipsis-continuation
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Литература
+                  teacher: Грибанова Е.Н.
+                  room: Б504
+                  weekType: denominator
+                  sourceRow: 83
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 82
+                rowEnd: 83
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Русский язык
+                  teacher: Грибанова Е.Н.
+                  room: Б504
+                  weekType: both
+                  sourceRow: 84
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 84
+                rowEnd: 85
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Шереметьева Н.В.
+                  room: М106
+                  weekType: denominator
+                  sourceRow: 87
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 86
+                rowEnd: 87
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+diagnostics: []
+semanticHash: 028bc1eabf9e86cfaf79d6173d5c1377d8a532de49f4f5f41d46977c7557a02c

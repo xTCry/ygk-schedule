@@ -248,11 +248,14 @@ dates:
             replacements: []
           - number: 3
             variants:
-              - subject: Основы строительного производства
-                teacher: Попов Д.М.
+              - subject: Инж.гр.
+                teacher: Дегтева И.Е.
                 room: ДОТ
-                weekType: denominator
-                sourceRow: 81
+                weekType: both
+                rawSubject: Инж.гр. Дегтева И.Е.
+                rawTeacher: Дегтева И.Е.
+                rawRoom: ДОТ
+                sourceRow: 44
             source:
               sheet: МС1-11 МС1-21 МС1-31 МС1-41
               rowStart: 81
@@ -260,7 +263,28 @@ dates:
               rawGroupName: МС1-21
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: scheduled
-            replacements: []
+            replacements:
+              - replacement:
+                  date: 2026-09-10
+                  group: МС1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Осн.электр.
+                  replacement:
+                    raw: Инж.гр. Дегтева И.Е.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 44
+                    rawGroupName: МС1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: Осн.электр.
+                    rawReplacement: Инж.гр. Дегтева И.Е.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-word-mention
           - number: 4
             variants:
               - subject: История России
@@ -308,32 +332,6 @@ dates:
             event:
               summary: Необработанная замена
               description: "По расписанию: «История России». По замене: «Коровина А.М.».
-                Аудитория: «ДОТ»."
-              room: ДОТ
-          - replacement:
-              date: 2026-09-10
-              group: МС1-21
-              lessonNumbers:
-                - 3
-              type: replace
-              original:
-                raw: Осн.электр.
-              replacement:
-                raw: Инж.гр. Дегтева И.Е.
-                room: ДОТ
-              source:
-                shift: first
-                row: 44
-                rawGroupName: МС1-21
-                rawLessonNumbers: "3"
-                rawOriginal: Осн.электр.
-                rawReplacement: Инж.гр. Дегтева И.Е.
-                rawRoom: ДОТ
-            lessonNumber: 3
-            reason: original-not-matched
-            event:
-              summary: Необработанная замена
-              description: "По расписанию: «Осн.электр.». По замене: «Инж.гр. Дегтева И.Е.».
                 Аудитория: «ДОТ»."
               room: ДОТ
         frozenBase:
@@ -394,7 +392,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -404,11 +402,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -418,6 +420,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       МС1-21:
         group: МС1-21
@@ -530,6 +536,72 @@ dates:
                 lessonNumber: 5
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Инженерная графика
+                  teacher: Дегтева И.Е.
+                  room: Ф204
+                  weekType: both
+                  sourceRow: 86
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 86
+                rowEnd: 87
+                rawGroupName: МС1-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.01.01 Монтаж систем отопления, водоснабжения, канализации
+                    водостоков Тема 1.1
+                  teacher: Нечипорук О.Л.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 88
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 88
+                rowEnd: 89
+                rawGroupName: МС1-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.01.01 Монтаж систем отопления, водоснабжения, канализации
+                    водостоков Тема 1.1
+                  teacher: Нечипорук О.Л.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 90
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 90
+                rowEnd: 91
+                rawGroupName: МС1-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Психология общения
+                  teacher: Зеленцова Л.В.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 92
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 92
+                rowEnd: 93
+                rawGroupName: МС1-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -556,29 +628,4 @@ diagnostics:
           sourceRow: 79
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-  - provider: ygk
-    code: UNRESOLVED_REPLACEMENT
-    severity: error
-    message: Исходная дисциплина из замены не совпала с парой базового расписания
-    fingerprint: e55bc8e7fbbab0b5a3acc77b7f527edafb44590a9173a8d1690f8bce6706c644
-    sheet: "Замены: Первая смена"
-    row: 44
-    normalizedGroup: МС1-21
-    rawValue: Инж.гр. Дегтева И.Е.
-    context:
-      date: 2026-09-10
-      lessonNumber: 3
-      type: replace
-      reason: original-not-matched
-      baseGroup: МС1-21
-      baseSourceFiles:
-        - oeis.xlsx
-      requestedSubject: Осн.электр.
-      candidates:
-        - subject: Основы строительного производства
-          teacher: Попов Д.М.
-          room: ДОТ
-          sourceRow: 81
-    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
-    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ba87ec0d9767d37d6f3ec68a93d955694945514ba74986ceb9f7a653ab138e8a
+semanticHash: 1104dbea5f3889d989b5df06d9d7520d94962e0fb6cd9d8df9061abfee40cefb

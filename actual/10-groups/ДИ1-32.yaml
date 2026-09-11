@@ -595,7 +595,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -605,11 +605,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -619,6 +623,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       ДИ1-32:
         group: ДИ1-32
@@ -699,6 +707,61 @@ dates:
                 lessonNumber: 5
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК 02.02 Основы конструкторско-технологического обеспечения дизайна
+                  teacher: |-
+                    Амерханова К.А.
+                    Махоткина Д.Е.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 179
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 179
+                rowEnd: 180
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 01.01 Дизайн-проектирование Т.1.2
+                  teacher: |-
+                    Амерханова К.А.
+                    Сосновских А.Л.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 182
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 181
+                rowEnd: 182
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.01.02 Основы проектной и компьютерной графики Т.2.2.
+                  teacher: |-
+                    Махоткина Д.Е.
+                    Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 184
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 183
+                rowEnd: 184
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -781,4 +844,4 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7a14ace22300f08a55b079b5cf04e88d929b9aa81c62868144873f731882060a
+semanticHash: 5bfcd26eb70461fae30d6d484c674437344d823c7584fc01a90ff15b4e0658db

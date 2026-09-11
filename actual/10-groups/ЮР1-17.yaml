@@ -544,6 +544,133 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+      second:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
+          fetchedAt: 2026-09-11T13:29:12.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa3f92d-1fe9"
+          lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+    groups:
+      ЮР1-17:
+        group: ЮР1-17
+        date: 2026-09-12
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Информ.
+                teacher: Нестерова А.В.
+                room: Ф306
+                weekType: both
+                rawSubject: Информ. Нестерова А.В.
+                rawTeacher: Нестерова А.В.
+                rawRoom: Ф306
+                sourceRow: 48
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 205
+              rowEnd: 206
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-12
+                  group: ЮР1-17
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: ОБиЗР
+                  replacement:
+                    raw: Информ. Нестерова А.В.
+                    room: Ф306
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: ЮР1-17
+                    rawLessonNumbers: "0"
+                    rawOriginal: ОБиЗР
+                    rawReplacement: Информ. Нестерова А.В.
+                    rawRoom: Ф306
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: Инд.проект
+                teacher: Зеленцова Л.В.
+                room: Ф202
+                weekType: both
+                rawSubject: 1,2 п/гр.Инд.проект Зеленцова Л.В.
+                rawTeacher: Зеленцова Л.В.
+                rawRoom: Ф202
+                sourceRow: 49
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 207
+              rowEnd: 208
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-12
+                  group: ЮР1-17
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Информ.
+                  replacement:
+                    raw: 1,2 п/гр.Инд.проект Зеленцова Л.В.
+                    room: Ф202
+                  source:
+                    shift: first
+                    row: 49
+                    rawGroupName: ЮР1-17
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Информ.
+                    rawReplacement: 1,2 п/гр.Инд.проект Зеленцова Л.В.
+                    rawRoom: Ф202
+                lessonNumber: 1
+                strategy: subject-abbreviation
+        unresolvedReplacements:
+          - replacement: *a2
+            lessonNumber: 2
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Информ.». По замене: «1,2 п/гр.Инд.проект
+                Зеленцова Л.В.». Аудитория: «Ф202»."
+              room: Ф202
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -595,4 +722,23 @@ diagnostics:
           sourceRow: 182
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 97235c09bb42c6d86d1fa8d2177b233fad24d5ca19f79c6c7313ff63bd17560e
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: cecb41c1d609e8e6e8e38b49575c44650a486be44cc48c9901d572a416e81c47
+    sheet: "Замены: Первая смена"
+    row: 49
+    normalizedGroup: ЮР1-17
+    rawValue: 1,2 п/гр.Инд.проект Зеленцова Л.В.
+    context:
+      date: 2026-09-12
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЮР1-17
+      baseSourceFiles:
+        - out.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: e184e9ece85c9d03457ee441f7d740326cb44fd7a561c87d398de7b685d8e5ca

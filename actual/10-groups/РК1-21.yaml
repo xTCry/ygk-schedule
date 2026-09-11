@@ -601,7 +601,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -611,11 +611,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -625,6 +629,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       РК1-21:
         group: РК1-21
@@ -729,6 +737,63 @@ dates:
                 lessonNumber: 3
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Основы композиции, рисунка, живописи в рекламе
+                  teacher: |-
+                    Сосновских А.Л.
+                    Махоткина Д.Е.
+                  room: |-
+                    Б207
+                    Б208
+                  weekType: both
+                  sourceRow: 91
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 91
+                rowEnd: 92
+                rawGroupName: РК1-21/РК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Психология рекламы
+                  teacher: Шалаева М.А.
+                  room: А203
+                  weekType: denominator
+                  sourceRow: 94
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 93
+                rowEnd: 94
+                rawGroupName: РК1-21/РК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 04.01 Разработка творческих рекламных решений
+                  teacher: |-
+                    Пономаренко В.С.
+                    Анисимова С.А.
+                  room: |-
+                    Б304
+                    Б305
+                  weekType: denominator
+                  sourceRow: 96
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 95
+                rowEnd: 96
+                rawGroupName: РК1-21/РК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -759,4 +824,4 @@ diagnostics:
           sourceRow: 59
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 25db75a4591a96c79d90db4c7314f362424243a0ac8c31a92dcab1ec00c6ab6d
+semanticHash: ab4430f7176e5eef58e89bbc2fb833bb78877369fb9f4ad045df16a39422ea17

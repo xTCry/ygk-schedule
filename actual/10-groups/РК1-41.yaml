@@ -524,7 +524,7 @@ dates:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -534,11 +534,15 @@ dates:
           shift: first
           etag: W/"6aa27d67-6963"
           lastModified: Thu, 10 Sep 2026 09:50:31 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
       second:
         date: 2026-09-11
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -548,6 +552,10 @@ dates:
           shift: second
           etag: W/"6aa29c7a-2f05"
           lastModified: Thu, 10 Sep 2026 12:03:06 GMT
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 727aa9731e529dab6313a03a9cb0513302a3fbd976da1ac53a925c93e16ba7b7
     groups:
       РК1-41:
         group: РК1-41
@@ -652,6 +660,59 @@ dates:
                 lessonNumber: 6
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК 03.02 Правовое обеспечение рекламной деятельности
+                  teacher: Вакансия
+                  room: Б202
+                  weekType: both
+                  sourceRow: 283
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 283
+                rowEnd: 284
+                rawGroupName: РК1-41/РК1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                  teacher: |-
+                    Зайцева О.В.
+                    Пономаренко В.С.
+                  room: |-
+                    Б406
+                    Б407
+                  weekType: both
+                  sourceRow: 285
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 285
+                rowEnd: 286
+                rawGroupName: РК1-41/РК1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                  teacher: Зайцева О.В.
+                  room: Б406
+                  weekType: denominator
+                  sourceRow: 288
+              source:
+                sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+                rowStart: 287
+                rowEnd: 288
+                rawGroupName: РК1-41/РК1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -678,4 +739,4 @@ diagnostics:
           sourceRow: 276
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: af71de3926bee99419ebdebecb20b328a187c65718a132044b16e82fef92275f
+semanticHash: 92e78333d400d0f3ff3ca40974f396d4cf0f7fca934523474669c708227d7bea

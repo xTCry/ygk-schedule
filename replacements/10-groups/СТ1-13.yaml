@@ -164,7 +164,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -196,7 +196,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a6
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        replacements:
+          - &a7
+            date: 2026-09-12
+            group: СТ1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физика Овсова К.С.
+              room: М101
+            source:
+              shift: first
+              row: 27
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: Физика Овсова К.С.
+              rawRoom: М101
+          - &a8
+            date: 2026-09-12
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Осн.шах.игр. Грязева А.В.
+              room: В102
+            source:
+              shift: first
+              row: 28
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Обществ.
+              rawReplacement: Осн.шах.игр. Грязева А.В.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: 06f8e6fb0a3a305ee3f90c11d05429968a97b3ffd796968174c540e69cc1a183
+semanticHash: 6dd1e2ee6672b2659f538cb01f7071b317813dbf667409c4e31ab3a906577269

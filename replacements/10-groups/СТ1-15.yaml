@@ -146,7 +146,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -196,8 +196,55 @@ dates:
               rawReplacement: /теория Жданова Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a5
       - *a6
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        replacements:
+          - &a7
+            date: 2026-09-12
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Литература Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 26
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Литература Шалаева А.А.
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a7
 diagnostics: []
-semanticHash: 2a8a4448ec9567b1e40b75957a542068cfb4db5e980e1b164760e6907806ba21
+semanticHash: d6b7527e7fae10c4978357fc87d320aa02fca6cf950e16b0fa56f890d81fbc63

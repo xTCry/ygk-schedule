@@ -59,7 +59,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -127,9 +127,56 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a2
       - *a3
       - *a4
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        replacements:
+          - &a5
+            date: 2026-09-12
+            group: ЗМ1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: Физкультура Кургузова М.С.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 32
+              rawGroupName: ЗМ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Физика
+              rawReplacement: Физкультура Кургузова М.С.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a5
 diagnostics: []
-semanticHash: 73fcacb469c7dbd367f2727dceaa231b87969870ab4432415d01565b3a9deb16
+semanticHash: b0ba91fd99344eb869e9af6d7c567ae7b716e347158b63dd1b8568886883e50c

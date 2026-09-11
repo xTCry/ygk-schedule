@@ -173,7 +173,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -242,9 +242,56 @@ dates:
               rawReplacement: Ремизова А.И.
               rawRoom: Акт.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a5
       - *a6
       - *a7
+  2026-09-12:
+    date: 2026-09-12
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-12
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
+          fetchedAt: 2026-09-11T13:29:12.668Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa3b8d7-30b4"
+          lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        replacements:
+          - &a8
+            date: 2026-09-12
+            group: ДИ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Литература Баранова С.Г.
+              room: В102
+            source:
+              shift: first
+              row: 30
+              rawGroupName: ДИ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: Литература Баранова С.Г.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a8
 diagnostics: []
-semanticHash: 5eae3ebd7643c39cc8c932a6530cabc946d92c72f041946f37322b0d1aeab708
+semanticHash: f7c885320fc3b73232e774dee3cd12f568d87b60907eac4e9845884764967557
