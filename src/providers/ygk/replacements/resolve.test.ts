@@ -891,6 +891,67 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('applies a ranged replacement when the original lists abbreviated subjects', () => {
+    const schedule = structuredClone(baseSchedule);
+    const lessons = schedule.groups['СТ1-11']?.days[0]?.lessons;
+    if (!lessons) throw new Error('Expected test lessons');
+    lessons[0]!.variants[0]!.subject = 'Иностранный язык';
+    lessons[1]!.number = 1;
+    lessons[1]!.variants[0]!.subject = 'Основы электротехники и электроники';
+    lessons[2]!.number = 2;
+    lessons[2]!.variants[0]!.subject = 'Информатика';
+
+    const rangedReplacement: Replacement = {
+      ...replacement(
+        [0, 1, 2],
+        'replace',
+        'Ин.яз. Осн.электр. Инф.',
+        'МДК 01.01 Каргина В.А.',
+      ),
+      source: {
+        ...replacement(
+          [0, 1, 2],
+          'replace',
+          'Ин.яз. Осн.электр. Инф.',
+          'МДК 01.01 Каргина В.А.',
+        ).source,
+        rawLessonNumbers: '0-2',
+      },
+    };
+    const actual = buildActualSchedule(
+      schedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [rangedReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+    const group = actual.dates['2026-09-04']?.groups['СТ1-11'];
+
+    for (const lessonNumber of [0, 1, 2]) {
+      expect(
+        group?.lessons.find((lesson) => lesson.number === lessonNumber),
+      ).toMatchObject({
+        variants: [
+          {
+            subject: 'МДК 01.01',
+            teacher: 'Каргина В.А.',
+            room: 'А201',
+          },
+        ],
+        replacements: [{ strategy: 'subject-word-mention', lessonNumber }],
+      });
+    }
+    expect(group?.unresolvedReplacements).toEqual([]);
+    expect(actual.diagnostics).toEqual([]);
+  });
+
   it('uses a long abbreviated word mentioned for a neighboring lesson', () => {
     const schedule = structuredClone(baseSchedule);
     const lesson = schedule.groups['СТ1-11']?.days[0]?.lessons.find(

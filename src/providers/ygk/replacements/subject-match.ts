@@ -51,6 +51,37 @@ const hasLongPrefixMatch = (source: string, candidate: string): boolean => {
 };
 
 /**
+ * Находит в составной строке сокращение с точкой для первого слова предмета.
+ *
+ * Например, запись ЯГК «Ин.яз. Осн.электр. Инф.» перечисляет исходные
+ * дисциплины для нескольких номеров пары. Обычный long-prefix matcher
+ * намеренно не принимает короткое «Инф.», однако точка и единственный
+ * вариант уже найденной пары дают достаточно узкое подтверждение.
+ */
+const mentionsDottedAbbreviation = (
+  value: string,
+  subject: string,
+): boolean => {
+  const abbreviatedWords = [
+    ...normalizeDashes(normalizeSingleLine(value))
+      .normalize('NFKC')
+      .toLocaleLowerCase('ru-RU')
+      .matchAll(/(?<word>\p{L}{2,})\./gu),
+  ]
+    .map((match) => match.groups?.word ?? '')
+    .filter(Boolean);
+  const candidateWords = significantWords(subject);
+  if (!abbreviatedWords.length || !candidateWords.length) return false;
+
+  return abbreviatedWords.some((abbreviation) => {
+    const firstSubjectWord = candidateWords[0] ?? '';
+    return (
+      abbreviation.length >= 3 && firstSubjectWord.startsWith(abbreviation)
+    );
+  });
+};
+
+/**
  * Проверяет, есть ли в ручной строке самостоятельное упоминание предмета.
  *
  * В одной ячейке ЯГК иногда перечисляют исходные названия для нескольких
@@ -69,6 +100,8 @@ const mentionsSubject = (value: string, subject: string): boolean => {
   ) {
     return true;
   }
+
+  if (mentionsDottedAbbreviation(value, subject)) return true;
 
   const sourceWords = rawSourceWords.filter((word) => word.length >= 2);
   const candidateWords = significantWords(subject);

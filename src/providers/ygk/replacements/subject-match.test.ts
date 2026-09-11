@@ -45,6 +45,23 @@ describe('YGK replacement subject similarity', () => {
     ).toEqual({ index: 0 });
   });
 
+  it('matches a short dotted abbreviation inside a listed range', () => {
+    expect(
+      findUniqueMentionedSubject('Ин.яз. Осн.электр. Инф.', [
+        { index: 0, subject: 'Информатика' },
+      ]),
+    ).toEqual({ index: 0 });
+  });
+
+  it('keeps a short dotted abbreviation ambiguous between matching variants', () => {
+    expect(
+      findUniqueMentionedSubject('Инф.', [
+        { index: 0, subject: 'Информатика' },
+        { index: 1, subject: 'Информационные технологии' },
+      ]),
+    ).toBeNull();
+  });
+
   it('normalizes the stable shorthand for physical education', () => {
     expect(
       findUniqueMentionedSubject('Теор.вер. Физкул.', [
