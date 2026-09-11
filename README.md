@@ -88,8 +88,10 @@ make update SCHEDULE_PAGE_URL=https://example.org/raspisanie.html
 make update
 make update-verbose
 make update-fixture
+make download-replacements
 make update-replacements
 make update-replacements-fixtures
+make update-replacements-local
 make publication-status
 make generate-ical
 make pages-build
@@ -157,7 +159,21 @@ make update-replacements-fixtures
 make update-replacements
 ```
 
-Она требует доступ к интернету и создает:
+Для локального разбора без повторного запроса к сайту сначала сохраните raw
+HTML-страницы:
+
+```bash
+make download-replacements
+make update-replacements-local
+```
+
+`make download-replacements` хранит снимки с датой загрузки по Москве:
+`rasp_first-11.09.2026.html`. Если страница изменилась в тот же день, к имени
+добавляется время, например `rasp_first-11.09.2026-14-32-05.html`. Параллельно
+обновляются стабильные `.tmp/timetable/rasp_first.html` и `rasp_second.html`,
+которые использует локальный parser.
+
+Команда `make update-replacements` создает:
 
 ```text
 data/replacements/00-replacements.json

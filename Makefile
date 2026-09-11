@@ -11,10 +11,11 @@ CALENDAR_CONFIG_PATH ?= config/ygk/calendar.yaml
 CALENDAR_GROUP ?=
 REPLACEMENT_FIRST_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-first.html
 REPLACEMENT_SECOND_FIXTURE_PATH ?= src/providers/ygk/replacements/fixtures/2026-09-04-second.html
+REPLACEMENT_LOCAL_DIR ?= .tmp/timetable
 PAGES_OUTPUT_DIR ?= .tmp/pages
 PAGES_BASE ?= /ygk-schedule/
 
-.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical update-replacements update-replacements-fixtures publication-status sync-issues pages-build
+.PHONY: help install check build typecheck lint test format format-check update update-verbose update-fixture regenerate-artifacts generate-ical download-replacements update-replacements update-replacements-fixtures update-replacements-local publication-status sync-issues pages-build
 
 help:
 	@printf '%s\n' \
@@ -29,8 +30,10 @@ help:
 		'  make update-fixture   Выгрузить regression fixture локально' \
 		'  make regenerate-artifacts Пересобрать data из полного JSON без сети' \
 		'  make generate-ical    Сгенерировать base/actual ICS из JSON-артефактов' \
+		'  make download-replacements Скачать raw HTML замен в .tmp/timetable/' \
 		'  make update-replacements Скачать и применить актуальные замены' \
 		'  make update-replacements-fixtures Обработать локальные HTML-фикстуры замен' \
+		'  make update-replacements-local Обработать HTML из .tmp/timetable/' \
 		'  make publication-status Пересобрать metadata для README badges' \
 		'  make sync-issues      Синхронизировать диагностические GitHub Issue' \
 		'  make pages-build      Собрать локальный snapshot GitHub Pages'
@@ -74,11 +77,17 @@ regenerate-artifacts:
 generate-ical:
 	npm run generate-ical -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --config "$(CALENDAR_CONFIG_PATH)" $(if $(CALENDAR_GROUP),--group "$(CALENDAR_GROUP)")
 
+download-replacements:
+	npm run download-replacements -- --output-dir "$(REPLACEMENT_LOCAL_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)"
+
 update-replacements:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-url "$(REPLACEMENT_FIRST_URL)" --second-url "$(REPLACEMENT_SECOND_URL)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
 
 update-replacements-fixtures:
 	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-input "$(REPLACEMENT_FIRST_FIXTURE_PATH)" --second-input "$(REPLACEMENT_SECOND_FIXTURE_PATH)" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
+
+update-replacements-local:
+	npm run update-replacements -- --base-schedule "$(BASE_SCHEDULE_PATH)" --output-dir "$(OUTPUT_DIR)" --first-input "$(REPLACEMENT_LOCAL_DIR)/rasp_first.html" --second-input "$(REPLACEMENT_LOCAL_DIR)/rasp_second.html" $(if $(BASE_DATA_REVISION),--base-data-revision "$(BASE_DATA_REVISION)")
 
 publication-status:
 	npm run publication-status -- --output-dir "$(OUTPUT_DIR)"
