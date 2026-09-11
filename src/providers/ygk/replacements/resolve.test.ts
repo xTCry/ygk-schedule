@@ -202,6 +202,87 @@ describe('actual YGK schedule', () => {
     });
   });
 
+  it('continues a two-lesson replacement row marked with an ellipsis', () => {
+    const ellipsisReplacement = replacement(
+      [2, 3],
+      'replace',
+      'Математика...',
+      'Математика Шереметьева Н.В.',
+    );
+    const actual = buildActualSchedule(
+      baseSchedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [ellipsisReplacement],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+    const group = actual.dates['2026-09-04']?.groups['СТ1-11'];
+
+    expect(group?.lessons.find((lesson) => lesson.number === 2)).toMatchObject({
+      variants: [
+        {
+          subject: 'Математика',
+          teacher: 'Шереметьева Н.В.',
+          room: 'А201',
+        },
+      ],
+    });
+    expect(group?.lessons.find((lesson) => lesson.number === 3)).toMatchObject({
+      source: null,
+      variants: [
+        {
+          subject: 'Математика',
+          teacher: 'Шереметьева Н.В.',
+          room: 'А201',
+        },
+      ],
+      replacements: [{ strategy: 'ellipsis-continuation', lessonNumber: 3 }],
+    });
+    expect(group?.unresolvedReplacements).toEqual([]);
+  });
+
+  it('does not infer a missing lesson without the ellipsis marker', () => {
+    const actual = buildActualSchedule(
+      baseSchedule,
+      {
+        ...replacements,
+        dates: {
+          '2026-09-04': {
+            ...replacements.dates['2026-09-04']!,
+            replacements: [
+              replacement(
+                [2, 3],
+                'replace',
+                'Математика',
+                'Математика Шереметьева Н.В.',
+              ),
+            ],
+          },
+        },
+      },
+      'actual-parser',
+      'config',
+    );
+    const group = actual.dates['2026-09-04']?.groups['СТ1-11'];
+
+    expect(
+      group?.lessons.find((lesson) => lesson.number === 3),
+    ).toBeUndefined();
+    expect(group?.unresolvedReplacements).toEqual([
+      expect.objectContaining({
+        lessonNumber: 3,
+        reason: 'lesson-not-found',
+      }),
+    ]);
+  });
+
   it('distinguishes an absent lesson from a lesson not scheduled for this week', () => {
     const denominatorReplacements: CanonicalReplacements = {
       ...replacements,

@@ -105,6 +105,86 @@ const isScheduledAsUsualReplacement = (replacement: Replacement): boolean =>
     .normalize('NFKC')
     .toLocaleLowerCase('ru-RU') === 'по расписанию';
 
+/**
+ * Проверяет узкий формат двух последовательных пар с многоточием.
+ *
+ * Рабочая гипотеза по таблицам ЯГК: записи вида «2,3 | Физкультура...»
+ * и «2,3 | Математика...» означают замену существующей второй пары и
+ * добавление того же занятия на третью. Многоточие пока не имеет
+ * подтверждённой официальной семантики, поэтому правило намеренно не
+ * распространяется на произвольные диапазоны, отмены или строки без
+ * успешно сопоставленной предыдущей пары.
+ */
+const ellipsisContinuationPreviousLesson = (
+  replacement: Replacement,
+  lessonNumber: number,
+): number | undefined => {
+  if (
+    replacement.type !== 'replace' ||
+    !/(?:\.{3}|…)\s*$/u.test(replacement.original?.raw ?? '')
+  )
+    return undefined;
+
+  const lessonNumbers = [...new Set(replacement.lessonNumbers)].sort(
+    (left, right) => left - right,
+  );
+  const [previousLesson, continuationLesson] = lessonNumbers;
+  return lessonNumbers.length === 2 &&
+    previousLesson !== undefined &&
+    continuationLesson === lessonNumber &&
+    continuationLesson === previousLesson + 1
+    ? previousLesson
+    : undefined;
+};
+
+/**
+ * Создаёт дополнительную пару только как продолжение уже применённой замены.
+ *
+ * Так мы не превращаем любой `lesson-not-found` в добавленное занятие: новая
+ * пара допустима лишь для подтверждённого формата с многоточием и копирует
+ * именно итог предыдущей пары из той же строки HTML.
+ */
+const applyEllipsisContinuation = (
+  target: ActualGroupSchedule,
+  replacement: Replacement,
+  lessonNumber: number,
+): boolean => {
+  const previousLessonNumber = ellipsisContinuationPreviousLesson(
+    replacement,
+    lessonNumber,
+  );
+  if (previousLessonNumber === undefined) return false;
+
+  const previousLesson = target.lessons.find(
+    (lesson) => lesson.number === previousLessonNumber,
+  );
+  const wasAppliedToPreviousLesson = previousLesson?.replacements.some(
+    (appliedReplacement) =>
+      appliedReplacement.replacement === replacement &&
+      appliedReplacement.lessonNumber === previousLessonNumber,
+  );
+  if (
+    !previousLesson ||
+    previousLesson.status === 'cancelled' ||
+    !previousLesson.variants.length ||
+    !wasAppliedToPreviousLesson
+  )
+    return false;
+
+  const continuation: ActualLesson = {
+    number: lessonNumber,
+    variants: previousLesson.variants.map((variant) => ({ ...variant })),
+    // У добавленной пары нет строки base XLSX: она существует только в HTML
+    // замене, а `sourceRow` вариантов уже указывает на её строку.
+    source: null,
+    status: 'scheduled',
+    replacements: [],
+  };
+  target.lessons.push(continuation);
+  applied(continuation, replacement, lessonNumber, 'ellipsis-continuation');
+  return true;
+};
+
 const variantAppliesToWeek = (
   variant: LessonVariant,
   weekType: WeekType,
@@ -483,6 +563,7 @@ const applyReplacement = (
   }
 
   if (!lesson) {
+    if (applyEllipsisContinuation(target, replacement, lessonNumber)) return;
     unresolved(
       target,
       replacement,

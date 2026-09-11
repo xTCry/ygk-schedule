@@ -278,6 +278,7 @@ export interface GroupReplacementsArtifact {
 export type ReplacementApplyStrategy =
   | 'add'
   | 'scheduled-room'
+  | 'ellipsis-continuation'
   | 'exact-subject'
   | 'subject-alias'
   | 'subject-module-code'
