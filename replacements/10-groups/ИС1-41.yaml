@@ -307,7 +307,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -393,10 +393,58 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
     replacements:
       - *a9
       - *a10
       - *a11
       - *a12
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+        replacements:
+          - &a13
+            date: 2026-09-14
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр.2
+            replacement:
+              raw: МДК 05.02 Неделяева Н.А.Королева П.Д.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИС1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 05.03 п/гр.2
+              rawReplacement: МДК 05.02 Неделяева Н.А.Королева П.Д.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 8e6e0838c92255d4bb7fa00b1d87cd7735c7efa8c880bbcc21ca88527ba3264a
+semanticHash: 047398f4d1333c762f6f017c0598b472a3212d1e3bb4532f7556ec78a767d875

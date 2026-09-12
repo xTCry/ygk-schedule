@@ -259,7 +259,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -290,7 +290,54 @@ dates:
               rawReplacement: /теория Пронина Л.Ю.
               rawRoom: Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a8
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a9
+            date: 2026-09-14
+            group: ИС1-25
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Арх.аппар.ср.
+            replacement:
+              raw: МДК 06.01 Пронина Л.Ю.
+              room: ДОТ
+            source:
+              shift: first
+              row: 10
+              rawGroupName: ИС1-25
+              rawLessonNumbers: "1"
+              rawOriginal: Арх.аппар.ср.
+              rawReplacement: МДК 06.01 Пронина Л.Ю.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a9
 diagnostics: []
-semanticHash: 1fe3400c69e1d8b95f62033afdc48cde6da80637cad357643176d802ab625ef5
+semanticHash: 2172d3d7134c16ff6e19c11064b138dde0c527abd952449974fb018070b68cb2

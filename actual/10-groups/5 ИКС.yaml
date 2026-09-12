@@ -1151,6 +1151,120 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      5 ИКС:
+        group: 5 ИКС
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК. 04.01 Планирование организации работы структурного подразделения
+                teacher: Матвеичева О.В.
+                room: к.38
+                weekType: numerator
+                sourceRow: 52
+            source:
+              sheet: 4 курс
+              rowStart: 52
+              rowEnd: 53
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: both
+                sourceRow: 54
+            source:
+              sheet: 4 курс
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a4
+                  date: 2026-09-14
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Ин.яз.Физкульт.
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 88
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Ин.яз.Физкульт.
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a4
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1167,7 +1281,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a4
+      baseSourceFiles: &a5
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -1193,7 +1307,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a4
+      baseSourceFiles: *a5
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -1218,7 +1332,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a4
+      baseSourceFiles: *a5
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -1268,7 +1382,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a4
+      baseSourceFiles: *a5
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -1277,4 +1391,4 @@ diagnostics:
           sourceRow: 79
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a5c123b0189c0db3e88326ec9795e769b5cb1518f27c16d7632d7b553f4570a3
+semanticHash: bf9df1b3c84c84135925b7a62bfa68ab6dd63e017e3d5dc3571d5f0028665c59

@@ -378,5 +378,89 @@ dates:
     replacements:
       - *a11
       - *a12
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a13
+            date: 2026-09-14
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 02 п/гр.1 МДК 01.04
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 85
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 02 п/гр.1 МДК 01.04
+              rawReplacement: снято
+              rawRoom: ""
+          - &a14
+            date: 2026-09-14
+            group: 6 ИКС
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.04
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.35
+            source:
+              shift: first
+              row: 86
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.04
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.35
+          - &a15
+            date: 2026-09-14
+            group: 6 ИКС
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 02 п/гр.2
+            replacement:
+              raw: Физкультура Шпынов Ю.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 87
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: УП 02 п/гр.2
+              rawReplacement: Физкультура Шпынов Ю.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: 4024ac0a9f160a007ba71d3abebb86ba34616ef6f35e46485bec370565b7f79a
+semanticHash: e2be97a4cd968ef37e7c20a48254bd696fa41c453a95fba7bec02084cce2d7a9

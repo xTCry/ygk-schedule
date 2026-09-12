@@ -332,7 +332,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -382,8 +382,55 @@ dates:
               rawReplacement: Ермолаева Т.В.
               rawRoom: М207
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a9
       - *a10
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a11
+            date: 2026-09-14
+            group: УД1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Коровкина А.М.
+              room: Б402
+            source:
+              shift: first
+              row: 36
+              rawGroupName: УД1-11
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Коровкина А.М.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a11
 diagnostics: []
-semanticHash: 20524501b819c5e7424ea4c4f3ff4cefe79b18f073fdcbabbcc8386c4f724d6e
+semanticHash: 76cf3d29d62bdf9b83e5b54763b47851cb94453e3ff5a9b0c4455552f3102770

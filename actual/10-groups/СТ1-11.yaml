@@ -724,6 +724,121 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      СТ1-11:
+        group: СТ1-11
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Физическая культура
+                teacher: Герман О.Г.
+                room: Спорт.зал
+                weekType: both
+                sourceRow: 4
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Биология
+                teacher: Козырева Д.А.
+                room: Б504
+                weekType: both
+                sourceRow: 6
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Гаврилова М.А.
+                room: М102
+                weekType: both
+                sourceRow: 8
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants: []
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 10
+              rowEnd: 11
+              rawGroupName: СТ1-11/СТ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-14
+                  group: СТ1-11
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 89
+                    rawGroupName: СТ1-11
+                    rawLessonNumbers: "4"
+                    rawOriginal: Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -750,4 +865,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 54e80b1285524d9cc94241e756006bcac0cff576e4e69db7e73cbc5a0da70d55
+semanticHash: d2eca847d7e3097c3c26650edb4bc531ed200f8339510d9790ccc0e42f1d71ee

@@ -384,6 +384,156 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      ЮР2-11:
+        group: ЮР2-11
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ЮР2-11
+              rowStart: 3
+              rowEnd: 4
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-14
+                  group: ЮР2-11
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: cancel
+                  original:
+                    raw: История России Констит.пр.
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: ЮР2-11
+                    rawLessonNumbers: 0,1
+                    rawOriginal: История России Констит.пр.
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants: []
+            source:
+              sheet: ЮР2-11
+              rowStart: 5
+              rowEnd: 6
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: Рус.яз.и культ.речи
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                rawSubject: Рус.яз.и культ.речи Головкина С.А.
+                rawTeacher: Головкина С.А.
+                rawRoom: Ф303
+                sourceRow: 51
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-14
+                  group: ЮР2-11
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Рус.яз.и культ.речи Головкина С.А.
+                    room: Ф303
+                  source:
+                    shift: first
+                    row: 51
+                    rawGroupName: ЮР2-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Рус.яз.и культ.речи Головкина С.А.
+                    rawRoom: Ф303
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Адм.право
+                teacher: Грак А.М.
+                room: Ф206
+                weekType: both
+                rawSubject: Адм.право Грак А.М.
+                rawTeacher: Грак А.М.
+                rawRoom: Ф206
+                sourceRow: 52
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-14
+                  group: ЮР2-11
+                  lessonNumbers:
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Адм.право Грак А.М.
+                    room: Ф206
+                  source:
+                    shift: first
+                    row: 52
+                    rawGroupName: ЮР2-11
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: Адм.право Грак А.М.
+                    rawRoom: Ф206
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -410,4 +560,4 @@ diagnostics:
           sourceRow: 36
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 3a88b1640982946ab39a753b4cc9e2c95b482c5069c4949b2f37718d1e93ff21
+semanticHash: 97ab55e9d54165b2aa8a834239401f5ee6406b18afa730ec123d5644f63cbbdb

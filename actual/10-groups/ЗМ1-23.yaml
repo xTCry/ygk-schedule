@@ -390,5 +390,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: a65b2527a5d151cbf7861e542c2b865179524aa0d1d83be20a29f4fb38a03058
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      ЗМ1-23:
+        group: ЗМ1-23
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы геодезии и картографии, торографическая графика
+                teacher: Сивачева М.С.
+                room: Б507
+                weekType: both
+                sourceRow: 50
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 50
+              rowEnd: 51
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Основы геодезии и картографии, торографическая графика
+                teacher: Сивачева М.С.
+                room: Б407
+                weekType: numerator
+                sourceRow: 52
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 52
+              rowEnd: 53
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иформационные технологии в профессиональной деятельности
+                teacher: Яковлева Е.Н.
+                room: Б403
+                weekType: both
+                sourceRow: 54
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-14
+              group: ЗМ1-23
+              lessonNumbers:
+                - 2
+              type: cancel
+              original:
+                raw: Инф.технол.
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 46
+                rawGroupName: ЗМ1-23
+                rawLessonNumbers: "2"
+                rawOriginal: Инф.технол.
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инф.технол.». По замене: «снято»."
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 8f700a8f4a9ddb58c9c85c0ee5a8fd596b78bc60467e99d947272e4ef837abe5
+    sheet: "Замены: Первая смена"
+    row: 46
+    normalizedGroup: ЗМ1-23
+    rawValue: снято
+    context:
+      date: 2026-09-14
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ЗМ1-23
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Инф.технол.
+      candidates:
+        - subject: Иформационные технологии в профессиональной деятельности
+          teacher: Яковлева Е.Н.
+          room: Б403
+          sourceRow: 54
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: f6dddd2e78eb6462ddafc5d214a4a66c7b008bd3c8a281e258eac70a0b37a9bb

@@ -294,7 +294,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -362,9 +362,55 @@ dates:
               rawReplacement: Осн.инф.безоп. Тимощук М.В.Егорова Ю.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a7
       - *a8
       - *a9
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a10
+            date: 2026-09-14
+            group: ИБ1-21
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Консультация к ВПР Холманова В.М.
+              room: М102
+            source:
+              shift: first
+              row: 5
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Консультация к ВПР Холманова В.М.
+              rawRoom: М102
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: 90bea3565f93f24b20e2a19df5b682d3989e741c6b04ee6f41c80173ca4a3348
+semanticHash: 264646bebee1225cf82513135bcb996cf0ce70b07014a39e087f8ab2a76d1742

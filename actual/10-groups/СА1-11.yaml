@@ -427,7 +427,7 @@ dates:
         date: 2026-09-12
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -437,11 +437,15 @@ dates:
           shift: first
           etag: W/"6aa3b8d7-30b4"
           lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
       second:
         date: 2026-09-12
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -451,6 +455,10 @@ dates:
           shift: second
           etag: W/"6aa3f92d-1fe9"
           lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
     groups:
       СА1-11:
         group: СА1-11
@@ -527,5 +535,56 @@ dates:
                 lessonNumber: 2
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Математика
+                  teacher: Холманова В.М.
+                  room: М102
+                  weekType: denominator
+                  sourceRow: 192
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 191
+                rowEnd: 192
+                rawGroupName: СА1-11/СА1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Основы шахматной игры
+                  teacher: Дворниченко Г.В.
+                  room: Б502
+                  weekType: both
+                  sourceRow: 193
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 193
+                rowEnd: 194
+                rawGroupName: СА1-11/СА1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Зубковская А.Е.
+                    Загородних Е.С.
+                  room: Б501
+                  weekType: both
+                  sourceRow: 195
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 195
+                rowEnd: 196
+                rawGroupName: СА1-11/СА1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: ea57cedd5e15564b2a6672bd3fb328ca9ae0fa0a6f9da524382be7a74f8f20c7
+semanticHash: 036b87d52628a899f8062e3730302fa1cf08de4c5e6fcd6c8af98e4541a73a3d

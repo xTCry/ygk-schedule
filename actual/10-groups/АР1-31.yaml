@@ -705,7 +705,7 @@ dates:
         date: 2026-09-12
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -715,11 +715,15 @@ dates:
           shift: first
           etag: W/"6aa3b8d7-30b4"
           lastModified: Fri, 11 Sep 2026 08:16:23 GMT
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
       second:
         date: 2026-09-12
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -729,6 +733,10 @@ dates:
           shift: second
           etag: W/"6aa3f92d-1fe9"
           lastModified: Fri, 11 Sep 2026 12:50:53 GMT
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
     groups:
       АР1-31:
         group: АР1-31
@@ -799,6 +807,168 @@ dates:
               description: "По расписанию: «...МДК 01.05». По замене: «Физкультура Дворниченко
                 Г.В.». Аудитория: «Сп.зал»."
               room: Сп.зал
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики
+                  teacher: Вакансия
+                  room: А202
+                  weekType: denominator
+                  sourceRow: 150
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 149
+                rowEnd: 150
+                rawGroupName: АР1-31/1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Эффективное поведение на рынке труда
+                  teacher: Малашкевич Д.А.
+                  room: Б110
+                  weekType: both
+                  sourceRow: 151
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 151
+                rowEnd: 152
+                rawGroupName: АР1-31/1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      АР1-31:
+        group: АР1-31
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК 01.01 Начальное архитектурное проектирование
+                teacher: Жарова Н.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 108
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 108
+              rowEnd: 109
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 01.02
+                teacher: Иванов Ю.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 01.02/теория Иванов Ю.А.
+                rawTeacher: Иванов Ю.А.
+                rawRoom: ДОТ
+                sourceRow: 31
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 110
+              rowEnd: 111
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-14
+                  group: АР1-31
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 01.02 МДК 01.05 п/гр.
+                  replacement:
+                    raw: МДК 01.02/теория Иванов Ю.А.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 31
+                    rawGroupName: АР1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 01.02 МДК 01.05 п/гр.
+                    rawReplacement: МДК 01.02/теория Иванов Ю.А.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК 01.01 Начальное архитектурное проектирование
+                teacher: |-
+                  Жарова Н.И.
+                  Шатрова М.П.
+                room: ДОТ
+                weekType: both
+                sourceRow: 112
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.01 Начальное архитектурное проектирование
+                teacher: |-
+                  Жарова Н.И.
+                  Шатрова М.П.
+                room: ДОТ
+                weekType: both
+                sourceRow: 114
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -819,4 +989,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 5cbd0e5e3371bda983201a806ea98f0519e6acb2539f478410cd8fd9bc8d661e
+semanticHash: 5edbfd5f9c0bab77915ae1314c40c0238cca3ada927de11a9f837319c9ca6d1b

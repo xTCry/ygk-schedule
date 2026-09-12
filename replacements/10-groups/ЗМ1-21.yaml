@@ -1,0 +1,88 @@
+schemaVersion: 5
+provider: ygk
+group: ЗМ1-21
+dates:
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a1
+            date: 2026-09-14
+            group: ЗМ1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Инф.технол.п/гр.1
+            replacement:
+              raw: /теория Яковлева Е.Н.
+              room: Б406
+            source:
+              shift: first
+              row: 33
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Инф.технол.п/гр.1
+              rawReplacement: /теория Яковлева Е.Н.
+              rawRoom: Б406
+          - &a2
+            date: 2026-09-14
+            group: ЗМ1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: М207
+            source:
+              shift: first
+              row: 34
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: М207
+          - &a3
+            date: 2026-09-14
+            group: ЗМ1-21
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 35
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a1
+      - *a2
+      - *a3
+diagnostics: []
+semanticHash: 3d440df93631b5472c19314c76715a82c2f9d7dc982f2dc93a85685ac8a5c554

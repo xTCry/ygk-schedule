@@ -1,0 +1,95 @@
+schemaVersion: 2
+issue:
+  key: 15213f0f7d598a7ca035ecc14bd751c8e976b63e9faddbd9642961aa4c1b13d1
+  familyKey: 99639cadb65b9b395fef4f9247b144ab7a66180d2fe1ce024889a1070f7ce943
+  fingerprint: 0a2696358ad0dce3eefb2962798823eda010875f406f7db311d27bb32346da29
+  scope: actual
+  lifecycle: dated
+  observedDate: 2026-09-14
+  title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+    — 2026-09-14, первая смена"
+  labels:
+    - area:resolver
+    - diagnostic:error
+    - diagnostic:unresolved-replacement
+    - reason:subgroup-not-matched
+    - schedule-diagnostic
+    - scope:actual
+    - shift:first
+  occurrenceCount: 2
+  observationKeys:
+    - 1efa21a8f3120018410facaf554446852d07aff2ec4b072b85d2be2abf4c8d97
+    - 813f0229464c7a24deb7e308bc5bc26aa2bc7c96a8d14c4cae10d79dc7ef2855
+diagnosticsReport:
+  diagnosticsJsonPath: actual/90-diagnostics.json
+  diagnosticsYamlPath: actual/90-diagnostics.yaml
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 4b54b97935a0fd1c9a30f0198b070a427f8d6d25ca6f18186b3835b19e32b105
+    sheet: "Замены: Первая смена"
+    row: 82
+    normalizedGroup: 7 ИКС
+    rawValue: МДК 01.01 Седова Н.А.
+    context:
+      date: 2026-09-14
+      lessonNumber: 1
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: 7 ИКС
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: МДК 01.02 УП 06
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК.01.02 Монтаж и эксплуатация компьютерных систем
+          teacher: Елистратов А.М.
+          room: к.43
+          sourceRow: 58
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: &a1
+      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      fileName: rasp_first.html
+      sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+      fetchedAt: 2026-09-08T16:35:53.336Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      shift: first
+      etag: W/"6a9fd7d4-34db"
+      lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+    issueFingerprint: 0a2696358ad0dce3eefb2962798823eda010875f406f7db311d27bb32346da29
+    issueKey: 15213f0f7d598a7ca035ecc14bd751c8e976b63e9faddbd9642961aa4c1b13d1
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 5b0788364cdcb3f2b7e01619f17e4cefbb01ed8312e2c94e879651cc135e0d82
+    sheet: "Замены: Первая смена"
+    row: 85
+    normalizedGroup: 6 ИКС
+    rawValue: снято
+    context:
+      date: 2026-09-14
+      lessonNumber: 2
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: 6 ИКС
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: УП 02 МДК 01.04
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: МДК. 01.04 Монтаж и эксплуатация систем видеонаблюдения и систем
+            безопасности
+          teacher: Елистратов А.М.
+          room: к.43
+          sourceRow: 60
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 0a2696358ad0dce3eefb2962798823eda010875f406f7db311d27bb32346da29
+    issueKey: 15213f0f7d598a7ca035ecc14bd751c8e976b63e9faddbd9642961aa4c1b13d1

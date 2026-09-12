@@ -258,7 +258,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -289,7 +289,74 @@ dates:
               rawReplacement: 1,2 п/гр. Мишуринская Е.Ю.
               rawRoom: Б202
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a8
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a9
+            date: 2026-09-14
+            group: ПО1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 25
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+          - &a10
+            date: 2026-09-14
+            group: ПО1-15
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: 1,2 п/гр.Информ.Комиссарова О.В.
+              room: Б304
+            source:
+              shift: first
+              row: 26
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: 1,2 п/гр.Информ.Комиссарова О.В.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 678e5f2dc503aa9dc11e081be7af2fad1594220f84d767abd3f92eca0c249d85
+semanticHash: eed9f0da61a86506786eafe2aa98f495a3a84f48ef564d18c7276d63fa6e507a

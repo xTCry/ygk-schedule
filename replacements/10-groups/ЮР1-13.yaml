@@ -367,7 +367,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -398,7 +398,94 @@ dates:
               rawReplacement: ОБиЗР Корсаков С.В.
               rawRoom: Ф301
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a12
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a13
+            date: 2026-09-14
+            group: ЮР1-13
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Разговоры
+            replacement:
+              raw: ОБиЗР Корсаков С.В.
+              room: Ф301
+            source:
+              shift: first
+              row: 56
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Разговоры
+              rawReplacement: ОБиЗР Корсаков С.В.
+              rawRoom: Ф301
+          - &a14
+            date: 2026-09-14
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: История Математ.
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 57
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: 1,2
+              rawOriginal: История Математ.
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф202
+          - &a15
+            date: 2026-09-14
+            group: ЮР1-13
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Литература
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 58
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "3"
+              rawOriginal: Литература
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: ac1d417c93e33494cf6df0e5b69e20bbb3b9026cfa8596af00228d7791ec985f
+semanticHash: 3c3dd92619ba0002931646c3d8f19715727e42ad397b902aa1fe16ca94304d47

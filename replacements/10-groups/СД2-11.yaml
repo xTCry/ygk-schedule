@@ -259,7 +259,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -290,7 +290,54 @@ dates:
               rawReplacement: МДК 05.01 Машкова Е.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
     replacements:
       - *a8
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a9
+            date: 2026-09-14
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.п/гр.2
+            replacement:
+              raw: /теория Краснянская Е.В.
+              room: В102
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 Т.1.2.п/гр.2
+              rawReplacement: /теория Краснянская Е.В.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a9
 diagnostics: []
-semanticHash: 59b774bef98bf31e17d230f5c200e215a5cc576d7a81df312b7bb749e21c3649
+semanticHash: 0d6c7f5a3318a2bc803a285cb647c94bf4e92bb0875e4b9a8d52c22af55b011b

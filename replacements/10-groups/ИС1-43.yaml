@@ -354,7 +354,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -424,9 +424,76 @@ dates:
               rawReplacement: 1,2 п/гр. Васильченко М.О.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
     replacements:
       - *a10
       - *a11
       - *a12
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+        replacements:
+          - &a13
+            date: 2026-09-14
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: МДК 09.03 Гудкова А.Л.
+              room: Б301
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: МДК 09.03 Гудкова А.Л.
+              rawRoom: Б301
+          - &a14
+            date: 2026-09-14
+            group: ИС1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: УП 05
+            replacement:
+              raw: 1,2 п/гр. Васильченко М.О.
+              room: Б308
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "6"
+              rawOriginal: УП 05
+              rawReplacement: 1,2 п/гр. Васильченко М.О.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: 714db734e194f011b4f1c751b91f3ddf07700e46480fc5f89cf0c8b8116d853b
+semanticHash: fa8f4ed51741d25d8d2262274381de415b88e86fe8cdfc55614fcc469fa770e5

@@ -355,5 +355,68 @@ dates:
       - *a9
       - *a10
       - *a11
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        replacements:
+          - &a12
+            date: 2026-09-14
+            group: 1 БПЛА
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Математика Бахвалова К.Н.
+              room: к.30
+            source:
+              shift: first
+              row: 76
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "1"
+              rawOriginal: Тех.механика
+              rawReplacement: Математика Бахвалова К.Н.
+              rawRoom: к.30
+          - &a13
+            date: 2026-09-14
+            group: 1 БПЛА
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 01.01 Осн.авиац.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 77
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.01 Осн.авиац.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: 7ec802aa55ecc1d5d454f9da7031af203fa8cafc1f96c5ad27919f4f47530c5b
+semanticHash: 1de6ecea38eb11b49ad9427dc929a48d9eebca1874c4244e03af72b8501c9f26

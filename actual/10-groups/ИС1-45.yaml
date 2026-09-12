@@ -784,6 +784,110 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-09-14:
+    date: 2026-09-14
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: bd138f760a2a12315ac482555b0b7ff8339577f77b13c798a0210e46282ca952
+          fetchedAt: 2026-09-12T12:48:59.714Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa5380a-4d61"
+          lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+      second:
+        date: 2026-09-14
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d4026fe23381e7377c7ae4074fe3ec77e21559e4f7c3af5949fc96add741e5f5
+          fetchedAt: 2026-09-12T12:48:59.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa54510-2429"
+          lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+    groups:
+      ИС1-45:
+        group: ИС1-45
+        date: 2026-09-14
+        day: Понедельник
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК.05.02 Разработка кода ИС
+                teacher: |-
+                  Васильченко М.О.
+                  Панасюк А.Д.
+                room: |-
+                  Б301
+                  Б309
+                weekType: numerator
+                sourceRow: 264
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 264
+              rowEnd: 265
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Физическая культура
+                teacher: Куликова А.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 266
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 266
+              rowEnd: 267
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants: []
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 268
+              rowEnd: 269
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-14
+                  group: ИС1-45
+                  lessonNumbers:
+                    - 6
+                  type: cancel
+                  original:
+                    raw: МДК 05.03
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 22
+                    rawGroupName: ИС1-45
+                    rawLessonNumbers: "6"
+                    rawOriginal: МДК 05.03
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -814,4 +918,4 @@ diagnostics:
           sourceRow: 264
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a38133e82f0aca072fd298bb43a204003cd7b685a734c72ca90547fcdbb67e33
+semanticHash: fd53da3d63df5d0871156c54f3a58709c8672ce823b837a2d53ca7c733792ca6
