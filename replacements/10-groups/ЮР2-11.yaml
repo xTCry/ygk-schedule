@@ -146,7 +146,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -213,9 +213,94 @@ dates:
               rawReplacement: Адм.право Грак А.М.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a5
       - *a6
       - *a7
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a8
+            date: 2026-09-15
+            group: ЮР2-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: Ин.язык МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: 0,1
+              rawOriginal: Ин.язык МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a9
+            date: 2026-09-15
+            group: ЮР2-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Теор.гос.и права Вечера Л.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 68
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Теор.гос.и права Вечера Л.А.
+              rawRoom: ДОТ
+          - &a10
+            date: 2026-09-15
+            group: ЮР2-11
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Админ.право Грак А.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 69
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Админ.право Грак А.М.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: cc39240d9f2e3cce55fadd0396678df2102c078b49208240daf2e97b762888e5
+semanticHash: 866336ebaea5294154d9335594c276ae49973bb49c10f6fca34017067a17d472

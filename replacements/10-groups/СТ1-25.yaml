@@ -267,7 +267,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -298,7 +298,94 @@ dates:
               rawReplacement: Инж.граф. Дегтева И.Е.Костерина Е.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a7
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a8
+            date: 2026-09-15
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01 пгр 1
+            replacement:
+              raw: Физкульт. Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 44
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.01 пгр 1
+              rawReplacement: Физкульт. Герман О.Г.
+              rawRoom: Сп.зал
+          - &a9
+            date: 2026-09-15
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Инф.технол. Сердцева О.Д.
+              room: Б406
+            source:
+              shift: first
+              row: 45
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: История
+              rawReplacement: Инф.технол. Сердцева О.Д.
+              rawRoom: Б406
+          - &a10
+            date: 2026-09-15
+            group: СТ1-25
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Инф.технол. п/гр 1 Сердцева О.Д.
+              room: Б406
+            source:
+              shift: first
+              row: 46
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.02
+              rawReplacement: Инф.технол. п/гр 1 Сердцева О.Д.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 33070ddccf7d8a84c4f34ba475a6c1d32da3079c01ea60e998992eb3423b6f95
+semanticHash: 78828d979622f094baf628b4d9f7efda1e9b976a5aa8b57bd351215f75609257

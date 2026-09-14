@@ -12,7 +12,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -43,7 +43,55 @@ dates:
               rawReplacement: Экон.организации Сафронова Л.Н.
               rawRoom: Ф106
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a1
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a2
+            date: 2026-09-15
+            group: ЮС1-41
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 73
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: 0-2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a2
 diagnostics: []
-semanticHash: a8c8e07df45fc61ed8dde3482fd67f539bda1e6e45e0547f106645b31dfa6608
+semanticHash: 12536a51ef47a4e8f04e24f096c65800cfdd12cea03fa31e03303baf9f2446b4

@@ -175,7 +175,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -205,7 +205,54 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a5
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a6
+            date: 2026-09-15
+            group: РК1-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ВПР
+              room: А203
+            source:
+              shift: first
+              row: 17
+              rawGroupName: РК1-11
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: ВПР
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a6
 diagnostics: []
-semanticHash: d1f65ec770b637f0162112aa71b350624906d34d76340604585e38ffbbc5ab8b
+semanticHash: 0669ca668d3f9716de2218f08bd72ca36fcc3ec4ce0947f7351901988cc5ddc4

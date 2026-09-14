@@ -1475,7 +1475,7 @@ dates:
         date: 2026-09-14
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1485,11 +1485,15 @@ dates:
           shift: first
           etag: W/"6aa5380a-4d61"
           lastModified: Sat, 12 Sep 2026 11:31:22 GMT
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
       second:
         date: 2026-09-14
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1499,6 +1503,10 @@ dates:
           shift: second
           etag: W/"6aa54510-2429"
           lastModified: Sat, 12 Sep 2026 12:26:56 GMT
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
     groups:
       ИС1-43:
         group: ИС1-43
@@ -1603,6 +1611,61 @@ dates:
                 lessonNumber: 6
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.03.02 Управление проектами
+                  teacher: Юров А.А.
+                  room: Б202
+                  weekType: numerator
+                  sourceRow: 213
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 213
+                rowEnd: 214
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.05.02 Разработка кода ИС КП
+                  teacher: |-
+                    Васильченко М.О.
+                    Королева П.Д.
+                  room: |-
+                    Б302
+                    Б308
+                  weekType: both
+                  sourceRow: 215
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 215
+                rowEnd: 216
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: УП.05 Учебная практика
+                  teacher: |-
+                    Васильченко М.О.
+                    Вакансия
+                  room: Б308
+                  weekType: both
+                  sourceRow: 217
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 217
+                rowEnd: 218
+                rawGroupName: ИС1-43/ИС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1740,4 +1803,4 @@ diagnostics:
           sourceRow: 240
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7d6268427d80255f14fe5c4fc7799970dbad086a6ea28d5bd61c98be95bfc7fd
+semanticHash: d490b680dae88fc0624520b075234d096485fa04babfeb165bd4fcdf665abe98

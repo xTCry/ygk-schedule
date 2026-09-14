@@ -215,7 +215,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -248,7 +248,54 @@ dates:
               rawReplacement: Бархатов Ю.Л.
               rawRoom: сл.м
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a7
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a8
+            date: 2026-09-15
+            group: 35 ЭМЕХ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: Эф.поведение Царькова Н.А.
+              room: к.25
+            source:
+              shift: first
+              row: 106
+              rawGroupName: 35 ЭМЕХ
+              rawLessonNumbers: "2"
+              rawOriginal: УП 02
+              rawReplacement: Эф.поведение Царькова Н.А.
+              rawRoom: к.25
+        diagnostics: []
+    replacements:
+      - *a8
 diagnostics: []
-semanticHash: 25117b6da808a7df15d2cbe94df5b09a2f9426c65e48255e76802d3e3f817796
+semanticHash: d71a651a246a8c89a3b626489c4805ecb7e5b339f9b98211859ff9aeaedb5fc6

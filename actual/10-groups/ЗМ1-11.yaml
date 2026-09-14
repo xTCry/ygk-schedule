@@ -749,5 +749,149 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+    groups:
+      ЗМ1-11:
+        group: ЗМ1-11
+        date: 2026-09-15
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика л/р
+                teacher: Вакансия
+                room: Б401
+                weekType: numerator
+                sourceRow: 13
+              - subject: ВПР
+                teacher: ""
+                room: Ф106
+                weekType: both
+                rawSubject: ВПР
+                rawRoom: Ф106
+                sourceRow: 24
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 13
+              rowEnd: 14
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-15
+                  group: ЗМ1-11
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: add
+                  original: null
+                  replacement:
+                    raw: ВПР
+                    room: Ф106
+                  source:
+                    shift: first
+                    row: 24
+                    rawGroupName: ЗМ1-11
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ""
+                    rawReplacement: ВПР
+                    rawRoom: Ф106
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Физика
+                teacher: Вакансия
+                room: Б110
+                weekType: both
+                sourceRow: 15
+              - subject: ВПР
+                teacher: ""
+                room: Ф106
+                weekType: both
+                rawSubject: ВПР
+                rawRoom: Ф106
+                sourceRow: 24
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 15
+              rowEnd: 16
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: География
+                teacher: Климова Ю.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 17
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 17
+              rowEnd: 18
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-15
+                  group: ЗМ1-11
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 83
+                    rawGroupName: ЗМ1-11
+                    rawLessonNumbers: "2"
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 365b36fafdde6772e55d0e90023f1762b47c61fd561dd86de5d59a63974538b4
+semanticHash: da8c4ec2ac760b31b69a32c2abb70442d0748267fccc62d5583928c529fd619f

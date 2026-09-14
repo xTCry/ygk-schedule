@@ -214,7 +214,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -263,8 +263,95 @@ dates:
               rawReplacement: История Коровкина А.М.
               rawRoom: М102
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a7
       - *a8
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a9
+            date: 2026-09-15
+            group: МА1-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ВПР
+              room: Ф404
+            source:
+              shift: first
+              row: 30
+              rawGroupName: МА1-11
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: ВПР
+              rawRoom: Ф404
+          - &a10
+            date: 2026-09-15
+            group: МА1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: по расписанию Коровкина А.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 89
+              rawGroupName: МА1-11
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: по расписанию Коровкина А.М.
+              rawRoom: ДОТ
+          - &a11
+            date: 2026-09-15
+            group: МА1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: по расписанию Ермолаева Т.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 90
+              rawGroupName: МА1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: по расписанию Ермолаева Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: d600a4f6d7ccbd2ce500f149289293072008a18f59eac6e4d7069fc1476b3619
+semanticHash: bd1c9a50219b19c276d8d197ef5ab4beed50ae7081b4a3e45cf19c1874986cb5

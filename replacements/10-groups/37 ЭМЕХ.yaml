@@ -249,7 +249,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -299,8 +299,95 @@ dates:
               rawReplacement: Осн.материалов. Ковалева Л.В.
               rawRoom: к.32
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a6
       - *a7
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a8
+            date: 2026-09-15
+            group: 37 ЭМЕХ
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ВПР
+              room: к.36
+            source:
+              shift: first
+              row: 34
+              rawGroupName: 37 ЭМЕХ
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: ВПР
+              rawRoom: к.36
+          - &a9
+            date: 2026-09-15
+            group: 37 ЭМЕХ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Литература
+            replacement:
+              raw: МДК 01.01 Бархатов Ю.Л.
+              room: сл.м
+            source:
+              shift: first
+              row: 94
+              rawGroupName: 37 ЭМЕХ
+              rawLessonNumbers: "2"
+              rawOriginal: Литература
+              rawReplacement: МДК 01.01 Бархатов Ю.Л.
+              rawRoom: сл.м
+          - &a10
+            date: 2026-09-15
+            group: 37 ЭМЕХ
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: Петрушенко Е.Е.
+              room: к.35
+            source:
+              shift: first
+              row: 95
+              rawGroupName: 37 ЭМЕХ
+              rawLessonNumbers: "3"
+              rawOriginal: Ин.язык
+              rawReplacement: Петрушенко Е.Е.
+              rawRoom: к.35
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 76712ce3de9b776dd4d24764bb26837ad99c6b73acc6402bec1b7b90b12da310
+semanticHash: ab15cc79d310ea98d2e569743523c4ac5c7299cc6c72aa019b8843c6e8147814

@@ -357,6 +357,144 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+    groups:
+      ТУ1-11:
+        group: ТУ1-11
+        date: 2026-09-15
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                sourceRow: 12
+              - subject: ВПР
+                teacher: ""
+                room: Ф401
+                weekType: both
+                rawSubject: ВПР
+                rawRoom: Ф401
+                sourceRow: 23
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 12
+              rowEnd: 13
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-15
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: add
+                  original: null
+                  replacement:
+                    raw: ВПР
+                    room: Ф401
+                  source:
+                    shift: first
+                    row: 23
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ""
+                    rawReplacement: ВПР
+                    rawRoom: Ф401
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 14
+              - subject: ВПР
+                teacher: ""
+                room: Ф401
+                weekType: both
+                rawSubject: ВПР
+                rawRoom: Ф401
+                sourceRow: 23
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 14
+              rowEnd: 15
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                sourceRow: 16
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 16
+              rowEnd: 17
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физика
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: numerator
+                sourceRow: 18
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 18
+              rowEnd: 19
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -387,4 +525,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 7edf39c184bab468aa4ca3d12cb27efd7ad06ecb51b4cfd46d523135e00a6d0d
+semanticHash: 99a867809858c2f0a7760ed0c54ec0e9d9a44b900ccf3ce8fad4fae51e61336f

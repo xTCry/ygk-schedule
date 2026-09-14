@@ -315,5 +315,68 @@ dates:
     replacements:
       - *a8
       - *a9
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        replacements:
+          - &a10
+            date: 2026-09-15
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: УП 03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 36
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: УП 03
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a11
+            date: 2026-09-15
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: 1,2 п/гр.Web-прогр. Серова А.М.
+              room: Б302
+            source:
+              shift: second
+              row: 37
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 03.01
+              rawReplacement: 1,2 п/гр.Web-прогр. Серова А.М.
+              rawRoom: Б302
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 93a54364c7cf8c661e37bb182cea3563268d00de49f49dad030ea29ddb17fe66
+semanticHash: 997f44eaf84e09069896e18a51a9d921c383d5bf43a07a285605b6a000da169f

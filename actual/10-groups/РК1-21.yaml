@@ -794,7 +794,159 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+    groups:
+      РК1-21:
+        group: РК1-21
+        date: 2026-09-15
+        day: Вторник
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                teacher: |-
+                  Выблова Т.В.
+                  Анисимова С.А.
+                room: |-
+                  Б304
+                  Б309
+                weekType: numerator
+                sourceRow: 68
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 68
+              rowEnd: 69
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                teacher: |-
+                  Выблова Т.В.
+                  Анисимова С.А.
+                room: |-
+                  Б305
+                  Б309
+                weekType: both
+                sourceRow: 70
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Информационное обеспечение профессиональной деятельности
+                teacher: |-
+                  Анисимова С.А.
+                  Рудина М.И.
+                room: |-
+                  Б304
+                  Б204
+                weekType: both
+                sourceRow: 72
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: РК1-21/РК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-15
+              group: РК1-21
+              lessonNumbers:
+                - 1
+              type: replace
+              original:
+                raw: Физкультура
+              replacement:
+                raw: МДК 04.01 Вепрева Ю.Ю.
+                room: Б305
+              source:
+                shift: first
+                row: 57
+                rawGroupName: РК1-21
+                rawLessonNumbers: "1"
+                rawOriginal: Физкультура
+                rawReplacement: МДК 04.01 Вепрева Ю.Ю.
+                rawRoom: Б305
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкультура». По замене: «МДК 04.01 Вепрева Ю.Ю.».
+                Аудитория: «Б305»."
+              room: Б305
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 0790edff046e548ffee339c004139b792ced15ef69a4363c8b2c0a748b4eb7de
+    sheet: "Замены: Первая смена"
+    row: 57
+    normalizedGroup: РК1-21
+    rawValue: МДК 04.01 Вепрева Ю.Ю.
+    context:
+      date: 2026-09-15
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: РК1-21
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: Физкультура
+      candidates:
+        - subject: МДК 04.03 Выполнение рекламных проектов в материале
+          teacher: |-
+            Выблова Т.В.
+            Анисимова С.А.
+          room: |-
+            Б304
+            Б309
+          sourceRow: 68
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -824,4 +976,4 @@ diagnostics:
           sourceRow: 59
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ab4430f7176e5eef58e89bbc2fb833bb78877369fb9f4ad045df16a39422ea17
+semanticHash: 9498f9605e4f2fb7da0a32831d3f4613d75ff737e2d66d9923a38db2cd1e7c26

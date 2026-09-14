@@ -95,5 +95,66 @@ dates:
           sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a2
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a3
+            date: 2026-09-15
+            group: СТ1-43
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Серых Л.В.
+              room: Б401
+            source:
+              shift: first
+              row: 113
+              rawGroupName: СТ1-43
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Серых Л.В.
+              rawRoom: Б401
+          - &a4
+            date: 2026-09-15
+            group: СТ1-43
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.01 пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 114
+              rawGroupName: СТ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01 пгр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a3
+      - *a4
 diagnostics: []
-semanticHash: 4133d041f20e937da2ceb6d84d1c4ffc9740a07580f9dcb5e76b1af90ec92888
+semanticHash: 16e2710c21bd798e439e2f9c43af9afd0b87e100834c925538bb90d9ff515623

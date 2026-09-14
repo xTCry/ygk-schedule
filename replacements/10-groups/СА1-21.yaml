@@ -498,7 +498,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -567,9 +567,56 @@ dates:
               rawReplacement: 1,2 п/гр. Комиссарова О.В.
               rawRoom: Б204
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a16
       - *a17
       - *a18
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a19
+            date: 2026-09-15
+            group: СА1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Осн.электр.
+            replacement:
+              raw: 1,2 п/гр.Инф.тех Комиссарова О.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 61
+              rawGroupName: СА1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.электр.
+              rawReplacement: 1,2 п/гр.Инф.тех Комиссарова О.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
 diagnostics: []
-semanticHash: 1bc354ae79f94fcbd66f4eda2f13766d0fbce7e2a5739d9005f24d8a6ca63c43
+semanticHash: 9b44e84cce71ca4e11c7421e74214a2ca8c2f02875486928ceed9523dcc5d4a2

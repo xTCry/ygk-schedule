@@ -127,7 +127,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -177,8 +177,95 @@ dates:
               rawReplacement: Информ. Садилова К.А.
               rawRoom: Б310
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a4
       - *a5
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a6
+            date: 2026-09-15
+            group: РК1-12
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ВПР
+              room: Акт.зал
+            source:
+              shift: first
+              row: 18
+              rawGroupName: РК1-12
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: ВПР
+              rawRoom: Акт.зал
+          - &a7
+            date: 2026-09-15
+            group: РК1-12
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Русский язык
+            replacement:
+              raw: Математика Пухова Ю.Г.
+              room: М208
+            source:
+              shift: first
+              row: 42
+              rawGroupName: РК1-12
+              rawLessonNumbers: "2"
+              rawOriginal: Русский язык
+              rawReplacement: Математика Пухова Ю.Г.
+              rawRoom: М208
+          - &a8
+            date: 2026-09-15
+            group: РК1-12
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Информ. /т. Садилова К.А.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 43
+              rawGroupName: РК1-12
+              rawLessonNumbers: "3"
+              rawOriginal: Инд.проект
+              rawReplacement: Информ. /т. Садилова К.А.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: 47a89e74cb8bc1e06aa020826f27fec166259326662ff093e1ef61b536dc9393
+semanticHash: 3d701d4393ad8f02c851c5000117c216aa33a93c817ee32ad732083238267b83

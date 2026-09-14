@@ -412,7 +412,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -444,7 +444,53 @@ dates:
               rawReplacement: МДК 05.02 Неделяева Н.А.Королева П.Д.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
     replacements:
       - *a13
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        replacements:
+          - &a14
+            date: 2026-09-15
+            group: ИС1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 05.03 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 05.03 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a14
 diagnostics: []
-semanticHash: 047398f4d1333c762f6f017c0598b472a3212d1e3bb4532f7556ec78a767d875
+semanticHash: 37b77634cf6cf17a62c4589004103bdcae10f4fa7bea6a9aff179ecd9c738215

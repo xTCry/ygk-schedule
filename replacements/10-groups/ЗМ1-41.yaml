@@ -288,7 +288,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -319,7 +319,75 @@ dates:
               rawReplacement: Воробьева Н.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a8
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a9
+            date: 2026-09-15
+            group: ЗМ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК04.02 Акиничева М.А.
+              room: Б402
+            source:
+              shift: first
+              row: 80
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: МДК04.02 Акиничева М.А.
+              rawRoom: Б402
+          - &a10
+            date: 2026-09-15
+            group: ЗМ1-41
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 04.01 МДК 04.02
+            replacement:
+              raw: МДК03.01 Воробьева Н.Е.
+              room: М208
+            source:
+              shift: first
+              row: 81
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 04.01 МДК 04.02
+              rawReplacement: МДК03.01 Воробьева Н.Е.
+              rawRoom: М208
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 79516587aa9a175f172c95375e72cb84faff98109ec71e1d899da529726ca505
+semanticHash: 4555f4df0fb15de4d112d89415cd6d4ccc400fc467efd8fd3cd00fa9ad9ec01e

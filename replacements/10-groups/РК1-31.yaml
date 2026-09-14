@@ -443,7 +443,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -494,8 +494,56 @@ dates:
               rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
     replacements:
       - *a13
       - *a14
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        replacements:
+          - &a15
+            date: 2026-09-15
+            group: РК1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.03 УП 04.03
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 20
+              rawGroupName: РК1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 04.03 УП 04.03
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a15
 diagnostics: []
-semanticHash: 4823af546483ce9aeadf77691d88c06de2de2958a2bd2a95b2830567b97c37b2
+semanticHash: f0df0641a2e678b75eede68d247a7b4dc692e72e40b47ff5a544641b448a033d

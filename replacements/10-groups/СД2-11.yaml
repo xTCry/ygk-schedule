@@ -306,7 +306,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -337,7 +337,93 @@ dates:
               rawReplacement: /теория Краснянская Е.В.
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a9
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a10
+            date: 2026-09-15
+            group: СД2-11
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 52
+              rawGroupName: СД2-11
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a11
+            date: 2026-09-15
+            group: СД2-11
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Физкультура Тех.мех
+            replacement:
+              raw: Матем.методы Гаврилова М.А.
+              room: М207
+            source:
+              shift: first
+              row: 51
+              rawGroupName: СД2-11
+              rawLessonNumbers: 3,4
+              rawOriginal: Физкультура Тех.мех
+              rawReplacement: Матем.методы Гаврилова М.А.
+              rawRoom: М207
+          - &a12
+            date: 2026-09-15
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Тех.мех п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 53
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.мех п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
+      - *a12
 diagnostics: []
-semanticHash: 0d6c7f5a3318a2bc803a285cb647c94bf4e92bb0875e4b9a8d52c22af55b011b
+semanticHash: 694cbe2bdd0632e2b1dc1f1496688a4dca6dfebb054059b24b2c42712c7c7db1

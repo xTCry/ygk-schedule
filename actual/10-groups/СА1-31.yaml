@@ -539,6 +539,134 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+      second:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
+          fetchedAt: 2026-09-14T15:51:54.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa7ecc2-258d"
+          lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+    groups:
+      СА1-31:
+        group: СА1-31
+        date: 2026-09-15
+        day: Вторник
+        lessons:
+          - number: 3
+            variants:
+              - subject: Теория вероятностей и мат. Статистика
+                teacher: Шереметьева Н.В.
+                room: М106
+                weekType: both
+                sourceRow: 58
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Корсаков С.В.
+                room: М101
+                weekType: both
+                sourceRow: 60
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 60
+              rowEnd: 61
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.03.01 Эксплуатация объектов сетевой инфраструктуры
+                teacher: Зайцев Р.А.
+                room: Б305
+                weekType: both
+                rawSubject: 1,2 п/гр Зайцев Р.А.
+                rawTeacher: Зайцев Р.А.
+                rawRoom: Б305
+                sourceRow: 28
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 62
+              rowEnd: 63
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-15
+                  group: СА1-31
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: 1,2 п/гр Зайцев Р.А.
+                    room: Б305
+                  source:
+                    shift: second
+                    row: 28
+                    rawGroupName: СА1-31
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: 1,2 п/гр Зайцев Р.А.
+                    rawRoom: Б305
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: Иностранный язык в проф. деят.
+                teacher: |-
+                  Зубковская А.Е.
+                  Загородних Е.С.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 64
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 64
+              rowEnd: 65
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -565,4 +693,4 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 3444bb4a89fe7157dc25ea66767fa6736bc9bfcf69e8946072debf9d408c53d6
+semanticHash: 1faaf8f4aed3b674930c6ce8b2b8fbd342ca340d0849fab4a4a8ac25f278c027

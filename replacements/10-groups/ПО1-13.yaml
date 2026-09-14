@@ -212,7 +212,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -281,9 +281,76 @@ dates:
               rawReplacement: Осн.шах.игр. Дворниченко Г.В.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
     replacements:
       - *a7
       - *a8
       - *a9
+  2026-09-15:
+    date: 2026-09-15
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-15
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5e63cc54d5e27ddd3b492e8127db0ba2f3c9cf711e10a9b0ef0ee3e2a5777c8
+          fetchedAt: 2026-09-14T15:51:54.392Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa7edcf-58cc"
+          lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        replacements:
+          - &a10
+            date: 2026-09-15
+            group: ПО1-13
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ВПР
+              room: М208
+            source:
+              shift: first
+              row: 11
+              rawGroupName: ПО1-13
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: ВПР
+              rawRoom: М208
+          - &a11
+            date: 2026-09-15
+            group: ПО1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: /теория Калинин Д.А.
+              room: М101
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ПО1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Физика
+              rawReplacement: /теория Калинин Д.А.
+              rawRoom: М101
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: b6bba200de3d4ea876d37a6c7cd863a86c89df14ea8875afbde7559287cfddbd
+semanticHash: 8b805d4a06792935efe48a77d754397e47ab031a7a8acc9e0c10335e13aa5bc1
