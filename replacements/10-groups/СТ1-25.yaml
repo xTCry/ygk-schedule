@@ -314,7 +314,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -383,9 +383,76 @@ dates:
               rawReplacement: Инф.технол. п/гр 1 Сердцева О.Д.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a8
       - *a9
       - *a10
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a11
+            date: 2026-09-16
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Матем.методы
+            replacement:
+              raw: МДК 05.01 /теор Топчиян Е.А.
+              room: Б401
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Матем.методы
+              rawReplacement: МДК 05.01 /теор Топчиян Е.А.
+              rawRoom: Б401
+          - &a12
+            date: 2026-09-16
+            group: СТ1-25
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Инф.технол. п/гр
+            replacement:
+              raw: /теория Сердцева О.В.
+              room: Б401
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "6"
+              rawOriginal: Инф.технол. п/гр
+              rawReplacement: /теория Сердцева О.В.
+              rawRoom: Б401
+        diagnostics: []
+    replacements:
+      - *a11
+      - *a12
 diagnostics: []
-semanticHash: 78828d979622f094baf628b4d9f7efda1e9b976a5aa8b57bd351215f75609257
+semanticHash: c7626de21aa1a74a335dafdb0487fd20e4e79a0c84272c78fc94d7942dbe62e1

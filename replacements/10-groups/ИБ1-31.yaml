@@ -423,7 +423,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -454,7 +454,55 @@ dates:
               rawReplacement: МДК 01.04 Тимощук М.В
               rawRoom: Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     replacements:
       - *a12
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
+          fetchedAt: 2026-09-15T14:18:13.647Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa93fa0-295a"
+          lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        replacements:
+          - &a13
+            date: 2026-09-16
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+              - 5
+              - 6
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: 4-6
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 9abcf52fa1fd97dea7b6cd3d820309448c62e776628cc610eb9ec3abd377f285
+semanticHash: fde22905815651aa4c3a81b7abd5c79bba7e5788fda722d29769fe819029a0bf

@@ -426,7 +426,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -457,7 +457,74 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a11
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a12
+            date: 2026-09-16
+            group: ИБ1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 3
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a13
+            date: 2026-09-16
+            group: ИБ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: 1,2 п/гр. Серова А.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 4
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: 1,2 п/гр. Серова А.М.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: 878e709ff9447aa8f798c0d1cc526013faf9b9ea79c0a7b5ca050cea4e37a6c2
+semanticHash: ff3467ed5ebf22fbff7be31bf3c4038235bf1d1f6786922df0500e0c0c74316e

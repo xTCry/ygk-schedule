@@ -240,7 +240,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -271,7 +271,92 @@ dates:
               rawReplacement: ВПР
               rawRoom: Ф104
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a7
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a8
+            date: 2026-09-16
+            group: ЮР1-17
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Биология
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 41
+              rawGroupName: ЮР1-17
+              rawLessonNumbers: "0"
+              rawOriginal: Биология
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a9
+            date: 2026-09-16
+            group: ЮР1-17
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 39
+              rawGroupName: ЮР1-17
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Саввина Е.А.
+              rawRoom: Ф202
+          - &a10
+            date: 2026-09-16
+            group: ЮР1-17
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ЮР1-17
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф202
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: c4cc1a9fb517cceb03f5cd2cfbee996f94bcf7b99b363af74059873dddcb641b
+semanticHash: 369f2c2c48d2a4103967ba1157bd8d3235270b16ef40b2d639445c4f2cd64363

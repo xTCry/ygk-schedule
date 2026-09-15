@@ -550,7 +550,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -599,8 +599,55 @@ dates:
               rawReplacement: 1,2 п/гр. Лапина А.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     replacements:
       - *a17
       - *a18
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
+          fetchedAt: 2026-09-15T14:18:13.647Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa93fa0-295a"
+          lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        replacements:
+          - &a19
+            date: 2026-09-16
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
 diagnostics: []
-semanticHash: b34e7ad487a684f27734a4edc06a9d59c5163519b8fa2ca00f7d37d352c9cf45
+semanticHash: a9bba9ecdfab36fb5abd8b05f347e9113ed0700f8bbf0538f09be2e191fa7963

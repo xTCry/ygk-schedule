@@ -1061,7 +1061,7 @@ dates:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1071,11 +1071,15 @@ dates:
           shift: first
           etag: W/"6aa7edcf-58cc"
           lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
       second:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1085,6 +1089,10 @@ dates:
           shift: second
           etag: W/"6aa7ecc2-258d"
           lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     groups:
       АР1-31:
         group: АР1-31
@@ -1186,6 +1194,70 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: >-
+                    МДК 01.02 Основы градостроительного проектирования с
+                    элементами благоустройства п/гр 2
+
+                    МДК 01.05 Конструкции зданий и сооружений с элементами
+                    статики п/гр 1
+                  teacher: |-
+                    Иванов Ю.А.
+                    Вакансия
+                  room: |-
+                    Б507
+                    Б509
+                  weekType: numerator
+                  rawSubject: >-
+                    МДК 01.02  Основы градостроительного проектирования с
+                    элементами благоустройства п/гр 2 
+
+                    МДК 01.05 Конструкции зданий и сооружений с элементами
+                    статики п/гр 1
+                  sourceRow: 117
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 117
+                rowEnd: 118
+                rawGroupName: АР1-31/1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Физическая культура
+                  teacher: Дворниченко Г.В.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 119
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 119
+                rowEnd: 120
+                rawGroupName: АР1-31/1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Основы экономики архитектурного проектирования
+                  teacher: Сафронова Л.Н.
+                  room: Б402
+                  weekType: both
+                  sourceRow: 121
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 121
+                rowEnd: 122
+                rawGroupName: АР1-31/1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1206,4 +1278,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 685e79c24815425b2e0214f3d51c1c81ef5a5875541ea061db059cedd2fb25c0
+semanticHash: 72ca5c6cb17028b6823904ba6711cb9fb8575fd556bffbed2550c3e734858fe6

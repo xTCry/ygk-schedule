@@ -389,7 +389,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -420,7 +420,54 @@ dates:
               rawReplacement: 1,2 п/гр. Лапина А.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a12
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a13
+            date: 2026-09-16
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инф.обесп.
+            replacement:
+              raw: /теория Рудина М.И.
+              room: Б110
+            source:
+              shift: first
+              row: 13
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "2"
+              rawOriginal: Инф.обесп.
+              rawReplacement: /теория Рудина М.И.
+              rawRoom: Б110
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 21d6f26db06f4f73716a10346582fa0b54bf20ed72b0e74a0227b80648f4be07
+semanticHash: 35eaac17618a67f9961684872e5133902859c46fef67af0e09f6dc2d3e3dc01b

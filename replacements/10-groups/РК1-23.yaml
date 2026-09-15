@@ -162,5 +162,67 @@ dates:
           sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a4
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a5
+            date: 2026-09-16
+            group: РК1-23
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Рекл.деят
+            replacement:
+              raw: МДК 04.02 Климов П.А
+              room: ДОТ
+            source:
+              shift: first
+              row: 14
+              rawGroupName: РК1-23
+              rawLessonNumbers: "1"
+              rawOriginal: Рекл.деят
+              rawReplacement: МДК 04.02 Климов П.А
+              rawRoom: ДОТ
+          - &a6
+            date: 2026-09-16
+            group: РК1-23
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Консульт. к ВПР Булычева Л.А
+              room: ДОТ
+            source:
+              shift: first
+              row: 15
+              rawGroupName: РК1-23
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Консульт. к ВПР Булычева Л.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 074cba1d002d3607bfbd1e722d6c929b5b794ede9dcefc431e1b35976711472f
+semanticHash: 305d38db42ac2855381bb3bb21053a022688fcd997161df2d4238bc6fc2a3c0c

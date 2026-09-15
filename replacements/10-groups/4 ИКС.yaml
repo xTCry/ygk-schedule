@@ -445,7 +445,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -476,7 +476,54 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a12
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a13
+            date: 2026-09-16
+            group: 4 ИКС
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: УП 04
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 59
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 04
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: e8adf10988b81084878a6209ed2649145b14e5eaa2210853a0e335480666e836
+semanticHash: 1a3e3452e76821e35d1ad3c772bb60b5272a360134d15a5c1a285398751de6fc

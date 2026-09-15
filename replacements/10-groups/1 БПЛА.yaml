@@ -432,7 +432,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -462,7 +462,56 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a14
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a15
+            date: 2026-09-16
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 01 УП 04
+            replacement:
+              raw: Электротех. Ковалев Н.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 60
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 УП 04
+              rawReplacement: Электротех. Ковалев Н.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a15
 diagnostics: []
-semanticHash: 52a2ab5a438e969ceff8199312394cb89c0966be0607a36fad53526739e0618c
+semanticHash: aee3848c217959fd82295fc03b6a927920f8305549b0aa4b8a9a5fd88c633052

@@ -222,7 +222,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -254,7 +254,92 @@ dates:
               rawReplacement: 1,2 п/гр. Панасюк А.Д.
               rawRoom: Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     replacements:
       - *a6
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
+          fetchedAt: 2026-09-15T14:18:13.647Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa93fa0-295a"
+          lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        replacements:
+          - &a7
+            date: 2026-09-16
+            group: ИС1-33
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Комп.сети Панасюк А.Д.
+              room: ДОТ
+            source:
+              shift: second
+              row: 44
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Комп.сети Панасюк А.Д.
+              rawRoom: ДОТ
+          - &a8
+            date: 2026-09-16
+            group: ИС1-33
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.03 Кувшинова В.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 42
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 02.03 Кувшинова В.А.
+              rawRoom: ДОТ
+          - &a9
+            date: 2026-09-16
+            group: ИС1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: cancel
+            original:
+              raw: МДК 08.02
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 43
+              rawGroupName: ИС1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 08.02
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: 6a2f07f57172b0266e5eeeabe83f3f9fde3f810d505b27b58432dca26fab741e
+semanticHash: 4ddda9b7f885b1b7711571d6082f0c1dcdf1cb218f7e4daef9eeedad8f43c843

@@ -353,7 +353,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -403,8 +403,74 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a10
       - *a11
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a12
+            date: 2026-09-16
+            group: ИС1-25
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Осн.фин.грам Сафронова Л.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 64
+              rawGroupName: ИС1-25
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Осн.фин.грам Сафронова Л.Н.
+              rawRoom: ДОТ
+          - &a13
+            date: 2026-09-16
+            group: ИС1-25
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.технол.
+            replacement:
+              raw: МДК 06.01 /теор Пронина Л.Ю.
+              room: ДОТ
+            source:
+              shift: first
+              row: 9
+              rawGroupName: ИС1-25
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.технол.
+              rawReplacement: МДК 06.01 /теор Пронина Л.Ю.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: bee0da6310a5cab48c2b66cab8a0ec6ecc48d898f2b2f29d5ecd02173f36e940
+semanticHash: d146853b2bf4af8e8d1eb3a47460460149dfc77a233e7910e6d8f9ec19daf126

@@ -174,7 +174,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -242,9 +242,74 @@ dates:
               rawReplacement: Прав.и докум об. Зеленцова Л.В.
               rawRoom: Ф201
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     replacements:
       - *a5
       - *a6
       - *a7
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
+          fetchedAt: 2026-09-15T14:18:13.647Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aa93fa0-295a"
+          lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        replacements:
+          - &a8
+            date: 2026-09-16
+            group: ТУ1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Предпр.деят. Девятаева Н.Ф.
+              room: Ф104
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Предпр.деят. Девятаева Н.Ф.
+              rawRoom: Ф104
+          - &a9
+            date: 2026-09-16
+            group: ТУ1-21
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Предпр.деят.
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 8
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: "5"
+              rawOriginal: Предпр.деят.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: 20ddadaa3ec94f1c08d26371e0019f66b9e3ef97b4548b143237ffdda7c44ab8
+semanticHash: 377fdc1258395121f9fa6436ee99464b25f3c8d1ca915bbc251dd5a7a58d1118

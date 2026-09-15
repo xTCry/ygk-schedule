@@ -605,7 +605,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -636,7 +636,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a20
+  2026-09-16:
+    date: 2026-09-16
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-16
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
+          fetchedAt: 2026-09-15T14:18:13.648Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aa908ba-386a"
+          lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        replacements:
+          - &a21
+            date: 2026-09-16
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК 01.01 МДК01.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 50
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 01.01 МДК01.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a22
+            date: 2026-09-16
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.35
+            source:
+              shift: first
+              row: 51
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.35
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: 004ffb9124563ca1a1d3cfce0c9628676e8d4793ae743b8ed601c91a7f6fe7f1
+semanticHash: 3b73ad5811250c0437b2ef7733e5e25eb9f72dca366bb79c467938cf34a3b540

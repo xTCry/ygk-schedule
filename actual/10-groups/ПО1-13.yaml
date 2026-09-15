@@ -854,7 +854,7 @@ dates:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -864,11 +864,15 @@ dates:
           shift: first
           etag: W/"6aa7edcf-58cc"
           lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
       second:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -878,6 +882,10 @@ dates:
           shift: second
           etag: W/"6aa7ecc2-258d"
           lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     groups:
       ПО1-13:
         group: ПО1-13
@@ -992,5 +1000,56 @@ dates:
                 lessonNumber: 2
                 strategy: subject-word-mention
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Литература
+                  teacher: Грибанова Е.Н.
+                  room: В102
+                  weekType: both
+                  sourceRow: 59
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 59
+                rowEnd: 60
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Шереметьева Н.В.
+                  room: М106
+                  weekType: both
+                  sourceRow: 61
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 61
+                rowEnd: 62
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Физика л/р
+                  teacher: |-
+                    Калинин Д.А.
+                    Овсова К.С.
+                  room: М101
+                  weekType: numerator
+                  sourceRow: 63
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 63
+                rowEnd: 64
+                rawGroupName: ПО1-13/ПО1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: 1ee41e6741c7ac351a785adb41f31714dab0ea27b6e2414d3f58860ff273e9d4
+semanticHash: ae974c217fceb5d33b590c592652ce126ff2cb3713ab2ad3eb476e646c6704a1

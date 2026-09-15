@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-14T15:51:54.450Z
-scheduleVersion: 10cc69a6b0d89243ba1e44c28323fe020f9aef3ec545a508808c691e82844ca6
+generatedAt: 2026-09-15T14:18:13.720Z
+scheduleVersion: e07eb2852297d1af6428bbc23dc6746b7a04bc63c1e91ed078d2db25efd2dc6a
 summary:
   info: 0
-  warning: 2
-  error: 146
+  warning: 4
+  error: 148
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -1110,6 +1110,28 @@ diagnostics:
     source: *a1
     issueFingerprint: ea3c2f5c2a3aa4b4545ec20db3f245b9f9b0ffd977009a4ce06814ef8ab649ab
     issueKey: 54d9ddf660b79ad3f30ebcae6ece6380c1d1be6729f2cb2c51a4913c5bf3d990
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: d5325a92f068c3a14a3c6ae44ae00e2639d262e374686f5a95dc1debfcd96d4e
+    sheet: "Замены: Первая смена"
+    row: 29
+    normalizedGroup: ЗМ1-21
+    rawValue: Осн.геодез. Сивачева М.С.
+    context:
+      date: 2026-09-16
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЗМ1-21
+      baseSourceFiles:
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 39fece7ec693e4115e2b838418d47653ba8d313db821e3bbd71e37f36bcaa497
+    issueKey: e5521fe68a131df4d90ba7ec26de3600bd31339704357a4feef37c052f9c88df
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4337,12 +4359,69 @@ diagnostics:
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 00b555fe4b2570bf151dbdbba03ceee41c5d25e3694536f15998e07e0457fca0
+    sheet: "Замены: Вторая смена"
+    row: 40
+    normalizedGroup: ИС1-45
+    rawValue: по расписанию
+    context:
+      date: 2026-09-16
+      lessonNumber: 5
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: ИС1-45
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: numerator
+      availableWeekTypes:
+        - denominator
+      candidates:
+        - subject: МДК.03.02 Управление проектами п/гр1
+          teacher: Байдина Ю.А.
+          room: Б308
+          subgroup: "1"
+          sourceRow: 287
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: f33c779ae53fa88a6f500ff3632091688ba8c9f6c4afe9005ee4952addc6c728
+    issueKey: d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: d375ed1cd397e40a4f4407b1c0f8cd0180c7104b3fd6ad7c371428066754bb96
+    sheet: "Замены: Первая смена"
+    row: 2
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: null
+    issueKey: null
+  - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
     severity: warning
     message: Не удалось разобрать номер пары или диапазон из таблицы замен
     fingerprint: 6d204c1d194fd16a65e2c5303e7a7bb6c23ea82c39fad049c7ffcec32e696a33
     sheet: "Замены: Первая смена"
     row: 60
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: null
+    issueKey: null
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 77f1ca11d02b7d99ce56358b0b1e8f6f7c4290488b6dccd604330d281ceaca32
+    sheet: "Замены: Первая смена"
+    row: 2
+    rawValue: " |  | ВПР по истории для 1 курса СО, ОИТ, ОАР, ОЭИС по спец.расписанию | "
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -5459,6 +5538,114 @@ issues:
       {{raw-source:replacements:rasp_first.html}} |
       {{group-yaml:base:%D0%94%D0%981-13}} |
       {{group-yaml:actual:%D0%94%D0%981-13}} | {{raw-source:schedule:oar.xlsx}}
+      |
+  - key: e5521fe68a131df4d90ba7ec26de3600bd31339704357a4feef37c052f9c88df
+    familyKey: 4b7fce582205c1801607aabf376d378e97164be058ca80028c2d4bdedeca8b96
+    fingerprint: 39fece7ec693e4115e2b838418d47653ba8d313db821e3bbd71e37f36bcaa497
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-16
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-09-16, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - 2a20e82eb61ecd966ef8885d2c6ddf49d5244c95acf2f55c2a8c58ac98900a44
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/e5521fe68a131df4d90ba7ec26de3600bd31339704357a4feef37c052f9c88df.json
+      yamlPath: actual/91-issue-evidence/e5521fe68a131df4d90ba7ec26de3600bd31339704357a4feef37c052f9c88df.yaml
+    body: >
+      <!-- parser-issue-key:
+      e5521fe68a131df4d90ba7ec26de3600bd31339704357a4feef37c052f9c88df -->
+
+      <!-- diagnostic-family-key:
+      4b7fce582205c1801607aabf376d378e97164be058ca80028c2d4bdedeca8b96 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      2a20e82eb61ecd966ef8885d2c6ddf49d5244c95acf2f55c2a8c58ac98900a44 -->
+
+      <!-- parser-fingerprint:
+      39fece7ec693e4115e2b838418d47653ba8d313db821e3bbd71e37f36bcaa497 -->
+
+
+      ## Причина
+
+
+      Пара из замены отсутствует в базовом расписании
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-found |
+
+      | Дата замен | 2026-09-16 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 29 | — | ЗМ1-21 | 3 | replace | Осн.геодез.
+      Сивачева М.С. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%97%D0%9C1-21}} |
+      {{group-yaml:actual:%D0%97%D0%9C1-21}} | {{raw-source:schedule:oeis.xlsx}}
       |
   - key: 8bef9aa99aa7a22862d114f01c5187ca777fc5be22035daaf76076503b35b086
     familyKey: f18541205639a89aa2b3f46dbac25056860067943811a20b67fda5169afd3cea
@@ -7734,3 +7921,116 @@ issues:
       {{group-yaml:base:%D0%90%D0%A01-31}} |
       {{group-yaml:actual:%D0%90%D0%A01-31}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf
+    familyKey: a5aa337da18b48671b789528a467d028c35866c994c350f9f5337ecea897dcee
+    fingerprint: f33c779ae53fa88a6f500ff3632091688ba8c9f6c4afe9005ee4952addc6c728
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-16
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT /
+      lesson-not-scheduled-for-week — 2026-09-16, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-scheduled-for-week
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 1
+    observationKeys:
+      - 22954a8f42ffc9585d3206d6cf7587b0fc0667d55de30b118b44a4f0950d1062
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf.json
+      yamlPath: actual/91-issue-evidence/d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf.yaml
+    body: >
+      <!-- parser-issue-key:
+      d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf -->
+
+      <!-- diagnostic-family-key:
+      a5aa337da18b48671b789528a467d028c35866c994c350f9f5337ecea897dcee -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      22954a8f42ffc9585d3206d6cf7587b0fc0667d55de30b118b44a4f0950d1062 -->
+
+      <!-- parser-fingerprint:
+      f33c779ae53fa88a6f500ff3632091688ba8c9f6c4afe9005ee4952addc6c728 -->
+
+
+      ## Причина
+
+
+      Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-scheduled-for-week |
+
+      | Дата замен | 2026-09-16 |
+
+      | Смена | вторая смена |
+
+      | Тип недели в заменах | numerator |
+
+      | Типы недель пары в base | denominator |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_second.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+
+      | SHA-256 |
+      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+
+      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+
+      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Вторая смена | 40 | — | ИС1-45 | 5 | replace | по расписанию |
+      {{raw-source:replacements:rasp_second.html}} |
+      {{group-yaml:base:%D0%98%D0%A11-45}} |
+      {{group-yaml:actual:%D0%98%D0%A11-45}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |

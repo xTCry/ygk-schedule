@@ -920,7 +920,7 @@ dates:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -930,11 +930,15 @@ dates:
           shift: first
           etag: W/"6aa7edcf-58cc"
           lastModified: Mon, 14 Sep 2026 12:51:27 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
       second:
         date: 2026-09-15
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -944,6 +948,10 @@ dates:
           shift: second
           etag: W/"6aa7ecc2-258d"
           lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+        finalizedBy:
+          date: 2026-09-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 72dce367800e76da516096fcc4bfdf496a4b90362118deda67cb32d48bcc93b4
     groups:
       СТ1-11:
         group: СТ1-11
@@ -1070,6 +1078,73 @@ dates:
                 lessonNumber: 4
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Иностранный язык п/гр.1
+                  teacher: Девлитянс О.В.
+                  room: Б509
+                  weekType: numerator
+                  subgroup: "1"
+                  sourceRow: 13
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 13
+                rowEnd: 14
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Русский язык
+                  teacher: Шалаева А.А.
+                  room: А203
+                  weekType: both
+                  sourceRow: 15
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 15
+                rowEnd: 16
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Литература
+                  teacher: Шалаева А.А.
+                  room: А203
+                  weekType: both
+                  sourceRow: 17
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 17
+                rowEnd: 18
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Информатика
+                  teacher: |-
+                    Лужина А.С.
+                    Жданова Н.А.
+                  room: Б403
+                  weekType: both
+                  sourceRow: 19
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 19
+                rowEnd: 20
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1096,4 +1171,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ec3f6f131a36914abff52495aeec60abfce8371be991523948ad66f130089bed
+semanticHash: 157fd7890536921a6f110b8be277a37e87d51ebe4ce2d56c3ccc85ce6dc2ea12
