@@ -559,7 +559,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -591,7 +591,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
     replacements:
       - *a16
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
+          fetchedAt: 2026-09-16T14:10:43.349Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aaa78b1-2826"
+          lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+        replacements:
+          - &a17
+            date: 2026-09-17
+            group: РК1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.01 УП 02
+            replacement:
+              raw: МДК 02.01 пгр 1 Кожешкурт А.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 42
+              rawGroupName: РК1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.01 УП 02
+              rawReplacement: МДК 02.01 пгр 1 Кожешкурт А.В.
+              rawRoom: ДОТ
+          - &a18
+            date: 2026-09-17
+            group: РК1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: РК1-31
+              rawLessonNumbers: "5"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
 diagnostics: []
-semanticHash: 11a9ab1317be6ee324bd82bd491151b810eba12a9041f475aceb93575d8d0a84
+semanticHash: 913f63ae2fa6924152aeefcaf0799f1555f2724b408956b185295c64e6188649

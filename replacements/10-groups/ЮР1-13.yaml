@@ -588,7 +588,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -638,8 +638,56 @@ dates:
               rawReplacement: ОБиЗР Корсаков С.В.
               rawRoom: Ф301
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
     replacements:
       - *a19
       - *a20
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
+          fetchedAt: 2026-09-16T14:10:43.348Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aaa78a4-3b7c"
+          lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        replacements:
+          - &a21
+            date: 2026-09-17
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Русский язык Литерат.
+            replacement:
+              raw: Тихонов А.А.
+              room: Ф405
+            source:
+              shift: first
+              row: 41
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: 1,2
+              rawOriginal: Русский язык Литерат.
+              rawReplacement: Тихонов А.А.
+              rawRoom: Ф405
+        diagnostics: []
+    replacements:
+      - *a21
 diagnostics: []
-semanticHash: 23d7245fe39d66e3ba8e55b69beece495debdbaf5bd537a40ef28d889c5bc6c7
+semanticHash: ae396dc3c5b60bd26014c6bd795f14c070a0a0a60d31da9ceac3a89bdf9d2548

@@ -564,7 +564,7 @@ dates:
         date: 2026-09-16
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -574,11 +574,15 @@ dates:
           shift: first
           etag: W/"6aa908ba-386a"
           lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
       second:
         date: 2026-09-16
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -588,6 +592,10 @@ dates:
           shift: second
           etag: W/"6aa93fa0-295a"
           lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
     groups:
       ЗМ1-23:
         group: ЗМ1-23
@@ -722,6 +730,42 @@ dates:
                 lessonNumber: 6
                 strategy: subject-word-mention
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 5
+              variants:
+                - subject: Основы финансовой грамотности
+                  teacher: Ковалева С.В.
+                  room: Б204
+                  weekType: both
+                  sourceRow: 68
+              source:
+                sheet: ЗМ1-21 ЗМ1-23
+                rowStart: 68
+                rowEnd: 69
+                rawGroupName: ЗМ1-23/ЗМ1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Трусова Е.В.
+                    Махрова Н.Н.
+                  room: Акт.зал
+                  weekType: both
+                  sourceRow: 70
+              source:
+                sheet: ЗМ1-21 ЗМ1-23
+                rowStart: 70
+                rowEnd: 71
+                rawGroupName: ЗМ1-23/ЗМ1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -748,4 +792,4 @@ diagnostics:
           sourceRow: 54
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 3fc6469de862b2a9869103ac240f4dedf15216667d628b4e7aeff4fcfc5b9835
+semanticHash: 0e4775574f0cda42cd788061ffdcdde56b97049948c8ea7f4bdd680209554ddc

@@ -1593,7 +1593,7 @@ dates:
         date: 2026-09-16
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1603,11 +1603,15 @@ dates:
           shift: first
           etag: W/"6aa908ba-386a"
           lastModified: Tue, 15 Sep 2026 08:58:34 GMT
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
       second:
         date: 2026-09-16
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1617,6 +1621,10 @@ dates:
           shift: second
           etag: W/"6aa93fa0-295a"
           lastModified: Tue, 15 Sep 2026 12:52:48 GMT
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
     groups:
       ИБ1-21:
         group: ИБ1-21
@@ -1721,6 +1729,61 @@ dates:
                 lessonNumber: 2
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Физическая культура
+                  teacher: Куликова А.А.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 23
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 23
+                rowEnd: 24
+                rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Основы алгоритмизации и программирования
+                  teacher: |-
+                    Королева П.Д.
+                    Вершинина Н.А.
+                  room: |-
+                    Б302
+                    Б305
+                  weekType: both
+                  sourceRow: 25
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 25
+                rowEnd: 26
+                rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.01.01 Операционные системы
+                  teacher: |-
+                    Вакансия
+                    Серова А.М.
+                  room: Б304
+                  weekType: both
+                  sourceRow: 27
+              source:
+                sheet: ИБ1-21 ИБ1-31 ИБ41
+                rowStart: 27
+                rowEnd: 28
+                rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1751,4 +1814,4 @@ diagnostics:
           sourceRow: 37
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f3f39c838f04f181b92b54d9796b6f693aa95c2a8c9e20add8dc6192258d13d3
+semanticHash: cde6e5cbd5d7dc7a92892d7b21a2d8f4555ba977be176d65f6d8b0c155bdef7d

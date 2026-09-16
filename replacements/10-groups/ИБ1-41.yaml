@@ -392,7 +392,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -441,8 +441,75 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
     replacements:
       - *a12
       - *a13
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
+          fetchedAt: 2026-09-16T14:10:43.349Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aaa78b1-2826"
+          lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+        replacements:
+          - &a14
+            date: 2026-09-17
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Web-программ.
+            replacement:
+              raw: 1,2 п/гр. Серова А.М.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Web-программ.
+              rawReplacement: 1,2 п/гр. Серова А.М.
+              rawRoom: ДОТ
+          - &a15
+            date: 2026-09-17
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП02
+            replacement:
+              raw: 1,2 п/гр. Зайцев Р.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: УП02
+              rawReplacement: 1,2 п/гр. Зайцев Р.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: 7d2b1ee93dbc9b199c050d388bd1f35a5e964d08f55d696786b03970d95fb5af
+semanticHash: 8169901fbd5894913cde4fe9f2d0803afd67835f683c52e9ae7617f5a205246d

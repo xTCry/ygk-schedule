@@ -375,7 +375,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -425,8 +425,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
     replacements:
       - *a11
       - *a12
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
+          fetchedAt: 2026-09-16T14:10:43.348Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aaa78a4-3b7c"
+          lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        replacements:
+          - &a13
+            date: 2026-09-17
+            group: 9 МРТ
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 56
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.01
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 55b6d8b7e1572a634da777ec9f02bca46b778eb1797a0eb9510ac6c1b48138d7
+semanticHash: 6495014daf6c70dba24c1fbf1e431ac214579cc0d3792b18fe76215daa01af89

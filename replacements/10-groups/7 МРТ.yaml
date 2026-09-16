@@ -135,5 +135,68 @@ dates:
           sourceSha256: 1b707082e151c36c903e7267c8e2ed24c8a4cb9441c1ab38288d1bff09a476ef
     replacements:
       - *a4
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
+          fetchedAt: 2026-09-16T14:10:43.348Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aaa78a4-3b7c"
+          lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        replacements:
+          - &a5
+            date: 2026-09-17
+            group: 7 МРТ
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: ... МДК 03.01
+            replacement:
+              raw: Психол.общ. Кобзарь Т.М.
+              room: к.43
+            source:
+              shift: first
+              row: 53
+              rawGroupName: 7 МРТ
+              rawLessonNumbers: 0,1
+              rawOriginal: ... МДК 03.01
+              rawReplacement: Психол.общ. Кобзарь Т.М.
+              rawRoom: к.43
+          - &a6
+            date: 2026-09-17
+            group: 7 МРТ
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Психол.общ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 54
+              rawGroupName: 7 МРТ
+              rawLessonNumbers: "4"
+              rawOriginal: Психол.общ.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
 diagnostics: []
-semanticHash: 69888176f8cc3a30f4035ef077aef147e0e6a403be8d16dfef35d02351be7c39
+semanticHash: c5c304426a87e7cb98eefd42448556fda7153b89f5e48b3cffc149ff0a7017bb

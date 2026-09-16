@@ -950,5 +950,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 67db12e520d24da38a2db99c369504cbb0ca0270a059701545675c118cebb03d
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
+          fetchedAt: 2026-09-16T14:10:43.348Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aaa78a4-3b7c"
+          lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+      second:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e60de9b96e7cfbe801aa6056e8052e8e49cdac243d62c8772834d91cf95be5c9
+          fetchedAt: 2026-09-16T14:10:43.349Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aaa78b1-2826"
+          lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+    groups:
+      ЗМ1-11:
+        group: ЗМ1-11
+        date: 2026-09-17
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Кургузова М.С.
+                room: А201
+                weekType: numerator
+                sourceRow: 27
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 27
+              rowEnd: 28
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Информатика
+                teacher: Яковлева Е.Н.
+                room: Б204
+                weekType: numerator
+                sourceRow: 29
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: История
+                teacher: Новиков М.П.
+                room: М207
+                weekType: both
+                sourceRow: 31
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-17
+              group: ЗМ1-11
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: Физкультура
+              replacement:
+                raw: Литература Бабарыкова Э.В.
+                room: А202
+              source:
+                shift: first
+                row: 29
+                rawGroupName: ЗМ1-11
+                rawLessonNumbers: "0"
+                rawOriginal: Физкультура
+                rawReplacement: Литература Бабарыкова Э.В.
+                rawRoom: А202
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкультура». По замене: «Литература Бабарыкова
+                Э.В.». Аудитория: «А202»."
+              room: А202
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9cef35b9aecc7e4235f09e3ebcf7dcf41e8ddab10c935d53174594a9ff18cd80
+    sheet: "Замены: Первая смена"
+    row: 29
+    normalizedGroup: ЗМ1-11
+    rawValue: Литература Бабарыкова Э.В.
+    context:
+      date: 2026-09-17
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-11
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Физкультура
+      candidates:
+        - subject: Основы шахматной игры
+          teacher: Кургузова М.С.
+          room: А201
+          sourceRow: 27
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: d9958c4658103327ee2105452807bc605fba202e749410b7c6e98f3cdfae777c

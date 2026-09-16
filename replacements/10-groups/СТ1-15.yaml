@@ -297,5 +297,67 @@ dates:
           sourceSha256: f684e9e4e6165cc847e56143dc211881d9407a3b0a30c1a069c8c22985365261
     replacements:
       - *a8
+  2026-09-17:
+    date: 2026-09-17
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-17
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
+          fetchedAt: 2026-09-16T14:10:43.348Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aaa78a4-3b7c"
+          lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        replacements:
+          - &a9
+            date: 2026-09-17
+            group: СТ1-15
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a10
+            date: 2026-09-17
+            group: СТ1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 8
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 556db2c12f81146c93730e794ffe681032ebfe24a2976b6414e8d4ae7d900713
+semanticHash: 379b9b6f4fade723bca44f267f91241c7f56562d892848b2ca68c0a016ffd8a1
