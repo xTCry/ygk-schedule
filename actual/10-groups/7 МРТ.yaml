@@ -459,7 +459,7 @@ dates:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -469,11 +469,15 @@ dates:
           shift: first
           etag: W/"6aaa78a4-3b7c"
           lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
       second:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -483,6 +487,10 @@ dates:
           shift: second
           etag: W/"6aaa78b1-2826"
           lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     groups:
       7 МРТ:
         group: 7 МРТ
@@ -599,6 +607,72 @@ dates:
               description: "По расписанию: «... МДК 03.01». По замене: «Психол.общ. Кобзарь
                 Т.М.». Аудитория: «к.43»."
               room: к.43
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК. 03.01 Схемотехническое проетирование электронных приборов и
+                    устройств
+                  teacher: Седова Н.А.
+                  room: к.29
+                  weekType: both
+                  sourceRow: 28
+              source:
+                sheet: 4 курс
+                rowStart: 28
+                rowEnd: 29
+                rawGroupName: 7 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.03.02 Основы проектирования электронных приборов и устройств на
+                    основе печатного монтажа
+                  teacher: Седова Н.А.
+                  room: к.29
+                  weekType: both
+                  sourceRow: 30
+              source:
+                sheet: 4 курс
+                rowStart: 30
+                rowEnd: 31
+                rawGroupName: 7 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Основы финансовой грамотности
+                  teacher: Матвеичева О.В.
+                  room: к.38
+                  weekType: both
+                  sourceRow: 32
+              source:
+                sheet: 4 курс
+                rowStart: 32
+                rowEnd: 33
+                rawGroupName: 7 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Психология общения
+                  teacher: Кобзарь Т.М.
+                  room: к.23
+                  weekType: numerator
+                  sourceRow: 34
+              source:
+                sheet: 4 курс
+                rowStart: 34
+                rowEnd: 35
+                rawGroupName: 7 МРТ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -663,4 +737,4 @@ diagnostics:
           sourceRow: 34
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c54120019165e42043a5de2615d6c5a81ed5a832c59ae6410432df6ada54be62
+semanticHash: c4c7cf25f4264b406f9fb35cbf0abb0858699e9a2f11ee509b08cc04d1a16ced

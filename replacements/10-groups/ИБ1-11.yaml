@@ -165,7 +165,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -196,7 +196,74 @@ dates:
               rawReplacement: Литература Грибанова Е.Н.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a6
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a7
+            date: 2026-09-18
+            group: ИБ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Математика Холманова В.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 6
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Инд.проект
+              rawReplacement: Математика Холманова В.М.
+              rawRoom: ДОТ
+          - &a8
+            date: 2026-09-18
+            group: ИБ1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: математика
+            replacement:
+              raw: Инд.проект п/гр Холманова В.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 7
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: математика
+              rawReplacement: Инд.проект п/гр Холманова В.М.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a7
+      - *a8
 diagnostics: []
-semanticHash: 1e0e59cd7a2bb52415bcddcd234f12a6f5a0bfe4e4c9698faef791c6b78d043c
+semanticHash: ff8a9a0da5cc0d2c0e51c8eed88b7a78246ce4507deebbfcc0677ba03b82d3b5

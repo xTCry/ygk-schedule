@@ -663,7 +663,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -712,8 +712,76 @@ dates:
               rawReplacement: Ремизова А.И.Матвеичева К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     replacements:
       - *a20
       - *a21
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
+          fetchedAt: 2026-09-17T14:15:58.944Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aabbc2f-21e7"
+          lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        replacements:
+          - &a22
+            date: 2026-09-18
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: Рисунок Живоп.
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: 4,5
+              rawOriginal: Рисунок Живоп.
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: ДОТ
+          - &a23
+            date: 2026-09-18
+            group: ДИ1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Темофеева Е.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Темофеева Е.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 5625504d58ec2860a1143c22b286be67307a2524bbcb2ace187cecfdc5742274
+semanticHash: 8f809416f37b03d6258429deefa6a6865c2552bf47b58cba0298683519811e38

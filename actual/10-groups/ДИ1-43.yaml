@@ -1885,7 +1885,7 @@ dates:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1895,11 +1895,15 @@ dates:
           shift: first
           etag: W/"6aaa78a4-3b7c"
           lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
       second:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1909,6 +1913,10 @@ dates:
           shift: second
           etag: W/"6aaa78b1-2826"
           lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     groups:
       ДИ1-43:
         group: ДИ1-43
@@ -1992,6 +2000,184 @@ dates:
                 lessonNumber: 6
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 5
+              variants:
+                - subject: Экономика организации
+                  teacher: Белогорская Я.В.
+                  room: Б110
+                  weekType: both
+                  sourceRow: 76
+              source:
+                sheet: ДИ-4курс
+                rowStart: 76
+                rowEnd: 77
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+                  teacher: |-
+                    Ремизова А.И.
+                    Вакансия
+                  room: |-
+                    Б302
+                    Б304
+                  weekType: numerator
+                  sourceRow: 78
+              source:
+                sheet: ДИ-4курс
+                rowStart: 78
+                rowEnd: 79
+                rawGroupName: ДИ1-43/1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+      second:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
+          fetchedAt: 2026-09-17T14:15:58.944Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aabbc2f-21e7"
+          lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+    groups:
+      ДИ1-43:
+        group: ДИ1-43
+        date: 2026-09-18
+        day: Пятница
+        lessons:
+          - number: 4
+            variants:
+              - subject: Рисунок с основами перспективы
+                teacher: Лапина А.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Лапина А.А.
+                rawTeacher: Лапина А.А.
+                rawRoom: ДОТ
+                sourceRow: 13
+            source:
+              sheet: ДИ-4курс
+              rowStart: 81
+              rowEnd: 82
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a5
+                  date: 2026-09-18
+                  group: ДИ1-43
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: Рисунок Живоп.
+                  replacement:
+                    raw: 1,2 п/гр. Лапина А.А.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 13
+                    rawGroupName: ДИ1-43
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Рисунок Живоп.
+                    rawReplacement: 1,2 п/гр. Лапина А.А.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Живопись с основами цветоведения
+                teacher: Лапина А.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Лапина А.А.
+                rawTeacher: Лапина А.А.
+                rawRoom: ДОТ
+                sourceRow: 13
+            source:
+              sheet: ДИ-4курс
+              rowStart: 83
+              rowEnd: 84
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a5
+                lessonNumber: 5
+                strategy: subject-word-mention
+          - number: 6
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: Темофеева Е.Н.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Темофеева Е.Н.
+                rawTeacher: Темофеева Е.Н.
+                rawRoom: ДОТ
+                sourceRow: 12
+            source:
+              sheet: ДИ-4курс
+              rowStart: 85
+              rowEnd: 86
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-18
+                  group: ДИ1-43
+                  lessonNumbers:
+                    - 6
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: 1,2 п/гр. Темофеева Е.Н.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 12
+                    rawGroupName: ДИ1-43
+                    rawLessonNumbers: "6"
+                    rawOriginal: Ин.язык
+                    rawReplacement: 1,2 п/гр. Темофеева Е.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 6
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2020,4 +2206,4 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 445ec3e6f4d88ac6629d55941a242184684df4407ef5a68b0204bc45a4f74ac1
+semanticHash: 0640900683d1bfa6279b76c3809efa75ac2965206380104306c0062b21227351

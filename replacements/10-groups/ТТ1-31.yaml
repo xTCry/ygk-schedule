@@ -472,7 +472,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -523,8 +523,93 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a16
       - *a17
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a18
+            date: 2026-09-18
+            group: ТТ1-31
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Инф.технол Яковлева Е.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Инф.технол Яковлева Е.Н.
+              rawRoom: ДОТ
+          - &a19
+            date: 2026-09-18
+            group: ТТ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: МДК 01.01 Веселова И.Г.
+              room: ДОТ
+            source:
+              shift: first
+              row: 38
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.01
+              rawReplacement: МДК 01.01 Веселова И.Г.
+              rawRoom: ДОТ
+          - &a20
+            date: 2026-09-18
+            group: ТТ1-31
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 39
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: 108d117c490fc899fcce724706e3cb013dce890864bd3f72aaf7179356d76cec
+semanticHash: e89930e3e39ce5c433777106c5f8223f382a927160e522f35ab43cdb5d13f9cc

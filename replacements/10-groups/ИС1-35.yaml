@@ -221,7 +221,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -271,8 +271,76 @@ dates:
               rawReplacement: 1,2 п/гр. Зубковская А.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     replacements:
       - *a6
       - *a7
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
+          fetchedAt: 2026-09-17T14:15:58.944Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aabbc2f-21e7"
+          lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        replacements:
+          - &a8
+            date: 2026-09-18
+            group: ИС1-35
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: 1,2 п/гр. Кувшинова В.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: ИС1-35
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 02
+              rawReplacement: 1,2 п/гр. Кувшинова В.А.
+              rawRoom: ДОТ
+          - &a9
+            date: 2026-09-18
+            group: ИС1-35
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 06
+            replacement:
+              raw: 1,2 п/гр. Кувшинова В.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "5"
+              rawOriginal: УП 06
+              rawReplacement: 1,2 п/гр. Кувшинова В.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: 0209f6fee7caa15d82674c791207bd193b3d0bf6ec9e7e440dc3cf4f4e98643d
+semanticHash: b6f0806ff9caea3f095d71f3114c378f7e6d4a66a0ae24643e586712c14afafd

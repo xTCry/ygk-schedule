@@ -332,7 +332,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -362,7 +362,54 @@ dates:
               rawReplacement: Физика Овсова К.С.
               rawRoom: М101
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a9
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a10
+            date: 2026-09-18
+            group: СТ1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физика л/р
+            replacement:
+              raw: /теория Овсова К.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Физика л/р
+              rawReplacement: /теория Овсова К.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: e78e7e45f7646bca870bd51242d161235f4fd57b3ca5ef062384f84b0b4da0f5
+semanticHash: a6f5164ff99fa341dffc16561afca589e065158dd1958cf859afeae7dd0d1593

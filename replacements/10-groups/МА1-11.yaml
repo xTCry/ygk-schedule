@@ -367,7 +367,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -397,7 +397,54 @@ dates:
               rawReplacement: МДК 01.01 Тепляков А.Б.
               rawRoom: МТ103
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a12
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a13
+            date: 2026-09-18
+            group: МА1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: /теория Ермолаева Т.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 45
+              rawGroupName: МА1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: /теория Ермолаева Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 5901d36d4b4d8a43e3f28f9f4e5bd654d7d88159ee293b414c5f33324c9818e4
+semanticHash: 97533610adf493b5cddeca6f6326e9bc5c4d581427d743ee7e5ce98cb6a5c552

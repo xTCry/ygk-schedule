@@ -1339,7 +1339,7 @@ dates:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1349,11 +1349,15 @@ dates:
           shift: first
           etag: W/"6aaa78a4-3b7c"
           lastModified: Wed, 16 Sep 2026 11:08:20 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
       second:
         date: 2026-09-17
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1363,6 +1367,10 @@ dates:
           shift: second
           etag: W/"6aaa78b1-2826"
           lastModified: Wed, 16 Sep 2026 11:08:33 GMT
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     groups:
       ДИ1-32:
         group: ДИ1-32
@@ -1465,6 +1473,58 @@ dates:
                 lessonNumber: 6
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Темофеева Е.Н.
+                    Мишуринская Е.Ю
+                  room: Б501
+                  weekType: numerator
+                  sourceRow: 172
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 172
+                rowEnd: 173
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 01.02 Основы проектной и компьютерной графики Т.2.2.
+                  teacher: Махоткина Д.Е.
+                  room: Б501
+                  weekType: numerator
+                  sourceRow: 174
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 174
+                rowEnd: 175
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: МДК.03.01 Основы стандартизации сертификации и метрологии п/гр1
+                  teacher: Парамонов В.И.
+                  room: Б204
+                  weekType: numerator
+                  subgroup: "1"
+                  sourceRow: 176
+              source:
+                sheet: "ДИ-2 курс ДИ-3 курс "
+                rowStart: 176
+                rowEnd: 177
+                rawGroupName: ДИ1-32/ДИ1-33/ДИ2-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1547,4 +1607,4 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: f7a3230be4609fc4d4f5e7b9aac88ccdeae25eac3359b87ae6595e17ebf3f904
+semanticHash: 5ec4b4472f0f09bdea1defb042b4928ebf5598139643d912c9e6ab469c82ce5c

@@ -260,7 +260,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -308,8 +308,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a8
       - *a9
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a10
+            date: 2026-09-18
+            group: ИТ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Осн.проф.деят
+            replacement:
+              raw: Биология Козырева Д.А
+              room: ДОТ
+            source:
+              shift: first
+              row: 8
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.проф.деят
+              rawReplacement: Биология Козырева Д.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: 8d31478ef4d607f45bee31ee5b88000c9d0f4310eada2062f921f3eb83bc5858
+semanticHash: 7900994c733b8e0f59ce5bbe1c82c54aa3155ea0291450039be1f2fcefe26b03

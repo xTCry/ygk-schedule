@@ -400,7 +400,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -450,8 +450,55 @@ dates:
               rawReplacement: Ермолаева Т.В.
               rawRoom: Б401
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a11
       - *a12
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a13
+            date: 2026-09-18
+            group: ТТ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: /теория Ермолаева Т.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 44
+              rawGroupName: ТТ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Физика
+              rawReplacement: /теория Ермолаева Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 51311c8729360d0444aa189e706804c02d9935e4e36259ac38cb92f81b196acc
+semanticHash: 59e1476ba88d91e5f4e527a3f3d9d7f670207cd8a73d3ab9a8f15b1012c2f452

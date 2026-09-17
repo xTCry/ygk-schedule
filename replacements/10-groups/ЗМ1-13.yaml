@@ -288,7 +288,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -338,8 +338,55 @@ dates:
               rawReplacement: История Новиков М.П.
               rawRoom: М208
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a8
       - *a9
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a10
+            date: 2026-09-18
+            group: ЗМ1-13
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: Ермолаева Т.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ЗМ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Физика
+              rawReplacement: Ермолаева Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: 702cf93070539e3bd50c5d93138c512acf80f3579ca669f4a922113383723740
+semanticHash: 9cb5c2cb80a3e8a611315e489dbd7665aab4de194f79dde900beb84f649b3c39

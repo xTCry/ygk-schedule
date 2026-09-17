@@ -719,7 +719,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -771,8 +771,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a23
       - *a24
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a25
+            date: 2026-09-18
+            group: 7 ИКС
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Седова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 56
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: Седова Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a25
 diagnostics: []
-semanticHash: 54705a1e58c499bb25f79d8112588d0e764b33cb99e156cf157aa32200ef2694
+semanticHash: b8d1db67db52c241a5fb1e35d0381fb8dcfc1767835899c1845bd3b6c67c605a

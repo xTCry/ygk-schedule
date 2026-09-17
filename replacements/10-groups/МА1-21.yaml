@@ -326,7 +326,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -395,9 +395,77 @@ dates:
               rawReplacement: 1,2 п/гр. Инфор Яковлева Е.Н.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a10
       - *a11
       - *a12
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
+          fetchedAt: 2026-09-17T14:15:58.945Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aabb9b0-39f7"
+          lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        replacements:
+          - &a13
+            date: 2026-09-18
+            group: МА1-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Яковлева Е.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 33
+              rawGroupName: МА1-21
+              rawLessonNumbers: 1,2
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Яковлева Е.Н.
+              rawRoom: ДОТ
+          - &a14
+            date: 2026-09-18
+            group: МА1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Литература Андрокович М.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 34
+              rawGroupName: МА1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Литература Андрокович М.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: f6caa602b0962fa8c3fe864a8f573dced93fbd89daf5f7b5eef7254dd0ed746f
+semanticHash: f277454591ff78b0ec8ee4ea995e90043d1e2bb8eb7c6a08a69116b4c6a4a0e3

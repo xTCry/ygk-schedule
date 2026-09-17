@@ -375,7 +375,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -406,7 +406,114 @@ dates:
               rawReplacement: Осн.бережл.пр Парамонов В.И.
               rawRoom: М101
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
     replacements:
       - *a11
+  2026-09-18:
+    date: 2026-09-18
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-18
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 98df5e9c85ec57cf1233af7e502ce87f5703c7d9a4777f4dab834e20170100f8
+          fetchedAt: 2026-09-17T14:15:58.944Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aabbc2f-21e7"
+          lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        replacements:
+          - &a12
+            date: 2026-09-18
+            group: АР1-31
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.05 п/гр
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 21
+              rawGroupName: АР1-31
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.05 п/гр
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: ДОТ
+          - &a13
+            date: 2026-09-18
+            group: АР1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.05 п/гр
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 22
+              rawGroupName: АР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.05 п/гр
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: ДОТ
+          - &a14
+            date: 2026-09-18
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05 п/гр МДК 01.02
+            replacement:
+              raw: п/гр 1 - по расписанию п/гр 2 - Снято
+              room: ДОТ
+            source:
+              shift: second
+              row: 23
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05 п/гр МДК 01.02
+              rawReplacement: п/гр 1 - по расписанию п/гр 2 - Снято
+              rawRoom: ДОТ
+          - &a15
+            date: 2026-09-18
+            group: АР1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.05 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 24
+              rawGroupName: АР1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.05 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: 12f4106abce454f48b374d7c3cc22e8112694d11845fde74805507fa532511c4
+semanticHash: a8b704e4c51b41026301ec6d112a61618b0811ca4097614138662bd0fd99e645
