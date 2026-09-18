@@ -729,7 +729,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -780,8 +780,77 @@ dates:
               rawReplacement: 1,2 п/гр. Темофеева Е.Н.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
     replacements:
       - *a22
       - *a23
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
+          fetchedAt: 2026-09-18T13:33:42.244Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aad04ab-1d4b"
+          lastModified: Fri, 18 Sep 2026 09:30:19 GMT
+        replacements:
+          - &a24
+            date: 2026-09-19
+            group: ДИ1-43
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+          - &a25
+            date: 2026-09-19
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01, МДК 02.01
+            replacement:
+              raw: Ремизова А.И.Матвеичева К.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 10
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 01.01, МДК 02.01
+              rawReplacement: Ремизова А.И.Матвеичева К.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: 8f809416f37b03d6258429deefa6a6865c2552bf47b58cba0298683519811e38
+semanticHash: 0d6ce604e12c8fea10546cb40a286facff828ee4ad6f2d9771a4697ed8453ceb

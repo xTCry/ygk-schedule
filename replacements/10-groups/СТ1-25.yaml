@@ -468,7 +468,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -499,7 +499,74 @@ dates:
               rawReplacement: МДК 05.01 п/гр1 Топчиян Е.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
     replacements:
       - *a13
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
+          fetchedAt: 2026-09-18T13:33:42.245Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aacf21c-2db2"
+          lastModified: Fri, 18 Sep 2026 08:11:08 GMT
+        replacements:
+          - &a14
+            date: 2026-09-19
+            group: СТ1-25
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: МДК 01.01 / теория Краснянская Е.В
+              room: ДОТ
+            source:
+              shift: first
+              row: 25
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: МДК 01.01 / теория Краснянская Е.В
+              rawRoom: ДОТ
+          - &a15
+            date: 2026-09-19
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Матем.методы Гаврилова М.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 26
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика
+              rawReplacement: Матем.методы Гаврилова М.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: 6b09071674d06e17a8a8b72399f8d00fcbacc530fb7ba29a4826c2114122d973
+semanticHash: 45a5b07f5d292c26558b5c7cc658492024273989db121e3148c64d3e6b184919

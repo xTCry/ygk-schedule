@@ -316,7 +316,7 @@ dates:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -326,11 +326,15 @@ dates:
           shift: first
           etag: W/"6aabb9b0-39f7"
           lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
       second:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -340,6 +344,10 @@ dates:
           shift: second
           etag: W/"6aabbc2f-21e7"
           lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
     groups:
       ЗМ1-31:
         group: ЗМ1-31
@@ -401,6 +409,40 @@ dates:
                 lessonNumber: 4
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Охрана труда
+                  teacher: Зевахина О.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 34
+              source:
+                sheet: ЗМ1-31 ЗМ1-33
+                rowStart: 34
+                rowEnd: 35
+                rawGroupName: ЗМ1-31/ЗМ1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.02.02 Территориальное планирование
+                  teacher: Зевахина О.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 36
+              source:
+                sheet: ЗМ1-31 ЗМ1-33
+                rowStart: 36
+                rowEnd: 37
+                rawGroupName: ЗМ1-31/ЗМ1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -431,4 +473,4 @@ diagnostics:
           sourceRow: 30
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: baf29a93fc11ed56a480543b4238edae117be1f0d97a9c986d8eca692b925781
+semanticHash: 0fa95f225e64f76630dd30597a831a258e17381dc07ff30b65699c7c358efb17

@@ -1030,7 +1030,7 @@ dates:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1040,11 +1040,15 @@ dates:
           shift: first
           etag: W/"6aabb9b0-39f7"
           lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
       second:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1054,6 +1058,10 @@ dates:
           shift: second
           etag: W/"6aabbc2f-21e7"
           lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
     groups:
       УД1-21:
         group: УД1-21
@@ -1124,5 +1132,190 @@ dates:
                 lessonNumber: 5
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Правовое обеспечение профессиональной деятельности
+                  teacher: Грак А.М.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 84
+              source:
+                sheet: УД1-11 УД1-21 УД1-31
+                rowStart: 84
+                rowEnd: 85
+                rawGroupName: УД1-21/УД1-22/УД2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Правовое обеспечение профессиональной деятельности
+                  teacher: Грак А.М.
+                  room: Ф106
+                  weekType: both
+                  sourceRow: 86
+              source:
+                sheet: УД1-11 УД1-21 УД1-31
+                rowStart: 86
+                rowEnd: 87
+                rawGroupName: УД1-21/УД1-22/УД2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
+          fetchedAt: 2026-09-18T13:33:42.245Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aacf21c-2db2"
+          lastModified: Fri, 18 Sep 2026 08:11:08 GMT
+      second:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
+          fetchedAt: 2026-09-18T13:33:42.244Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aad04ab-1d4b"
+          lastModified: Fri, 18 Sep 2026 09:30:19 GMT
+    groups:
+      УД1-21:
+        group: УД1-21
+        date: 2026-09-19
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: БЖ
+                teacher: Акиничева М.А
+                room: ДОТ
+                weekType: both
+                rawSubject: БЖ Акиничева М.А
+                rawTeacher: Акиничева М.А
+                rawRoom: ДОТ
+                sourceRow: 44
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: УД1-21/УД1-22/УД2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-19
+                  group: УД1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История Россия
+                  replacement:
+                    raw: БЖ Акиничева М.А
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 44
+                    rawGroupName: УД1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: История Россия
+                    rawReplacement: БЖ Акиничева М.А
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants:
+              - subject: История России
+                teacher: Коровкина А.М.
+                room: ДОТ
+                weekType: both
+                rawSubject: Коровкина А.М.
+                rawTeacher: Коровкина А.М.
+                rawRoom: ДОТ
+                sourceRow: 45
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: УД1-21/УД1-22/УД2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-19
+                  group: УД1-21
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: История Россия
+                  replacement:
+                    raw: Коровкина А.М.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 45
+                    rawGroupName: УД1-21
+                    rawLessonNumbers: "4"
+                    rawOriginal: История Россия
+                    rawReplacement: Коровкина А.М.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: История Россия
+                teacher: Коровкина А.М.
+                room: ДОТ
+                weekType: both
+                rawSubject: История Россия Коровкина А.М.
+                rawTeacher: Коровкина А.М.
+                rawRoom: ДОТ
+                sourceRow: 46
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-19
+                  group: УД1-21
+                  lessonNumbers:
+                    - 5
+                  type: add
+                  original: null
+                  replacement:
+                    raw: История Россия Коровкина А.М.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 46
+                    rawGroupName: УД1-21
+                    rawLessonNumbers: "5"
+                    rawOriginal: ""
+                    rawReplacement: История Россия Коровкина А.М.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: add
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: a929879fe8627651f37917d45c32ddaa43bb95d3428a50e18b232b6041d493a3
+semanticHash: 18d7db34c3eca0f216a91fe793ac5fe6e538634b41004f28d9999f364d50d200

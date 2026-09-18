@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-17T14:15:59.014Z
-scheduleVersion: d30ffff5ee100521230ad96ac3e9b01effc6880dcf0f45ce6ac0bf4941eeeb13
+generatedAt: 2026-09-18T13:33:42.297Z
+scheduleVersion: a48280b94a13b0105d2e25bedfac33d01401f9c316d519ad695b9e49417e6bc6
 summary:
   info: 0
   warning: 6
-  error: 154
+  error: 156
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -3466,6 +3466,61 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 4bc74283fdca78043c5a160ac6e386e6455beb8e8a1f102b6ba74e3331beb263
+    sheet: "Замены: Вторая смена"
+    row: 7
+    normalizedGroup: ЮР1-25
+    rawValue: Админ.право Малышева Н.А.
+    context:
+      date: 2026-09-19
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-25
+      baseSourceFiles: &a11
+        - out.xlsx
+      requestedSubject: Ркс.яз. История России
+      candidates:
+        - subject: МДК 03.01 Право социального обеспечения
+          teacher: Ребрищева Л.П.
+          room: Ф206
+          sourceRow: 146
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2
+    issueKey: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: a20f1f20290c904413e17088401b25dc97e1a75c064e9f3201d892eaec6f20b4
+    sheet: "Замены: Вторая смена"
+    row: 7
+    normalizedGroup: ЮР1-25
+    rawValue: Админ.право Малышева Н.А.
+    context:
+      date: 2026-09-19
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-25
+      baseSourceFiles: *a11
+      requestedSubject: Ркс.яз. История России
+      candidates:
+        - subject: МДК 03.01 Право социального обеспечения
+          teacher: Ребрищева Л.П.
+          room: Ф206
+          sourceRow: 148
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a10
+    issueFingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2
+    issueKey: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: fe3fcffef9bbb9580293647b4406d20f249207fe0d784a559ccf91e6a4782224
     sheet: "Замены: Вторая смена"
@@ -3634,7 +3689,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: &a11
+      baseSourceFiles: &a12
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -3665,7 +3720,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: *a11
+      baseSourceFiles: *a12
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -3973,7 +4028,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: &a12
+      baseSourceFiles: &a13
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -4034,7 +4089,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: *a12
+      baseSourceFiles: *a13
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -4238,7 +4293,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: АР1-41
-      baseSourceFiles: &a13
+      baseSourceFiles: &a14
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
@@ -4261,7 +4316,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: АР1-41
-      baseSourceFiles: *a13
+      baseSourceFiles: *a14
       replacementWeekType: denominator
       availableWeekTypes:
         - denominator
@@ -7408,6 +7463,74 @@ issues:
       Н.А. | {{raw-source:replacements:rasp_second.html}} |
       {{group-yaml:base:%D0%A1%D0%A21-31}} |
       {{group-yaml:actual:%D0%A1%D0%A21-31}} | {{raw-source:schedule:so.xlsx}} |
+  - key: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495
+    familyKey: af0d330533618981a2aa59d6ca42f7d7309a571c0f19753b0851e9787e29341a
+    fingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-19
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-09-19, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 2
+    observationKeys:
+      - 8da11c13685ca3144bfc493c76e4d2524f14ab15b6cb08611026cf13e7e3f82d
+      - a870d5b5dbc11ed9c81a6778f4e45c8c87f8813aea015f77d50d192d75849920
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495.json
+      yamlPath: actual/91-issue-evidence/e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495.yaml
+    body: |
+      <!-- parser-issue-key: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495 -->
+      <!-- diagnostic-family-key: af0d330533618981a2aa59d6ca42f7d7309a571c0f19753b0851e9787e29341a -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 8da11c13685ca3144bfc493c76e4d2524f14ab15b6cb08611026cf13e7e3f82d,a870d5b5dbc11ed9c81a6778f4e45c8c87f8813aea015f77d50d192d75849920 -->
+      <!-- parser-fingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2 -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-09-19 |
+      | Смена | вторая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 7 | — | ЮР1-25 | 2 | replace | Админ.право Малышева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Вторая смена | 7 | — | ЮР1-25 | 3 | replace | Админ.право Малышева Н.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |
   - key: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
     familyKey: a52a29c27bc8095dd63775a99ecb238725a25a02db08e8a998e554258de46b69
     fingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5

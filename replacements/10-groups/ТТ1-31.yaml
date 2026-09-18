@@ -540,7 +540,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -607,9 +607,76 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
     replacements:
       - *a18
       - *a19
       - *a20
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
+          fetchedAt: 2026-09-18T13:33:42.245Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aacf21c-2db2"
+          lastModified: Fri, 18 Sep 2026 08:11:08 GMT
+        replacements:
+          - &a21
+            date: 2026-09-19
+            group: ТТ1-31
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: Физкультура Кургузова М.С.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 1,2
+              rawOriginal: МДК 05.01
+              rawReplacement: Физкультура Кургузова М.С.
+              rawRoom: Сп.зал
+          - &a22
+            date: 2026-09-19
+            group: ТТ1-31
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Трусова Е.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 48
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Трусова Е.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: e89930e3e39ce5c433777106c5f8223f382a927160e522f35ab43cdb5d13f9cc
+semanticHash: d8bee63fcf84803adcdc695c8b34e3dc0c8c720a07cd9af475173754e49c39cc

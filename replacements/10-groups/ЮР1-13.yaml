@@ -693,5 +693,67 @@ dates:
           sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a21
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
+          fetchedAt: 2026-09-18T13:33:42.245Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aacf21c-2db2"
+          lastModified: Fri, 18 Sep 2026 08:11:08 GMT
+        replacements:
+          - &a22
+            date: 2026-09-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Биология Малявкина Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 32
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Биология Малявкина Н.А.
+              rawRoom: ДОТ
+          - &a23
+            date: 2026-09-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Русский язык Тихонов А.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 33
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Русский язык Тихонов А.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 513202aaf8f105a6e233411134fd40f6db74bdb1a6a493015d7341a392b35a40
+semanticHash: 61f8ce9648336302a563ea9c9bad795801abe8f8c68946732f5468989269ef1c

@@ -1127,7 +1127,7 @@ dates:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1137,11 +1137,15 @@ dates:
           shift: first
           etag: W/"6aabb9b0-39f7"
           lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
       second:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1151,6 +1155,10 @@ dates:
           shift: second
           etag: W/"6aabbc2f-21e7"
           lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
     groups:
       ЗМ1-11:
         group: ЗМ1-11
@@ -1228,6 +1236,58 @@ dates:
                 lessonNumber: 2
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Информатика п/гр 1
+                  teacher: Яковлева Е.Н.
+                  room: Б204
+                  weekType: numerator
+                  subgroup: "1"
+                  sourceRow: 34
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 34
+                rowEnd: 35
+                rawGroupName: ЗМ1-11/ЗМ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Русский язык
+                  teacher: Бабарыкова Э.В.
+                  room: А202
+                  weekType: both
+                  sourceRow: 36
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 36
+                rowEnd: 37
+                rawGroupName: ЗМ1-11/ЗМ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Индивидуальный проект
+                  teacher: |-
+                    Волкова К.Д.
+                    Бабарыкова Э.В.
+                  room: А202
+                  weekType: numerator
+                  sourceRow: 38
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 38
+                rowEnd: 39
+                rawGroupName: ЗМ1-11/ЗМ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1254,4 +1314,4 @@ diagnostics:
           sourceRow: 27
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 974ec5ece420320a4204ca0e0973557f3e1617ec0364672dfd715e1b8ad38824
+semanticHash: 55f381e5342c71ee3b8a1bc6c6b0ca050010b0a1d899d44c6c54a6c5677412f2

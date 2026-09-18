@@ -2037,7 +2037,7 @@ dates:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2047,11 +2047,15 @@ dates:
           shift: first
           etag: W/"6aabb9b0-39f7"
           lastModified: Thu, 17 Sep 2026 09:58:08 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
       second:
         date: 2026-09-18
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2061,6 +2065,10 @@ dates:
           shift: second
           etag: W/"6aabbc2f-21e7"
           lastModified: Thu, 17 Sep 2026 10:08:47 GMT
+        finalizedBy:
+          date: 2026-09-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
     groups:
       4 ИКС:
         group: 4 ИКС
@@ -2121,6 +2129,124 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
             status: scheduled
             replacements: []
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Психология общения
+                  teacher: Кобзарь Т.М.
+                  room: к.33
+                  weekType: both
+                  sourceRow: 41
+              source:
+                sheet: 5 курс
+                rowStart: 41
+                rowEnd: 42
+                rawGroupName: 4 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Физическая культура
+                  teacher: Шпынов Ю.Г.
+                  room: сп.зал
+                  weekType: both
+                  sourceRow: 43
+              source:
+                sheet: 5 курс
+                rowStart: 43
+                rowEnd: 44
+                rawGroupName: 4 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-19:
+    date: 2026-09-19
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e5ee312fde3f53aa2316dc757171e64f08d54ac810ec22858c1313abc907882a
+          fetchedAt: 2026-09-18T13:33:42.245Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aacf21c-2db2"
+          lastModified: Fri, 18 Sep 2026 08:11:08 GMT
+      second:
+        date: 2026-09-19
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b809883deb4476cb0487189754eeb17127c3f785d8ae9ad3adaafbba0b611f24
+          fetchedAt: 2026-09-18T13:33:42.244Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aad04ab-1d4b"
+          lastModified: Fri, 18 Sep 2026 09:30:19 GMT
+    groups:
+      4 ИКС:
+        group: 4 ИКС
+        date: 2026-09-19
+        day: Суббота
+        lessons:
+          - number: 2
+            variants: []
+            source:
+              sheet: 5 курс
+              rowStart: 46
+              rowEnd: 47
+              rawGroupName: 4 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a9
+                  date: 2026-09-19
+                  group: 4 ИКС
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 06.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: 4 ИКС
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 06.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: 5 курс
+              rowStart: 48
+              rowEnd: 49
+              rawGroupName: 4 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 3
+                strategy: subject-module-code
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -2194,7 +2320,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: &a9
+      baseSourceFiles: &a10
         - ort.xlsx
       requestedSubject: УП 06
       requestedSubgroups:
@@ -2250,7 +2376,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a10
       requestedSubject: УП 06
       requestedSubgroups:
         - "2"
@@ -2262,4 +2388,4 @@ diagnostics:
           sourceRow: 34
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fbb95f5de7b966f404827484a5a70f7e34dc997f10902191d493a24874869e12
+semanticHash: e8fc2e3ac1aabf3229fbbaaf0cf01be8e47fed77a073d84c04219b61cfa5e3ed
