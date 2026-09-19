@@ -285,8 +285,146 @@
           }
         }
       }
+    },
+    "2026-09-21": {
+      "date": "2026-09-21",
+      "day": "Понедельник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103",
+            "fetchedAt": "2026-09-19T13:03:19.742Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6aae6d47-484c\"",
+            "lastModified": "Sat, 19 Sep 2026 11:08:55 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027",
+            "fetchedAt": "2026-09-19T13:03:19.764Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6aae66a3-2b0f\"",
+            "lastModified": "Sat, 19 Sep 2026 10:40:35 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ЮС1-43": {
+          "group": "ЮС1-43",
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "lessons": [
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Калачик Н.И.",
+                  "room": "Сп.площ.",
+                  "weekType": "both",
+                  "sourceRow": 49
+                }
+              ],
+              "source": {
+                "sheet": "ЮС1-41 ЮС1-43",
+                "rowStart": 49,
+                "rowEnd": 50,
+                "rawGroupName": "ЮС1-43/ЮС1-44",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "Экономика организации",
+                  "teacher": "Сафронова Л.Н.",
+                  "room": "Ф302",
+                  "weekType": "both",
+                  "sourceRow": 51
+                }
+              ],
+              "source": {
+                "sheet": "ЮС1-41 ЮС1-43",
+                "rowStart": 51,
+                "rowEnd": 52,
+                "rawGroupName": "ЮС1-43/ЮС1-44",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "МДК.04.01 Социальная политика и технология социальной работы",
+                  "teacher": "Гайдис А.С.",
+                  "room": "Ф206",
+                  "weekType": "both",
+                  "sourceRow": 53
+                }
+              ],
+              "source": {
+                "sheet": "ЮС1-41 ЮС1-43",
+                "rowStart": 53,
+                "rowEnd": 54,
+                "rawGroupName": "ЮС1-43/ЮС1-44",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": []
+        }
+      }
     }
   },
-  "diagnostics": [],
-  "semanticHash": "c2e5df3b72d367433004faba45b4bd776fd7523347c536f724b051aacca81a1e"
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+      "severity": "warning",
+      "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+      "fingerprint": "5b5cd9dd1c4c9d84a563ab870ef978959c8aa513312eeb93935b547486fe307c",
+      "sheet": "Замены: Первая смена",
+      "row": 42,
+      "normalizedGroup": "ЮС1-43",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNKNOWN_REPLACEMENT_TYPE",
+      "severity": "warning",
+      "message": "Строка замен не содержит данных, достаточных для определения действия",
+      "fingerprint": "5bf05b155d7b04f706c788c2259bbe588267005f915f42b888874d444eb56c00",
+      "sheet": "Замены: Первая смена",
+      "row": 42,
+      "normalizedGroup": "ЮС1-43",
+      "rawValue": "ЮС1-43 |  |  | Тур.поход",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    }
+  ],
+  "semanticHash": "abf8603a8d74c26b866bdb3fd90f2f4fe1f5cea367e18ff0b0c1b5a0921393d4"
 }

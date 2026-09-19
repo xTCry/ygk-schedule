@@ -663,7 +663,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -715,8 +715,93 @@ dates:
               rawReplacement: Админ.право Малышева Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a19
       - *a20
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a21
+            date: 2026-09-21
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: ДОУ Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: ДОУ Хватова Е.Ю.
+              rawRoom: Ф305
+          - &a22
+            date: 2026-09-21
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Рус.яз.и культ.речи
+            replacement:
+              raw: Тихонов А.А.
+              room: Ф104
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Рус.яз.и культ.речи
+              rawReplacement: Тихонов А.А.
+              rawRoom: Ф104
+          - &a23
+            date: 2026-09-21
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 0f2a414e5efcf5bed8d538c55a772176e0a2d89be6fd60c5d188570158c7d037
+semanticHash: 7457cde782d0f3f9b1f1aa04449395797ff955b66036169c96903c400136aaec

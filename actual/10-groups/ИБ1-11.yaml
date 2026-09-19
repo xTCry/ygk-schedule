@@ -851,5 +851,119 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+    groups:
+      ИБ1-11:
+        group: ИБ1-11
+        date: 2026-09-21
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Грибанова Е.Н.
+                room: А203
+                weekType: both
+                sourceRow: 200
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 200
+              rowEnd: 201
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Грибанова Е.Н.
+                room: А201
+                weekType: both
+                sourceRow: 202
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 202
+              rowEnd: 203
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants: []
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 204
+              rowEnd: 205
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-21
+                  group: ИБ1-11
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Осн.шах.мгр.Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 29
+                    rawGroupName: ИБ1-11
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Осн.шах.мгр.Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants: []
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 206
+              rowEnd: 207
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: c5d1a7c8ac7efc34d8636075326a01d2ef80d27b94f9f98639c1dccceeb298c0
+semanticHash: d4e1c6fbe143444d76198d90f5cd75b162e3194bce4af2a659f9b1abd6c83969

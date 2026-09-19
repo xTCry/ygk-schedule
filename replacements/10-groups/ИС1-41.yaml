@@ -725,7 +725,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -794,9 +794,77 @@ dates:
               rawReplacement: Физкультура Куликова А.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a22
       - *a23
       - *a24
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a25
+            date: 2026-09-21
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: МДК 03.02 Юров А.А.Байдина Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.02
+              rawReplacement: МДК 03.02 Юров А.А.Байдина Ю.А.
+              rawRoom: ДОТ
+          - &a26
+            date: 2026-09-21
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр.1
+            replacement:
+              raw: МДК 05.02 Неделяева Н.А.Королева П.Д.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИС1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 05.03 п/гр.1
+              rawReplacement: МДК 05.02 Неделяева Н.А.Королева П.Д.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a25
+      - *a26
 diagnostics: []
-semanticHash: 596e4d6b037ef46eb980eaa92368f8ddd1a1105df3a61028cc6ab802aae4b53e
+semanticHash: c9c1be720a922027c91a239768a8da1cba0a1d6bf886218a18bdf93b838fdefe

@@ -2363,6 +2363,118 @@
           }
         }
       }
+    },
+    "2026-09-21": {
+      "date": "2026-09-21",
+      "day": "Понедельник",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103",
+            "fetchedAt": "2026-09-19T13:03:19.742Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6aae6d47-484c\"",
+            "lastModified": "Sat, 19 Sep 2026 11:08:55 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027",
+            "fetchedAt": "2026-09-19T13:03:19.764Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6aae66a3-2b0f\"",
+            "lastModified": "Sat, 19 Sep 2026 10:40:35 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ИС1-45": {
+          "group": "ИС1-45",
+          "date": "2026-09-21",
+          "day": "Понедельник",
+          "lessons": [
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "МДК.05.03 Тестирование ИС",
+                  "teacher": "Юров А.А.\nВакансия",
+                  "room": "Б301",
+                  "weekType": "denominator",
+                  "sourceRow": 265
+                }
+              ],
+              "source": {
+                "sheet": "ИС-3 курс ИС-4 курс",
+                "rowStart": 264,
+                "rowEnd": 265,
+                "rawGroupName": "ИС1-45/ИС1-46/ИС2-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Куликова А.А.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "sourceRow": 266
+                }
+              ],
+              "source": {
+                "sheet": "ИС-3 курс ИС-4 курс",
+                "rowStart": 266,
+                "rowEnd": 267,
+                "rawGroupName": "ИС1-45/ИС1-46/ИС2-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "МДК.05.03 Тестирование ИС",
+                  "teacher": "Юров А.А.",
+                  "room": "Б301",
+                  "weekType": "both",
+                  "sourceRow": 268
+                }
+              ],
+              "source": {
+                "sheet": "ИС-3 курс ИС-4 курс",
+                "rowStart": 268,
+                "rowEnd": 269,
+                "rawGroupName": "ИС1-45/ИС1-46/ИС2-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": []
+        }
+      }
     }
   },
   "diagnostics": [
@@ -2433,7 +2545,32 @@
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNKNOWN_REPLACEMENT_TYPE",
+      "severity": "warning",
+      "message": "Строка замен не содержит данных, достаточных для определения действия",
+      "fingerprint": "4141d75171e43e2e75e959af4b86158073af57874c61a4fc5fe7ad61e5c84f6e",
+      "sheet": "Замены: Вторая смена",
+      "row": 17,
+      "normalizedGroup": "ИС1-45",
+      "rawValue": "ИС1-45 |  |  | Тур.поход",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+      "severity": "warning",
+      "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+      "fingerprint": "ccc2cebe468a1a36566f174184723496c724c7e4a5d02b1042acbb0920c9496d",
+      "sheet": "Замены: Вторая смена",
+      "row": 17,
+      "normalizedGroup": "ИС1-45",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "16306b7f86d5db93067cc8454176c580614febd9cd1f4a576bb7596457a32f47"
+  "semanticHash": "a65b6a8c42d2766a5d4c37b7df89adf0f341f4630fbe47e3d1cdcdf7be91bc2c"
 }

@@ -446,7 +446,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -477,7 +477,93 @@ dates:
               rawReplacement: Рисунок и жив Багдасарьян О.Н.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a12
-diagnostics: []
-semanticHash: 527ddce8c64e029abf500aa2a57f7ba67353a5b6daa0c1a25fd8e0214c4f9e54
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a13
+            date: 2026-09-21
+            group: АР1-42
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: second
+              row: 32
+              rawGroupName: АР1-42
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 5afd1c11be3c989efa698f7682a5ae5202fdcfa30cbf52359b7466f5a54513ef
+            sheet: "Замены: Вторая смена"
+            row: 32
+            normalizedGroup: АР1-42
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 67f96292831716237a9d9fd2953914dff80cb64ad2887e56deece63de2eb05d1
+            sheet: "Замены: Вторая смена"
+            row: 32
+            normalizedGroup: АР1-42
+            rawValue: АР1-42 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a13
+diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 5afd1c11be3c989efa698f7682a5ae5202fdcfa30cbf52359b7466f5a54513ef
+    sheet: "Замены: Вторая смена"
+    row: 32
+    normalizedGroup: АР1-42
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 67f96292831716237a9d9fd2953914dff80cb64ad2887e56deece63de2eb05d1
+    sheet: "Замены: Вторая смена"
+    row: 32
+    normalizedGroup: АР1-42
+    rawValue: АР1-42 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 3aaf17e9d68883ce176c1e6430f4d3494cd2a862856169214c75fe425dc61109

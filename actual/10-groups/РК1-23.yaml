@@ -964,6 +964,115 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+    groups:
+      РК1-23:
+        group: РК1-23
+        date: 2026-09-21
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 01.01 Анализ целевой аудитории, рынка и конкурентов
+                teacher: Девятаева Н.Ф.
+                room: ДОТ
+                weekType: both
+                sourceRow: 108
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 108
+              rowEnd: 109
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 03.01
+                teacher: Вепрева Ю.Ю.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                rawTeacher: Вепрева Ю.Ю.
+                rawRoom: ДОТ
+                sourceRow: 23
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 110
+              rowEnd: 111
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-21
+                  group: РК1-23
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 04.02
+                  replacement:
+                    raw: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 23
+                    rawGroupName: РК1-23
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 04.02
+                    rawReplacement: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Акиничева М.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 112
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -990,4 +1099,4 @@ diagnostics:
           sourceRow: 131
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 936e709a72f8a619be1fbc76bb720b05c844172e51d484ef7ead28938a04552f
+semanticHash: 512911e0fd24f9aed99f15a71834bb34f7a4fc8cd584784922b431ea1728f142

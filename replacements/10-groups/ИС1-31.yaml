@@ -431,5 +431,67 @@ dates:
     replacements:
       - *a11
       - *a12
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a13
+            date: 2026-09-21
+            group: ИС1-31
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+          - &a14
+            date: 2026-09-21
+            group: ИС1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 08.02
+            replacement:
+              raw: 1,2 п/гр. Кувшинова В.А.
+              room: Б305
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 08.02
+              rawReplacement: 1,2 п/гр. Кувшинова В.А.
+              rawRoom: Б305
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: 52c92b1c4d40369a6bcf78f2fd7ccf8b316fbc4845079dbb4c3cf5d5dcdbcf10
+semanticHash: aeb35903f706894c575c72ae3218c3aba3505b338703df8ed0e159b7316d8b5e

@@ -519,5 +519,86 @@ dates:
       - *a13
       - *a14
       - *a15
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a16
+            date: 2026-09-21
+            group: АР1-31
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 39
+              rawGroupName: АР1-31
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: снято
+              rawRoom: ""
+          - &a17
+            date: 2026-09-21
+            group: АР1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02 МДК 01.05 п/гр.
+            replacement:
+              raw: МДК 01.02 п/гр.2 Иванов Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 40
+              rawGroupName: АР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.02 МДК 01.05 п/гр.
+              rawReplacement: МДК 01.02 п/гр.2 Иванов Ю.А.
+              rawRoom: ДОТ
+          - &a18
+            date: 2026-09-21
+            group: АР1-31
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.01 Жарова Н.И.
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: АР1-31
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 01.01 Жарова Н.И.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a16
+      - *a17
+      - *a18
 diagnostics: []
-semanticHash: a5b8633ddb2c790284d64e2b934ff8fc6cce2d65eb15fb90030632be573ab940
+semanticHash: 14be5b75bcc9e847819990379cfbc418dd154bc30c1b83ba2eecf2fb37963942

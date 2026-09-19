@@ -729,7 +729,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -817,10 +817,57 @@ dates:
               rawReplacement: Васильченко М.О.Королева П.Д.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a22
       - *a23
       - *a24
       - *a25
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a26
+            date: 2026-09-21
+            group: ИС1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: УП 05
+            replacement:
+              raw: 1,2 п/гр. Васильченко М.О.
+              room: Б308
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "6"
+              rawOriginal: УП 05
+              rawReplacement: 1,2 п/гр. Васильченко М.О.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a26
 diagnostics: []
-semanticHash: 9f12eda266499ad1a838731a08c3a7838758f6cdc2c33df30861a7d207243e0c
+semanticHash: 08ee5a37d6d6b572b750cfe47c3bd909f4e76b20085e50c1abba7e53b3d40853

@@ -473,5 +473,67 @@ dates:
           sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
     replacements:
       - *a13
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a14
+            date: 2026-09-21
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.МДК 05.01 Рочева А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 24
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.МДК 05.01 Рочева А.А.
+              rawRoom: Б207Б208
+          - &a15
+            date: 2026-09-21
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 05.01 История дизайна
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 25
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 05.01 История дизайна
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: bd0d2ffb541a6a8507a7bd635bc63cdd175389c6b341f30d8a0b76761f4bc528
+semanticHash: 4361d13d362d95b583874ccc110a319d08ee15baa4ec0210e627824ebbf3098b

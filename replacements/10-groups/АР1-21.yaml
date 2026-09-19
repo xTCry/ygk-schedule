@@ -285,7 +285,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -316,7 +316,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
     replacements:
       - *a8
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a9
+            date: 2026-09-21
+            group: АР1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Тех.механика Калугина М.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 20
+              rawGroupName: АР1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: Тех.механика Калугина М.В.
+              rawRoom: ДОТ
+          - &a10
+            date: 2026-09-21
+            group: АР1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.03 п/гр.1
+            replacement:
+              raw: Консультация к ВПР Климова А.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 19
+              rawGroupName: АР1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.03 п/гр.1
+              rawReplacement: Консультация к ВПР Климова А.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 04ecc9cc333c9e6876397fc1a818fe9f07d4425bd901f4b1dcc0f3f0e31ea1d4
+semanticHash: fdc244719126e0c0b3a503f80415c4657ddf33429a889f4941ad999652d726a5

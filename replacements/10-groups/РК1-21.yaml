@@ -342,5 +342,68 @@ dates:
           sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
     replacements:
       - *a9
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a10
+            date: 2026-09-21
+            group: РК1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК 04.02 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 26
+              rawGroupName: РК1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 04.02 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a11
+            date: 2026-09-21
+            group: РК1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Осн.композ. Сосновских А.Л.
+              room: Б207
+            source:
+              shift: first
+              row: 47
+              rawGroupName: РК1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: Осн.композ. Сосновских А.Л.
+              rawRoom: Б207
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 96ad8b25c77c6377d51ada1f2512be0099239d8ee88443c0c2dd63a41469f6b8
+semanticHash: 45c83bde5f5b9cde0d8374358ee3ebdf4ce3da75ee01a24db42c853f97d5f997

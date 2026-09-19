@@ -1414,6 +1414,126 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+    groups:
+      АР1-41:
+        group: АР1-41
+        date: 2026-09-21
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.1
+                teacher: Балина С.А.
+                room: Б503
+                weekType: both
+                sourceRow: 159
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 159
+              rowEnd: 160
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Ткаченко Г.А.
+                  Мишуринская Е.Ю.
+                room: Б508
+                weekType: both
+                sourceRow: 161
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 161
+              rowEnd: 162
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 02.02
+                teacher: Гасенина М.П.
+                room: Б401
+                weekType: both
+                rawSubject: МДК 02.02 Гасенина М.П.
+                rawTeacher: Гасенина М.П.
+                rawRoom: Б401
+                sourceRow: 45
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 163
+              rowEnd: 164
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-21
+                  group: АР1-41
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 01.05 Т.5.3.
+                  replacement:
+                    raw: МДК 02.02 Гасенина М.П.
+                    room: Б401
+                  source:
+                    shift: second
+                    row: 45
+                    rawGroupName: АР1-41
+                    rawLessonNumbers: 5,6
+                    rawOriginal: МДК 01.05 Т.5.3.
+                    rawReplacement: МДК 02.02 Гасенина М.П.
+                    rawRoom: Б401
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements:
+          - replacement: *a2
+            lessonNumber: 6
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.05 Т.5.3.». По замене: «МДК 02.02 Гасенина
+                М.П.». Аудитория: «Б401»."
+              room: Б401
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1430,7 +1550,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: АР1-41
-      baseSourceFiles: &a2
+      baseSourceFiles: &a3
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
@@ -1450,7 +1570,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: АР1-41
-      baseSourceFiles: *a2
+      baseSourceFiles: *a3
       replacementWeekType: denominator
       availableWeekTypes:
         - denominator
@@ -1462,4 +1582,23 @@ diagnostics:
           sourceRow: 164
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: ece964ed635ae291414e02f322cd536840709b3268f57193ee0a511920029648
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: b0b0a73491eb033bccafe9846c5d0c9ca016a3470787d54e9a3fbcf4160f0c05
+    sheet: "Замены: Вторая смена"
+    row: 45
+    normalizedGroup: АР1-41
+    rawValue: МДК 02.02 Гасенина М.П.
+    context:
+      date: 2026-09-21
+      lessonNumber: 6
+      type: replace
+      reason: lesson-not-found
+      baseGroup: АР1-41
+      baseSourceFiles:
+        - oar.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 4475168d3145d7c1dec9f76f7dd2722ae9ca5db27506f33750ddbcdd4b7eb15b

@@ -629,7 +629,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -660,7 +660,73 @@ dates:
               rawReplacement: История Смирнов Б.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
     replacements:
       - *a20
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a21
+            date: 2026-09-21
+            group: ДИ1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Рисунок п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 21
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Рисунок п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a22
+            date: 2026-09-21
+            group: ДИ1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Живопись п/гр.2
+            replacement:
+              raw: МДК 05.01/теория Рочева А.А.
+              room: Б207
+            source:
+              shift: first
+              row: 22
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: Живопись п/гр.2
+              rawReplacement: МДК 05.01/теория Рочева А.А.
+              rawRoom: Б207
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: afb4c3f33ffb7934a9e4066444dc74200ca4e8c1a13273022044f34b1c848fdc
+semanticHash: b804eefbce6a9dff37f1ed9a28f124b5829f3326d02661466ad1c3b9489a99db

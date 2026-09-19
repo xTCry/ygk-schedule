@@ -515,7 +515,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -565,8 +565,75 @@ dates:
               rawReplacement: Матем.методы Гаврилова М.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
     replacements:
       - *a14
       - *a15
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a16
+            date: 2026-09-21
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 02.02 Т.2.5.
+            replacement:
+              raw: Инж.граф. Дегтева И.Е.Костерина Е.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 02.02 Т.2.5.
+              rawReplacement: Инж.граф. Дегтева И.Е.Костерина Е.В.
+              rawRoom: ДОТ
+          - &a17
+            date: 2026-09-21
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Математика Гаврилова М.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика
+              rawReplacement: Математика Гаврилова М.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a16
+      - *a17
 diagnostics: []
-semanticHash: 45a5b07f5d292c26558b5c7cc658492024273989db121e3148c64d3e6b184919
+semanticHash: 21066afdd065ceda888b7db54b029a46bdebd7b17ec58fffb0a1d0667259c0c6

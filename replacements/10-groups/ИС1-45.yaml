@@ -544,5 +544,87 @@ dates:
     replacements:
       - *a14
       - *a15
-diagnostics: []
-semanticHash: f441ab7d4ae6a968642f65d4107195078e9d595a903d39ed24b9e46056a91695
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a16
+            date: 2026-09-21
+            group: ИС1-45
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИС1-45
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 4141d75171e43e2e75e959af4b86158073af57874c61a4fc5fe7ad61e5c84f6e
+            sheet: "Замены: Вторая смена"
+            row: 17
+            normalizedGroup: ИС1-45
+            rawValue: ИС1-45 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: ccc2cebe468a1a36566f174184723496c724c7e4a5d02b1042acbb0920c9496d
+            sheet: "Замены: Вторая смена"
+            row: 17
+            normalizedGroup: ИС1-45
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a16
+diagnostics:
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 4141d75171e43e2e75e959af4b86158073af57874c61a4fc5fe7ad61e5c84f6e
+    sheet: "Замены: Вторая смена"
+    row: 17
+    normalizedGroup: ИС1-45
+    rawValue: ИС1-45 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: ccc2cebe468a1a36566f174184723496c724c7e4a5d02b1042acbb0920c9496d
+    sheet: "Замены: Вторая смена"
+    row: 17
+    normalizedGroup: ИС1-45
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: d547f3456abd8aa9ebe9441710237f1effc0bf897b64fba0d090bb0e45f4ab58

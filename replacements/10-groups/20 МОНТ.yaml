@@ -654,5 +654,106 @@ dates:
           sourceSha256: 33287a3a00ec777230a2ee0a8810b5a841c81f1c74c561ef7e69f7587756a582
     replacements:
       - *a21
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+        replacements:
+          - &a22
+            date: 2026-09-21
+            group: 20 МОНТ
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: УП 02
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 74
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "0"
+              rawOriginal: УП 02
+              rawReplacement: снято
+              rawRoom: ""
+          - &a23
+            date: 2026-09-21
+            group: 20 МОНТ
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 02 Математ.
+            replacement:
+              raw: Математика Рогачева Е.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 75
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: 1,2
+              rawOriginal: УП 02 Математ.
+              rawReplacement: Математика Рогачева Е.А.
+              rawRoom: ДОТ
+          - &a24
+            date: 2026-09-21
+            group: 20 МОНТ
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: first
+              row: 76
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+          - &a25
+            date: 2026-09-21
+            group: 20 МОНТ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Информ. Ефимова А.С.
+              room: к.34
+            source:
+              shift: first
+              row: 77
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Информ. Ефимова А.С.
+              rawRoom: к.34
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: 7a3d0ffb416a308c7b97ab766e580833707fc6ff4ff57dc79b79cce5e3c6b381
+semanticHash: 71fbd03090a9743dd70a105a6b65b286e29f42c8ec3643a3e3f075bb75a2700f

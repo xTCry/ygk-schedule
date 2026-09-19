@@ -761,7 +761,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -793,7 +793,74 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 04.03 Выблова Т.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a22
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+        replacements:
+          - &a23
+            date: 2026-09-21
+            group: РК1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: Б309
+            source:
+              shift: second
+              row: 36
+              rawGroupName: РК1-31
+              rawLessonNumbers: "3"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: Б309
+          - &a24
+            date: 2026-09-21
+            group: РК1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр. Вепрева Ю.Ю.
+              room: Б406
+            source:
+              shift: second
+              row: 37
+              rawGroupName: РК1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 63fd1ade3b8cdabdcee2939ee71758227969c4d0d68eb960fefee0fd14081e68
+semanticHash: 09861d6d689a7918668a354fa6110cd7e88e18ccb4c986c1a9bfe5aa53b738dc

@@ -1503,6 +1503,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-21:
+    date: 2026-09-21
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
+          fetchedAt: 2026-09-19T13:03:19.742Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aae6d47-484c"
+          lastModified: Sat, 19 Sep 2026 11:08:55 GMT
+      second:
+        date: 2026-09-21
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
+          fetchedAt: 2026-09-19T13:03:19.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aae66a3-2b0f"
+          lastModified: Sat, 19 Sep 2026 10:40:35 GMT
+    groups:
+      ДИ1-23:
+        group: ДИ1-23
+        date: 2026-09-21
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 05.01
+                teacher: Рочева А.А.
+                room: Б207Б208
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 05.01 Рочева А.А.
+                rawTeacher: Рочева А.А.
+                rawRoom: Б207Б208
+                sourceRow: 24
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-21
+                  group: ДИ1-23
+                  lessonNumbers:
+                    - 0
+                  type: add
+                  original: null
+                  replacement:
+                    raw: 1,2 п/гр.МДК 05.01 Рочева А.А.
+                    room: Б207Б208
+                  source:
+                    shift: first
+                    row: 24
+                    rawGroupName: ДИ1-23
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: 1,2 п/гр.МДК 05.01 Рочева А.А.
+                    rawRoom: Б207Б208
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: История дизайна
+                teacher: Кожешкурт А.В.
+                room: Б507
+                weekType: both
+                sourceRow: 57
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 59
+              rowEnd: 60
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a1
+                  date: 2026-09-21
+                  group: ДИ1-23
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 05.01 История дизайна
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 25
+                    rawGroupName: ДИ1-23
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 05.01 История дизайна
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 61
+              rowEnd: 62
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 3
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1560,4 +1692,4 @@ diagnostics:
           sourceRow: 42
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0bbee390b452ae6892be958d6ce923c56e4d4d80972f8131a8319ce78298f18d
+semanticHash: 6ed69bd3b1648d7f38f1afce91880711b94abcf3d7cba5316403aaa46183691e
