@@ -448,7 +448,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -498,8 +498,74 @@ dates:
               rawReplacement: ДОУ Хватова Е.Ю.
               rawRoom: Ф305
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a15
       - *a16
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a17
+            date: 2026-09-22
+            group: ЮР2-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 73
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a18
+            date: 2026-09-22
+            group: ЮР2-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 74
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 03.01
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
 diagnostics: []
-semanticHash: 4d23d8a2fd591b6fd9b894ee7e1c67d87935fe62a90e87db2fcae647c1c60ce7
+semanticHash: ee666cba864762183ae27cd9e2aa37ff67c15b55084a4cbc29a8fe5a5b85e5c5

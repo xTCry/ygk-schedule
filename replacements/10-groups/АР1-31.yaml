@@ -529,7 +529,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -596,9 +596,76 @@ dates:
               rawReplacement: МДК 01.01 Жарова Н.И.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a16
       - *a17
       - *a18
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a19
+            date: 2026-09-22
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.02 МДК 01.05
+            replacement:
+              raw: МДК 01.02 п/гр 1 Иванов Ю.А п/гр 2 - Снято
+              room: Б507
+            source:
+              shift: second
+              row: 37
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.02 МДК 01.05
+              rawReplacement: МДК 01.02 п/гр 1 Иванов Ю.А п/гр 2 - Снято
+              rawRoom: Б507
+          - &a20
+            date: 2026-09-22
+            group: АР1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 01.02 теор Иванов Ю.А
+              room: Б507
+            source:
+              shift: second
+              row: 38
+              rawGroupName: АР1-31
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 01.02 теор Иванов Ю.А
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: 14be5b75bcc9e847819990379cfbc418dd154bc30c1b83ba2eecf2fb37963942
+semanticHash: dbe77d98a1249967598ab77c76d7ea7b09829c2a850342dc7adc7d0012fa9786

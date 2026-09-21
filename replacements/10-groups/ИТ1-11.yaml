@@ -372,7 +372,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -403,7 +403,74 @@ dates:
               rawReplacement: Информ. Комиссарова О.В.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a11
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a12
+            date: 2026-09-22
+            group: ИТ1-11
+            lessonNumbers:
+              - 0
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 18
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 0,2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a13
+            date: 2026-09-22
+            group: ИТ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Русский язык Грибанова Е.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: Русский язык Грибанова Е.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: 1f8cc1e8f2b1064fe9a8ed89e05ad572894533ce2a1ac64f7c9b74086ba39960
+semanticHash: 7a4f23f1ab6552f2f2c7b70cb488b2f49628acc0c54525000d9b7725d054bb94

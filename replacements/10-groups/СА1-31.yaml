@@ -337,7 +337,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -368,7 +368,74 @@ dates:
               rawReplacement: 1,2 п/гр. Панасюк А.Д.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a9
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a10
+            date: 2026-09-22
+            group: СА1-31
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Осн.алгорит.
+            replacement:
+              raw: 1,2 п/гр. Панасюк А.Д.
+              room: Б304
+            source:
+              shift: second
+              row: 16
+              rawGroupName: СА1-31
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.алгорит.
+              rawReplacement: 1,2 п/гр. Панасюк А.Д.
+              rawRoom: Б304
+          - &a11
+            date: 2026-09-22
+            group: СА1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: 1,2 п/гр. Зайцев Р.А.
+              room: Б308
+            source:
+              shift: second
+              row: 17
+              rawGroupName: СА1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01
+              rawReplacement: 1,2 п/гр. Зайцев Р.А.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 0b48f32f439e63258810f14e513481584d20aff5e3a8c29688d7e2e510f8f74f
+semanticHash: ac1e1e80c18c6f5fbed153c7fc551b0f442a2e9f9ec23e8c0e13923554bca4fd

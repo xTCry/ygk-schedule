@@ -60,7 +60,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -109,8 +109,56 @@ dates:
             rawValue: ЮС1-43 |  |  | Тур.поход
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a2
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a3
+            date: 2026-09-22
+            group: ЮС1-43
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Осн.экол.права Рустамова А.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 72
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 03.01
+              rawReplacement: Осн.экол.права Рустамова А.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a3
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -133,4 +181,4 @@ diagnostics:
     rawValue: ЮС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 32cecdc19e796700c164f5c9f655dc6a0c4b936961c8f808a0ca75969120c949
+semanticHash: 88c061c55b56493ed5a222233f4f27a3321cf7ff360354ff3ef827b2ec5efd05

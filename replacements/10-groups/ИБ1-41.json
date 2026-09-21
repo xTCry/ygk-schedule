@@ -1161,7 +1161,7 @@
           "day": "Понедельник",
           "weekType": "denominator",
           "shift": "second",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -1198,7 +1198,12 @@
               }
             }
           ],
-          "diagnostics": []
+          "diagnostics": [],
+          "finalizedBy": {
+            "date": "2026-09-22",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd"
+          }
         }
       },
       "replacements": [
@@ -1227,8 +1232,127 @@
           }
         }
       ]
+    },
+    "2026-09-22": {
+      "date": "2026-09-22",
+      "day": "Вторник",
+      "weekType": "denominator",
+      "shifts": {
+        "second": {
+          "date": "2026-09-22",
+          "day": "Вторник",
+          "weekType": "denominator",
+          "shift": "second",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd",
+            "fetchedAt": "2026-09-21T15:52:03.627Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6ab10720-242a\"",
+            "lastModified": "Mon, 21 Sep 2026 10:29:52 GMT"
+          },
+          "replacements": [
+            {
+              "date": "2026-09-22",
+              "group": "ИБ1-41",
+              "lessonNumbers": [],
+              "type": "unknown",
+              "original": null,
+              "replacement": {
+                "raw": "Турист.поход"
+              },
+              "source": {
+                "shift": "second",
+                "row": 18,
+                "rawGroupName": "ИБ1-41",
+                "rawLessonNumbers": "",
+                "rawOriginal": "",
+                "rawReplacement": "Турист.поход",
+                "rawRoom": ""
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "provider": "ygk",
+              "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+              "severity": "warning",
+              "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+              "fingerprint": "194fe0dced1426260533c2e4beb990121388f4ab8e81537fffae1ba5f8c47176",
+              "sheet": "Замены: Вторая смена",
+              "row": 18,
+              "normalizedGroup": "ИБ1-41",
+              "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+              "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+            },
+            {
+              "provider": "ygk",
+              "code": "UNKNOWN_REPLACEMENT_TYPE",
+              "severity": "warning",
+              "message": "Строка замен не содержит данных, достаточных для определения действия",
+              "fingerprint": "2b3ceacdc2b91dce4c57182db06f2dd25fa89e14acdef19723cce204267cc2f9",
+              "sheet": "Замены: Вторая смена",
+              "row": 18,
+              "normalizedGroup": "ИБ1-41",
+              "rawValue": "ИБ1-41 |  |  | Турист.поход",
+              "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+              "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+            }
+          ]
+        }
+      },
+      "replacements": [
+        {
+          "date": "2026-09-22",
+          "group": "ИБ1-41",
+          "lessonNumbers": [],
+          "type": "unknown",
+          "original": null,
+          "replacement": {
+            "raw": "Турист.поход"
+          },
+          "source": {
+            "shift": "second",
+            "row": 18,
+            "rawGroupName": "ИБ1-41",
+            "rawLessonNumbers": "",
+            "rawOriginal": "",
+            "rawReplacement": "Турист.поход",
+            "rawRoom": ""
+          }
+        }
+      ]
     }
   },
-  "diagnostics": [],
-  "semanticHash": "664528e13c26647fa076a90c353f1cae48883ba9eb7500587dc017463a742f24"
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+      "severity": "warning",
+      "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+      "fingerprint": "194fe0dced1426260533c2e4beb990121388f4ab8e81537fffae1ba5f8c47176",
+      "sheet": "Замены: Вторая смена",
+      "row": 18,
+      "normalizedGroup": "ИБ1-41",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNKNOWN_REPLACEMENT_TYPE",
+      "severity": "warning",
+      "message": "Строка замен не содержит данных, достаточных для определения действия",
+      "fingerprint": "2b3ceacdc2b91dce4c57182db06f2dd25fa89e14acdef19723cce204267cc2f9",
+      "sheet": "Замены: Вторая смена",
+      "row": 18,
+      "normalizedGroup": "ИБ1-41",
+      "rawValue": "ИБ1-41 |  |  | Турист.поход",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    }
+  ],
+  "semanticHash": "c3845c9300b5d9b50507a080e21aa0291b1969088294bb6dc1c76af971a5c0bb"
 }

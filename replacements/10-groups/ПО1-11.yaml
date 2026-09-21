@@ -278,7 +278,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -308,7 +308,73 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a9
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a10
+            date: 2026-09-22
+            group: ПО1-11
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: ОБиЗР
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 23
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "1"
+              rawOriginal: ОБиЗР
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a11
+            date: 2026-09-22
+            group: ПО1-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.шахм.игры
+            replacement:
+              raw: ОБиЗР Травникова Г.Г.
+              room: Б101
+            source:
+              shift: first
+              row: 24
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.шахм.игры
+              rawReplacement: ОБиЗР Травникова Г.Г.
+              rawRoom: Б101
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 1eaf067d6571628781b9d6fadc0db3786352110c329fab5f681056875178ec72
+semanticHash: f63de196f82d55e4a28f9ce646ac4ba3f7ffd2712eaebee59f8fe48601ee2cce

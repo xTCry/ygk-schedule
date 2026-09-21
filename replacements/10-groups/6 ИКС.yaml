@@ -787,7 +787,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -857,9 +857,55 @@ dates:
               rawReplacement: Физкультура Шпынов Ю.Г.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a26
       - *a27
       - *a28
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a29
+            date: 2026-09-22
+            group: 6 ИКС
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 91
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a29
 diagnostics: []
-semanticHash: 6d70eeeba68c4884901c7039cf1502f4b318a97c595ae5a379102c806c7ade13
+semanticHash: 2decb23db6b95070c8ffe1d91ec9e193a89d76c26954e8653df92457942008f8

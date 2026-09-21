@@ -681,7 +681,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -750,9 +750,77 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a21
       - *a22
       - *a23
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a24
+            date: 2026-09-22
+            group: СА1-41
+            lessonNumbers:
+              - 4
+              - 6
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: 1,2 п/гр. Зайцев Р.А.
+              room: Б301
+            source:
+              shift: second
+              row: 22
+              rawGroupName: СА1-41
+              rawLessonNumbers: 4,6
+              rawOriginal: УП 03
+              rawReplacement: 1,2 п/гр. Зайцев Р.А.
+              rawRoom: Б301
+          - &a25
+            date: 2026-09-22
+            group: СА1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: 1,2 п/гр.Web-пр. Серова А.М.
+              room: Б302
+            source:
+              shift: second
+              row: 23
+              rawGroupName: СА1-41
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: 1,2 п/гр.Web-пр. Серова А.М.
+              rawRoom: Б302
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: f1f0ca1653cc53401120507b74d5e86a71f1b0b6b8916a20c8d06638c964ee0b
+semanticHash: 3e637873bd38a62b6efd37f1d56f051d78c83be96d56a40d28ebce7c53f3d331

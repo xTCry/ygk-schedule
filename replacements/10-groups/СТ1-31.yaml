@@ -458,5 +458,48 @@ dates:
           sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
     replacements:
       - *a12
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a13
+            date: 2026-09-22
+            group: СТ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.01 МДК 01.01
+            replacement:
+              raw: МДК 02.01 /теор Топчиян Е.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 13
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.01 МДК 01.01
+              rawReplacement: МДК 02.01 /теор Топчиян Е.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: b01cc3b385290b34753128d2d028dbed20d8f03ea93cbf9c75d1491e7f6d920d
+semanticHash: 92f73abc003caf8a46ac8f2654eff74bb63910a85799f1b56908449db7794274

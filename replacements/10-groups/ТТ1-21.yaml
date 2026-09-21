@@ -144,5 +144,68 @@ dates:
           sourceSha256: 70db5a7213eba62dd5f653753bbbc0b7e950d2f8e18f69a315816471175e18e2
     replacements:
       - *a3
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a4
+            date: 2026-09-22
+            group: ТТ1-21
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Материалов. Дегтева И.Е.
+              room: Ф404
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: Материалов. Дегтева И.Е.
+              rawRoom: Ф404
+          - &a5
+            date: 2026-09-22
+            group: ТТ1-21
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: Инж.гр. Тех.мех
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: 5,6
+              rawOriginal: Инж.гр. Тех.мех
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a4
+      - *a5
 diagnostics: []
-semanticHash: eb8fdb58adec206f4b1a649703ccc05e35fbc183f1ea63ab5f6c963b5776e7eb
+semanticHash: acbcecb330e621e9b3ba5e69d0a8e047fc52c909fd848fe80c265ca5c7cbfe84

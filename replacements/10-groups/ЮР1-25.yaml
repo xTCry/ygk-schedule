@@ -732,7 +732,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -799,9 +799,96 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a21
       - *a22
       - *a23
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a24
+            date: 2026-09-22
+            group: ЮР1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Конст.право
+            replacement:
+              raw: Админ.право Малышева Н.А.
+              room: Ф401
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "2"
+              rawOriginal: Конст.право
+              rawReplacement: Админ.право Малышева Н.А.
+              rawRoom: Ф401
+          - &a25
+            date: 2026-09-22
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Конст.право
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.площ.
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: Конст.право
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.площ.
+          - &a26
+            date: 2026-09-22
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+              - 5
+            type: cancel
+            original:
+              raw: Теор.гос.и права ДОУ
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 8
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: 4,5
+              rawOriginal: Теор.гос.и права ДОУ
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
+      - *a26
 diagnostics: []
-semanticHash: 7457cde782d0f3f9b1f1aa04449395797ff955b66036169c96903c400136aaec
+semanticHash: 49bfc0153b39475f0711607105f0105cf77f1416a5a772bfb0ccd5af8e1fa178

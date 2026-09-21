@@ -1686,6 +1686,123 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+    groups:
+      ЗМ1-43:
+        group: ЗМ1-43
+        date: 2026-09-22
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                teacher: Шумилова Т.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 57
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a7
+                  date: 2026-09-22
+                  group: ЗМ1-43
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: ЗМ1-43
+                    rawLessonNumbers: 0-2
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: scheduled-room
+          - number: 1
+            variants:
+              - subject: МДК 03.02 Ведение единого государственного реестра недвижимости (ЕГРН)
+                  КП
+                teacher: Шумилова Т.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 59
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 59
+              rowEnd: 60
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a7
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Кургузова М.С.
+                room: ДОТ
+                weekType: both
+                sourceRow: 61
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 61
+              rowEnd: 62
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a7
+                lessonNumber: 2
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1706,4 +1823,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 8ddcc600889719b86d813fed677341978b32f6bf0696d49c89a1f90baa9cf0b8
+semanticHash: 70852e173f6443e7ce05351922572ffbb95e960c199876596edf966218a6c07c

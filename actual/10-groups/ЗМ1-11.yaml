@@ -1288,6 +1288,122 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+    groups:
+      ЗМ1-11:
+        group: ЗМ1-11
+        date: 2026-09-22
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Вакансия
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 14
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 13
+              rowEnd: 14
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-22
+                  group: ЗМ1-11
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 58
+                    rawGroupName: ЗМ1-11
+                    rawLessonNumbers: 0-2
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: scheduled-room
+          - number: 1
+            variants:
+              - subject: Физика
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 15
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 15
+              rowEnd: 16
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: География
+                teacher: Климова Ю.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 17
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 17
+              rowEnd: 18
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 2
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1314,4 +1430,4 @@ diagnostics:
           sourceRow: 27
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 55f381e5342c71ee3b8a1bc6c6b0ca050010b0a1d899d44c6c54a6c5677412f2
+semanticHash: 9670c63d38427b920f9ba1232a2fbdf072e3ef00e51fd2e6b4c707ad0867a761

@@ -440,7 +440,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -472,7 +472,93 @@ dates:
               rawReplacement: МДК 02.02 Гасенина М.П.
               rawRoom: Б401
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a13
-diagnostics: []
-semanticHash: 845ba3ccbf8f7f6157f3f76e2c8eeb50f5b40b28414decebc654d4b955278e90
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        replacements:
+          - &a14
+            date: 2026-09-22
+            group: АР1-41
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Турист.поход
+            source:
+              shift: second
+              row: 26
+              rawGroupName: АР1-41
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Турист.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: b1cb7edc865d56453ceb2e9ffb3711b4284fe9f021c52fb7a9eae72fec616c86
+            sheet: "Замены: Вторая смена"
+            row: 26
+            normalizedGroup: АР1-41
+            rawValue: АР1-41 |  |  | Турист.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: c0224d699aebc27fedd5a696927f882b2927d6fafd9c1eff499721b70793de9a
+            sheet: "Замены: Вторая смена"
+            row: 26
+            normalizedGroup: АР1-41
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a14
+diagnostics:
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: b1cb7edc865d56453ceb2e9ffb3711b4284fe9f021c52fb7a9eae72fec616c86
+    sheet: "Замены: Вторая смена"
+    row: 26
+    normalizedGroup: АР1-41
+    rawValue: АР1-41 |  |  | Турист.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: c0224d699aebc27fedd5a696927f882b2927d6fafd9c1eff499721b70793de9a
+    sheet: "Замены: Вторая смена"
+    row: 26
+    normalizedGroup: АР1-41
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: cbaef025b6d7e9ebc36cd6474f0bab82b0ba1373165f2bb22203c339b50ad144

@@ -1706,6 +1706,133 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+    groups:
+      СТ1-31:
+        group: СТ1-31
+        date: 2026-09-22
+        day: Вторник
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК.01.01 Т.1.3 Проектирование строительных конструкций
+                teacher: Голованова Н.М.
+                room: ДОТ
+                weekType: both
+                sourceRow: 13
+            source:
+              sheet: CТ 3 курс
+              rowStart: 13
+              rowEnd: 14
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК.02.01Организация технологических процессов на объекте капитального
+                  строительств. Т. 1.1.
+                teacher: Топчиян Е.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 15
+            source:
+              sheet: CТ 3 курс
+              rowStart: 15
+              rowEnd: 16
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 02.01 /теор
+                teacher: Топчиян Е.А.
+                room: ДОТ
+                weekType: both
+                subgroup: "2"
+                rawSubject: МДК 02.01 /теор Топчиян Е.А.
+                rawTeacher: Топчиян Е.А.
+                rawRoom: ДОТ
+                sourceRow: 13
+            source:
+              sheet: CТ 3 курс
+              rowStart: 17
+              rowEnd: 18
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-22
+                  group: СТ1-31
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 02.01 МДК 01.01
+                  replacement:
+                    raw: МДК 02.01 /теор Топчиян Е.А.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 13
+                    rawGroupName: СТ1-31
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 02.01 МДК 01.01
+                    rawReplacement: МДК 02.01 /теор Топчиян Е.А.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК.02.01Организация технологических процессов на объекте капитального
+                  строительств.Т. 1.1. ТОСП
+                teacher: Топчиян Е.А.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 20
+            source:
+              sheet: CТ 3 курс
+              rowStart: 19
+              rowEnd: 20
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1736,4 +1863,4 @@ diagnostics:
           sourceRow: 43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d906d9d24d9e2a3706e11cd90a3398ff88f593734b1b956d6216a2a391a4f40e
+semanticHash: 7c9ae6c830847533e5cf7055ab7dd70bd5011e7f7aaa41d3d6de476ee921bf55

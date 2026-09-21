@@ -437,5 +437,47 @@ dates:
           sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
     replacements:
       - *a11
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a12
+            date: 2026-09-22
+            group: ЗМ1-15
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Разг. о важном
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 60
+              rawGroupName: ЗМ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Разг. о важном
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a12
 diagnostics: []
-semanticHash: 26193910ffe0b82caf3047cf02747aa95465efb29c1127b252c5d2d5f416d92f
+semanticHash: 908e3f3ee2bc84e5ce4a87601213e7beb19bf103e0bcb6176d3bdb3ad1606b31

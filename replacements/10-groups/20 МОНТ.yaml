@@ -664,7 +664,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -750,10 +750,97 @@ dates:
               rawReplacement: Информ. Ефимова А.С.
               rawRoom: к.34
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a22
       - *a23
       - *a24
       - *a25
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        replacements:
+          - &a26
+            date: 2026-09-22
+            group: 20 МОНТ
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК 01.02 Ин.язык
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 93
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 01.02 Ин.язык
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a27
+            date: 2026-09-22
+            group: 20 МОНТ
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: БЖ МДК 03.01
+            replacement:
+              raw: МДК 02.01 МДК 01.02 Каргина В.А.
+              room: к.24
+            source:
+              shift: first
+              row: 94
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: 2,3
+              rawOriginal: БЖ МДК 03.01
+              rawReplacement: МДК 02.01 МДК 01.02 Каргина В.А.
+              rawRoom: к.24
+          - &a28
+            date: 2026-09-22
+            group: 20 МОНТ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Ковалев Н.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 95
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Ковалев Н.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
+      - *a28
 diagnostics: []
-semanticHash: 71fbd03090a9743dd70a105a6b65b286e29f42c8ec3643a3e3f075bb75a2700f
+semanticHash: 2080835516b91c2870ab320621c16fc258cdfda99075e941de3c8a7a984cb4d5

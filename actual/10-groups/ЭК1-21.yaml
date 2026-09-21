@@ -1042,6 +1042,120 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-22:
+    date: 2026-09-22
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
+          fetchedAt: 2026-09-21T15:52:03.628Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab12330-50e0"
+          lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+      second:
+        date: 2026-09-22
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
+          fetchedAt: 2026-09-21T15:52:03.627Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab10720-242a"
+          lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+    groups:
+      ЭК1-21:
+        group: ЭК1-21
+        date: 2026-09-22
+        day: Вторник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: denominator
+                sourceRow: 11
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 10
+              rowEnd: 11
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: both
+                sourceRow: 12
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 12
+              rowEnd: 13
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants: []
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 14
+              rowEnd: 15
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-22
+                  group: ЭК1-21
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: cancel
+                  original:
+                    raw: Осн.бух.учета
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 12
+                    rawGroupName: ЭК1-21
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Осн.бух.учета
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-abbreviation
+          - number: 5
+            variants: []
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 16
+              rowEnd: 17
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 5
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1097,4 +1211,4 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 9838288d25f5c4df7171f1a2a1a6bd016404836d8c9516cbbc8210f403cd0bfe
+semanticHash: bf53fee76f29dce58fca568855adb661ef8cbdaa5ade9654d0a195950e036e39
