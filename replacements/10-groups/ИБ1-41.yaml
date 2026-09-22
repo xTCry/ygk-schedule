@@ -667,7 +667,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -716,8 +716,76 @@ dates:
             rawValue: ИБ1-41 |  |  | Турист.поход
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
     replacements:
       - *a19
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
+          fetchedAt: 2026-09-22T14:01:14.466Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab2706c-2928"
+          lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        replacements:
+          - &a20
+            date: 2026-09-23
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01 п/гр.1 Ин.яз.
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              room: А203
+            source:
+              shift: second
+              row: 22
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 03.01 п/гр.1 Ин.яз.
+              rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              rawRoom: А203
+          - &a21
+            date: 2026-09-23
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01 п/гр.2
+            replacement:
+              raw: 1,2 п/гр.Web-прог. Серова А.М.
+              room: Б406
+            source:
+              shift: second
+              row: 23
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 п/гр.2
+              rawReplacement: 1,2 п/гр.Web-прог. Серова А.М.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a20
+      - *a21
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -740,4 +808,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: c3845c9300b5d9b50507a080e21aa0291b1969088294bb6dc1c76af971a5c0bb
+semanticHash: 75417828a779fd9dde091ed6c3ecbc15f8f7600471dc52fa50353c77594b3271

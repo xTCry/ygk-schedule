@@ -428,7 +428,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -459,7 +459,53 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
     replacements:
       - *a11
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
+          fetchedAt: 2026-09-22T14:01:14.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab26826-3bee"
+          lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        replacements:
+          - &a12
+            date: 2026-09-23
+            group: РК1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Подковкин А.Г.
+              room: Б501
+            source:
+              shift: first
+              row: 28
+              rawGroupName: РК1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Подковкин А.Г.
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a12
 diagnostics: []
-semanticHash: ef1694171e0539c7134e43f8d0aa8f76ee197a5ac4a6e22eb944604b860320df
+semanticHash: 71f6927056ffeccd74014a3f3e46615b1e1ccab1eb7922b94f7c79f823dcfc69

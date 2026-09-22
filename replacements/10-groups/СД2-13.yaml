@@ -485,5 +485,68 @@ dates:
           sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
     replacements:
       - *a12
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
+          fetchedAt: 2026-09-22T14:01:14.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab26826-3bee"
+          lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        replacements:
+          - &a13
+            date: 2026-09-23
+            group: СД2-13
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Тех.мех.МДК 02.02 Т.2.5.п/гр.
+            replacement:
+              raw: МДК 02.02 Т.2.5./теория Рангелова Н.М.
+              room: А202
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СД2-13
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.мех.МДК 02.02 Т.2.5.п/гр.
+              rawReplacement: МДК 02.02 Т.2.5./теория Рангелова Н.М.
+              rawRoom: А202
+          - &a14
+            date: 2026-09-23
+            group: СД2-13
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Физкультура Николаенко Ю.А.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СД2-13
+              rawLessonNumbers: "6"
+              rawOriginal: Тех.механика
+              rawReplacement: Физкультура Николаенко Ю.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: 570ff76cdc4b9bee3ce4557b418a3a91cfc91a3e41f15ba22c57aed09de439e2
+semanticHash: f0a066d006bb4d63b66762c260b9f986c3ed95893f9f9f411c5534d85f15baed

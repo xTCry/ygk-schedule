@@ -548,6 +548,49 @@ dates:
           sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
     replacements:
       - *a13
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
+          fetchedAt: 2026-09-22T14:01:14.466Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab2706c-2928"
+          lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        replacements:
+          - &a14
+            date: 2026-09-23
+            group: АР1-42
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Физкультура Дворниченко Г.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 30
+              rawGroupName: АР1-42
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.02
+              rawReplacement: Физкультура Дворниченко Г.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a14
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -570,4 +613,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 01663b97a071569f5d752a4673ae064f11f2a418b5f22c6cd3ba6af336c4500c
+semanticHash: ce2245604fd24feb0f278aa201ed1ec2cf9e69bdcbbd360bdfa8c378f75c4971

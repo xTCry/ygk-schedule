@@ -503,7 +503,7 @@ dates:
         date: 2026-09-22
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -513,11 +513,15 @@ dates:
           shift: first
           etag: W/"6ab12330-50e0"
           lastModified: Mon, 21 Sep 2026 12:29:36 GMT
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
       second:
         date: 2026-09-22
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -527,6 +531,10 @@ dates:
           shift: second
           etag: W/"6ab10720-242a"
           lastModified: Mon, 21 Sep 2026 10:29:52 GMT
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
     groups:
       ЮР1-33:
         group: ЮР1-33
@@ -603,6 +611,58 @@ dates:
                 lessonNumber: 2
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК 03.02 Правовые основы социальной работы с отдельными категориями
+                    граждан
+                  teacher: Бобкова Е.А.
+                  room: Ф302
+                  weekType: both
+                  rawSubject: "МДК 03.02 Правовые основы социальной работы с отдельными
+                    категориями граждан "
+                  sourceRow: 55
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 55
+                rowEnd: 56
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: both
+                  sourceRow: 57
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 57
+                rowEnd: 58
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: both
+                  sourceRow: 59
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 59
+                rowEnd: 60
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -645,4 +705,4 @@ diagnostics:
     rawValue: ЮР1-33 | 0.1 | МДК 03.01 | МДК 03.02 Бобкова Е.А.
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: abd74acb0ca7942bcf0bff53c63495a49deca480a9264f9da955694871f9f71e
+semanticHash: d449bf65ec5b16608418c57e8c0c93d3cf1ca006943f4d206e6d4a94d54f8928

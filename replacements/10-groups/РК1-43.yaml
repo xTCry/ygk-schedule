@@ -268,7 +268,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -300,7 +300,93 @@ dates:
               rawReplacement: МДК 03.01 Девятаева Н.Ф.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
     replacements:
       - *a7
-diagnostics: []
-semanticHash: 0eff23e80d66baa9b3983eb630fa42e6eb72d8f8318e3a5c00921b6d6eed114a
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
+          fetchedAt: 2026-09-22T14:01:14.466Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab2706c-2928"
+          lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        replacements:
+          - &a8
+            date: 2026-09-23
+            group: РК1-43
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: second
+              row: 29
+              rawGroupName: РК1-43
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 16f5ce70dfe49a83ccdc11579b7d5f4af0a860dd97637b97328d180f346434b9
+            sheet: "Замены: Вторая смена"
+            row: 29
+            normalizedGroup: РК1-43
+            rawValue: РК1-43 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 38b985d55a9d794a4b694cd2b496708758363815d65ec05929a23ecd73a658cf
+            sheet: "Замены: Вторая смена"
+            row: 29
+            normalizedGroup: РК1-43
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a8
+diagnostics:
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 16f5ce70dfe49a83ccdc11579b7d5f4af0a860dd97637b97328d180f346434b9
+    sheet: "Замены: Вторая смена"
+    row: 29
+    normalizedGroup: РК1-43
+    rawValue: РК1-43 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 38b985d55a9d794a4b694cd2b496708758363815d65ec05929a23ecd73a658cf
+    sheet: "Замены: Вторая смена"
+    row: 29
+    normalizedGroup: РК1-43
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: ac56ce0d0e47626359dd345b4245ac190f485c38cc19681d8cf73bc5933e128f

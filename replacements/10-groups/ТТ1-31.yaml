@@ -692,7 +692,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -724,7 +724,75 @@ dates:
               rawReplacement: Физкультура Кургузова М.С.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
     replacements:
       - *a23
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
+          fetchedAt: 2026-09-22T14:01:14.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab26826-3bee"
+          lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        replacements:
+          - &a24
+            date: 2026-09-23
+            group: ТТ1-31
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 06.01
+            replacement:
+              raw: Ин.язык Трусова Е.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 06.01
+              rawReplacement: Ин.язык Трусова Е.В.
+              rawRoom: ДОТ
+          - &a25
+            date: 2026-09-23
+            group: ТТ1-31
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 06.02, 06.03
+            replacement:
+              raw: Охрана труда Зевахина О.Б.
+              room: ДОТ
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 06.02, 06.03
+              rawReplacement: Охрана труда Зевахина О.Б.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: 5b9b13b163c0c6a24f63ff5b76f2d6cf964fe14c45ad7504eb8e63df9c118189
+semanticHash: d0e86ad6389bf2289fed6ce380c9e7bbc1e84b6cb08b509d09540a0c76fa02bd

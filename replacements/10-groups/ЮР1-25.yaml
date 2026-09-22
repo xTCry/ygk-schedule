@@ -817,7 +817,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -886,9 +886,93 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
     replacements:
       - *a24
       - *a25
       - *a26
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
+          fetchedAt: 2026-09-22T14:01:14.466Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab2706c-2928"
+          lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        replacements:
+          - &a27
+            date: 2026-09-23
+            group: ЮР1-25
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: Ф303
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: Ф303
+          - &a28
+            date: 2026-09-23
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Конст.право Богданова В.В.
+              room: Ф404
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Конст.право Богданова В.В.
+              rawRoom: Ф404
+          - &a29
+            date: 2026-09-23
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: История России
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 8
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: История России
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a27
+      - *a28
+      - *a29
 diagnostics: []
-semanticHash: 49bfc0153b39475f0711607105f0105cf77f1416a5a772bfb0ccd5af8e1fa178
+semanticHash: d85a2f9016b35a376a6e75d7619e2293e2169fcd477f86f7dc5a1089268e874d

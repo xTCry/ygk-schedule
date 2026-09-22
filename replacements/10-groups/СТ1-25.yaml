@@ -649,7 +649,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -699,8 +699,112 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
     replacements:
       - *a18
       - *a19
+  2026-09-23:
+    date: 2026-09-23
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-23
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
+          fetchedAt: 2026-09-22T14:01:14.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab26826-3bee"
+          lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        replacements:
+          - &a20
+            date: 2026-09-23
+            group: СТ1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Девлитянс О.В.
+              room: Б401
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Ин.язык Девлитянс О.В.
+              rawRoom: Б401
+          - &a21
+            date: 2026-09-23
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Матем.методы
+            replacement:
+              raw: МДК 02.02 Т.2.5. Трубин А.В.
+              room: Б401
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Матем.методы
+              rawReplacement: МДК 02.02 Т.2.5. Трубин А.В.
+              rawRoom: Б401
+          - &a22
+            date: 2026-09-23
+            group: СТ1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 7
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "5"
+              rawOriginal: Инф.технол.
+              rawReplacement: снято
+              rawRoom: ""
+          - &a23
+            date: 2026-09-23
+            group: СТ1-25
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Инф.технол.п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 8
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "6"
+              rawOriginal: Инф.технол.п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a20
+      - *a21
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 7b9fa45b0c9440da3de95809b92a84b80cc1bbf480a7936dd8ee540fe6084553
+semanticHash: 839b03b6ed64b57a740eee2de90f33156248b771169295ea1ef178d731bd412a
