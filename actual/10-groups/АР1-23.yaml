@@ -978,6 +978,169 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
+          fetchedAt: 2026-09-23T14:12:26.861Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab3a012-4abb"
+          lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+    groups:
+      АР1-23:
+        group: АР1-23
+        date: 2026-09-24
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Техническая механика п/гр 2
+                teacher: Калугина М.В.
+                room: Б409
+                weekType: both
+                subgroup: "2"
+                rawSubject: /теория Калугина М.В.
+                rawTeacher: Калугина М.В.
+                rawRoom: Б409
+                sourceRow: 25
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 78
+              rowEnd: 79
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-24
+                  group: АР1-23
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Тех.механика п/гр.2
+                  replacement:
+                    raw: /теория Калугина М.В.
+                    room: Б409
+                  source:
+                    shift: first
+                    row: 25
+                    rawGroupName: АР1-23
+                    rawLessonNumbers: "0"
+                    rawOriginal: Тех.механика п/гр.2
+                    rawReplacement: /теория Калугина М.В.
+                    rawRoom: Б409
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: МДК 02.01
+                teacher: Иванов Ю.А.
+                room: Б507
+                weekType: both
+                rawSubject: МДК 02.01/теория Иванов Ю.А.
+                rawTeacher: Иванов Ю.А.
+                rawRoom: Б507
+                sourceRow: 26
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 80
+              rowEnd: 81
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-24
+                  group: АР1-23
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: МДК 02.01/теория Иванов Ю.А.
+                    room: Б507
+                  source:
+                    shift: first
+                    row: 26
+                    rawGroupName: АР1-23
+                    rawLessonNumbers: "1"
+                    rawOriginal: Физкультура
+                    rawReplacement: МДК 02.01/теория Иванов Ю.А.
+                    rawRoom: Б507
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 82
+              rowEnd: 83
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-24
+                  group: АР1-23
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 01.03 п/гр.1
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 27
+                    rawGroupName: АР1-23
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 01.03 п/гр.1
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 84
+              rowEnd: 85
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1035,4 +1198,4 @@ diagnostics:
           sourceRow: 84
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 041dc01e66f3454420ba0152726d0053349d796420597921f3cd7b13989287e0
+semanticHash: 0110ec96fbf3e0e5f826c35b145a47a388dc7be57cb364429534b2da1ca539cd

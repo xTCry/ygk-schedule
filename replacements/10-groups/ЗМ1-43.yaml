@@ -518,5 +518,87 @@ dates:
           sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
     replacements:
       - *a12
-diagnostics: []
-semanticHash: 7f8f18d7aceccbdcac8d0a75cf6ae4b8c2e90276ad47fa8521c3b0984f0c18da
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
+          fetchedAt: 2026-09-23T14:12:26.861Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab3a012-4abb"
+          lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+        replacements:
+          - &a13
+            date: 2026-09-24
+            group: ЗМ1-43
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ЗМ1-43
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 4b2001f754060f12be07e5c42dec1afe04e06f6d4b7eeaa26ea3fb4806dd56ae
+            sheet: "Замены: Первая смена"
+            row: 37
+            normalizedGroup: ЗМ1-43
+            rawValue: ЗМ1-43 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 760f04859e5074b9e3a3306bb8e6c16796380fcda6e94dd3711c3ee0e687f91f
+            sheet: "Замены: Первая смена"
+            row: 37
+            normalizedGroup: ЗМ1-43
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    replacements:
+      - *a13
+diagnostics:
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 4b2001f754060f12be07e5c42dec1afe04e06f6d4b7eeaa26ea3fb4806dd56ae
+    sheet: "Замены: Первая смена"
+    row: 37
+    normalizedGroup: ЗМ1-43
+    rawValue: ЗМ1-43 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 760f04859e5074b9e3a3306bb8e6c16796380fcda6e94dd3711c3ee0e687f91f
+    sheet: "Замены: Первая смена"
+    row: 37
+    normalizedGroup: ЗМ1-43
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 80fa1e7cbf2cf802a355e324acaa52c067708e096cce8c7417161a12ba003cfd

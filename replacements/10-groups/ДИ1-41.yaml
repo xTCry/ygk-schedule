@@ -1079,7 +1079,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1148,9 +1148,95 @@ dates:
               rawReplacement: 1,2 п/гр. Ремизова А.И.
               rawRoom: Б407
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
     replacements:
       - *a34
       - *a35
       - *a36
-diagnostics: []
-semanticHash: c80b2bf96d64defc5ac97fa577d577a9b99b501ca4447e5cc9ce6a70e030243d
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        replacements:
+          - &a37
+            date: 2026-09-24
+            group: ДИ1-41
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: second
+              row: 24
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 36bc407a7fb9ac131a6077c3b7d1138ce116d5f35bfd94192ecbd6efc72fe183
+            sheet: "Замены: Вторая смена"
+            row: 24
+            normalizedGroup: ДИ1-41
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 82e7ea752adbfa708221cf4d7159179b2a668db260005b87ab648b6869e5296b
+            sheet: "Замены: Вторая смена"
+            row: 24
+            normalizedGroup: ДИ1-41
+            rawValue: ДИ1-41 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a37
+diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 36bc407a7fb9ac131a6077c3b7d1138ce116d5f35bfd94192ecbd6efc72fe183
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ДИ1-41
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 82e7ea752adbfa708221cf4d7159179b2a668db260005b87ab648b6869e5296b
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ДИ1-41
+    rawValue: ДИ1-41 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: 7e78bfe9884db69d3d139baeffdfa858e9097fc91318a4f6a67e4bbcee153d69

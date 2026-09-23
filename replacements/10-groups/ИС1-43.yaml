@@ -950,7 +950,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -981,7 +981,75 @@ dates:
               rawReplacement: 1,2 п/гр.УП 05 Васильченко М.О.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
     replacements:
       - *a29
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        replacements:
+          - &a30
+            date: 2026-09-24
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 03.02 Юров А.А.
+              room: Б202
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 03.02 Юров А.А.
+              rawRoom: Б202
+          - &a31
+            date: 2026-09-24
+            group: ИС1-43
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр.1
+            replacement:
+              raw: МДК 05.02 Королева П.Д.Васильченко М.О.
+              room: Б302Б304
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИС1-43
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 05.03 п/гр.1
+              rawReplacement: МДК 05.02 Королева П.Д.Васильченко М.О.
+              rawRoom: Б302Б304
+        diagnostics: []
+    replacements:
+      - *a30
+      - *a31
 diagnostics: []
-semanticHash: f720998aefe243473f7c0cc0705523c97cc4b2abddc1bdee3db8dabaee68aa3e
+semanticHash: f02f7857e915d7630776238b4a2b852fb3097cb3766e72cee3812f44b062f119

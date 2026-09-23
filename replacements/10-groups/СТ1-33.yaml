@@ -421,7 +421,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -452,7 +452,74 @@ dates:
               rawReplacement: МДК 01.01 Т.1.2. Секацкая Н.А.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
     replacements:
       - *a12
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        replacements:
+          - &a13
+            date: 2026-09-24
+            group: СТ1-33
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01 Т1.3.
+            replacement:
+              raw: МДК 02.01 Т1.4.п/гр.1 Андреева Ю.Р.
+              room: ДОТ
+            source:
+              shift: second
+              row: 4
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01 Т1.3.
+              rawReplacement: МДК 02.01 Т1.4.п/гр.1 Андреева Ю.Р.
+              rawRoom: ДОТ
+          - &a14
+            date: 2026-09-24
+            group: СТ1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 Т1.3.
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: ДОТ
+            source:
+              shift: second
+              row: 3
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 Т1.3.
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: fe0056d132f50c4991171828bb4d4c07b29ff0ed0996ddba8a6d17541715e836
+semanticHash: c24b1ef8cfc139ec41ec8c68cbf746bc0715cb6c93de138adba21f417594715e

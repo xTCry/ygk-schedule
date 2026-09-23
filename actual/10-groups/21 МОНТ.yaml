@@ -1476,6 +1476,128 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
+          fetchedAt: 2026-09-23T14:12:26.861Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab3a012-4abb"
+          lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+    groups:
+      21 МОНТ:
+        group: 21 МОНТ
+        date: 2026-09-24
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физическая культура
+                teacher: Шпынов Ю.Г.
+                room: сп.зал
+                weekType: both
+                sourceRow: 180
+            source:
+              sheet: 1 курс
+              rowStart: 180
+              rowEnd: 181
+              rawGroupName: 21 МОНТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Литература
+                teacher: Федотова Л.А.
+                room: к.31
+                weekType: both
+                sourceRow: 182
+            source:
+              sheet: 1 курс
+              rowStart: 182
+              rowEnd: 183
+              rawGroupName: 21 МОНТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: История
+                teacher: Вагушева Е.А.
+                room: к.23
+                weekType: both
+                sourceRow: 184
+            source:
+              sheet: 1 курс
+              rowStart: 184
+              rowEnd: 185
+              rawGroupName: 21 МОНТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Информатика
+                teacher: Ефимова А.С.
+                room: к.34
+                weekType: denominator
+                sourceRow: 187
+            source:
+              sheet: 1 курс
+              rowStart: 186
+              rowEnd: 187
+              rawGroupName: 21 МОНТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-09-24
+              group: 21 МОНТ
+              lessonNumbers:
+                - 3
+              type: cancel
+              original: null
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 79
+                rawGroupName: 21 МОНТ
+                rawLessonNumbers: "3"
+                rawOriginal: ""
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По замене: «снято»."
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1506,4 +1628,28 @@ diagnostics:
           sourceRow: 187
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b8f2912e266ed286044c6efb76d02af8a81134d9e3c27db30d1c7dc9eb923f77
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: cb852136c2ae9c116922e77df073f7d742cd8858004d8f585b6be62f180ed008
+    sheet: "Замены: Первая смена"
+    row: 79
+    normalizedGroup: 21 МОНТ
+    rawValue: снято
+    context:
+      date: 2026-09-24
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+      baseGroup: 21 МОНТ
+      baseSourceFiles:
+        - ort.xlsx
+      candidates:
+        - subject: Информатика
+          teacher: Ефимова А.С.
+          room: к.34
+          sourceRow: 187
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: dc9d2c98061c895d3220e2c66498799713814042a4a145fed94a80e1dfa78079

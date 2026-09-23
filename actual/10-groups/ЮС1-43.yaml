@@ -538,6 +538,123 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
+          fetchedAt: 2026-09-23T14:12:26.861Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab3a012-4abb"
+          lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+    groups:
+      ЮС1-43:
+        group: ЮС1-43
+        date: 2026-09-24
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Уголовное право и уголовный процесс
+                teacher: Малышева Н.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 72
+                rawRoom: ДОТ
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: ЮС1-43/ЮС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-24
+                  group: ЮС1-43
+                  lessonNumbers:
+                    - 1
+                    - 2
+                    - 3
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 76
+                    rawGroupName: ЮС1-43
+                    rawLessonNumbers: 1-3
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: Эффективное поведение на рынке труда
+                teacher: Девятаева Н.Ф.
+                room: ДОТ
+                weekType: denominator
+                rawTeacher: "Девятаева Н.Ф. "
+                sourceRow: 75
+                rawRoom: ДОТ
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 74
+              rowEnd: 75
+              rawGroupName: ЮС1-43/ЮС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 2
+                strategy: scheduled-room
+          - number: 3
+            variants:
+              - subject: Правоохранительные и судебные органы
+                teacher: Малышева Н.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 76
+                rawRoom: ДОТ
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 76
+              rowEnd: 77
+              rawGroupName: ЮС1-43/ЮС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 3
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -560,4 +677,4 @@ diagnostics:
     rawValue: ЮС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0dce9cee80b633caf6fee15d4925db33028d7cc597d6c306a4da0c7bf58c4748
+semanticHash: 937d5e9c047ee069af9e2e4c8c3c950bced393292858474822346dc9989104eb

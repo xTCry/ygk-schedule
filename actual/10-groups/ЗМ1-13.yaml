@@ -1739,7 +1739,7 @@ dates:
         date: 2026-09-23
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1749,11 +1749,15 @@ dates:
           shift: first
           etag: W/"6ab26826-3bee"
           lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
       second:
         date: 2026-09-23
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1763,6 +1767,10 @@ dates:
           shift: second
           etag: W/"6ab2706c-2928"
           lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
     groups:
       ЗМ1-13:
         group: ЗМ1-13
@@ -1881,6 +1889,55 @@ dates:
                 lessonNumber: 2
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Математика
+                  teacher: Кашурина Н.Н.
+                  room: М207
+                  weekType: both
+                  sourceRow: 68
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 68
+                rowEnd: 69
+                rawGroupName: ЗМ1-13/ЗМ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Физическая культура
+                  teacher: Кургузова М.С.
+                  room: Сп.зал
+                  weekType: denominator
+                  sourceRow: 71
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 70
+                rowEnd: 71
+                rawGroupName: ЗМ1-13/ЗМ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: История
+                  teacher: Новиков М.П.
+                  room: Б508
+                  weekType: both
+                  sourceRow: 72
+              source:
+                sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+                rowStart: 72
+                rowEnd: 73
+                rawGroupName: ЗМ1-13/ЗМ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1907,4 +1964,4 @@ diagnostics:
           sourceRow: 70
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0fea787800f4c8d07e9139f8ebafb5726160aea67fdadb024c01f90daae7a431
+semanticHash: ba3e9fdeea03345be3164bb2933fbde5bc37956ef4fa2a6027f9db82401f4f08

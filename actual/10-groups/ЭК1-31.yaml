@@ -766,7 +766,7 @@ dates:
         date: 2026-09-23
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -776,11 +776,15 @@ dates:
           shift: first
           etag: W/"6ab26826-3bee"
           lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
       second:
         date: 2026-09-23
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -790,6 +794,10 @@ dates:
           shift: second
           etag: W/"6ab2706c-2928"
           lastModified: Tue, 22 Sep 2026 12:11:24 GMT
+        finalizedBy:
+          date: 2026-09-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
     groups:
       ЭК1-31:
         group: ЭК1-31
@@ -868,6 +876,195 @@ dates:
               description: "По расписанию: «МДК 04.03». По замене: «МДК 04.01 Бежина М.И.».
                 Аудитория: «Ф302»."
               room: Ф302
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК.04.01 Технология составления бухгалтерской отчетности
+                  teacher: Бежина М.И.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 66
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 66
+                rowEnd: 67
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.04.02 Основы анализа бухгалтерской отчетности
+                  teacher: Бежина М.И.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 68
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 68
+                rowEnd: 69
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Менеджмент
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: both
+                  sourceRow: 70
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 70
+                rowEnd: 71
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-24:
+    date: 2026-09-24
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 59aba044ceb48c892a6462d4525f673a8e97fa36bbde681d48ce2f72d067f051
+          fetchedAt: 2026-09-23T14:12:26.861Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab3a012-4abb"
+          lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+      second:
+        date: 2026-09-24
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
+          fetchedAt: 2026-09-23T14:12:27.300Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab3c3b9-2254"
+          lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+    groups:
+      ЭК1-31:
+        group: ЭК1-31
+        date: 2026-09-24
+        day: Четверг
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 73
+              rowEnd: 74
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-24
+                  group: ЭК1-31
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: cancel
+                  original:
+                    raw: УП 04.01 п/гр.2 МДК 01.01
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 73
+                    rawGroupName: ЭК1-31
+                    rawLessonNumbers: 0,1
+                    rawOriginal: УП 04.01 п/гр.2 МДК 01.01
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+                teacher: Ноева О.В.
+                room: Ф205
+                weekType: both
+                sourceRow: 75
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 04.01
+                teacher: Бежина М.И.
+                room: Ф302
+                weekType: both
+                rawSubject: МДК 04.01 Бежина М.И.
+                rawTeacher: Бежина М.И.
+                rawRoom: Ф302
+                sourceRow: 74
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 77
+              rowEnd: 78
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a3
+                  date: 2026-09-24
+                  group: ЭК1-31
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 04.02
+                  replacement:
+                    raw: МДК 04.01 Бежина М.И.
+                    room: Ф302
+                  source:
+                    shift: first
+                    row: 74
+                    rawGroupName: ЭК1-31
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 04.02
+                    rawReplacement: МДК 04.01 Бежина М.И.
+                    rawRoom: Ф302
+                lessonNumber: 2
+                strategy: subject-module-code
+        unresolvedReplacements:
+          - replacement: *a2
+            lessonNumber: 1
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 04.01 п/гр.2 МДК 01.01». По замене: «снято»."
+          - replacement: *a3
+            lessonNumber: 3
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 04.02». По замене: «МДК 04.01 Бежина М.И.».
+                Аудитория: «Ф302»."
+              room: Ф302
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -897,6 +1094,52 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 50f5538bb1d10b0b4dd3f4d91d61338e89ea564dfb8e961972d7de846c95b567
+    sheet: "Замены: Первая смена"
+    row: 73
+    normalizedGroup: ЭК1-31
+    rawValue: снято
+    context:
+      date: 2026-09-24
+      lessonNumber: 1
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: ЭК1-31
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: УП 04.01 МДК 01.01
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+          teacher: Ноева О.В.
+          room: Ф205
+          sourceRow: 75
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: bab115f4cec346ecf13e790212395b9dd1d5de6510f66f617293f09f4adc7e6c
+    sheet: "Замены: Первая смена"
+    row: 74
+    normalizedGroup: ЭК1-31
+    rawValue: МДК 04.01 Бежина М.И.
+    context:
+      date: 2026-09-24
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЭК1-31
+      baseSourceFiles:
+        - out.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: c681c5d79da26c4a491f3fd27052ff1c77faed2dad7eea51c72c75b963c673c0
     sheet: "Замены: Первая смена"
@@ -919,4 +1162,4 @@ diagnostics:
           sourceRow: 77
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2d8f01e4e89b9d61d3c43ab068694bf3edd1508cd1b481743b572e6dcda6d38d
+semanticHash: b2b9cfe5d110d02fed8fe86f3d406f30e35aa3808c37ec3820a0183b1359581b
