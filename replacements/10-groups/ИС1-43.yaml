@@ -997,7 +997,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1048,8 +1048,94 @@ dates:
               rawReplacement: МДК 05.02 Королева П.Д.Васильченко М.О.
               rawRoom: Б302Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     replacements:
       - *a30
       - *a31
-diagnostics: []
-semanticHash: f02f7857e915d7630776238b4a2b852fb3097cb3766e72cee3812f44b062f119
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        replacements:
+          - &a32
+            date: 2026-09-25
+            group: ИС1-43
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: second
+              row: 10
+              rawGroupName: ИС1-43
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 3d5614d616e8356bc4173bd944b6d2cb3b4d7e1ef93babf373522a8134dc63af
+            sheet: "Замены: Вторая смена"
+            row: 10
+            normalizedGroup: ИС1-43
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 979462b0842edb1df797ffddc12f79aa15c6b65cf1d80049522a7d958156d580
+            sheet: "Замены: Вторая смена"
+            row: 10
+            normalizedGroup: ИС1-43
+            rawValue: ИС1-43 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    replacements:
+      - *a32
+diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 3d5614d616e8356bc4173bd944b6d2cb3b4d7e1ef93babf373522a8134dc63af
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИС1-43
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 979462b0842edb1df797ffddc12f79aa15c6b65cf1d80049522a7d958156d580
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИС1-43
+    rawValue: ИС1-43 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+semanticHash: f0d72ebc2fc16205969a60fbe4cabe65fb70442faac3dca34697710947ffefad

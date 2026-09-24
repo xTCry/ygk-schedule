@@ -2626,7 +2626,7 @@ dates:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2636,11 +2636,15 @@ dates:
           shift: first
           etag: W/"6ab3a012-4abb"
           lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
       second:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2650,6 +2654,10 @@ dates:
           shift: second
           etag: W/"6ab3c3b9-2254"
           lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     groups:
       СА1-41:
         group: СА1-41
@@ -2811,6 +2819,72 @@ dates:
                 lessonNumber: 4
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК.02.01 Админ-ие сетевых ОС
+                  teacher: Грехова Е.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 126
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 126
+                rowEnd: 127
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.02.02 Программное обеспечение КС
+                  teacher: Грехова Е.И.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 129
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 128
+                rowEnd: 129
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.03.02 Безопасность КС
+                  teacher: Груздев В.В.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 131
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 130
+                rowEnd: 131
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: УП 03 Учебная практика
+                  teacher: |-
+                    Зайцев Р.А.
+                    Грехова Е.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 132
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 132
+                rowEnd: 133
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2952,4 +3026,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6ad2085862eef11a98c8cc7cea06d36d3997df73dbf84b5685a9c764f7ec996f
+semanticHash: 83f3a3389d6a686ae4a4303efd5e5f75ea0d5b8ac01453dd31c6c56b02e5654d

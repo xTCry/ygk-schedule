@@ -633,7 +633,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -682,8 +682,55 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a20
       - *a21
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a22
+            date: 2026-09-25
+            group: ПО1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Инд.проект Харавинина Л.Н.Шереметьева Н.В.
+              room: Б204М106
+            source:
+              shift: first
+              row: 20
+              rawGroupName: ПО1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Инд.проект Харавинина Л.Н.Шереметьева Н.В.
+              rawRoom: Б204М106
+        diagnostics: []
+    replacements:
+      - *a22
 diagnostics: []
-semanticHash: bb98d806aceae19c763c08fab1367ea339a3aa082c1454d7409ae1e404135c50
+semanticHash: 33e6b826985ea4802e73101e384fceacb4464f86d21005670d29812b5e344bc6

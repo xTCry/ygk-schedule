@@ -972,7 +972,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1021,8 +1021,55 @@ dates:
             normalizedGroup: ИС1-41
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     replacements:
       - *a29
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        replacements:
+          - &a30
+            date: 2026-09-25
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: 1,2 п/гр. Неделяева Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: УП 03
+              rawReplacement: 1,2 п/гр. Неделяева Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a30
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1045,4 +1092,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d62f65a25b384b81226db4f6069181265efe360dc5502e639691f566d0b766e2
+semanticHash: 20923e700544cd9caf85d58ed50af039ed105f77fe3167e7f5803539de3a63d6

@@ -562,7 +562,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -612,8 +612,76 @@ dates:
               rawReplacement: МДК 06.01 Гасенина М.П.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a15
       - *a16
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a17
+            date: 2026-09-25
+            group: СД2-13
+            lessonNumbers:
+              - 2
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык...
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Махрова Н.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СД2-13
+              rawLessonNumbers: 2,5
+              rawOriginal: Ин.язык...
+              rawReplacement: 1,2 п/гр.Ин.язык Махрова Н.Н.
+              rawRoom: ДОТ
+          - &a18
+            date: 2026-09-25
+            group: СД2-13
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: Матем.методы Гаврилова М.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СД2-13
+              rawLessonNumbers: "4"
+              rawOriginal: История России
+              rawReplacement: Матем.методы Гаврилова М.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
 diagnostics: []
-semanticHash: 18d092bbc96e405facef68e4a46d73fe63e3eb4f3a145d4bf01153949a183d21
+semanticHash: 17ff66f4d715bcf6e041beba6741b8c64039332398fd831ab95ed33ad1c336e5

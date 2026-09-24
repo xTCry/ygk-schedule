@@ -664,7 +664,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -695,7 +695,54 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a19
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a20
+            date: 2026-09-25
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Русский язык Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 21
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: Инд.проект
+              rawReplacement: Русский язык Шалаева А.А.
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a20
 diagnostics: []
-semanticHash: 422d86fd7bba6c64d299457f08cfb32370bf201dbd153bb073d64c40f49eee97
+semanticHash: eae349e8965733c82e71c2719e3779d88a61fdb8d7f526a52b91ad8984b02d08

@@ -151,7 +151,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -182,7 +182,93 @@ dates:
               rawReplacement: Общ.свед. Нечипорук О.Л.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a4
-diagnostics: []
-semanticHash: 82bd033133295f7bb96dd50a47d4594f3e18b577d10a36344f0b211b6f65e1e0
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a5
+            date: 2026-09-25
+            group: СТ1-45
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-45
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 528488bd967badaa7cfbc57196633c1b2cc6f19c079a7ee760c016f212b468d4
+            sheet: "Замены: Первая смена"
+            row: 2
+            normalizedGroup: СТ1-45
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: a86cc635e7193104380ab5c6a3112f41c92d3433fd05aedeff91d6a1c8a213e2
+            sheet: "Замены: Первая смена"
+            row: 2
+            normalizedGroup: СТ1-45
+            rawValue: СТ1-45 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    replacements:
+      - *a5
+diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 528488bd967badaa7cfbc57196633c1b2cc6f19c079a7ee760c016f212b468d4
+    sheet: "Замены: Первая смена"
+    row: 2
+    normalizedGroup: СТ1-45
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: a86cc635e7193104380ab5c6a3112f41c92d3433fd05aedeff91d6a1c8a213e2
+    sheet: "Замены: Первая смена"
+    row: 2
+    normalizedGroup: СТ1-45
+    rawValue: СТ1-45 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 724a88324f7e35a83316a6a7901a7fb1b7d06cc045ef26b7a6a75a722c190424

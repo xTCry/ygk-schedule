@@ -1891,7 +1891,7 @@ dates:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1901,11 +1901,15 @@ dates:
           shift: first
           etag: W/"6ab3a012-4abb"
           lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
       second:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1915,6 +1919,10 @@ dates:
           shift: second
           etag: W/"6ab3c3b9-2254"
           lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     groups:
       ДИ1-13:
         group: ДИ1-13
@@ -1991,6 +1999,57 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Основы шахматной игры
+                  teacher: Дворниченко Г.В.
+                  room: А201
+                  weekType: denominator
+                  sourceRow: 184
+              source:
+                sheet: 1 курс
+                rowStart: 183
+                rowEnd: 184
+                rawGroupName: ДИ1-13/ДИ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Индивидуальный проект
+                  teacher: |-
+                    Мишуринская Е.Ю.
+                    Климова А.А.
+                  room: Б507
+                  weekType: denominator
+                  sourceRow: 186
+              source:
+                sheet: 1 курс
+                rowStart: 185
+                rowEnd: 186
+                rawGroupName: ДИ1-13/ДИ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Литература
+                  teacher: Баранова С.Г.
+                  room: А201
+                  weekType: both
+                  sourceRow: 187
+              source:
+                sheet: 1 курс
+                rowStart: 187
+                rowEnd: 188
+                rawGroupName: ДИ1-13/ДИ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2055,4 +2114,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 233310a24924d333f5802f7eb028e75fd4e02ad7f4fa896197e6bd4c6f542d43
+semanticHash: 381da7db98089e5afbfe163f61004521475ea224cc579d055b3a2e7460044121

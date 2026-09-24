@@ -1904,7 +1904,7 @@ dates:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1914,11 +1914,15 @@ dates:
           shift: first
           etag: W/"6ab3a012-4abb"
           lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
       second:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1928,6 +1932,10 @@ dates:
           shift: second
           etag: W/"6ab3c3b9-2254"
           lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     groups:
       АР1-42:
         group: АР1-42
@@ -2022,6 +2030,155 @@ dates:
                 lessonNumber: 6
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3
+                  teacher: Вакансия
+                  room: В102
+                  weekType: both
+                  sourceRow: 239
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 239
+                rowEnd: 240
+                rawGroupName: АР1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.1
+                  teacher: Балина С.А.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 241
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 241
+                rowEnd: 242
+                rawGroupName: АР1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+    groups:
+      АР1-42:
+        group: АР1-42
+        date: 2026-09-25
+        day: Пятница
+        lessons:
+          - number: 3
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 244
+              rowEnd: 245
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-25
+                  group: АР1-42
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 02.02
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 33
+                    rawGroupName: АР1-42
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 02.02
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
+                teacher: Жарова Н.И.
+                room: Б508
+                weekType: both
+                sourceRow: 246
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 246
+              rowEnd: 247
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
+                teacher: Жарова Н.И.
+                room: Б508
+                weekType: both
+                sourceRow: 248
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 248
+              rowEnd: 249
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
+                teacher: Жарова Н.И.
+                room: Б508
+                weekType: both
+                sourceRow: 250
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 250
+              rowEnd: 251
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2044,4 +2201,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 40a81af22a83e71225c9cc9621cb0a413c2cd42812f4d635664fee508b604e64
+semanticHash: f6144c34b1fb4ad1e9d61ec63ea08916a259e5bb3fb45daeb9bc78f47a7eab6c

@@ -1777,8 +1777,146 @@
           }
         }
       }
+    },
+    "2026-09-25": {
+      "date": "2026-09-25",
+      "day": "Пятница",
+      "weekType": "denominator",
+      "shifts": {
+        "first": {
+          "date": "2026-09-25",
+          "day": "Пятница",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f",
+            "fetchedAt": "2026-09-24T14:10:48.609Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6ab51904-43ff\"",
+            "lastModified": "Thu, 24 Sep 2026 12:35:16 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-09-25",
+          "day": "Пятница",
+          "weekType": "denominator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a",
+            "fetchedAt": "2026-09-24T14:10:48.552Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6ab50046-216d\"",
+            "lastModified": "Thu, 24 Sep 2026 10:49:42 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ДИ1-45": {
+          "group": "ДИ1-45",
+          "date": "2026-09-25",
+          "day": "Пятница",
+          "lessons": [
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "МДК 02.02 Основы конструкторско-технологического обеспечения дизайна",
+                  "teacher": "Ремизова А.И.",
+                  "room": "Б507",
+                  "weekType": "both",
+                  "sourceRow": 132
+                }
+              ],
+              "source": {
+                "sheet": "ДИ-4курс",
+                "rowStart": 132,
+                "rowEnd": 133,
+                "rawGroupName": "ДИ1-45/2-31",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Чупрова П.А.",
+                  "room": "Сп.зал",
+                  "weekType": "both",
+                  "sourceRow": 134
+                }
+              ],
+              "source": {
+                "sheet": "ДИ-4курс",
+                "rowStart": 134,
+                "rowEnd": 135,
+                "rawGroupName": "ДИ1-45/2-31",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 6,
+              "variants": [
+                {
+                  "subject": "МДК 01.02 Основы проектной и компьютерной графики",
+                  "teacher": "Вакансия",
+                  "room": "Б407",
+                  "weekType": "denominator",
+                  "sourceRow": 137
+                }
+              ],
+              "source": {
+                "sheet": "ДИ-4курс",
+                "rowStart": 136,
+                "rowEnd": 137,
+                "rawGroupName": "ДИ1-45/2-31",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": []
+        }
+      }
     }
   },
-  "diagnostics": [],
-  "semanticHash": "cb3f6655a0da83654478a7614e2eb015f62af7535637abd0f099bbd7ae458d07"
+  "diagnostics": [
+    {
+      "provider": "ygk",
+      "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+      "severity": "warning",
+      "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+      "fingerprint": "919dfdf4f8042593e064b1dc94d8f90902b27f74b01d96fde851acf7bca08196",
+      "sheet": "Замены: Вторая смена",
+      "row": 22,
+      "normalizedGroup": "ДИ1-45",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNKNOWN_REPLACEMENT_TYPE",
+      "severity": "warning",
+      "message": "Строка замен не содержит данных, достаточных для определения действия",
+      "fingerprint": "99fd1a4ba52c07bd987e7be14d606e7de983e9dbaf3f21ef675119a26f59d8b4",
+      "sheet": "Замены: Вторая смена",
+      "row": 22,
+      "normalizedGroup": "ДИ1-45",
+      "rawValue": "ДИ1-45 |  |  | Тур.поход",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    }
+  ],
+  "semanticHash": "6dd9bbd0442b078d5bdd13cebecab28e4c136f9a3318c63d9db1e22d79629b52"
 }

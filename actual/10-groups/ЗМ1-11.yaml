@@ -1461,6 +1461,147 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+    groups:
+      ЗМ1-11:
+        group: ЗМ1-11
+        date: 2026-09-25
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Информатика п/гр 2
+                teacher: Яковлева Е.Н.
+                room: Б204
+                weekType: denominator
+                subgroup: "2"
+                sourceRow: 35
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 34
+              rowEnd: 35
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Бабарыкова Э.В.
+                room: А202
+                weekType: both
+                sourceRow: 36
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 36
+              rowEnd: 37
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Информ.
+                teacher: Яковлева Е.Н.
+                room: Б305
+                weekType: both
+                subgroup: "1"
+                rawSubject: Информ.п/гр.1 Яковлева Е.Н.
+                rawTeacher: Яковлева Е.Н.
+                rawRoom: Б305
+                sourceRow: 40
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 38
+              rowEnd: 39
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-25
+                  group: ЗМ1-11
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: Информ.п/гр.1 Яковлева Е.Н.
+                    room: Б305
+                  source:
+                    shift: first
+                    row: 40
+                    rawGroupName: ЗМ1-11
+                    rawLessonNumbers: "2"
+                    rawOriginal: Физкультура
+                    rawReplacement: Информ.п/гр.1 Яковлева Е.Н.
+                    rawRoom: Б305
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants: []
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 40
+              rowEnd: 41
+              rawGroupName: ЗМ1-11/ЗМ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-25
+                  group: ЗМ1-11
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 41
+                    rawGroupName: ЗМ1-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: Физкультура
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1487,4 +1628,4 @@ diagnostics:
           sourceRow: 27
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 93ccf7f491ce852ff523c3fc5c8e5b96521cf6c26d500f18db792093883a344b
+semanticHash: 0aa465c2440add17d5aa470bf2e48298f7a6ebd1914365c885e9e1129f10a1de

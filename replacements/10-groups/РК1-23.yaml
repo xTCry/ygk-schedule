@@ -332,7 +332,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -363,7 +363,53 @@ dates:
               rawReplacement: /теория Вепрева Ю.Ю.
               rawRoom: Б309
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a9
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a10
+            date: 2026-09-25
+            group: РК1-23
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 19
+              rawGroupName: РК1-23
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics: []
-semanticHash: 04212df74a5dee991aa6c52646e025ca3f8a47746186917f4ccd7594787e1b03
+semanticHash: 1cf20640a5e51f479b71ed20a7f35b0a0ea4c6c50534144a7271495fb31c160f

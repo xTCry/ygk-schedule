@@ -1044,7 +1044,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1093,9 +1093,76 @@ dates:
               rawReplacement: Ремизова А.И.Матвеичева К.А.
               rawRoom: Б301Б309
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     replacements:
       - *a30
       - *a31
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        replacements:
+          - &a32
+            date: 2026-09-25
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 31
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "4"
+              rawOriginal: Рисунок
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: Б207Б208
+          - &a33
+            date: 2026-09-25
+            group: ДИ1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Живопись
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "5"
+              rawOriginal: Живопись
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: Б207Б208
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1118,4 +1185,4 @@ diagnostics:
     normalizedGroup: ДИ1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 56c358fe85d28e0374751c152b5a8e70ad074a1b8a9f26d7deba7406d08670d1
+semanticHash: db7fd10f985fd03d50a443d7deacf24201bffa3f56190cf67c2febfde2af6e69

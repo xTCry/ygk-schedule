@@ -820,7 +820,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -870,8 +870,75 @@ dates:
               rawReplacement: МДК 06.01 Гасенина М.П.
               rawRoom: А201
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a24
       - *a25
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a26
+            date: 2026-09-25
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Тех.механика п/гр.1
+            replacement:
+              raw: МДК 05.01 п/гр.1 Топчиян Е.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 13
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: Тех.механика п/гр.1
+              rawReplacement: МДК 05.01 п/гр.1 Топчиян Е.А.
+              rawRoom: ДОТ
+          - &a27
+            date: 2026-09-25
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 05.01 п/гр.2 Топчиян Е.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 05.01 п/гр.2 Топчиян Е.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
 diagnostics: []
-semanticHash: b49f7de62495c77bc20d7af3feb5d29f58026b3635238fb682778bab1e5d40e2
+semanticHash: 573aa7836ff144ae6ae10d6017242bbb7bbc31d5b8c66bdaa38c0ac64ae034dc

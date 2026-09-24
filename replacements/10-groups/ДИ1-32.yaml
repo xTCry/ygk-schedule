@@ -609,7 +609,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -677,9 +677,75 @@ dates:
               rawReplacement: /теория Парамонов В.И.
               rawRoom: Б204
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     replacements:
       - *a16
       - *a17
       - *a18
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        replacements:
+          - &a19
+            date: 2026-09-25
+            group: ДИ1-32
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Махоткина Д.Е.Матвеичева К.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.02
+              rawReplacement: Махоткина Д.Е.Матвеичева К.А.
+              rawRoom: ДОТ
+          - &a20
+            date: 2026-09-25
+            group: ДИ1-32
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.02 п/гр.2 Матвеичева К.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 01.02 п/гр.2 Матвеичева К.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: ce383cf50052b1bf63455b99cf9f9e607602b274e02ae8a672f1168ffe731f9a
+semanticHash: cbb98a0e18b6abeaadb517c39c3088b17065f6e77c8582152d087bec67e0a0ea

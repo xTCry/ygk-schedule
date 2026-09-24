@@ -708,7 +708,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -739,7 +739,74 @@ dates:
               rawReplacement: Гасенина М.П.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a21
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a22
+            date: 2026-09-25
+            group: СД2-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: МДК 06.01 Гасенина М.П.
+              room: М101
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СД2-11
+              rawLessonNumbers: "3"
+              rawOriginal: История России
+              rawReplacement: МДК 06.01 Гасенина М.П.
+              rawRoom: М101
+          - &a23
+            date: 2026-09-25
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: МДК 06.01 Гасенина М.П.
+              room: Б504
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.технол.
+              rawReplacement: МДК 06.01 Гасенина М.П.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 3225dd19c3bac35e91ebf18a0e73a2cf3843fe9fdbc032ec4f78a73ce7424655
+semanticHash: 725d78687b945b3e530a63ed951dfbf41aa5735a8d1fede7c49b0dc608fb7441

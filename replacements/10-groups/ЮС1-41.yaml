@@ -174,7 +174,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -205,7 +205,93 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a5
-diagnostics: []
-semanticHash: a33d77fc41f32b3064b541df46c9814e15808ba810855be28388c2c79a890c2f
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a6
+            date: 2026-09-25
+            group: ЮС1-41
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Тур.поход
+            source:
+              shift: first
+              row: 58
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: ""
+              rawOriginal: ""
+              rawReplacement: Тур.поход
+              rawRoom: ""
+        diagnostics:
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 28bace118d69cb633284334a43c51b4ab3d7c24ab208c4e68a93a8b50a11d79b
+            sheet: "Замены: Первая смена"
+            row: 58
+            normalizedGroup: ЮС1-41
+            rawValue: ЮС1-41 |  |  | Тур.поход
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 75496ba76878834b35e66de88f231e323f46985d91a8a9fbe14d06a9d3f2c078
+            sheet: "Замены: Первая смена"
+            row: 58
+            normalizedGroup: ЮС1-41
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    replacements:
+      - *a6
+diagnostics:
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 28bace118d69cb633284334a43c51b4ab3d7c24ab208c4e68a93a8b50a11d79b
+    sheet: "Замены: Первая смена"
+    row: 58
+    normalizedGroup: ЮС1-41
+    rawValue: ЮС1-41 |  |  | Тур.поход
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 75496ba76878834b35e66de88f231e323f46985d91a8a9fbe14d06a9d3f2c078
+    sheet: "Замены: Первая смена"
+    row: 58
+    normalizedGroup: ЮС1-41
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 60e2a802b35bae034cfbb03856e78dc36fa3be5f9350a1d8a420f2c9089f68b1

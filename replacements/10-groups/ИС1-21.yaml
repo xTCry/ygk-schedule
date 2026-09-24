@@ -559,7 +559,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -626,9 +626,56 @@ dates:
               rawReplacement: МДК 06.01 Пронина Л.Ю.Байдина Ю.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a15
       - *a16
       - *a17
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        replacements:
+          - &a18
+            date: 2026-09-25
+            group: ИС1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Арх.аппар.ср.
+            replacement:
+              raw: 1,2 п/гр. Садилова К.А.
+              room: Б406
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ИС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Арх.аппар.ср.
+              rawReplacement: 1,2 п/гр. Садилова К.А.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a18
 diagnostics: []
-semanticHash: 9451c32bbe75e56f17011fe07c8e956b90331b8c4be701fde3590c6892106b3d
+semanticHash: 425bc8d75d741868df4071de923133bed6e4875afe86e5b0badd7f66536f5eef

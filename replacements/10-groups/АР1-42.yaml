@@ -605,7 +605,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -654,9 +654,55 @@ dates:
               rawReplacement: МДК 01.05 Т.5.1. Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     replacements:
       - *a15
       - *a16
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        replacements:
+          - &a17
+            date: 2026-09-25
+            group: АР1-42
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: АР1-42
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.02
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a17
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -679,4 +725,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 8d3c8b44c7521aac6a0b17dc42d101d75eb26531e012f5887ac7ed89590e9823
+semanticHash: 05eae018932c0b44c93f6e6866611f7efe750adf954c9abed7500296ff6b0437

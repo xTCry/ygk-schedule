@@ -571,7 +571,7 @@ dates:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -581,11 +581,15 @@ dates:
           shift: first
           etag: W/"6ab3a012-4abb"
           lastModified: Wed, 23 Sep 2026 09:46:58 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
       second:
         date: 2026-09-24
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -595,6 +599,10 @@ dates:
           shift: second
           etag: W/"6ab3c3b9-2254"
           lastModified: Wed, 23 Sep 2026 12:19:05 GMT
+        finalizedBy:
+          date: 2026-09-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
     groups:
       13 ДОУ:
         group: 13 ДОУ
@@ -690,6 +698,55 @@ dates:
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: Вакансия
+                  room: к.биб
+                  weekType: denominator
+                  sourceRow: 188
+              source:
+                sheet: 3 курс
+                rowStart: 187
+                rowEnd: 188
+                rawGroupName: 13 ДОУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Основы бережливого производства
+                  teacher: Царькова Н.А.
+                  room: к.25
+                  weekType: both
+                  sourceRow: 189
+              source:
+                sheet: 3 курс
+                rowStart: 189
+                rowEnd: 190
+                rawGroupName: 13 ДОУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Физическая культура
+                  teacher: Шпынов Ю.Г.
+                  room: сп.зал
+                  weekType: both
+                  sourceRow: 191
+              source:
+                sheet: 3 курс
+                rowStart: 191
+                rowEnd: 192
+                rawGroupName: 13 ДОУ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -716,4 +773,4 @@ diagnostics:
           sourceRow: 187
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1c01b67e2b20a7f21e3dc0452253a1ad1e3f11f62d4e7563245500fb3b8175be
+semanticHash: a636a1ce6ab6f5b4ea2411bb61a59f77c28a5a3be44128eb36266ec8123479e0

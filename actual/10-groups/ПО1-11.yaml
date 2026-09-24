@@ -1462,6 +1462,106 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-09-25:
+    date: 2026-09-25
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
+          fetchedAt: 2026-09-24T14:10:48.609Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab51904-43ff"
+          lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+      second:
+        date: 2026-09-25
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
+          fetchedAt: 2026-09-24T14:10:48.552Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab50046-216d"
+          lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+    groups:
+      ПО1-11:
+        group: ПО1-11
+        date: 2026-09-25
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Калинин Д.А.
+                room: Б502
+                weekType: both
+                sourceRow: 37
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 37
+              rowEnd: 38
+              rawGroupName: ПО1-11/ПО1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Шереметьева Н.В.
+                room: М106
+                weekType: both
+                sourceRow: 39
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 39
+              rowEnd: 40
+              rawGroupName: ПО1-11/ПО1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 41
+              rowEnd: 42
+              rawGroupName: ПО1-11/ПО1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-25
+                  group: ПО1-11
+                  lessonNumbers:
+                    - 2
+                  type: cancel
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 31
+                    rawGroupName: ПО1-11
+                    rawLessonNumbers: "2"
+                    rawOriginal: Физкультура
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1488,4 +1588,4 @@ diagnostics:
           sourceRow: 9
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 058458b1587921c1bf06afb4fb761851e487bdc4b7ff2e40a2d14fe598971c0c
+semanticHash: 5767c16a409c7cf5f68450d4147385cf491e6e7f4d9b5445ed14e06d2db11983
