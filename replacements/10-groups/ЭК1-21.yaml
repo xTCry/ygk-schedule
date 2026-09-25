@@ -426,7 +426,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -456,7 +456,92 @@ dates:
               rawReplacement: Доп.проф. Пугачева С.В.
               rawRoom: Ф205
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     replacements:
       - *a11
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
+          fetchedAt: 2026-09-25T14:34:01.249Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab63ca3-2044"
+          lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        replacements:
+          - &a12
+            date: 2026-09-26
+            group: ЭК1-21
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: ФДОиК Бежина М.И.
+              room: Ф107
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: ФДОиК Бежина М.И.
+              rawRoom: Ф107
+          - &a13
+            date: 2026-09-26
+            group: ЭК1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Саввина Е.А.
+              room: Ф202
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Математика
+              rawReplacement: Саввина Е.А.
+              rawRoom: Ф202
+          - &a14
+            date: 2026-09-26
+            group: ЭК1-21
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: ФДОиК
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "5"
+              rawOriginal: ФДОиК
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: 45ec34692aa14de33c151db3eb7a9aa16f94228e0904327d56916aabef658411
+semanticHash: 12e8289ddffb47a649972b2ef63264b1501bf32048dd931a28ee48431e1050a8

@@ -711,7 +711,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -742,7 +742,54 @@ dates:
               rawReplacement: Русский язык Шалаева А.А.
               rawRoom: А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a20
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a21
+            date: 2026-09-26
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Русский язык Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 25
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Русский язык Шалаева А.А.
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a21
 diagnostics: []
-semanticHash: eae349e8965733c82e71c2719e3779d88a61fdb8d7f526a52b91ad8984b02d08
+semanticHash: 405da9969ba0fc0e2e4407f81323f8a57d30807920e0d3548de33c61aa87ce22

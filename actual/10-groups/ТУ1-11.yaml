@@ -967,7 +967,7 @@ dates:
         date: 2026-09-25
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -977,11 +977,15 @@ dates:
           shift: first
           etag: W/"6ab51904-43ff"
           lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
       second:
         date: 2026-09-25
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -991,6 +995,10 @@ dates:
           shift: second
           etag: W/"6ab50046-216d"
           lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     groups:
       ТУ1-11:
         group: ТУ1-11
@@ -1068,6 +1076,56 @@ dates:
                 lessonNumber: 2
                 strategy: exact-subject
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Биология
+                  teacher: Малявкина Н.А.
+                  room: Ф106
+                  weekType: both
+                  rawSubject: "Биология "
+                  sourceRow: 35
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 35
+                rowEnd: 36
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: География
+                  teacher: Климова Ю.И.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 37
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 37
+                rowEnd: 38
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Карпова Е.В.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 39
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 39
+                rowEnd: 40
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1098,4 +1156,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: aef76472968b600755570f7f5e63c98f52f9552ac5cf5bf1b1ec0af3311204ea
+semanticHash: b30396a2584c7dae39098deab0ff95bb4bb1e54bf02a8f686a668931d6746f59

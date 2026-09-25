@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-24T14:10:48.680Z
-scheduleVersion: 167d6969ee1e306d4a44ecdd36ff98fd30a8acc5301b0b2b5b7228aaaabe575f
+generatedAt: 2026-09-25T14:34:01.303Z
+scheduleVersion: 5d8f6ac8ff128a1081ffb6ed6a26279802c563942fade38ff8bb63eded6bc85a
 summary:
   info: 0
   warning: 56
-  error: 185
+  error: 188
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -913,6 +913,28 @@ diagnostics:
     source: *a1
     issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
     issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: ddccdb0506cc40a3bf6e84701b0a529ce9f0a6ab11215734cc9340b9e8b89cad
+    sheet: "Замены: Первая смена"
+    row: 22
+    normalizedGroup: ИТ1-11
+    rawValue: Физика Галочкина Н.Н.
+    context:
+      date: 2026-09-26
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ИТ1-11
+      baseSourceFiles:
+        - oit_1sem.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: c02d4c69b3491b5ee62cbcdac8ec820283ca9c07ccc6894500b570c6ff721ee4
+    issueKey: 85df08d90eeaba948dbe9a3aaf90769134dee104b29e3c67a258bdea0d4cbeac
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4958,6 +4980,35 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5e2eb44a6e84c50ca529af5f75bbc602191bd47c0aa91e3e4397c477da2322be
+    sheet: "Замены: Вторая смена"
+    row: 23
+    normalizedGroup: ИС1-41
+    rawValue: МДК 03.02 /теор Юров А.А
+    context:
+      date: 2026-09-26
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 05,03
+      candidates:
+        - subject: МДК.05.03 Тестирование ИС п/гр2
+          teacher: Вакансия
+          room: Б304
+          subgroup: "2"
+          sourceRow: 203
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a11
+    issueFingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
+    issueKey: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 3de218c16cb948a88062abbff50c8bdc98268635809f92aa8bca66f02205cc11
     sheet: "Замены: Вторая смена"
     row: 24
@@ -4982,6 +5033,35 @@ diagnostics:
     source: *a11
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 5580e1e0d92afea18c707ed14928268208625cbdfc23d25b67d62c121981bb94
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: ИС1-41
+    rawValue: Снято
+    context:
+      date: 2026-09-26
+      lessonNumber: 5
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ИС1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 05,03
+      candidates:
+        - subject: МДК.05.03 Тестирование ИС п/гр2
+          teacher: Вакансия
+          room: Б304
+          subgroup: "2"
+          sourceRow: 205
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a11
+    issueFingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
+    issueKey: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -7240,6 +7320,114 @@ issues:
       | Замены: Первая смена | 50 | — | 5 ИКС | 4 | replace | Физкультура Шпынов Ю.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:5%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:5%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
       | Замены: Первая смена | 55 | — | 9 МРТ | 1 | replace | Физика Крижановский В.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:9%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:9%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
       | Замены: Первая смена | 56 | — | 9 МРТ | 3 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:9%20%D0%9C%D0%A0%D0%A2}} | {{group-yaml:actual:9%20%D0%9C%D0%A0%D0%A2}} | {{raw-source:schedule:ort.xlsx}} |
+  - key: 85df08d90eeaba948dbe9a3aaf90769134dee104b29e3c67a258bdea0d4cbeac
+    familyKey: 47ddba2a0225e2b2ddf9a0d97a283fc814bb48c6ef0c5d171745ab0e241ab96c
+    fingerprint: c02d4c69b3491b5ee62cbcdac8ec820283ca9c07ccc6894500b570c6ff721ee4
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-26
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-09-26, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - a9f060f0ab27b76ad169651e939267d0c14029b31b6a6af4eea042d83213c54c
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/85df08d90eeaba948dbe9a3aaf90769134dee104b29e3c67a258bdea0d4cbeac.json
+      yamlPath: actual/91-issue-evidence/85df08d90eeaba948dbe9a3aaf90769134dee104b29e3c67a258bdea0d4cbeac.yaml
+    body: >
+      <!-- parser-issue-key:
+      85df08d90eeaba948dbe9a3aaf90769134dee104b29e3c67a258bdea0d4cbeac -->
+
+      <!-- diagnostic-family-key:
+      47ddba2a0225e2b2ddf9a0d97a283fc814bb48c6ef0c5d171745ab0e241ab96c -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      a9f060f0ab27b76ad169651e939267d0c14029b31b6a6af4eea042d83213c54c -->
+
+      <!-- parser-fingerprint:
+      c02d4c69b3491b5ee62cbcdac8ec820283ca9c07ccc6894500b570c6ff721ee4 -->
+
+
+      ## Причина
+
+
+      Пара из замены отсутствует в базовом расписании
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-found |
+
+      | Дата замен | 2026-09-26 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 22 | — | ИТ1-11 | 0 | replace | Физика Галочкина
+      Н.Н. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%98%D0%A21-11}} |
+      {{group-yaml:actual:%D0%98%D0%A21-11}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 4a3a97cd2f390caa6f2070e00968935c3e33a3fe93e081375188faab0b151468
     familyKey: 31a561269a10dc8262d22e803e6bcf50698df05e43526b51947253a404613ba5
     fingerprint: 215e783c41edd178d147b16edf8fe7461964a5ffbb304d62aaa9e012fe24e1db
@@ -10745,6 +10933,74 @@ issues:
       {{group-yaml:base:%D0%98%D0%911-41}} |
       {{group-yaml:actual:%D0%98%D0%911-41}} |
       {{raw-source:schedule:oit_1sem.xlsx}} |
+  - key: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
+    familyKey: a22100b6b6c16229f990476c6a7d7b4f4014608a2aa452d74b699a2235b3e11c
+    fingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-26
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-09-26, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 2
+    observationKeys:
+      - a80f9a5ac0d095841a80a867c0a4fa2929bd1c51a9dfb356513400975d5b5b89
+      - aeff4adf84137ac3fd0a02e8e5599e8984d44d315d632d820007569a0886accf
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729.json
+      yamlPath: actual/91-issue-evidence/2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729.yaml
+    body: |
+      <!-- parser-issue-key: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729 -->
+      <!-- diagnostic-family-key: a22100b6b6c16229f990476c6a7d7b4f4014608a2aa452d74b699a2235b3e11c -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: a80f9a5ac0d095841a80a867c0a4fa2929bd1c51a9dfb356513400975d5b5b89,aeff4adf84137ac3fd0a02e8e5599e8984d44d315d632d820007569a0886accf -->
+      <!-- parser-fingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022 -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-09-26 |
+      | Смена | вторая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 23 | — | ИС1-41 | 4 | replace | МДК 03.02 /теор Юров А.А | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 24 | — | ИС1-41 | 5 | cancel | Снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: aa35a7d1d0e826af12c28e2610e1f138ee413dc4ed69bea383ccb5a896f30aab
     familyKey: 6789e92266d361159c7f28647be1673e760f3cbef3bcb4cd08bd0a5f543ca198
     fingerprint: 1882b049c824dc37d2486818976429a1a351858d792447cccdc7c281d2bcba4b

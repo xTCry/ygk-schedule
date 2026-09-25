@@ -886,7 +886,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -917,7 +917,54 @@ dates:
               rawReplacement: Царькова Н.А.
               rawRoom: к.25
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a22
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a23
+            date: 2026-09-26
+            group: 4 ИКС
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 06.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 39
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 06.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a23
 diagnostics: []
-semanticHash: 144e6090e69a5b7364e196b79194b1c413f4003653f9abfeaf5ff7ebad7912e3
+semanticHash: 9e522c5a474d2fe08710ce2a3bedfcdab036cf73da57b085e5b701cce2b3398e

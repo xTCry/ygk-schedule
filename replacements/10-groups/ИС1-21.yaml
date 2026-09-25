@@ -644,7 +644,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -675,7 +675,73 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a18
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a19
+            date: 2026-09-26
+            group: ИС1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 9
+              rawGroupName: ИС1-21
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+          - &a20
+            date: 2026-09-26
+            group: ИС1-21
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 10
+              rawGroupName: ИС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: 425bc8d75d741868df4071de923133bed6e4875afe86e5b0badd7f66536f5eef
+semanticHash: 98d4e9e97bc7b5f0cdda1c7585ef9e3a7ff91152af93d5fbb99fed2d53ef23a6

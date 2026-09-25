@@ -277,7 +277,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -308,7 +308,75 @@ dates:
               rawReplacement: 1,2 п/гр. Махрова Н.Н.
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     replacements:
       - *a9
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
+          fetchedAt: 2026-09-25T14:34:01.249Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab63ca3-2044"
+          lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        replacements:
+          - &a10
+            date: 2026-09-26
+            group: СД2-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: МДК 02.03 МДК 02.02
+            replacement:
+              raw: МДК 02.01 Балина С.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СД2-21
+              rawLessonNumbers: 1,2
+              rawOriginal: МДК 02.03 МДК 02.02
+              rawReplacement: МДК 02.01 Балина С.А.
+              rawRoom: ДОТ
+          - &a11
+            date: 2026-09-26
+            group: СД2-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Физкультура Николаенко Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 10
+              rawGroupName: СД2-21
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.02
+              rawReplacement: Физкультура Николаенко Ю.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 96375476496e21cb7efd8c82af0060ae73a50a391011fdfc0f9beb55c8450563
+semanticHash: 0eb40d696cd4f9a2aba981801644e46b854e0af566b2dde713fe9f36f4ae8975

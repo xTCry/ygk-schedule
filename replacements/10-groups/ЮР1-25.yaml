@@ -988,7 +988,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1019,7 +1019,54 @@ dates:
               rawReplacement: Тихонов А.А.
               rawRoom: Ф405
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     replacements:
       - *a30
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
+          fetchedAt: 2026-09-25T14:34:01.249Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab63ca3-2044"
+          lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        replacements:
+          - &a31
+            date: 2026-09-26
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+              - 5
+            type: cancel
+            original:
+              raw: Ин.язык п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: 4,5
+              rawOriginal: Ин.язык п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a31
 diagnostics: []
-semanticHash: d7550b67519d2ee46e623d8f6e299957291af38a2471d93575eb836c512ea3f4
+semanticHash: d708b5dbe364772311b7822ccc7cb2400e73101eb05d559fd45818f177122a74

@@ -3429,6 +3429,124 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+      second:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
+          fetchedAt: 2026-09-25T14:34:01.249Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab63ca3-2044"
+          lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+    groups:
+      ДИ1-41:
+        group: ДИ1-41
+        date: 2026-09-26
+        day: Суббота
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК 01.01 Дизайн-проектирование
+                teacher: |-
+                  Ремизова А.И.
+                  Вакансия
+                room: ДОТ
+                weekType: both
+                rawSubject: Ремизова А.И.Голубева Т.С
+                rawRoom: ДОТ
+                sourceRow: 14
+            source:
+              sheet: ДИ-4курс
+              rowStart: 41
+              rowEnd: 42
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-09-26
+                  group: ДИ1-41
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 01.01 МДК 02.01
+                  replacement:
+                    raw: Ремизова А.И.Голубева Т.С
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 14
+                    rawGroupName: ДИ1-41
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 01.01 МДК 02.01
+                    rawReplacement: Ремизова А.И.Голубева Т.С
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+                teacher: |-
+                  Ремизова А.И.
+                  Вакансия
+                room: ДОТ
+                weekType: both
+                rawSubject: Ремизова А.И.Голубева Т.С
+                rawRoom: ДОТ
+                sourceRow: 14
+            source:
+              sheet: ДИ-4курс
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК 04.01 Основы менеджмента
+                teacher: Малашкевич Д.А.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 46
+            source:
+              sheet: ДИ-4курс
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3509,4 +3627,4 @@ diagnostics:
           sourceRow: 29
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7c34e41c7911ac4841b32e2cc879b9749b1a4402ca342bf85c6cd5638e84cc2c
+semanticHash: 25c49ff8251d07e2b7990f3639d4897c4ed1ecb035e25929724e39625c82e69c

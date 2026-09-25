@@ -681,7 +681,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -768,10 +768,57 @@ dates:
               rawReplacement: МДК 01.02 п/гр.2 Иванов Ю.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     replacements:
       - *a21
       - *a22
       - *a23
       - *a24
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
+          fetchedAt: 2026-09-25T14:34:01.249Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab63ca3-2044"
+          lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        replacements:
+          - &a25
+            date: 2026-09-26
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: Б402
+            source:
+              shift: second
+              row: 16
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a25
 diagnostics: []
-semanticHash: 1ecccbfe985981c85b4c0e7cd2a43c9013c7ea1eab4d146810df2efbb6220558
+semanticHash: c5943e1e1e98c1f1c99d74cfbfe3411209fc0fdfa275d5bffbb9e0a001368378

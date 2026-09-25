@@ -486,7 +486,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -553,9 +553,96 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a14
       - *a15
       - *a16
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a17
+            date: 2026-09-26
+            group: ИТ1-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: ..., Математика
+            replacement:
+              raw: Физика Галочкина Н.Н.
+              room: М208
+            source:
+              shift: first
+              row: 22
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 0,1
+              rawOriginal: ..., Математика
+              rawReplacement: Физика Галочкина Н.Н.
+              rawRoom: М208
+          - &a18
+            date: 2026-09-26
+            group: ИТ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Ин.язык Зубковская А.Е.Загородних Е.С
+              room: Б509Б510
+            source:
+              shift: first
+              row: 21
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Ин.язык Зубковская А.Е.Загородних Е.С
+              rawRoom: Б509Б510
+          - &a19
+            date: 2026-09-26
+            group: ИТ1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 23
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
+      - *a19
 diagnostics: []
-semanticHash: f765e4effdef11d697a52751914ec7a908ba42303998a9dc34a4a8109af23c45
+semanticHash: f66fcf999e6291b19ebccd306a60163b8f1012b5909d7ed5e18abb49b3f4b267

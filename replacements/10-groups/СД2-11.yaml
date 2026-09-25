@@ -755,7 +755,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -805,8 +805,75 @@ dates:
               rawReplacement: МДК 06.01 Гасенина М.П.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a22
       - *a23
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a24
+            date: 2026-09-26
+            group: СД2-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: МДК 01.01 Краснянская Е.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СД2-11
+              rawLessonNumbers: "2"
+              rawOriginal: Тех.механика
+              rawReplacement: МДК 01.01 Краснянская Е.В.
+              rawRoom: ДОТ
+          - &a25
+            date: 2026-09-26
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.тех. МДК 02.02
+            replacement:
+              raw: МДК 02.02 /теория Рангелова Н.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.тех. МДК 02.02
+              rawReplacement: МДК 02.02 /теория Рангелова Н.М.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: 725d78687b945b3e530a63ed951dfbf41aa5735a8d1fede7c49b0dc608fb7441
+semanticHash: 298a8e2de9e124332689a065cfbf5b4cb1f166ac753053c6af7d0e055b24ecd6

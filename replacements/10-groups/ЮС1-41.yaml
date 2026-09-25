@@ -221,7 +221,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -270,8 +270,55 @@ dates:
             normalizedGroup: ЮС1-41
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a6
+  2026-09-26:
+    date: 2026-09-26
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-09-26
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
+          fetchedAt: 2026-09-25T14:34:01.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab62ff1-2de5"
+          lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        replacements:
+          - &a7
+            date: 2026-09-26
+            group: ЮС1-41
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: /теория Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: first
+              row: 38
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: "1"
+              rawOriginal: Инф.технол.
+              rawReplacement: /теория Хватова Е.Ю.
+              rawRoom: Ф305
+        diagnostics: []
+    replacements:
+      - *a7
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -294,4 +341,4 @@ diagnostics:
     normalizedGroup: ЮС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 60e2a802b35bae034cfbb03856e78dc36fa3be5f9350a1d8a420f2c9089f68b1
+semanticHash: 51a39b015e487684c01ab8525b20db3582f7cd530e4f980f4bd30f17441eda96

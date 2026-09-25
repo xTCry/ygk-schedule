@@ -662,7 +662,7 @@ dates:
         date: 2026-09-25
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -672,11 +672,15 @@ dates:
           shift: first
           etag: W/"6ab51904-43ff"
           lastModified: Thu, 24 Sep 2026 12:35:16 GMT
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
       second:
         date: 2026-09-25
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -686,6 +690,10 @@ dates:
           shift: second
           etag: W/"6ab50046-216d"
           lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+        finalizedBy:
+          date: 2026-09-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3c3fbac4a89022b13ef6552dd0bc5a0bf0ec7a5a46115dce9cca68fdcc691b0b
     groups:
       СТ1-45:
         group: СТ1-45
@@ -725,6 +733,42 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Иностранный язык в проф. деят.
+                  teacher: |-
+                    Девлитянс О.В.
+                    Махрова Н.Н.
+                  room: Акт.зал
+                  weekType: denominator
+                  sourceRow: 133
+              source:
+                sheet: СТ 4 курс
+                rowStart: 132
+                rowEnd: 133
+                rawGroupName: СТ1-45/СТ1-46
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Эфективное поведение на рынке труда
+                  teacher: Малашкевич Д.А.
+                  room: Б110
+                  weekType: denominator
+                  sourceRow: 135
+              source:
+                sheet: СТ 4 курс
+                rowStart: 134
+                rowEnd: 135
+                rawGroupName: СТ1-45/СТ1-46
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -747,4 +791,4 @@ diagnostics:
     rawValue: СТ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: cd1b837f0b5ee37effb17e523b9ca449d9c3ffd04a4a94a7a48b6feffe05c3fc
+semanticHash: efc12e7f11fd56acb6ac3363507baa2bbdd6b1d336f9601c85787f6399fc5a0f
