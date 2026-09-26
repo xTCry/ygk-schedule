@@ -1225,7 +1225,7 @@ dates:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1235,11 +1235,15 @@ dates:
           shift: first
           etag: W/"6ab62ff1-2de5"
           lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
       second:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1249,6 +1253,10 @@ dates:
           shift: second
           etag: W/"6ab63ca3-2044"
           lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
     groups:
       АР1-23:
         group: АР1-23
@@ -1342,6 +1350,73 @@ dates:
                 lessonNumber: 3
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Типология зданий
+                  teacher: Иванов Ю.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 96
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 96
+                rowEnd: 97
+                rawGroupName: АР1-23/1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: История архитектуры
+                  teacher: Шатрова М.П.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 98
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 98
+                rowEnd: 99
+                rawGroupName: АР1-23/1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Темофеева Е.Н.
+                    Ткаченко Г.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 100
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 100
+                rowEnd: 101
+                rawGroupName: АР1-23/1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  rawSubject: "МДК 01.03 Конструкции зданий и сооружений с элементами статики "
+                  sourceRow: 103
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 102
+                rowEnd: 103
+                rawGroupName: АР1-23/1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1399,4 +1474,4 @@ diagnostics:
           sourceRow: 84
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 893acb491cb566b7cf75525099943fc8bf0bf0a4998c42b612f3bd2d6a5ba694
+semanticHash: 71d9b4adb734621723ef1e25c11305ccef5c11032308b2eedd31fb1765bf3d70

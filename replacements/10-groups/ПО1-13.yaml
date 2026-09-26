@@ -736,5 +736,68 @@ dates:
           sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a22
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a23
+            date: 2026-09-28
+            group: ПО1-13
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Разг. о важном
+            replacement:
+              raw: Королева П.Д.
+              room: М102
+            source:
+              shift: first
+              row: 4
+              rawGroupName: ПО1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Разг. о важном
+              rawReplacement: Королева П.Д.
+              rawRoom: М102
+          - &a24
+            date: 2026-09-28
+            group: ПО1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 пгр Ин.язык Зубковская А.Е
+              room: Б310
+            source:
+              shift: first
+              row: 83
+              rawGroupName: ПО1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 пгр Ин.язык Зубковская А.Е
+              rawRoom: Б310
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 3eb4c861cbe89bb0fc120c67563fecef9e90fce8c66c9026182669f589947942
+semanticHash: 9874074d0b116cf374b5a8768f0269848554a9c32667b0bca022aefcdf6437f4

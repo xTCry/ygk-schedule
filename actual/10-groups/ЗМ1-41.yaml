@@ -2403,7 +2403,7 @@ dates:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2413,11 +2413,15 @@ dates:
           shift: first
           etag: W/"6ab62ff1-2de5"
           lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
       second:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2427,6 +2431,10 @@ dates:
           shift: second
           etag: W/"6ab63ca3-2044"
           lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
     groups:
       ЗМ1-41:
         group: ЗМ1-41
@@ -2492,6 +2500,180 @@ dates:
                     rawRoom: Б503
                 lessonNumber: 5
                 strategy: subject-module-code
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Трусова Е.В.
+                    Ткаченко Г.А.
+                  room: |-
+                    Б509
+                    Б510
+                  weekType: both
+                  sourceRow: 43
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 43
+                rowEnd: 44
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                    градостроительстве
+                  teacher: Горохова Е.Б.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 45
+              source:
+                sheet: ЗМ1-41 ЗМ1-43
+                rowStart: 45
+                rowEnd: 46
+                rawGroupName: ЗМ1-41/ЗМ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+      second:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
+          fetchedAt: 2026-09-26T13:43:30.587Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab7924b-21b2"
+          lastModified: Sat, 26 Sep 2026 09:37:15 GMT
+    groups:
+      ЗМ1-41:
+        group: ЗМ1-41
+        date: 2026-09-28
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Эф.поведение
+                teacher: Мартынова С.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Эф.поведение Мартынова С.В.
+                rawTeacher: Мартынова С.В.
+                rawRoom: ДОТ
+                sourceRow: 37
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-09-28
+                  group: ЗМ1-41
+                  lessonNumbers:
+                    - 1
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 03.02
+                  replacement:
+                    raw: Эф.поведение Мартынова С.В.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: ЗМ1-41
+                    rawLessonNumbers: 1,3
+                    rawOriginal: МДК 03.02
+                    rawReplacement: Эф.поведение Мартынова С.В.
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: МДК 04.01 Выполнение комплекса работ в рамках мониторинга состояния
+                  земель
+                teacher: Акиничева М.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 04.01 Выполнение комплекса  работ в рамках мониторинга состояния
+                  земель
+                sourceRow: 6
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Эф.поведение
+                teacher: Мартынова С.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Эф.поведение Мартынова С.В.
+                rawTeacher: Мартынова С.В.
+                rawRoom: ДОТ
+                sourceRow: 37
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                  градостроительстве
+                teacher: Горохова Е.Б.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 10
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 10
+              rowEnd: 11
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -2560,4 +2742,4 @@ diagnostics:
     normalizedGroup: ЗМ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a7d45b5e1d8353ce2277d3351addd9fda3d8fb1c522e47f696dd8cf4f7cdbdcc
+semanticHash: c54c5213f2747649de3dde30e720954f418cae5a49c4d7871bfa5ab70e057982

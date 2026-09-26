@@ -435,5 +435,68 @@ dates:
           sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
     replacements:
       - *a11
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a12
+            date: 2026-09-28
+            group: АР1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 01.03
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 23
+              rawGroupName: АР1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.03
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a13
+            date: 2026-09-28
+            group: АР1-21
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.03, ...
+            replacement:
+              raw: Рис. и живоп. Багдасарьян В.В.Багдасарьян О.Н
+              room: ДОТ
+            source:
+              shift: first
+              row: 24
+              rawGroupName: АР1-21
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.03, ...
+              rawReplacement: Рис. и живоп. Багдасарьян В.В.Багдасарьян О.Н
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: 63c5b4c22b302717235dd8f6e7584e8c3dd942732f910962cdafcd6cd4e45c8d
+semanticHash: 43a5c11ee0b4e26a2bffe4e29d04216871f0f2d7ddb313bc99e25890d54d3831

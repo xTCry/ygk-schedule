@@ -629,7 +629,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -660,7 +660,53 @@ dates:
               rawReplacement: Ермолаева Т.В.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
     replacements:
       - *a17
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a18
+            date: 2026-09-28
+            group: ЗМ1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разг. о важном
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 35
+              rawGroupName: ЗМ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Разг. о важном
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a18
 diagnostics: []
-semanticHash: 846b9204b0d00fd4f6930e789a0f348533e3bda4188750bb768849947eb9fead
+semanticHash: 811289a5639e8d63f1a371aeeea6b0964c33124168be4485943013a5a376e29b

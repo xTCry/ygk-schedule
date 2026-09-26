@@ -1148,7 +1148,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1198,8 +1198,75 @@ dates:
               rawReplacement: 1,2 п/гр. Хожайнова М.Г.
               rawRoom: Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
     replacements:
       - *a35
       - *a36
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a37
+            date: 2026-09-28
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: 1,2 п/гр МДК 01.01 Хожайнова М.Г.
+              room: Б308
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 04.01
+              rawReplacement: 1,2 п/гр МДК 01.01 Хожайнова М.Г.
+              rawRoom: Б308
+          - &a38
+            date: 2026-09-28
+            group: СА1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инф.технол
+            replacement:
+              raw: 1,2 пгр Комиссарова О.В
+              room: Б204
+            source:
+              shift: first
+              row: 81
+              rawGroupName: СА1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Инф.технол
+              rawReplacement: 1,2 пгр Комиссарова О.В
+              rawRoom: Б204
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
 diagnostics: []
-semanticHash: 1d64eb0adf1868ec309d631c7194ed7fc08a6ac9a068d59966d3daf5fe321b91
+semanticHash: 3c43015541a97be7e1bb197501335407f37d59af4ef35983cb17bfee3bf1d31d

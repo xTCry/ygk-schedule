@@ -788,5 +788,67 @@ dates:
           sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a22
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a23
+            date: 2026-09-28
+            group: ПО1-15
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разг.о важном
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 82
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Разг.о важном
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a24
+            date: 2026-09-28
+            group: ПО1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: Разг. о важном Рядовкина Е.Н
+              room: Б403
+            source:
+              shift: first
+              row: 2
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: Разг. о важном Рядовкина Е.Н
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 524977b38ccaf124e930caae6afbde837b23e6f3fda12041dfc11764c65e0574
+semanticHash: a9f53524589f1ceba9c9b0514b332a15545d016145da13145f6bb1d44b5749df

@@ -1035,7 +1035,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1066,7 +1066,73 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
     replacements:
       - *a31
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
+          fetchedAt: 2026-09-26T13:43:30.587Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ab7924b-21b2"
+          lastModified: Sat, 26 Sep 2026 09:37:15 GMT
+        replacements:
+          - &a32
+            date: 2026-09-28
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: История России
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: История России
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a33
+            date: 2026-09-28
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Рус.яз.и культ.речи
+            replacement:
+              raw: Тихонов А.А.
+              room: Ф104
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Рус.яз.и культ.речи
+              rawReplacement: Тихонов А.А.
+              rawRoom: Ф104
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: d708b5dbe364772311b7822ccc7cb2400e73101eb05d559fd45818f177122a74
+semanticHash: c60109e59f415a90d20a3117fe40c056d4c833c3f794ffd65dbf8868867c165a

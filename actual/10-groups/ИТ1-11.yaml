@@ -1773,7 +1773,7 @@ dates:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1783,11 +1783,15 @@ dates:
           shift: first
           etag: W/"6ab62ff1-2de5"
           lastModified: Fri, 25 Sep 2026 08:25:21 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
       second:
         date: 2026-09-26
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1797,6 +1801,10 @@ dates:
           shift: second
           etag: W/"6ab63ca3-2044"
           lastModified: Fri, 25 Sep 2026 09:19:31 GMT
+        finalizedBy:
+          date: 2026-09-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
     groups:
       ИТ1-11:
         group: ИТ1-11
@@ -1920,6 +1928,55 @@ dates:
               description: "По расписанию: «..., Математика». По замене: «Физика Галочкина
                 Н.Н.». Аудитория: «М208»."
               room: М208
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Пухова Ю.Г.
+                  room: М208
+                  weekType: denominator
+                  sourceRow: 294
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 293
+                rowEnd: 294
+                rawGroupName: ИТ1-11/ИТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Пухова Ю.Г.
+                  room: М208
+                  weekType: both
+                  sourceRow: 295
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 295
+                rowEnd: 296
+                rawGroupName: ИТ1-11/ИТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: История
+                  teacher: Свободина Н.В.
+                  room: А203
+                  weekType: both
+                  sourceRow: 297
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 297
+                rowEnd: 298
+                rawGroupName: ИТ1-11/ИТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1940,4 +1997,4 @@ diagnostics:
         - oit_1sem.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2a94ae1deb9bfa21e3ec48f6e11baeca5b25780eea94ed64fbc742e14d7761ea
+semanticHash: 1584189fde6a252b099a140463c5d533343ec6b1c32598a297e2dcbe53954905

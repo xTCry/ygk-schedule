@@ -1002,5 +1002,68 @@ dates:
           sourceSha256: 779f15ca47294027e878c78e860b6a4b3ec7e4fe132a43377b3645d8aca478b2
     replacements:
       - *a30
+  2026-09-28:
+    date: 2026-09-28
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-28
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
+          fetchedAt: 2026-09-26T13:43:30.586Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ab791f5-4940"
+          lastModified: Sat, 26 Sep 2026 09:35:49 GMT
+        replacements:
+          - &a31
+            date: 2026-09-28
+            group: 1 БПЛА
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Тех.мех МДК 01.01
+            replacement:
+              raw: Математика Бахвалова К.Н.
+              room: к.36
+            source:
+              shift: first
+              row: 65
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 1,2
+              rawOriginal: Тех.мех МДК 01.01
+              rawReplacement: Математика Бахвалова К.Н.
+              rawRoom: к.36
+          - &a32
+            date: 2026-09-28
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Осн.авиац.метрол.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 66
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.авиац.метрол.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a31
+      - *a32
 diagnostics: []
-semanticHash: 29290575c49edaa898b5788118ebbab8b1ff92840b6ba9edf1abe12f34a1184f
+semanticHash: 2fd32b7ba02b0ea94534e0c2b202f138d5d3730702f3bc7a78d1c66c7326ef4d
