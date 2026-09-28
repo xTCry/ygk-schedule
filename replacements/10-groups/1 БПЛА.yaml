@@ -1012,7 +1012,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1062,8 +1062,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a31
       - *a32
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a33
+            date: 2026-09-29
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.35
+            source:
+              shift: first
+              row: 67
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.35
+        diagnostics: []
+    replacements:
+      - *a33
 diagnostics: []
-semanticHash: 2fd32b7ba02b0ea94534e0c2b202f138d5d3730702f3bc7a78d1c66c7326ef4d
+semanticHash: 6541c7ecc050e6f5178912a3ee13ca6ca3eab9d89523dd9fdb715bba65aff155

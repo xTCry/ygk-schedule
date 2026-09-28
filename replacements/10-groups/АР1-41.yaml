@@ -666,7 +666,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -698,8 +698,76 @@ dates:
               rawReplacement: Ин.язык п/гр 2 Мишуринская Е.Ю.
               rawRoom: Б508
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
     replacements:
       - *a18
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
+          fetchedAt: 2026-09-28T17:36:34.590Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aba3a97-1a45"
+          lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        replacements:
+          - &a19
+            date: 2026-09-29
+            group: АР1-41
+            lessonNumbers:
+              - 2
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК01.06 МДк01.05 МДК02.02
+            replacement:
+              raw: МДК 01.05 п/гр 2 Балина С.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 15
+              rawGroupName: АР1-41
+              rawLessonNumbers: 2-4
+              rawOriginal: МДК01.06 МДк01.05 МДК02.02
+              rawReplacement: МДК 01.05 п/гр 2 Балина С.А.
+              rawRoom: ДОТ
+          - &a20
+            date: 2026-09-29
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК01.05 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 16
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК01.05 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -722,4 +790,4 @@ diagnostics:
     normalizedGroup: АР1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a20d753dacf0e3f2fe13c30359980332558b53440532d72e68390c110314c3a8
+semanticHash: 8e4b17521a0b8075c6ff8442bf5356ffb51f73e416996f0f27c2ff5fa92aaf34

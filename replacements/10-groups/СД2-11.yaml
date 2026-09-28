@@ -889,7 +889,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -939,8 +939,75 @@ dates:
               rawReplacement: МДК 05.01 /теор. Гасенина М.П.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a26
       - *a27
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a28
+            date: 2026-09-29
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: МДК 06.01 Гасенина М.П.
+              room: М207
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика
+              rawReplacement: МДК 06.01 Гасенина М.П.
+              rawRoom: М207
+          - &a29
+            date: 2026-09-29
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Тех.механика п/гр
+            replacement:
+              raw: Матем.методы Гаврилова М.А.
+              room: Б504
+            source:
+              shift: first
+              row: 35
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика п/гр
+              rawReplacement: Матем.методы Гаврилова М.А.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a28
+      - *a29
 diagnostics: []
-semanticHash: 2db505e72012d421646ee98117657ff58a4902750e554d03f5a63bed7fdaa9cd
+semanticHash: b6e093c361a3aa91c929d526735b73ed52ef00f3fe81ba70f2a6326a175c329a

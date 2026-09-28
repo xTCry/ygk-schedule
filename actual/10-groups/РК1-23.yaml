@@ -1538,6 +1538,124 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+      second:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
+          fetchedAt: 2026-09-28T17:36:34.590Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aba3a97-1a45"
+          lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+    groups:
+      РК1-23:
+        group: РК1-23
+        date: 2026-09-29
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 04.03 Выполнение рекламных проектов в материале
+                teacher: |-
+                  Выблова Т.В.
+                  Анисимова С.А.
+                room: |-
+                  Б302
+                  Б309
+                weekType: both
+                sourceRow: 115
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 115
+              rowEnd: 116
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Физическая культура
+                teacher: Чупрова П.А.
+                room: Спорт.зал
+                weekType: numerator
+                sourceRow: 117
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 117
+              rowEnd: 118
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 119
+              rowEnd: 120
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-09-29
+                  group: РК1-23
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 04.02 п/гр 1
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 69
+                    rawGroupName: РК1-23
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 04.02 п/гр 1
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 121
+              rowEnd: 122
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1564,4 +1682,4 @@ diagnostics:
           sourceRow: 131
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 443ba00b43de98209ba949f297e6feba74533a2acb299c0978572e719b802734
+semanticHash: 0e3f40122ff00b25c66493b91af546d9edc0574f61a6fe40dd46e36d17394f10

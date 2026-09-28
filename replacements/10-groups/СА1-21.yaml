@@ -1215,7 +1215,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1265,8 +1265,55 @@ dates:
               rawReplacement: 1,2 пгр Комиссарова О.В
               rawRoom: Б204
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a37
       - *a38
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a39
+            date: 2026-09-29
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: Осн.электрот. Леонидова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: История России
+              rawReplacement: Осн.электрот. Леонидова Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a39
 diagnostics: []
-semanticHash: 3c43015541a97be7e1bb197501335407f37d59af4ef35983cb17bfee3bf1d31d
+semanticHash: 77a450192432580f582e5a9eec954c1bd1bc9ebeed3dda11fa9627374055cb54

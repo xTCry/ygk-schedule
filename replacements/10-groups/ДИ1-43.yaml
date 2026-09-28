@@ -1246,7 +1246,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1278,8 +1278,74 @@ dates:
               rawReplacement: 1,2 п/гр. Ремизова А.И.
               rawRoom: Б403,Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
     replacements:
       - *a36
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
+          fetchedAt: 2026-09-28T17:36:34.590Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aba3a97-1a45"
+          lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        replacements:
+          - &a37
+            date: 2026-09-29
+            group: ДИ1-43
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.МДК 01.01 Ремизова А.И.
+              room: ДОТ
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.МДК 01.01 Ремизова А.И.
+              rawRoom: ДОТ
+          - &a38
+            date: 2026-09-29
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "4"
+              rawOriginal: Рисунок
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1302,4 +1368,4 @@ diagnostics:
     normalizedGroup: ДИ1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 458129d8129baf849ffed5a099e5ac14c39dd08e9c2d91df1ab82d1edc602714
+semanticHash: 2d5f4fff1fb454d8cd8279d72af1fbe7b691a7ad622955ef01a43991d7c29087

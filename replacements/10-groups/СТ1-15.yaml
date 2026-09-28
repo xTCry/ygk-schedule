@@ -795,5 +795,86 @@ dates:
           sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
     replacements:
       - *a21
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a22
+            date: 2026-09-29
+            group: СТ1-15
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: ОБиЗР
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: ОБиЗР
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a23
+            date: 2026-09-29
+            group: СТ1-15
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Девлитянс О.В.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Девлитянс О.В.
+              rawRoom: Акт.зал
+          - &a24
+            date: 2026-09-29
+            group: СТ1-15
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Физика Овсова К.С.
+              room: М101
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Физика Овсова К.С.
+              rawRoom: М101
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: c1edf7a5c371e2933fd272d1c0feeae4ddea4213dd7f9e0b8e21d3d63cae5064
+semanticHash: ae06b0f466efb5e07d01382ff75219dea643ad3ff84ab0b952d26c111c55543e

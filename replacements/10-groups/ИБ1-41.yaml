@@ -1011,6 +1011,68 @@ dates:
       - *a26
       - *a27
       - *a28
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
+          fetchedAt: 2026-09-28T17:36:34.590Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aba3a97-1a45"
+          lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        replacements:
+          - &a29
+            date: 2026-09-29
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: М106
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: М106
+          - &a30
+            date: 2026-09-29
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 03.01 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a29
+      - *a30
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1033,4 +1095,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6366f5ee9037ac89436723b25e6739ba61c779dc3e991e3a7642d3f8557c2aaf
+semanticHash: a78824e1d41a1afbad3c8338807eeeb14c86cb47f265a2a6c6fd294b549f8e0f

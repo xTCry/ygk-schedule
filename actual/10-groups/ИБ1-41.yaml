@@ -3295,6 +3295,134 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+      second:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c60cc9355cdc13b1fa954309af7a510259e957141e2dba5a2d7052039855f3be
+          fetchedAt: 2026-09-28T17:36:34.590Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aba3a97-1a45"
+          lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+    groups:
+      ИБ1-41:
+        group: ИБ1-41
+        date: 2026-09-29
+        day: Вторник
+        lessons:
+          - number: 3
+            variants:
+              - subject: УП.03 Учебная практика
+                teacher: |-
+                  Грехова Е.И.
+                  Зайцев Р.А.
+                room: |-
+                  Б309
+                  Б403
+                weekType: numerator
+                sourceRow: 112
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Эф.поведение
+                teacher: Малашкевич Д.А.
+                room: М106
+                weekType: both
+                rawSubject: Эф.поведение Малашкевич Д.А.
+                rawTeacher: Малашкевич Д.А.
+                rawRoom: М106
+                sourceRow: 13
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-29
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Эф.поведение Малашкевич Д.А.
+                    room: М106
+                  source:
+                    shift: second
+                    row: 13
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Эф.поведение Малашкевич Д.А.
+                    rawRoom: М106
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-09-29
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: МДК 03.01 п/гр
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 14
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 03.01 п/гр
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3404,4 +3532,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 344a1bdad140197f3450319ae870bf179610e8e820bfa04446a99d560c12eae6
+semanticHash: 5623da00bf18343e721eb47cb20ce7d62d08f1312fccd91fdfd5ba0a39719df9

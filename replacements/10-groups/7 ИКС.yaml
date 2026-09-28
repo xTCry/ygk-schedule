@@ -1175,7 +1175,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1226,8 +1226,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a35
       - *a36
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a37
+            date: 2026-09-29
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: МДК 01.02 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 56
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.01
+              rawReplacement: МДК 01.02 Елистратов А.М.
+              rawRoom: к.43
+        diagnostics: []
+    replacements:
+      - *a37
 diagnostics: []
-semanticHash: a9c62c78defb6f769499aa892512a6d0d73d5b3102c899a2c196d9edc7a3891d
+semanticHash: 31da920ca59c02e928a8af01a4a837ffd4c9533699f71249042b0206fe3e4629

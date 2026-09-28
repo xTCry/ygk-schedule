@@ -471,7 +471,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -501,7 +501,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a12
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a13
+            date: 2026-09-29
+            group: СТ1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Литература
+            replacement:
+              raw: Физика Овсова К.С.
+              room: М101
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Литература
+              rawReplacement: Физика Овсова К.С.
+              rawRoom: М101
+          - &a14
+            date: 2026-09-29
+            group: СТ1-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Жданова Н.А.
+              room: Б403
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Жданова Н.А.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a13
+      - *a14
 diagnostics: []
-semanticHash: 993c580315fd822cf5bb2c18d29a47d0e590683a03af7239528bf8a443ed4665
+semanticHash: 0a119a9f1198ed405ded87ae02e29cfd7c175a851883df767886a7b8dee8ffa3

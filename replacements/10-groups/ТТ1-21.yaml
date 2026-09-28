@@ -289,7 +289,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -337,8 +337,73 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a8
       - *a9
+  2026-09-29:
+    date: 2026-09-29
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-29
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
+          fetchedAt: 2026-09-28T17:36:34.660Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aba3e09-3dfe"
+          lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        replacements:
+          - &a10
+            date: 2026-09-29
+            group: ТТ1-21
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Тех.механика Дегтева И.Е.
+              room: Б509
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Тех.механика Дегтева И.Е.
+              rawRoom: Б509
+          - &a11
+            date: 2026-09-29
+            group: ТТ1-21
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: "6"
+              rawOriginal: Тех.механика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: ea6d04915d2670f39e3ad90c44c8f024d86648580dbff463f0f7a2bdce4a9576
+semanticHash: 5de094c1811b3a9bfda0211e6c773c38a4f2fb7d5418d838e2edd62120dd77c2
