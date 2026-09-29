@@ -354,7 +354,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -402,8 +402,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-09-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
     replacements:
       - *a10
       - *a11
+  2026-09-30:
+    date: 2026-09-30
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-30
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
+          fetchedAt: 2026-09-29T15:39:52.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abb7d6c-3743"
+          lastModified: Tue, 29 Sep 2026 08:57:16 GMT
+        replacements:
+          - &a12
+            date: 2026-09-30
+            group: ТТ1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Теор.основы Веселова И.Г.
+              room: ДОТ
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Теор.основы Веселова И.Г.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
 diagnostics: []
-semanticHash: 5de094c1811b3a9bfda0211e6c773c38a4f2fb7d5418d838e2edd62120dd77c2
+semanticHash: 67b10b79b290b0e20f531e90de5509fcf9c5c4af74247f48da570c4277282962

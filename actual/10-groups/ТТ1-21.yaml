@@ -1095,7 +1095,7 @@ dates:
         date: 2026-09-29
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1105,6 +1105,10 @@ dates:
           shift: first
           etag: W/"6aba3e09-3dfe"
           lastModified: Mon, 28 Sep 2026 10:14:33 GMT
+        finalizedBy:
+          date: 2026-09-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
       second:
         date: 2026-09-29
         day: Вторник
@@ -1204,6 +1208,137 @@ dates:
                 lessonNumber: 6
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 5
+              variants:
+                - subject: Инженерная графика
+                  teacher: Дегтева И.Е.
+                  room: Б401
+                  weekType: both
+                  sourceRow: 63
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 63
+                rowEnd: 64
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Техническая механика
+                  teacher: Дегтева И.Е.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 65
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 65
+                rowEnd: 66
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-09-30:
+    date: 2026-09-30
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-09-30
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
+          fetchedAt: 2026-09-29T15:39:52.369Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abb7d6c-3743"
+          lastModified: Tue, 29 Sep 2026 08:57:16 GMT
+    groups:
+      ТТ1-21:
+        group: ТТ1-21
+        date: 2026-09-30
+        day: Среда
+        lessons:
+          - number: 2
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Трусова Е.В.
+                  Махрова Н.Н.
+                room: ДОТ
+                weekType: both
+                sourceRow: 68
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 68
+              rowEnd: 69
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Теор.основы
+                teacher: Веселова И.Г.
+                room: ДОТ
+                weekType: both
+                rawSubject: Теор.основы Веселова И.Г.
+                rawTeacher: Веселова И.Г.
+                rawRoom: ДОТ
+                sourceRow: 37
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-09-30
+                  group: ТТ1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История
+                  replacement:
+                    raw: Теор.основы Веселова И.Г.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: ТТ1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: История
+                    rawReplacement: Теор.основы Веселова И.Г.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: История
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 72
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1266,4 +1401,4 @@ diagnostics:
           sourceRow: 78
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f245befad66263a01581bb770ee292bccca0a76ba6b84fa3bca5d377f0907d16
+semanticHash: 849642478fa164e19079f77fffea1078d6cf500d63d4b39b1ccb6459c2bc80ae

@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-28T17:36:34.733Z
-scheduleVersion: d6ef75978a4f912fc28f8093e2dca655d4f827eee26f8745082e355deeee499e
+generatedAt: 2026-09-29T15:39:52.469Z
+scheduleVersion: f202ee6dfcaa04029dad676a5767c24643f72b47f111ac12cb467c513cd4813e
 summary:
   info: 0
   warning: 60
-  error: 193
+  error: 194
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -1871,6 +1871,28 @@ diagnostics:
     source: *a1
     issueFingerprint: 2e0f73029cde9d42b99fe9701277f077380a018c0f375a117eea270f6418e3a4
     issueKey: 14fbe8c08948ac344cb3ab1e4d7f7cd7d5a17e539182fdc85216b8497d4033ed
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: ed0e784c888afe809249181017670238d9e8d585f9625fee52e2aab993a149bd
+    sheet: "Замены: Первая смена"
+    row: 42
+    normalizedGroup: УД1-31
+    rawValue: МДК01.01 МДК03.02 Костина Г.Л.
+    context:
+      date: 2026-09-30
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-found
+      baseGroup: УД1-31
+      baseSourceFiles:
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: d7f03e721ab983d53a65e5bd7e9afcc410e51986a36ac2cdcfabd4d749632e2b
+    issueKey: 6c8bd9da96181814ae7c77a772ab54f74d0903bbafc094f6a593ec51a5b1d5cc
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -8392,6 +8414,114 @@ issues:
       {{group-yaml:base:4%20%D0%98%D0%9A%D0%A1}} |
       {{group-yaml:actual:4%20%D0%98%D0%9A%D0%A1}} |
       {{raw-source:schedule:ort.xlsx}} |
+  - key: 6c8bd9da96181814ae7c77a772ab54f74d0903bbafc094f6a593ec51a5b1d5cc
+    familyKey: ca535ad62cc1ef4895ee55816864838c588c64e0e3c9ceb1d21a009dd276e7aa
+    fingerprint: d7f03e721ab983d53a65e5bd7e9afcc410e51986a36ac2cdcfabd4d749632e2b
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-09-30
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-09-30, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - cb2b22c807a5ffa46c4dc9fe9a68b3da93c9f85e518cf48118a46adab8ec4a51
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/6c8bd9da96181814ae7c77a772ab54f74d0903bbafc094f6a593ec51a5b1d5cc.json
+      yamlPath: actual/91-issue-evidence/6c8bd9da96181814ae7c77a772ab54f74d0903bbafc094f6a593ec51a5b1d5cc.yaml
+    body: >
+      <!-- parser-issue-key:
+      6c8bd9da96181814ae7c77a772ab54f74d0903bbafc094f6a593ec51a5b1d5cc -->
+
+      <!-- diagnostic-family-key:
+      ca535ad62cc1ef4895ee55816864838c588c64e0e3c9ceb1d21a009dd276e7aa -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      cb2b22c807a5ffa46c4dc9fe9a68b3da93c9f85e518cf48118a46adab8ec4a51 -->
+
+      <!-- parser-fingerprint:
+      d7f03e721ab983d53a65e5bd7e9afcc410e51986a36ac2cdcfabd4d749632e2b -->
+
+
+      ## Причина
+
+
+      Пара из замены отсутствует в базовом расписании
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-found |
+
+      | Дата замен | 2026-09-30 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 42 | — | УД1-31 | 0 | replace | МДК01.01 МДК03.02
+      Костина Г.Л. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%A3%D0%941-31}} |
+      {{group-yaml:actual:%D0%A3%D0%941-31}} | {{raw-source:schedule:oeis.xlsx}}
+      |
   - key: 9c56875c1dd766757627e856be7f2519cd3005a824af65c242b778a4baf85cac
     familyKey: 8b507e5c584ca4dcdba32e2fa534b93d70b212c035a792a2f997330342ed27e3
     fingerprint: 3c2a49563a0e8426569a32cb981eec9692dc0b3d6bc1c5b8314c936b9f2c1a4e
