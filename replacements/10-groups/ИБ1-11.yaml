@@ -599,7 +599,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -630,7 +630,54 @@ dates:
               rawReplacement: 1,2 п/гр. Зубковская А.Е.
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
     replacements:
       - *a17
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a18
+            date: 2026-10-01
+            group: ИБ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: /теория Садилова К.А.
+              room: Б310
+            source:
+              shift: first
+              row: 31
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: /теория Садилова К.А.
+              rawRoom: Б310
+        diagnostics: []
+    replacements:
+      - *a18
 diagnostics: []
-semanticHash: b477af31677e71b751b87425ea3efb8da77a3b31df0df60d201396dcfc023c89
+semanticHash: 02b5e94848713bbc26988c201bcbabef08bc69cb2247905c7598e3719b3f0440

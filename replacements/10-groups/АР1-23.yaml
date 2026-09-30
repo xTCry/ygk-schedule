@@ -390,5 +390,68 @@ dates:
           sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
     replacements:
       - *a10
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a11
+            date: 2026-10-01
+            group: АР1-23
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Тех.механика п/гр.1
+            replacement:
+              raw: /теория Калугина М.В.
+              room: Б409
+            source:
+              shift: first
+              row: 15
+              rawGroupName: АР1-23
+              rawLessonNumbers: "0"
+              rawOriginal: Тех.механика п/гр.1
+              rawReplacement: /теория Калугина М.В.
+              rawRoom: Б409
+          - &a12
+            date: 2026-10-01
+            group: АР1-23
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 01.03 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 16
+              rawGroupName: АР1-23
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.03 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a11
+      - *a12
 diagnostics: []
-semanticHash: f9079bb7eabc533d17b19162790469035e7088c33495cab21bbb19a8ac0feb7d
+semanticHash: c67f71a09e8bb419719c780dc3bd6094a69324a54dbe755d275b7aa56f244680

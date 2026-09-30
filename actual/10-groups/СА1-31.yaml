@@ -2134,6 +2134,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      СА1-31:
+        group: СА1-31
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 3
+            variants:
+              - subject: Теория вероятностей и мат. Статистика
+                teacher: Шереметьева Н.В.
+                room: М106
+                weekType: both
+                sourceRow: 76
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 76
+              rowEnd: 77
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.01.02 Организация, принципы построения и функционирование КС
+                teacher: Хожайнова М.Г.
+                room: Б308
+                weekType: both
+                rawSubject: "МДК.01.02 Организация, принципы построения и функционирование КС "
+                sourceRow: 78
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 78
+              rowEnd: 79
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.01.02 Организация, принципы построения и функционирование КС
+                teacher: Хожайнова М.Г.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр.Хожайнова М.Г.
+                rawTeacher: Хожайнова М.Г.
+                rawRoom: Б308
+                sourceRow: 10
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 80
+              rowEnd: 81
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-10-01
+                  group: СА1-31
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 01.02
+                  replacement:
+                    raw: 1,2 п/гр.Хожайнова М.Г.
+                    room: Б308
+                  source:
+                    shift: second
+                    row: 10
+                    rawGroupName: СА1-31
+                    rawLessonNumbers: 5,6
+                    rawOriginal: МДК 01.02
+                    rawReplacement: 1,2 п/гр.Хожайнова М.Г.
+                    rawRoom: Б308
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК.01.02 Организация, принципы построения и функционирование КС
+                teacher: Хожайнова М.Г.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр.Хожайнова М.Г.
+                rawTeacher: Хожайнова М.Г.
+                rawRoom: Б308
+                sourceRow: 10
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 82
+              rowEnd: 83
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2160,4 +2292,4 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 885d5b7f359de0e5786c8a95cc3546568838fcf307a76cb33645e065ba5f49e9
+semanticHash: 19873bf395badfff84b830934129a56d33fb768d9f3ed0cad28cc6c5596ad43a

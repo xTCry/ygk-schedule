@@ -1622,7 +1622,7 @@ dates:
         date: 2026-09-29
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1632,6 +1632,10 @@ dates:
           shift: second
           etag: W/"6aba3a97-1a45"
           lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
     groups:
       РК2-11:
         group: РК2-11
@@ -1796,5 +1800,132 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      РК2-11:
+        group: РК2-11
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 01.01
+                teacher: Девятаева Н.Ф.
+                room: М208
+                weekType: both
+                rawSubject: МДК 01.01 Девятаева Н.Ф.
+                rawTeacher: Девятаева Н.Ф.
+                rawRoom: М208
+                sourceRow: 17
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: РК2-11
+                  lessonNumbers:
+                    - 0
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 01.01 Девятаева Н.Ф.
+                    room: М208
+                  source:
+                    shift: first
+                    row: 17
+                    rawGroupName: РК2-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: МДК 01.01 Девятаева Н.Ф.
+                    rawRoom: М208
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Физкультура
+                teacher: Чупрова П.А.
+                room: сп.зал
+                weekType: both
+                rawSubject: Физкультура Чупрова П.А.
+                rawTeacher: Чупрова П.А.
+                rawRoom: сп.зал
+                sourceRow: 18
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 27
+              rowEnd: 28
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: РК2-11
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: Физкультура Чупрова П.А.
+                    room: сп.зал
+                  source:
+                    shift: first
+                    row: 18
+                    rawGroupName: РК2-11
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: Физкультура Чупрова П.А.
+                    rawRoom: сп.зал
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Чупрова П.А.
+                room: Спорт.зал
+                weekType: both
+                sourceRow: 29
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: РК2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 53ed9e5ec811aa27ba52e1371b9ecbe620a790970c801bec5a05e676023e9f57
+semanticHash: 7e38d79bcfef1e99f66e17c8eaed94c2934c77a6163aafefa9f6bf1ee38b2b5a

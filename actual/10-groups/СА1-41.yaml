@@ -3281,6 +3281,134 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      СА1-41:
+        group: СА1-41
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК.02.01 Админ-ие сетевых ОС
+                teacher: Грехова Е.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 126
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 126
+              rowEnd: 127
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.02.01 Админ-ие сетевых ОС
+                teacher: Грехова Е.И.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Грехова Е.И.
+                rawTeacher: Грехова Е.И.
+                rawRoom: ДОТ
+                sourceRow: 11
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 128
+              rowEnd: 129
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: СА1-41
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 02.01
+                  replacement:
+                    raw: 1,2 п/гр. Грехова Е.И.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 11
+                    rawGroupName: СА1-41
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 02.01
+                    rawReplacement: 1,2 п/гр. Грехова Е.И.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Иностранный язык в проф. деят.
+                teacher: |-
+                  Зубковская А.Е.
+                  Загородних Е.С.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 130
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 130
+              rowEnd: 131
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: УП 03 Учебная практика
+                teacher: |-
+                  Зайцев Р.А.
+                  Грехова Е.И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 132
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 132
+              rowEnd: 133
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3422,4 +3550,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a91ac4c22bc540f29df37985bf716f3a7a1e54a72735a7483c7d34729e0988f5
+semanticHash: 1e4b844e1e4d30601969002d436f69fe001dd10ef31b8ce9fdc24f890d93690a

@@ -377,7 +377,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -407,7 +407,54 @@ dates:
               rawReplacement: МДК 02.01 п/гр 1 Сосновских А.Л.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
     replacements:
       - *a10
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+        replacements:
+          - &a11
+            date: 2026-10-01
+            group: ДИ1-34
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: п/гр.2 Лапина А.А.
+              room: Б501
+            source:
+              shift: second
+              row: 23
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.01
+              rawReplacement: п/гр.2 Лапина А.А.
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a11
 diagnostics: []
-semanticHash: 9a03103871bc7233a33d8c3a73567fd0d6f1f5dec08a8e24983b51f5efeda760
+semanticHash: bad7eb96210ca09cafc909210b96b6ef61eaa5468b2501fdcbd72ac0e635200f

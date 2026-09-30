@@ -877,6 +877,69 @@ dates:
           sourceSha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
     replacements:
       - *a21
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a22
+            date: 2026-10-01
+            group: ЗМ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Прав.обесп.
+            replacement:
+              raw: Воробьева Н.Е.
+              room: Ф301
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Прав.обесп.
+              rawReplacement: Воробьева Н.Е.
+              rawRoom: Ф301
+          - &a23
+            date: 2026-10-01
+            group: ЗМ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Воробьева Н.Е.
+              room: Ф301
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: Воробьева Н.Е.
+              rawRoom: Ф301
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -899,4 +962,4 @@ diagnostics:
     normalizedGroup: ЗМ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d6a0f928920b620f45bb38160fe30d80c68866a63368fcf5138557e0a290ff27
+semanticHash: 75860273d813fbc20211bbfef952704d6b97e3556e53d7851709f18466eb9824

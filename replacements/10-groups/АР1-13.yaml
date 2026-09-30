@@ -418,5 +418,86 @@ dates:
           sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
     replacements:
       - *a10
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a11
+            date: 2026-10-01
+            group: АР1-13
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: История Булычева Л.А.
+              room: В102
+            source:
+              shift: first
+              row: 30
+              rawGroupName: АР1-13
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: История Булычева Л.А.
+              rawRoom: В102
+          - &a12
+            date: 2026-10-01
+            group: АР1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Биология
+            replacement:
+              raw: 1,2 п/гр.Информ. Комиссарова О.В.
+              room: Б310
+            source:
+              shift: first
+              row: 28
+              rawGroupName: АР1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Биология
+              rawReplacement: 1,2 п/гр.Информ. Комиссарова О.В.
+              rawRoom: Б310
+          - &a13
+            date: 2026-10-01
+            group: АР1-13
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 29
+              rawGroupName: АР1-13
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a11
+      - *a12
+      - *a13
 diagnostics: []
-semanticHash: b9ed00c636708d4430b0c7a267bb6bbd2efa8478c547c28c04e2984b6972418d
+semanticHash: e83350f337c928d9a4c396eb6b7fec9b60fa62f2475ae950df18e7f47c60be9d

@@ -863,7 +863,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -894,7 +894,54 @@ dates:
               rawReplacement: Грехова Е.И.Серова А.М
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
     replacements:
       - *a22
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a23
+            date: 2026-10-01
+            group: ИБ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: акт.зал
+            source:
+              shift: first
+              row: 8
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: акт.зал
+        diagnostics: []
+    replacements:
+      - *a23
 diagnostics: []
-semanticHash: 9f5d5619044d611a9df5abadf06645cff7098879302a8e11d1e9d882410a6c57
+semanticHash: 85ffcef83b3ae9028baa7641b9971fad1e6ce2bd54179d96f20ecf8dc20edb6e

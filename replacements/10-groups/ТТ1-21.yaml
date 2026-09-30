@@ -419,7 +419,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -450,7 +450,54 @@ dates:
               rawReplacement: Теор.основы Веселова И.Г.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
     replacements:
       - *a12
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a13
+            date: 2026-10-01
+            group: ТТ1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Инж.граф. Дегтева И.Е.
+              room: Б202
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Инж.граф. Дегтева И.Е.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: 67b10b79b290b0e20f531e90de5509fcf9c5c4af74247f48da570c4277282962
+semanticHash: bcbb81e23bcf8374ccd2eda5407d852144ac4a167ce783a3c05f29632d0e55dd

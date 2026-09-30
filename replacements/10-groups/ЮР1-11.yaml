@@ -1122,7 +1122,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1153,7 +1153,93 @@ dates:
               rawReplacement: ОБиЗР Корсаков С.В.
               rawRoom: Ф301
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
     replacements:
       - *a34
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a35
+            date: 2026-10-01
+            group: ЮР1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Литература Головкина С.А.
+              room: Ф303
+            source:
+              shift: first
+              row: 61
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Литература Головкина С.А.
+              rawRoom: Ф303
+          - &a36
+            date: 2026-10-01
+            group: ЮР1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: ОБиЗР Корсаков С.В.
+              room: Ф301
+            source:
+              shift: first
+              row: 62
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Обществ.
+              rawReplacement: ОБиЗР Корсаков С.В.
+              rawRoom: Ф301
+          - &a37
+            date: 2026-10-01
+            group: ЮР1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Обществ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 63
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Обществ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a35
+      - *a36
+      - *a37
 diagnostics: []
-semanticHash: 6e840369d81ecea2ee5ff31c49c19939bf6fd7aaa205e7dab7d2de8dc6a2d478
+semanticHash: 906431660916132ba5635e17fd694df7e95c34cad69c6f1ff596fd659fdc2dab

@@ -1737,7 +1737,7 @@ dates:
         date: 2026-09-29
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1747,6 +1747,10 @@ dates:
           shift: second
           etag: W/"6aba3a97-1a45"
           lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
     groups:
       ЗМ1-23:
         group: ЗМ1-23
@@ -1909,6 +1913,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      ЗМ1-23:
+        group: ЗМ1-23
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математические методы решения прикладных профессиональных задач
+                teacher: Кашурина Н.Н.
+                room: очно
+                weekType: both
+                sourceRow: 73
+                rawRoom: очно
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 73
+              rowEnd: 74
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-10-01
+                  group: ЗМ1-23
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: очно
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: ЗМ1-23
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: очно
+                lessonNumber: 0
+                strategy: scheduled-room
+          - number: 1
+            variants:
+              - subject: Основы геологии, геоморфологии, почвоведения
+                teacher: Сивачева М.С.
+                room: очно
+                weekType: both
+                sourceRow: 75
+                rawRoom: очно
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: МДК.01.01 Выполнение полевых и камеральных работ по созданию
+                  геодезических сетей специального назначения
+                teacher: Шумилова Т.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 77
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 77
+              rowEnd: 78
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a10
+                  date: 2026-10-01
+                  group: ЗМ1-23
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: ЗМ1-23
+                    rawLessonNumbers: 2,3
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: scheduled-room
+          - number: 3
+            variants:
+              - subject: МДК.01.01 Выполнение полевых и камеральных работ по созданию
+                  геодезических сетей специального назначения
+                teacher: Шумилова Т.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 79
+                rawRoom: ДОТ
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 79
+              rowEnd: 80
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 3
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1935,4 +2093,4 @@ diagnostics:
           sourceRow: 54
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f827e6f6cf63b1fd6d1e2db9ecc6a3dc892db5bb6303cc3a9e7a73ced9e90d85
+semanticHash: 88ab1b34e32c32210f0709c3a97ad98f06e94de91907e4e5781eb9334634322a

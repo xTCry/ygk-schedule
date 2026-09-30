@@ -2617,6 +2617,124 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      АР1-42:
+        group: АР1-42
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 4
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 239
+              rowEnd: 240
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: АР1-42
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: МДК 01.05
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 21
+                    rawGroupName: АР1-42
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 01.05
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.1
+                teacher: Балина С.А.
+                room: Б503
+                weekType: both
+                sourceRow: 241
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 241
+              rowEnd: 242
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: МДК 02.02
+                teacher: Гасенина М.П.
+                room: Б508
+                weekType: both
+                rawSubject: МДК 02.02 Гасенина М.П.
+                rawTeacher: Гасенина М.П.
+                rawRoom: Б508
+                sourceRow: 22
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: АР1-42
+                  lessonNumbers:
+                    - 6
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 02.02 Гасенина М.П.
+                    room: Б508
+                  source:
+                    shift: second
+                    row: 22
+                    rawGroupName: АР1-42
+                    rawLessonNumbers: "6"
+                    rawOriginal: ""
+                    rawReplacement: МДК 02.02 Гасенина М.П.
+                    rawRoom: Б508
+                lessonNumber: 6
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2639,4 +2757,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2e3913b029e36c1f1725ea3e3069fa64d85fde79c9edff8cf08a8f9a81c8cf5f
+semanticHash: 227d05065450c04736cd4dada7e76a3afb67414329af800aaa5c49ee03c86b2c

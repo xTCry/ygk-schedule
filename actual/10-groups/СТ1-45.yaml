@@ -796,7 +796,7 @@ dates:
         date: 2026-09-29
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -806,6 +806,10 @@ dates:
           shift: second
           etag: W/"6aba3a97-1a45"
           lastModified: Mon, 28 Sep 2026 09:59:51 GMT
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
     groups:
       СТ1-45:
         group: СТ1-45
@@ -961,6 +965,115 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+    groups:
+      СТ1-45:
+        group: СТ1-45
+        date: 2026-10-01
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Общие сведения
+                teacher: Нечипорук.О.Л.
+                room: ДОТ
+                weekType: both
+                sourceRow: 125
+            source:
+              sheet: СТ 4 курс
+              rowStart: 125
+              rowEnd: 126
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Общ.свед.
+                teacher: Нечипорук О.Л.
+                room: ДОТ
+                weekType: both
+                rawSubject: Общ.свед.Нечипорук О.Л.
+                rawTeacher: Нечипорук О.Л.
+                rawRoom: ДОТ
+                sourceRow: 5
+            source:
+              sheet: СТ 4 курс
+              rowStart: 127
+              rowEnd: 128
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-01
+                  group: СТ1-45
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 03.01 Т.1.3.
+                  replacement:
+                    raw: Общ.свед.Нечипорук О.Л.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 5
+                    rawGroupName: СТ1-45
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 03.01 Т.1.3.
+                    rawReplacement: Общ.свед.Нечипорук О.Л.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Экономика отрасли
+                teacher: Малышева К.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 129
+            source:
+              sheet: СТ 4 курс
+              rowStart: 129
+              rowEnd: 130
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -983,4 +1096,4 @@ diagnostics:
     rawValue: СТ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 31072a840d3e5007539915de319498dcd44939efa85b691a3c729c27b1dcd973
+semanticHash: 4456d2a256e997c99574f112715cd9ecbfc2981ab0304e2a013d3847e05c1832

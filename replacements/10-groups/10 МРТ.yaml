@@ -445,5 +445,48 @@ dates:
           sourceSha256: 54cf20cfee974a8adf305869782d9f9049be98ec6c646056c1da4d9d750821c0
     replacements:
       - *a10
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 74a8f96138f9b48e02e73246714ed443d77b5cf9e175537a047784a4d5951013
+          fetchedAt: 2026-09-30T15:50:47.103Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abcd8e1-4464"
+          lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        replacements:
+          - &a11
+            date: 2026-10-01
+            group: 10 МРТ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 76
+              rawGroupName: 10 МРТ
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+        diagnostics: []
+    replacements:
+      - *a11
 diagnostics: []
-semanticHash: 2f44f9fa4f1e30ab32b707d6d4d14e370573e7776f6cd0f787a7a3498b64bf6a
+semanticHash: 6416551d588507f2bbad8d0dcaa41973a550edc71f84b03b67545ffc1acf559c

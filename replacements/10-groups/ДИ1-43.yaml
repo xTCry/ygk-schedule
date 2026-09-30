@@ -1294,7 +1294,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1343,9 +1343,56 @@ dates:
               rawReplacement: 1,2 п/гр. Лапина А.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-01
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
     replacements:
       - *a37
       - *a38
+  2026-10-01:
+    date: 2026-10-01
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-01
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cd5fdc3bbddc9d07da3f3d3fe52d682b173f679ae707686015f7d2cac0331b8b
+          fetchedAt: 2026-09-30T15:50:47.031Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abcecdb-1da4"
+          lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+        replacements:
+          - &a39
+            date: 2026-10-01
+            group: ДИ1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: 1,2 п/гр. Ремизова А.И.
+              room: Б304
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.01
+              rawReplacement: 1,2 п/гр. Ремизова А.И.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a39
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1368,4 +1415,4 @@ diagnostics:
     normalizedGroup: ДИ1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2d5f4fff1fb454d8cd8279d72af1fbe7b691a7ad622955ef01a43991d7c29087
+semanticHash: 17085489c1a5a79526db659ba7e5c1a7e3a2f652ca03b46da802bdc6f99b3a04
