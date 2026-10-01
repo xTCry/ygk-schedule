@@ -1169,7 +1169,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1237,9 +1237,56 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a35
       - *a36
       - *a37
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a38
+            date: 2026-10-02
+            group: ЮР1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Биология
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф106
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Биология
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф106
+        diagnostics: []
+    replacements:
+      - *a38
 diagnostics: []
-semanticHash: 906431660916132ba5635e17fd694df7e95c34cad69c6f1ff596fd659fdc2dab
+semanticHash: 29dda892075bed4394430d0bbb77a84996e12e96b9fa55ec4debe798b1ce5188

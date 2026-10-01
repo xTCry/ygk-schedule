@@ -746,7 +746,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -777,7 +777,93 @@ dates:
               rawReplacement: Филиппова А.С.
               rawRoom: к.30
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a20
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a21
+            date: 2026-10-02
+            group: 9 МРТ
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Метрол.,станд
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 47
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "1"
+              rawOriginal: Метрол.,станд
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a22
+            date: 2026-10-02
+            group: 9 МРТ
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: УП 04
+            replacement:
+              raw: МДК 01.01 Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 48
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 04
+              rawReplacement: МДК 01.01 Филиппова А.С.
+              rawRoom: к.30
+          - &a23
+            date: 2026-10-02
+            group: 9 МРТ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 04.01 Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 49
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: МДК 04.01 Филиппова А.С.
+              rawRoom: к.30
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: d0055a81c66b38113dc85cef9ec0d0fc96bc9a24f3fd6ea4d2be3fa79acf0c40
+semanticHash: 1389c6af30312c3bd7462d53602a86614e3d1237a540f822d30084a51d38eca1

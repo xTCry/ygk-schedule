@@ -3481,6 +3481,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+      second:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
+          fetchedAt: 2026-10-01T16:18:08.446Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abe3cba-1bf9"
+          lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+    groups:
+      ИС1-25:
+        group: ИС1-25
+        date: 2026-10-02
+        day: Пятница
+        lessons:
+          - number: 1
+            variants:
+              - subject: Архитектура аппаратных средств
+                teacher: Серова А.М.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр. Серова А.М.
+                rawTeacher: Серова А.М.
+                rawRoom: Б308
+                sourceRow: 13
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 136
+              rowEnd: 137
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-02
+                  group: ИС1-25
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Арх.апп.сред.
+                  replacement:
+                    raw: 1,2 п/гр. Серова А.М.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 13
+                    rawGroupName: ИС1-25
+                    rawLessonNumbers: "1"
+                    rawOriginal: Арх.апп.сред.
+                    rawReplacement: 1,2 п/гр. Серова А.М.
+                    rawRoom: Б308
+                lessonNumber: 1
+                strategy: subject-abbreviation
+          - number: 2
+            variants:
+              - subject: Операционные системы и среды
+                teacher: Васильченко М.О.
+                room: Б301
+                weekType: both
+                sourceRow: 138
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 138
+              rowEnd: 139
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Куликова А.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 140
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 140
+              rowEnd: 141
+              rawGroupName: ИС1-25/ИС1-26/ИС2-13
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-10-02
+              group: ИС1-25
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: ОС и среды
+              replacement:
+                raw: МДК 06.01 Пронина Л.Ю.
+                room: Б301
+              source:
+                shift: first
+                row: 14
+                rawGroupName: ИС1-25
+                rawLessonNumbers: "2"
+                rawOriginal: ОС и среды
+                rawReplacement: МДК 06.01 Пронина Л.Ю.
+                rawRoom: Б301
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ОС и среды». По замене: «МДК 06.01 Пронина Л.Ю.».
+                Аудитория: «Б301»."
+              room: Б301
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3544,6 +3679,31 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: caa27f2dd6728de8f54d1d57003bce25d10437b4659ea23ebe598616a8646be8
+    sheet: "Замены: Первая смена"
+    row: 14
+    normalizedGroup: ИС1-25
+    rawValue: МДК 06.01 Пронина Л.Ю.
+    context:
+      date: 2026-10-02
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-25
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: ОС и среды
+      candidates:
+        - subject: Операционные системы и среды
+          teacher: Васильченко М.О.
+          room: Б301
+          sourceRow: 138
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: d8d3b1667190e3db0b8e74302e6616f4739b67d63a3ee92a62186ae1ab2563a8
     sheet: "Замены: Первая смена"
     row: 8
@@ -3569,4 +3729,4 @@ diagnostics:
           sourceRow: 131
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 18f6f12472792718b46c51a6eb7d41700f4fb4827a3bbd6ebeb58f35df353fdf
+semanticHash: 973e3fbf6fee6cfa5d51affa658714af41cd72c9978700b4215704ce428a9864

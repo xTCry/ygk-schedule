@@ -501,7 +501,7 @@ dates:
         date: 2026-10-01
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -511,11 +511,15 @@ dates:
           shift: first
           etag: W/"6abcd8e1-4464"
           lastModified: Wed, 30 Sep 2026 09:39:45 GMT
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
       second:
         date: 2026-10-01
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -525,6 +529,10 @@ dates:
           shift: second
           etag: W/"6abcecdb-1da4"
           lastModified: Wed, 30 Sep 2026 11:04:59 GMT
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
     groups:
       СТ1-41:
         group: СТ1-41
@@ -604,6 +612,58 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Физическая культура
+                  teacher: Герман О.Г.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 27
+              source:
+                sheet: СТ 4 курс
+                rowStart: 27
+                rowEnd: 28
+                rawGroupName: СТ1-41/СТ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Тема 1.3 Проектирование
+                    строительных конструкций
+                  teacher: Голованова Н.М.
+                  room: Б504
+                  weekType: both
+                  rawSubject: "МДК.01.01 Проектирование зданий и сооружений Тема 1.3
+                    Проектирование строительных конструкций "
+                  sourceRow: 29
+              source:
+                sheet: СТ 4 курс
+                rowStart: 29
+                rowEnd: 30
+                rawGroupName: СТ1-41/СТ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Эфективное поведение на рынке труда
+                  teacher: Малашкевич Д.А.
+                  room: М102
+                  weekType: numerator
+                  sourceRow: 31
+              source:
+                sheet: СТ 4 курс
+                rowStart: 31
+                rowEnd: 32
+                rawGroupName: СТ1-41/СТ1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -626,4 +686,4 @@ diagnostics:
     rawValue: СТ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 868e8c2089efab48a806ec412b7b304ae4514020b4dec847e829c4220a43333d
+semanticHash: d25360bdfc7989022bf055879b483d303068ec4ab3b910e496ca3baad2097df9

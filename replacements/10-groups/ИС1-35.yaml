@@ -637,7 +637,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -668,7 +668,54 @@ dates:
               rawReplacement: 1,2 п/гр. Зубковская А.Е.
               rawRoom: Б101
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
     replacements:
       - *a16
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
+          fetchedAt: 2026-10-01T16:18:08.446Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abe3cba-1bf9"
+          lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        replacements:
+          - &a17
+            date: 2026-10-02
+            group: ИС1-35
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 06
+            replacement:
+              raw: УП 02 Кувшинова В.А.Юров А.А
+              room: ДОТ
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "5"
+              rawOriginal: УП 06
+              rawReplacement: УП 02 Кувшинова В.А.Юров А.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a17
 diagnostics: []
-semanticHash: 903e5d6bc89ee476c5c3e89f6d31471d0e6b49edabca6e5292046a134493c869
+semanticHash: 632ecc0f3f05ce0f12c21d6ab37c98d8b601799fb523e225a60084a90acd4d0a

@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-09-30T15:50:47.165Z
-scheduleVersion: 8f2a6fa205042fe155ac59f24d348b2441bfc68fe9e69ede121aa35dda54d8f7
+generatedAt: 2026-10-01T16:18:08.598Z
+scheduleVersion: 0565725c3c0f9a9e7db7a3058897ae98ccdef80630b96e946d17b586db5b402f
 summary:
   info: 0
   warning: 60
-  error: 197
+  error: 200
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -514,6 +514,34 @@ diagnostics:
     source: *a1
     issueFingerprint: 50a8c7b6cde0a929b9947864572c743426517175a58872368266ac17a96d2b5d
     issueKey: bfbad172543229534bc1f8aa5845693772c4f50bd001e5e7fa70e5d72a181034
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: caa27f2dd6728de8f54d1d57003bce25d10437b4659ea23ebe598616a8646be8
+    sheet: "Замены: Первая смена"
+    row: 14
+    normalizedGroup: ИС1-25
+    rawValue: МДК 06.01 Пронина Л.Ю.
+    context:
+      date: 2026-10-02
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-25
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: ОС и среды
+      candidates:
+        - subject: Операционные системы и среды
+          teacher: Васильченко М.О.
+          room: Б301
+          sourceRow: 138
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 1e47bd0ca3b5c4fc0bfeddbfbfe66b80e4c568e0aea32fc2e7c024fa5877b61b
+    issueKey: 933b941f1702a0af070c04669fbc7d464c7da91a407ea63f535eea63c447034b
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4835,6 +4863,28 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 43c3d511858d976a9cc9ecf86f670e16be6192a8d4914e62836df67855ff59f2
+    sheet: "Замены: Вторая смена"
+    row: 16
+    normalizedGroup: ИС1-41
+    rawValue: МДК 05.02 Неделяева Н.А.Королева П.Д.
+    context:
+      date: 2026-10-02
+      lessonNumber: 5
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ИС1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a11
+    issueFingerprint: fdcce08f0080b7fa936d84b03ca04b3d6c68ae15d726d30b0f697cebcc5bb998
+    issueKey: a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: b64e20d16984e39bcdc7adf34f6e7bfeb8ef15002019d74af1b9a5e91138b7b5
     sheet: "Замены: Вторая смена"
@@ -5430,6 +5480,34 @@ diagnostics:
     source: *a11
     issueFingerprint: 688e89f3366e40262138ff95f2e61d664411d8189c4eab5058d903ee5e088871
     issueKey: 968b3ece8b62a6704e8fd1fbc0f64cd6b2dc6269c1cafcdec53d289654da5986
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: b938dc042f4b5320ade05f5c8a6fa8bd38e47df7c54202fe255d808700cf67be
+    sheet: "Замены: Вторая смена"
+    row: 27
+    normalizedGroup: АР1-41
+    rawValue: МДК 01.05 п/гр 2 Балина С.А.
+    context:
+      date: 2026-10-02
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: АР1-41
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 02.02
+      candidates:
+        - subject: Основы экономики архитектурного проектирования
+          teacher: Сафронова Л.Н.
+          room: Б402
+          sourceRow: 197
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a11
+    issueFingerprint: 56d42f9267eb288e851d9f1bb917609536fa6b17ec05af2381d8b979d25b559a
+    issueKey: 0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -7457,6 +7535,114 @@ issues:
       | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 11 | — | СТ1-13 | 2 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-13}} | {{group-yaml:actual:%D0%A1%D0%A21-13}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 22 | — | ДИ1-21 | 1 | replace | 1,2 п/гр.МДК 05.01 Рочева А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
+  - key: 933b941f1702a0af070c04669fbc7d464c7da91a407ea63f535eea63c447034b
+    familyKey: 87d85024bc28de1450998d5024bdb13a8d0b7e3cc62a2ba16101f8553b76cec2
+    fingerprint: 1e47bd0ca3b5c4fc0bfeddbfbfe66b80e4c568e0aea32fc2e7c024fa5877b61b
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-02
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-02, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - 8f0bbbe9981deaa88897619f64b129ef16465866f0c70f3b1faf3424d253643f
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/933b941f1702a0af070c04669fbc7d464c7da91a407ea63f535eea63c447034b.json
+      yamlPath: actual/91-issue-evidence/933b941f1702a0af070c04669fbc7d464c7da91a407ea63f535eea63c447034b.yaml
+    body: >
+      <!-- parser-issue-key:
+      933b941f1702a0af070c04669fbc7d464c7da91a407ea63f535eea63c447034b -->
+
+      <!-- diagnostic-family-key:
+      87d85024bc28de1450998d5024bdb13a8d0b7e3cc62a2ba16101f8553b76cec2 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      8f0bbbe9981deaa88897619f64b129ef16465866f0c70f3b1faf3424d253643f -->
+
+      <!-- parser-fingerprint:
+      1e47bd0ca3b5c4fc0bfeddbfbfe66b80e4c568e0aea32fc2e7c024fa5877b61b -->
+
+
+      ## Причина
+
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | original-not-matched |
+
+      | Дата замен | 2026-10-02 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 14 | — | ИС1-25 | 2 | replace | МДК 06.01 Пронина
+      Л.Ю. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%98%D0%A11-25}} |
+      {{group-yaml:actual:%D0%98%D0%A11-25}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 3f93f9869d6d26e5947e7674bd436abd8faeebd63960aa35f517d4ed39743bca
     familyKey: 422fee1d5022ace4c18271eaefb5d80b2eddf39541853e1a082f079d0c554c58
     fingerprint: f7a51fff697f9b0feaddc26d74a80a2404dc4dbf21be15ab0a72ebee6fbadbe3
@@ -11609,6 +11795,114 @@ issues:
       | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Вторая смена | 13 | — | СА1-41 | 6 | replace | п/гр.2 Грехова Е.И. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A1%D0%901-41}} | {{group-yaml:actual:%D0%A1%D0%901-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
       | Замены: Вторая смена | 25 | — | АР1-41 | 5 | replace | МДК 01.05 Т.5.1. Балина С.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%90%D0%A01-41}} | {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}} |
+  - key: a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472
+    familyKey: 91c26471578e5ca6eb896e1ea48eb11217de742b93521fec1c989216b2749fe6
+    fingerprint: fdcce08f0080b7fa936d84b03ca04b3d6c68ae15d726d30b0f697cebcc5bb998
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-02
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-10-02, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 1
+    observationKeys:
+      - 18addc165b2dfbee1e2f15ee68b240728339ca7a6f271201f2f92c94bb0e2db3
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472.json
+      yamlPath: actual/91-issue-evidence/a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472.yaml
+    body: >
+      <!-- parser-issue-key:
+      a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472 -->
+
+      <!-- diagnostic-family-key:
+      91c26471578e5ca6eb896e1ea48eb11217de742b93521fec1c989216b2749fe6 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      18addc165b2dfbee1e2f15ee68b240728339ca7a6f271201f2f92c94bb0e2db3 -->
+
+      <!-- parser-fingerprint:
+      fdcce08f0080b7fa936d84b03ca04b3d6c68ae15d726d30b0f697cebcc5bb998 -->
+
+
+      ## Причина
+
+
+      Пара из замены отсутствует в базовом расписании
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-found |
+
+      | Дата замен | 2026-10-02 |
+
+      | Смена | вторая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_second.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+
+      | SHA-256 |
+      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+
+      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+
+      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Вторая смена | 16 | — | ИС1-41 | 5 | replace | МДК 05.02
+      Неделяева Н.А.Королева П.Д. | {{raw-source:replacements:rasp_second.html}}
+      | {{group-yaml:base:%D0%98%D0%A11-41}} |
+      {{group-yaml:actual:%D0%98%D0%A11-41}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
     familyKey: 4d28df455ab81c8e159606d95f9a8cf4fe2bbe8fbeaf45f9e3ffa70b883e895a
     fingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
@@ -12075,6 +12369,114 @@ issues:
       | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
       | Замены: Вторая смена | 25 | — | АР1-41 | 6 | replace | МДК 01.05 Т.5.1.
+      Балина С.А. | {{raw-source:replacements:rasp_second.html}} |
+      {{group-yaml:base:%D0%90%D0%A01-41}} |
+      {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}}
+      |
+  - key: 0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133
+    familyKey: f554db91eb8d028714bd6b7842e809a007a33b2d0ac554fc4fe821452cda055b
+    fingerprint: 56d42f9267eb288e851d9f1bb917609536fa6b17ec05af2381d8b979d25b559a
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-02
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-02, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 1
+    observationKeys:
+      - 2a44fb76e99ec9dafec2a8eb621fc6772367a57f8368b5d1c7319be818c3448e
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133.json
+      yamlPath: actual/91-issue-evidence/0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133.yaml
+    body: >
+      <!-- parser-issue-key:
+      0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133 -->
+
+      <!-- diagnostic-family-key:
+      f554db91eb8d028714bd6b7842e809a007a33b2d0ac554fc4fe821452cda055b -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      2a44fb76e99ec9dafec2a8eb621fc6772367a57f8368b5d1c7319be818c3448e -->
+
+      <!-- parser-fingerprint:
+      56d42f9267eb288e851d9f1bb917609536fa6b17ec05af2381d8b979d25b559a -->
+
+
+      ## Причина
+
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | original-not-matched |
+
+      | Дата замен | 2026-10-02 |
+
+      | Смена | вторая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_second.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+
+      | SHA-256 |
+      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+
+      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+
+      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Вторая смена | 27 | — | АР1-41 | 5 | replace | МДК 01.05 п/гр 2
       Балина С.А. | {{raw-source:replacements:rasp_second.html}} |
       {{group-yaml:base:%D0%90%D0%A01-41}} |
       {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}}

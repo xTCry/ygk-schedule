@@ -654,7 +654,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -704,8 +704,54 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: Б302
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a17
       - *a18
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a19
+            date: 2026-10-02
+            group: ИС1-23
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ОС и среды Гудкова А.Л.
+              room: ДОТ
+            source:
+              shift: first
+              row: 11
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: ОС и среды Гудкова А.Л.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
 diagnostics: []
-semanticHash: f6376f97fd8740a9ae28405855cb288fadaf7fbdbef63c49aa95e2a22db612c8
+semanticHash: 900872c02ac71961fd820adeea287d02822cbe4924d8c057b61c8e197962c737

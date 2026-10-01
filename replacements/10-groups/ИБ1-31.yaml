@@ -1047,7 +1047,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1098,8 +1098,74 @@ dates:
               rawReplacement: 1,2 п/гр. Зубковская А.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
     replacements:
       - *a27
       - *a28
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
+          fetchedAt: 2026-10-01T16:18:08.446Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abe3cba-1bf9"
+          lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        replacements:
+          - &a29
+            date: 2026-10-02
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.ср.инфор
+            replacement:
+              raw: 1,2 п/гр. Садилова К.А.
+              room: Б406
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.ср.инфор
+              rawReplacement: 1,2 п/гр. Садилова К.А.
+              rawRoom: Б406
+          - &a30
+            date: 2026-10-02
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Тех.ср.инфор Садилова К.А.
+              room: Б309
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Тех.ср.инфор Садилова К.А.
+              rawRoom: Б309
+        diagnostics: []
+    replacements:
+      - *a29
+      - *a30
 diagnostics: []
-semanticHash: 1c3596d0e7007ac838b418b29a629c38a2b28f4dd8b4e64e4f94e649265eca08
+semanticHash: e7a9b1a251508ac6f604f54605719fcb306ac8072b13210b73109e7483334ef0

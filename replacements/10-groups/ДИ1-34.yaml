@@ -423,7 +423,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -454,7 +454,54 @@ dates:
               rawReplacement: п/гр.2 Лапина А.А.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
     replacements:
       - *a11
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
+          fetchedAt: 2026-10-01T16:18:08.446Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abe3cba-1bf9"
+          lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        replacements:
+          - &a12
+            date: 2026-10-02
+            group: ДИ1-34
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: /теория Парамонов В.И.
+              room: Б310
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: /теория Парамонов В.И.
+              rawRoom: Б310
+        diagnostics: []
+    replacements:
+      - *a12
 diagnostics: []
-semanticHash: bad7eb96210ca09cafc909210b96b6ef61eaa5468b2501fdcbd72ac0e635200f
+semanticHash: 6304a521e9b298cea3adcd01fd1d990879b4e2b93c7f95bf2d84ebabdbc393ef

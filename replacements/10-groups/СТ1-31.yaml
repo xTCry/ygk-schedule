@@ -678,7 +678,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -729,8 +729,55 @@ dates:
                 Голованова Н.М.
               rawRoom: Б401Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
     replacements:
       - *a18
       - *a19
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 58757b47e79f5d587006e43dd648bcce7a5301191f3bde4a8e3e72e91626e712
+          fetchedAt: 2026-10-01T16:18:08.446Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abe3cba-1bf9"
+          lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        replacements:
+          - &a20
+            date: 2026-10-02
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 пгр
+            replacement:
+              raw: /теория Секацкая Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 пгр
+              rawReplacement: /теория Секацкая Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a20
 diagnostics: []
-semanticHash: 89b5660a08a0123a79745650a9657a9c2c4fe14542067e976666ae0f0192e6b6
+semanticHash: 7e14d49dcc9105a260502dd7842090cc0e540fc767742e739c6e809569ea293c

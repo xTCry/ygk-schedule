@@ -586,6 +586,49 @@ dates:
           sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
     replacements:
       - *a15
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a16
+            date: 2026-10-02
+            group: ТТ1-41
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК02.03
+            replacement:
+              raw: МДК 04.01 Мартынова С.В.
+              room: Ф306
+            source:
+              shift: first
+              row: 61
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "1"
+              rawOriginal: МДК02.03
+              rawReplacement: МДК 04.01 Мартынова С.В.
+              rawRoom: Ф306
+        diagnostics: []
+    replacements:
+      - *a16
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -608,4 +651,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6b53cff5d3358600c39a8e73164fc86365200e390672e18fcd564c07c89cbf6e
+semanticHash: 04f5bfa81ded2e24d038539ad51261c649ce888bbc05e449dec3b9cbf33cf7d7

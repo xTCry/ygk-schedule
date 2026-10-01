@@ -1188,7 +1188,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1219,7 +1219,74 @@ dates:
               rawReplacement: Ин.язык Петрушенко Е.Е.
               rawRoom: к.биб.
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a38
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a39
+            date: 2026-10-02
+            group: 6 ИКС
+            lessonNumbers:
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 57
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a40
+            date: 2026-10-02
+            group: 6 ИКС
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: МДК 01.04 Елистратов А.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 58
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 02.01
+              rawReplacement: МДК 01.04 Елистратов А.М.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a39
+      - *a40
 diagnostics: []
-semanticHash: bc18cff801648985bcd6cb05372edda095c2a5ff25a8811e9169a3f8c39ba1e2
+semanticHash: 452627e6f4fe907c7ffc9833d3afa2bcd1c15d5f00bf1b1e6e155ebcde07c188

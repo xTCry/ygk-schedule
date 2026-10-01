@@ -704,7 +704,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -752,8 +752,56 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a21
       - *a22
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a23
+            date: 2026-10-02
+            group: ИТ1-11
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: История Осн.проф.
+            replacement:
+              raw: Ин.язык Зубковская А.Е.Загородних Е.С
+              room: В102,Б204
+            source:
+              shift: first
+              row: 8
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 1,2
+              rawOriginal: История Осн.проф.
+              rawReplacement: Ин.язык Зубковская А.Е.Загородних Е.С
+              rawRoom: В102,Б204
+        diagnostics: []
+    replacements:
+      - *a23
 diagnostics: []
-semanticHash: c9f7ea7ee1d803e278035fd4de6beea69d9f68018be0f8750e1e63c726ff5eee
+semanticHash: d6c2ab8cd9092cd6225dd38ff9cffae3ce3031a0c557c8fe24455ddeace2249d

@@ -782,7 +782,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -849,9 +849,56 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a22
       - *a23
       - *a24
+  2026-10-02:
+    date: 2026-10-02
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-02
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
+          fetchedAt: 2026-10-01T16:18:08.527Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abe3f8a-35a5"
+          lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        replacements:
+          - &a25
+            date: 2026-10-02
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инд.пр.
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Инд.пр.
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a25
 diagnostics: []
-semanticHash: cb91c8b1869cd0d3eac942cb5d7c5b7b8297b3cd05bd632d649d95c4f1ef76d4
+semanticHash: 904000e5e60479a5e2f251fff18057d51a7978dafdb9637c6323a6ec2d7008b0
