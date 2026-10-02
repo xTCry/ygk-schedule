@@ -1366,7 +1366,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1397,7 +1397,73 @@ dates:
               rawReplacement: Математика Саввина Е.А.
               rawRoom: Ф104
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
     replacements:
       - *a43
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+        replacements:
+          - &a44
+            date: 2026-10-03
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Русский язык Тихонов А.А.
+              room: Ф201
+            source:
+              shift: first
+              row: 38
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Русский язык Тихонов А.А.
+              rawRoom: Ф201
+          - &a45
+            date: 2026-10-03
+            group: ЮР1-13
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Разг. о важном Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: first
+              row: 39
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Разг. о важном Хватова Е.Ю.
+              rawRoom: Ф305
+        diagnostics: []
+    replacements:
+      - *a44
+      - *a45
 diagnostics: []
-semanticHash: df575f503004c3cd01d8170b8599588780cb5cfa0f436c9e22d219f1b1709ad7
+semanticHash: 31e712dab4267f95e11c081678e9a42981b1038abce3c3bae55206a8f7ff45d0

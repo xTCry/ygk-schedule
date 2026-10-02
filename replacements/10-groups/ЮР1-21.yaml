@@ -690,7 +690,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -720,7 +720,53 @@ dates:
               rawReplacement: Конст.право Богданова В.В.
               rawRoom: Ф404
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a19
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a20
+            date: 2026-10-03
+            group: ЮР1-21
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Теор.гос и права
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Теор.гос и права
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a20
 diagnostics: []
-semanticHash: 7edb2df6419923df8bbb88a15d668108a1b52dc2569c9eaa49d27ac46ab6887f
+semanticHash: e810ecf45c657d73efdfd5d936e698101feb4a0cc57b2e19f81dcf0617734459

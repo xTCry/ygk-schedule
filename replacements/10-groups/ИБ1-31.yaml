@@ -1115,7 +1115,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1164,8 +1164,75 @@ dates:
               rawReplacement: 1,2 п/гр.Тех.ср.инфор Садилова К.А.
               rawRoom: Б309
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a29
       - *a30
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a31
+            date: 2026-10-03
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.ср.информ
+            replacement:
+              raw: Электротех.изм Леонидова Н.А
+              room: ДОТ
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.ср.информ
+              rawReplacement: Электротех.изм Леонидова Н.А
+              rawRoom: ДОТ
+          - &a32
+            date: 2026-10-03
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.03
+            replacement:
+              raw: МДК 01.04 Тимощук М.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 22
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.03
+              rawReplacement: МДК 01.04 Тимощук М.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a31
+      - *a32
 diagnostics: []
-semanticHash: e7a9b1a251508ac6f604f54605719fcb306ac8072b13210b73109e7483334ef0
+semanticHash: 00170af2545669f446ea66abd5b3e2bcfbd920d45c87fdcfb186cb86c864726c

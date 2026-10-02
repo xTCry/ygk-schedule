@@ -3496,7 +3496,7 @@ dates:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3506,11 +3506,15 @@ dates:
           shift: first
           etag: W/"6abe3f8a-35a5"
           lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
       second:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3520,6 +3524,10 @@ dates:
           shift: second
           etag: W/"6abe3cba-1bf9"
           lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     groups:
       СА1-41:
         group: СА1-41
@@ -3588,6 +3596,48 @@ dates:
                 lessonNumber: 5
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.03.01 Эксплуатация объектов сетевой инфраструктуры КП
+                  teacher: |-
+                    Хожайнова М.Г.
+                    Тимощук М.В.
+                  room: |-
+                    Б308
+                    Б309
+                  weekType: both
+                  sourceRow: 135
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 135
+                rowEnd: 136
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.03.01 Эксплуатация объектов сетевой инфраструктуры
+                  teacher: |-
+                    Хожайнова М.Г.
+                    Тимощук М.В.
+                  room: |-
+                    Б308
+                    Б309
+                  weekType: numerator
+                  sourceRow: 137
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 137
+                rowEnd: 138
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3729,4 +3779,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: fd51a5e3249d5b6c284d2f81a858e563b6ab7760f1ba6771ed8f2729784de6fa
+semanticHash: 6bd83c03517ec9005ca025d3c1a50d4ded00c1a35fbd2945683414ed8bdb0999

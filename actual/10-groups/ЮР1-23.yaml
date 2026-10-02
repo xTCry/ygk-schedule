@@ -2568,7 +2568,7 @@ dates:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2578,11 +2578,15 @@ dates:
           shift: first
           etag: W/"6abe3f8a-35a5"
           lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
       second:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2592,6 +2596,10 @@ dates:
           shift: second
           etag: W/"6abe3cba-1bf9"
           lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     groups:
       ЮР1-23:
         group: ЮР1-23
@@ -2667,6 +2675,193 @@ dates:
                 lessonNumber: 5
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Административное право
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: numerator
+                  sourceRow: 88
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 88
+                rowEnd: 89
+                rawGroupName: ЮР1-23 /ЮР1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Петрова У.В.
+                    Абрамова К.В.
+                  room: |-
+                    Ф204
+                    Ф403
+                  weekType: both
+                  rawSubject: "Иностранный язык в профессиональной деятельности "
+                  sourceRow: 90
+              source:
+                sheet: ЮР1-21 ЮР1-23 ЮР1-25
+                rowStart: 90
+                rowEnd: 91
+                rawGroupName: ЮР1-23 /ЮР1-24
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+    groups:
+      ЮР1-23:
+        group: ЮР1-23
+        date: 2026-10-03
+        day: Суббота
+        lessons:
+          - number: 2
+            variants:
+              - subject: Русский язык и культура речи
+                teacher: Тихонов А.А.
+                room: Ф405
+                weekType: both
+                rawSubject: Тихонов А.А.
+                rawTeacher: Тихонов А.А.
+                rawRoom: Ф405
+                sourceRow: 2
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: ЮР1-23
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Рус.яз.и культ.речи
+                  replacement:
+                    raw: Тихонов А.А.
+                    room: Ф405
+                  source:
+                    shift: second
+                    row: 2
+                    rawGroupName: ЮР1-23
+                    rawLessonNumbers: "2"
+                    rawOriginal: Рус.яз.и культ.речи
+                    rawReplacement: Тихонов А.А.
+                    rawRoom: Ф405
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: Теор.гос и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                rawSubject: Теор.гос и права Вечера Л.А.
+                rawTeacher: Вечера Л.А.
+                rawRoom: Ф406
+                sourceRow: 3
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: ЮР1-23
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: Теор.гос и права Вечера Л.А.
+                    room: Ф406
+                  source:
+                    shift: second
+                    row: 3
+                    rawGroupName: ЮР1-23
+                    rawLessonNumbers: "3"
+                    rawOriginal: История России
+                    rawReplacement: Теор.гос и права Вечера Л.А.
+                    rawRoom: Ф406
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 97
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 99
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 99
+              rowEnd: 100
+              rawGroupName: ЮР1-23 /ЮР1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2693,4 +2888,4 @@ diagnostics:
           sourceRow: 56
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6c25a55dd2fd9e0e4cf5399164cf95e8cfe6f22e9a51b2161f182fa83fb2bc21
+semanticHash: 58428603850dde9c55034ea22d9bfa0586bf37816d40063fbe25ea6954d69fcf

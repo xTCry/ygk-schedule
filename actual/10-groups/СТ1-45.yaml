@@ -1140,7 +1140,7 @@ dates:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1150,11 +1150,15 @@ dates:
           shift: first
           etag: W/"6abe3f8a-35a5"
           lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
       second:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1164,6 +1168,10 @@ dates:
           shift: second
           etag: W/"6abe3cba-1bf9"
           lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     groups:
       СТ1-45:
         group: СТ1-45
@@ -1236,6 +1244,154 @@ dates:
                 lessonNumber: 5
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Иностранный язык в проф. деят.
+                  teacher: |-
+                    Девлитянс О.В.
+                    Махрова Н.Н.
+                  room: Б110
+                  weekType: numerator
+                  sourceRow: 132
+              source:
+                sheet: СТ 4 курс
+                rowStart: 132
+                rowEnd: 133
+                rawGroupName: СТ1-45/СТ1-46
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.03.01Т.1.2. Менеджмент организации
+                  teacher: Малашкевич Д.А.
+                  room: Б110
+                  weekType: numerator
+                  sourceRow: 134
+              source:
+                sheet: СТ 4 курс
+                rowStart: 134
+                rowEnd: 135
+                rawGroupName: СТ1-45/СТ1-46
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+    groups:
+      СТ1-45:
+        group: СТ1-45
+        date: 2026-10-03
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 01.02
+                teacher: Силантьева С.И.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 01.02 Силантьева С.И.
+                rawTeacher: Силантьева С.И.
+                rawRoom: ДОТ
+                sourceRow: 11
+            source:
+              sheet: СТ 4 курс
+              rowStart: 137
+              rowEnd: 138
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: СТ1-45
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: МДК 01.02 Силантьева С.И.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 11
+                    rawGroupName: СТ1-45
+                    rawLessonNumbers: "0"
+                    rawOriginal: Физкультура
+                    rawReplacement: МДК 01.02 Силантьева С.И.
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: МДК01.02 Проект производства работ
+                teacher: Силантьева С. И.
+                room: ДОТ
+                weekType: both
+                sourceRow: 139
+            source:
+              sheet: СТ 4 курс
+              rowStart: 139
+              rowEnd: 140
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.01.01 Проектирование зданий и сооружений Тема 1.3 Проектирование
+                  строительных конструкций
+                teacher: Ткачев М.С.
+                room: ДОТ
+                weekType: both
+                rawSubject: "МДК.01.01 Проектирование зданий и сооружений Тема 1.3
+                  Проектирование строительных конструкций "
+                sourceRow: 141
+            source:
+              sheet: СТ 4 курс
+              rowStart: 141
+              rowEnd: 142
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1258,4 +1414,4 @@ diagnostics:
     rawValue: СТ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e60fa93b932e35181b149df927f317ef94e84d4f75e1ba5cf0e13c5629c019ef
+semanticHash: 9939a438b6192ece24e7da93bc9b7fdb1011a533708ff0227c39b8b0fc7ccf67

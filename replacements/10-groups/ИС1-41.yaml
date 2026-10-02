@@ -1331,7 +1331,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1363,8 +1363,74 @@ dates:
               rawReplacement: МДК 05.02 Неделяева Н.А.Королева П.Д.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a38
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a39
+            date: 2026-10-03
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр
+            replacement:
+              raw: 1,2 п/гр. УП05 Королева П.Д.
+              room: Б301
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.03 п/гр
+              rawReplacement: 1,2 п/гр. УП05 Королева П.Д.
+              rawRoom: Б301
+          - &a40
+            date: 2026-10-03
+            group: ИС1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 05.03 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.03 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a39
+      - *a40
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1387,4 +1453,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: e08823326c3ff09b53ea7a111ed3e2ae8223f2d093703eb85ae584ea93620a68
+semanticHash: 17ff79d02e0b8ac2b544d1fc40037210ba9be5abb48f14bd2bb9e954c1c7c7e5

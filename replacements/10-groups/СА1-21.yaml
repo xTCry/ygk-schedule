@@ -1443,7 +1443,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1474,7 +1474,73 @@ dates:
               rawReplacement: ОС и среды Гудкова А.Л.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
     replacements:
       - *a43
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+        replacements:
+          - &a44
+            date: 2026-10-03
+            group: СА1-21
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Арх.аппар.ср.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СА1-21
+              rawLessonNumbers: "1"
+              rawOriginal: Арх.аппар.ср.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a45
+            date: 2026-10-03
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК01.01
+            replacement:
+              raw: 1,2 п/гр. Хожайнова М.Г.
+              room: Б308
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК01.01
+              rawReplacement: 1,2 п/гр. Хожайнова М.Г.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a44
+      - *a45
 diagnostics: []
-semanticHash: 27a631288b3628c2ff03dd4aa00d2ef5e5dd04658e807d4bfc4dd6eb8f9f8d91
+semanticHash: 70dbd2bb14fd32c2930a049eb61495a300277a21aa8d5619b51bdd09e17ca489

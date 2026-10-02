@@ -2736,7 +2736,7 @@ dates:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2746,11 +2746,15 @@ dates:
           shift: first
           etag: W/"6abe3f8a-35a5"
           lastModified: Thu, 01 Oct 2026 11:10:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
       second:
         date: 2026-10-02
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2760,6 +2764,10 @@ dates:
           shift: second
           etag: W/"6abe3cba-1bf9"
           lastModified: Thu, 01 Oct 2026 10:58:02 GMT
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     groups:
       СТ1-13:
         group: СТ1-13
@@ -2836,6 +2844,204 @@ dates:
                     rawRoom: Сп.зал
                 lessonNumber: 2
                 strategy: subject-abbreviation
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Математика
+                  teacher: Пухова Ю.Г.
+                  room: М208
+                  weekType: numerator
+                  sourceRow: 86
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 86
+                rowEnd: 87
+                rawGroupName: СТ1-13/СТ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Основы шахматной игры
+                  teacher: Грязева А.В.
+                  room: Б402
+                  weekType: both
+                  sourceRow: 88
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 88
+                rowEnd: 89
+                rawGroupName: СТ1-13/СТ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Индивидуальный проект п/гр.1
+                  teacher: Пухова Ю.Г.
+                  room: Б509
+                  weekType: numerator
+                  subgroup: "1"
+                  sourceRow: 90
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 90
+                rowEnd: 91
+                rawGroupName: СТ1-13/СТ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+    groups:
+      СТ1-13:
+        group: СТ1-13
+        date: 2026-10-03
+        day: Суббота
+        lessons:
+          - number: 1
+            variants: []
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: СТ1-13
+                  lessonNumbers:
+                    - 1
+                  type: cancel
+                  original:
+                    raw: История
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 33
+                    rawGroupName: СТ1-13
+                    rawLessonNumbers: "1"
+                    rawOriginal: История
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 1
+                strategy: exact-subject
+          - number: 2
+            variants:
+              - subject: ОБиЗР
+                teacher: Петровский О.В
+                room: Б409
+                weekType: both
+                rawSubject: ОБиЗР Петровский О.В
+                rawTeacher: Петровский О.В
+                rawRoom: Б409
+                sourceRow: 32
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: СТ1-13
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Обществ.
+                  replacement:
+                    raw: ОБиЗР Петровский О.В
+                    room: Б409
+                  source:
+                    shift: first
+                    row: 32
+                    rawGroupName: СТ1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: Обществ.
+                    rawReplacement: ОБиЗР Петровский О.В
+                    rawRoom: Б409
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: Биология
+                teacher: Козырева Д.А.
+                room: М208
+                weekType: both
+                rawSubject: Биология Козырева Д.А.
+                rawTeacher: Козырева Д.А.
+                rawRoom: М208
+                sourceRow: 31
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 99
+              rowEnd: 100
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: СТ1-13
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: Биология Козырева Д.А.
+                    room: М208
+                  source:
+                    shift: first
+                    row: 31
+                    rawGroupName: СТ1-13
+                    rawLessonNumbers: "3"
+                    rawOriginal: Математика
+                    rawReplacement: Биология Козырева Д.А.
+                    rawRoom: М208
+                lessonNumber: 3
+                strategy: exact-subject
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -2916,4 +3122,4 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c84b5220dfe1d0b43200145247c51b5203de31bde073d94a9172f54167369617
+semanticHash: 6378abfe2f3a8ab9a5bb0f0cc771a9f8692cfab07dfa54b37fbd38c2c851f2cc

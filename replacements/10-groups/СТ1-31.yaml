@@ -746,7 +746,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -777,7 +777,54 @@ dates:
               rawReplacement: /теория Секацкая Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a20
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a21
+            date: 2026-10-03
+            group: СТ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Инф.тех / теор Топчиян Е.А
+              room: Б406
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: Инф.тех / теор Топчиян Е.А
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a21
 diagnostics: []
-semanticHash: 7e14d49dcc9105a260502dd7842090cc0e540fc767742e739c6e809569ea293c
+semanticHash: 3b85b765993413d98db6719db28431742ef1d0e60163d0b2020c20006a413149

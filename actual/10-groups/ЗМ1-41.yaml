@@ -3083,6 +3083,105 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+    groups:
+      ЗМ1-41:
+        group: ЗМ1-41
+        date: 2026-10-03
+        day: Суббота
+        lessons:
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Трусова Е.В.
+                  Ткаченко Г.А.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 43
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                  градостроительстве
+                teacher: Воробьева Н.Е.
+                room: Б503
+                weekType: both
+                rawSubject: Воробьева Н.Е.
+                rawTeacher: Воробьева Н.Е.
+                rawRoom: Б503
+                sourceRow: 46
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: ЗМ1-41/ЗМ1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: ЗМ1-41
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Воробьева Н.Е.
+                    room: Б503
+                  source:
+                    shift: first
+                    row: 46
+                    rawGroupName: ЗМ1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Воробьева Н.Е.
+                    rawRoom: Б503
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3150,4 +3249,4 @@ diagnostics:
     normalizedGroup: ЗМ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f5b42636b8e260b2b840f738eab318591368d23681c136a29714def4928ee9c7
+semanticHash: 374bd2e43c45302469839ced48eefa7107dd657ccd11238c0793a03657f42246

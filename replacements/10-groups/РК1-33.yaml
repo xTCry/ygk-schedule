@@ -1159,7 +1159,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1208,8 +1208,56 @@ dates:
               rawReplacement: Осн.фин.грам Белогорская Я.В.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a31
       - *a32
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a33
+            date: 2026-10-03
+            group: РК1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.03 УП 04.03
+            replacement:
+              raw: 1,2 п/гр. Пономаренко В.С.
+              room: Б407,Б406
+            source:
+              shift: second
+              row: 12
+              rawGroupName: РК1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 04.03 УП 04.03
+              rawReplacement: 1,2 п/гр. Пономаренко В.С.
+              rawRoom: Б407,Б406
+        diagnostics: []
+    replacements:
+      - *a33
 diagnostics: []
-semanticHash: 267fb08607ec85a5bf8054b5abdf7d6481ce503a4ea34060c9796157cd8ff99c
+semanticHash: 1c664ec3b5917bb7f74ca761b7ffae04858052ee77a8cfa4da97ed76b3ca01bd

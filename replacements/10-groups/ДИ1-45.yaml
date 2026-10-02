@@ -506,6 +506,50 @@ dates:
           sourceSha256: 95cc9337e6fdb77d1aa7f4a78f5a1423ee896af3a8019612a9f8d12efbc7b4ab
     replacements:
       - *a12
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        replacements:
+          - &a13
+            date: 2026-10-03
+            group: ДИ1-45
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.02
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -528,4 +572,4 @@ diagnostics:
     rawValue: ДИ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7d14b938e5f815e7b1444e8ca4ef98355297db43ed107db5d9cac7dff3b3deb2
+semanticHash: 935299852bd023faa6dd6b63abf7135a8cdb57aac29a09c2a7bd8eec40cddbc2

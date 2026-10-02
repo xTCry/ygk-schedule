@@ -2351,6 +2351,100 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-10-03:
+    date: 2026-10-03
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e79d45f2f02ec70616e9726421d28017d8441d8a67b1686ce1105ef60f9245d
+          fetchedAt: 2026-10-02T15:42:13.733Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6abf62d2-2fa2"
+          lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+      second:
+        date: 2026-10-03
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
+          fetchedAt: 2026-10-02T15:42:13.732Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6abfa3b8-1ed6"
+          lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+    groups:
+      СТ1-33:
+        group: СТ1-33
+        date: 2026-10-03
+        day: Суббота
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК.01.01Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                teacher: Секацкая Н. А.
+                room: Б502
+                weekType: both
+                sourceRow: 98
+            source:
+              sheet: CТ 3 курс
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК 01.01 / теор
+                teacher: Секацкая Н.А
+                room: Б501
+                weekType: both
+                rawSubject: МДК 01.01 / теор Секацкая Н.А
+                rawTeacher: Секацкая Н.А
+                rawRoom: Б501
+                sourceRow: 8
+            source:
+              sheet: CТ 3 курс
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-03
+                  group: СТ1-33
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: МДК 01.01 / теор Секацкая Н.А
+                    room: Б501
+                  source:
+                    shift: second
+                    row: 8
+                    rawGroupName: СТ1-33
+                    rawLessonNumbers: "5"
+                    rawOriginal: Физкультура
+                    rawReplacement: МДК 01.01 / теор Секацкая Н.А
+                    rawRoom: Б501
+                lessonNumber: 5
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2406,4 +2500,4 @@ diagnostics:
           sourceRow: 57
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: afb46426e96a44363929e60817ed1d60ccd957b6b40a32242d7cc6f2e207b6ea
+semanticHash: b4a6d086d3e5a56507cf06de4931a8d4dcaef0a6cc7ea5c133e56493efdcf24b
