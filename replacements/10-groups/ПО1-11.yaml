@@ -684,7 +684,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -716,7 +716,73 @@ dates:
               rawReplacement: Литература Бабарыкова Э.В.
               rawRoom: А202
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
     replacements:
       - *a20
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        replacements:
+          - &a21
+            date: 2026-10-05
+            group: ПО1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Б508
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Б508
+          - &a22
+            date: 2026-10-05
+            group: ПО1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 29
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: 5a04bb589e391b0f1686fdec9e8ef63c5d7667c693799b00ac9c6a87e6831e33
+semanticHash: 8043ee8bd957c500a1974579125390cb0b1abf21518c80a04f385dccaad11df2

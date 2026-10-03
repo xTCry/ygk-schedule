@@ -828,7 +828,7 @@ dates:
         date: 2026-10-03
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -838,11 +838,15 @@ dates:
           shift: first
           etag: W/"6abf62d2-2fa2"
           lastModified: Fri, 02 Oct 2026 07:52:50 GMT
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
       second:
         date: 2026-10-03
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -852,6 +856,10 @@ dates:
           shift: second
           etag: W/"6abfa3b8-1ed6"
           lastModified: Fri, 02 Oct 2026 12:29:44 GMT
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
     groups:
       СТ1-21:
         group: СТ1-21
@@ -914,5 +922,40 @@ dates:
                 lessonNumber: 4
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК.06.01 Производство работ по профессии каменщик, маляр, штукатур,
+                    монтажник каркасно-обшивных конструкций
+                  teacher: Гасенина М.П.
+                  room: А201
+                  weekType: numerator
+                  sourceRow: 47
+              source:
+                sheet: СТ 2 курс
+                rowStart: 47
+                rowEnd: 48
+                rawGroupName: СТ1-21/СТ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Математические методы решения прикладных профессиональных задач
+                  teacher: Гаврилова М. А.
+                  room: М102
+                  weekType: both
+                  sourceRow: 49
+              source:
+                sheet: СТ 2 курс
+                rowStart: 49
+                rowEnd: 50
+                rawGroupName: СТ1-21/СТ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics: []
-semanticHash: a3f8d5dbdeeb4d157b2fc61666288adf40dbb70a714b555a8a94c7c7b149d820
+semanticHash: bfd63e3ebccfc23e201f8551704cffd4b1c81bb8c8f013b3d164b1a4f715c654

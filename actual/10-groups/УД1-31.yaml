@@ -1013,6 +1013,106 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+      second:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
+          fetchedAt: 2026-10-03T14:16:21.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac0da3a-2c1e"
+          lastModified: Sat, 03 Oct 2026 10:34:34 GMT
+    groups:
+      УД1-31:
+        group: УД1-31
+        date: 2026-10-05
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Николаенко Ю.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 98
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Основы электротехники
+                teacher: Леонидова Н.А.
+                room: М101
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants: []
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-05
+                  group: УД1-31
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: Охрана труда
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 43
+                    rawGroupName: УД1-31
+                    rawLessonNumbers: "5"
+                    rawOriginal: Охрана труда
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1033,4 +1133,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6950e4b57b09a2083a67b3c72fdd5558ba8a4811dae2063ddb3e8b600131ec1b
+semanticHash: 4ff6e027eca1fabc74362b6ec51cdc5a00ac44e9193d5fe91148a37ab0c6a21e

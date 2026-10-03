@@ -880,7 +880,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -913,8 +913,93 @@ dates:
               rawReplacement: п/гр 1 Жарова Н.И.
               rawRoom: Б508
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
     replacements:
       - *a23
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
+          fetchedAt: 2026-10-03T14:16:21.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac0da3a-2c1e"
+          lastModified: Sat, 03 Oct 2026 10:34:34 GMT
+        replacements:
+          - &a24
+            date: 2026-10-05
+            group: АР1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык п/гр.1 Ткаченко Г.А.
+              room: Б305
+            source:
+              shift: second
+              row: 46
+              rawGroupName: АР1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Ин.язык п/гр.1 Ткаченко Г.А.
+              rawRoom: Б305
+          - &a25
+            date: 2026-10-05
+            group: АР1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: п/гр.1 Ткаченко Г.А.
+              room: Б508
+            source:
+              shift: second
+              row: 47
+              rawGroupName: АР1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: п/гр.1 Ткаченко Г.А.
+              rawRoom: Б508
+          - &a26
+            date: 2026-10-05
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 01.05 Т.5.3.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 48
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 Т.5.3.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
+      - *a26
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -937,4 +1022,4 @@ diagnostics:
     normalizedGroup: АР1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: aa6b9a4ebfc9409f3333db069882298a269e8af59702858803016c019a5af3c1
+semanticHash: aecf9632f8bb1b9fd1ac7bd5ca6d9603935f74f0f031018a600dcc095a966565

@@ -1070,7 +1070,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1120,8 +1120,55 @@ dates:
               rawReplacement: п/гр 2 Снято п/гр 1 по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
     replacements:
       - *a31
       - *a32
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        replacements:
+          - &a33
+            date: 2026-10-05
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: ИТ МДК 05.01
+            replacement:
+              raw: Инф.технол.п/гр.2 Сердцева О.Д. МДК 05.01 п/гр.1 Гасенина М.П.
+              room: Б406Б403
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: ИТ МДК 05.01
+              rawReplacement: Инф.технол.п/гр.2 Сердцева О.Д. МДК 05.01 п/гр.1 Гасенина М.П.
+              rawRoom: Б406Б403
+        diagnostics: []
+    replacements:
+      - *a33
 diagnostics: []
-semanticHash: 68d81dcd634eeccbc029da8f5364aea76f90459b80e7cb409bb4b67824191e38
+semanticHash: 00ab76d8b12e8f5a9994eafab9ae98581a22747d00d89fe2494e56bdfecca467

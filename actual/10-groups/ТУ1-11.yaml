@@ -1126,6 +1126,146 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+      second:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
+          fetchedAt: 2026-10-03T14:16:21.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac0da3a-2c1e"
+          lastModified: Sat, 03 Oct 2026 10:34:34 GMT
+    groups:
+      ТУ1-11:
+        group: ТУ1-11
+        date: 2026-10-05
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 3
+              rowEnd: 4
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-05
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 55
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Горбачев В.Н.
+                room: Ф201
+                weekType: both
+                sourceRow: 5
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 5
+              rowEnd: 6
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: История
+                teacher: Горбачев В.Н.
+                room: Ф201
+                weekType: both
+                sourceRow: 7
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 7
+              rowEnd: 8
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Русский язык
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                subgroup: "2"
+                rawSubject: Русский язык Головкина С.А.
+                rawTeacher: Головкина С.А.
+                rawRoom: Ф303
+                sourceRow: 54
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 9
+              rowEnd: 10
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-05
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Инд.проект п/гр.2
+                  replacement:
+                    raw: Русский язык Головкина С.А.
+                    room: Ф303
+                  source:
+                    shift: first
+                    row: 54
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: Инд.проект п/гр.2
+                    rawReplacement: Русский язык Головкина С.А.
+                    rawRoom: Ф303
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1156,4 +1296,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b30396a2584c7dae39098deab0ff95bb4bb1e54bf02a8f686a668931d6746f59
+semanticHash: cf8bb4b4fb748982a617aae000e574844859d4e94706b484a4899f3f758ff2bc

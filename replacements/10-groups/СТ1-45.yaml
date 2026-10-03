@@ -403,7 +403,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -434,8 +434,55 @@ dates:
               rawReplacement: МДК 01.02 Силантьева С.И.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
     replacements:
       - *a9
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        replacements:
+          - &a10
+            date: 2026-10-05
+            group: СТ1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 01.02 п/гр.
+            replacement:
+              raw: МДК 01.02 Силантьева С.И.
+              room: экскурсия
+            source:
+              shift: first
+              row: 8
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01 МДК 01.02 п/гр.
+              rawReplacement: МДК 01.02 Силантьева С.И.
+              rawRoom: экскурсия
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -458,4 +505,4 @@ diagnostics:
     rawValue: СТ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 50b6add14898ca767fd4201d55c1c70b3838f7f4ec8448109a95a5b8fff2d6a8
+semanticHash: 7010e2da8045c042b03e260e660e601c18db0cb8b9e6fce8e2e91df7cce6cfda

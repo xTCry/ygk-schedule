@@ -1158,5 +1158,67 @@ dates:
           sourceSha256: b3695c792c7121fb61c55ebd3a7732f1591477038f3c138acfab6e7854d2a670
     replacements:
       - *a37
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        replacements:
+          - &a38
+            date: 2026-10-05
+            group: 20 МОНТ
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: УП 02
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 64
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: 0,1
+              rawOriginal: УП 02
+              rawReplacement: снято
+              rawRoom: ""
+          - &a39
+            date: 2026-10-05
+            group: 20 МОНТ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: УП 02 Лебедева С.В.
+              room: к.42
+            source:
+              shift: first
+              row: 65
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: УП 02 Лебедева С.В.
+              rawRoom: к.42
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
 diagnostics: []
-semanticHash: 5f4b85faaea6d60272dd29ab3587a39c77abf1357023484262c96d526d19322c
+semanticHash: 0e12975b40eaa091320f56323ed5eaf27cbd431c01a3d6b3b116acef82379c5d

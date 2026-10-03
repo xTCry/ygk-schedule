@@ -821,5 +821,68 @@ dates:
           sourceSha256: a21bcc634252c6a465884956fcf802484c49ab77038cf22dc8ae2aecede0d558
     replacements:
       - *a22
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
+          fetchedAt: 2026-10-03T14:16:21.415Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac0cd10-419f"
+          lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        replacements:
+          - &a23
+            date: 2026-10-05
+            group: МА1-12
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Химия Козырева Д.А.
+              room: Б110
+            source:
+              shift: first
+              row: 41
+              rawGroupName: МА1-12
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: Химия Козырева Д.А.
+              rawRoom: Б110
+          - &a24
+            date: 2026-10-05
+            group: МА1-12
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физкультура Николаенко Ю.А.
+              room: сп.зал
+            source:
+              shift: first
+              row: 40
+              rawGroupName: МА1-12
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Физкультура Николаенко Ю.А.
+              rawRoom: сп.зал
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: ed950639c7e3c2573a7273384e675f37b80814346a8616b427c400da010588b7
+semanticHash: 579929f442e5152253640638fda36d7e68334b853e0715020f0512a66159a60a

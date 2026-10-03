@@ -507,5 +507,48 @@ dates:
           sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a12
+  2026-10-05:
+    date: 2026-10-05
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-05
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 89635718a7c16c44a38e8310469262b9af4618d9435b4b25a53c5547a52a74cc
+          fetchedAt: 2026-10-03T14:16:21.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac0da3a-2c1e"
+          lastModified: Sat, 03 Oct 2026 10:34:34 GMT
+        replacements:
+          - &a13
+            date: 2026-10-05
+            group: ДИ1-34
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.
+            replacement:
+              raw: МДК 03.01 Парамонов В.И.
+              room: Б202
+            source:
+              shift: second
+              row: 26
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 Т.1.2.
+              rawReplacement: МДК 03.01 Парамонов В.И.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a13
 diagnostics: []
-semanticHash: d7026bd73ee991e1fd03382ad442bb579d12dcc83305a956f07192acf5b990e7
+semanticHash: 2dbaa1fde3f3bad8c634f30599ad897e15b452e42d2dbe84126f09f15f3a085e
