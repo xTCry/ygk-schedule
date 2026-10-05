@@ -867,7 +867,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -917,8 +917,55 @@ dates:
               rawReplacement: Панасюк А.Д.Гудкова А.Л.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
     replacements:
       - *a22
       - *a23
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+        replacements:
+          - &a24
+            date: 2026-10-06
+            group: ИС1-33
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Комп.сети
+            replacement:
+              raw: 1,2 п/гр. Панасюк А.Д.
+              room: Б305
+            source:
+              shift: second
+              row: 25
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "6"
+              rawOriginal: Комп.сети
+              rawReplacement: 1,2 п/гр. Панасюк А.Д.
+              rawRoom: Б305
+        diagnostics: []
+    replacements:
+      - *a24
 diagnostics: []
-semanticHash: fcadbdea67c320dafea7e8ea880b1ea32b2ac019adad7ed6a281aa1d4c92bc58
+semanticHash: d55148b2739aaef8372c35de8e2084e71c79d3d05c4b98c5d5eadd79382d196c

@@ -1080,7 +1080,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1147,9 +1147,56 @@ dates:
               rawReplacement: МДК 01.01 Жарова Н.И.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
     replacements:
       - *a33
       - *a34
       - *a35
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+        replacements:
+          - &a36
+            date: 2026-10-06
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05
+            replacement:
+              raw: П/гр 1 - по расписанию П/гр 2 - Снято
+              room: Б507
+            source:
+              shift: second
+              row: 18
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05
+              rawReplacement: П/гр 1 - по расписанию П/гр 2 - Снято
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a36
 diagnostics: []
-semanticHash: af03196ad7f036747fc4e3463629fbdbcd360af95933326c6f05f5b514a5b74a
+semanticHash: 80fd3644b70ae6c53324cfc6c0b669b7a7861375632fc5b96bfbf53779249472

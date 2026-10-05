@@ -2291,7 +2291,7 @@ dates:
         date: 2026-10-05
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2301,11 +2301,15 @@ dates:
           shift: first
           etag: W/"6ac0cd10-419f"
           lastModified: Sat, 03 Oct 2026 09:38:24 GMT
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
       second:
         date: 2026-10-05
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2315,6 +2319,10 @@ dates:
           shift: second
           etag: W/"6ac0da3a-2c1e"
           lastModified: Sat, 03 Oct 2026 10:34:34 GMT
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
     groups:
       АР1-21:
         group: АР1-21
@@ -2391,6 +2399,56 @@ dates:
                 lessonNumber: 2
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Физическая культура
+                  teacher: Дворниченко Г.В.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 5
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 4
+                rowEnd: 5
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: История архитектуры
+                  teacher: Шатрова М.П.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 6
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 6
+                rowEnd: 7
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 1
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 9
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 8
+                rowEnd: 9
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2448,4 +2506,4 @@ diagnostics:
           sourceRow: 8
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0d94d2062ae7d2526f9b43d1d83f1565f88dbc98e6d236e5f37f6f3dbbc48541
+semanticHash: 046a40b30695c3c84d0ae354018644d981c0005a3334dad02b240673cf0cf491

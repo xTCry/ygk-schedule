@@ -3194,6 +3194,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
+          fetchedAt: 2026-10-05T18:18:35.423Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac3749e-3bff"
+          lastModified: Mon, 05 Oct 2026 09:57:50 GMT
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+    groups:
+      ЮР1-17:
+        group: ЮР1-17
+        date: 2026-10-06
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Обществознание
+                teacher: Горбачев В.Н.
+                room: Ф104
+                weekType: both
+                sourceRow: 171
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 171
+              rowEnd: 172
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Горбачев В.Н.
+                room: Ф104
+                weekType: both
+                sourceRow: 173
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 173
+              rowEnd: 174
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Русский язык
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 175
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 175
+              rowEnd: 176
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Литература
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 177
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 177
+              rowEnd: 178
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a9
+              date: 2026-10-06
+              group: ЮР1-17
+              lessonNumbers:
+                - 0
+                - 1
+              type: replace
+              original:
+                raw: ОбщетвИстория
+              replacement:
+                raw: Математика Саввина Е.А.
+                room: Ф202
+              source:
+                shift: first
+                row: 47
+                rawGroupName: ЮР1-17
+                rawLessonNumbers: 0,1
+                rawOriginal: ОбщетвИстория
+                rawReplacement: Математика Саввина Е.А.
+                rawRoom: Ф202
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ОбщетвИстория». По замене: «Математика Саввина
+                Е.А.». Аудитория: «Ф202»."
+              room: Ф202
+          - replacement: *a9
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ОбщетвИстория». По замене: «Математика Саввина
+                Е.А.». Аудитория: «Ф202»."
+              room: Ф202
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3248,6 +3383,31 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 682984d68c70e646db7555a701ac1288be73feca49f8fd74553b4892333fdfce
+    sheet: "Замены: Первая смена"
+    row: 47
+    normalizedGroup: ЮР1-17
+    rawValue: Математика Саввина Е.А.
+    context:
+      date: 2026-10-06
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-17
+      baseSourceFiles: &a10
+        - out.xlsx
+      requestedSubject: ОбщетвИстория
+      candidates:
+        - subject: История
+          teacher: Горбачев В.Н.
+          room: Ф104
+          sourceRow: 173
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Пара из замены отсутствует в базовом расписании
     fingerprint: cecb41c1d609e8e6e8e38b49575c44650a486be44cc48c9901d572a416e81c47
     sheet: "Замены: Первая смена"
@@ -3264,4 +3424,28 @@ diagnostics:
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fe475681880960fc3a1366eb17fd487e93af29482622b1b159bd7d43cecee315
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d0d6215875f29557d97aa5d41ab05b3b811edbfb4895de71c249fe81ae894be5
+    sheet: "Замены: Первая смена"
+    row: 47
+    normalizedGroup: ЮР1-17
+    rawValue: Математика Саввина Е.А.
+    context:
+      date: 2026-10-06
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-17
+      baseSourceFiles: *a10
+      requestedSubject: ОбщетвИстория
+      candidates:
+        - subject: Обществознание
+          teacher: Горбачев В.Н.
+          room: Ф104
+          sourceRow: 171
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: b138ea45b07b5067a0a0d177d3b4a945460168e948cfcabf81b9ab6c705e7c29

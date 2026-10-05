@@ -721,5 +721,86 @@ dates:
           sourceSha256: f6af95291b382c3975fd1d38c3224f6690ef5907974c98d162cdbec1f73edcef
     replacements:
       - *a17
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+        replacements:
+          - &a18
+            date: 2026-10-06
+            group: ИС1-35
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 06.02
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 06.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a19
+            date: 2026-10-06
+            group: ИС1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 09.02
+            replacement:
+              raw: Осн.проект БД Гудкова А.Л.
+              room: Б301
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 09.02
+              rawReplacement: Осн.проект БД Гудкова А.Л.
+              rawRoom: Б301
+          - &a20
+            date: 2026-10-06
+            group: ИС1-35
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: БЖ Акиничева М.А.
+              room: Б202
+            source:
+              shift: second
+              row: 34
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: БЖ Акиничева М.А.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: f567ca073bf7f0ca31382f86c8de6cc7d53a46813cbb9880ef9aca8228b207fc
+semanticHash: 5ec26884d61f106b63884393467a05cf865ff329eed5bf24630c52b08e4ff41b

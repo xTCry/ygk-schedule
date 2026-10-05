@@ -1976,6 +1976,121 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
+          fetchedAt: 2026-10-05T18:18:35.423Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac3749e-3bff"
+          lastModified: Mon, 05 Oct 2026 09:57:50 GMT
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+    groups:
+      10 МРТ:
+        group: 10 МРТ
+        date: 2026-10-06
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Крижановский В.С.
+                room: к.33
+                weekType: both
+                sourceRow: 12
+            source:
+              sheet: 1 курс
+              rowStart: 12
+              rowEnd: 13
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Шпынов Ю.Г.
+                room: к.32
+                weekType: both
+                sourceRow: 14
+            source:
+              sheet: 1 курс
+              rowStart: 14
+              rowEnd: 15
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Бархатов Ю.Л.
+                room: сл.м
+                weekType: denominator
+                sourceRow: 17
+            source:
+              sheet: 1 курс
+              rowStart: 16
+              rowEnd: 17
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants: []
+            source:
+              sheet: 1 курс
+              rowStart: 18
+              rowEnd: 19
+              rawGroupName: 10 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-06
+                  group: 10 МРТ
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Информ.
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 59
+                    rawGroupName: 10 МРТ
+                    rawLessonNumbers: "3"
+                    rawOriginal: Информ.
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2006,4 +2121,4 @@ diagnostics:
           sourceRow: 28
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 390cc01ffd36fa8b3192893393dc7e7a6b5285d417440e2f89ada958f4caa903
+semanticHash: 33dfe2e8a4ca24c880384ccf3961a86843aff9bd3d75a5ae19856460167a0b5c

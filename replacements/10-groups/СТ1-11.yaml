@@ -620,5 +620,67 @@ dates:
           sourceSha256: 5e21f67fdf22b730c9fe02d7162bb7f2568e90c82a647f394f4b8235e6a75447
     replacements:
       - *a15
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
+          fetchedAt: 2026-10-05T18:18:35.423Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac3749e-3bff"
+          lastModified: Mon, 05 Oct 2026 09:57:50 GMT
+        replacements:
+          - &a16
+            date: 2026-10-06
+            group: СТ1-11
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Ин.язык пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 70
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Ин.язык пгр
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a17
+            date: 2026-10-06
+            group: СТ1-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Жданова Н.А.
+              room: Б403
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Жданова Н.А.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a16
+      - *a17
 diagnostics: []
-semanticHash: 2f970d8da0836b819e69f82c9ba612c26e691b26f41290b996c1c7f616302cce
+semanticHash: 3594fe7dd0185234207b2bd667e1ae3881e3eb8726c34148084c8053dea2d5ed

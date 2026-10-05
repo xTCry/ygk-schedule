@@ -617,7 +617,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -648,7 +648,74 @@ dates:
               rawReplacement: Физкультура Калачик Н.И.
               rawRoom: сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
     replacements:
       - *a18
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b6f0e4195c7354ac171abeaa33dc034aef5c276bf8266908e9bc207da3d04239
+          fetchedAt: 2026-10-05T18:18:35.393Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac37d72-20bd"
+          lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+        replacements:
+          - &a19
+            date: 2026-10-06
+            group: ТУ1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Экскурсия
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Экскурсия
+          - &a20
+            date: 2026-10-06
+            group: ТУ1-21
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 МДК01.02
+            replacement:
+              raw: Ин.язык Петрова У.В.Абрамова К.В
+              room: Экскурсия
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 01.01 МДК01.02
+              rawReplacement: Ин.язык Петрова У.В.Абрамова К.В
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: 4cb5a2cbae2d873fb7b22adcb550cfc763e1c7e7567a054ac6a9ef7ded8c3ab8
+semanticHash: b7d6aec558bb10f5cf3a8f00d1a8c36f051847bc4331870005382970883a14e8

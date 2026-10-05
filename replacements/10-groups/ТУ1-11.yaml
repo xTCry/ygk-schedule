@@ -312,7 +312,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -361,8 +361,74 @@ dates:
               rawReplacement: Русский язык Головкина С.А.
               rawRoom: Ф303
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
     replacements:
       - *a8
       - *a9
+  2026-10-06:
+    date: 2026-10-06
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-06
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b26afbdd041313310e63c18e3687a829f6f8e2775c704bd617128380d193fbad
+          fetchedAt: 2026-10-05T18:18:35.423Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac3749e-3bff"
+          lastModified: Mon, 05 Oct 2026 09:57:50 GMT
+        replacements:
+          - &a10
+            date: 2026-10-06
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: ОБиЗР
+            replacement:
+              raw: Разг.оважн Девятаева Н.Ф
+              room: Экскурсия
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: ОБиЗР
+              rawReplacement: Разг.оважн Девятаева Н.Ф
+              rawRoom: Экскурсия
+          - &a11
+            date: 2026-10-06
+            group: ТУ1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 43
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a10
+      - *a11
 diagnostics: []
-semanticHash: 1655f35e6570f57b07f23033ae02c5aeadc40bec161b1933436bb2938fc374bf
+semanticHash: 72bf812fe2469c18ee65bcd15632c9ff0c25f01b3f7d1bb701210fabc91a9aaa
