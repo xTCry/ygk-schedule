@@ -2440,6 +2440,169 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+    groups:
+      5 ИКС:
+        group: 5 ИКС
+        date: 2026-10-07
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Ин.язык
+                teacher: Петрушенко Е.Е.
+                room: к.Библ.
+                weekType: both
+                rawSubject: Ин.язык Петрушенко Е.Е.
+                rawTeacher: Петрушенко Е.Е.
+                rawRoom: к.Библ.
+                sourceRow: 59
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-10-07
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Ин.язык Петрушенко Е.Е.
+                    room: к.Библ.
+                  source:
+                    shift: first
+                    row: 59
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ""
+                    rawReplacement: Ин.язык Петрушенко Е.Е.
+                    rawRoom: к.Библ.
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Ин.язык
+                teacher: Петрушенко Е.Е.
+                room: к.Библ.
+                weekType: both
+                rawSubject: Ин.язык Петрушенко Е.Е.
+                rawTeacher: Петрушенко Е.Е.
+                rawRoom: к.Библ.
+                sourceRow: 59
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: both
+                sourceRow: 70
+            source:
+              sheet: 4 курс
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a10
+                  date: 2026-10-07
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 3
+                    - 4
+                    - 5
+                  type: cancel
+                  original:
+                    raw: УП03 МДК03.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 60
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: 3-5
+                    rawOriginal: УП03 МДК03.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 74
+              rowEnd: 75
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 76
+              rowEnd: 77
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2456,7 +2619,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a9
+      baseSourceFiles: &a11
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -2482,7 +2645,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a11
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -2507,7 +2670,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a11
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -2557,7 +2720,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a9
+      baseSourceFiles: *a11
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -2566,4 +2729,4 @@ diagnostics:
           sourceRow: 79
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e5751462d034f967acec7c9e7ed73af059aa3483b7fb913fe06c68eda9e96970
+semanticHash: 04b0017b1ed931dd121aa29b2e6731c5b0c6052ddd0046e4d576e73cbeba86b8

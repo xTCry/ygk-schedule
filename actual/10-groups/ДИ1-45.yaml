@@ -1749,7 +1749,7 @@ dates:
         date: 2026-10-06
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1759,11 +1759,15 @@ dates:
           shift: first
           etag: W/"6ac3749e-3bff"
           lastModified: Mon, 05 Oct 2026 09:57:50 GMT
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
       second:
         date: 2026-10-06
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1773,6 +1777,10 @@ dates:
           shift: second
           etag: W/"6ac37d72-20bd"
           lastModified: Mon, 05 Oct 2026 10:35:30 GMT
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
     groups:
       ДИ1-45:
         group: ДИ1-45
@@ -1858,6 +1866,55 @@ dates:
                 lessonNumber: 5
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК 01.01 Дизайн-проектирование
+                  teacher: Ремизова А.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 107
+              source:
+                sheet: ДИ-4курс
+                rowStart: 107
+                rowEnd: 108
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+                  teacher: Ремизова А.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 109
+              source:
+                sheet: ДИ-4курс
+                rowStart: 109
+                rowEnd: 110
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Живопись с основами цветоведения
+                  teacher: Осипова М.Э.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 112
+              source:
+                sheet: ДИ-4курс
+                rowStart: 111
+                rowEnd: 112
+                rawGroupName: ДИ1-45/2-31
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1880,4 +1937,4 @@ diagnostics:
     rawValue: ДИ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 31db0cabf4913d711733324851e6b2ad0c560ba269466ff848fac0956c45ba36
+semanticHash: 3a8e63d67b6572b88ad3162ad6e92401fc80791b0a64a189a20fee4c7cf49826

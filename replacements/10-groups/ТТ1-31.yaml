@@ -1347,5 +1347,70 @@ dates:
     replacements:
       - *a39
       - *a40
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a41
+            date: 2026-10-07
+            group: ТТ1-31
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: ... МДК06.01 МДК06.02
+            replacement:
+              raw: МДК 06.01 Левина Г.Н.
+              room: Газпром
+            source:
+              shift: first
+              row: 36
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 0-2
+              rawOriginal: ... МДК06.01 МДК06.02
+              rawReplacement: МДК 06.01 Левина Г.Н.
+              rawRoom: Газпром
+          - &a42
+            date: 2026-10-07
+            group: ТТ1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: МДК06.03
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК06.03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a41
+      - *a42
 diagnostics: []
-semanticHash: a84dacbbebfcde44e8c47e0fc22700ca5ae19ba3a8ff9f4bce1788343d0c3df1
+semanticHash: d70670b79c9434d437f7dd40cdc113095860160d986b4be8987fd6ae079f3a66

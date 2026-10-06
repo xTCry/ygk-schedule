@@ -1066,7 +1066,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1097,7 +1097,53 @@ dates:
               rawReplacement: Физика Овсова К.С.
               rawRoom: М208
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
     replacements:
       - *a31
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a32
+            date: 2026-10-07
+            group: СТ1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 22
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a32
 diagnostics: []
-semanticHash: c1055ecb028b5652506ef636848909ba7b04ca84f311508abb8894deb82575b9
+semanticHash: e1de90a8b039e5388f31badb7f5bb84022229b701c98761239062fc6002219ea

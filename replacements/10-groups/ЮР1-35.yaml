@@ -106,7 +106,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -156,8 +156,94 @@ dates:
               rawReplacement: Муниц.право Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
     replacements:
       - *a3
       - *a4
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a5
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: МДК01.01 МДк01.02 МДК01.04
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: 0-2
+              rawOriginal: МДК01.01 МДк01.02 МДК01.04
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a6
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: ДОТ
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: ДОТ
+          - &a7
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Эф.поведение Девятаева Н.Ф.
+              room: ДОТ
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Эф.поведение Девятаева Н.Ф.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a5
+      - *a6
+      - *a7
 diagnostics: []
-semanticHash: e5de8c963a7d0fd571f788e6730c150fd87f2aaa568bb63e710012c82272b16b
+semanticHash: 82f1b40602ee8e07c453da23d0c2a0c5bc814caa04a5d1124c219b57cb69094c

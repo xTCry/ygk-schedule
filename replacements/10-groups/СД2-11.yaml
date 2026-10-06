@@ -1184,7 +1184,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1253,9 +1253,74 @@ dates:
               rawReplacement: МДК 01.01 п/гр 2 Краснянская Е.В
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
     replacements:
       - *a34
       - *a35
       - *a36
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a37
+            date: 2026-10-07
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 8
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a38
+            date: 2026-10-07
+            group: СД2-11
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.01 Гасенина М.П.
+              room: В102
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СД2-11
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 05.01 Гасенина М.П.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
 diagnostics: []
-semanticHash: 7e37f52acc348ac9be6d4a56d23dc47f39a6b921c6f82fe86b5c97a5906fe04b
+semanticHash: 7e46bf5d411a1fa4dd5551b63e54db679b46d493e8a0a11898843b541132d9db

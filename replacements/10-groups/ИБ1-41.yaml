@@ -1266,7 +1266,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1314,9 +1314,96 @@ dates:
               rawReplacement: 1,2 п/гр Ин.язык Зубковская А.Е.
               rawRoom: А201
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
     replacements:
       - *a36
       - *a37
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+        replacements:
+          - &a38
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.01 ()
+            replacement:
+              raw: Web-программ. (Серова А.М.Грехова Е.И)
+              room: ДОТ
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 ()
+              rawReplacement: Web-программ. (Серова А.М.Грехова Е.И)
+              rawRoom: ДОТ
+          - &a39
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык ()
+            replacement:
+              raw: 1,2 п/гр. (Зубковская А.Е.)
+              room: ДОТ
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык ()
+              rawReplacement: 1,2 п/гр. (Зубковская А.Е.)
+              rawRoom: ДОТ
+          - &a40
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01 ()
+            replacement:
+              raw: МДК 03.02 (Егорова Ю.С.)
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 ()
+              rawReplacement: МДК 03.02 (Егорова Ю.С.)
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
+      - *a40
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1339,4 +1426,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 9771d8f97ce2a5109de2b833dbddce10b24c015cb367f19a5858c8f82598924b
+semanticHash: db8a0a998f44414b5aac0c76ea44a7522f3df9fb68df6c5d776a01b848df4a56

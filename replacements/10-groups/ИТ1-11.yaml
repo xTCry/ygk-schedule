@@ -865,7 +865,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -895,7 +895,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
     replacements:
       - *a25
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a26
+            date: 2026-10-07
+            group: ИТ1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Обществ.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a27
+            date: 2026-10-07
+            group: ИТ1-11
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: ОБиЗР Информ.
+            replacement:
+              raw: Литература Грибанова Е.Н.
+              room: М208
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 1,2
+              rawOriginal: ОБиЗР Информ.
+              rawReplacement: Литература Грибанова Е.Н.
+              rawRoom: М208
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
 diagnostics: []
-semanticHash: 74e5e979c3eae5cef270852b27cdbeb92b027906d4c92746f44f0afd2326386b
+semanticHash: fc2745e766c25ac849c989c39f8570c39942b0ced0f516c60d98bafd08892fc6

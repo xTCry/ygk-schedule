@@ -1,6 +1,6 @@
 schemaVersion: 5
 provider: ygk
-generatedAt: 2026-10-05T18:18:35.495Z
+generatedAt: 2026-10-06T15:50:47.488Z
 sources:
   - &a1561
     id: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -227,6 +227,15 @@ sources:
     shift: first
     etag: W/"6ab26826-3bee"
     lastModified: Tue, 22 Sep 2026 11:36:06 GMT
+  - &a2914
+    id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    fileName: rasp_first.html
+    sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+    fetchedAt: 2026-10-06T15:50:47.440Z
+    url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    shift: first
+    etag: W/"6ac4d451-3e20"
+    lastModified: Tue, 06 Oct 2026 10:58:25 GMT
   - &a1032
     id: https://menu.sttec.yar.ru/timetable/rasp_first.html
     fileName: rasp_first.html
@@ -371,6 +380,15 @@ sources:
     shift: second
     etag: W/"6ab50046-216d"
     lastModified: Thu, 24 Sep 2026 10:49:42 GMT
+  - &a2915
+    id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    fileName: rasp_second.html
+    sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+    fetchedAt: 2026-10-06T15:50:47.416Z
+    url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    shift: second
+    etag: W/"6ac4cd46-2871"
+    lastModified: Tue, 06 Oct 2026 10:28:22 GMT
   - &a87
     id: https://menu.sttec.yar.ru/timetable/rasp_second.html
     fileName: rasp_second.html
@@ -481,10 +499,10 @@ sources:
     lastModified: Mon, 14 Sep 2026 12:46:58 GMT
 version:
   schemaVersion: 5
-  sourceSetHash: 942a545ac084a7ae47e0569f01cbf90fa01f85b2accf8c83a8733816ffab58b2
+  sourceSetHash: f35cd31487ca7cc1785081e4e7de07cbc613b8812432b53eff2b6ef34d88ff5b
   parserHash: 71f9258e3fcb4a3bf47978c53c20d1297b0a09f68874c17e1496af1555369fa7
   configHash: 1584834dd80fdd40c3113cb9ed8672988796df8f885d490da473a9853e0bc815
-  value: 3030742e6c8aa28dc816d7b0e4ac39bf35e0207889e3763ded964577f876a6f8
+  value: 82c68c2daf4b53f8cecec279d29003d5af7a28a0cb52caa6947410c1dbc8ce3f
 dates:
   2026-09-05:
     date: 2026-09-05
@@ -56809,7 +56827,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source: *a2810
         replacements:
           - &a2812
@@ -58114,12 +58132,16 @@ dates:
               rawReplacement: Муниц.право Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
       second:
         date: 2026-10-06
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source: *a2811
         replacements:
           - &a2827
@@ -58744,6 +58766,10 @@ dates:
               rawReplacement: ДОУ Нестерова А.В.
               rawRoom: Ф306
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
     replacements:
       - *a2812
       - *a2813
@@ -58847,6 +58873,2298 @@ dates:
       - *a2911
       - *a2912
       - *a2913
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source: *a2914
+        replacements:
+          - &a2916
+            date: 2026-10-07
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 01 УП04
+            replacement:
+              raw: Электротех. Ковалев Н.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 66
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 УП04
+              rawReplacement: Электротех. Ковалев Н.В.
+              rawRoom: ДОТ
+          - &a2917
+            date: 2026-10-07
+            group: 13 ДОУ
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК 02.01 МДК02.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 54
+              rawGroupName: 13 ДОУ
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 02.01 МДК02.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2918
+            date: 2026-10-07
+            group: 13 ДОУ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Прав.осн.
+            replacement:
+              raw: БЖ Ковалева Л.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 51
+              rawGroupName: 13 ДОУ
+              rawLessonNumbers: "2"
+              rawOriginal: Прав.осн.
+              rawReplacement: БЖ Ковалева Л.В.
+              rawRoom: ДОТ
+          - &a2919
+            date: 2026-10-07
+            group: 13 ДОУ
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Прав.осн. Матвеичева О.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 52
+              rawGroupName: 13 ДОУ
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Прав.осн. Матвеичева О.В.
+              rawRoom: ДОТ
+          - &a2920
+            date: 2026-10-07
+            group: 13 ДОУ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: ДОТ
+            source:
+              shift: first
+              row: 53
+              rawGroupName: 13 ДОУ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: ДОТ
+          - &a2921
+            date: 2026-10-07
+            group: 2 РЭУ
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Осн.электрот. Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 50
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.01
+              rawReplacement: Осн.электрот. Филиппова А.С.
+              rawRoom: к.30
+          - &a2922
+            date: 2026-10-07
+            group: 2 РЭУ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Осн.электрот
+            replacement:
+              raw: МДК 01.01 Каргина В.А.
+              room: к.24
+            source:
+              shift: first
+              row: 49
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.электрот
+              rawReplacement: МДК 01.01 Каргина В.А.
+              rawRoom: к.24
+          - &a2923
+            date: 2026-10-07
+            group: 36 ЭМЕХ
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 48
+              rawGroupName: 36 ЭМЕХ
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2924
+            date: 2026-10-07
+            group: 4 ИКС
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: УП 04
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 56
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: "2"
+              rawOriginal: УП 04
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2925
+            date: 2026-10-07
+            group: 5 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.Библ.
+            source:
+              shift: first
+              row: 59
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.Библ.
+          - &a2926
+            date: 2026-10-07
+            group: 5 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+              - 5
+            type: cancel
+            original:
+              raw: УП03 МДК03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 60
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: 3-5
+              rawOriginal: УП03 МДК03.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2927
+            date: 2026-10-07
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: МДК 01.04 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 57
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 02.01
+              rawReplacement: МДК 01.04 Елистратов А.М.
+              rawRoom: к.43
+          - &a2928
+            date: 2026-10-07
+            group: 6 ИКС
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 58
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2929
+            date: 2026-10-07
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК01.01 МДК 01.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 61
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК01.01 МДК 01.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2930
+            date: 2026-10-07
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.02 Елистратов А.М.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 62
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: МДК 01.02 Елистратов А.М.
+              rawRoom: Экскурсия
+          - &a2931
+            date: 2026-10-07
+            group: 8 МРТ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Микропроц.сист
+            replacement:
+              raw: Экон.орг. Матвеичева О.В.
+              room: к.38
+            source:
+              shift: first
+              row: 55
+              rawGroupName: 8 МРТ
+              rawLessonNumbers: "2"
+              rawOriginal: Микропроц.сист
+              rawReplacement: Экон.орг. Матвеичева О.В.
+              rawRoom: к.38
+          - &a2932
+            date: 2026-10-07
+            group: 9 МРТ
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 63
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "0"
+              rawOriginal: Информ.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2933
+            date: 2026-10-07
+            group: 9 МРТ
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Информ.МДК 01.01
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 64
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: 1,2
+              rawOriginal: Информ.МДК 01.01
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+          - &a2934
+            date: 2026-10-07
+            group: 9 МРТ
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Электротех.
+            replacement:
+              raw: МДК 04.01 Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 65
+              rawGroupName: 9 МРТ
+              rawLessonNumbers: "3"
+              rawOriginal: Электротех.
+              rawReplacement: МДК 04.01 Филиппова А.С.
+              rawRoom: к.30
+          - &a2935
+            date: 2026-10-07
+            group: АР1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: ОБиЗР Травникова Г.Г.
+              room: Б101
+            source:
+              shift: first
+              row: 30
+              rawGroupName: АР1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Обществ.
+              rawReplacement: ОБиЗР Травникова Г.Г.
+              rawRoom: Б101
+          - &a2939
+            date: 2026-10-07
+            group: ДИ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Информ. Садилова К.А.
+              room: Б305
+            source:
+              shift: first
+              row: 31
+              rawGroupName: ДИ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Информ. Садилова К.А.
+              rawRoom: Б305
+          - &a2940
+            date: 2026-10-07
+            group: ДИ1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Математика Климова А.А.
+              room: В102
+            source:
+              shift: first
+              row: 29
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: Математика Климова А.А.
+              rawRoom: В102
+          - &a2941
+            date: 2026-10-07
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: Рисунок Живоп.
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 12
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: 0,1
+              rawOriginal: Рисунок Живоп.
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: Б207Б208
+          - &a2949
+            date: 2026-10-07
+            group: ЗМ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Физкульт. Кургузова М.С.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 72
+              rawGroupName: ЗМ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Физкульт. Кургузова М.С.
+              rawRoom: Сп.зал
+          - &a2950
+            date: 2026-10-07
+            group: ИБ1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: В102
+            source:
+              shift: first
+              row: 23
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: В102
+          - &a2951
+            date: 2026-10-07
+            group: ИБ1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.алгорит.
+            replacement:
+              raw: 1,2 п/гр. Вершинина Н.А.
+              room: Б302
+            source:
+              shift: first
+              row: 16
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.алгорит.
+              rawReplacement: 1,2 п/гр. Вершинина Н.А.
+              rawRoom: Б302
+          - &a2952
+            date: 2026-10-07
+            group: ИБ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a2968
+            date: 2026-10-07
+            group: ИТ1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Обществ.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2969
+            date: 2026-10-07
+            group: ИТ1-11
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: ОБиЗР Информ.
+            replacement:
+              raw: Литература Грибанова Е.Н.
+              room: М208
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 1,2
+              rawOriginal: ОБиЗР Информ.
+              rawReplacement: Литература Грибанова Е.Н.
+              rawRoom: М208
+          - &a2970
+            date: 2026-10-07
+            group: МО2-11
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 01
+            replacement:
+              raw: МДК 02.01 Попов Д.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 10
+              rawGroupName: МО2-11
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01
+              rawReplacement: МДК 02.01 Попов Д.М.
+              rawRoom: ДОТ
+          - &a2971
+            date: 2026-10-07
+            group: МС1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Осн.электрот.
+            replacement:
+              raw: Инж.граф. Дегтева И.Е.
+              room: Ф106
+            source:
+              shift: first
+              row: 68
+              rawGroupName: МС1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Осн.электрот.
+              rawReplacement: Инж.граф. Дегтева И.Е.
+              rawRoom: Ф106
+          - &a2972
+            date: 2026-10-07
+            group: МС1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Матер. и издел
+            replacement:
+              raw: Инж.граф. Дегтева И.Е.
+              room: Ф302
+            source:
+              shift: first
+              row: 39
+              rawGroupName: МС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Матер. и издел
+              rawReplacement: Инж.граф. Дегтева И.Е.
+              rawRoom: Ф302
+          - &a2973
+            date: 2026-10-07
+            group: МС1-31
+            lessonNumbers:
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 69
+              rawGroupName: МС1-31
+              rawLessonNumbers: 1,2
+              rawOriginal: МДК 02.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2974
+            date: 2026-10-07
+            group: МС1-31
+            lessonNumbers:
+              - 4
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Нечипорук О.Л
+              room: Б202,М207
+            source:
+              shift: first
+              row: 70
+              rawGroupName: МС1-31
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Нечипорук О.Л
+              rawRoom: Б202,М207
+          - &a2975
+            date: 2026-10-07
+            group: ПО1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Б507
+            source:
+              shift: first
+              row: 25
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Б507
+          - &a2976
+            date: 2026-10-07
+            group: ПО1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 24
+              rawGroupName: ПО1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Акт.зал
+          - &a2977
+            date: 2026-10-07
+            group: ПО1-15
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Русский язык Грибанова Е.Н.
+              room: М208
+            source:
+              shift: first
+              row: 26
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Информ.
+              rawReplacement: Русский язык Грибанова Е.Н.
+              rawRoom: М208
+          - &a2978
+            date: 2026-10-07
+            group: РК1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Подковкин А.Г.
+              room: Б501
+            source:
+              shift: first
+              row: 33
+              rawGroupName: РК1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Подковкин А.Г.
+              rawRoom: Б501
+          - &a2979
+            date: 2026-10-07
+            group: РК1-12
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: ОБиЗР Травникова Г.Г.
+              room: Б101
+            source:
+              shift: first
+              row: 32
+              rawGroupName: РК1-12
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: ОБиЗР Травникова Г.Г.
+              rawRoom: Б101
+          - &a2980
+            date: 2026-10-07
+            group: РК1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: МДК 03.01 ()
+            replacement:
+              raw: 1,2 п/гр. Вепрева Ю.Ю.
+              room: Б304
+            source:
+              shift: first
+              row: 11
+              rawGroupName: РК1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 03.01 ()
+              rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
+              rawRoom: Б304
+          - &a2986
+            date: 2026-10-07
+            group: РК2-11
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Рекл.деят Павлова А.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 14
+              rawGroupName: РК2-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Рекл.деят Павлова А.В.
+              rawRoom: ДОТ
+          - &a2987
+            date: 2026-10-07
+            group: РК2-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.композ
+            replacement:
+              raw: Рекл.деят Павлова А.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 13
+              rawGroupName: РК2-11
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.композ
+              rawReplacement: Рекл.деят Павлова А.В.
+              rawRoom: ДОТ
+          - &a2988
+            date: 2026-10-07
+            group: СА1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 04.01
+            replacement:
+              raw: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+              room: Б309,Б308
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СА1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 01.01 МДК 04.01
+              rawReplacement: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+              rawRoom: Б309,Б308
+          - &a2991
+            date: 2026-10-07
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 8
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2992
+            date: 2026-10-07
+            group: СД2-11
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.01 Гасенина М.П.
+              room: В102
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СД2-11
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 05.01 Гасенина М.П.
+              rawRoom: В102
+          - &a2993
+            date: 2026-10-07
+            group: СД2-13
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: п/гр 1 - по расписанию МДК 01.01 п/гр 2 Краснянская Е.В
+              room: А202 В102
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СД2-13
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика
+              rawReplacement: п/гр 1 - по расписанию МДК 01.01 п/гр 2 Краснянская Е.В
+              rawRoom: А202 В102
+          - &a2994
+            date: 2026-10-07
+            group: СД2-13
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Физкультура Николаенко Ю.А.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 7
+              rawGroupName: СД2-13
+              rawLessonNumbers: "6"
+              rawOriginal: Тех.механика
+              rawReplacement: Физкультура Николаенко Ю.А.
+              rawRoom: Сп.зал
+          - &a2996
+            date: 2026-10-07
+            group: СТ1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: Обществ. Горбачёв В.Н.
+              room: Б504
+            source:
+              shift: first
+              row: 21
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Ин.язык
+              rawReplacement: Обществ. Горбачёв В.Н.
+              rawRoom: Б504
+          - &a2997
+            date: 2026-10-07
+            group: СТ1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 22
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2998
+            date: 2026-10-07
+            group: СТ1-15
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Рус.язык
+            replacement:
+              raw: Инд.проект п/гр 1 Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Рус.язык
+              rawReplacement: Инд.проект п/гр 1 Шалаева А.А.
+              rawRoom: А203
+          - &a2999
+            date: 2026-10-07
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 19
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: Обществ.
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+          - &a3000
+            date: 2026-10-07
+            group: СТ1-17
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: 1,2 п/гр.Инд.пр Серых Л.В.
+              room: Б504
+            source:
+              shift: first
+              row: 20
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: 1,2 п/гр.Инд.пр Серых Л.В.
+              rawRoom: Б504
+          - &a3001
+            date: 2026-10-07
+            group: СТ1-19
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык Матем.
+            replacement:
+              raw: ОБиЗР Корсаков С.В.
+              room: Б510
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СТ1-19
+              rawLessonNumbers: 1,2
+              rawOriginal: Ин.язык Матем.
+              rawReplacement: ОБиЗР Корсаков С.В.
+              rawRoom: Б510
+          - &a3002
+            date: 2026-10-07
+            group: СТ1-19
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Осн.шахм.игры
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 35
+              rawGroupName: СТ1-19
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.шахм.игры
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3003
+            date: 2026-10-07
+            group: СТ1-21
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+          - &a3004
+            date: 2026-10-07
+            group: СТ1-21
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История России Смирнов Б.Е.
+              room: А201
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СТ1-21
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: История России Смирнов Б.Е.
+              rawRoom: А201
+          - &a3005
+            date: 2026-10-07
+            group: СТ1-21
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.01, МДК 02.02
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-21
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01, МДК 02.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3006
+            date: 2026-10-07
+            group: СТ1-27
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: п/гр 1 - по расписанию МДК 01.01 п/гр 2 Краснянская Е.В.
+              room: М207 В102
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-27
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.технол.
+              rawReplacement: п/гр 1 - по расписанию МДК 01.01 п/гр 2 Краснянская Е.В.
+              rawRoom: М207 В102
+          - &a3012
+            date: 2026-10-07
+            group: ТТ1-31
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: ... МДК06.01 МДК06.02
+            replacement:
+              raw: МДК 06.01 Левина Г.Н.
+              room: Газпром
+            source:
+              shift: first
+              row: 36
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 0-2
+              rawOriginal: ... МДК06.01 МДК06.02
+              rawReplacement: МДК 06.01 Левина Г.Н.
+              rawRoom: Газпром
+          - &a3013
+            date: 2026-10-07
+            group: ТТ1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: МДК06.03
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК06.03
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3014
+            date: 2026-10-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Физкульт
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "0"
+              rawOriginal: Физкульт
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3015
+            date: 2026-10-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.02, ...
+            replacement:
+              raw: МДК 04.01 Мартынова С.В
+              room: ДОТ
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 04.02, ...
+              rawReplacement: МДК 04.01 Мартынова С.В
+              rawRoom: ДОТ
+          - &a3016
+            date: 2026-10-07
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3017
+            date: 2026-10-07
+            group: УД1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: БЖ
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 38
+              rawGroupName: УД1-21
+              rawLessonNumbers: "0"
+              rawOriginal: БЖ
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3018
+            date: 2026-10-07
+            group: ЭК1-31
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 04.02
+            replacement:
+              raw: МДК 04.01 Бежина М.И.
+              room: Ф302
+            source:
+              shift: first
+              row: 44
+              rawGroupName: ЭК1-31
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 04.02
+              rawReplacement: МДК 04.01 Бежина М.И.
+              rawRoom: Ф302
+          - &a3019
+            date: 2026-10-07
+            group: ЮР1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физкульт. Калачик Н.И
+              room: Сп.площ
+            source:
+              shift: first
+              row: 41
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: Физкульт. Калачик Н.И
+              rawRoom: Сп.площ
+          - &a3020
+            date: 2026-10-07
+            group: ЮР1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф201
+            source:
+              shift: first
+              row: 43
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф201
+          - &a3021
+            date: 2026-10-07
+            group: ЮР1-17
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: 1,2 п/гр. Зеленцова Л.В.
+              room: Ф201
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ЮР1-17
+              rawLessonNumbers: "1"
+              rawOriginal: Инд.проект
+              rawReplacement: 1,2 п/гр. Зеленцова Л.В.
+              rawRoom: Ф201
+          - &a3026
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: МДК01.01 МДк01.02 МДК01.04
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: 0-2
+              rawOriginal: МДК01.01 МДк01.02 МДК01.04
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a3027
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: ДОТ
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: ДОТ
+          - &a3028
+            date: 2026-10-07
+            group: ЮР1-35
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Эф.поведение Девятаева Н.Ф.
+              room: ДОТ
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Эф.поведение Девятаева Н.Ф.
+              rawRoom: ДОТ
+          - &a3029
+            date: 2026-10-07
+            group: ЮР2-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОт
+            source:
+              shift: first
+              row: 73
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОт
+        diagnostics: []
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source: *a2915
+        replacements:
+          - &a2936
+            date: 2026-10-07
+            group: АР1-41
+            lessonNumbers:
+              - 2
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Учебная прак. п/гр 2 Рангелова Н.М Рис. и живоп пгр 1 Багдасарьян В.В
+              room: Б509 Б207
+            source:
+              shift: second
+              row: 34
+              rawGroupName: АР1-41
+              rawLessonNumbers: 2-4
+              rawOriginal: ""
+              rawReplacement: Учебная прак. п/гр 2 Рангелова Н.М Рис. и живоп пгр 1
+                Багдасарьян В.В
+              rawRoom: Б509 Б207
+          - &a2937
+            date: 2026-10-07
+            group: АР1-41
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.05 Осн.экон
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 35
+              rawGroupName: АР1-41
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.05 Осн.экон
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2938
+            date: 2026-10-07
+            group: АР1-42
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 36
+              rawGroupName: АР1-42
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.02
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: ДОТ
+          - &a2942
+            date: 2026-10-07
+            group: ДИ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК02.02
+            replacement:
+              raw: МДК 01.02 / теория Махоткина Д.Е.
+              room: ДОТ
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК02.02
+              rawReplacement: МДК 01.02 / теория Махоткина Д.Е.
+              rawRoom: ДОТ
+          - &a2943
+            date: 2026-10-07
+            group: ДИ1-32
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: 1,2 п/гр.Рисунок Осипова М.Э.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 31
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01
+              rawReplacement: 1,2 п/гр.Рисунок Осипова М.Э.
+              rawRoom: Б207Б208
+          - &a2944
+            date: 2026-10-07
+            group: ДИ1-34
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: МДК 03.01 /теор Парамонов В.И.
+              room: Б310
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01
+              rawReplacement: МДК 03.01 /теор Парамонов В.И.
+              rawRoom: Б310
+          - &a2945
+            date: 2026-10-07
+            group: ДИ1-34
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Физкультура Чупрова П.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: Физкультура Чупрова П.А.
+              rawRoom: Сп.зал
+          - &a2946
+            date: 2026-10-07
+            group: ДИ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: 1,2 п/гр. Иванов Ю.А.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 37
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: Рисунок
+              rawReplacement: 1,2 п/гр. Иванов Ю.А.
+              rawRoom: Б207Б208
+          - &a2947
+            date: 2026-10-07
+            group: ДИ1-43
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: Б309
+            source:
+              shift: second
+              row: 38
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: Б309
+          - &a2948
+            date: 2026-10-07
+            group: ДИ1-43
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 39
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2953
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.01 ()
+            replacement:
+              raw: Web-программ. (Серова А.М.Грехова Е.И)
+              room: ДОТ
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 ()
+              rawReplacement: Web-программ. (Серова А.М.Грехова Е.И)
+              rawRoom: ДОТ
+          - &a2954
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык ()
+            replacement:
+              raw: 1,2 п/гр. (Зубковская А.Е.)
+              room: ДОТ
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык ()
+              rawReplacement: 1,2 п/гр. (Зубковская А.Е.)
+              rawRoom: ДОТ
+          - &a2955
+            date: 2026-10-07
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01 ()
+            replacement:
+              raw: МДК 03.02 (Егорова Ю.С.)
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 ()
+              rawReplacement: МДК 03.02 (Егорова Ю.С.)
+              rawRoom: ДОТ
+          - &a2956
+            date: 2026-10-07
+            group: ИС1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Комп.сети ()
+            replacement:
+              raw: 1,2 п/гр. (Панасюк А.Д.)
+              room: Б305
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "5"
+              rawOriginal: Комп.сети ()
+              rawReplacement: 1,2 п/гр. (Панасюк А.Д.)
+              rawRoom: Б305
+          - &a2957
+            date: 2026-10-07
+            group: ИС1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 06.02 ()
+            replacement:
+              raw: 1,2 п/гр.Комп.сети (Панасюк А.Д.)
+              room: Б302
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 06.02 ()
+              rawReplacement: 1,2 п/гр.Комп.сети (Панасюк А.Д.)
+              rawRoom: Б302
+          - &a2958
+            date: 2026-10-07
+            group: ИС1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 08.02
+            replacement:
+              raw: БЖ Акиничева М.А.
+              room: А203
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИС1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 08.02
+              rawReplacement: БЖ Акиничева М.А.
+              rawRoom: А203
+          - &a2959
+            date: 2026-10-07
+            group: ИС1-35
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Комп.сети ()
+            replacement:
+              raw: МДК 02.03 (Кувшинова В.А.)
+              room: ДОТ
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "6"
+              rawOriginal: Комп.сети ()
+              rawReplacement: МДК 02.03 (Кувшинова В.А.)
+              rawRoom: ДОТ
+          - &a2960
+            date: 2026-10-07
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 09.03 Гудкова А.Л.Кувшинова В.А
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 09.03 Гудкова А.Л.Кувшинова В.А
+              rawRoom: ДОТ
+          - &a2961
+            date: 2026-10-07
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: МДК 09.03 Гудкова А.Л.
+              room: ДОТ
+            source:
+              shift: second
+              row: 25
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.02
+              rawReplacement: МДК 09.03 Гудкова А.Л.
+              rawRoom: ДОТ
+          - &a2962
+            date: 2026-10-07
+            group: ИС1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: Снят
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.02
+              rawReplacement: Снят
+              rawRoom: ""
+          - &a2963
+            date: 2026-10-07
+            group: ИС1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 05.03
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: Б502
+            source:
+              shift: second
+              row: 23
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 05.03
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: Б502
+          - &a2964
+            date: 2026-10-07
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр. Байдина Ю.А.
+              room: Б305
+            source:
+              shift: second
+              row: 22
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр. Байдина Ю.А.
+              rawRoom: Б305
+          - &a2965
+            date: 2026-10-07
+            group: ИС1-43
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 05.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 24
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.03
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a2966
+            date: 2026-10-07
+            group: ИС1-45
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: УП 05 ()
+            replacement:
+              raw: МДК 03.02 (Байдина Ю.А.Панасюк А.Д.)
+              room: Б305Б308
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "3"
+              rawOriginal: УП 05 ()
+              rawReplacement: МДК 03.02 (Байдина Ю.А.Панасюк А.Д.)
+              rawRoom: Б305Б308
+          - &a2967
+            date: 2026-10-07
+            group: ИС1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 03 ()
+            replacement:
+              raw: 1,2 п/гр. (Панасюк А.Д.)
+              room: Б301
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "4"
+              rawOriginal: УП 03 ()
+              rawReplacement: 1,2 п/гр. (Панасюк А.Д.)
+              rawRoom: Б301
+          - &a2981
+            date: 2026-10-07
+            group: РК1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: 1,2 п/гр УП 04.03 Выблова Т.В.
+              room: Б304
+            source:
+              shift: second
+              row: 42
+              rawGroupName: РК1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: 1,2 п/гр УП 04.03 Выблова Т.В.
+              rawRoom: Б304
+          - &a2982
+            date: 2026-10-07
+            group: РК1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 04.03
+            replacement:
+              raw: 1,2 п/гр Выблова Т.В.
+              room: Б304
+            source:
+              shift: second
+              row: 43
+              rawGroupName: РК1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 04.03
+              rawReplacement: 1,2 п/гр Выблова Т.В.
+              rawRoom: Б304
+          - &a2983
+            date: 2026-10-07
+            group: РК1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр. Вепрева Ю.Ю.
+              room: ДОТ
+            source:
+              shift: second
+              row: 40
+              rawGroupName: РК1-33
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр. Вепрева Ю.Ю.
+              rawRoom: ДОТ
+          - &a2984
+            date: 2026-10-07
+            group: РК1-33
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Инф.тех Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: РК1-33
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Инф.тех Пономаренко В.С.
+              rawRoom: ДОТ
+          - &a2985
+            date: 2026-10-07
+            group: РК1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 01.03
+            replacement:
+              raw: Истор.изобр Кожешкурт А.В
+              room: М101
+            source:
+              shift: second
+              row: 33
+              rawGroupName: РК1-43
+              rawLessonNumbers: "5"
+              rawOriginal: УП 01.03
+              rawReplacement: Истор.изобр Кожешкурт А.В
+              rawRoom: М101
+          - &a2989
+            date: 2026-10-07
+            group: СА1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: second
+              row: 20
+              rawGroupName: СА1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+          - &a2990
+            date: 2026-10-07
+            group: СА1-41
+            lessonNumbers:
+              - 6
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 21
+              rawGroupName: СА1-41
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a2995
+            date: 2026-10-07
+            group: СД2-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: п/гр 2 - по расписанию МДК 01.01 пгр 1 Ткачев М.С.
+              room: Б503 А201
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СД2-21
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.02
+              rawReplacement: п/гр 2 - по расписанию МДК 01.01 пгр 1 Ткачев М.С.
+              rawRoom: Б503 А201
+          - &a3007
+            date: 2026-10-07
+            group: СТ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Махрова Н.Н.
+              room: Акт.зал
+            source:
+              shift: second
+              row: 7
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Махрова Н.Н.
+              rawRoom: Акт.зал
+          - &a3008
+            date: 2026-10-07
+            group: СТ1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.философии
+            replacement:
+              raw: МДК 01.01 Секацкая Н.А.
+              room: Б502
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.философии
+              rawReplacement: МДК 01.01 Секацкая Н.А.
+              rawRoom: Б502
+          - &a3009
+            date: 2026-10-07
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: п/гр 2 - по расписанию П/гр 1 - Снято
+              room: Б204
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01
+              rawReplacement: п/гр 2 - по расписанию П/гр 1 - Снято
+              rawRoom: Б204
+          - &a3010
+            date: 2026-10-07
+            group: СТ1-35
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 02.01
+            replacement:
+              raw: МДК 01.01 Т1.3 /теор Ткачев М.С.
+              room: А201
+            source:
+              shift: second
+              row: 10
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 МДК 02.01
+              rawReplacement: МДК 01.01 Т1.3 /теор Ткачев М.С.
+              rawRoom: А201
+          - &a3011
+            date: 2026-10-07
+            group: СТ1-35
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 02.01
+            replacement:
+              raw: МДК 01.01 Т1.3 п/гр 1 Ткачев М.С.
+              room: А201
+            source:
+              shift: second
+              row: 11
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01 МДК 02.01
+              rawReplacement: МДК 01.01 Т1.3 п/гр 1 Ткачев М.С.
+              rawRoom: А201
+          - &a3022
+            date: 2026-10-07
+            group: ЮР1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: Ф306
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: Ф306
+          - &a3023
+            date: 2026-10-07
+            group: ЮР1-23
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: Ф306
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: Ф306
+          - &a3024
+            date: 2026-10-07
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: Ф306
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: Ф306
+          - &a3025
+            date: 2026-10-07
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: Рус.яз.и культ.речи Тихонов А.А
+              room: Ф201
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: История России
+              rawReplacement: Рус.яз.и культ.речи Тихонов А.А
+              rawRoom: Ф201
+        diagnostics: []
+    replacements:
+      - *a2916
+      - *a2917
+      - *a2918
+      - *a2919
+      - *a2920
+      - *a2921
+      - *a2922
+      - *a2923
+      - *a2924
+      - *a2925
+      - *a2926
+      - *a2927
+      - *a2928
+      - *a2929
+      - *a2930
+      - *a2931
+      - *a2932
+      - *a2933
+      - *a2934
+      - *a2935
+      - *a2936
+      - *a2937
+      - *a2938
+      - *a2939
+      - *a2940
+      - *a2941
+      - *a2942
+      - *a2943
+      - *a2944
+      - *a2945
+      - *a2946
+      - *a2947
+      - *a2948
+      - *a2949
+      - *a2950
+      - *a2951
+      - *a2952
+      - *a2953
+      - *a2954
+      - *a2955
+      - *a2956
+      - *a2957
+      - *a2958
+      - *a2959
+      - *a2960
+      - *a2961
+      - *a2962
+      - *a2963
+      - *a2964
+      - *a2965
+      - *a2966
+      - *a2967
+      - *a2968
+      - *a2969
+      - *a2970
+      - *a2971
+      - *a2972
+      - *a2973
+      - *a2974
+      - *a2975
+      - *a2976
+      - *a2977
+      - *a2978
+      - *a2979
+      - *a2980
+      - *a2981
+      - *a2982
+      - *a2983
+      - *a2984
+      - *a2985
+      - *a2986
+      - *a2987
+      - *a2988
+      - *a2989
+      - *a2990
+      - *a2991
+      - *a2992
+      - *a2993
+      - *a2994
+      - *a2995
+      - *a2996
+      - *a2997
+      - *a2998
+      - *a2999
+      - *a3000
+      - *a3001
+      - *a3002
+      - *a3003
+      - *a3004
+      - *a3005
+      - *a3006
+      - *a3007
+      - *a3008
+      - *a3009
+      - *a3010
+      - *a3011
+      - *a3012
+      - *a3013
+      - *a3014
+      - *a3015
+      - *a3016
+      - *a3017
+      - *a3018
+      - *a3019
+      - *a3020
+      - *a3021
+      - *a3022
+      - *a3023
+      - *a3024
+      - *a3025
+      - *a3026
+      - *a3027
+      - *a3028
+      - *a3029
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -59463,4 +61781,4 @@ diagnostics:
     row: 2
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 84c453ea78e9e3c03de825f7e5979a723fb633fdbea1b4bbe4fe58509eab807b
+semanticHash: 1d46ab434cda5bddb8d6ccc81cb51baf45899aa854a8d5b186a02816e560288f

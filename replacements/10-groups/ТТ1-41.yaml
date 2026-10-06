@@ -700,6 +700,69 @@ dates:
     replacements:
       - *a17
       - *a18
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+        replacements:
+          - &a19
+            date: 2026-10-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Физкульт
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "0"
+              rawOriginal: Физкульт
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a20
+            date: 2026-10-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.02, ...
+            replacement:
+              raw: МДК 04.01 Мартынова С.В
+              room: ДОТ
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 04.02, ...
+              rawReplacement: МДК 04.01 Мартынова С.В
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -722,4 +785,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 69cfb94f35a7dd4a4197004c36595af85472773a4292fcdff4f6e4f6ccee095d
+semanticHash: 3e89e47367623139884aee37f9880a988674017a99af4d6f3b658cf14ba03d5f

@@ -564,7 +564,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -594,7 +594,74 @@ dates:
               rawReplacement: МДК 01.03 Белогорская Я.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
     replacements:
       - *a14
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+        replacements:
+          - &a15
+            date: 2026-10-07
+            group: ДИ1-34
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: МДК 03.01 /теор Парамонов В.И.
+              room: Б310
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01
+              rawReplacement: МДК 03.01 /теор Парамонов В.И.
+              rawRoom: Б310
+          - &a16
+            date: 2026-10-07
+            group: ДИ1-34
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Физкультура Чупрова П.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: Физкультура Чупрова П.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a15
+      - *a16
 diagnostics: []
-semanticHash: c5fc3fadc05ccf6b25f88cc6a373c59ae0b6492b1c1b923abdb0916484d71ec9
+semanticHash: 409fd27725ef776192e037c6c1d45ac94a1456333e70d77fcc45e3d946b81d47

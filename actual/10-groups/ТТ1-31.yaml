@@ -4216,6 +4216,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+    groups:
+      ТТ1-31:
+        group: ТТ1-31
+        date: 2026-10-07
+        day: Среда
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 06.01
+                teacher: Левина Г.Н.
+                room: Газпром
+                weekType: both
+                rawSubject: МДК 06.01 Левина Г.Н.
+                rawTeacher: Левина Г.Н.
+                rawRoom: Газпром
+                sourceRow: 36
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a21
+                  date: 2026-10-07
+                  group: ТТ1-31
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: ... МДК06.01 МДК06.02
+                  replacement:
+                    raw: МДК 06.01 Левина Г.Н.
+                    room: Газпром
+                  source:
+                    shift: first
+                    row: 36
+                    rawGroupName: ТТ1-31
+                    rawLessonNumbers: 0-2
+                    rawOriginal: ... МДК06.01 МДК06.02
+                    rawReplacement: МДК 06.01 Левина Г.Н.
+                    rawRoom: Газпром
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: МДК 06.01
+                teacher: Левина Г.Н.
+                room: Газпром
+                weekType: both
+                rawSubject: МДК 06.01 Левина Г.Н.
+                rawTeacher: Левина Г.Н.
+                rawRoom: Газпром
+                sourceRow: 36
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 118
+              rowEnd: 119
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a21
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 120
+              rowEnd: 121
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a22
+                  date: 2026-10-07
+                  group: ТТ1-31
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: МДК06.03
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: ТТ1-31
+                    rawLessonNumbers: 3,4
+                    rawOriginal: МДК06.03
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants: []
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 122
+              rowEnd: 123
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a22
+                lessonNumber: 4
+                strategy: subject-module-code
+        unresolvedReplacements:
+          - replacement: *a21
+            lessonNumber: 0
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «... МДК06.01 МДК06.02». По замене: «МДК 06.01
+                Левина Г.Н.». Аудитория: «Газпром»."
+              room: Газпром
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4262,4 +4416,23 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: aa86de624a9fd89a3622dac0e3cc016f80d8a1d5a2ae75088c2235830aabb2e2
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 8376bde5c3b7056215b66ad549692730e381001df560d6b09bd9255a945e7fd2
+    sheet: "Замены: Первая смена"
+    row: 36
+    normalizedGroup: ТТ1-31
+    rawValue: МДК 06.01 Левина Г.Н.
+    context:
+      date: 2026-10-07
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ТТ1-31
+      baseSourceFiles:
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: a0fbad708a6e1dfbd232e2149b10d76b7087648268e9f581abdfdbe57ec5f512

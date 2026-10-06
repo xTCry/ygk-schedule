@@ -1829,6 +1829,140 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+    groups:
+      МС1-31:
+        group: МС1-31
+        date: 2026-10-07
+        day: Среда
+        lessons:
+          - number: 1
+            variants: []
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 122
+              rowEnd: 123
+              rawGroupName: МС1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a6
+                  date: 2026-10-07
+                  group: МС1-31
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: cancel
+                  original:
+                    raw: МДК 02.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 69
+                    rawGroupName: МС1-31
+                    rawLessonNumbers: 1,2
+                    rawOriginal: МДК 02.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants: []
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 124
+              rowEnd: 125
+              rawGroupName: МС1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК 03.01
+                teacher: Нечипорук О.Л
+                room: Б202,М207
+                weekType: both
+                rawSubject: МДК 03.01 Нечипорук О.Л
+                rawTeacher: Нечипорук О.Л
+                rawRoom: Б202,М207
+                sourceRow: 70
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a7
+                  date: 2026-10-07
+                  group: МС1-31
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 03.01 Нечипорук О.Л
+                    room: Б202,М207
+                  source:
+                    shift: first
+                    row: 70
+                    rawGroupName: МС1-31
+                    rawLessonNumbers: 4,5
+                    rawOriginal: ""
+                    rawReplacement: МДК 03.01 Нечипорук О.Л
+                    rawRoom: Б202,М207
+                lessonNumber: 4
+                strategy: add
+          - number: 5
+            variants:
+              - subject: МДК 03.01
+                teacher: Нечипорук О.Л
+                room: Б202,М207
+                weekType: both
+                rawSubject: МДК 03.01 Нечипорук О.Л
+                rawTeacher: Нечипорук О.Л
+                rawRoom: Б202,М207
+                sourceRow: 70
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a7
+                lessonNumber: 5
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1856,4 +1990,4 @@ diagnostics:
           sourceRow: 127
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e1a01cb44e420c4991c4dd76b57c56becb8218113765244c9dcdb165aa262420
+semanticHash: 63282f195dd7f8a11efd3f7671736f3492bfab6f33d6d4c3e253f50a68451a5c

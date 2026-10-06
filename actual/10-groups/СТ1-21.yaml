@@ -957,5 +957,191 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e8a37c31372981ce6589d2bad27c9a4c58aefb42b4f3b64f9215b4cbea870ad0
+          fetchedAt: 2026-10-06T15:50:47.440Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac4d451-3e20"
+          lastModified: Tue, 06 Oct 2026 10:58:25 GMT
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+    groups:
+      СТ1-21:
+        group: СТ1-21
+        date: 2026-10-07
+        day: Среда
+        lessons:
+          - number: 1
+            variants:
+              - subject: Физкультура
+                teacher: Герман О.Г.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Герман О.Г.
+                rawTeacher: Герман О.Г.
+                rawRoom: Сп.зал
+                sourceRow: 4
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-07
+                  group: СТ1-21
+                  lessonNumbers:
+                    - 1
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Герман О.Г.
+                    room: Сп.зал
+                  source:
+                    shift: first
+                    row: 4
+                    rawGroupName: СТ1-21
+                    rawLessonNumbers: "1"
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Герман О.Г.
+                    rawRoom: Сп.зал
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: История России
+                teacher: Смирнов Б.Е.
+                room: А201
+                weekType: both
+                rawSubject: История России Смирнов Б.Е.
+                rawTeacher: Смирнов Б.Е.
+                rawRoom: А201
+                sourceRow: 3
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a1
+                  date: 2026-10-07
+                  group: СТ1-21
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: История России Смирнов Б.Е.
+                    room: А201
+                  source:
+                    shift: first
+                    row: 3
+                    rawGroupName: СТ1-21
+                    rawLessonNumbers: 2,3
+                    rawOriginal: ""
+                    rawReplacement: История России Смирнов Б.Е.
+                    rawRoom: А201
+                lessonNumber: 2
+                strategy: add
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Смирнов Б.Е.
+                room: А201
+                weekType: both
+                rawSubject: История России Смирнов Б.Е.
+                rawTeacher: Смирнов Б.Е.
+                rawRoom: А201
+                sourceRow: 3
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a1
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Инженерная графика
+                teacher: |-
+                  Дегтева И.Е.
+                  Костерина Е. В.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 22
+            source:
+              sheet: СТ 2 курс
+              rowStart: 22
+              rowEnd: 23
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants: []
+            source:
+              sheet: СТ 2 курс
+              rowStart: 24
+              rowEnd: 25
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a2
+                  date: 2026-10-07
+                  group: СТ1-21
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: cancel
+                  original:
+                    raw: МДК 01.01, МДК 02.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 2
+                    rawGroupName: СТ1-21
+                    rawLessonNumbers: 5,6
+                    rawOriginal: МДК 01.01, МДК 02.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants: []
+            source:
+              sheet: СТ 2 курс
+              rowStart: 26
+              rowEnd: 27
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: bfd63e3ebccfc23e201f8551704cffd4b1c81bb8c8f013b3d164b1a4f715c654
+semanticHash: 471067857bec3356c6a8ec57a93a3f747b7e6c4f211638ed9f7fdd43e3538ada

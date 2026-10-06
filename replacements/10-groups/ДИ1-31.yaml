@@ -832,7 +832,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -862,7 +862,54 @@ dates:
               rawReplacement: МДК 01.02 п/гр 2 Матвеичева К.А. МДК 02.01 п/гр 1 Лапина А.А.
               rawRoom: Б304 Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
     replacements:
       - *a22
+  2026-10-07:
+    date: 2026-10-07
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-07
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a1fb258fe4f97f1e167f7bb2a14ba19f0192fd8a3aac20d8dcc0a8fa5d2627da
+          fetchedAt: 2026-10-06T15:50:47.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac4cd46-2871"
+          lastModified: Tue, 06 Oct 2026 10:28:22 GMT
+        replacements:
+          - &a23
+            date: 2026-10-07
+            group: ДИ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК02.02
+            replacement:
+              raw: МДК 01.02 / теория Махоткина Д.Е.
+              room: ДОТ
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК02.02
+              rawReplacement: МДК 01.02 / теория Махоткина Д.Е.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a23
 diagnostics: []
-semanticHash: 93858449d08390e8b6a3e2a016eea6ed8dc0a37b32b3167062c0968e7f01d536
+semanticHash: 0d694dbd9f1d160be27061d4308afb043a89bf21dd16ed8e75acf0d5e57c98c2
