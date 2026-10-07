@@ -1098,7 +1098,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1148,8 +1148,94 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
     replacements:
       - *a27
       - *a28
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
+          fetchedAt: 2026-10-07T16:19:51.662Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac60d3a-5405"
+          lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+        replacements:
+          - &a29
+            date: 2026-10-08
+            group: ИБ1-21
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a30
+            date: 2026-10-08
+            group: ИБ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Акт.зал
+          - &a31
+            date: 2026-10-08
+            group: ИБ1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Информ п/гр
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              room: Б202
+            source:
+              shift: first
+              row: 29
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Информ п/гр
+              rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a29
+      - *a30
+      - *a31
 diagnostics: []
-semanticHash: ca479591983f067f8626da5c80c3ea2ec6b24e87a146c93d10ba2bf3e390ebbf
+semanticHash: bf17905ee4fc343580e5317e9423b6cfbd8e073075ca0225862f0b7183ddf9b6

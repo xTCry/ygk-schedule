@@ -1484,6 +1484,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
+          fetchedAt: 2026-10-07T16:19:51.662Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac60d3a-5405"
+          lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+      second:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
+          fetchedAt: 2026-10-07T16:19:50.775Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac64874-249f"
+          lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+    groups:
+      7 МРТ:
+        group: 7 МРТ
+        date: 2026-10-08
+        day: Четверг
+        lessons:
+          - number: 1
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 28
+              rowEnd: 29
+              rawGroupName: 7 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a4
+                  date: 2026-10-08
+                  group: 7 МРТ
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: cancel
+                  original:
+                    raw: МДК 03.01 МДК 03.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 84
+                    rawGroupName: 7 МРТ
+                    rawLessonNumbers: 1,2
+                    rawOriginal: МДК 03.01 МДК 03.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 30
+              rowEnd: 31
+              rawGroupName: 7 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a4
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: УП 03
+                teacher: Лебедева С.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: УП 03 Лебедева С.В.
+                rawTeacher: Лебедева С.В.
+                rawRoom: ДОТ
+                sourceRow: 85
+            source:
+              sheet: 4 курс
+              rowStart: 32
+              rowEnd: 33
+              rawGroupName: 7 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a5
+                  date: 2026-10-08
+                  group: 7 МРТ
+                  lessonNumbers:
+                    - 3
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: Осн.фин.гр. Физкул
+                  replacement:
+                    raw: УП 03 Лебедева С.В.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 85
+                    rawGroupName: 7 МРТ
+                    rawLessonNumbers: 3-5
+                    rawOriginal: Осн.фин.гр. Физкул
+                    rawReplacement: УП 03 Лебедева С.В.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants:
+              - subject: УП 03
+                teacher: Лебедева С.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: УП 03 Лебедева С.В.
+                rawTeacher: Лебедева С.В.
+                rawRoom: ДОТ
+                sourceRow: 85
+            source:
+              sheet: 4 курс
+              rowStart: 34
+              rowEnd: 35
+              rawGroupName: 7 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a5
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements:
+          - replacement: *a5
+            lessonNumber: 5
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.фин.гр. Физкул». По замене: «УП 03 Лебедева
+                С.В.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1526,6 +1680,25 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 61f07c9781857739ddfdbc4b3ed9c7b1fc9e553935e5a726b99c8c79e1947476
+    sheet: "Замены: Первая смена"
+    row: 85
+    normalizedGroup: 7 МРТ
+    rawValue: УП 03 Лебедева С.В.
+    context:
+      date: 2026-10-08
+      lessonNumber: 5
+      type: replace
+      reason: lesson-not-found
+      baseGroup: 7 МРТ
+      baseSourceFiles:
+        - ort.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: d2aa174314a36e99e9c15a3949cf0cb0a1e82dcd3fee3fd73b0fc4b041bee8a4
     sheet: "Замены: Первая смена"
@@ -1548,4 +1721,4 @@ diagnostics:
           sourceRow: 34
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c0b1151af3858c48e2eea32258841ad4d12cfa093a2d6cde6a0671e0c455fc19
+semanticHash: 2f11b6eca2ec08a22f8fd5fd252de7047831dd67316388fb6cdc3cf141c8ec62

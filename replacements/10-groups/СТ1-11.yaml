@@ -696,7 +696,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -727,7 +727,92 @@ dates:
               rawReplacement: Обществ. Горбачёв В.Н.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
     replacements:
       - *a18
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
+          fetchedAt: 2026-10-07T16:19:51.662Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac60d3a-5405"
+          lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+        replacements:
+          - &a19
+            date: 2026-10-08
+            group: СТ1-11
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 44
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+          - &a20
+            date: 2026-10-08
+            group: СТ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: По расписанию
+              room: Б204
+            source:
+              shift: first
+              row: 45
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Информ.
+              rawReplacement: По расписанию
+              rawRoom: Б204
+          - &a21
+            date: 2026-10-08
+            group: СТ1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Осн.шахм.игры
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 46
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.шахм.игры
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
+      - *a21
 diagnostics: []
-semanticHash: faa563e6887d90cb4f02baa7d1f1ebb52be46aebf32a2cfaafc1d017d2e7e35a
+semanticHash: 0dc92d71b3b485faab5726631ede1b9ff8b0799227438e24e27765616810fd7f

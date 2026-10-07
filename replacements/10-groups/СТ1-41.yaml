@@ -295,6 +295,49 @@ dates:
     replacements:
       - *a6
       - *a7
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
+          fetchedAt: 2026-10-07T16:19:51.662Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac60d3a-5405"
+          lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+        replacements:
+          - &a8
+            date: 2026-10-08
+            group: СТ1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Общ.свед Нечипорук О.Л.
+              room: А201
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Общ.свед Нечипорук О.Л.
+              rawRoom: А201
+        diagnostics: []
+    replacements:
+      - *a8
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -317,4 +360,4 @@ diagnostics:
     rawValue: СТ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 877526e157d4cddc00fadc7d4d5943dce8bfda6477b2fbf8f061817c7b54014c
+semanticHash: 8626d1c39f58143e1f58562347934bd31ddbb35ac5205f5fde72988b80278551

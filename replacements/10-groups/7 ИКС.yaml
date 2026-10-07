@@ -1691,7 +1691,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1741,8 +1741,77 @@ dates:
               rawReplacement: МДК 01.02 Елистратов А.М.
               rawRoom: Экскурсия
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
     replacements:
       - *a50
       - *a51
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
+          fetchedAt: 2026-10-07T16:19:51.662Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac60d3a-5405"
+          lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+        replacements:
+          - &a52
+            date: 2026-10-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: УП 01 пгр
+            replacement:
+              raw: МДК 01.01 Седова Н.А.
+              room: к.29
+            source:
+              shift: first
+              row: 90
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 пгр
+              rawReplacement: МДК 01.01 Седова Н.А.
+              rawRoom: к.29
+          - &a53
+            date: 2026-10-08
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: УП 01 пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 91
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 01 пгр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics: []
-semanticHash: c462d7acbcad2e968ccc06e06a5d0571cf5dfee67e2415e42bee96c9cd2b767f
+semanticHash: 258a66bcee3ee3499f6ee171d04585bd403509f3138773b1f7e43a7f6cebabe2

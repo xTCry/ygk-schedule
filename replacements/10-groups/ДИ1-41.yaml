@@ -1653,7 +1653,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1684,8 +1684,75 @@ dates:
               rawReplacement: 1,2 п/гр. Иванов Ю.А.
               rawRoom: Б207Б208
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
     replacements:
       - *a51
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
+          fetchedAt: 2026-10-07T16:19:50.775Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac64874-249f"
+          lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+        replacements:
+          - &a52
+            date: 2026-10-08
+            group: ДИ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+          - &a53
+            date: 2026-10-08
+            group: ДИ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Живопись
+            replacement:
+              raw: 1,2 п/гр. Иванов Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Живопись
+              rawReplacement: 1,2 п/гр. Иванов Ю.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1708,4 +1775,4 @@ diagnostics:
     rawValue: ДИ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 4d055cae6e8c7ad580eccf8b5ac1077fff0acb74400faae0b1c55611fa24f11f
+semanticHash: 57debc00a2bfc7e2c08f159497b1114759dcb4cb76552720b6f603c8cdb2729d

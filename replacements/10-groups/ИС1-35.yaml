@@ -816,7 +816,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -847,7 +847,74 @@ dates:
               rawReplacement: МДК 02.03 (Кувшинова В.А.)
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
     replacements:
       - *a21
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
+          fetchedAt: 2026-10-07T16:19:50.775Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac64874-249f"
+          lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+        replacements:
+          - &a22
+            date: 2026-10-08
+            group: ИС1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 06.03
+            replacement:
+              raw: МДК 02.03 Кувшинова В.А.
+              room: Б305
+            source:
+              shift: second
+              row: 39
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 06.03
+              rawReplacement: МДК 02.03 Кувшинова В.А.
+              rawRoom: Б305
+          - &a23
+            date: 2026-10-08
+            group: ИС1-35
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Б101
+            source:
+              shift: second
+              row: 22
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Б101
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 593e6bd88129cf8fb7a309be89591c9ac661b7800a4775e1f61c69d6f1b5a7d4
+semanticHash: a9874c94d261122d6db33022b07af5865a96db34c2ea2ce477cd504a96e07794

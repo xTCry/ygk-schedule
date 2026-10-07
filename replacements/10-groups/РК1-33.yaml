@@ -1340,7 +1340,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1389,8 +1389,93 @@ dates:
               rawReplacement: 1,2 п/гр.Инф.тех Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
     replacements:
       - *a36
       - *a37
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
+          fetchedAt: 2026-10-07T16:19:50.775Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac64874-249f"
+          lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+        replacements:
+          - &a38
+            date: 2026-10-08
+            group: РК1-33
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.01 пгр 1 КожешкуртА.В УП 02 п/гр 2 Павлова А.В.
+              room: Экскурсия
+            source:
+              shift: second
+              row: 19
+              rawGroupName: РК1-33
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 02.01 пгр 1 КожешкуртА.В УП 02 п/гр 2 Павлова А.В.
+              rawRoom: Экскурсия
+          - &a39
+            date: 2026-10-08
+            group: РК1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Экскурсия
+            source:
+              shift: second
+              row: 20
+              rawGroupName: РК1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Экскурсия
+          - &a40
+            date: 2026-10-08
+            group: РК1-33
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 02.01 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 21
+              rawGroupName: РК1-33
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.01 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
+      - *a40
 diagnostics: []
-semanticHash: 06c44032cc766b8727c3f96ed9adafd60d36736c1ed03ca0b90ea6ce06daaf9a
+semanticHash: 836acf623be65c88e658a71f840fa887f0863f72143b43bbd60ef7951a869220

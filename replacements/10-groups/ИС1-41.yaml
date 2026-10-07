@@ -1598,7 +1598,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1665,10 +1665,97 @@ dates:
               rawReplacement: Снят
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-08
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
     replacements:
       - *a46
       - *a47
       - *a48
+  2026-10-08:
+    date: 2026-10-08
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-08
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
+          fetchedAt: 2026-10-07T16:19:50.775Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac64874-249f"
+          lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+        replacements:
+          - &a49
+            date: 2026-10-08
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 пгр МДК 03.02 Байдина Ю.А.
+              room: Б406
+            source:
+              shift: second
+              row: 36
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: 1,2 пгр МДК 03.02 Байдина Ю.А.
+              rawRoom: Б406
+          - &a50
+            date: 2026-10-08
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: 1,2 пгр МДК 03.02 Байдина Ю.А.
+              room: Б302
+            source:
+              shift: second
+              row: 37
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: 1,2 пгр МДК 03.02 Байдина Ю.А.
+              rawRoom: Б302
+          - &a51
+            date: 2026-10-08
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: УП 03 УП 05
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 38
+              rawGroupName: ИС1-41
+              rawLessonNumbers: 4-6
+              rawOriginal: УП 03 УП 05
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a49
+      - *a50
+      - *a51
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1691,4 +1778,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: b9508eba22fda93415ba0e537443d2997e7b11c69451231ef74ebbb889540b4b
+semanticHash: be9c8f64d8640350f06532d155b6b18623734e1f009555e1e393fb7d4ba15b4d
