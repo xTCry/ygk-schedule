@@ -4421,7 +4421,7 @@ dates:
         date: 2026-10-08
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4431,11 +4431,15 @@ dates:
           shift: first
           etag: W/"6ac60d3a-5405"
           lastModified: Wed, 07 Oct 2026 09:13:30 GMT
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
       second:
         date: 2026-10-08
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4445,6 +4449,10 @@ dates:
           shift: second
           etag: W/"6ac64874-249f"
           lastModified: Wed, 07 Oct 2026 13:26:12 GMT
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
     groups:
       СД2-11:
         group: СД2-11
@@ -4513,6 +4521,175 @@ dates:
                 lessonNumber: 4
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК.01.01 Т.1.2 Строительные материалы и изделия
+                  teacher: Краснянская Е. В.
+                  room: ДОТ
+                  weekType: both
+                  rawSubject: " МДК.01.01  Т.1.2 Строительные материалы и изделия"
+                  sourceRow: 27
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 27
+                rowEnd: 28
+                rawGroupName: СД2-11/СД2-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Математические методы решения прикладных профессиональных задач
+                  teacher: Гаврилова М.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 29
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 29
+                rowEnd: 30
+                rawGroupName: СД2-11/СД2-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.05.01 Информационное моделирование в строительстве
+                  teacher: Машкова Е.С
+                  room: ДОТ
+                  weekType: denominator
+                  rawSubject: "МДК.05.01 Информационное моделирование в строительстве "
+                  sourceRow: 32
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 31
+                rowEnd: 32
+                rawGroupName: СД2-11/СД2-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+      second:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
+          fetchedAt: 2026-10-08T16:22:23.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac77146-200f"
+          lastModified: Thu, 08 Oct 2026 10:32:38 GMT
+    groups:
+      СД2-11:
+        group: СД2-11
+        date: 2026-10-09
+        day: Пятница
+        lessons:
+          - number: 2
+            variants: []
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 34
+              rowEnd: 35
+              rawGroupName: СД2-11/СД2-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a4
+                  date: 2026-10-09
+                  group: СД2-11
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 02.02 История Рос.
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 21
+                    rawGroupName: СД2-11
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 02.02 История Рос.
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 36
+              rowEnd: 37
+              rawGroupName: СД2-11/СД2-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a4
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности
+                teacher: Сердцева О.Д.
+                room: Б504
+                weekType: denominator
+                sourceRow: 39
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 38
+              rowEnd: 39
+              rawGroupName: СД2-11/СД2-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Инженерная графика
+                teacher: |-
+                  Дегтева И.Е.
+                  Костерина Е. В.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 40
+            source:
+              sheet: СД2-11 СД2-13 СД2-21 СД2-31
+              rowStart: 40
+              rowEnd: 41
+              rawGroupName: СД2-11/СД2-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4570,4 +4747,4 @@ diagnostics:
           sourceRow: 17
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d4f39c5b76c0cb9c2c0d3f71e881e77480a484aecf8ad8183105e54b312d6e8d
+semanticHash: 3ad681f34acdb4d7edb25846a19d1e1f9ad3798c575ee6473959fe3b2e44e3b7

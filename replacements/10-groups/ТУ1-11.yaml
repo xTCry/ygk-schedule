@@ -490,7 +490,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -538,8 +538,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a13
       - *a14
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a15
+            date: 2026-10-09
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: География Климова Ю.И.
+              room: Ф107
+            source:
+              shift: first
+              row: 49
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: География Климова Ю.И.
+              rawRoom: Ф107
+        diagnostics: []
+    replacements:
+      - *a15
 diagnostics: []
-semanticHash: 9a6f5d0329c6e76714c249910b3f97c76c275acb3416e7856cf8a291ba6cdbfd
+semanticHash: 0428dcea38ab66ece5c858488f3775fa6af288fb93d5f0eea81fd94993467379

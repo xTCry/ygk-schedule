@@ -1165,7 +1165,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1233,9 +1233,56 @@ dates:
               rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
               rawRoom: Б202
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a29
       - *a30
       - *a31
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a32
+            date: 2026-10-09
+            group: ИБ1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Электротех.
+            replacement:
+              raw: Осн.инф.безоп Тимощук М.В.
+              room: Б309
+            source:
+              shift: first
+              row: 6
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Электротех.
+              rawReplacement: Осн.инф.безоп Тимощук М.В.
+              rawRoom: Б309
+        diagnostics: []
+    replacements:
+      - *a32
 diagnostics: []
-semanticHash: bf17905ee4fc343580e5317e9423b6cfbd8e073075ca0225862f0b7183ddf9b6
+semanticHash: 4cf9875f537117584ede7d85cb4892a71dbb1d3ccdcdbeceb53b5c595bc89a24

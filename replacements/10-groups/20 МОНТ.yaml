@@ -1281,7 +1281,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1313,7 +1313,54 @@ dates:
               rawReplacement: УП 01 Филиппова А.С.
               rawRoom: к.30
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a41
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a42
+            date: 2026-10-09
+            group: 20 МОНТ
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: МДК 02.01 Каргина В.А.
+              room: к.24
+            source:
+              shift: first
+              row: 73
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: МДК 02.01 Каргина В.А.
+              rawRoom: к.24
+        diagnostics: []
+    replacements:
+      - *a42
 diagnostics: []
-semanticHash: 6942ad320f5c097b3543db809fb86fad2263cd8c9e3319010ddd54ec946c17e8
+semanticHash: a68df6d13b8810a45d92ad8910c88af27ce257d32889d8c90d0b7fd6e62381ce

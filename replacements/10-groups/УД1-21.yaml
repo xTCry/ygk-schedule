@@ -891,7 +891,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -921,7 +921,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a24
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a25
+            date: 2026-10-09
+            group: УД1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Осн.инж.граф Калугина М.В.
+              room: Б402
+            source:
+              shift: first
+              row: 57
+              rawGroupName: УД1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: Осн.инж.граф Калугина М.В.
+              rawRoom: Б402
+          - &a26
+            date: 2026-10-09
+            group: УД1-21
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: Прав.обесп
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 58
+              rawGroupName: УД1-21
+              rawLessonNumbers: 3,4
+              rawOriginal: Прав.обесп
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a25
+      - *a26
 diagnostics: []
-semanticHash: db5e2104f7e85e7becfab7aa333abbefd3e3887a7dbbf017cb143047e386de17
+semanticHash: 599eb2cbd8d7c8292d35a00f726bf01f65de5e12245b5a36d899c128945cf4a1

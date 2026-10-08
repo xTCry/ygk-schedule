@@ -3189,6 +3189,115 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+      second:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
+          fetchedAt: 2026-10-08T16:22:23.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac77146-200f"
+          lastModified: Thu, 08 Oct 2026 10:32:38 GMT
+    groups:
+      ДИ1-23:
+        group: ДИ1-23
+        date: 2026-10-09
+        day: Пятница
+        lessons:
+          - number: 1
+            variants:
+              - subject: Материаловедение
+                teacher: Краснянская Е.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 87
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 87
+              rowEnd: 88
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.01.02 Основы проектной и компьютерной графики Т.2.1.
+                teacher: Воронкевич Г.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: /теория Воронкевич Г.А.
+                rawTeacher: Воронкевич Г.А.
+                rawRoom: ДОТ
+                sourceRow: 5
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-09
+                  group: ДИ1-23
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.02
+                  replacement:
+                    raw: /теория Воронкевич Г.А.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 5
+                    rawGroupName: ДИ1-23
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.02
+                    rawReplacement: /теория Воронкевич Г.А.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: История
+                teacher: Смирнов Б.Е.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 92
+            source:
+              sheet: "ДИ-2 курс ДИ-3 курс "
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: ДИ1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3246,4 +3355,4 @@ diagnostics:
           sourceRow: 42
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ae6db3146c35e773bbec4dd6fe942cf75e65a5a27be1c59e49f768f548938177
+semanticHash: 437bbfd94447e231377ff60a3746173b8520e5577df757c5d90927546f627baf

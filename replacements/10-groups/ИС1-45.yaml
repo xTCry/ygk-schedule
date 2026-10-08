@@ -1049,7 +1049,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1136,11 +1136,77 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
     replacements:
       - *a29
       - *a30
       - *a31
       - *a32
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
+          fetchedAt: 2026-10-08T16:22:23.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac77146-200f"
+          lastModified: Thu, 08 Oct 2026 10:32:38 GMT
+        replacements:
+          - &a33
+            date: 2026-10-09
+            group: ИС1-45
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+          - &a34
+            date: 2026-10-09
+            group: ИС1-45
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: УП 05 МДК05.02
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-45
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 05 МДК05.02
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a33
+      - *a34
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1163,4 +1229,4 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 4bf80bd9003698d121b1fc651daaa985f694ebd37c48d06f71ed245dbbedca86
+semanticHash: e45b21847a12fafdf2af1332925a0ab15a4d82d5457e73127479b9796cc409a4

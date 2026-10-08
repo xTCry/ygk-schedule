@@ -1426,7 +1426,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1458,7 +1458,95 @@ dates:
               rawReplacement: Шишмарев М.Р.
               rawRoom: Б508
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a43
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a44
+            date: 2026-10-09
+            group: ТТ1-31
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: МДК 06.01 Левина Г.Н.
+              room: Газпром
+            source:
+              shift: first
+              row: 59
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: МДК 06.01 Левина Г.Н.
+              rawRoom: Газпром
+          - &a45
+            date: 2026-10-09
+            group: ТТ1-31
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 06.02 Савельев Д.В
+              room: Газпром
+            source:
+              shift: first
+              row: 60
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: МДК 06.02 Савельев Д.В
+              rawRoom: Газпром
+          - &a46
+            date: 2026-10-09
+            group: ТТ1-31
+            lessonNumbers:
+              - 4
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: Охр.тр. МДК05.01 МДК01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 61
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 4-6
+              rawOriginal: Охр.тр. МДК05.01 МДК01.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a44
+      - *a45
+      - *a46
 diagnostics: []
-semanticHash: cf18cd0e8f206206295a2779354fee1dc3c32bdded88251a2b9af6077a39a9c1
+semanticHash: e0c72eec8a558540f9e30eea387e60b8f9b41cc7300dc1cc35e0d659dfc8f754

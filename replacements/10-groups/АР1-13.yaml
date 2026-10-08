@@ -513,7 +513,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -544,7 +544,53 @@ dates:
               rawReplacement: Биология Малявкина Н.А.
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a14
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a15
+            date: 2026-10-09
+            group: АР1-13
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 22
+              rawGroupName: АР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a15
 diagnostics: []
-semanticHash: 91e671f1ecc3bda8d60193d8365361f75825dd4739222e2530d609fbd256b4ae
+semanticHash: 1f991e9131dc0a710135cd4f278d2d61963e1e76a6a499f5e49123188f581e7e

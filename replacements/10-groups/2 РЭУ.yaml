@@ -1073,7 +1073,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1104,7 +1104,93 @@ dates:
               rawReplacement: БЖ Ковалева Л.В.
               rawRoom: к.36
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a30
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
+          fetchedAt: 2026-10-08T16:22:23.416Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac7550a-4659"
+          lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        replacements:
+          - &a31
+            date: 2026-10-09
+            group: 2 РЭУ
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: Физкульт. Информ
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 75
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: 0,1
+              rawOriginal: Физкульт. Информ
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a32
+            date: 2026-10-09
+            group: 2 РЭУ
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История Рос.
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к. Библ
+            source:
+              shift: first
+              row: 76
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "3"
+              rawOriginal: История Рос.
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к. Библ
+          - &a33
+            date: 2026-10-09
+            group: 2 РЭУ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Шпынов Ю.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 77
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Физкультура Шпынов Ю.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a31
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: 77f2146886383c4194c47f89b63646f66f41f466a82304fb4d3134f25e914fea
+semanticHash: 761616ec69e4730e84ddee0d52060058f53fd25dc69a47edef5387980744ae55

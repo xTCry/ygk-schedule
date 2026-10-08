@@ -1683,7 +1683,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1752,10 +1752,78 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
     replacements:
       - *a49
       - *a50
       - *a51
+  2026-10-09:
+    date: 2026-10-09
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-09
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
+          fetchedAt: 2026-10-08T16:22:23.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac77146-200f"
+          lastModified: Thu, 08 Oct 2026 10:32:38 GMT
+        replacements:
+          - &a52
+            date: 2026-10-09
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: Ин.язык Зубковская А.Е.Загородних Е.С
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: УП 03
+              rawReplacement: Ин.язык Зубковская А.Е.Загородних Е.С
+              rawRoom: ДОТ
+          - &a53
+            date: 2026-10-09
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: 1,2 п/гр.МДК 03.02 Байдина Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ИС1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 05.02
+              rawReplacement: 1,2 п/гр.МДК 03.02 Байдина Ю.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1778,4 +1846,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: be9c8f64d8640350f06532d155b6b18623734e1f009555e1e393fb7d4ba15b4d
+semanticHash: 41dbe1d311dec7a2623b112e57989fd72b847f69fa7e73ea3dbfaf6d5e54b8fc
