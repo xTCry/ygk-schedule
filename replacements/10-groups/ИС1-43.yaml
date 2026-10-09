@@ -1858,7 +1858,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1907,9 +1907,96 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
     replacements:
       - *a56
       - *a57
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
+          fetchedAt: 2026-10-09T16:05:47.189Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac8b3f3-2d17"
+          lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        replacements:
+          - &a58
+            date: 2026-10-10
+            group: ИС1-43
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02 МДК 05.03
+            replacement:
+              raw: 1,2 п/гр. МДК 03.02 Байдина Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 44
+              rawGroupName: ИС1-43
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 03.02 МДК 05.03
+              rawReplacement: 1,2 п/гр. МДК 03.02 Байдина Ю.А.
+              rawRoom: ДОТ
+          - &a59
+            date: 2026-10-10
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 05
+            replacement:
+              raw: МДК 09.03 Гудкова А.Л.Серова А.М
+              room: ДОТ
+            source:
+              shift: second
+              row: 45
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: УП 05
+              rawReplacement: МДК 09.03 Гудкова А.Л.Серова А.М
+              rawRoom: ДОТ
+          - &a60
+            date: 2026-10-10
+            group: ИС1-43
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: УП 03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 46
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "5"
+              rawOriginal: УП 03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a58
+      - *a59
+      - *a60
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1932,4 +2019,4 @@ diagnostics:
     rawValue: ИС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d4afb5aedd5726404e92d00a557ed1365d410dbab742e5c39f40016c5a9511ac
+semanticHash: e03c20431e9fcf3638fc3e40e60c5f12df659c75d571873860beb5d53f18e642

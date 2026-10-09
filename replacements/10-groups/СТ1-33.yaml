@@ -818,7 +818,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -868,8 +868,73 @@ dates:
               rawReplacement: 1,2 п/гр. Махрова Н.Н.
               rawRoom: М101
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
     replacements:
       - *a21
       - *a22
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
+          fetchedAt: 2026-10-09T16:05:47.189Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac8b3f3-2d17"
+          lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        replacements:
+          - &a23
+            date: 2026-10-10
+            group: СТ1-33
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.01 Секацкая Н.А.
+              room: Б502
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 01.01 Секацкая Н.А.
+              rawRoom: Б502
+          - &a24
+            date: 2026-10-10
+            group: СТ1-33
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 7
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 8aac6ded94c748da6e1417a4a2c56f772debda9eef74e0cf680d6d38da27fbe1
+semanticHash: ced26dfcdd9e41d1e7caf7baa326ff32e4a77a92ecb607cf8e9e0c2a5fcfef3d

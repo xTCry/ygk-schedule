@@ -1757,6 +1757,49 @@ dates:
     replacements:
       - *a52
       - *a53
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
+          fetchedAt: 2026-10-09T16:05:47.189Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac8b3f3-2d17"
+          lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        replacements:
+          - &a54
+            date: 2026-10-10
+            group: ДИ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: Экон.организации Белогорская Я.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 04.01
+              rawReplacement: Экон.организации Белогорская Я.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a54
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1779,4 +1822,4 @@ diagnostics:
     rawValue: ДИ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6129c743d019576f1307cd25d3dfbeaaad5681e3fcd56cde59892fe4312f0ce5
+semanticHash: 103b16378efe40e501b6028298a03a446cc3ddc5156237435c888e74b4413293

@@ -714,5 +714,69 @@ dates:
           sourceSha256: 6054551613427bb1528b90dd86da14f3b802071fad01dc76331fb343911738cb
     replacements:
       - *a17
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
+          fetchedAt: 2026-10-09T16:05:47.189Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac8b3f3-2d17"
+          lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        replacements:
+          - &a18
+            date: 2026-10-10
+            group: ДИ1-34
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: 1,2 п/гр. Лапина А.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 02.01
+              rawReplacement: 1,2 п/гр. Лапина А.А.
+              rawRoom: ДОТ
+          - &a19
+            date: 2026-10-10
+            group: ДИ1-34
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Экол.осн.природ. Малявкина Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.01
+              rawReplacement: Экол.осн.природ. Малявкина Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
 diagnostics: []
-semanticHash: 8784d11bd3f750617efb06f5b9cafa127a9cf7c99cd979204163aefa1898163a
+semanticHash: 53c02b9e7d770f0eb108e04d7e80406285fd602a009922f64ea68f80b90c5c47

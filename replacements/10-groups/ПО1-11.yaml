@@ -835,5 +835,66 @@ dates:
           sourceSha256: 2932821f37c4c9934a14458657d33083b1dc289cc8f25ba0db6e38cf2a85ae2a
     replacements:
       - *a23
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
+          fetchedAt: 2026-10-09T16:05:47.455Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac8aaf9-35af"
+          lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        replacements:
+          - &a24
+            date: 2026-10-10
+            group: ПО1-11
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 26
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a25
+            date: 2026-10-10
+            group: ПО1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Осн.шахм.игры Дворниченко Г.В.
+              room: Б501
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Осн.шахм.игры Дворниченко Г.В.
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: 84460d2b3f30ac899a9e46c4813a302411a4cbbda9b441fb339a007e92e011c6
+semanticHash: f2384d546c51cf7fda1f14ac790169dca3152f176be29341817fda4dc1946a6c

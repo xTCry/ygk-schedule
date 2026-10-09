@@ -220,7 +220,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -268,8 +268,73 @@ dates:
               rawReplacement: МДК 03.02 Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
     replacements:
       - *a6
       - *a7
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
+          fetchedAt: 2026-10-09T16:05:47.455Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac8aaf9-35af"
+          lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        replacements:
+          - &a8
+            date: 2026-10-10
+            group: ЮР1-31
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Осн.бережл.пр.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 39
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.бережл.пр.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a9
+            date: 2026-10-10
+            group: ЮР1-31
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Рустамова А.В.
+              room: Ф404
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Рустамова А.В.
+              rawRoom: Ф404
+        diagnostics: []
+    replacements:
+      - *a8
+      - *a9
 diagnostics: []
-semanticHash: c22f0791f063a01f98e832f0d8e4f2f975f520894c8b7cb91b73afaecffd1fbd
+semanticHash: 610c1dff9cfe309d7dfd67ca38151dbdd70608c7f4601039db1c8a4a542d95fa

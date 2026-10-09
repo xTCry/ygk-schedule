@@ -4773,6 +4773,140 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
+          fetchedAt: 2026-10-09T16:05:47.455Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac8aaf9-35af"
+          lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+      second:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
+          fetchedAt: 2026-10-09T16:05:47.189Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ac8b3f3-2d17"
+          lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+    groups:
+      РК1-31:
+        group: РК1-31
+        date: 2026-10-10
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 02.01
+                teacher: Кожешкурт А.В.
+                room: ДОТ
+                weekType: both
+                subgroup: "1"
+                rawSubject: МДК 02.01 п/гр 1 Кожешкурт А.В.
+                rawTeacher: Кожешкурт А.В.
+                rawRoom: ДОТ
+                sourceRow: 17
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-10
+                  group: РК1-31
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 02.01 п/гр 1 Кожешкурт А.В.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 17
+                    rawGroupName: РК1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: МДК 02.01 п/гр 1 Кожешкурт А.В.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: МДК 02.02 Форматы предъявления результатов стратегического и
+                  тактического планирования рекламных и коммуникационных
+                  кампаний, акций и мероприятий
+                teacher: Павлова О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 196
+                rawRoom: ДОТ
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 196
+              rowEnd: 197
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a14
+                  date: 2026-10-10
+                  group: РК1-31
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 18
+                    rawGroupName: РК1-31
+                    rawLessonNumbers: 4,5
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: scheduled-room
+          - number: 5
+            variants:
+              - subject: МДК 02.02 Форматы предъявления результатов стратегического и
+                  тактического планирования рекламных и коммуникационных
+                  кампаний, акций и мероприятий
+                teacher: Павлова О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 198
+                rawRoom: ДОТ
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 198
+              rowEnd: 199
+              rawGroupName: РК1-31/РК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a14
+                lessonNumber: 5
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4886,4 +5020,4 @@ diagnostics:
           sourceRow: 186
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: b0e2c77c0c93a492a1592bba1fd11c01f4b85d1904e13a59d9d3fe1fb2d4f918
+semanticHash: 0f258e6564ff1856615e794a374fecf5ca49ce319f94751f6cea32d5f084f311

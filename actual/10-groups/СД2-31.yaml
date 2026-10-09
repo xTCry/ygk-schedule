@@ -1178,7 +1178,7 @@ dates:
         date: 2026-10-09
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1188,11 +1188,15 @@ dates:
           shift: first
           etag: W/"6ac7550a-4659"
           lastModified: Thu, 08 Oct 2026 08:32:10 GMT
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
       second:
         date: 2026-10-09
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1202,6 +1206,10 @@ dates:
           shift: second
           etag: W/"6ac77146-200f"
           lastModified: Thu, 08 Oct 2026 10:32:38 GMT
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 0fba185c6777e0ee850e4e22fb1872e174d9388029e82e4cb937741a47f67850
     groups:
       СД2-31:
         group: СД2-31
@@ -1322,6 +1330,75 @@ dates:
                 lessonNumber: 5
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК.06.01 Т.1.1. Сметная документация п/гр2
+                  teacher: Силантьева С.И.
+                  room: Б406
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 188
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 187
+                rowEnd: 188
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.06.01 Т.1.1. Сметная документация п/гр2
+                  teacher: Силантьева С.И.
+                  room: Б406
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 190
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 189
+                rowEnd: 190
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.06.01 Т.1.1. Сметная документация
+                  teacher: Силантьева С.И.
+                  room: Б501
+                  weekType: both
+                  rawSubject: "МДК.06.01 Т.1.1. Сметная документация "
+                  sourceRow: 191
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 191
+                rowEnd: 192
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Махрова Н.Н.
+                    Смирнова Е.Ф.
+                  room: А203
+                  weekType: both
+                  sourceRow: 193
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 193
+                rowEnd: 194
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1344,4 +1421,4 @@ diagnostics:
     rawValue: СД2-31 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d6ab0e6796a260fb730f0af1cd80fbc22d8a0ee06cc995756c62dbba470a36d8
+semanticHash: 835923402251dc194c4d729f084618628cffe7faf8a53faf5b00ea6f6abcdcab

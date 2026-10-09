@@ -599,7 +599,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -629,7 +629,54 @@ dates:
               rawReplacement: Доп.проф. Пугачева С.В
               rawRoom: Ф205
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
     replacements:
       - *a14
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
+          fetchedAt: 2026-10-09T16:05:47.455Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac8aaf9-35af"
+          lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        replacements:
+          - &a15
+            date: 2026-10-10
+            group: ЭК1-31
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Экскурсия
+            source:
+              shift: first
+              row: 34
+              rawGroupName: ЭК1-31
+              rawLessonNumbers: 1,2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a15
 diagnostics: []
-semanticHash: 43184639d75af50545df50ef3678a29b275991eb5b4f716a481d5c7146f6b9ad
+semanticHash: a590a04c2ea70e1e3ea4efb4bfbc09578aace059a60e84f604541f15645fa361

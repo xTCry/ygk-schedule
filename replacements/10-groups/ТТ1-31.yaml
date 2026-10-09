@@ -1474,7 +1474,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1544,9 +1544,77 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
     replacements:
       - *a44
       - *a45
       - *a46
+  2026-10-10:
+    date: 2026-10-10
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-10
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b5f4e18ed12c3ca13e2a22cfc11eba93d194f4b10f709652b62761618c7d69f6
+          fetchedAt: 2026-10-09T16:05:47.455Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ac8aaf9-35af"
+          lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        replacements:
+          - &a47
+            date: 2026-10-10
+            group: ТТ1-31
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.01 Шишмарев М.Р.
+              room: Ф303
+            source:
+              shift: first
+              row: 57
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: МДК 05.01 Шишмарев М.Р.
+              rawRoom: Ф303
+          - &a48
+            date: 2026-10-10
+            group: ТТ1-31
+            lessonNumbers:
+              - 1
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: Шишмарев М.Р.
+              room: Ф302
+            source:
+              shift: first
+              row: 58
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 1-3
+              rawOriginal: МДК 05.01
+              rawReplacement: Шишмарев М.Р.
+              rawRoom: Ф302
+        diagnostics: []
+    replacements:
+      - *a47
+      - *a48
 diagnostics: []
-semanticHash: e0c72eec8a558540f9e30eea387e60b8f9b41cc7300dc1cc35e0d659dfc8f754
+semanticHash: 10678be5c9f24644a801d5cc56c5215c6335890c44b788e70cdd811687e7b828
