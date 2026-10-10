@@ -4268,6 +4268,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+    groups:
+      СА1-41:
+        group: СА1-41
+        date: 2026-10-12
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants: []
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 101
+              rowEnd: 102
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a8
+                  date: 2026-10-12
+                  group: СА1-41
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: МДК 03.02 МДК 02.03
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 14
+                    rawGroupName: СА1-41
+                    rawLessonNumbers: 3,4
+                    rawOriginal: МДК 03.02 МДК 02.03
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants: []
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 103
+              rowEnd: 104
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a8
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: Эф.поведение
+                teacher: Малашкевич Д.А.
+                room: Б110
+                weekType: both
+                rawSubject: Эф.поведение Малашкевич Д.А.
+                rawTeacher: Малашкевич Д.А.
+                rawRoom: Б110
+                sourceRow: 13
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-10-12
+                  group: СА1-41
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: УП 03 МДК 02.02
+                  replacement:
+                    raw: Эф.поведение Малашкевич Д.А.
+                    room: Б110
+                  source:
+                    shift: second
+                    row: 13
+                    rawGroupName: СА1-41
+                    rawLessonNumbers: 5,6
+                    rawOriginal: УП 03 МДК 02.02
+                    rawReplacement: Эф.поведение Малашкевич Д.А.
+                    rawRoom: Б110
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements:
+          - replacement: *a9
+            lessonNumber: 6
+            reason: lesson-not-scheduled-for-week
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 03 МДК 02.02». По замене: «Эф.поведение
+                Малашкевич Д.А.». Аудитория: «Б110»."
+              room: Б110
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -4343,6 +4475,36 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 79ca44b6f4f04fa867d05461102ecf425a5faa66c60b8cb15b66e355384311cb
+    sheet: "Замены: Вторая смена"
+    row: 13
+    normalizedGroup: СА1-41
+    rawValue: Эф.поведение Малашкевич Д.А.
+    context:
+      date: 2026-10-12
+      lessonNumber: 6
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: СА1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      replacementWeekType: numerator
+      availableWeekTypes:
+        - denominator
+      requestedSubject: УП 03 МДК 02.02
+      candidates:
+        - subject: МДК.02.02 Программное обеспечение КС п/гр1
+          teacher: Грехова Е.И.
+          room: Б304
+          subgroup: "1"
+          sourceRow: 108
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 943dcd9ebf0b0122ab923214d1a7e388ef5442bbe800ead855650871b3deba77
     sheet: "Замены: Вторая смена"
@@ -4409,4 +4571,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: f819468e330b77f86d0092db9f6a658a7624e40069340530165763b755818523
+semanticHash: c81f4f27db089929bc5b5ab5012e3b50ff9727c54d8f99ae0866823cd09f2d51

@@ -1221,7 +1221,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1272,9 +1272,95 @@ dates:
               rawReplacement: 1,2 п/гр. Панасюк А.Д.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
     replacements:
       - *a35
       - *a36
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+        replacements:
+          - &a37
+            date: 2026-10-12
+            group: ИС1-45
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 09.03 Кувшинова В.А.
+              room: Б305
+            source:
+              shift: second
+              row: 10
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 09.03 Кувшинова В.А.
+              rawRoom: Б305
+          - &a38
+            date: 2026-10-12
+            group: ИС1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: 1,2 п/гр. Панасюк А.Д.
+              room: Б301
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.02
+              rawReplacement: 1,2 п/гр. Панасюк А.Д.
+              rawRoom: Б301
+          - &a39
+            date: 2026-10-12
+            group: ИС1-45
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: Физкульт. МДК 05.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИС1-45
+              rawLessonNumbers: 5,6
+              rawOriginal: Физкульт. МДК 05.03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
+      - *a39
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1297,4 +1383,4 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 63ce6bf2efff6150979797a6c0eaf295f95ea4b088ecaadf4233c18600005183
+semanticHash: 2d73e4efd11a94b17f6093db46af8082cbb0b323be5ee9e7fbc9970d466c12c0

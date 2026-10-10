@@ -3940,7 +3940,7 @@ dates:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3950,11 +3950,15 @@ dates:
           shift: first
           etag: W/"6ac8aaf9-35af"
           lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
       second:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3964,6 +3968,10 @@ dates:
           shift: second
           etag: W/"6ac8b3f3-2d17"
           lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
     groups:
       ИС1-33:
         group: ИС1-33
@@ -4049,5 +4057,180 @@ dates:
                 lessonNumber: 4
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: УП.02 Учебная практика
+                  teacher: |-
+                    Вершинина Н.А.
+                    Васильченко М.О.
+                  room: |-
+                    Б305
+                    Б403
+                  weekType: both
+                  rawTeacher: |-
+                    Вершинина Н.А.
+                     Васильченко М.О.
+                  sourceRow: 94
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 94
+                rowEnd: 95
+                rawGroupName: ИС1-33/ИС1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Компьютерные сети
+                  teacher: |-
+                    Юров А.А.
+                    Панасюк А.Д.
+                  room: |-
+                    Б305
+                    Б407
+                  weekType: both
+                  sourceRow: 96
+              source:
+                sheet: ИС-3 курс ИС-4 курс
+                rowStart: 96
+                rowEnd: 97
+                rawGroupName: ИС1-33/ИС1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+    groups:
+      ИС1-33:
+        group: ИС1-33
+        date: 2026-10-12
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Иностранный язык в проф. деят.
+                teacher: Зубковская А.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр. Зубковская А.Е.
+                rawTeacher: Зубковская А.Е.
+                rawRoom: ДОТ
+                sourceRow: 7
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 53
+              rowEnd: 54
+              rawGroupName: ИС1-33/ИС1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: ИС1-33
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: 1,2 п/гр. Зубковская А.Е.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 7
+                    rawGroupName: ИС1-33
+                    rawLessonNumbers: "2"
+                    rawOriginal: Ин.язык
+                    rawReplacement: 1,2 п/гр. Зубковская А.Е.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: МДК.02.03 Мат. Моделирование
+                teacher: |-
+                  Кувшинова В.А.
+                  Серова А.М.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 55
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 55
+              rowEnd: 56
+              rawGroupName: ИС1-33/ИС1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.06.02 Инженерно-техническая поддержка сопровождения ИС
+                teacher: |-
+                  Королева П.Д.
+                  Вершинина Н.А.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 57
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: ИС1-33/ИС1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.02.03 Мат. Моделирование
+                teacher: |-
+                  Кувшинова В.А.
+                  Серова А.М.
+                room: ДОТ
+                weekType: both
+                sourceRow: 59
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 59
+              rowEnd: 60
+              rawGroupName: ИС1-33/ИС1-34
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 910e072d352833b9359b15b118b2bdc9231bd1e985c8845469007e44283e1684
+semanticHash: 058e32b5c2294872fce8d2dad714182c5b8697d59de55112efd0c81d041fa21e

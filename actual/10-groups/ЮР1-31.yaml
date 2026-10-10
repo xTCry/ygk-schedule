@@ -979,7 +979,7 @@ dates:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -989,11 +989,15 @@ dates:
           shift: first
           etag: W/"6ac8aaf9-35af"
           lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
       second:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1003,6 +1007,10 @@ dates:
           shift: second
           etag: W/"6ac8b3f3-2d17"
           lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
     groups:
       ЮР1-31:
         group: ЮР1-31
@@ -1098,5 +1106,179 @@ dates:
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Основы бережливого производства
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: both
+                  sourceRow: 40
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 40
+                rowEnd: 41
+                rawGroupName: ЮР1-31 / ЮР1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Рустамова А.В.
+                  room: Ф404
+                  weekType: both
+                  sourceRow: 42
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 42
+                rowEnd: 43
+                rawGroupName: ЮР1-31 / ЮР1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Рустамова А.В.
+                  room: Ф404
+                  weekType: both
+                  sourceRow: 44
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 44
+                rowEnd: 45
+                rawGroupName: ЮР1-31 / ЮР1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+    groups:
+      ЮР1-31:
+        group: ЮР1-31
+        date: 2026-10-12
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants: []
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 3
+              rowEnd: 4
+              rawGroupName: ЮР1-31 / ЮР1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: ЮР1-31
+                  lessonNumbers:
+                    - 1
+                  type: cancel
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 40
+                    rawGroupName: ЮР1-31
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: Эф.поведение
+                teacher: Девятаева Н.Ф.
+                room: Ф406
+                weekType: both
+                rawSubject: Эф.поведение Девятаева Н.Ф.
+                rawTeacher: Девятаева Н.Ф.
+                rawRoom: Ф406
+                sourceRow: 39
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 5
+              rowEnd: 6
+              rawGroupName: ЮР1-31 / ЮР1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: ЮР1-31
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.04
+                  replacement:
+                    raw: Эф.поведение Девятаева Н.Ф.
+                    room: Ф406
+                  source:
+                    shift: first
+                    row: 39
+                    rawGroupName: ЮР1-31
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.04
+                    rawReplacement: Эф.поведение Девятаева Н.Ф.
+                    rawRoom: Ф406
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawTeacher: "Калачик Н.И. "
+                sourceRow: 7
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 7
+              rowEnd: 8
+              rawGroupName: ЮР1-31 / ЮР1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 2af0b029f1f722db2a679e9e676b55e5d5727fc44cb15c5515820cb8fadf5e04
+semanticHash: c9b284044a825370157d065929db0cb39fc47e67d9ee16f14635223da89bf8ec

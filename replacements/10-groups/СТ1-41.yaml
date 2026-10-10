@@ -352,7 +352,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -383,8 +383,55 @@ dates:
               rawReplacement: МДК 01.01 Голованова Н.М.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a9
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a10
+            date: 2026-10-12
+            group: СТ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: МДК 03.01 Серых Л.В.
+              room: Б501
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: МДК 03.01 Серых Л.В.
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a10
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -407,4 +454,4 @@ diagnostics:
     rawValue: СТ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fb25db0e80908939cb0a35bf9352373e99656a617588f4801d6b494d2e743d95
+semanticHash: bb17a04c820eb3ecefef4feb06f9326e927233195844728a367976cc15ce24b9

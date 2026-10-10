@@ -1196,5 +1196,66 @@ dates:
       - *a31
       - *a32
       - *a33
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a34
+            date: 2026-10-12
+            group: 2 РЭУ
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Осн.электрот
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 54
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "0"
+              rawOriginal: Осн.электрот
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a35
+            date: 2026-10-12
+            group: 2 РЭУ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Осн.электрот Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 55
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Осн.электрот Филиппова А.С.
+              rawRoom: к.30
+        diagnostics: []
+    replacements:
+      - *a34
+      - *a35
 diagnostics: []
-semanticHash: 7a7a6db52f177f6d873e0992032266fc4ac76d7c1fda577dd0dd56052dd4b9e5
+semanticHash: d0f529da74985c9e256e42067c17942fedc0856ac3bbe80a3dff249cf9766deb

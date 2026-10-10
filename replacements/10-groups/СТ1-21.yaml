@@ -409,5 +409,48 @@ dates:
           sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a11
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a12
+            date: 2026-10-12
+            group: СТ1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: /теория Кощеев В.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: /теория Кощеев В.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
 diagnostics: []
-semanticHash: 8fd7d697596cf1f456de62d0ceaac8a87efe253ac240b09aea432e6238fdb418
+semanticHash: 275eeb9ae6cda897a2a1f77c5a1ffbe161d1a7091b0035a0c34a318e721b5c64

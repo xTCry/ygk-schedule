@@ -1217,7 +1217,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1248,7 +1248,91 @@ dates:
               rawReplacement: 1,2 п/гр. Мишуринская Е.Ю.
               rawRoom: Б202
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a36
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a37
+            date: 2026-10-12
+            group: ПО1-15
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разг. о важном
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 26
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "0"
+              rawOriginal: Разг. о важном
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a38
+            date: 2026-10-12
+            group: ПО1-15
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a39
+            date: 2026-10-12
+            group: ПО1-15
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Русский язык Грибанова Е.Н.
+              room: А202
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Русский язык Грибанова Е.Н.
+              rawRoom: А202
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
+      - *a39
 diagnostics: []
-semanticHash: 306a5c1f8e679ddd9c52fe1246054d6596c24c4dec1f3a522ba4fb48532d1be1
+semanticHash: 4d5adb383785a8e2bccbe0d850b95281d4312e60c60a178614b7b5150d6e22a3

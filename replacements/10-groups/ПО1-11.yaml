@@ -845,7 +845,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -893,8 +893,75 @@ dates:
               rawReplacement: Осн.шахм.игры Дворниченко Г.В.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a24
       - *a25
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a26
+            date: 2026-10-12
+            group: ПО1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Обществ. Залевская Е.Н.
+              room: В102
+            source:
+              shift: first
+              row: 22
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Инд.проект
+              rawReplacement: Обществ. Залевская Е.Н.
+              rawRoom: В102
+          - &a27
+            date: 2026-10-12
+            group: ПО1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Математика Шереметьева Н.В.
+              room: М106
+            source:
+              shift: first
+              row: 23
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Математика Шереметьева Н.В.
+              rawRoom: М106
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
 diagnostics: []
-semanticHash: f2384d546c51cf7fda1f14ac790169dca3152f176be29341817fda4dc1946a6c
+semanticHash: 15af7a4e76f120ecbe6f4c256e1b4cf75cf787aebb101cb6baa479fa5a48b862

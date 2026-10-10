@@ -4507,7 +4507,7 @@ dates:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4517,11 +4517,15 @@ dates:
           shift: first
           etag: W/"6ac8aaf9-35af"
           lastModified: Fri, 09 Oct 2026 08:51:05 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
       second:
         date: 2026-10-10
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4531,6 +4535,10 @@ dates:
           shift: second
           etag: W/"6ac8b3f3-2d17"
           lastModified: Fri, 09 Oct 2026 09:29:23 GMT
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
     groups:
       СТ1-15:
         group: СТ1-15
@@ -4607,6 +4615,55 @@ dates:
                 lessonNumber: 3
                 strategy: exact-subject
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Гаврилова М.А.
+                  room: М106
+                  weekType: denominator
+                  sourceRow: 146
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 145
+                rowEnd: 146
+                rawGroupName: СТ1-15/СТ1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Физика
+                  teacher: Овсова К.С.
+                  room: М101
+                  weekType: both
+                  sourceRow: 147
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 147
+                rowEnd: 148
+                rawGroupName: СТ1-15/СТ1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: История
+                  teacher: Вакансия
+                  room: Б503
+                  weekType: denominator
+                  sourceRow: 150
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 149
+                rowEnd: 150
+                rawGroupName: СТ1-15/СТ1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4633,4 +4690,4 @@ diagnostics:
           sourceRow: 146
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1f1f5b0bb186d798a72fc47ff9406835a5db078f1119caeb46f93a014c440dcd
+semanticHash: 4d2be81b40f20cc4b64b244a1da83207d43bbaf531f3ca208b44088e104a7daa

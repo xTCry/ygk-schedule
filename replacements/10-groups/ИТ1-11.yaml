@@ -1064,7 +1064,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1095,7 +1095,53 @@ dates:
               rawReplacement: Биология Козырева Д.А.
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a31
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a32
+            date: 2026-10-12
+            group: ИТ1-11
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Разг. о важном
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 25
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Разг. о важном
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a32
 diagnostics: []
-semanticHash: a89e5f343710024eba36aa31f0e53ddca598238482e11801f585822d90387fe0
+semanticHash: d0674fdb71d511c83a33a53f720338f31fc4b6f07b07fd5246b4b0704f9e0246

@@ -1006,7 +1006,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1056,8 +1056,75 @@ dates:
               rawReplacement: МДК 06.01 Пронина Л.Ю.
               rawRoom: Б302
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a28
       - *a29
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a30
+            date: 2026-10-12
+            group: ИС1-23
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: МДК 02.01 Вершинина Н.А.
+              room: Б508
+            source:
+              shift: first
+              row: 18
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: МДК 02.01 Вершинина Н.А.
+              rawRoom: Б508
+          - &a31
+            date: 2026-10-12
+            group: ИС1-23
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: Комиссарова О.В.Лужина А.С.
+              room: Б310Б204
+            source:
+              shift: first
+              row: 19
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.технол.
+              rawReplacement: Комиссарова О.В.Лужина А.С.
+              rawRoom: Б310Б204
+        diagnostics: []
+    replacements:
+      - *a30
+      - *a31
 diagnostics: []
-semanticHash: d02537b64b926f2860f67acc79073371ec68298ef9a6e4c91453580c320e2141
+semanticHash: 96b04251ec06968194d3409afb13ad4baf88ed0e36ada24c722af4d17303e7a0

@@ -1832,7 +1832,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1882,8 +1882,75 @@ dates:
               rawReplacement: 1,2 п/гр. Хожайнова М.Г.
               rawRoom: Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a53
       - *a54
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a55
+            date: 2026-10-12
+            group: СА1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Инф.технол. Лужина А.С
+              room: Б308
+            source:
+              shift: first
+              row: 20
+              rawGroupName: СА1-21
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 01.01
+              rawReplacement: Инф.технол. Лужина А.С
+              rawRoom: Б308
+          - &a56
+            date: 2026-10-12
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: ОС и среды Гудкова А.Л.
+              room: Б304
+            source:
+              shift: first
+              row: 21
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 04.01
+              rawReplacement: ОС и среды Гудкова А.Л.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a55
+      - *a56
 diagnostics: []
-semanticHash: 3163b026b2fa837ba588f69e5a7ab871a28f78c293545fc9feca436f5c3c6a97
+semanticHash: 383555319a85200ae94006e6537783d85d97562d66470198cdab9d4b6e137186

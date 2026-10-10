@@ -1538,7 +1538,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1570,7 +1570,74 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: Б407,Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
     replacements:
       - *a42
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+        replacements:
+          - &a43
+            date: 2026-10-12
+            group: РК1-33
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: /теория Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: РК1-33
+              rawLessonNumbers: "2"
+              rawOriginal: Инф.технол.
+              rawReplacement: /теория Пономаренко В.С.
+              rawRoom: ДОТ
+          - &a44
+            date: 2026-10-12
+            group: РК1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.03
+            replacement:
+              raw: /теория Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 27
+              rawGroupName: РК1-33
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 04.03
+              rawReplacement: /теория Пономаренко В.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: 080745dda04c36859098b3dd9a9736cd8bceafb4eee10d03cb917bf09f895e6a
+semanticHash: 3a81b38c5a756f2d7189ffe1221e9fb1d68345c6b313ddd5c9b13742219e2577

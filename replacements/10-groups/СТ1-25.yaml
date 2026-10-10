@@ -1533,7 +1533,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1564,7 +1564,54 @@ dates:
               rawReplacement: МДК 01.01 пгр 1 Краснянская Е.В.
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
     replacements:
       - *a45
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+        replacements:
+          - &a46
+            date: 2026-10-12
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: п/гр 2 Топчиян Е.А
+              room: ДОТ
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.01
+              rawReplacement: п/гр 2 Топчиян Е.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a46
 diagnostics: []
-semanticHash: 1bf4b86071f3656dde6a978327f11bc254bccbecfc28efff308b2d2ea2dac4f3
+semanticHash: 8583e2cf32ac5641405f490a45a4977f3f85aea404356b5e3ce9b800a5f9b6e0

@@ -4327,6 +4327,100 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+    groups:
+      ИБ1-21:
+        group: ИБ1-21
+        date: 2026-10-12
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Парамонов В.И.
+                room: Б305
+                weekType: numerator
+                sourceRow: 5
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 5
+              rowEnd: 6
+              rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы информационной безопасности
+                teacher: Егорова Ю.С.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр. Егорова Ю.С.
+                rawTeacher: Егорова Ю.С.
+                rawRoom: Б308
+                sourceRow: 15
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 7
+              rowEnd: 8
+              rawGroupName: ИБ1-21/ИБ1-22/ИБ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: ИБ1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Осн.инф.безоп
+                  replacement:
+                    raw: 1,2 п/гр. Егорова Ю.С.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 15
+                    rawGroupName: ИБ1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: Осн.инф.безоп
+                    rawReplacement: 1,2 п/гр. Егорова Ю.С.
+                    rawRoom: Б308
+                lessonNumber: 2
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4357,4 +4451,4 @@ diagnostics:
           sourceRow: 37
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f66aeda5249a4c91e938c00ffb2f1b56847d4f7894f752b2c38d1befd934faf7
+semanticHash: cfc1d9585e1366b6b670abde283bab7d28cead97d3b7deca2db41a3c9e71bfb4

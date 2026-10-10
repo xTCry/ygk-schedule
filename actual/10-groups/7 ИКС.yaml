@@ -5801,6 +5801,177 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-12:
+    date: 2026-10-12
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 56649bae73a71c3ea3194c361263945b1e42ec4d13629a981ed60741780fd1bf
+          fetchedAt: 2026-10-10T15:14:01.422Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aca17c4-3c57"
+          lastModified: Sat, 10 Oct 2026 10:47:32 GMT
+      second:
+        date: 2026-10-12
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 5c40741b1008ec0d4a997edb808eb7a205bf206eda6af6dcbccffdd690226314
+          fetchedAt: 2026-10-10T15:14:01.382Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aca153f-23d9"
+          lastModified: Sat, 10 Oct 2026 10:36:47 GMT
+    groups:
+      7 ИКС:
+        group: 7 ИКС
+        date: 2026-10-12
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК. 01.01 Монтаж и эксплуатация направляющих систем
+                teacher: Седова Н.А.
+                room: к.29
+                weekType: both
+                rawSubject: Седова Н.А.
+                rawTeacher: Седова Н.А.
+                rawRoom: к.29
+                sourceRow: 63
+            source:
+              sheet: 2 курс
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: 7 ИКС
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: МДк 01.01
+                  replacement:
+                    raw: Седова Н.А.
+                    room: к.29
+                  source:
+                    shift: first
+                    row: 63
+                    rawGroupName: 7 ИКС
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДк 01.01
+                    rawReplacement: Седова Н.А.
+                    rawRoom: к.29
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: МДК 01.01
+                teacher: Седова Н.А.
+                room: к.29
+                weekType: both
+                rawSubject: МДК 01.01 Седова Н.А.
+                rawTeacher: Седова Н.А.
+                rawRoom: к.29
+                sourceRow: 64
+            source:
+              sheet: 2 курс
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a25
+                  date: 2026-10-12
+                  group: 7 ИКС
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.02 УП 06 пгр
+                  replacement:
+                    raw: МДК 01.01 Седова Н.А.
+                    room: к.29
+                  source:
+                    shift: first
+                    row: 64
+                    rawGroupName: 7 ИКС
+                    rawLessonNumbers: 1,2
+                    rawOriginal: МДК 01.02 УП 06 пгр
+                    rawReplacement: МДК 01.01 Седова Н.А.
+                    rawRoom: к.29
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: МДК 01.01
+                teacher: Седова Н.А.
+                room: к.29
+                weekType: both
+                subgroup: "2"
+                rawSubject: МДК 01.01 Седова Н.А.
+                rawTeacher: Седова Н.А.
+                rawRoom: к.29
+                sourceRow: 64
+            source:
+              sheet: 2 курс
+              rowStart: 60
+              rowEnd: 61
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a25
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: 2 курс
+              rowStart: 62
+              rowEnd: 63
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-12
+                  group: 7 ИКС
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: УП 06 пгр
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: 7 ИКС
+                    rawLessonNumbers: "3"
+                    rawOriginal: УП 06 пгр
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5967,4 +6138,4 @@ diagnostics:
           sourceRow: 85
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 078cbfe8fb5c0a7a60b3072831d6223a998798d81716629bb5d30d90e9b803e6
+semanticHash: 72272bd215d12165780a7bea30a2198eb25bb6fbaa8eaae1e7d3dd4f4651472a
