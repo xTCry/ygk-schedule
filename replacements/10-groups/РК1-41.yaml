@@ -777,7 +777,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -809,8 +809,94 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
     replacements:
       - *a18
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        replacements:
+          - &a19
+            date: 2026-10-13
+            group: РК1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Истор.изобр.искус Кожешкурт А.В.
+              room: Б401
+            source:
+              shift: second
+              row: 24
+              rawGroupName: РК1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Истор.изобр.искус Кожешкурт А.В.
+              rawRoom: Б401
+          - &a20
+            date: 2026-10-13
+            group: РК1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Экскурсия
+            source:
+              shift: second
+              row: 30
+              rawGroupName: РК1-41
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Экскурсия
+          - &a21
+            date: 2026-10-13
+            group: РК1-41
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Осн.философии Булычева Л.А.
+              room: Экскурсия
+            source:
+              shift: second
+              row: 31
+              rawGroupName: РК1-41
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: Осн.философии Булычева Л.А.
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
+      - *a21
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -833,4 +919,4 @@ diagnostics:
     normalizedGroup: РК1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6fd933249ea6ba48cde135833bb88218e92256eb631b7a7d3ebfd580e5ef36c8
+semanticHash: 64d9d0c96e9247405d55fe3032ef562f2e68e0d7f9d826e83aef5132be25aa29

@@ -399,7 +399,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -430,8 +430,55 @@ dates:
               rawReplacement: МДК 03.01 Серых Л.В.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
     replacements:
       - *a10
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
+          fetchedAt: 2026-10-12T18:54:30.560Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6accd271-2fc8"
+          lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+        replacements:
+          - &a11
+            date: 2026-10-13
+            group: СТ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Экон.отрасли
+            replacement:
+              raw: МДК 03.01 Т1.2 Девятаева Н.Ф.
+              room: ДОТ
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Экон.отрасли
+              rawReplacement: МДК 03.01 Т1.2 Девятаева Н.Ф.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a11
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -454,4 +501,4 @@ diagnostics:
     rawValue: СТ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: bb17a04c820eb3ecefef4feb06f9326e927233195844728a367976cc15ce24b9
+semanticHash: 1bfce38abc22d2c4cf4fc86495d17726fa989c3bbff89a848dad843b45445ad9

@@ -1614,7 +1614,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1664,8 +1664,73 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
     replacements:
       - *a49
       - *a50
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
+          fetchedAt: 2026-10-12T18:54:30.560Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6accd271-2fc8"
+          lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+        replacements:
+          - &a51
+            date: 2026-10-13
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Петрушенко Е.Е.
+              room: к.35
+            source:
+              shift: first
+              row: 51
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Петрушенко Е.Е.
+              rawRoom: к.35
+          - &a52
+            date: 2026-10-13
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 52
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a51
+      - *a52
 diagnostics: []
-semanticHash: 5b392148b71d472f31bd38e72fef08a06522c9ed67cbdfcb8f5cad0d55f79c1e
+semanticHash: 4bb44d5df226f334e60fcf53107b9a8d9f1da1f4d195f8ae828ec46e7385ce84

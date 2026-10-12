@@ -1504,7 +1504,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1553,8 +1553,76 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
     replacements:
       - *a39
       - *a40
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        replacements:
+          - &a41
+            date: 2026-10-13
+            group: ИБ1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: МДК 01.04
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 9
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 01.04
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a42
+            date: 2026-10-13
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: Орг.-прав.об. МДК 01.03
+            replacement:
+              raw: 1,2 пгр УП 04 Садилова К.А.
+              room: Б309
+            source:
+              shift: second
+              row: 8
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: Орг.-прав.об. МДК 01.03
+              rawReplacement: 1,2 пгр УП 04 Садилова К.А.
+              rawRoom: Б309
+        diagnostics: []
+    replacements:
+      - *a41
+      - *a42
 diagnostics: []
-semanticHash: 31d15568c14fdbfe936fe4a80207c239dbbcb4618f89190c6e03dfb3a85f1d14
+semanticHash: 58710b7e5cf8cee01bffa8eacdaa41d6cfd81abf135a6fed97d8884d674407cb

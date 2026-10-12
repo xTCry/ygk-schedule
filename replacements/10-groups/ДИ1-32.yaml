@@ -1254,7 +1254,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1285,7 +1285,93 @@ dates:
               rawReplacement: 1,2 п/гр. Осипова М.Э.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
     replacements:
       - *a35
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        replacements:
+          - &a36
+            date: 2026-10-13
+            group: ДИ1-32
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 01.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 46
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.03
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a37
+            date: 2026-10-13
+            group: ДИ1-32
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: БЖ Зевахина О.Б.
+              room: Б110
+            source:
+              shift: second
+              row: 41
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01
+              rawReplacement: БЖ Зевахина О.Б.
+              rawRoom: Б110
+          - &a38
+            date: 2026-10-13
+            group: ДИ1-32
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: 1,2 п/гр. Осипова М.Э.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 35
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "6"
+              rawOriginal: Рисунок
+              rawReplacement: 1,2 п/гр. Осипова М.Э.
+              rawRoom: Б207Б208
+        diagnostics: []
+    replacements:
+      - *a36
+      - *a37
+      - *a38
 diagnostics: []
-semanticHash: 39642f37102a5871cb271fce94bbdfbe500cd779e7a8a4b1e2387ebe5020a9e2
+semanticHash: 33f6069d7adb7a45c7035bd982c6b995085fc90a49ade22667fcfe8e65fa3d30

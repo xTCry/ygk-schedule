@@ -2634,7 +2634,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a2
                   date: 2026-10-06
                   group: ЮР1-21
                   lessonNumbers:
@@ -3096,6 +3096,102 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
+          fetchedAt: 2026-10-12T18:54:30.560Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6accd271-2fc8"
+          lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+    groups:
+      ЮР1-21:
+        group: ЮР1-21
+        date: 2026-10-13
+        day: Вторник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 11
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 11
+              rowEnd: 12
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 4
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 13
+              rowEnd: 14
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Информационные технологии в юридической деятельности
+                teacher: |-
+                  Нестерова А.В.
+                  Хватова Е.Ю.
+                room: |-
+                  Ф306
+                  Ф305
+                weekType: numerator
+                rawSubject: "Информационные технологии в юридической деятельности "
+                sourceRow: 15
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 15
+              rowEnd: 16
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3122,4 +3218,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d23bae49299364bf6e20a831b901c01119bbaeb1a5b5aa27f25300c4bd6147fa
+semanticHash: 70ebd25ffca0f1255eba67035a4035743b20a8d836d733b7f2eb43b49cac8a60

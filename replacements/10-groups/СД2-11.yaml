@@ -1476,7 +1476,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1507,7 +1507,73 @@ dates:
               rawReplacement: п/гр 2 Гасенина М.П п/гр 1 - по расписанию
               rawRoom: Б407Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
     replacements:
       - *a42
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
+          fetchedAt: 2026-10-12T18:54:30.560Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6accd271-2fc8"
+          lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+        replacements:
+          - &a43
+            date: 2026-10-13
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Инж.гр. Дегтева И.Е.Костерина Е.В
+              room: Б504Б508
+            source:
+              shift: first
+              row: 9
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика
+              rawReplacement: Инж.гр. Дегтева И.Е.Костерина Е.В
+              rawRoom: Б504Б508
+          - &a44
+            date: 2026-10-13
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Тех.механика п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 10
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: 47621d4b8924614f0de1e92ab907735d59984fd6747daee438fa3aa62ac94dfa
+semanticHash: fdbcf0bb465e05801aa98358484235cb4596ff7ec8a617f9289e32a6e4732ad1

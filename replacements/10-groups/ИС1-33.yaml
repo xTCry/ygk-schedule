@@ -1201,7 +1201,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1232,7 +1232,74 @@ dates:
               rawReplacement: 1,2 п/гр. Зубковская А.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
     replacements:
       - *a32
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        replacements:
+          - &a33
+            date: 2026-10-13
+            group: ИС1-33
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: УП 02
+            replacement:
+              raw: 1,2 п/гр. Вершинина Н.А.
+              room: Б305
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "3"
+              rawOriginal: УП 02
+              rawReplacement: 1,2 п/гр. Вершинина Н.А.
+              rawRoom: Б305
+          - &a34
+            date: 2026-10-13
+            group: ИС1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Экон.отрасли
+            replacement:
+              raw: 1,2 п/гр УП 02 Вершинина Н.А
+              room: Б302
+            source:
+              shift: second
+              row: 43
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "5"
+              rawOriginal: Экон.отрасли
+              rawReplacement: 1,2 п/гр УП 02 Вершинина Н.А
+              rawRoom: Б302
+        diagnostics: []
+    replacements:
+      - *a33
+      - *a34
 diagnostics: []
-semanticHash: 545b4e570df897f10e94d1c9d0c1b5d7cc1c5082242de3960b8a9d28f50d0bf3
+semanticHash: 91eae7948dce07395790e620d6e3d461288915827000ebe89856aba51b54cefd

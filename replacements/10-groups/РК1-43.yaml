@@ -512,6 +512,69 @@ dates:
           sourceSha256: 2e05e68ad98bff0845894fb76a2615d4b12b9c23e9f911e46c73e9fd394352f2
     replacements:
       - *a11
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a2e149272799aaa4ffbf427c79e14f9d293550ca322bab9cbc65a612d97d1608
+          fetchedAt: 2026-10-12T18:54:30.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6accce68-2b89"
+          lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        replacements:
+          - &a12
+            date: 2026-10-13
+            group: РК1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: Бобкова Е.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 32
+              rawGroupName: РК1-43
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: Бобкова Е.А.
+              rawRoom: ДОТ
+          - &a13
+            date: 2026-10-13
+            group: РК1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Осн.фин.гр.
+            replacement:
+              raw: МДК 03.01 Девятаева Н.Ф
+              room: ДОТ
+            source:
+              shift: second
+              row: 44
+              rawGroupName: РК1-43
+              rawLessonNumbers: "5"
+              rawOriginal: Осн.фин.гр.
+              rawReplacement: МДК 03.01 Девятаева Н.Ф
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -534,4 +597,4 @@ diagnostics:
     normalizedGroup: РК1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 372c0899ef587fe6b3ecf6d7e71d7d4eae66d64bb117bf989d555365bc7e0aff
+semanticHash: 73620f4ea75e580ff7190d04e119577a450e44300d20dae0b2e8dbf55667a29c

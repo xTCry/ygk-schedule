@@ -1459,7 +1459,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1528,9 +1528,95 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
     replacements:
       - *a43
       - *a44
       - *a45
+  2026-10-13:
+    date: 2026-10-13
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-13
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3b3492f1f927161d78c1dae1d02f628da98fb4e5e5868a7f425bd9efb12053b5
+          fetchedAt: 2026-10-12T18:54:30.560Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6accd271-2fc8"
+          lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+        replacements:
+          - &a46
+            date: 2026-10-13
+            group: ДИ1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Живопись п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 12
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Живопись п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a47
+            date: 2026-10-13
+            group: ДИ1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: 1,2 п/гр. Рочева А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 13
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 05.01
+              rawReplacement: 1,2 п/гр. Рочева А.А.
+              rawRoom: Б207Б208
+          - &a48
+            date: 2026-10-13
+            group: ДИ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 01.02 /теор Воронкевич Г.А.
+              room: Б402
+            source:
+              shift: first
+              row: 14
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 01.02 /теор Воронкевич Г.А.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a46
+      - *a47
+      - *a48
 diagnostics: []
-semanticHash: 989077cad6281d9268496b633b4c8989efcaf72696da403c39fd553ebe6e24c2
+semanticHash: 499c9b6e80f81a45d3bc529bbda314453091271643703ece795427368a5e9259
