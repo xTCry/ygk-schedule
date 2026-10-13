@@ -1245,7 +1245,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1276,7 +1276,74 @@ dates:
               rawReplacement: 1,2 п/гр. Девлитянс О.В.
               rawRoom: Акт.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a36
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        replacements:
+          - &a37
+            date: 2026-10-14
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Осн.шахм.игры Грязева А.В.
+              room: Б504
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: Обществ.
+              rawReplacement: Осн.шахм.игры Грязева А.В.
+              rawRoom: Б504
+          - &a38
+            date: 2026-10-14
+            group: СТ1-17
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 13
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a37
+      - *a38
 diagnostics: []
-semanticHash: 52b210c99b7e839a995367c7ba4f7408b2b7e92244aa53473f32f07200b1f757
+semanticHash: 4bcdd624780a54ef39e2bb752ca10f7aa8189972e52c70d98cc9b74669509911

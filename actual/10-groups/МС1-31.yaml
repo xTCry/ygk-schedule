@@ -2599,6 +2599,107 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+      second:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: db681adaee8a1bb092ea3e82ac694e1494912e082e524a6b3e48d115d4165167
+          fetchedAt: 2026-10-13T16:53:43.683Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ace1bbb-1eba"
+          lastModified: Tue, 13 Oct 2026 11:53:31 GMT
+    groups:
+      МС1-31:
+        group: МС1-31
+        date: 2026-10-14
+        day: Среда
+        lessons:
+          - number: 1
+            variants:
+              - subject: Физкультура
+                teacher: Кургузова М.С.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Кургузова М.С.
+                rawTeacher: Кургузова М.С.
+                rawRoom: Сп.зал
+                sourceRow: 44
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 122
+              rowEnd: 123
+              rawGroupName: МС1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a10
+                  date: 2026-10-14
+                  group: МС1-31
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 02.02
+                  replacement:
+                    raw: Физкультура Кургузова М.С.
+                    room: Сп.зал
+                  source:
+                    shift: first
+                    row: 44
+                    rawGroupName: МС1-31
+                    rawLessonNumbers: 1,2
+                    rawOriginal: МДК 02.02
+                    rawReplacement: Физкультура Кургузова М.С.
+                    rawRoom: Сп.зал
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: Физкультура
+                teacher: Кургузова М.С.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Кургузова М.С.
+                rawTeacher: Кургузова М.С.
+                rawRoom: Сп.зал
+                sourceRow: 44
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 124
+              rowEnd: 125
+              rawGroupName: МС1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 2
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2626,4 +2727,4 @@ diagnostics:
           sourceRow: 127
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a7f092562912114686d4b1ee9c6c147ba1d116657403049e5070824323ce1b86
+semanticHash: dcb53dd39d60c3e31bb02469b69bdbca1b159f7acc73110b88c4935e8b14eaf7

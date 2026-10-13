@@ -1076,7 +1076,7 @@ dates:
         date: 2026-10-13
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1086,11 +1086,15 @@ dates:
           shift: first
           etag: W/"6accd271-2fc8"
           lastModified: Mon, 12 Oct 2026 12:28:33 GMT
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
       second:
         date: 2026-10-13
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1100,6 +1104,10 @@ dates:
           shift: second
           etag: W/"6accce68-2b89"
           lastModified: Mon, 12 Oct 2026 12:11:20 GMT
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: db681adaee8a1bb092ea3e82ac694e1494912e082e524a6b3e48d115d4165167
     groups:
       ЮС1-41:
         group: ЮС1-41
@@ -1176,6 +1184,59 @@ dates:
                 lessonNumber: 2
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК.04.01 Социальная политика и технология социальной работы
+                  teacher: Гайдис А.С.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 10
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 10
+                rowEnd: 11
+                rawGroupName: ЮС1-41/ЮС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.04.01 Социальная политика и технология социальной работы
+                  teacher: Гайдис А.С.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 12
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 12
+                rowEnd: 13
+                rawGroupName: ЮС1-41/ЮС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Петрова У.В.
+                    Абрамова К.В.
+                  room: |-
+                    Ф204
+                    Ф403
+                  weekType: both
+                  sourceRow: 14
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 14
+                rowEnd: 15
+                rawGroupName: ЮС1-41/ЮС1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1198,4 +1259,4 @@ diagnostics:
     normalizedGroup: ЮС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6a0c0fa7f59d6eb911f7f29a6959335ce6ec72a4a45651219923ff0ef5d50121
+semanticHash: 88161fc9f8e09a0b03f627acb7c3e7db081ac74f2f52ed12fd7bcea300f3ea39

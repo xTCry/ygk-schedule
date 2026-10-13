@@ -1681,7 +1681,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1729,8 +1729,76 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a51
       - *a52
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        replacements:
+          - &a53
+            date: 2026-10-14
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 01 УП 04
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 56
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 УП 04
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a54
+            date: 2026-10-14
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Электротех. Ковалев Н.В.
+              room: к.36
+            source:
+              shift: first
+              row: 57
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: Электротех. Ковалев Н.В.
+              rawRoom: к.36
+        diagnostics: []
+    replacements:
+      - *a53
+      - *a54
 diagnostics: []
-semanticHash: 4bb44d5df226f334e60fcf53107b9a8d9f1da1f4d195f8ae828ec46e7385ce84
+semanticHash: 3d3a2597ef383fa2844e370b5e55c3192bef0f3e499d4b36fc3434f53fcdf2eb

@@ -3133,6 +3133,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+      second:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: db681adaee8a1bb092ea3e82ac694e1494912e082e524a6b3e48d115d4165167
+          fetchedAt: 2026-10-13T16:53:43.683Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ace1bbb-1eba"
+          lastModified: Tue, 13 Oct 2026 11:53:31 GMT
+    groups:
+      5 ИКС:
+        group: 5 ИКС
+        date: 2026-10-14
+        day: Среда
+        lessons:
+          - number: 2
+            variants: []
+            source:
+              sheet: 4 курс
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-14
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 2
+                  type: cancel
+                  original:
+                    raw: Осн.бережл.пр.
+                  replacement:
+                    raw: Снято
+                    room: к.38
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: "2"
+                    rawOriginal: Осн.бережл.пр.
+                    rawReplacement: Снято
+                    rawRoom: к.38
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: УП 03
+                teacher: Елистратов А.М
+                room: Мастерские
+                weekType: both
+                rawSubject: УП 03 Елистратов А.М
+                rawTeacher: Елистратов А.М
+                rawRoom: Мастерские
+                sourceRow: 66
+            source:
+              sheet: 4 курс
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a13
+                  date: 2026-10-14
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 3
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: УП 03 МДК 03.01
+                  replacement:
+                    raw: УП 03 Елистратов А.М
+                    room: Мастерские
+                  source:
+                    shift: first
+                    row: 66
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: 3-5
+                    rawOriginal: УП 03 МДК 03.01
+                    rawReplacement: УП 03 Елистратов А.М
+                    rawRoom: Мастерские
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: УП 03
+                teacher: Елистратов А.М
+                room: Мастерские
+                weekType: both
+                rawSubject: УП 03 Елистратов А.М
+                rawTeacher: Елистратов А.М
+                rawRoom: Мастерские
+                sourceRow: 66
+            source:
+              sheet: 4 курс
+              rowStart: 74
+              rowEnd: 75
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: УП 03
+                teacher: Елистратов А.М
+                room: Мастерские
+                weekType: both
+                rawSubject: УП 03 Елистратов А.М
+                rawTeacher: Елистратов А.М
+                rawRoom: Мастерские
+                sourceRow: 66
+            source:
+              sheet: 4 курс
+              rowStart: 76
+              rowEnd: 77
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3149,7 +3303,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a13
+      baseSourceFiles: &a14
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -3175,7 +3329,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a13
+      baseSourceFiles: *a14
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -3200,7 +3354,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a13
+      baseSourceFiles: *a14
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -3250,7 +3404,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a13
+      baseSourceFiles: *a14
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -3259,4 +3413,4 @@ diagnostics:
           sourceRow: 79
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f7ae4a9063650598fe970765bb6a3ff84500afbe6c8a3d832ec00df7e65949e3
+semanticHash: ef4c6f2ec056fe0f5bb92611ffa8bc13b1f72da122f8b4ea6f290d90cab569ef

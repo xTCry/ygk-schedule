@@ -548,7 +548,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -579,7 +579,73 @@ dates:
               rawReplacement: География Царькова Н.А.
               rawRoom: к.25
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a13
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        replacements:
+          - &a14
+            date: 2026-10-14
+            group: 10 МРТ
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: География
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 54
+              rawGroupName: 10 МРТ
+              rawLessonNumbers: "1"
+              rawOriginal: География
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+          - &a15
+            date: 2026-10-14
+            group: 10 МРТ
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 55
+              rawGroupName: 10 МРТ
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a14
+      - *a15
 diagnostics: []
-semanticHash: cd96717ed2517e95c037b9c52d8b7fc74c8a42b3f0d85613c98b2bff0e38c380
+semanticHash: ae73ecd140673c7a69840aec9133fefee5d80390b384a53c668ddb29c0092a48

@@ -967,7 +967,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -997,7 +997,73 @@ dates:
               rawReplacement: Инд.пр. п/гр Харавининой Л.Н
               rawRoom: Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a26
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        replacements:
+          - &a27
+            date: 2026-10-14
+            group: ИБ1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: В102
+            source:
+              shift: first
+              row: 3
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: В102
+          - &a28
+            date: 2026-10-14
+            group: ИБ1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физика Галочкина Н.Н.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 4
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физика Галочкина Н.Н.
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a27
+      - *a28
 diagnostics: []
-semanticHash: 0a87db743a59741530455e41aa58c8909c8b4ebf30cda2b9f2297e65eacaa85a
+semanticHash: 79fe615feea8ca7dbc1531e289bea5d36b13ffef3d9c68fd020b4a20cb43480e

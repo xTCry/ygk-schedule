@@ -4033,6 +4033,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+      second:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: db681adaee8a1bb092ea3e82ac694e1494912e082e524a6b3e48d115d4165167
+          fetchedAt: 2026-10-13T16:53:43.683Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ace1bbb-1eba"
+          lastModified: Tue, 13 Oct 2026 11:53:31 GMT
+    groups:
+      9 МРТ:
+        group: 9 МРТ
+        date: 2026-10-14
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Информатика
+                teacher: Ефимова А.С.
+                room: к.34
+                weekType: both
+                sourceRow: 22
+            source:
+              sheet: 2 курс
+              rowStart: 22
+              rowEnd: 23
+              rawGroupName: 9 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Электрорадиоизм.
+                teacher: Ковалев Н.В.
+                room: к.36
+                weekType: both
+                rawSubject: Электрорадиоизм. Ковалев Н.В.
+                rawTeacher: Ковалев Н.В.
+                rawRoom: к.36
+                sourceRow: 60
+            source:
+              sheet: 2 курс
+              rowStart: 24
+              rowEnd: 25
+              rawGroupName: 9 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-10-14
+                  group: 9 МРТ
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Ин.язык МДК 01.01
+                  replacement:
+                    raw: Электрорадиоизм. Ковалев Н.В.
+                    room: к.36
+                  source:
+                    shift: first
+                    row: 60
+                    rawGroupName: 9 МРТ
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Ин.язык МДК 01.01
+                    rawReplacement: Электрорадиоизм. Ковалев Н.В.
+                    rawRoom: к.36
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Электрорадиоизм.
+                teacher: Ковалев Н.В.
+                room: к.36
+                weekType: both
+                rawSubject: Электрорадиоизм. Ковалев Н.В.
+                rawTeacher: Ковалев Н.В.
+                rawRoom: к.36
+                sourceRow: 60
+            source:
+              sheet: 2 курс
+              rowStart: 26
+              rowEnd: 27
+              rawGroupName: 9 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: МДК. 04.01 Технология выполнения работ
+                teacher: Филиппова А.С.
+                room: к.30
+                weekType: numerator
+                rawSubject: "МДК. 04.01 Технология выполнения работ "
+                sourceRow: 28
+            source:
+              sheet: 2 курс
+              rowStart: 28
+              rowEnd: 29
+              rawGroupName: 9 МРТ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4074,7 +4206,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: &a9
+      baseSourceFiles: &a10
         - ort.xlsx
       requestedSubject: УП 01
       requestedSubgroups:
@@ -4102,7 +4234,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 9 МРТ
-      baseSourceFiles: *a9
+      baseSourceFiles: *a10
       requestedSubject: УП 01
       requestedSubgroups:
         - "2"
@@ -4139,4 +4271,4 @@ diagnostics:
           sourceRow: 28
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ee5bc8b57bc7979148d48337ec7488049ea292eaeb9880fc81352820052923ab
+semanticHash: e15eca1cb8c8ce5486ab49304415e06cb19420e47541775bd091999c34a15c7c

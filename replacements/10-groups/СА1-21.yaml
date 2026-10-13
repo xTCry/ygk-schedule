@@ -1966,7 +1966,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1997,7 +1997,92 @@ dates:
               rawReplacement: Дискр.математика Холманова В.М.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a57
+  2026-10-14:
+    date: 2026-10-14
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-14
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
+          fetchedAt: 2026-10-13T16:53:43.781Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ace330f-3abc"
+          lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        replacements:
+          - &a58
+            date: 2026-10-14
+            group: СА1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СА1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a59
+            date: 2026-10-14
+            group: СА1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: 1,2 п/гр.Арх.аппар.ср Садилова К.А.
+              room: Б308
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СА1-21
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 04.01
+              rawReplacement: 1,2 п/гр.Арх.аппар.ср Садилова К.А.
+              rawRoom: Б308
+          - &a60
+            date: 2026-10-14
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a58
+      - *a59
+      - *a60
 diagnostics: []
-semanticHash: a4cb63db953308b72d850fa713dae3505d382a82a6ad7499df1c95c8655e0d6c
+semanticHash: 60b72ab081aa5de147c94a681eb92cfe583f2fe190ed8ce9dfb059d5feb4a16e
