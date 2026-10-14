@@ -2457,6 +2457,155 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+      second:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
+          fetchedAt: 2026-10-14T14:28:26.808Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6acf6549-1e5d"
+          lastModified: Wed, 14 Oct 2026 11:19:37 GMT
+    groups:
+      ТУ1-11:
+        group: ТУ1-11
+        date: 2026-10-15
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Литература
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 28
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 28
+              rowEnd: 29
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иностранный язык
+                teacher: Петрова У.В.
+                room: Ф204Ф403
+                weekType: both
+                rawSubject: 1,2 п/гр. Петрова У.В.
+                rawTeacher: Петрова У.В.
+                rawRoom: Ф204Ф403
+                sourceRow: 46
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 30
+              rowEnd: 31
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a2
+                  date: 2026-10-15
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: 1,2 п/гр. Петрова У.В.
+                    room: Ф204Ф403
+                  source:
+                    shift: first
+                    row: 46
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: 2,3
+                    rawOriginal: Ин.язык
+                    rawReplacement: 1,2 п/гр. Петрова У.В.
+                    rawRoom: Ф204Ф403
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: Иностранный язык
+                teacher: Петрова У.В.
+                room: Ф204Ф403
+                weekType: both
+                rawSubject: 1,2 п/гр. Петрова У.В.
+                rawTeacher: Петрова У.В.
+                rawRoom: Ф204Ф403
+                sourceRow: 46
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 32
+              rowEnd: 33
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a2
+                lessonNumber: 3
+                strategy: subject-abbreviation
+          - number: 4
+            variants:
+              - subject: Математика
+                teacher: Карпова Е.В.
+                room: Ф202
+                weekType: both
+                rawSubject: Математика Карпова Е.В.
+                rawTeacher: Карпова Е.В.
+                rawRoom: Ф202
+                sourceRow: 47
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-15
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Математика Карпова Е.В.
+                    room: Ф202
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: Математика Карпова Е.В.
+                    rawRoom: Ф202
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2487,4 +2636,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ba64a0b19597791f526fd7741bf41254d35aa5b4d7f0745ad7ddcd2d9c0ad0d6
+semanticHash: 4a5913a89b3267af8b390fc561d171a2c828996b8dba0baa762753eeea0f1f7d

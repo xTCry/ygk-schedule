@@ -707,7 +707,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -739,7 +739,74 @@ dates:
               rawReplacement: Осн.алгорит. Вершинина Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
     replacements:
       - *a18
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
+          fetchedAt: 2026-10-14T14:28:26.808Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6acf6549-1e5d"
+          lastModified: Wed, 14 Oct 2026 11:19:37 GMT
+        replacements:
+          - &a19
+            date: 2026-10-15
+            group: СА1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 30
+              rawGroupName: СА1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.02
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+          - &a20
+            date: 2026-10-15
+            group: СА1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 29
+              rawGroupName: СА1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.02
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: b9d612587616a01e6971ea51099b3f25491d8cd4edd4a3a5fbf4ff0994425fc2
+semanticHash: a8af3218beef3b3a3c78456aa3e09e856d8a066432f80b26cd621560c1ac8f34

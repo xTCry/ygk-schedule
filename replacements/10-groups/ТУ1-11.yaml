@@ -685,5 +685,68 @@ dates:
           sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a17
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+        replacements:
+          - &a18
+            date: 2026-10-15
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Петрова У.В.
+              room: Ф204Ф403
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: 2,3
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Петрова У.В.
+              rawRoom: Ф204Ф403
+          - &a19
+            date: 2026-10-15
+            group: ТУ1-11
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Математика Карпова Е.В.
+              room: Ф202
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Математика Карпова Е.В.
+              rawRoom: Ф202
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
 diagnostics: []
-semanticHash: e93d60636b9d9ca75cf708bb6b93291e396020e04e47716385f60818f0d98aec
+semanticHash: 3cb250fbffe09a928b09c64f10cbe3909e3699a5f58222ebb45f838f67208d85

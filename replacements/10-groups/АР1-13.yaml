@@ -606,7 +606,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -636,7 +636,93 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
     replacements:
       - *a16
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+        replacements:
+          - &a17
+            date: 2026-10-15
+            group: АР1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Физика Галочкина Н.Н.
+              room: Б504
+            source:
+              shift: first
+              row: 33
+              rawGroupName: АР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: Физика Галочкина Н.Н.
+              rawRoom: Б504
+          - &a18
+            date: 2026-10-15
+            group: АР1-13
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Литература Баранова С.Г.
+              room: А202
+            source:
+              shift: first
+              row: 34
+              rawGroupName: АР1-13
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Литература Баранова С.Г.
+              rawRoom: А202
+          - &a19
+            date: 2026-10-15
+            group: АР1-13
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф п/гр 1 Воронкевич Г.А.
+              room: А202
+            source:
+              shift: first
+              row: 35
+              rawGroupName: АР1-13
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Доп.проф п/гр 1 Воронкевич Г.А.
+              rawRoom: А202
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
+      - *a19
 diagnostics: []
-semanticHash: 31873fd12602a3530e672ae4c19572e9fcdeff577e7bca78289cb8ec94a2848a
+semanticHash: 850afeefc094d14093566b700b105e8ce931adbf336d75f0104d504c3e37769b

@@ -973,7 +973,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1004,7 +1004,55 @@ dates:
               rawReplacement: МДК 01.01 теор Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
     replacements:
       - *a26
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
+          fetchedAt: 2026-10-14T14:28:26.808Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6acf6549-1e5d"
+          lastModified: Wed, 14 Oct 2026 11:19:37 GMT
+        replacements:
+          - &a27
+            date: 2026-10-15
+            group: СД2-21
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 03.02 п/гр 1
+            replacement:
+              raw: МДК 05.01 п/гр 1 Кузьменко Е.В.
+              room: Б403
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СД2-21
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 03.02 п/гр 1
+              rawReplacement: МДК 05.01 п/гр 1 Кузьменко Е.В.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a27
 diagnostics: []
-semanticHash: df887830520bb2b5989feff06129df9097f51c89ce8f0817256ba3c82c185d82
+semanticHash: f0e16b23bfa31bed5128e9ac0a8e99e95dee8862eef75bba7d566685aaf04bb5

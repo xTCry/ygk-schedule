@@ -2063,5 +2063,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 4a6d68e90e23c689b475c1eb1f68aec564bd2f7f941b2e50680526dcbc3a1d7d
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+      second:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
+          fetchedAt: 2026-10-14T14:28:26.808Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6acf6549-1e5d"
+          lastModified: Wed, 14 Oct 2026 11:19:37 GMT
+    groups:
+      МС1-11:
+        group: МС1-11
+        date: 2026-10-15
+        day: Четверг
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 27
+              rowEnd: 28
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-15
+                  group: МС1-11
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: Биология
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 59
+                    rawGroupName: МС1-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: Биология
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: exact-subject
+          - number: 1
+            variants:
+              - subject: Физика л/р
+                teacher: Акиничева М.А.
+                room: М207
+                weekType: numerator
+                sourceRow: 29
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Кургузова М.С.
+                room: М208
+                weekType: numerator
+                sourceRow: 31
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: МС1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-10-15
+              group: МС1-11
+              lessonNumbers:
+                - 3
+              type: replace
+              original:
+                raw: Осн.шахм.игры
+              replacement:
+                raw: Биология Фокина Т.В.
+                room: Б101
+              source:
+                shift: first
+                row: 60
+                rawGroupName: МС1-11
+                rawLessonNumbers: "3"
+                rawOriginal: Осн.шахм.игры
+                rawReplacement: Биология Фокина Т.В.
+                rawRoom: Б101
+            lessonNumber: 3
+            reason: lesson-not-scheduled-for-week
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Осн.шахм.игры». По замене: «Биология Фокина Т.В.».
+                Аудитория: «Б101»."
+              room: Б101
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 800778ae8f61eeda55198338831562e7eb95d74c19fcc9da8472f44e888a0d92
+    sheet: "Замены: Первая смена"
+    row: 60
+    normalizedGroup: МС1-11
+    rawValue: Биология Фокина Т.В.
+    context:
+      date: 2026-10-15
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: МС1-11
+      baseSourceFiles:
+        - oeis.xlsx
+      replacementWeekType: numerator
+      availableWeekTypes:
+        - denominator
+      requestedSubject: Осн.шахм.игры
+      candidates:
+        - subject: Индивидуальный проект
+          teacher: Нечипорук О.Л.
+          room: М208
+          sourceRow: 34
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: caa0358d087358307669ec70c645cff9af528b2603f457cc20c5a222a996225d

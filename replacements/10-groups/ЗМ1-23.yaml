@@ -771,5 +771,67 @@ dates:
           sourceSha256: 51aa182856bebbc8e411e73a4363eee8769841f2f80830a314656ba09399b8d6
     replacements:
       - *a21
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+        replacements:
+          - &a22
+            date: 2026-10-15
+            group: ЗМ1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Осн.геодез. Сивачева М.С.
+              room: А201
+            source:
+              shift: first
+              row: 66
+              rawGroupName: ЗМ1-23
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: Осн.геодез. Сивачева М.С.
+              rawRoom: А201
+          - &a23
+            date: 2026-10-15
+            group: ЗМ1-23
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ЗМ1-23
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics: []
-semanticHash: 61f0f7762f248f7d127d68b09979e370a5c62b9b1eced7de335346c12c4603f0
+semanticHash: 7d63e242ef11bed1d378b73187a5f310f91a16e7cc60ba98a272fc0b4f81fa28

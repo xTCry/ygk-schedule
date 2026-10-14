@@ -4846,7 +4846,7 @@ dates:
         date: 2026-10-14
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4856,11 +4856,15 @@ dates:
           shift: first
           etag: W/"6ace330f-3abc"
           lastModified: Tue, 13 Oct 2026 13:33:03 GMT
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
       second:
         date: 2026-10-14
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4870,6 +4874,10 @@ dates:
           shift: second
           etag: W/"6ace1bbb-1eba"
           lastModified: Tue, 13 Oct 2026 11:53:31 GMT
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
     groups:
       СД2-13:
         group: СД2-13
@@ -4972,6 +4980,65 @@ dates:
                 lessonNumber: 6
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.06.01Производство работ по профессии каменщик, маляр, штукатур,
+                    монтажник каркасно-обшивных конструкций
+                  teacher: Гасенина М.П.
+                  room: Б101
+                  weekType: both
+                  sourceRow: 71
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 71
+                rowEnd: 72
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: >-
+                    Техническая механика и/пр1
+
+                    МДК.02.02 Т.2.5. Применение геопространственных технологий в
+                    строительстве п/гр2
+                  teacher: |-
+                    Вакансия
+                    Рангелова Н.М.
+                  room: |-
+                    М207
+                    А202
+                  weekType: numerator
+                  subgroup: "2"
+                  sourceRow: 73
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 73
+                rowEnd: 74
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Техническая механика
+                  teacher: Вакансия
+                  room: М207
+                  weekType: both
+                  sourceRow: 75
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 75
+                rowEnd: 76
+                rawGroupName: СД2-13
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5020,4 +5087,4 @@ diagnostics:
         - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1ecb3f8c90e9730bb5c3897110645a27ad00bd98ec6cd4f8abf93c1626482f30
+semanticHash: c0d08d4cc274f1bd8af762254158e99c1059f9e2e7cdc710784da567b37d11fb

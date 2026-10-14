@@ -1678,7 +1678,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1730,8 +1730,56 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
     replacements:
       - *a50
       - *a51
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+        replacements:
+          - &a52
+            date: 2026-10-15
+            group: ТТ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: Шишмарев М.Р.
+              room: Б508
+            source:
+              shift: first
+              row: 56
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 05.01
+              rawReplacement: Шишмарев М.Р.
+              rawRoom: Б508
+        diagnostics: []
+    replacements:
+      - *a52
 diagnostics: []
-semanticHash: ac74b6012a9b74eb542d5dce8d3812e11904dacb6d449f808266b3613edd7f5d
+semanticHash: 3ba51bf268fb3ce8c9904dced84e0fc91ad32d69ca25965e95e773b6a053b8f7

@@ -2875,6 +2875,151 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+      second:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 8785881d7ddce6df0018cdcc110e42fc617fb15e57844d4c0f3cd3529c24a573
+          fetchedAt: 2026-10-14T14:28:26.808Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6acf6549-1e5d"
+          lastModified: Wed, 14 Oct 2026 11:19:37 GMT
+    groups:
+      АР1-21:
+        group: АР1-21
+        date: 2026-10-15
+        day: Четверг
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-15
+                  group: АР1-21
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: МДК 01.03 п/гр
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 25
+                    rawGroupName: АР1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 01.03 п/гр
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: Техническая механика п/гр 1
+                teacher: Калугина М.В.
+                room: Б509
+                weekType: numerator
+                subgroup: "1"
+                sourceRow: 31
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физкультура
+                teacher: Дворниченко Г.В.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Дворниченко Г.В.
+                rawTeacher: Дворниченко Г.В.
+                rawRoom: Сп.зал
+                sourceRow: 24
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 33
+              rowEnd: 34
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-15
+                  group: АР1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Тех.механика
+                  replacement:
+                    raw: Физкультура Дворниченко Г.В.
+                    room: Сп.зал
+                  source:
+                    shift: first
+                    row: 24
+                    rawGroupName: АР1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: Тех.механика
+                    rawReplacement: Физкультура Дворниченко Г.В.
+                    rawRoom: Сп.зал
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: МДК 02.01 Изображение архитектурного замысла при проектировании Т.1.1
+                  Архитектурная графика
+                teacher: |-
+                  Иванов Ю.А.
+                  Воронкевич Г.А.
+                room: |-
+                  Б509
+                  Б510
+                weekType: both
+                sourceRow: 35
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 35
+              rowEnd: 36
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2932,4 +3077,4 @@ diagnostics:
           sourceRow: 8
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 83812fd75903d1bf4e0612cdaa87e634839792000467f565ad5e34320f9819db
+semanticHash: b201077e400233f6361191818af8c4f0a4630d30459d545dec284ae134613f0c

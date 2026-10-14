@@ -933,7 +933,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -985,8 +985,117 @@ dates:
               rawReplacement: УП 03 Елистратов А.М
               rawRoom: Мастерские
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-15
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
     replacements:
       - *a28
       - *a29
+  2026-10-15:
+    date: 2026-10-15
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-15
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 4ea1bde1060fb730d5d2d9c0c4b90a86cc7c817573844d88b69c769f3ec91178
+          fetchedAt: 2026-10-14T14:28:26.844Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6acf5f1a-4a1c"
+          lastModified: Wed, 14 Oct 2026 10:53:14 GMT
+        replacements:
+          - &a30
+            date: 2026-10-15
+            group: 5 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.04
+            replacement:
+              raw: 1,2 пгр УП 01 Елистратов А.М.
+              room: Мастерские
+            source:
+              shift: first
+              row: 71
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: 0-2
+              rawOriginal: МДК 01.04
+              rawReplacement: 1,2 пгр УП 01 Елистратов А.М.
+              rawRoom: Мастерские
+          - &a31
+            date: 2026-10-15
+            group: 5 ИКС
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 69
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a32
+            date: 2026-10-15
+            group: 5 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01 МДК 03.02
+            replacement:
+              raw: УП 03 Елистратов А.М.
+              room: Мастерские
+            source:
+              shift: first
+              row: 70
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: 3-5
+              rawOriginal: МДК 03.01 МДК 03.02
+              rawReplacement: УП 03 Елистратов А.М.
+              rawRoom: Мастерские
+          - &a33
+            date: 2026-10-15
+            group: 5 ИКС
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 72
+              rawGroupName: 5 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a30
+      - *a31
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: e6fd66e87e3d4c36fffe0554d2bf6f6b67d8f2315ba3493167dccbd3217b42cd
+semanticHash: 5977842af63f3e7728035e2211b702b623a819f911a5a674fbdd163a50dac99e
