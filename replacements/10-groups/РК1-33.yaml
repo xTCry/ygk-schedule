@@ -1788,7 +1788,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1819,7 +1819,54 @@ dates:
               rawReplacement: УП 02 п/гр 2 Павлова А.В МДК 02.01 пгр 1 Кожешкурт А.В
               rawRoom: Б305Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
     replacements:
       - *a49
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
+          fetchedAt: 2026-10-15T14:06:53.737Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad0af4b-259a"
+          lastModified: Thu, 15 Oct 2026 10:47:39 GMT
+        replacements:
+          - &a50
+            date: 2026-10-16
+            group: РК1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Пономаренко В.С.
+              room: Б305
+            source:
+              shift: second
+              row: 13
+              rawGroupName: РК1-33
+              rawLessonNumbers: "4"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Пономаренко В.С.
+              rawRoom: Б305
+        diagnostics: []
+    replacements:
+      - *a50
 diagnostics: []
-semanticHash: 332c3c3f741e900320bc05fa4472fa8825f4997a0b1ff3ce33260aebca9393bf
+semanticHash: 85255280373e484f8199a86be07a95815c793b6ff603efe0a32510e029fea8be

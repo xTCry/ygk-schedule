@@ -437,6 +437,89 @@ dates:
           sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a10
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
+          fetchedAt: 2026-10-15T14:06:54.419Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad08d21-3dc7"
+          lastModified: Thu, 15 Oct 2026 08:21:53 GMT
+        replacements:
+          - &a11
+            date: 2026-10-16
+            group: СД2-31
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 06.01 п/гр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СД2-31
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 06.01 п/гр 1
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a12
+            date: 2026-10-16
+            group: СД2-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 06.01
+            replacement:
+              raw: Экон.отрасли Сафронова Л.Н.
+              room: Б402
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СД2-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 06.01
+              rawReplacement: Экон.отрасли Сафронова Л.Н.
+              rawRoom: Б402
+          - &a13
+            date: 2026-10-16
+            group: СД2-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Махрова Н.Н.
+              room: А203
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СД2-31
+              rawLessonNumbers: "5"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Махрова Н.Н.
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a11
+      - *a12
+      - *a13
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -459,4 +542,4 @@ diagnostics:
     rawValue: СД2-31 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 447e75aa5c27b5f3d8d17a73ade9515d1c5b41344dd1581e6709917b9c0d3793
+semanticHash: 1415a324395566242798bd544664a53a8b60bc1d31f47a4f24a53234bb69658f

@@ -755,7 +755,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -805,8 +805,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
     replacements:
       - *a19
       - *a20
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
+          fetchedAt: 2026-10-15T14:06:53.737Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad0af4b-259a"
+          lastModified: Thu, 15 Oct 2026 10:47:39 GMT
+        replacements:
+          - &a21
+            date: 2026-10-16
+            group: СА1-31
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Теор.вероят Шереметьева Н.В.
+              room: М106
+            source:
+              shift: second
+              row: 40
+              rawGroupName: СА1-31
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Теор.вероят Шереметьева Н.В.
+              rawRoom: М106
+          - &a22
+            date: 2026-10-16
+            group: СА1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: УП 04
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 41
+              rawGroupName: СА1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: УП 04
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: a8af3218beef3b3a3c78456aa3e09e856d8a066432f80b26cd621560c1ac8f34
+semanticHash: 484e3a5c3e80cd94b098513b559391901b707e3fd8c7448f2b285f72c135b36d

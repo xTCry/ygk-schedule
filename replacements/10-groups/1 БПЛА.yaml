@@ -1814,7 +1814,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1883,9 +1883,76 @@ dates:
               rawReplacement: История Рос. Матвеичева О.В.
               rawRoom: к.38
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
     replacements:
       - *a55
       - *a56
       - *a57
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
+          fetchedAt: 2026-10-15T14:06:54.419Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad08d21-3dc7"
+          lastModified: Thu, 15 Oct 2026 08:21:53 GMT
+        replacements:
+          - &a58
+            date: 2026-10-16
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 67
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a59
+            date: 2026-10-16
+            group: 1 БПЛА
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Матем, ...
+            replacement:
+              raw: Электрот. Ковалев Н.В.
+              room: к.36
+            source:
+              shift: first
+              row: 68
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 3,4
+              rawOriginal: Матем, ...
+              rawReplacement: Электрот. Ковалев Н.В.
+              rawRoom: к.36
+        diagnostics: []
+    replacements:
+      - *a58
+      - *a59
 diagnostics: []
-semanticHash: b8e76dd58d81d517b036156c2221785df3b01de3e2e39d246b61c6bff52dc25e
+semanticHash: d896eb182c16de97be777abb5c56ff36cb830e678941253e284ce76d031a3adb

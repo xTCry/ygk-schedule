@@ -2124,7 +2124,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2174,9 +2174,76 @@ dates:
               rawReplacement: 1,2 п/гр. Неделяева Н.А.
               rawRoom: Б302
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
     replacements:
       - *a63
       - *a64
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
+          fetchedAt: 2026-10-15T14:06:53.737Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad0af4b-259a"
+          lastModified: Thu, 15 Oct 2026 10:47:39 GMT
+        replacements:
+          - &a65
+            date: 2026-10-16
+            group: ИС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: 1,2 п/гр. Неделяева Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 38
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: УП 03
+              rawReplacement: 1,2 п/гр. Неделяева Н.А.
+              rawRoom: ДОТ
+          - &a66
+            date: 2026-10-16
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.03
+            replacement:
+              raw: МДК 05.02 Неделяева Н.А.Королева П.Д
+              room: ДОТ
+            source:
+              shift: second
+              row: 39
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.03
+              rawReplacement: МДК 05.02 Неделяева Н.А.Королева П.Д
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a65
+      - *a66
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2199,4 +2266,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a8a4caad5cb999bef1115a1b13098389c651d76cd15fca63d2c870ea6be91a2b
+semanticHash: 1bb1d0410064d2fecb8f4747494b9c2651e2cc2e6f220bc6cf5e2264229abbcb

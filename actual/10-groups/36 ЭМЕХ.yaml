@@ -2927,6 +2927,145 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
+          fetchedAt: 2026-10-15T14:06:54.419Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad08d21-3dc7"
+          lastModified: Thu, 15 Oct 2026 08:21:53 GMT
+      second:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
+          fetchedAt: 2026-10-15T14:06:53.737Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad0af4b-259a"
+          lastModified: Thu, 15 Oct 2026 10:47:39 GMT
+    groups:
+      36 ЭМЕХ:
+        group: 36 ЭМЕХ
+        date: 2026-10-16
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Рогачева Е.А.
+                room: к.32
+                weekType: both
+                sourceRow: 90
+            source:
+              sheet: 2-2 курс
+              rowStart: 90
+              rowEnd: 91
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК. 02.01 Холодильное оборудование
+                teacher: Ковалева Л.В.
+                room: к.31
+                weekType: both
+                sourceRow: 92
+            source:
+              sheet: 2-2 курс
+              rowStart: 92
+              rowEnd: 93
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 02.01
+                teacher: Ковалева Л.В.
+                room: к.36
+                weekType: both
+                rawSubject: МДК 02.01 Ковалева Л.В.
+                rawTeacher: Ковалева Л.В.
+                rawRoom: к.36
+                sourceRow: 63
+            source:
+              sheet: 2-2 курс
+              rowStart: 94
+              rowEnd: 95
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-16
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: УП 01
+                  replacement:
+                    raw: МДК 02.01 Ковалева Л.В.
+                    room: к.36
+                  source:
+                    shift: first
+                    row: 63
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: "2"
+                    rawOriginal: УП 01
+                    rawReplacement: МДК 02.01 Ковалева Л.В.
+                    rawRoom: к.36
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: 2-2 курс
+              rowStart: 96
+              rowEnd: 97
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-16
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: УП 01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 64
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: "3"
+                    rawOriginal: УП 01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2994,4 +3133,4 @@ diagnostics:
           sourceRow: 96
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f0913f51805cdf855d3aef36e8b3977aeb842f86f972e28989a376961630d74c
+semanticHash: a2ffc5e21075f8fc03dc38c5bdfba84c055a3bb15b5cdd8a1a40ddae64903f6f

@@ -655,7 +655,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -686,7 +686,76 @@ dates:
               rawReplacement: Физика Галочкина Н.Н.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
     replacements:
       - *a17
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
+          fetchedAt: 2026-10-15T14:06:54.419Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad08d21-3dc7"
+          lastModified: Thu, 15 Oct 2026 08:21:53 GMT
+        replacements:
+          - &a18
+            date: 2026-10-16
+            group: АР1-11
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Истор., Инфор
+            replacement:
+              raw: История Смирнов Б.Е.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 35
+              rawGroupName: АР1-11
+              rawLessonNumbers: 0-2
+              rawOriginal: Истор., Инфор
+              rawReplacement: История Смирнов Б.Е.
+              rawRoom: Экскурсия
+          - &a19
+            date: 2026-10-16
+            group: АР1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Литература Баранова С.Г.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 36
+              rawGroupName: АР1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Математика
+              rawReplacement: Литература Баранова С.Г.
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
 diagnostics: []
-semanticHash: c374582bb33bfefd7de04497c20aa399a5794efce01ad2fd09a5d93a92a1d5b0
+semanticHash: f86d14ab56850baed3545ae148c0a6926eff0138da1ede9008f066b6763eb95a

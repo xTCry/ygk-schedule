@@ -2724,7 +2724,7 @@ dates:
             source: null
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a3
                   date: 2026-10-09
                   group: РК1-12
                   lessonNumbers:
@@ -2964,5 +2964,130 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-16:
+    date: 2026-10-16
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 61b71d41426a65d30752a07c0e555c62fe3c92eff5c4023691f113697351de72
+          fetchedAt: 2026-10-15T14:06:54.419Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad08d21-3dc7"
+          lastModified: Thu, 15 Oct 2026 08:21:53 GMT
+      second:
+        date: 2026-10-16
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 93f19f30debf8a95f38df15f15676bcb8b118b61815e227958a9ce0cf2df625a
+          fetchedAt: 2026-10-15T14:06:53.737Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad0af4b-259a"
+          lastModified: Thu, 15 Oct 2026 10:47:39 GMT
+    groups:
+      РК1-12:
+        group: РК1-12
+        date: 2026-10-16
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Информатика
+                teacher: Садилова К.А.
+                room: Б501
+                weekType: numerator
+                sourceRow: 292
+            source:
+              sheet: 1 курс
+              rowStart: 292
+              rowEnd: 293
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: М208
+                weekType: both
+                sourceRow: 294
+            source:
+              sheet: 1 курс
+              rowStart: 294
+              rowEnd: 295
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Доп.проф.
+                teacher: Подковкин А.Г.
+                room: Б510
+                weekType: both
+                rawSubject: Доп.проф. Подковкин А.Г.
+                rawTeacher: Подковкин А.Г.
+                rawRoom: Б510
+                sourceRow: 25
+            source:
+              sheet: 1 курс
+              rowStart: 296
+              rowEnd: 297
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-16
+                  group: РК1-12
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Литература
+                  replacement:
+                    raw: Доп.проф. Подковкин А.Г.
+                    room: Б510
+                  source:
+                    shift: first
+                    row: 25
+                    rawGroupName: РК1-12
+                    rawLessonNumbers: "2"
+                    rawOriginal: Литература
+                    rawReplacement: Доп.проф. Подковкин А.Г.
+                    rawRoom: Б510
+                lessonNumber: 2
+                strategy: exact-subject
+          - number: 3
+            variants:
+              - subject: Доп.проф.
+                teacher: Подковкин А.Г.
+                room: Б207
+                weekType: both
+                rawSubject: Доп.проф. Подковкин А.Г.
+                rawTeacher: Подковкин А.Г.
+                rawRoom: Б207
+                sourceRow: 26
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a3
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 813a72ee62f62f44087f19e0fcaf38afc3b57e6ff969b69e3cebbcd0a1608677
+semanticHash: 12b0a826e4843b72d562559c2cb927416929076c0d29fa8493aedb410262ea75
