@@ -822,7 +822,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -871,8 +871,75 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
     replacements:
       - *a21
       - *a22
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+        replacements:
+          - &a23
+            date: 2026-10-17
+            group: СА1-31
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: УП 01.02
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 26
+              rawGroupName: СА1-31
+              rawLessonNumbers: "3"
+              rawOriginal: УП 01.02
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a24
+            date: 2026-10-17
+            group: СА1-31
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: УП 01.02, ...
+            replacement:
+              raw: Осн.алгорит. Вершинина Н.А.
+              room: Б309
+            source:
+              shift: second
+              row: 27
+              rawGroupName: СА1-31
+              rawLessonNumbers: 4,5
+              rawOriginal: УП 01.02, ...
+              rawReplacement: Осн.алгорит. Вершинина Н.А.
+              rawRoom: Б309
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 484e3a5c3e80cd94b098513b559391901b707e3fd8c7448f2b285f72c135b36d
+semanticHash: 2f60dc5615f96ac53a8df04eef9fc429ca4a355ffdf557ce2d7e655f59538ccc

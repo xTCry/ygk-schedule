@@ -1835,7 +1835,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1866,7 +1866,92 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
     replacements:
       - *a50
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+        replacements:
+          - &a51
+            date: 2026-10-17
+            group: РК1-33
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр УП 04.03 Пономаренко В.С.
+              room: Б407
+            source:
+              shift: second
+              row: 10
+              rawGroupName: РК1-33
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр УП 04.03 Пономаренко В.С.
+              rawRoom: Б407
+          - &a52
+            date: 2026-10-17
+            group: РК1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.03
+            replacement:
+              raw: 1,2 п/гр Пономаренко В.С.
+              room: Б407
+            source:
+              shift: second
+              row: 11
+              rawGroupName: РК1-33
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 04.03
+              rawReplacement: 1,2 п/гр Пономаренко В.С.
+              rawRoom: Б407
+          - &a53
+            date: 2026-10-17
+            group: РК1-33
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: УП 04.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 12
+              rawGroupName: РК1-33
+              rawLessonNumbers: "5"
+              rawOriginal: УП 04.03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a51
+      - *a52
+      - *a53
 diagnostics: []
-semanticHash: 85255280373e484f8199a86be07a95815c793b6ff603efe0a32510e029fea8be
+semanticHash: 7d17376924fcc09acd1635cbf1c76deae6eeea61a5bba72d78ef54c66ed0b037

@@ -751,7 +751,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -782,8 +782,75 @@ dates:
               rawReplacement: МДК 04.01 Малашкевич Д.А.
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
     replacements:
       - *a18
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+        replacements:
+          - &a19
+            date: 2026-10-17
+            group: ДИ1-45
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.02
+              rawReplacement: Пономаренко В.С.
+              rawRoom: ДОТ
+          - &a20
+            date: 2026-10-17
+            group: ДИ1-45
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Темофеева Е.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Темофеева Е.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -806,4 +873,4 @@ diagnostics:
     rawValue: ДИ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0f6bf3d9e1ba89f39d2d8932c042ddfa5524d825883f618ffce0200f4f67981f
+semanticHash: ed07f0e35051725349e7dd3e627bc3f3cdaa3bf53bf534e309d8e480d688d3b3

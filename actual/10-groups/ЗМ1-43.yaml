@@ -3977,6 +3977,142 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
+          fetchedAt: 2026-10-16T13:54:23.695Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad1d945-287c"
+          lastModified: Fri, 16 Oct 2026 07:59:01 GMT
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+    groups:
+      ЗМ1-43:
+        group: ЗМ1-43
+        date: 2026-10-17
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 04.01 Выполнение комплекса работ в рамках мониторинга состояния
+                  земель
+                teacher: Акиничева М.А.
+                room: ДОТ
+                weekType: numerator
+                rawSubject: МДК 04.01 Выполнение комплекса  работ в рамках мониторинга состояния
+                  земель
+                sourceRow: 85
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 85
+              rowEnd: 86
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 04.02 Охрана окружающей среды и природоохранные мероприятия
+                teacher: Акиничева М.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 87
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 87
+              rowEnd: 88
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                  градостроительстве
+                teacher: Воробьева Н.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: Воробьева Н.Е.
+                rawTeacher: Воробьева Н.Е.
+                rawRoom: ДОТ
+                sourceRow: 32
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a16
+                  date: 2026-10-17
+                  group: ЗМ1-43
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Воробьева Н.Е.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 32
+                    rawGroupName: ЗМ1-43
+                    rawLessonNumbers: 3,4
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Воробьева Н.Е.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК.03.01 Правовое регулирование отношенийв землеустройстве,кадастре и
+                  градостроительстве
+                teacher: Воробьева Н.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: Воробьева Н.Е.
+                rawTeacher: Воробьева Н.Е.
+                rawRoom: ДОТ
+                sourceRow: 32
+            source:
+              sheet: ЗМ1-41 ЗМ1-43
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: ЗМ1-43/ЗМ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a16
+                lessonNumber: 4
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -4014,7 +4150,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЗМ1-43
-      baseSourceFiles: &a16
+      baseSourceFiles: &a17
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -4033,7 +4169,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЗМ1-43
-      baseSourceFiles: *a16
+      baseSourceFiles: *a17
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -4055,4 +4191,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f345437bb08c01ea89e6c1add24d5812786d047d908f70e42f1c50fa0b90b73e
+semanticHash: 8ef2d6281eb52a7f8e8a40083d38d77bd73e02997c1a079b3f5d6ea39ef6d259

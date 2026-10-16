@@ -2655,6 +2655,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
+          fetchedAt: 2026-10-16T13:54:23.695Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad1d945-287c"
+          lastModified: Fri, 16 Oct 2026 07:59:01 GMT
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+    groups:
+      ТТ1-21:
+        group: ТТ1-21
+        date: 2026-10-17
+        day: Суббота
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-17
+                  group: ТТ1-21
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: Теор.осн
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 34
+                    rawGroupName: ТТ1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: Теор.осн
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Коровкина А.М.
+                room: Ф201
+                weekType: both
+                rawSubject: История Коровкина А.М.
+                rawTeacher: Коровкина А.М.
+                rawRoom: Ф201
+                sourceRow: 35
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 95
+              rowEnd: 96
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-10-17
+                  group: ТТ1-21
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Теор.осн
+                  replacement:
+                    raw: История Коровкина А.М.
+                    room: Ф201
+                  source:
+                    shift: first
+                    row: 35
+                    rawGroupName: ТТ1-21
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Теор.осн
+                    rawReplacement: История Коровкина А.М.
+                    rawRoom: Ф201
+                lessonNumber: 1
+                strategy: subject-abbreviation
+          - number: 2
+            variants:
+              - subject: История
+                teacher: Коровкина А.М.
+                room: Ф201
+                weekType: both
+                rawSubject: История Коровкина А.М.
+                rawTeacher: Коровкина А.М.
+                rawRoom: Ф201
+                sourceRow: 35
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 97
+              rowEnd: 98
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 2
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2672,7 +2803,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: &a6
+      baseSourceFiles: &a7
         - oeis.xlsx
       replacementWeekType: denominator
       availableWeekTypes:
@@ -2703,7 +2834,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: *a6
+      baseSourceFiles: *a7
       replacementWeekType: denominator
       availableWeekTypes:
         - denominator
@@ -2717,4 +2848,4 @@ diagnostics:
           sourceRow: 78
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1609c451fbf155ac91116c8027a530c03585b75c4be7a1fc3dce0c4559ba1442
+semanticHash: cd2bd1ebd0ac8d326e03b2bd127aa09dfd1323bd5603764c8ba1d3a987b5c62f

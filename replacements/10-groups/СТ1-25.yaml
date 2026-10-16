@@ -1742,7 +1742,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1773,7 +1773,54 @@ dates:
               rawReplacement: МДК 02.02 Трубин А.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
     replacements:
       - *a50
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
+          fetchedAt: 2026-10-16T13:54:23.695Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad1d945-287c"
+          lastModified: Fri, 16 Oct 2026 07:59:01 GMT
+        replacements:
+          - &a51
+            date: 2026-10-17
+            group: СТ1-25
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: п/гр 2 Кощеев В.В.
+              room: М207
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "3"
+              rawOriginal: Тех.механика
+              rawReplacement: п/гр 2 Кощеев В.В.
+              rawRoom: М207
+        diagnostics: []
+    replacements:
+      - *a51
 diagnostics: []
-semanticHash: 9711204fea41d8c2247031457210c16390c4925d7fe11886069200a1666c1cd2
+semanticHash: c0ca07502086c9be9d0baa199492b0b446691962832b216a585d78fbb03dd8d9

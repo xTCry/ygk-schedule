@@ -868,7 +868,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -899,8 +899,55 @@ dates:
               rawReplacement: 1,2 п/гр. Махрова Н.Н.
               rawRoom: Б401
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
     replacements:
       - *a20
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
+          fetchedAt: 2026-10-16T13:54:23.695Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad1d945-287c"
+          lastModified: Fri, 16 Oct 2026 07:59:01 GMT
+        replacements:
+          - &a21
+            date: 2026-10-17
+            group: СТ1-45
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Махрова Н.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 6
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр.Ин.язык Махрова Н.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a21
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -923,4 +970,4 @@ diagnostics:
     rawValue: СТ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6ae0cba8425287fb9c0817063e2161da068b4293eaea98b96cbafc7600192330
+semanticHash: e9c68ef940b57ce6569cec7e2e85c7ab166450ceebb6149529bfc61062b5eb12

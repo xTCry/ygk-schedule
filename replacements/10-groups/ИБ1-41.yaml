@@ -1770,7 +1770,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1838,10 +1838,77 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
     replacements:
       - *a52
       - *a53
       - *a54
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+        replacements:
+          - &a55
+            date: 2026-10-17
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 03.01 пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 пгр
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a56
+            date: 2026-10-17
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: Эф.повед.МДК02.02
+            replacement:
+              raw: Web-прогр./теор Серова А.М.
+              room: Б406
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: Эф.повед.МДК02.02
+              rawReplacement: Web-прогр./теор Серова А.М.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a55
+      - *a56
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1864,4 +1931,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a7451ef53bf7a09c24905060e0423225db6d81c34a3cf898cf59c89b119d389e
+semanticHash: 62bd451d32c0cda3b49ad09c5f4e2b0ceebd18c3db30b1418448a42d95a6aeca

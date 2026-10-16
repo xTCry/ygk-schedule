@@ -1361,7 +1361,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1392,7 +1392,73 @@ dates:
               rawReplacement: 1,2 п/гр. Петрова У.В.
               rawRoom: Ф204Ф403
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
     replacements:
       - *a41
+  2026-10-17:
+    date: 2026-10-17
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-17
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7f4df6471cb19b342dfa712dd9c111ddf0064334bc7ba869e78ebdce7a5d4be4
+          fetchedAt: 2026-10-16T13:54:23.535Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad1f661-1d4f"
+          lastModified: Fri, 16 Oct 2026 10:03:13 GMT
+        replacements:
+          - &a42
+            date: 2026-10-17
+            group: ЮР1-23
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Рус.яз.культ.речи
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: "2"
+              rawOriginal: Рус.яз.культ.речи
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a43
+            date: 2026-10-17
+            group: ЮР1-23
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: ДОУ /теор Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: "3"
+              rawOriginal: История России
+              rawReplacement: ДОУ /теор Хватова Е.Ю.
+              rawRoom: Ф305
+        diagnostics: []
+    replacements:
+      - *a42
+      - *a43
 diagnostics: []
-semanticHash: 209563765b6fb2715546530086d21dbf5d935d6dd5fcd50ccb81f4d75a59fb52
+semanticHash: b43af61064f0874ec3aab23aa6dea756a51a4138d7303bb2e8d09faa43134931
