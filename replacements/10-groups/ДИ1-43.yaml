@@ -2037,7 +2037,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2069,8 +2069,75 @@ dates:
               rawReplacement: 1,2 п/гр. Выблова Т.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
     replacements:
       - *a58
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        replacements:
+          - &a59
+            date: 2026-10-19
+            group: ДИ1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Ремизова А.И.Матвеичева К.А.
+              room: Б305Б403
+            source:
+              shift: second
+              row: 38
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.02
+              rawReplacement: Ремизова А.И.Матвеичева К.А.
+              rawRoom: Б305Б403
+          - &a60
+            date: 2026-10-19
+            group: ДИ1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01. КП
+            replacement:
+              raw: Ремизова А.И.Матвеичева К.А.
+              room: Б302Б406
+            source:
+              shift: second
+              row: 39
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01. КП
+              rawReplacement: Ремизова А.И.Матвеичева К.А.
+              rawRoom: Б302Б406
+        diagnostics: []
+    replacements:
+      - *a59
+      - *a60
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2093,4 +2160,4 @@ diagnostics:
     normalizedGroup: ДИ1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 61257aa5c77d79370c5f7e3b4c4b243c2d24cc316392ffb26da77566fa97dd60
+semanticHash: 7daaa7512cc57d468d2b9983ea541e2d4b014975ca21a246404f52d00c0cb4f0

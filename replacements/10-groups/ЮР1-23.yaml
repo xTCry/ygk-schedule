@@ -1408,7 +1408,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1457,8 +1457,55 @@ dates:
               rawReplacement: ДОУ /теор Хватова Е.Ю.
               rawRoom: Ф305
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
     replacements:
       - *a42
       - *a43
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        replacements:
+          - &a44
+            date: 2026-10-19
+            group: ЮР1-23
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Рус.яз.и культ.речи
+            replacement:
+              raw: Тихонов А.А.
+              room: Ф405
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: "5"
+              rawOriginal: Рус.яз.и культ.речи
+              rawReplacement: Тихонов А.А.
+              rawRoom: Ф405
+        diagnostics: []
+    replacements:
+      - *a44
 diagnostics: []
-semanticHash: b43af61064f0874ec3aab23aa6dea756a51a4138d7303bb2e8d09faa43134931
+semanticHash: 2934578cb07c96e11d8c7182e26d3004b65806ba1ef429e712de9ffc5d6f2d7e

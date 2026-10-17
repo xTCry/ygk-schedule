@@ -1465,7 +1465,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1514,8 +1514,54 @@ dates:
               rawReplacement: Математика Пухова Ю.Г.
               rawRoom: М208
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
     replacements:
       - *a43
       - *a44
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
+          fetchedAt: 2026-10-17T12:54:19.761Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad35660-481e"
+          lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+        replacements:
+          - &a45
+            date: 2026-10-19
+            group: СТ1-13
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Биология
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 31
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "3"
+              rawOriginal: Биология
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a45
 diagnostics: []
-semanticHash: 61bd5a44d42452e3e36a683b1067910440e2a6d9fc2cbeb7d86b766b97f7388d
+semanticHash: 29df5f22352cdfb75d233e1e13d2939acdc616a79c3cd029b5f0675add1f42ab

@@ -6181,6 +6181,162 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
+          fetchedAt: 2026-10-17T12:54:19.761Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad35660-481e"
+          lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+    groups:
+      1 БПЛА:
+        group: 1 БПЛА
+        date: 2026-10-19
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физическая культура
+                teacher: Шпынов Ю.Г.
+                room: сп.зал
+                weekType: both
+                rawSubject: "Физическая культура "
+                sourceRow: 107
+            source:
+              sheet: 2 курс
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: 1 БПЛА
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Ин.язык
+                teacher: Петрушенко Е.Е.
+                room: к.36
+                weekType: both
+                rawSubject: Ин.язык Петрушенко Е.Е.
+                rawTeacher: Петрушенко Е.Е.
+                rawRoom: к.36
+                sourceRow: 81
+            source:
+              sheet: 2 курс
+              rowStart: 109
+              rowEnd: 110
+              rawGroupName: 1 БПЛА
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-19
+                  group: 1 БПЛА
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Тех.механика
+                  replacement:
+                    raw: Ин.язык Петрушенко Е.Е.
+                    room: к.36
+                  source:
+                    shift: first
+                    row: 81
+                    rawGroupName: 1 БПЛА
+                    rawLessonNumbers: "1"
+                    rawOriginal: Тех.механика
+                    rawReplacement: Ин.язык Петрушенко Е.Е.
+                    rawRoom: к.36
+                lessonNumber: 1
+                strategy: subject-abbreviation
+          - number: 2
+            variants:
+              - subject: Электротехника
+                teacher: Ковалев Н.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Электротехника Ковалев Н.В.
+                rawTeacher: Ковалев Н.В.
+                rawRoom: ДОТ
+                sourceRow: 82
+            source:
+              sheet: 2 курс
+              rowStart: 111
+              rowEnd: 112
+              rawGroupName: 1 БПЛА
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a20
+                  date: 2026-10-19
+                  group: 1 БПЛА
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 01.01 Осн.авиац.
+                  replacement:
+                    raw: Электротехника Ковалев Н.В.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 82
+                    rawGroupName: 1 БПЛА
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 01.01 Осн.авиац.
+                    rawReplacement: Электротехника Ковалев Н.В.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Электротехника
+                teacher: Ковалев Н.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Электротехника Ковалев Н.В.
+                rawTeacher: Ковалев Н.В.
+                rawRoom: ДОТ
+                sourceRow: 82
+            source:
+              sheet: 2 курс
+              rowStart: 113
+              rowEnd: 114
+              rawGroupName: 1 БПЛА
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a20
+                lessonNumber: 3
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6259,4 +6415,4 @@ diagnostics:
           sourceRow: 136
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 655b9b3b7edfabd7ed032bc0ae9bf2541b7907c1f3d601551f7fb1daaff2c92d
+semanticHash: af3d7f1080e11b51eb4f5c07b61ff707523aa2ff608c466aba3439bf3c38094e

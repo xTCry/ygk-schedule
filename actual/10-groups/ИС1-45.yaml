@@ -5088,6 +5088,122 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
+          fetchedAt: 2026-10-17T12:54:19.761Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad35660-481e"
+          lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+    groups:
+      ИС1-45:
+        group: ИС1-45
+        date: 2026-10-19
+        day: Понедельник
+        lessons:
+          - number: 4
+            variants:
+              - subject: УП 05
+                teacher: Васильченко М.О.
+                room: Б301
+                weekType: both
+                rawSubject: 1,2 п/гр.УП 05 Васильченко М.О.
+                rawTeacher: Васильченко М.О.
+                rawRoom: Б301
+                sourceRow: 16
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 264
+              rowEnd: 265
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a11
+                  date: 2026-10-19
+                  group: ИС1-45
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 05.03 Физкультура
+                  replacement:
+                    raw: 1,2 п/гр.УП 05 Васильченко М.О.
+                    room: Б301
+                  source:
+                    shift: second
+                    row: 16
+                    rawGroupName: ИС1-45
+                    rawLessonNumbers: 4,5
+                    rawOriginal: МДК 05.03 Физкультура
+                    rawReplacement: 1,2 п/гр.УП 05 Васильченко М.О.
+                    rawRoom: Б301
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: УП 05
+                teacher: Васильченко М.О.
+                room: Б301
+                weekType: both
+                rawSubject: 1,2 п/гр.УП 05 Васильченко М.О.
+                rawTeacher: Васильченко М.О.
+                rawRoom: Б301
+                sourceRow: 16
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 266
+              rowEnd: 267
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a11
+                lessonNumber: 5
+                strategy: subject-word-mention
+          - number: 6
+            variants:
+              - subject: МДК.05.03 Тестирование ИС
+                teacher: Юров А.А.
+                room: Б301
+                weekType: both
+                sourceRow: 268
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 268
+              rowEnd: 269
+              rawGroupName: ИС1-45/ИС1-46/ИС2-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5168,4 +5284,4 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 911843052af406da9000573b637faf9ab516ca24f19036c6cfd8bbf238c4e50e
+semanticHash: bc61a46a823b397c361061941a7d1b15eb4521c05ef17be2b9ce8b78358e255f

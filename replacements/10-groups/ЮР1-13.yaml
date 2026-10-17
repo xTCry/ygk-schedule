@@ -1993,7 +1993,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2042,8 +2042,113 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
     replacements:
       - *a61
       - *a62
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
+          fetchedAt: 2026-10-17T12:54:19.761Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad35660-481e"
+          lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+        replacements:
+          - &a63
+            date: 2026-10-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разговоря
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 59
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Разговоря
+              rawReplacement: снято
+              rawRoom: ""
+          - &a64
+            date: 2026-10-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 61
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: История
+              rawReplacement: снято
+              rawRoom: ""
+          - &a65
+            date: 2026-10-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 60
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: 2,3
+              rawOriginal: Математика
+              rawReplacement: Саввина Е.А.
+              rawRoom: Ф202
+          - &a66
+            date: 2026-10-19
+            group: ЮР1-13
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.площ.
+            source:
+              shift: first
+              row: 62
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.площ.
+        diagnostics: []
+    replacements:
+      - *a63
+      - *a64
+      - *a65
+      - *a66
 diagnostics: []
-semanticHash: 81ccc258e42cf453377e2dd8f0e0686e2eda48b67f9beb9b908d233da5e826d5
+semanticHash: dbce63d9fcabba53d036d2971942d2ef822b07a8d360e0472de7aabee81405a5

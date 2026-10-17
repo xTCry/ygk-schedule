@@ -483,6 +483,67 @@ dates:
           sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a11
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
+          fetchedAt: 2026-10-17T12:54:19.761Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad35660-481e"
+          lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+        replacements:
+          - &a12
+            date: 2026-10-19
+            group: СТ1-41
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: снято
+              rawRoom: ""
+          - &a13
+            date: 2026-10-19
+            group: СТ1-41
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.02 Топчиян Е.А.
+              room: Б401
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 01.02 Топчиян Е.А.
+              rawRoom: Б401
+        diagnostics: []
+    replacements:
+      - *a12
+      - *a13
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -505,4 +566,4 @@ diagnostics:
     rawValue: СТ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6d403f50c6db93515aaaec68bd06e84a68c7e1d4321460a3ec73221173b17b84
+semanticHash: 065bc9e1d225026d924c6b1ba908a0892ea60748ac0d193018997a0e4c73a3b0

@@ -1715,7 +1715,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1783,10 +1783,97 @@ dates:
               rawReplacement: Экон.отрасли Сафронова Л.Н.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
     replacements:
       - *a50
       - *a51
       - *a52
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        replacements:
+          - &a53
+            date: 2026-10-19
+            group: СА1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр. Грехова Е.И.
+              room: Б304
+            source:
+              shift: second
+              row: 19
+              rawGroupName: СА1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр. Грехова Е.И.
+              rawRoom: Б304
+          - &a54
+            date: 2026-10-19
+            group: СА1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.03
+            replacement:
+              raw: 1,2 п/гр. Зайцев Р.А.
+              room: Б304
+            source:
+              shift: second
+              row: 20
+              rawGroupName: СА1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.03
+              rawReplacement: 1,2 п/гр. Зайцев Р.А.
+              rawRoom: Б304
+          - &a55
+            date: 2026-10-19
+            group: СА1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: 1,2 п/гр.МДК 03.02 Грехова Е.И.
+              room: Б304
+            source:
+              shift: second
+              row: 21
+              rawGroupName: СА1-41
+              rawLessonNumbers: "5"
+              rawOriginal: УП 03
+              rawReplacement: 1,2 п/гр.МДК 03.02 Грехова Е.И.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a53
+      - *a54
+      - *a55
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1809,4 +1896,4 @@ diagnostics:
     rawValue: СА1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: cd615fd2433810eaf473b0e1bb6f4ac64cfb987ae9a311bd759ebaeddb8a722c
+semanticHash: fd8067b29bd85b86407c5db0e0750ccc91820d2d9f7c4c3df41e1eef731bc2f2

@@ -1859,7 +1859,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1910,8 +1910,74 @@ dates:
               rawReplacement: 1,2 п/гр.ТСИ Садилова К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
     replacements:
       - *a50
       - *a51
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        replacements:
+          - &a52
+            date: 2026-10-19
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Орган.прав.
+            replacement:
+              raw: 1,2 п/гр.МДК 01.03 Зайцев Р.А.
+              room: Б309
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: Орган.прав.
+              rawReplacement: 1,2 п/гр.МДК 01.03 Зайцев Р.А.
+              rawRoom: Б309
+          - &a53
+            date: 2026-10-19
+            group: ИБ1-31
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Электротех.из.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: Электротех.из.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics: []
-semanticHash: 23d945a056e1caac3f091645890795f6635ccc58c16f40866ffd6fb75d937e80
+semanticHash: 2029c638a568eb9c0b15f312b8bcc8186d6f771a1908cc6554c28bf7bd5a1cfe

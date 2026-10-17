@@ -1429,7 +1429,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1460,7 +1460,74 @@ dates:
               rawReplacement: 1,2 п/гр. Панасюк А.Д.
               rawRoom: Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
     replacements:
       - *a38
+  2026-10-19:
+    date: 2026-10-19
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-19
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e52175f6ec04ed9f545e54bac1f11adfe447709a53aa3f44e41d1c062fb8d411
+          fetchedAt: 2026-10-17T12:54:19.743Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad35474-2995"
+          lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        replacements:
+          - &a39
+            date: 2026-10-19
+            group: ИС1-33
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Компьют.сети
+            replacement:
+              raw: МДК 06.03 Байдина Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "3"
+              rawOriginal: Компьют.сети
+              rawReplacement: МДК 06.03 Байдина Ю.А.
+              rawRoom: ДОТ
+          - &a40
+            date: 2026-10-19
+            group: ИС1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.проект.БД
+            replacement:
+              raw: Панасюк А.Д.Гудкова А.Л.
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИС1-33
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.проект.БД
+              rawReplacement: Панасюк А.Д.Гудкова А.Л.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a39
+      - *a40
 diagnostics: []
-semanticHash: 30d5f5cca2e51440338cbd0c49cb28cb7c339f6638a7ffd3369a05a6076ff2fc
+semanticHash: 0ffc8f2e04852fc600bcfca51f8c950f5150b3729c5a2cee2943570dc8494723
