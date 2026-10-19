@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-10-17T12:54:19.843Z
-scheduleVersion: 17766d4ff1304335dcb6a8ebc070015fee56ed577c443b2a124a4517b3eb3042
+generatedAt: 2026-10-19T11:48:48.771Z
+scheduleVersion: 1c631c42e0dbd4da82a9322d8e8ac7470731b869eb507400a1762e3b49da05fd
 summary:
   info: 0
   warning: 64
-  error: 253
+  error: 255
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -3534,6 +3534,28 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: c5e19663ca2c28a8a40f87247bc46ebc803fb15ff37fc244986c7c65bebaff85
+    sheet: "Замены: Первая смена"
+    row: 58
+    normalizedGroup: ЮР1-35
+    rawValue: Осн.береж.пр. Мартынова С.В.
+    context:
+      date: 2026-10-20
+      lessonNumber: 1
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЮР1-35
+      baseSourceFiles:
+        - out.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 7e8ea33d73af54197cf6149ad654a62a066a786c34822c8ee41d3ffe2ee1d01d
+    issueKey: 5710849fba63d6c74494754351c1b1efac9336f3dd6c46784f26c6e51c0c0723
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: a58dc02eaf78417726bb727bd63edb0df2df8f24b47d0f10058604c1f626632f
     sheet: "Замены: Первая смена"
@@ -4333,6 +4355,34 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3b67b5d3a42ef6f4d6ef35f142027a4fec6f733311529c3aee5b65d078d7c20e
+    sheet: "Замены: Первая смена"
+    row: 75
+    normalizedGroup: 9 МРТ
+    rawValue: Физкультура Шпынов Ю.Г.
+    context:
+      date: 2026-10-20
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: 9 МРТ
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: Математика
+      candidates:
+        - subject: Математические методы решения типовых прикладных задач
+          teacher: Бахвалова К.
+          room: к.35
+          sourceRow: 17
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: e39abf26324d5cb8ebc70c011dfaa9d0be731169714b778176b70c7e52907295
+    issueKey: 5cef56a172db8f72bc8e1287b3f0112aecc2ceb3f9f609ab182f37e4032eca45
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 17285b03b0563245b271faa2a5fa54e5a2d1770ba1c1dc0225dcfee6d00a1e0d
     sheet: "Замены: Первая смена"
     row: 77
@@ -5017,12 +5067,12 @@ diagnostics:
     source: &a19
       id: https://menu.sttec.yar.ru/timetable/rasp_second.html
       fileName: rasp_second.html
-      sha256: fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd
-      fetchedAt: 2026-09-14T15:51:54.369Z
+      sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+      fetchedAt: 2026-10-19T11:48:48.685Z
       url: https://menu.sttec.yar.ru/timetable/rasp_second.html
       shift: second
-      etag: W/"6aa7ecc2-258d"
-      lastModified: Mon, 14 Sep 2026 12:46:58 GMT
+      etag: W/"6ad5e908-2421"
+      lastModified: Mon, 19 Oct 2026 09:55:20 GMT
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -12795,6 +12845,114 @@ issues:
       {{group-yaml:base:%D0%A0%D0%9A1-21}} |
       {{group-yaml:actual:%D0%A0%D0%9A1-21}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: 5710849fba63d6c74494754351c1b1efac9336f3dd6c46784f26c6e51c0c0723
+    familyKey: 5ffa2f79a63d3b6624cd81acf13f42995041d5ca0e8031e0d80e26c358575e00
+    fingerprint: 7e8ea33d73af54197cf6149ad654a62a066a786c34822c8ee41d3ffe2ee1d01d
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-20
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-10-20, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - 8cf841bc617cfb4aa704866b722e90ad0979c8864deff40afc812475d0cde6aa
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/5710849fba63d6c74494754351c1b1efac9336f3dd6c46784f26c6e51c0c0723.json
+      yamlPath: actual/91-issue-evidence/5710849fba63d6c74494754351c1b1efac9336f3dd6c46784f26c6e51c0c0723.yaml
+    body: >
+      <!-- parser-issue-key:
+      5710849fba63d6c74494754351c1b1efac9336f3dd6c46784f26c6e51c0c0723 -->
+
+      <!-- diagnostic-family-key:
+      5ffa2f79a63d3b6624cd81acf13f42995041d5ca0e8031e0d80e26c358575e00 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      8cf841bc617cfb4aa704866b722e90ad0979c8864deff40afc812475d0cde6aa -->
+
+      <!-- parser-fingerprint:
+      7e8ea33d73af54197cf6149ad654a62a066a786c34822c8ee41d3ffe2ee1d01d -->
+
+
+      ## Причина
+
+
+      Пара из замены отсутствует в базовом расписании
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | lesson-not-found |
+
+      | Дата замен | 2026-10-20 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 58 | — | ЮР1-35 | 1 | replace | Осн.береж.пр.
+      Мартынова С.В. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%AE%D0%A01-35}} |
+      {{group-yaml:actual:%D0%AE%D0%A01-35}} | {{raw-source:schedule:out.xlsx}}
+      |
   - key: dc23a22a16a4aa25d08d793ffbd4369e7a183e4df7a0de03a9000bcf6b802a13
     familyKey: e42bc064a57a62d0c3d6b034ca8be0a3625abbdc7c52957372f4f3897f0eef68
     fingerprint: 20eef35ed5492678f25b7595d520ae5290ab358252c580131a3b8c836a949c32
@@ -13442,6 +13600,114 @@ issues:
       {{group-yaml:base:%D0%AD%D0%9A1-31}} |
       {{group-yaml:actual:%D0%AD%D0%9A1-31}} | {{raw-source:schedule:out.xlsx}}
       |
+  - key: 5cef56a172db8f72bc8e1287b3f0112aecc2ceb3f9f609ab182f37e4032eca45
+    familyKey: 2d694ac520480fc16603e47dff0dd5d1ce512bc901971674629cc01a978e7096
+    fingerprint: e39abf26324d5cb8ebc70c011dfaa9d0be731169714b778176b70c7e52907295
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-20
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-20, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - 5eca23f5c4277d684c13043053f84ad1d6ab8c5be104a3a5fb9a1abebc08f4cf
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/5cef56a172db8f72bc8e1287b3f0112aecc2ceb3f9f609ab182f37e4032eca45.json
+      yamlPath: actual/91-issue-evidence/5cef56a172db8f72bc8e1287b3f0112aecc2ceb3f9f609ab182f37e4032eca45.yaml
+    body: >
+      <!-- parser-issue-key:
+      5cef56a172db8f72bc8e1287b3f0112aecc2ceb3f9f609ab182f37e4032eca45 -->
+
+      <!-- diagnostic-family-key:
+      2d694ac520480fc16603e47dff0dd5d1ce512bc901971674629cc01a978e7096 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      5eca23f5c4277d684c13043053f84ad1d6ab8c5be104a3a5fb9a1abebc08f4cf -->
+
+      <!-- parser-fingerprint:
+      e39abf26324d5cb8ebc70c011dfaa9d0be731169714b778176b70c7e52907295 -->
+
+
+      ## Причина
+
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | original-not-matched |
+
+      | Дата замен | 2026-10-20 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 75 | — | 9 МРТ | 2 | replace | Физкультура Шпынов
+      Ю.Г. | {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:9%20%D0%9C%D0%A0%D0%A2}} |
+      {{group-yaml:actual:9%20%D0%9C%D0%A0%D0%A2}} |
+      {{raw-source:schedule:ort.xlsx}} |
   - key: 88bd17414709bff0379c31c973c3b8c2a47f3a22f6430186dcdaa650c19f6a4d
     familyKey: ffb15b9b2941d10605b2065ff8175ab40965872e2da1c4cb81159851d9d51973
     fingerprint: f480a4c0b77a523c0e036f2cd12c817881edba72d125cbf0bd5d181f18600f7f
@@ -13811,9 +14077,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -13909,11 +14175,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -13996,9 +14262,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14068,9 +14334,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14139,9 +14405,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14209,9 +14475,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14281,9 +14547,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14377,11 +14643,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -14485,11 +14751,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -14569,9 +14835,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14639,9 +14905,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14708,9 +14974,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -14802,11 +15068,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -14910,11 +15176,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -14992,9 +15258,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -15085,11 +15351,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15193,11 +15459,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15301,11 +15567,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15387,9 +15653,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -15485,11 +15751,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15593,11 +15859,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15681,9 +15947,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -15779,11 +16045,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15887,11 +16153,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -15995,11 +16261,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16078,9 +16344,9 @@ issues:
       | --- | --- |
       | Файл | rasp_second.html |
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
-      | SHA-256 | fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
       | Уровень | error |
       | Код | UNRESOLVED_REPLACEMENT |
 
@@ -16171,11 +16437,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16279,11 +16545,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16387,11 +16653,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16495,11 +16761,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16603,11 +16869,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16711,11 +16977,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16819,11 +17085,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -16927,11 +17193,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17035,11 +17301,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17147,11 +17413,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17255,11 +17521,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17363,11 +17629,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17471,11 +17737,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 
@@ -17579,11 +17845,11 @@ issues:
       | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
 
       | SHA-256 |
-      fe9a9362db3903023c244da75e93cf10e9ae790d8bf1c28d08f7bc25919fdebd |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
 
-      | Изменён на сайте | 14.09.2026, 15:46 МСК |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
 
-      | Снимок впервые получен | 14.09.2026, 18:51 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
 
       | Уровень | error |
 

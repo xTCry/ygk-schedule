@@ -258,6 +258,68 @@ dates:
           sourceSha256: 994d115f475948087af40908c865f9f9fa80a6bb4d4d45ed47b70b477d7b14c3
     replacements:
       - *a5
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a6
+            date: 2026-10-20
+            group: ЮС1-43
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "2"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+              rawRoom: Ф305
+          - &a7
+            date: 2026-10-20
+            group: ЮС1-43
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 53
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a6
+      - *a7
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -280,4 +342,4 @@ diagnostics:
     rawValue: ЮС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fb61ceb3ae42541b8d024bf2ec903320989ef73545a0f2e023bebec051af2cda
+semanticHash: 56595a22d0ed290f64f6b666500ef0560a92c89fc4b4f780900aa40b97fa371f

@@ -1801,7 +1801,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1870,10 +1870,57 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 03.02 Грехова Е.И.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a53
       - *a54
       - *a55
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a56
+            date: 2026-10-20
+            group: СА1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Загородних Е.С.
+              room: Б402
+            source:
+              shift: second
+              row: 19
+              rawGroupName: СА1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Загородних Е.С.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a56
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1896,4 +1943,4 @@ diagnostics:
     rawValue: СА1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: fd8067b29bd85b86407c5db0e0750ccc91820d2d9f7c4c3df41e1eef731bc2f2
+semanticHash: 0508455a6096bb9b22a95e580065923021033ad27fac0b12f7ab9f55574d57f6

@@ -5951,6 +5951,135 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+    groups:
+      ИБ1-41:
+        group: ИБ1-41
+        date: 2026-10-20
+        day: Вторник
+        lessons:
+          - number: 3
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 20
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: Физическая культура
+                teacher: Куликова А.А.
+                room: Сп.зал
+                weekType: denominator
+                sourceRow: 115
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: МДК.03.01 Техническая защита информации п/гр1
+                teacher: Вакансия
+                room: Б310
+                weekType: both
+                subgroup: "1"
+                sourceRow: 116
+              - subject: Web-прогр. /теор
+                teacher: Серова А.М.
+                room: Б403
+                weekType: both
+                rawSubject: Web-прогр. /теор Серова А.М.
+                rawTeacher: Серова А.М.
+                rawRoom: Б403
+                sourceRow: 21
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 5
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Web-прогр. /теор Серова А.М.
+                    room: Б403
+                  source:
+                    shift: second
+                    row: 21
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: ""
+                    rawReplacement: Web-прогр. /теор Серова А.М.
+                    rawRoom: Б403
+                lessonNumber: 5
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6087,4 +6216,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 321c0ab39efbeb63913992243f1f6151b89e7ba2df56625f680a149f7e8feeb6
+semanticHash: e3f80d83318ee4e75d9c59e496f95acb9a574f5f0e42e37d0efe372ef830eca3

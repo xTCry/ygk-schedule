@@ -1099,7 +1099,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1130,7 +1130,74 @@ dates:
               rawReplacement: Рус.яз.и культ.речи Головкина С.А.
               rawRoom: Ф303
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a29
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a30
+            date: 2026-10-20
+            group: ЮР1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.площ.
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "3"
+              rawOriginal: История России
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.площ.
+          - &a31
+            date: 2026-10-20
+            group: ЮР1-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: ДОУ
+            replacement:
+              raw: 1,2 п/гр. Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "4"
+              rawOriginal: ДОУ
+              rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+              rawRoom: Ф305
+        diagnostics: []
+    replacements:
+      - *a30
+      - *a31
 diagnostics: []
-semanticHash: 774b9d97fae6b541aad659dc7d76b0ab4639aef0fb972a639681a0d067cd39bb
+semanticHash: a96224f84ec395f69cc66235db67f6e0f02c6ac86bd44f58d0207003675f344b

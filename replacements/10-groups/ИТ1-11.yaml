@@ -1339,7 +1339,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1370,7 +1370,54 @@ dates:
               rawReplacement: 1,2 п/гр. Загородних Е.С.
               rawRoom: А201
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a38
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a39
+            date: 2026-10-20
+            group: ИТ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Биология
+            replacement:
+              raw: История Свободина Н.В.
+              room: Б110
+            source:
+              shift: first
+              row: 14
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Биология
+              rawReplacement: История Свободина Н.В.
+              rawRoom: Б110
+        diagnostics: []
+    replacements:
+      - *a39
 diagnostics: []
-semanticHash: c64158f4143aae451904942e7bb00507c447b6a1e7b5be027da2e262ff853e0b
+semanticHash: fb281ecaa12a3f36e5fe339ccb2b0a854e5e0d30a0c6a7ba39733f03576e5010

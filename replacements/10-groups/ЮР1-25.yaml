@@ -1420,7 +1420,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1451,7 +1451,93 @@ dates:
               rawReplacement: Тихонов А.А.
               rawRoom: Ф104
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a41
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a42
+            date: 2026-10-20
+            group: ЮР1-25
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: ДОУ Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: ДОУ Хватова Е.Ю.
+              rawRoom: Ф305
+          - &a43
+            date: 2026-10-20
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Конст.пр. Теор.гос
+            replacement:
+              raw: 1,2 пгр Ин.язык Петлюк Е.В.
+              room: Ф404
+            source:
+              shift: second
+              row: 6
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: 3,4
+              rawOriginal: Конст.пр. Теор.гос
+              rawReplacement: 1,2 пгр Ин.язык Петлюк Е.В.
+              rawRoom: Ф404
+          - &a44
+            date: 2026-10-20
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: ДОУ
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: ДОУ
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a42
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: a262bde34e0a09c01beb3fc573857d620de946c012832843686fc55813258c62
+semanticHash: f94380942e0d1c310e68f33968506747a8ab3f7e920f5c901bbd613a0e3f370a

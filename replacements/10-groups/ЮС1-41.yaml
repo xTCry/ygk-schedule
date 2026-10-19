@@ -370,6 +370,69 @@ dates:
           sourceSha256: 99af27b197c8e5e1b3f4a3db85db771ef2ba6f944f35de1bcd6e902e2c9d12cc
     replacements:
       - *a8
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a9
+            date: 2026-10-20
+            group: ЮС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: по расписанию
+              room: Ф204Ф403
+            source:
+              shift: first
+              row: 50
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: по расписанию
+              rawRoom: Ф204Ф403
+          - &a10
+            date: 2026-10-20
+            group: ЮС1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+              rawRoom: Ф305
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -392,4 +455,4 @@ diagnostics:
     normalizedGroup: ЮС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b8a5cfb011367e639f5b14dd216812dc9c711ac8d098bd1d986c0c556eb89ef0
+semanticHash: 5a598009dcaaaacd77ac9c880ee44cbdbcec30341665fab3f96eeb656d0570c7

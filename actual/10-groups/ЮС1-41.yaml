@@ -1237,6 +1237,154 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+    groups:
+      ЮС1-41:
+        group: ЮС1-41
+        date: 2026-10-20
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК.04.01 Социальная политика и технология социальной работы
+                teacher: Гайдис А.С.
+                room: Ф206
+                weekType: both
+                sourceRow: 10
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 10
+              rowEnd: 11
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК.04.01 Социальная политика и технология социальной работы
+                teacher: Гайдис А.С.
+                room: Ф206
+                weekType: both
+                sourceRow: 12
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 12
+              rowEnd: 13
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иностранный язык
+                teacher: |-
+                  Петрова У.В.
+                  Абрамова К.В.
+                room: Ф204Ф403
+                weekType: both
+                sourceRow: 14
+                rawRoom: Ф204Ф403
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 14
+              rowEnd: 15
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ЮС1-41
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: по расписанию
+                    room: Ф204Ф403
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: ЮС1-41
+                    rawLessonNumbers: "2"
+                    rawOriginal: Ин.язык
+                    rawReplacement: по расписанию
+                    rawRoom: Ф204Ф403
+                lessonNumber: 2
+                strategy: scheduled-room
+          - number: 3
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности
+                teacher: Хватова Е.Ю.
+                room: Ф305
+                weekType: both
+                rawSubject: 1,2 п/гр. Хватова Е.Ю.
+                rawTeacher: Хватова Е.Ю.
+                rawRoom: Ф305
+                sourceRow: 51
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 16
+              rowEnd: 17
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ЮС1-41
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Инф.технол.
+                  replacement:
+                    raw: 1,2 п/гр. Хватова Е.Ю.
+                    room: Ф305
+                  source:
+                    shift: first
+                    row: 51
+                    rawGroupName: ЮС1-41
+                    rawLessonNumbers: "3"
+                    rawOriginal: Инф.технол.
+                    rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+                    rawRoom: Ф305
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1259,4 +1407,4 @@ diagnostics:
     normalizedGroup: ЮС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 88161fc9f8e09a0b03f627acb7c3e7db081ac74f2f52ed12fd7bcea300f3ea39
+semanticHash: c93126e8d45da3958ba9d7219e01569b556fe8e13861f0667ab311f474fcd17f

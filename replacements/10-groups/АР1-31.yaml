@@ -1681,7 +1681,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1747,9 +1747,56 @@ dates:
               rawReplacement: МДК 01.01 Жарова Н.И.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a51
       - *a52
       - *a53
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a54
+            date: 2026-10-20
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.02 МДК 01.05
+            replacement:
+              raw: Эф.поведение Малашкевич Д.А.
+              room: Б507
+            source:
+              shift: second
+              row: 38
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.02 МДК 01.05
+              rawReplacement: Эф.поведение Малашкевич Д.А.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a54
 diagnostics: []
-semanticHash: 890d52817c8636e464abb532c7f3867eae3e22030379ba87b84ab28117674ca3
+semanticHash: 90d3e112d9ec3d0e9c1d4906f3cbd200ee32e62aa31dc1464e5829a54124686f

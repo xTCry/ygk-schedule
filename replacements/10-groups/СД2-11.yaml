@@ -1796,7 +1796,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1845,8 +1845,113 @@ dates:
               rawReplacement: Инф.технол.п/гр.2 Сердцева О.Д. МДК 05.01 п/гр.1 Гасенина М.П.
               rawRoom: Б406Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a50
       - *a51
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a52
+            date: 2026-10-20
+            group: СД2-11
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 32
+              rawGroupName: СД2-11
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a53
+            date: 2026-10-20
+            group: СД2-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Махрова Н.Н.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 31
+              rawGroupName: СД2-11
+              rawLessonNumbers: "3"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Махрова Н.Н.
+              rawRoom: Акт.зал
+          - &a54
+            date: 2026-10-20
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: МДК 05.01 Гасенина М.П.
+              room: А202
+            source:
+              shift: first
+              row: 33
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика
+              rawReplacement: МДК 05.01 Гасенина М.П.
+              rawRoom: А202
+          - &a55
+            date: 2026-10-20
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Тех.механика пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика пгр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
+      - *a54
+      - *a55
 diagnostics: []
-semanticHash: 5f732c85343f571514d9041764a12cfe87357e269b48688c7fc8fad2a11283b8
+semanticHash: c9614d5d3333834b5120fa7fcdd52d427c66976779f0388d73741e2b84829e6f

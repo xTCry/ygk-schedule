@@ -3469,7 +3469,7 @@ dates:
         date: 2026-10-19
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3479,11 +3479,15 @@ dates:
           shift: first
           etag: W/"6ad35660-481e"
           lastModified: Sat, 17 Oct 2026 11:05:04 GMT
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
       second:
         date: 2026-10-19
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3493,6 +3497,10 @@ dates:
           shift: second
           etag: W/"6ad35474-2995"
           lastModified: Sat, 17 Oct 2026 10:56:52 GMT
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     groups:
       ТТ1-41:
         group: ТТ1-41
@@ -3580,6 +3588,164 @@ dates:
                 lessonNumber: 6
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Основы экономики
+                  teacher: Белогорская Я.В.
+                  room: Б503
+                  weekType: denominator
+                  sourceRow: 151
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 150
+                rowEnd: 151
+                rawGroupName: ТТ1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Основы экономики
+                  teacher: Белогорская Я.В.
+                  room: Б101
+                  weekType: denominator
+                  sourceRow: 153
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 152
+                rowEnd: 153
+                rawGroupName: ТТ1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+    groups:
+      ТТ1-41:
+        group: ТТ1-41
+        date: 2026-10-20
+        day: Вторник
+        lessons:
+          - number: 4
+            variants: []
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 157
+              rowEnd: 158
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ТТ1-41
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: МДК 04.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 43
+                    rawGroupName: ТТ1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 04.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: Охрана труда
+                teacher: Зевахина О.Б.
+                room: Б401
+                weekType: both
+                rawSubject: Охрана труда Зевахина О.Б.
+                rawTeacher: Зевахина О.Б.
+                rawRoom: Б401
+                sourceRow: 42
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 159
+              rowEnd: 160
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-20
+                  group: ТТ1-41
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 04.02
+                  replacement:
+                    raw: Охрана труда Зевахина О.Б.
+                    room: Б401
+                  source:
+                    shift: first
+                    row: 42
+                    rawGroupName: ТТ1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 04.02
+                    rawReplacement: Охрана труда Зевахина О.Б.
+                    rawRoom: Б401
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: Охрана труда
+                teacher: Зевахина О.Б.
+                room: Б401
+                weekType: both
+                sourceRow: 161
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 161
+              rowEnd: 162
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3627,4 +3793,4 @@ diagnostics:
           sourceRow: 170
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f87f3e784708a5de22aef8f49e26b02b25668e99bfed3ca05b5fe13808904916
+semanticHash: 761d48af81f3f02d933ad7a1790fe88df43957e5ea1b2990d92511a74fbf8193

@@ -1047,7 +1047,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1078,7 +1078,73 @@ dates:
               rawReplacement: МДК 03.01 Парамонов В.И.
               rawRoom: А202
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a26
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a27
+            date: 2026-10-20
+            group: ДИ1-34
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Экол.осн.природ.
+            replacement:
+              raw: Ин.язык Темофеева Е.Н.Мишуринская Е.Ю
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "4"
+              rawOriginal: Экол.осн.природ.
+              rawReplacement: Ин.язык Темофеева Е.Н.Мишуринская Е.Ю
+              rawRoom: ДОТ
+          - &a28
+            date: 2026-10-20
+            group: ДИ1-34
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.01 пгр 1 Сосновских А.Л
+              room: ДОТ
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-34
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 02.01 пгр 1 Сосновских А.Л
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a27
+      - *a28
 diagnostics: []
-semanticHash: d65ae946acd6d89c420ba86d94fc5ff64a6c06990453a22d15e85bc8f87a659a
+semanticHash: 6b74a94ca5885527ab911faad36be8738d357e9d16c9252e1ccb28d2035be4c3

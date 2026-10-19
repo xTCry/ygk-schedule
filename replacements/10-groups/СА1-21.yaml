@@ -2298,7 +2298,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2348,8 +2348,55 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
               rawRoom: Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a67
       - *a68
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a69
+            date: 2026-10-20
+            group: СА1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: 1,2 пгр Ин.язык Загородних Е.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СА1-21
+              rawLessonNumbers: "2"
+              rawOriginal: История России
+              rawReplacement: 1,2 пгр Ин.язык Загородних Е.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a69
 diagnostics: []
-semanticHash: e934e9a08fa01e250762fe327a2f11d5ee585cde2ff99ebda70b6978c159ff25
+semanticHash: 589240a8af5148f96e01c4251de30d5567013dd5fb7f53d1c2a45d944c4c5162

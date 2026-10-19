@@ -1622,7 +1622,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1654,8 +1654,75 @@ dates:
               rawReplacement: 1,2 п/гр.УП 05 Васильченко М.О.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a47
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
+          fetchedAt: 2026-10-19T11:48:48.685Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad5e908-2421"
+          lastModified: Mon, 19 Oct 2026 09:55:20 GMT
+        replacements:
+          - &a48
+            date: 2026-10-20
+            group: ИС1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 05
+            replacement:
+              raw: 1,2 п/гр. Васильченко М.О.
+              room: ДОТ
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "4"
+              rawOriginal: УП 05
+              rawReplacement: 1,2 п/гр. Васильченко М.О.
+              rawRoom: ДОТ
+          - &a49
+            date: 2026-10-20
+            group: ИС1-45
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Загородних Е.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "5"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Загородних Е.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a48
+      - *a49
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1678,4 +1745,4 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 3d8c983019189b8cfe78d4dcab248ff2146ccb4441aff037457baec662128924
+semanticHash: 0c4f6f9e0704175516af0a10888e2d7847039632452468eb8edab5f0db5f7d52

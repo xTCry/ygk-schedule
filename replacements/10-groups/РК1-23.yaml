@@ -876,7 +876,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -907,7 +907,54 @@ dates:
               rawReplacement: МДК 04.03 Выблова Т.В.Анисимова С.А.
               rawRoom: Б207
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a23
+  2026-10-20:
+    date: 2026-10-20
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-20
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
+          fetchedAt: 2026-10-19T11:48:48.657Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad5ec1c-44f2"
+          lastModified: Mon, 19 Oct 2026 10:08:28 GMT
+        replacements:
+          - &a24
+            date: 2026-10-20
+            group: РК1-23
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 04.02 п/гр 2
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 20
+              rawGroupName: РК1-23
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 04.02 п/гр 2
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a24
 diagnostics: []
-semanticHash: 514224a16088ac42c3cc4cbecf8eeac97d8b947657517bb9595105014d1e5de0
+semanticHash: 2e041bca3ef5b8b21a78e9e87dca50114e4af17a23b938758064c1b0b4c41336
