@@ -1184,5 +1184,68 @@ dates:
           sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a31
+  2026-10-21:
+    date: 2026-10-21
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-21
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e68be842e06e3d68be0eb49b52c14c7fd51c127e62a3dbd149f641b4a944ccd5
+          fetchedAt: 2026-10-20T14:15:35.871Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad766d7-429a"
+          lastModified: Tue, 20 Oct 2026 13:04:23 GMT
+        replacements:
+          - &a32
+            date: 2026-10-21
+            group: ИБ1-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: Ин.язык Биолгия
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 35
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: 0,1
+              rawOriginal: Ин.язык Биолгия
+              rawReplacement: снято
+              rawRoom: ""
+          - &a33
+            date: 2026-10-21
+            group: ИБ1-11
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Рус.яз., Литература Грибанова Е.Н.
+              room: Б502,Б501
+            source:
+              shift: first
+              row: 36
+              rawGroupName: ИБ1-11
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: Рус.яз., Литература Грибанова Е.Н.
+              rawRoom: Б502,Б501
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: b53a90c9b858d7ec459e463c616f9f7c2bb737cef46df2a2ac2a7632a8d7ea89
+semanticHash: c925638cb233bbec0d645609a7c50addc28213425070a6cf7864a1d83e2bf746

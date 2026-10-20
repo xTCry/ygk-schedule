@@ -2416,7 +2416,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2484,9 +2484,97 @@ dates:
               rawReplacement: МДК 01.01 пр. Хухарева Н.Е. Гасенина М.П
               rawRoom: Б409Б507
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 1333b95e5d4a47bd40a8222df9678cdc1c80a5d25e5f65648c51319620b87c0a
     replacements:
       - *a71
       - *a72
       - *a73
+  2026-10-21:
+    date: 2026-10-21
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-21
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 1333b95e5d4a47bd40a8222df9678cdc1c80a5d25e5f65648c51319620b87c0a
+          fetchedAt: 2026-10-20T14:15:35.895Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad75bde-2710"
+          lastModified: Tue, 20 Oct 2026 12:17:34 GMT
+        replacements:
+          - &a74
+            date: 2026-10-21
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.01 МДК 01.01
+            replacement:
+              raw: МДК 01.01 Т.1.2. п/гр.1 Хухарева Н.Е.
+              room: Б409
+            source:
+              shift: second
+              row: 7
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.01 МДК 01.01
+              rawReplacement: МДК 01.01 Т.1.2. п/гр.1 Хухарева Н.Е.
+              rawRoom: Б409
+          - &a75
+            date: 2026-10-21
+            group: СТ1-35
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01 МДК 01.01
+            replacement:
+              raw: МДК 01.01 Т1.3. п/гр.2 Ткачев М.С. МДК 01.01 Т.1.2.п/гр.1 Хухарева Н.Е.
+              room: А201Б409
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01 МДК 01.01
+              rawReplacement: МДК 01.01 Т1.3. п/гр.2 Ткачев М.С. МДК 01.01 Т.1.2.п/гр.1
+                Хухарева Н.Е.
+              rawRoom: А201Б409
+          - &a76
+            date: 2026-10-21
+            group: СТ1-35
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.01 МДК 01.01
+            replacement:
+              raw: МДК 01.01 Т1.3. п/гр.2 Ткачев М.С.
+              room: А201
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.01 МДК 01.01
+              rawReplacement: МДК 01.01 Т1.3. п/гр.2 Ткачев М.С.
+              rawRoom: А201
+        diagnostics: []
+    replacements:
+      - *a74
+      - *a75
+      - *a76
 diagnostics: []
-semanticHash: 5a074c73b8cdcfc9c2c12f3e8610b641f8ce76dfba1517a546284d2ef90cbe3b
+semanticHash: b15d98c9d7bb816eddd932b67098e45ca5349de6b8e3c5eb8bd10dd5821745f1

@@ -3883,6 +3883,139 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-10-21:
+    date: 2026-10-21
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-21
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e68be842e06e3d68be0eb49b52c14c7fd51c127e62a3dbd149f641b4a944ccd5
+          fetchedAt: 2026-10-20T14:15:35.871Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad766d7-429a"
+          lastModified: Tue, 20 Oct 2026 13:04:23 GMT
+      second:
+        date: 2026-10-21
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 1333b95e5d4a47bd40a8222df9678cdc1c80a5d25e5f65648c51319620b87c0a
+          fetchedAt: 2026-10-20T14:15:35.895Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad75bde-2710"
+          lastModified: Tue, 20 Oct 2026 12:17:34 GMT
+    groups:
+      5 ИКС:
+        group: 5 ИКС
+        date: 2026-10-21
+        day: Среда
+        lessons:
+          - number: 2
+            variants:
+              - subject: Основы бережливого производства
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: both
+                sourceRow: 70
+            source:
+              sheet: 4 курс
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: УП.03 Учебная практика
+                teacher: Елистратов А.М.
+                room: ДОТ
+                weekType: both
+                sourceRow: 72
+                rawRoom: ДОТ
+            source:
+              sheet: 4 курс
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a17
+                  date: 2026-10-21
+                  group: 5 ИКС
+                  lessonNumbers:
+                    - 3
+                    - 4
+                    - 5
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 64
+                    rawGroupName: 5 ИКС
+                    rawLessonNumbers: 3-5
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: scheduled-room
+          - number: 4
+            variants:
+              - subject: МДК. 03.01 Применение программноаппаратных средств защиты информации в
+                  инфокоммуникационных системах и сетях связи
+                teacher: Елистратов А.М.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 75
+                rawRoom: ДОТ
+            source:
+              sheet: 4 курс
+              rowStart: 74
+              rowEnd: 75
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a17
+                lessonNumber: 4
+                strategy: scheduled-room
+          - number: 5
+            variants:
+              - subject: МДК. 03.01 Применение программноаппаратных средств защиты информации в
+                  инфокоммуникационных системах и сетях связи
+                teacher: Елистратов А.М.
+                room: ДОТ
+                weekType: both
+                sourceRow: 76
+                rawRoom: ДОТ
+            source:
+              sheet: 4 курс
+              rowStart: 76
+              rowEnd: 77
+              rawGroupName: 5 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a17
+                lessonNumber: 5
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3899,7 +4032,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: 5 ИКС
-      baseSourceFiles: &a18
+      baseSourceFiles: &a19
         - ort.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -3918,7 +4051,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a17
+      baseSourceFiles: &a18
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -3944,7 +4077,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a17
+      baseSourceFiles: *a18
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -3969,7 +4102,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: 5 ИКС
-      baseSourceFiles: *a18
+      baseSourceFiles: *a19
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -3987,7 +4120,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a17
+      baseSourceFiles: *a18
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -4062,7 +4195,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a18
+      baseSourceFiles: *a19
       requestedSubject: МДК 01.04
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -4086,7 +4219,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a17
+      baseSourceFiles: *a18
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -4095,4 +4228,4 @@ diagnostics:
           sourceRow: 79
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 5c0fdfe78daa90b085cdc0e5eb794f5b2440737aababa5d5e77516f404be5fcf
+semanticHash: 94df96d081e52c428b772baa5f37fb24e6ef69e5d8f84092db25257ed6639d6d
