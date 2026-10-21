@@ -1221,7 +1221,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1252,8 +1252,75 @@ dates:
               rawReplacement: Гасенина М.П.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
     replacements:
       - *a30
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
+          fetchedAt: 2026-10-21T14:27:44.485Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad8a81f-2273"
+          lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+        replacements:
+          - &a31
+            date: 2026-10-22
+            group: АР1-42
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 01.05 Т.5.3.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 26
+              rawGroupName: АР1-42
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05 Т.5.3.
+              rawReplacement: снято
+              rawRoom: ""
+          - &a32
+            date: 2026-10-22
+            group: АР1-42
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.05 Т.5.1....
+            replacement:
+              raw: МДК 01.05 Т.5.3. Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 27
+              rawGroupName: АР1-42
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.05 Т.5.1....
+              rawReplacement: МДК 01.05 Т.5.3. Балина С.А.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a31
+      - *a32
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1276,4 +1343,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 3ca1ab3f5c9997389e7e1a22b61bc83c7f523ccfd78588b1ec0f4bd5aeeda0d3
+semanticHash: a410dc9f0003cab894da1dcd090a810fa97a62e90d022dd2b5984b5d87a597b0

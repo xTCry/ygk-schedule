@@ -1589,7 +1589,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1639,8 +1639,75 @@ dates:
               rawReplacement: 1,2 п/гр. Сосновских А.Л.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
     replacements:
       - *a45
       - *a46
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
+          fetchedAt: 2026-10-21T14:27:44.485Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad8a81f-2273"
+          lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+        replacements:
+          - &a47
+            date: 2026-10-22
+            group: ДИ1-32
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 02.01 Сосновских А.Л.
+              room: Б508
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 02.01 Сосновских А.Л.
+              rawRoom: Б508
+          - &a48
+            date: 2026-10-22
+            group: ДИ1-32
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: Махоткина Д.Е.Матвеичева К.А.
+              room: Б301Б310
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-32
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.02
+              rawReplacement: Махоткина Д.Е.Матвеичева К.А.
+              rawRoom: Б301Б310
+        diagnostics: []
+    replacements:
+      - *a47
+      - *a48
 diagnostics: []
-semanticHash: 372f043f5a868148a5cbb73255f13177fdcd31e0452a54f9b87816661a563263
+semanticHash: a75d3649b895e5a5cab5254061acc580a18e80d4158bc61831121bbd2f9ef67e

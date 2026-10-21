@@ -1229,7 +1229,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1261,7 +1261,54 @@ dates:
               rawReplacement: МДК 01.01 Т.1.2. Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
     replacements:
       - *a32
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
+          fetchedAt: 2026-10-21T14:27:44.485Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad8a81f-2273"
+          lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+        replacements:
+          - &a33
+            date: 2026-10-22
+            group: СД2-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 01.01 Т.2.2. Ткачев М.С.
+              room: М208
+            source:
+              shift: second
+              row: 12
+              rawGroupName: СД2-21
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 01.01 Т.2.2. Ткачев М.С.
+              rawRoom: М208
+        diagnostics: []
+    replacements:
+      - *a33
 diagnostics: []
-semanticHash: eec7ed1a109cc4a328d9b896a29b7760baeada2e0877921909343a214c551bfa
+semanticHash: 56b8991ade51d36ced85e0426ea46fed1b88834394627ae672e3dddc3c9bcd3e

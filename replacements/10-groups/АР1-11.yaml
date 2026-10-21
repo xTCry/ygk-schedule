@@ -883,7 +883,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -913,7 +913,72 @@ dates:
               rawReplacement: Доп.проф.п/гр.2 Воронкевич Г.А.
               rawRoom: Б510
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
     replacements:
       - *a23
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
+          fetchedAt: 2026-10-21T14:27:44.530Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad89a0a-54ea"
+          lastModified: Wed, 21 Oct 2026 10:55:06 GMT
+        replacements:
+          - &a24
+            date: 2026-10-22
+            group: АР1-11
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Биология
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 29
+              rawGroupName: АР1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Биология
+              rawReplacement: снято
+              rawRoom: ""
+          - &a25
+            date: 2026-10-22
+            group: АР1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Информ. Комиссарова О.В.
+              room: Б301
+            source:
+              shift: first
+              row: 30
+              rawGroupName: АР1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Информ. Комиссарова О.В.
+              rawRoom: Б301
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics: []
-semanticHash: ff008f66ba0c66b28c2d5897f3eb4ed4e9221908c1a45bef301e724d880cbad9
+semanticHash: 9a7d25e9128ab752011a20442212713f78e16812999bb405ad4913f9d174c136

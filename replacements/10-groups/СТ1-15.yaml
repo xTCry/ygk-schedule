@@ -1749,7 +1749,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1780,7 +1780,93 @@ dates:
               rawReplacement: Инд.проект п/гр.1 Шалаева А.А.
               rawRoom: А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
     replacements:
       - *a48
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
+          fetchedAt: 2026-10-21T14:27:44.530Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad89a0a-54ea"
+          lastModified: Wed, 21 Oct 2026 10:55:06 GMT
+        replacements:
+          - &a49
+            date: 2026-10-22
+            group: СТ1-15
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 33
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: снято
+              rawRoom: ""
+          - &a50
+            date: 2026-10-22
+            group: СТ1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Литература Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 32
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Литература Шалаева А.А.
+              rawRoom: А203
+          - &a51
+            date: 2026-10-22
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Девлитянс О.В.
+              room: Б401
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр.Ин.язык Девлитянс О.В.
+              rawRoom: Б401
+        diagnostics: []
+    replacements:
+      - *a49
+      - *a50
+      - *a51
 diagnostics: []
-semanticHash: 2c9a342ae730f378af8a6eda958b1fbddfe4488dd09f027524fd3c263e5b2cd9
+semanticHash: 533b95abb3fff929377058f0b0e053825b522233c8128858ff947cd4f480086e

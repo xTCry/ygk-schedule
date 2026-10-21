@@ -1213,7 +1213,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1262,8 +1262,54 @@ dates:
               rawReplacement: История России Горбачёв В.Н.
               rawRoom: Ф201
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
     replacements:
       - *a32
       - *a33
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
+          fetchedAt: 2026-10-21T14:27:44.485Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad8a81f-2273"
+          lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+        replacements:
+          - &a34
+            date: 2026-10-22
+            group: ЮР1-21
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: ДОУ
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "5"
+              rawOriginal: ДОУ
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a34
 diagnostics: []
-semanticHash: e428f25838b060c5ddfe223316e7bddd33164b4f41c65908de2346fd1c6e56c1
+semanticHash: 895506dd25f468ce74b190261941faadaf0f8aeca98cf94de75b1330bc5612e2

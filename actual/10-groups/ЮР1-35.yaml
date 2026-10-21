@@ -1348,7 +1348,7 @@ dates:
         date: 2026-10-21
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1358,11 +1358,15 @@ dates:
           shift: first
           etag: W/"6ad766d7-429a"
           lastModified: Tue, 20 Oct 2026 13:04:23 GMT
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
       second:
         date: 2026-10-21
         day: Среда
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1372,6 +1376,10 @@ dates:
           shift: second
           etag: W/"6ad75bde-2710"
           lastModified: Tue, 20 Oct 2026 12:17:34 GMT
+        finalizedBy:
+          date: 2026-10-22
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
     groups:
       ЮР1-35:
         group: ЮР1-35
@@ -1455,6 +1463,55 @@ dates:
                 lessonNumber: 2
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК.01.01 Административный процесс
+                  teacher: Грак А.М.
+                  room: Ф106
+                  weekType: both
+                  sourceRow: 108
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 108
+                rowEnd: 109
+                rawGroupName: ЮР1-35 / ЮР1-36
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.01.02 Трудовое право
+                  teacher: Грак А.М.
+                  room: Ф107
+                  weekType: denominator
+                  sourceRow: 111
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 110
+                rowEnd: 111
+                rawGroupName: ЮР1-35 / ЮР1-36
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.01.04 Арбитражный процесс
+                  teacher: Грак А.М.
+                  room: Ф106
+                  weekType: both
+                  sourceRow: 112
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 112
+                rowEnd: 113
+                rawGroupName: ЮР1-35 / ЮР1-36
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -1475,4 +1532,4 @@ diagnostics:
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 82cb50ff9f3db8f554cd766c52564697e032382aa782d001085997c998aa1f0c
+semanticHash: 456daf99a78942fc6d347110f54f889efbdb3f90f2e0f44d2f5d75aa8841ce3f

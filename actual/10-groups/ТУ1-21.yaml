@@ -3300,6 +3300,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
+          fetchedAt: 2026-10-21T14:27:44.530Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad89a0a-54ea"
+          lastModified: Wed, 21 Oct 2026 10:55:06 GMT
+      second:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: aa4088c9b614725b165d37ea202127a3f1f6c2d81e2af9c48031366de0117158
+          fetchedAt: 2026-10-21T14:27:44.485Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad8a81f-2273"
+          lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+    groups:
+      ТУ1-21:
+        group: ТУ1-21
+        date: 2026-10-22
+        day: Четверг
+        lessons:
+          - number: 2
+            variants: []
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 75
+              rowEnd: 76
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-22
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 2
+                  type: cancel
+                  original:
+                    raw: Инф.экс.
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 6
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: Инф.экс.
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: Пред.деят.
+                teacher: Девятаева Н.Ф.
+                room: Ф107
+                weekType: both
+                rawSubject: Пред.деят. Девятаева Н.Ф.
+                rawTeacher: Девятаева Н.Ф.
+                rawRoom: Ф107
+                sourceRow: 5
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 77
+              rowEnd: 78
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a5
+                  date: 2026-10-22
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: Инф.экс.Физкул.
+                  replacement:
+                    raw: Пред.деят. Девятаева Н.Ф.
+                    room: Ф107
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Инф.экс.Физкул.
+                    rawReplacement: Пред.деят. Девятаева Н.Ф.
+                    rawRoom: Ф107
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants:
+              - subject: Пред.деят.
+                teacher: Девятаева Н.Ф.
+                room: Ф107
+                weekType: both
+                rawSubject: Пред.деят. Девятаева Н.Ф.
+                rawTeacher: Девятаева Н.Ф.
+                rawRoom: Ф107
+                sourceRow: 5
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 79
+              rowEnd: 80
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a5
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3351,4 +3482,4 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: dfb0ded45b34aec6a8b99c03e9e2086f4b21b48c4d4d1bb13f35ddf011628ada
+semanticHash: 67ddd61eb79cf46920bfdf5a7a0d2fcda6bf7fb0df8205503dc857f454c68ffd

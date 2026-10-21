@@ -799,5 +799,66 @@ dates:
           sourceSha256: 7b487008ad93df7a5750c79b13af352fe281eca3feaa11e796ca67190a366e2f
     replacements:
       - *a20
+  2026-10-22:
+    date: 2026-10-22
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-22
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
+          fetchedAt: 2026-10-21T14:27:44.530Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad89a0a-54ea"
+          lastModified: Wed, 21 Oct 2026 10:55:06 GMT
+        replacements:
+          - &a21
+            date: 2026-10-22
+            group: ТУ1-11
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Русский язык Головкина С.А.
+              room: Ф303
+            source:
+              shift: first
+              row: 70
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Русский язык Головкина С.А.
+              rawRoom: Ф303
+          - &a22
+            date: 2026-10-22
+            group: ТУ1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Математика
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics: []
-semanticHash: c04c81e5d5c64abfc8690add4399757e80dc6d2475eb9b2c667197ae184c8317
+semanticHash: 69519876d3c110a2ba720e4079bf3d9b87b89e6ee6fe6487aaf5e7f300da67cf
