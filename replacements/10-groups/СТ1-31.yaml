@@ -1364,7 +1364,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1416,8 +1416,56 @@ dates:
                 Голованова Н.М.
               rawRoom: Б401Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
     replacements:
       - *a36
       - *a37
+  2026-10-23:
+    date: 2026-10-23
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
+          fetchedAt: 2026-10-22T14:29:05.933Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad9f5b9-20f5"
+          lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        replacements:
+          - &a38
+            date: 2026-10-23
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.п/гр.2
+            replacement:
+              raw: п/гр.1 Секацкая Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01 Т.1.2.п/гр.2
+              rawReplacement: п/гр.1 Секацкая Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a38
 diagnostics: []
-semanticHash: a3a19a7324984f79229e19a702993ccfca5f980b344c69b0a8df156ba59726fc
+semanticHash: d6ce55c1d42c088d2cf8c52f32bafa58a1e1aab48963b794a6f58094a0b578d7

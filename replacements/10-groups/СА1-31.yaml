@@ -992,5 +992,66 @@ dates:
           sourceSha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
     replacements:
       - *a25
+  2026-10-23:
+    date: 2026-10-23
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
+          fetchedAt: 2026-10-22T14:29:05.933Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad9f5b9-20f5"
+          lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        replacements:
+          - &a26
+            date: 2026-10-23
+            group: СА1-31
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Зайцев Р.А. Грехова Е.И.
+              room: Б302
+            source:
+              shift: second
+              row: 18
+              rawGroupName: СА1-31
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Зайцев Р.А. Грехова Е.И.
+              rawRoom: Б302
+          - &a27
+            date: 2026-10-23
+            group: СА1-31
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 17
+              rawGroupName: СА1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 03.01
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
 diagnostics: []
-semanticHash: 9599b6ca1c4b147917d22cf6539bd41a9f33c81162c6642eb1a031c35ab43336
+semanticHash: c4791aea011fd66c74e99453a6030fea2067ed56b47236b06265f49440d4e3a9

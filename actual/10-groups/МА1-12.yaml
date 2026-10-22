@@ -4701,7 +4701,194 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-23:
+    date: 2026-10-23
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 08da99145cbef11f11791e8a8d77cb158b9e9cfd329191d7577dcbb6f3e23389
+          fetchedAt: 2026-10-22T14:29:05.940Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ad9e6f7-483b"
+          lastModified: Thu, 22 Oct 2026 10:35:35 GMT
+      second:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
+          fetchedAt: 2026-10-22T14:29:05.933Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad9f5b9-20f5"
+          lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+    groups:
+      МА1-12:
+        group: МА1-12
+        date: 2026-10-23
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Слесарное дело
+                teacher: Щеглов И.А.
+                room: МТ103
+                weekType: both
+                subgroup: "2"
+                rawSubject: Слесарное дело Щеглов И.А.
+                rawTeacher: Щеглов И.А.
+                rawRoom: МТ103
+                sourceRow: 45
+            source:
+              sheet: "МА1-11 МА1-13 МА1-21 "
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: МА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-23
+                  group: МА1-12
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: Слесарное дело Щеглов И.А.
+                    room: МТ103
+                  source:
+                    shift: first
+                    row: 45
+                    rawGroupName: МА1-12
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: Слесарное дело Щеглов И.А.
+                    rawRoom: МТ103
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: |-
+                  МДК.01.01 Устройство автомобильных средств п/гр 2
+                  Слесарное дело п/гр 1
+                teacher: |-
+                  Тепляков А.Б.
+                  Щеглов И.А.
+                room: |-
+                  МТ106
+                  МТ103
+                weekType: denominator
+                rawSubject: |-
+                  МДК.01.01 Устройство автомобильных средств п/гр 2 
+                  Слесарное дело п/гр 1
+                sourceRow: 101
+            source:
+              sheet: "МА1-11 МА1-13 МА1-21 "
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: МА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: |-
+                  МДК.01.01 Устройство автомобильных средств п/гр 2
+                  Слесарное дело п/гр 1
+                teacher: |-
+                  Тепляков А.Б.
+                  Щеглов И.А.
+                room: |-
+                  МТ106
+                  МТ103
+                weekType: denominator
+                rawSubject: |-
+                  МДК.01.01 Устройство автомобильных средств п/гр 2 
+                  Слесарное дело п/гр 1
+                sourceRow: 103
+            source:
+              sheet: "МА1-11 МА1-13 МА1-21 "
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: МА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-10-23
+              group: МА1-12
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: МДК 01.01 п/гр.1
+              replacement:
+                raw: /теория Тепляков А.Б.
+                room: МТ106
+              source:
+                shift: first
+                row: 46
+                rawGroupName: МА1-12
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 01.01 п/гр.1
+                rawReplacement: /теория Тепляков А.Б.
+                rawRoom: МТ106
+            lessonNumber: 2
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.01 п/гр.1». По замене: «/теория Тепляков
+                А.Б.». Аудитория: «МТ106»."
+              room: МТ106
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 60b1c919c60b02400480edff8f8c93c250825f153a29a77d1702f698e78bc9b0
+    sheet: "Замены: Первая смена"
+    row: 46
+    normalizedGroup: МА1-12
+    rawValue: /теория Тепляков А.Б.
+    context:
+      date: 2026-10-23
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: МА1-12
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: МДК 01.01
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: |-
+            МДК.01.01 Устройство автомобильных средств п/гр 2
+            Слесарное дело п/гр 1
+          teacher: |-
+            Тепляков А.Б.
+            Щеглов И.А.
+          room: |-
+            МТ106
+            МТ103
+          sourceRow: 103
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4750,4 +4937,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 38ab1c34b942ddfc880e05f3717872abe5c28162f900727db2cd6f6117c50106
+semanticHash: a729429c363d77eaf52fffc97bef62fa78d3e92d327810f317551eef20301624

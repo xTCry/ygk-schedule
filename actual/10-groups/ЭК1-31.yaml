@@ -3376,7 +3376,7 @@ dates:
         date: 2026-10-22
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3386,11 +3386,15 @@ dates:
           shift: first
           etag: W/"6ad89a0a-54ea"
           lastModified: Wed, 21 Oct 2026 10:55:06 GMT
+        finalizedBy:
+          date: 2026-10-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 08da99145cbef11f11791e8a8d77cb158b9e9cfd329191d7577dcbb6f3e23389
       second:
         date: 2026-10-22
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3400,6 +3404,10 @@ dates:
           shift: second
           etag: W/"6ad8a81f-2273"
           lastModified: Wed, 21 Oct 2026 11:55:11 GMT
+        finalizedBy:
+          date: 2026-10-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
     groups:
       ЭК1-31:
         group: ЭК1-31
@@ -3477,6 +3485,56 @@ dates:
                 lessonNumber: 2
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: УП 04.01 Учебная практика п/гр2
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 74
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 73
+                rowEnd: 74
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: both
+                  sourceRow: 75
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 75
+                rowEnd: 76
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.04.02 Основы анализа бухгалтерской отчетности
+                  teacher: Бежина М.И.
+                  room: Ф302
+                  weekType: denominator
+                  sourceRow: 78
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 77
+                rowEnd: 78
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3574,4 +3632,4 @@ diagnostics:
           sourceRow: 77
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: f39a15258eb87480019843f356037c2792f5e4703b78fce6eae838bb6d3621b8
+semanticHash: 022fcaf93919149e62b1288301bfc6086b43f03db11a2d6edeeff704e9821c29

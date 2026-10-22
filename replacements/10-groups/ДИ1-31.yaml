@@ -1599,7 +1599,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1631,7 +1631,74 @@ dates:
               rawReplacement: 1,2 п/гр. Сосновских А.Л.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
     replacements:
       - *a43
+  2026-10-23:
+    date: 2026-10-23
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
+          fetchedAt: 2026-10-22T14:29:05.933Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad9f5b9-20f5"
+          lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        replacements:
+          - &a44
+            date: 2026-10-23
+            group: ДИ1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Сосновских А.Л.Лапина А.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 19
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Сосновских А.Л.Лапина А.А.
+              rawRoom: ДОТ
+          - &a45
+            date: 2026-10-23
+            group: ДИ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: п/гр.2 Сосновских А.Л.
+              room: ДОТ
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: п/гр.2 Сосновских А.Л.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a44
+      - *a45
 diagnostics: []
-semanticHash: b306a8f3a376b77adaed65f1d65ef87246e3afa20632336acfda5e9897069e9e
+semanticHash: a328212ed2391149ebfa47da2a53adb442c2d97faa02512aee69be30baf6211e

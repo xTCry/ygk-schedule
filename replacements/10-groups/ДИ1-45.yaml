@@ -855,6 +855,68 @@ dates:
     replacements:
       - *a19
       - *a20
+  2026-10-23:
+    date: 2026-10-23
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-23
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
+          fetchedAt: 2026-10-22T14:29:05.933Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ad9f5b9-20f5"
+          lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        replacements:
+          - &a21
+            date: 2026-10-23
+            group: ДИ1-45
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Экон.организации Белогорская Я.В.
+              room: Б401
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Экон.организации Белогорская Я.В.
+              rawRoom: Б401
+          - &a22
+            date: 2026-10-23
+            group: ДИ1-45
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: Физкультура МДК 01.02
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: 5,6
+              rawOriginal: Физкультура МДК 01.02
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a21
+      - *a22
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -877,4 +939,4 @@ diagnostics:
     rawValue: ДИ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 5fda4e7609203e981ace984c788df5eefbd6213b54e8e9f63296865cbb446e22
+semanticHash: 4e03fb09f04c7319be462477ce4b0d495aa3f90cf3e59feba26e5eb6f351d433
