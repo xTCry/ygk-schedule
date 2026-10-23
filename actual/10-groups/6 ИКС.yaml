@@ -7124,7 +7124,7 @@ dates:
         date: 2026-10-23
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -7134,11 +7134,15 @@ dates:
           shift: first
           etag: W/"6ad9e6f7-483b"
           lastModified: Thu, 22 Oct 2026 10:35:35 GMT
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
       second:
         date: 2026-10-23
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -7148,6 +7152,10 @@ dates:
           shift: second
           etag: W/"6ad9f5b9-20f5"
           lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 37e31970852b8a4bb3edfbd594b3a2310602320a24576a6df6ef3681f083bf9c
     groups:
       6 ИКС:
         group: 6 ИКС
@@ -7270,6 +7278,76 @@ dates:
               description: "По расписанию: «ИДК 01.04 Ин.яз.Физкул.». По замене: «1,2 п/гр.УП
                 01 Елистратов А.М.». Аудитория: «экскурсия»."
               room: экскурсия
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК. 01.04 Монтаж и эксплуатация систем видеонаблюдения и систем
+                    безопасности
+                  teacher: Елистратов А.М.
+                  room: к.43
+                  weekType: both
+                  rawSubject: МДК. 01.04 Монтаж и эксплуатация  систем видеонаблюдения и систем
+                    безопасности
+                  sourceRow: 94
+              source:
+                sheet: 3 курс
+                rowStart: 94
+                rowEnd: 95
+                rawGroupName: 6 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК. 01.04 Монтаж и эксплуатация систем видеонаблюдения и систем
+                    безопасности
+                  teacher: Елистратов А.М.
+                  room: к.43
+                  weekType: both
+                  rawSubject: МДК. 01.04 Монтаж и эксплуатация  систем видеонаблюдения и систем
+                    безопасности
+                  sourceRow: 96
+              source:
+                sheet: 3 курс
+                rowStart: 96
+                rowEnd: 97
+                rawGroupName: 6 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: Вакансия
+                  room: к.биб
+                  weekType: denominator
+                  sourceRow: 99
+              source:
+                sheet: 3 курс
+                rowStart: 98
+                rowEnd: 99
+                rawGroupName: 6 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Физическая культура
+                  teacher: Шпынов Ю.Г.
+                  room: сп.зал
+                  weekType: denominator
+                  sourceRow: 101
+              source:
+                sheet: 3 курс
+                rowStart: 100
+                rowEnd: 101
+                rawGroupName: 6 ИКС
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7578,4 +7656,4 @@ diagnostics:
       baseSourceFiles: *a32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c0d16160355d9e75f85f0ca5480b01c965ed7fcd3c41fdf3c2486e4986b081ef
+semanticHash: 62783706e2adfac81ffb0d92923bd42131bf482f8c1fb30dbcb8fc6652a8cf00

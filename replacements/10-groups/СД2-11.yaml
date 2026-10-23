@@ -2059,7 +2059,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2109,8 +2109,55 @@ dates:
               rawReplacement: МДК 05.01 Гасенина М.П.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
     replacements:
       - *a58
       - *a59
+  2026-10-24:
+    date: 2026-10-24
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-24
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
+          fetchedAt: 2026-10-23T14:12:14.641Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adb2d71-31b9"
+          lastModified: Fri, 23 Oct 2026 09:48:33 GMT
+        replacements:
+          - &a60
+            date: 2026-10-24
+            group: СД2-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Тех.механика п/гр.1
+            replacement:
+              raw: МДК 01.01 Т.1.2. Краснянская Е.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СД2-11
+              rawLessonNumbers: "2"
+              rawOriginal: Тех.механика п/гр.1
+              rawReplacement: МДК 01.01 Т.1.2. Краснянская Е.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a60
 diagnostics: []
-semanticHash: 4711f1c4928707afa2f46923e1dab27047af7b9dd4912ca107d0aa0df625f9db
+semanticHash: a20edea3e8aa4d19c7eba57e948748c28b1ce3dc777c27c3df580fc9edbd5e6c

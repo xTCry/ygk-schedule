@@ -1007,5 +1007,68 @@ dates:
     replacements:
       - *a24
       - *a25
+  2026-10-24:
+    date: 2026-10-24
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-24
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 37e31970852b8a4bb3edfbd594b3a2310602320a24576a6df6ef3681f083bf9c
+          fetchedAt: 2026-10-23T14:12:14.640Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adb44bf-1e78"
+          lastModified: Fri, 23 Oct 2026 11:27:59 GMT
+        replacements:
+          - &a26
+            date: 2026-10-24
+            group: ЭК1-21
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Математика Налоги
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф202
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: 3,4
+              rawOriginal: Математика Налоги
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф202
+          - &a27
+            date: 2026-10-24
+            group: ЭК1-21
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: ФДОиК
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "5"
+              rawOriginal: ФДОиК
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
 diagnostics: []
-semanticHash: 415f489d37ad6b5fc2ab94dff22b4efe3d0f984cb6f66607b0371ca4adc587f0
+semanticHash: 6d359d1fb0a0bc79f7b41da93c0828dc42c8287606ada7f1f81c5de57cc3f5a5

@@ -1253,7 +1253,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1283,8 +1283,54 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
     replacements:
       - *a34
+  2026-10-24:
+    date: 2026-10-24
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-24
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
+          fetchedAt: 2026-10-23T14:12:14.641Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adb2d71-31b9"
+          lastModified: Fri, 23 Oct 2026 09:48:33 GMT
+        replacements:
+          - &a35
+            date: 2026-10-24
+            group: ТТ1-41
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Коротюк И.С.
+              room: МТ103
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Коротюк И.С.
+              rawRoom: МТ103
+        diagnostics: []
+    replacements:
+      - *a35
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1307,4 +1353,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: adc11783b9dd21a349bcdf975fd60b1fc8a2254675b0d50aa954d58962cfc43b
+semanticHash: 4e79c5e6b30d7d8caa311c0868dc487b2026a0f7a610359c2e1c0a99f70f337f

@@ -1137,7 +1137,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1187,8 +1187,75 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
     replacements:
       - *a32
       - *a33
+  2026-10-24:
+    date: 2026-10-24
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-10-24
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
+          fetchedAt: 2026-10-23T14:12:14.641Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adb2d71-31b9"
+          lastModified: Fri, 23 Oct 2026 09:48:33 GMT
+        replacements:
+          - &a34
+            date: 2026-10-24
+            group: ТТ1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: Теор.осн.
+            replacement:
+              raw: Осн.фин.гр. Ковалева С.В.
+              room: Ф303
+            source:
+              shift: first
+              row: 32
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: Теор.осн.
+              rawReplacement: Осн.фин.гр. Ковалева С.В.
+              rawRoom: Ф303
+          - &a35
+            date: 2026-10-24
+            group: ТТ1-21
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Теор.осн.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 31
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Теор.осн.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a34
+      - *a35
 diagnostics: []
-semanticHash: d092829976bd2e405a2329a1f87efefbfa1d18389aab9b25459da12666723f06
+semanticHash: 140cf660977833a63f22545a4f24f8cd4fcaba6cdc9aaf04c2671c984e1ed6c5

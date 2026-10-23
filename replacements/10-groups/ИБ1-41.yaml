@@ -2111,6 +2111,68 @@ dates:
           sourceSha256: 03c57970fbc1e8076ca265966a3073fa2bc40253778113e5043aefc18e281669
     replacements:
       - *a62
+  2026-10-24:
+    date: 2026-10-24
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-10-24
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 37e31970852b8a4bb3edfbd594b3a2310602320a24576a6df6ef3681f083bf9c
+          fetchedAt: 2026-10-23T14:12:14.640Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adb44bf-1e78"
+          lastModified: Fri, 23 Oct 2026 11:27:59 GMT
+        replacements:
+          - &a63
+            date: 2026-10-24
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 03.01 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a64
+            date: 2026-10-24
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01 п/гр.1
+            replacement:
+              raw: МДК 02.02 Хожайнова М.Г.
+              room: Б308
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 п/гр.1
+              rawReplacement: МДК 02.02 Хожайнова М.Г.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a63
+      - *a64
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2133,4 +2195,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: de2d93bc62d3dcd1f1f697bbe994b3347966ce8f8bbaa682b01a0a3041e11bac
+semanticHash: 937c710ebf023f6d3367b716a49674da4933f2649f1e1eaefaf908a565a2f2ea

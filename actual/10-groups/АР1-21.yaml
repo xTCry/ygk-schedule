@@ -3838,7 +3838,7 @@ dates:
         date: 2026-10-23
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3848,11 +3848,15 @@ dates:
           shift: first
           etag: W/"6ad9e6f7-483b"
           lastModified: Thu, 22 Oct 2026 10:35:35 GMT
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
       second:
         date: 2026-10-23
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3862,6 +3866,10 @@ dates:
           shift: second
           etag: W/"6ad9f5b9-20f5"
           lastModified: Thu, 22 Oct 2026 11:38:33 GMT
+        finalizedBy:
+          date: 2026-10-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 37e31970852b8a4bb3edfbd594b3a2310602320a24576a6df6ef3681f083bf9c
     groups:
       АР1-21:
         group: АР1-21
@@ -3925,6 +3933,44 @@ dates:
                 lessonNumber: 3
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК 01.02 Объемно-пространственная композиция с элементами
+                    макетирования
+                  teacher: Шатрова М.П.
+                  room: Б508
+                  weekType: denominator
+                  sourceRow: 39
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 38
+                rowEnd: 39
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 01.02 Объемно-пространственная композиция с элементами
+                    макетирования
+                  teacher: |-
+                    Шатрова М.П.
+                    Иванов Ю.А.
+                  room: Б508
+                  weekType: both
+                  sourceRow: 40
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 40
+                rowEnd: 41
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3982,4 +4028,4 @@ diagnostics:
           sourceRow: 8
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a3e57ea020129f1a0691e9aca1b6e68338ec802165350ef3633b3f12976920fa
+semanticHash: 3e82059e7a2f8046ede26c913ef16288d94644ed02606b1f201edd33d4e7d5e2
