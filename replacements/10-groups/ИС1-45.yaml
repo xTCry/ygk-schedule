@@ -1976,7 +1976,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2007,8 +2007,55 @@ dates:
               rawReplacement: МДК 05.02 Панасюк А.Д.Васильченко М.О.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
     replacements:
       - *a58
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
+          fetchedAt: 2026-10-24T13:15:06.988Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adc902d-23e5"
+          lastModified: Sat, 24 Oct 2026 11:02:05 GMT
+        replacements:
+          - &a59
+            date: 2026-10-26
+            group: ИС1-45
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: 1,2 п/гр.МДК 05.03 Юров А.А.
+              room: Б301
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: 1,2 п/гр.МДК 05.03 Юров А.А.
+              rawRoom: Б301
+        diagnostics: []
+    replacements:
+      - *a59
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2031,4 +2078,4 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 120fdce9d285b22d5c181296055ac5e267e289764dbe219ce4a11598c04356de
+semanticHash: 41ffd061b8764c83d167bae64c603f6fd9316a941a27a6aa745215a740dddc81

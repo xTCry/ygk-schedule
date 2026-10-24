@@ -2467,7 +2467,7 @@ dates:
         date: 2026-10-24
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2477,11 +2477,15 @@ dates:
           shift: first
           etag: W/"6adb2d71-31b9"
           lastModified: Fri, 23 Oct 2026 09:48:33 GMT
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
       second:
         date: 2026-10-24
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2491,6 +2495,10 @@ dates:
           shift: second
           etag: W/"6adb44bf-1e78"
           lastModified: Fri, 23 Oct 2026 11:27:59 GMT
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
     groups:
       СД2-31:
         group: СД2-31
@@ -2571,6 +2579,58 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Физическая культура
+                  teacher: Николаенко Ю.А.
+                  room: Сп.зал
+                  weekType: both
+                  sourceRow: 196
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 196
+                rowEnd: 197
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.01.02. Проект производства работ
+                  teacher: Машкова Е.С.
+                  room: Б402
+                  weekType: both
+                  rawSubject: " МДК.01.02. Проект производства работ"
+                  sourceRow: 198
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 198
+                rowEnd: 199
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.01.02. Проект производства работ п/гр1
+                  teacher: Машкова Е.С.
+                  room: Б402
+                  weekType: denominator
+                  subgroup: "1"
+                  rawSubject: " МДК.01.02. Проект производства работ п/гр1"
+                  sourceRow: 201
+              source:
+                sheet: СД2-11 СД2-13 СД2-21 СД2-31
+                rowStart: 200
+                rowEnd: 201
+                rawGroupName: СД2-31/СД2-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2593,4 +2653,4 @@ diagnostics:
     rawValue: СД2-31 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b058430e68b8e806feca8a3bbf83d13550ba22ecc5b3a5110e761c69356d9d7f
+semanticHash: cc69ca053c1c513f679fd6cae0b593b1eff00d613823df7b18cde64a1d296741

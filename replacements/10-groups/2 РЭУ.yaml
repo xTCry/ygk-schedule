@@ -1669,5 +1669,66 @@ dates:
     replacements:
       - *a45
       - *a46
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+        replacements:
+          - &a47
+            date: 2026-10-26
+            group: 2 РЭУ
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Осн.электр.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 60
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "0"
+              rawOriginal: Осн.электр.
+              rawReplacement: снято
+              rawRoom: ""
+          - &a48
+            date: 2026-10-26
+            group: 2 РЭУ
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Осн.электр. Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 61
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Осн.электр. Филиппова А.С.
+              rawRoom: к.30
+        diagnostics: []
+    replacements:
+      - *a47
+      - *a48
 diagnostics: []
-semanticHash: ed9281f4040e1fdea7f230af192659cd80b066bd1b747d2685246d850034c2d7
+semanticHash: a7a4b00785345b1310d0bf8353ae333c16790a7c90c35138246ea207b6e05e3a

@@ -4388,7 +4388,154 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+      second:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
+          fetchedAt: 2026-10-24T13:15:06.988Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adc902d-23e5"
+          lastModified: Sat, 24 Oct 2026 11:02:05 GMT
+    groups:
+      ИБ1-11:
+        group: ИБ1-11
+        date: 2026-10-26
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Грибанова Е.Н.
+                room: А203
+                weekType: both
+                sourceRow: 200
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 200
+              rowEnd: 201
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Грибанова Е.Н.
+                room: А201
+                weekType: both
+                sourceRow: 202
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 202
+              rowEnd: 203
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Дворниченко Г.В.
+                room: В401
+                weekType: both
+                sourceRow: 204
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 204
+              rowEnd: 205
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants: []
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 206
+              rowEnd: 207
+              rawGroupName: ИБ1-11/ИБ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a8
+                  date: 2026-10-26
+                  group: ИБ1-11
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Физкул.Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 21
+                    rawGroupName: ИБ1-11
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Физкул.Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements:
+          - replacement: *a8
+            lessonNumber: 3
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Физкул.Разговоры». По замене: «снято»."
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 30f3577a71c8224d70fa4484a993da08596bc3eac885ce659e8edab48ca9333f
+    sheet: "Замены: Первая смена"
+    row: 21
+    normalizedGroup: ИБ1-11
+    rawValue: снято
+    context:
+      date: 2026-10-26
+      lessonNumber: 3
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ИБ1-11
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: Физкул.Разговоры
+      candidates:
+        - subject: Основы шахматной игры
+          teacher: Дворниченко Г.В.
+          room: В401
+          sourceRow: 204
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -4414,4 +4561,4 @@ diagnostics:
           sourceRow: 218
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 93b6e87635a7c7acca8265830d646de915487155026dcde9a49d151b95e3e106
+semanticHash: 4b55d3456950d4d1bfc798fc04a54975aea699358ec9ee601b85769423e3aab7

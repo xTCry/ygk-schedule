@@ -1509,7 +1509,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1541,7 +1541,54 @@ dates:
               rawReplacement: Русский язык Грибанова Е.Н.
               rawRoom: А202,Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
     replacements:
       - *a44
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+        replacements:
+          - &a45
+            date: 2026-10-26
+            group: ПО1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.проф.деят.
+            replacement:
+              raw: Информ. Лужина А.С.
+              room: Б403
+            source:
+              shift: first
+              row: 30
+              rawGroupName: ПО1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.проф.деят.
+              rawReplacement: Информ. Лужина А.С.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a45
 diagnostics: []
-semanticHash: 355bb9a0c0d97315a18bba0c05455c728f4c7b0348bc395e670bc2f78e098cff
+semanticHash: 5fd7c870676278afcad4aab9cfe319ee551615b12ac64ec529a19d33aa8b8cac

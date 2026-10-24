@@ -5396,7 +5396,7 @@ dates:
         date: 2026-10-24
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -5406,11 +5406,15 @@ dates:
           shift: first
           etag: W/"6adb2d71-31b9"
           lastModified: Fri, 23 Oct 2026 09:48:33 GMT
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
       second:
         date: 2026-10-24
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5420,6 +5424,10 @@ dates:
           shift: second
           etag: W/"6adb44bf-1e78"
           lastModified: Fri, 23 Oct 2026 11:27:59 GMT
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
     groups:
       ЮР1-17:
         group: ЮР1-17
@@ -5505,6 +5513,41 @@ dates:
                 lessonNumber: 1
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Основы безопасности и защиты Родины
+                  teacher: Корсаков С.В.
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 205
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 205
+                rowEnd: 206
+                rawGroupName: ЮР 1-17 / ЮР1-18
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Информатика
+                  teacher: Нестерова А.В.
+                  room: Ф306
+                  weekType: denominator
+                  rawSubject: "Информатика "
+                  sourceRow: 208
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 207
+                rowEnd: 208
+                rawGroupName: ЮР 1-17 / ЮР1-18
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5653,4 +5696,4 @@ diagnostics:
           sourceRow: 207
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 00ae8fa800a6e9ceb8b927c8c639ea0838eec6ce89631f10066cb9bdefd050e7
+semanticHash: 4c8c6c43cfc2a82b1e315865dbf894a2cd018f77b883fe05de39c1617f5b12d2

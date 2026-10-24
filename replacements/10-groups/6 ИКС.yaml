@@ -2098,6 +2098,69 @@ dates:
           sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
     replacements:
       - *a62
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+        replacements:
+          - &a63
+            date: 2026-10-26
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: УП 02 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 62
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: УП 02 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+          - &a64
+            date: 2026-10-26
+            group: 6 ИКС
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 02 п/гр.2
+            replacement:
+              raw: УП 01 п/гр.2 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 63
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: УП 02 п/гр.2
+              rawReplacement: УП 01 п/гр.2 Елистратов А.М.
+              rawRoom: к.43
+        diagnostics: []
+    replacements:
+      - *a63
+      - *a64
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2110,4 +2173,4 @@ diagnostics:
     rawValue: "6 ИКС | 0-2 |  | "
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6b77a8bd5f10c513c00eaeab652a1416d3754d986996b84c7134f60f088a5069
+semanticHash: 5b30af4dfee8fc97b6b097732e058a512d49baecedb48a1bd7a39e5a95c3613e

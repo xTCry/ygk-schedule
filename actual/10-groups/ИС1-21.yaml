@@ -5197,5 +5197,164 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
-diagnostics: []
-semanticHash: 0a8090298c951978364f391aadad94cebe8fafe34450496ed0e2d4e53733fa13
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+      second:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
+          fetchedAt: 2026-10-24T13:15:06.988Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adc902d-23e5"
+          lastModified: Sat, 24 Oct 2026 11:02:05 GMT
+    groups:
+      ИС1-21:
+        group: ИС1-21
+        date: 2026-10-26
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: пр.
+                teacher: Пронина Л.Ю.
+                room: ДОТ
+                weekType: both
+                rawSubject: пр. Пронина Л.Ю.Байдина Ю.А.
+                rawRoom: ДОТ
+                sourceRow: 12
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: ИС1-21/ ИС1-22/ ИС2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-26
+                  group: ИС1-21
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: МДК 06.01/т
+                  replacement:
+                    raw: пр. Пронина Л.Ю.Байдина Ю.А.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 12
+                    rawGroupName: ИС1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 06.01/т
+                    rawReplacement: пр. Пронина Л.Ю.Байдина Ю.А.
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: Основы алгоритмизации и программирования
+                teacher: Вершинина Н.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 6
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: ИС1-21/ ИС1-22/ ИС2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Психология общения
+                teacher: Зеленцова Л.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 8
+            source:
+              sheet: "ИС1-21 ИС1-25 ИС1-23 "
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: ИС1-21/ ИС1-22/ ИС2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-10-26
+              group: ИС1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: МДК 04.01
+              replacement:
+                raw: МДК 01.01 Хожайнова М.Г.
+                room: Б308
+              source:
+                shift: first
+                row: 13
+                rawGroupName: ИС1-21
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 04.01
+                rawReplacement: МДК 01.01 Хожайнова М.Г.
+                rawRoom: Б308
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 04.01». По замене: «МДК 01.01 Хожайнова М.Г.».
+                Аудитория: «Б308»."
+              room: Б308
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: dc973bb034603ecb5b04b84caa17a08f2bbfe6158e9ac819ad3452d063f0ff56
+    sheet: "Замены: Первая смена"
+    row: 13
+    normalizedGroup: ИС1-21
+    rawValue: МДК 01.01 Хожайнова М.Г.
+    context:
+      date: 2026-10-26
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИС1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 04.01
+      candidates:
+        - subject: Психология общения
+          teacher: Зеленцова Л.В.
+          room: ДОТ
+          sourceRow: 8
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 3f70137dbec2d591e0028b5e49837e61700609478cd2a9cb052fd2eac7eae7c3

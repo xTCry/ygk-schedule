@@ -2115,6 +2115,134 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+      second:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
+          fetchedAt: 2026-10-24T13:15:06.988Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adc902d-23e5"
+          lastModified: Sat, 24 Oct 2026 11:02:05 GMT
+    groups:
+      УД1-31:
+        group: УД1-31
+        date: 2026-10-26
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Николаенко Ю.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 98
+              - subject: Охрана труда
+                teacher: Леонидова Н.А.
+                room: Б110
+                weekType: both
+                rawSubject: Охрана труда Леонидова Н.А.
+                rawTeacher: Леонидова Н.А.
+                rawRoom: Б110
+                sourceRow: 37
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-26
+                  group: УД1-31
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Охрана труда Леонидова Н.А.
+                    room: Б110
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: УД1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Охрана труда Леонидова Н.А.
+                    rawRoom: Б110
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Основы электротехники
+                teacher: Леонидова Н.А.
+                room: М101
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants: []
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-26
+                  group: УД1-31
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: Охрана труда
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 38
+                    rawGroupName: УД1-31
+                    rawLessonNumbers: "5"
+                    rawOriginal: Охрана труда
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2172,4 +2300,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: db5d0fddaebc8d797a289e07e821c850e5dc60915645b5a4dbd43123516dbf3c
+semanticHash: 3c3ad838f2f87cfac5824a7cd2bfe1fc630ca1f5a6e451f08ca449c512757995

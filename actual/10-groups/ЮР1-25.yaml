@@ -3732,7 +3732,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a10
                   date: 2026-10-05
                   group: ЮР1-25
                   lessonNumbers:
@@ -5280,6 +5280,112 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+      second:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: a52fa98600eb28cdc6a3b4dac0257d4ee9c881a6aaf748c9a02004529e340083
+          fetchedAt: 2026-10-24T13:15:06.988Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6adc902d-23e5"
+          lastModified: Sat, 24 Oct 2026 11:02:05 GMT
+    groups:
+      ЮР1-25:
+        group: ЮР1-25
+        date: 2026-10-26
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants: []
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-26
+                  group: ЮР1-25
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ЮР1-25
+                    rawLessonNumbers: "3"
+                    rawOriginal: История России
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Русский язык и культура речи
+                teacher: Тихонов А.А.
+                room: Ф104
+                weekType: both
+                rawSubject: Тихонов А.А.
+                rawTeacher: Тихонов А.А.
+                rawRoom: Ф104
+                sourceRow: 6
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Физическая культура
+                teacher: Калачик Н.И.
+                room: Сп.площ
+                weekType: both
+                sourceRow: 109
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 109
+              rowEnd: 110
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5321,7 +5427,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: &a10
+      baseSourceFiles: &a11
         - out.xlsx
       requestedSubject: Ркс.яз. История России
       candidates:
@@ -5375,7 +5481,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: *a10
+      baseSourceFiles: *a11
       requestedSubject: Ркс.яз. История России
       candidates:
         - subject: МДК 03.01 Право социального обеспечения
@@ -5384,4 +5490,4 @@ diagnostics:
           sourceRow: 148
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a8695c53d67b3d328e0597248fe672a9c456c6261f1976e520cf3b5c25c30212
+semanticHash: 851be0c9d5a6b054578d310d2ae77e59294de9ea63b6fa73d0d5e3b9091c34c4

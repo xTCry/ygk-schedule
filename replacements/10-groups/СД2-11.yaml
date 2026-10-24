@@ -2126,7 +2126,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2157,7 +2157,53 @@ dates:
               rawReplacement: МДК 01.01 Т.1.2. Краснянская Е.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
     replacements:
       - *a60
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+        replacements:
+          - &a61
+            date: 2026-10-26
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: ИТ п/гр.1 Сердцева О.Д. МДК 05.01 п/гр.2 Гасенина МП.
+              room: Б406Б407
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: ИТ п/гр.1 Сердцева О.Д. МДК 05.01 п/гр.2 Гасенина МП.
+              rawRoom: Б406Б407
+        diagnostics: []
+    replacements:
+      - *a61
 diagnostics: []
-semanticHash: a20edea3e8aa4d19c7eba57e948748c28b1ce3dc777c27c3df580fc9edbd5e6c
+semanticHash: 7637ecca972173f6af959e24bf5387f940836ecf48c0133100e6d873cdd44dd8

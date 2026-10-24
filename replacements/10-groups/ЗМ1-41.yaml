@@ -1580,7 +1580,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1611,8 +1611,55 @@ dates:
               rawReplacement: Воробьева Н.Е.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
     replacements:
       - *a39
+  2026-10-26:
+    date: 2026-10-26
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-26
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959
+          fetchedAt: 2026-10-24T13:15:06.987Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adc84d6-3aae"
+          lastModified: Sat, 24 Oct 2026 10:13:42 GMT
+        replacements:
+          - &a40
+            date: 2026-10-26
+            group: ЗМ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Воробьева Н.Е.
+              room: ДОТ
+            source:
+              shift: first
+              row: 33
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: Воробьева Н.Е.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a40
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1635,4 +1682,4 @@ diagnostics:
     normalizedGroup: ЗМ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 49fcfd2c2a37d7f14e200abd99c688c031b56a1140f053e4c35a91e6b50e0d43
+semanticHash: 8107be3a15248fb6d0637fb3f3658991c4426e5b211a6c41853005ccd383cdf8
