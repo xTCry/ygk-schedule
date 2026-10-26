@@ -116,6 +116,81 @@ describe('diagnostic Issue synchronization', () => {
     expect(closeIssue).not.toHaveBeenCalled();
   });
 
+  it('keeps the newest open duplicate and closes older duplicates', async () => {
+    const listOpenManagedIssues = vi
+      .fn()
+      .mockResolvedValueOnce([
+        managedIssue('known', 4, ' (старый дубликат)'),
+        managedIssue('known', 9),
+      ])
+      .mockResolvedValueOnce([managedIssue('known', 9)]);
+    const addComment = vi.fn(() => Promise.resolve());
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues,
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment,
+      closeIssue,
+    };
+
+    await expect(
+      syncDiagnosticIssues([draft('known')], client),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 0,
+      commented: 1,
+      closed: 1,
+      unchanged: 1,
+    });
+    expect(addComment).toHaveBeenCalledWith(4, expect.stringContaining('#9'));
+    expect(closeIssue).toHaveBeenCalledWith(4);
+
+    await expect(
+      syncDiagnosticIssues([draft('known')], client),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 0,
+      commented: 0,
+      closed: 0,
+      unchanged: 1,
+    });
+    expect(closeIssue).toHaveBeenCalledTimes(1);
+  });
+
+  it('defers duplicate cleanup until two write operations are available', async () => {
+    const addComment = vi.fn(() => Promise.resolve());
+    const closeIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([managedIssue('known', 4), managedIssue('known', 9)]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue: () => Promise.resolve(),
+      updateIssue: () => Promise.resolve(),
+      reopenIssue: () => Promise.resolve(),
+      addComment,
+      closeIssue,
+    };
+
+    await expect(
+      syncDiagnosticIssues([draft('known')], client, { maxWriteOperations: 1 }),
+    ).resolves.toEqual({
+      created: 0,
+      updated: 0,
+      reopened: 0,
+      commented: 0,
+      closed: 0,
+      unchanged: 0,
+      deferred: { reason: 'write-limit' },
+    });
+    expect(addComment).not.toHaveBeenCalled();
+    expect(closeIssue).not.toHaveBeenCalled();
+  });
+
   it('updates an open issue by family key and comments the observation delta', async () => {
     const updateIssue = vi.fn(() => Promise.resolve());
     const addComment = vi.fn(() => Promise.resolve());

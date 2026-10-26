@@ -85,6 +85,48 @@ describe('YGK source discovery and download', () => {
     );
   });
 
+  it('discovers the schedule table in the current decorated page markup', async () => {
+    const html = `
+      <main>
+        <article class="content-page">
+          <section class="schedule-section">
+            <p class="section-title">
+              <img src="/images/calendar.svg" alt="">
+              <a href="#" class="section-title__link">Расписание</a>
+            </p>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td><a href="pages/rasp/26-27/oar.xlsx">ОАР 1 семестр</a></td>
+                  <td><a href="pages/rasp/26-27/oit_1sem.xlsx">ОИТ 1 семестр</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </article>
+      </main>
+    `;
+    await withFetch(
+      () => Promise.resolve(new Response(html, { status: 200 })),
+      async () => {
+        await expect(
+          discoverScheduleFiles('https://ygk.example/raspisanie.html'),
+        ).resolves.toEqual([
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/oar.xlsx',
+            fileName: 'oar.xlsx',
+            label: 'ОАР 1 семестр',
+          },
+          {
+            url: 'https://ygk.example/pages/rasp/26-27/oit_1sem.xlsx',
+            fileName: 'oit_1sem.xlsx',
+            label: 'ОИТ 1 семестр',
+          },
+        ]);
+      },
+    );
+  });
+
   it('rejects an unexpected base schedule layout', async () => {
     await withFetch(
       () =>

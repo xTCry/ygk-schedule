@@ -146,6 +146,45 @@ const buildIssueMap = <T extends { key: string }>(
   return result;
 };
 
+interface OpenIssueIndex {
+  canonicalByKey: Map<string, ManagedDiagnosticIssue>;
+  duplicates: Array<{
+    duplicate: ManagedDiagnosticIssue;
+    canonical: ManagedDiagnosticIssue;
+  }>;
+}
+
+/**
+ * Открытые дубли — следствие прежних сбоев синхронизации, а не повод
+ * останавливать всю публикацию. Самый новый номер GitHub Issue считаем
+ * каноническим, остальные закрываем отдельной операцией.
+ */
+const buildOpenIssueIndex = (
+  issues: readonly ManagedDiagnosticIssue[],
+): OpenIssueIndex => {
+  const byKey = new Map<string, ManagedDiagnosticIssue[]>();
+  for (const issue of issues) {
+    const group = byKey.get(issue.key);
+    if (group) group.push(issue);
+    else byKey.set(issue.key, [issue]);
+  }
+
+  const canonicalByKey = new Map<string, ManagedDiagnosticIssue>();
+  const duplicates: OpenIssueIndex['duplicates'] = [];
+  for (const [key, group] of byKey) {
+    const ordered = [...group].sort(
+      (left, right) => left.number - right.number,
+    );
+    const canonical = ordered.at(-1);
+    if (!canonical) continue;
+    canonicalByKey.set(key, canonical);
+    for (const duplicate of ordered.slice(0, -1))
+      duplicates.push({ duplicate, canonical });
+  }
+
+  return { canonicalByKey, duplicates };
+};
+
 /**
  * Возвращает последнюю закрытую Issue для каждого ключа. Ранние версии
  * workflow успели создать закрытые дубли до появления family key, поэтому
@@ -376,6 +415,22 @@ ${formatDataReferences('Последние', issue.body).join('\n')}
 `;
 };
 
+const formatDuplicateCloseComment = (
+  duplicate: ManagedDiagnosticIssue,
+  canonical: ManagedDiagnosticIssue,
+): string => `## Автоматическое закрытие дубликата
+
+Эта Issue имеет тот же служебный ключ, что и #${canonical.number}. Для
+дальнейшей синхронизации оставлена более новая Issue #${canonical.number};
+текущая закрыта как дубликат.
+
+## Последний зафиксированный снимок
+
+| Поле | Значение |
+| --- | --- |
+${formatDataReferences('Последние', duplicate.body).join('\n')}
+`;
+
 const formatReopenComment = (
   existing: ManagedDiagnosticIssue,
   next: DiagnosticIssueDraft,
@@ -485,8 +540,29 @@ export const syncDiagnosticIssues = async (
     if (error instanceof GitHubRateLimitError) return deferForRateLimit(error);
     throw error;
   }
-  const openByKey = buildIssueMap(openIssues, 'open managed Issue');
-  const openByFamily = buildIssueFamilyMap(openIssues);
+  const openIssueIndex = buildOpenIssueIndex(openIssues);
+  for (const { duplicate, canonical } of openIssueIndex.duplicates) {
+    if (!canWrite(2)) return deferForWriteLimit();
+    try {
+      await client.addComment(
+        duplicate.number,
+        formatDuplicateCloseComment(duplicate, canonical),
+      );
+      writeOperations += 1;
+      result.commented += 1;
+      await client.closeIssue(duplicate.number);
+      writeOperations += 1;
+      result.closed += 1;
+    } catch (error) {
+      if (error instanceof GitHubRateLimitError)
+        return deferForRateLimit(error);
+      throw error;
+    }
+  }
+
+  const canonicalOpenIssues = [...openIssueIndex.canonicalByKey.values()];
+  const openByKey = openIssueIndex.canonicalByKey;
+  const openByFamily = buildIssueFamilyMap(canonicalOpenIssues);
   const draftWithoutOpenIssue = drafts.some(
     (draft) => !openByKey.has(draft.key) && !openByFamily.has(draft.familyKey),
   );
@@ -569,7 +645,7 @@ export const syncDiagnosticIssues = async (
   // Закрываем только после успешного создания и обновления актуальных Issue.
   // Scope без загруженного report намеренно не трогаем.
   const scopes = options.scopes ? new Set(options.scopes) : undefined;
-  for (const issue of openIssues) {
+  for (const issue of canonicalOpenIssues) {
     if (
       handledOpenIssueNumbers.has(issue.number) ||
       desiredByKey.has(issue.key) ||
