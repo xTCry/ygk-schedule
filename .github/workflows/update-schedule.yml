@@ -62,6 +62,9 @@ jobs:
 
       - name: synchronize diagnostic issues
         id: sync-issues
+        # Issue — вспомогательная диагностика: их API не должен отменять
+        # уже опубликованные расписание и ICS.
+        continue-on-error: true
         working-directory: parser
         run: npm run sync-issues -- --output-dir "$GITHUB_WORKSPACE" --repo "$GITHUB_REPOSITORY" --max-writes 8
         env:
