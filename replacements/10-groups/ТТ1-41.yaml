@@ -1345,7 +1345,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1376,8 +1376,54 @@ dates:
               rawReplacement: Осн.экон. Белогорская Я.В.
               rawRoom: Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
     replacements:
       - *a36
+  2026-10-27:
+    date: 2026-10-27
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-27
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
+          fetchedAt: 2026-10-26T16:07:10.885Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adf42cc-455a"
+          lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        replacements:
+          - &a37
+            date: 2026-10-27
+            group: ТТ1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Охрана труда
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: Охрана труда
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a37
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1400,4 +1446,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: de286f4304af20c401097af7e14e61093212ce91ef508ef06821ef57dc1b0dc7
+semanticHash: fd65b5f449eb911a2b38b3039d4cca1366e3497f2c0cd4e3c49092098c58bd51

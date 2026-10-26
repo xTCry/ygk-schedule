@@ -375,5 +375,67 @@ dates:
           sourceSha256: 516d57be16e1a1534829aadcd26d3e7efa720d3ee73dc18170f29af013dd2733
     replacements:
       - *a8
+  2026-10-27:
+    date: 2026-10-27
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-27
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
+          fetchedAt: 2026-10-26T16:07:10.885Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adf42cc-455a"
+          lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        replacements:
+          - &a9
+            date: 2026-10-27
+            group: ЗМ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 02.01 Ковалева С.В.
+              room: Ф202
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ЗМ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 02.01 Ковалева С.В.
+              rawRoom: Ф202
+          - &a10
+            date: 2026-10-27
+            group: ЗМ1-31
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 43
+              rawGroupName: ЗМ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.02
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
 diagnostics: []
-semanticHash: 3bc3d4a24947a7f835293ae14e30d519e033e35d3e9cbb396d3a59a72e2f7dbf
+semanticHash: 3da7364772aa670d1e6b3e013e863cb6df14454d75323864e71d2433d521c685

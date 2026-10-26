@@ -1,0 +1,63 @@
+schemaVersion: 2
+issue:
+  key: 684d330d1f036dd9fef8369656b0da7b252795b044be1d709981a957bb85d6c6
+  familyKey: d5b207a28e07a2ba407aca6bcb6ac1337589c82ff7cd6d08f909936be650b8fe
+  fingerprint: b96d24f3db294a7a88c8cc960a9abecfb8e0ace7df41efd882288fc37f635d5a
+  scope: actual
+  lifecycle: dated
+  observedDate: 2026-10-27
+  title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+    — 2026-10-27, первая смена"
+  labels:
+    - area:resolver
+    - diagnostic:error
+    - diagnostic:unresolved-replacement
+    - reason:subgroup-not-matched
+    - schedule-diagnostic
+    - scope:actual
+    - shift:first
+  occurrenceCount: 1
+  observationKeys:
+    - 4beecfc06d021e8a79b352c20f8dac98c882136f56fe43a354c828b876788a50
+diagnosticsReport:
+  diagnosticsJsonPath: actual/90-diagnostics.json
+  diagnosticsYamlPath: actual/90-diagnostics.yaml
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 9b2ac0ac36e99c82bbc2dd36a9a00b93bdda1b33724f3e4502e30db964cbb0c7
+    sheet: "Замены: Первая смена"
+    row: 12
+    normalizedGroup: СД2-11
+    rawValue: снято
+    context:
+      date: 2026-10-27
+      lessonNumber: 4
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: СД2-11
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: Тех.механика т
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: Техническая механика
+          teacher: Вакансия
+          room: М207
+          sourceRow: 15
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source:
+      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      fileName: rasp_first.html
+      sha256: fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21
+      fetchedAt: 2026-09-08T16:35:53.336Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      shift: first
+      etag: W/"6a9fd7d4-34db"
+      lastModified: Tue, 08 Sep 2026 09:39:32 GMT
+    issueFingerprint: b96d24f3db294a7a88c8cc960a9abecfb8e0ace7df41efd882288fc37f635d5a
+    issueKey: 684d330d1f036dd9fef8369656b0da7b252795b044be1d709981a957bb85d6c6

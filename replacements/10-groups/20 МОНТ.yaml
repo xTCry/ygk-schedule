@@ -1679,7 +1679,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1729,8 +1729,55 @@ dates:
               rawReplacement: УП 01 Филиппова А.С.
               rawRoom: к.30
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
     replacements:
       - *a50
       - *a51
+  2026-10-27:
+    date: 2026-10-27
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-27
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
+          fetchedAt: 2026-10-26T16:07:10.885Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adf42cc-455a"
+          lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        replacements:
+          - &a52
+            date: 2026-10-27
+            group: 20 МОНТ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: БЖ
+            replacement:
+              raw: МДК 01.02 Каргина В.А.
+              room: к.24
+            source:
+              shift: first
+              row: 70
+              rawGroupName: 20 МОНТ
+              rawLessonNumbers: "2"
+              rawOriginal: БЖ
+              rawReplacement: МДК 01.02 Каргина В.А.
+              rawRoom: к.24
+        diagnostics: []
+    replacements:
+      - *a52
 diagnostics: []
-semanticHash: 0d6a0f117e2eb0e858ea91da6061f483e4e520987d3ddbd339c36ad7ed8b4b43
+semanticHash: c85e2cd00484c537f2eca3e0f52ddc8e27cfa065f3c9588c8a0c353cbba7b8f9

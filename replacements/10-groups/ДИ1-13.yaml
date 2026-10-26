@@ -1152,5 +1152,68 @@ dates:
           sourceSha256: f4bd540f4db89163ffaee23aeb9c29868dcf8634c3e74f0de535e36cf1601899
     replacements:
       - *a28
+  2026-10-27:
+    date: 2026-10-27
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-27
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
+          fetchedAt: 2026-10-26T16:07:10.885Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adf42cc-455a"
+          lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        replacements:
+          - &a29
+            date: 2026-10-27
+            group: ДИ1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 27
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: снято
+              rawRoom: ""
+          - &a30
+            date: 2026-10-27
+            group: ДИ1-13
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Литература...
+            replacement:
+              raw: Информ./теория Садилова К.А.
+              room: Шк.21
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: 3,4
+              rawOriginal: Литература...
+              rawReplacement: Информ./теория Садилова К.А.
+              rawRoom: Шк.21
+        diagnostics: []
+    replacements:
+      - *a29
+      - *a30
 diagnostics: []
-semanticHash: 7cf7ec4fd25ab40dfda306693eebbfc6fc576bc67a2859f4ab3c95bed5389951
+semanticHash: 22cb4ee8ce26df1aa2c9b69fd2daad18b5ca296786664b472921baceb012bb51

@@ -995,7 +995,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1026,7 +1026,54 @@ dates:
               rawReplacement: 1,2 п/гр.Информ. Яковлева Е.Н.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
     replacements:
       - *a26
+  2026-10-27:
+    date: 2026-10-27
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-27
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 321da1ca30eaedc290fea1f3eafc5d688c00f3a9d52d43a3306ca885d2f3f74e
+          fetchedAt: 2026-10-26T16:07:10.885Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6adf42cc-455a"
+          lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        replacements:
+          - &a27
+            date: 2026-10-27
+            group: МА1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Физика
+            replacement:
+              raw: Математика Кашурина Н.Н.
+              room: Б409
+            source:
+              shift: first
+              row: 49
+              rawGroupName: МА1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: Математика Кашурина Н.Н.
+              rawRoom: Б409
+        diagnostics: []
+    replacements:
+      - *a27
 diagnostics: []
-semanticHash: 683532b613ebb33814915268ce7f1208def0be9686ae5bd7237efb09fd41e8ac
+semanticHash: 8f93690e2bf2970ea40f47af4f282cabf49bbfd4acf2a536ebe785de29e0ad08
