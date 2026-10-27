@@ -2834,7 +2834,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2903,10 +2903,56 @@ dates:
               rawReplacement: МДК 05.03/теория Королева П.Д.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
     replacements:
       - *a85
       - *a86
       - *a87
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
+          fetchedAt: 2026-10-27T15:18:02.984Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae09b3f-2685"
+          lastModified: Tue, 27 Oct 2026 12:38:23 GMT
+        replacements:
+          - &a88
+            date: 2026-10-28
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.03 Неделяева Н.А.Королева П.Д.
+              room: Б304
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 05.03 Неделяева Н.А.Королева П.Д.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a88
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2929,4 +2975,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7ba6e3b4f89343db91608ba5cc9cc05bb6bf902d9ce870023110f17c83aea240
+semanticHash: 928dfd80ca6148d0e9381500e22339c57b0e75687d0d13e5b2ee9d85be93ea02

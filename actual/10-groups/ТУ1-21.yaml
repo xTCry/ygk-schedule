@@ -3850,7 +3850,7 @@ dates:
         date: 2026-10-27
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3860,11 +3860,15 @@ dates:
           shift: first
           etag: W/"6adf42cc-455a"
           lastModified: Mon, 26 Oct 2026 12:08:44 GMT
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
       second:
         date: 2026-10-27
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3874,6 +3878,10 @@ dates:
           shift: second
           etag: W/"6adf37ca-25ba"
           lastModified: Mon, 26 Oct 2026 11:21:46 GMT
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
     groups:
       ТУ1-21:
         group: ТУ1-21
@@ -3953,6 +3961,63 @@ dates:
                 lessonNumber: 5
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: Сервисная деятельность в туризме и гостеприимстве
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: both
+                  rawSubject: "Сервисная деятельность в туризме и гостеприимстве "
+                  sourceRow: 63
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 63
+                rowEnd: 64
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.01.01 Координация работы служб предприятий туризма и гостеприимства
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: both
+                  rawSubject: МДК.01.01 Координация работы служб предприятий туризма
+                    и гостеприимства
+                  sourceRow: 65
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 65
+                rowEnd: 66
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.01.02 Изучение основ делопроизводства
+                  teacher: |-
+                    Нестерова А,В.
+                    Хватова Е.Ю.
+                  room: |-
+                    Ф306
+                    Ф305
+                  weekType: numerator
+                  rawSubject: "МДК.01.02 Изучение основ делопроизводства "
+                  sourceRow: 67
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 67
+                rowEnd: 68
+                rawGroupName: ТУ1-21/ТУ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4004,4 +4069,4 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: cef7758cfa73c52ec18ee7ba6096add326c70397d43311fdaf840a2b1781af80
+semanticHash: ae2cd9e007dcc51d77baa0242389eda5eb49490e3050d577fede493b2fee0baf

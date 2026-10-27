@@ -1818,7 +1818,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1848,7 +1848,91 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
     replacements:
       - *a53
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
+          fetchedAt: 2026-10-27T15:18:02.984Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae09b3f-2685"
+          lastModified: Tue, 27 Oct 2026 12:38:23 GMT
+        replacements:
+          - &a54
+            date: 2026-10-28
+            group: ЮР1-25
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: Ф306
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: Ф306
+          - &a55
+            date: 2026-10-28
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История России Горбачёв В.Н.
+              room: Ф406
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: История России Горбачёв В.Н.
+              rawRoom: Ф406
+          - &a56
+            date: 2026-10-28
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: История России
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: История России
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a54
+      - *a55
+      - *a56
 diagnostics: []
-semanticHash: d1c5e3f46bfa8a401804bc3781fe28ba5d0e4d12b753d85dc8344acdbefa1697
+semanticHash: 06785cc1bf8c31102c8898003745acd05c0a724ee95909214fa065b1386d2259

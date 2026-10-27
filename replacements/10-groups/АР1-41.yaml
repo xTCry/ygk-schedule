@@ -1793,7 +1793,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1824,8 +1824,93 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 01.05 Т.5.3. Балина С.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
     replacements:
       - *a48
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
+          fetchedAt: 2026-10-27T15:18:02.984Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae09b3f-2685"
+          lastModified: Tue, 27 Oct 2026 12:38:23 GMT
+        replacements:
+          - &a49
+            date: 2026-10-28
+            group: АР1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: Б504
+            source:
+              shift: second
+              row: 29
+              rawGroupName: АР1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: Б504
+          - &a50
+            date: 2026-10-28
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.05 Т.5.3.
+            replacement:
+              raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 30
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 Т.5.3.
+              rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+              rawRoom: Б207Б208
+          - &a51
+            date: 2026-10-28
+            group: АР1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Осн.экон.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 31
+              rawGroupName: АР1-41
+              rawLessonNumbers: "6"
+              rawOriginal: Осн.экон.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a49
+      - *a50
+      - *a51
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1848,4 +1933,4 @@ diagnostics:
     normalizedGroup: АР1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: ce3c1d4aec788da0b204a3b35498501a40070fe9644a1fcd7d718196db3f7689
+semanticHash: 4624d6738158015c57f5e687888b5fcf96b431e16e1d75484b9fb10e90db1bd8

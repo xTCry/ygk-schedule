@@ -1162,7 +1162,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1212,8 +1212,74 @@ dates:
               rawReplacement: Информ./теория Садилова К.А.
               rawRoom: Шк.21
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
     replacements:
       - *a29
       - *a30
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
+          fetchedAt: 2026-10-27T15:18:02.982Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae08b75-48da"
+          lastModified: Tue, 27 Oct 2026 11:31:01 GMT
+        replacements:
+          - &a31
+            date: 2026-10-28
+            group: ДИ1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Осн.проф.деят. Сосновских А.Л.
+              room: Б504
+            source:
+              shift: first
+              row: 36
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: Осн.проф.деят. Сосновских А.Л.
+              rawRoom: Б504
+          - &a32
+            date: 2026-10-28
+            group: ДИ1-13
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Русский язык
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: Русский язык
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a31
+      - *a32
 diagnostics: []
-semanticHash: 22cb4ee8ce26df1aa2c9b69fd2daad18b5ca296786664b472921baceb012bb51
+semanticHash: 454efa64c15fc50a428ebfe87103a185380f90c05b1435c579708a7e616e3322

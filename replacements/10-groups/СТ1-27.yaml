@@ -1783,7 +1783,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1852,9 +1852,75 @@ dates:
               rawReplacement: Мат.метода Пухова Ю.Г.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
     replacements:
       - *a45
       - *a46
       - *a47
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
+          fetchedAt: 2026-10-27T15:18:02.982Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae08b75-48da"
+          lastModified: Tue, 27 Oct 2026 11:31:01 GMT
+        replacements:
+          - &a48
+            date: 2026-10-28
+            group: СТ1-27
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Тех.механика Кощеев В.В.
+              room: М207
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СТ1-27
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Тех.механика Кощеев В.В.
+              rawRoom: М207
+          - &a49
+            date: 2026-10-28
+            group: СТ1-27
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.мех.ИТ п/гр.
+            replacement:
+              raw: Инф.технол. Сердцева О.Д.
+              room: Б406
+            source:
+              shift: first
+              row: 13
+              rawGroupName: СТ1-27
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.мех.ИТ п/гр.
+              rawReplacement: Инф.технол. Сердцева О.Д.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a48
+      - *a49
 diagnostics: []
-semanticHash: 10f0df6d5b3fc6aa7a0fdb982e2b58353735885b74334f7dbdf3442ddd0c2aea
+semanticHash: 303145d93bf2ec964260062ad925470516e338cb9b262e9fa3df60df38c9f535

@@ -1392,7 +1392,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1422,8 +1422,75 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
     replacements:
       - *a37
+  2026-10-28:
+    date: 2026-10-28
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-28
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
+          fetchedAt: 2026-10-27T15:18:02.982Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae08b75-48da"
+          lastModified: Tue, 27 Oct 2026 11:31:01 GMT
+        replacements:
+          - &a38
+            date: 2026-10-28
+            group: ТТ1-41
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 02.03 Морозов Д.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 02.03 Морозов Д.А.
+              rawRoom: ДОТ
+          - &a39
+            date: 2026-10-28
+            group: ТТ1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Охрана труда
+            replacement:
+              raw: МДК 03.02 Коротюк И.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 48
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "2"
+              rawOriginal: Охрана труда
+              rawReplacement: МДК 03.02 Коротюк И.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1446,4 +1513,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fd65b5f449eb911a2b38b3039d4cca1366e3497f2c0cd4e3c49092098c58bd51
+semanticHash: dcc75cfe3e3d03210a035d282a4aa6d4ad2a81e0f37fdac45e3eb9d955f3e367

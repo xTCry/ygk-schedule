@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-10-26T16:07:10.957Z
-scheduleVersion: 8bb9e02bd54f4119d689436ee32e9adde77c301418935085f2c1a6290d8a6f22
+generatedAt: 2026-10-27T15:18:03.069Z
+scheduleVersion: ce2b23d0574c464f69109f3eff8521aad124d39a1214c557e4fa9a3db8df8ae5
 summary:
   info: 0
   warning: 65
-  error: 301
+  error: 309
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -598,6 +598,37 @@ diagnostics:
     source: *a1
     issueFingerprint: a343273d231af055b2a426b1f719ec5fef5008d5634ce3235f71258935c9525c
     issueKey: fe6326eb097c85b7b48710396247b6bb03c0b8c50a969adef63bfdfc35691f0d
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: f6b17d8600e4b72732700c5e6d3ce5cfb98650ebb8698ac386169c5b5dbde1df
+    sheet: "Замены: Первая смена"
+    row: 11
+    normalizedGroup: СА1-21
+    rawValue: 1,2 п/гр.МДК 01.01 Хожайнова М.Г.
+    context:
+      date: 2026-10-28
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: СА1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 01.01, 04.01
+      candidates:
+        - subject: МДК.04.01 Установка, настройка и обслуживание кабельных систем и
+            телекоммуникационного оборудования
+          teacher: |-
+            Груздев В.В.
+            Хожайнова М.Г.
+          room: Б308
+          sourceRow: 21
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    issueKey: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -3941,6 +3972,28 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 01f007d4902eb2a12a5fbe071563ddfd5ac34f711c8915fe77fe29ef258f51c3
+    sheet: "Замены: Первая смена"
+    row: 53
+    normalizedGroup: МА1-11
+    rawValue: УП 01.01 Тепляков А.Б.
+    context:
+      date: 2026-10-28
+      lessonNumber: 5
+      type: replace
+      reason: lesson-not-found
+      baseGroup: МА1-11
+      baseSourceFiles: &a15
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 2cca2d53f805c66e386571ed7f7e16ccc056a0c4a5df9dc725742d10e8ce7675
+    issueKey: 7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
     fingerprint: 29457e09752667b091799ddfb1a2ef733cdd7d68778cc72362a66dc7a38b12d7
     sheet: "Замены: Первая смена"
     row: 53
@@ -3990,6 +4043,27 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 89c2b4cf3b37873b4de8865896bec4e872c4acd5f5042ae8b698b311de32b201
+    sheet: "Замены: Первая смена"
+    row: 53
+    normalizedGroup: МА1-11
+    rawValue: УП 01.01 Тепляков А.Б.
+    context:
+      date: 2026-10-28
+      lessonNumber: 4
+      type: replace
+      reason: lesson-not-found
+      baseGroup: МА1-11
+      baseSourceFiles: *a15
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 2cca2d53f805c66e386571ed7f7e16ccc056a0c4a5df9dc725742d10e8ce7675
+    issueKey: 7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 8beecfbab337244f6b806965858ba90f506195254418e009f9c7bf709af1cca3
     sheet: "Замены: Первая смена"
@@ -4002,7 +4076,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МС1-21
-      baseSourceFiles: &a15
+      baseSourceFiles: &a16
         - oeis.xlsx
       requestedSubject: УП 05
       candidates:
@@ -4032,7 +4106,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МС1-21
-      baseSourceFiles: *a15
+      baseSourceFiles: *a16
       requestedSubject: УП 05
       candidates:
         - subject: УП.05.01 Выполнение работ по монтажу сантехустройств и оборудования
@@ -4454,6 +4528,38 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: b8c8b8d23e8fca477784c28923f0174d0c21cef530c8a5689fea5da3018612bd
+    sheet: "Замены: Первая смена"
+    row: 61
+    normalizedGroup: ЮР1-11
+    rawValue: 1,2 п/гр. Хватова Е.Ю.
+    context:
+      date: 2026-10-28
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-11
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Информ.
+      candidates:
+        - subject: Инфоратика л/р
+          teacher: |-
+            Хватова Е.Ю.
+            Нестерова А.В.
+          room: |-
+            Ф305
+            Ф306
+          sourceRow: 22
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    issueKey: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 1715d3d44a1086f46494648410ae3942f62742347db81d19c38158b877522147
     sheet: "Замены: Первая смена"
     row: 62
@@ -4562,7 +4668,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a16
+      baseSourceFiles: &a17
         - ort.xlsx
       requestedSubject: УП 02
       requestedSubgroups:
@@ -4612,7 +4718,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a16
+      baseSourceFiles: *a17
       requestedSubject: УП 02
       requestedSubgroups:
         - "2"
@@ -4642,7 +4748,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a17
+      baseSourceFiles: &a18
         - ort.xlsx
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
@@ -4692,7 +4798,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a17
+      baseSourceFiles: *a18
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -4744,7 +4850,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a17
+      baseSourceFiles: *a18
       requestedSubject: МДК 01.04 УП 02
       requestedSubgroups:
         - "1"
@@ -4802,7 +4908,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: &a18
+      baseSourceFiles: &a19
         - ort.xlsx
       requestedSubject: ИДК 01.04 Ин.яз.Физкул.
       candidates:
@@ -4853,7 +4959,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: 6 ИКС
-      baseSourceFiles: *a18
+      baseSourceFiles: *a19
       requestedSubject: ИДК 01.04 Ин.яз.Физкул.
       candidates:
         - subject: МДК. 01.04 Монтаж и эксплуатация систем видеонаблюдения и систем
@@ -4937,7 +5043,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: 5 ИКС
-      baseSourceFiles: &a19
+      baseSourceFiles: &a20
         - ort.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -4959,7 +5065,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: 5 ИКС
-      baseSourceFiles: *a19
+      baseSourceFiles: *a20
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -5011,7 +5117,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a19
+      baseSourceFiles: *a20
       requestedSubject: МДК 01.04
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -5096,7 +5202,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: &a20
+      baseSourceFiles: &a21
         - ort.xlsx
       requestedSubject: УП 06
       requestedSubgroups:
@@ -5127,7 +5233,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: *a20
+      baseSourceFiles: *a21
       requestedSubject: УП 06
       requestedSubgroups:
         - "2"
@@ -5157,7 +5263,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 36 ЭМЕХ
-      baseSourceFiles: &a21
+      baseSourceFiles: &a22
         - ort.xlsx
       candidates:
         - subject: УП.01 Учебная практика
@@ -5206,7 +5312,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 36 ЭМЕХ
-      baseSourceFiles: *a21
+      baseSourceFiles: *a22
       candidates:
         - subject: УП.01 Учебная практика
           teacher: Вакансия
@@ -5319,7 +5425,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: &a22
+      baseSourceFiles: &a23
         - ort.xlsx
       requestedSubject: УП 04 Псих.общ.Эф.пов.
       requestedSubgroups:
@@ -5349,7 +5455,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: 4 ИКС
-      baseSourceFiles: *a22
+      baseSourceFiles: *a23
       requestedSubject: УП 04 Псих.общ.Эф.пов.
       requestedSubgroups:
         - "2"
@@ -5452,6 +5558,34 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 25af28a09d4fc9d7de81fad3d0ffe6d4b2023381db01bee4bb9da5c75cb2e023
+    sheet: "Замены: Первая смена"
+    row: 79
+    normalizedGroup: 36 ЭМЕХ
+    rawValue: Физика Крижановский В.С.
+    context:
+      date: 2026-10-28
+      lessonNumber: 1
+      type: replace
+      reason: original-not-matched
+      baseGroup: 36 ЭМЕХ
+      baseSourceFiles:
+        - ort.xlsx
+      requestedSubject: Ин.язык
+      candidates:
+        - subject: Математика
+          teacher: Рогачева Е.А.
+          room: к.33
+          sourceRow: 74
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    issueKey: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: b88140d398fda8c7c15cce34031610d729dd5d24c425047a1f6b87a0c124202e
     sheet: "Замены: Первая смена"
@@ -5549,7 +5683,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: &a23
+      baseSourceFiles: &a24
         - ort.xlsx
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
@@ -5578,7 +5712,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a23
+      baseSourceFiles: *a24
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -5606,7 +5740,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a23
+      baseSourceFiles: *a24
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: МДК.03.02 Применение комплексной системы защиты информации в
@@ -5634,7 +5768,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 5 ИКС
-      baseSourceFiles: *a23
+      baseSourceFiles: *a24
       requestedSubject: МДК 04.01, 03.01, 03.02
       candidates:
         - subject: Иностранный язык в профессиональной деятельности
@@ -5690,7 +5824,7 @@ diagnostics:
       type: unknown
       reason: unsupported-type
       baseGroup: 6 ИКС
-      baseSourceFiles: &a24
+      baseSourceFiles: &a25
         - ort.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -5711,7 +5845,7 @@ diagnostics:
       type: unknown
       reason: unsupported-type
       baseGroup: 6 ИКС
-      baseSourceFiles: *a24
+      baseSourceFiles: *a25
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
@@ -5761,12 +5895,73 @@ diagnostics:
       type: unknown
       reason: unsupported-type
       baseGroup: 6 ИКС
-      baseSourceFiles: *a24
+      baseSourceFiles: *a25
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
     source: *a1
     issueFingerprint: 598ac65cbee9737c886112a51041758b599ccf8c55c1125c5534db8b3b349e70
     issueKey: 17e5baa4448f576f277e9402b12a6dcdef6f9ed18422f14ec4f93446a4803b4b
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 050ab2d631fc8f8b4dcfd6b3ef1d9b458e2cb13866a575ca4d7e1dc19dd5d99d
+    sheet: "Замены: Первая смена"
+    row: 85
+    normalizedGroup: 4 ИКС
+    rawValue: МДК 04.01 Матвеичева О.В.
+    context:
+      date: 2026-10-28
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: 4 ИКС
+      baseSourceFiles: &a26
+        - ort.xlsx
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: УП.04 Учебная практика п/гр1
+          teacher: Вакансия
+          room: сл.м
+          subgroup: "1"
+          sourceRow: 25
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    issueKey: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 362f7e71c03256353f09b367254606fed2d8f53f4631f0f1df77782365faba2e
+    sheet: "Замены: Первая смена"
+    row: 85
+    normalizedGroup: 4 ИКС
+    rawValue: МДК 04.01 Матвеичева О.В.
+    context:
+      date: 2026-10-28
+      lessonNumber: 3
+      type: replace
+      reason: original-not-matched
+      baseGroup: 4 ИКС
+      baseSourceFiles: *a26
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: УП.04 Учебная практика п/гр1
+          teacher: Вакансия
+          room: сл.м
+          subgroup: "1"
+          sourceRow: 27
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    issueKey: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -6047,7 +6242,7 @@ diagnostics:
           sourceRow: 130
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: &a25
+    source: &a27
       id: https://menu.sttec.yar.ru/timetable/rasp_second.html
       fileName: rasp_second.html
       sha256: ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7
@@ -6083,7 +6278,7 @@ diagnostics:
           sourceRow: 128
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -6111,7 +6306,7 @@ diagnostics:
           sourceRow: 65
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 8723967b3ac5ef19619fd3d751d6ce9960c0522b68e1b1923b68ea759f166497
     issueKey: 345c072b67456a8d553a046e807058485956ab13fb0d08a7465b93d2569b47d8
   - provider: ygk
@@ -6141,7 +6336,7 @@ diagnostics:
           sourceRow: 98
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -6169,7 +6364,7 @@ diagnostics:
           sourceRow: 56
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 5909df4bf081fd77a9773a121841a78610fca839e13a25c55d477b1107edf045
     issueKey: fccff26d7412ca9acf8aa34d554235bd19e89530515e7f191e15630f3a4d05db
   - provider: ygk
@@ -6201,7 +6396,7 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -6229,7 +6424,7 @@ diagnostics:
           sourceRow: 73
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -6259,7 +6454,7 @@ diagnostics:
           sourceRow: 220
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -6287,7 +6482,7 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -6317,7 +6512,7 @@ diagnostics:
           sourceRow: 258
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -6346,7 +6541,7 @@ diagnostics:
           sourceRow: 35
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 921ccd82f8f4cda8f14f9d844c10c78f2a29590fa37c9e74a4901214c92214b0
     issueKey: d9945b0aa2830112c5aa2cbeaf7adc46051a33e7861b663c3eefcf8f3c378578
   - provider: ygk
@@ -6378,7 +6573,7 @@ diagnostics:
           sourceRow: 43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: ccc29309c9aaf6a7232779518dfdedfbf147fee0176abc4512e91231e8ccbd36
     issueKey: 40e3721994f6ce0a611f0eacfd76445326449a2325b9d13bad90f9f7f3ac816a
   - provider: ygk
@@ -6396,7 +6591,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a26
+      baseSourceFiles: &a28
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -6410,7 +6605,7 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 688e89f3366e40262138ff95f2e61d664411d8189c4eab5058d903ee5e088871
     issueKey: 968b3ece8b62a6704e8fd1fbc0f64cd6b2dc6269c1cafcdec53d289654da5986
   - provider: ygk
@@ -6442,7 +6637,7 @@ diagnostics:
           sourceRow: 121
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -6460,7 +6655,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a26
+      baseSourceFiles: *a28
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "2"
@@ -6473,7 +6668,7 @@ diagnostics:
           sourceRow: 43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 688e89f3366e40262138ff95f2e61d664411d8189c4eab5058d903ee5e088871
     issueKey: 968b3ece8b62a6704e8fd1fbc0f64cd6b2dc6269c1cafcdec53d289654da5986
   - provider: ygk
@@ -6505,7 +6700,7 @@ diagnostics:
           sourceRow: 153
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -6523,7 +6718,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: &a27
+      baseSourceFiles: &a29
         - out.xlsx
       requestedSubject: Ркс.яз. История России
       candidates:
@@ -6533,7 +6728,7 @@ diagnostics:
           sourceRow: 146
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2
     issueKey: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495
   - provider: ygk
@@ -6551,7 +6746,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: *a27
+      baseSourceFiles: *a29
       requestedSubject: Ркс.яз. История России
       candidates:
         - subject: МДК 03.01 Право социального обеспечения
@@ -6560,7 +6755,7 @@ diagnostics:
           sourceRow: 148
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 62f1347ea4a71542387a153d333ae70bd2fc17937fcf713355f433dc435f0ef2
     issueKey: e82b328d053929c8718c9b71b7b9c12cd0efb69949d923cd9bf2a8eb28071495
   - provider: ygk
@@ -6592,7 +6787,7 @@ diagnostics:
           sourceRow: 57
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -6620,7 +6815,7 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -6638,7 +6833,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a28
+      baseSourceFiles: &a30
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -6652,7 +6847,7 @@ diagnostics:
           sourceRow: 43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: d131e597624c947adb9376940ba0aed14e6097c553dc38889660a707bb98ab37
     issueKey: 264c0dc7c70ae3a694ad75dae991af1dc45c327eb148858bab7df47c905846a5
   - provider: ygk
@@ -6681,7 +6876,7 @@ diagnostics:
           sourceRow: 143
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 5ab39c31776bd2cad387eccdb85cc6b634963259f79584b9905dcddd7c2c23fc
     issueKey: 440edf42fe289598da45a0f54ab535156eaffa8d456013b3307443bcc51f76e2
   - provider: ygk
@@ -6699,7 +6894,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a28
+      baseSourceFiles: *a30
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "2"
@@ -6712,7 +6907,7 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: d131e597624c947adb9376940ba0aed14e6097c553dc38889660a707bb98ab37
     issueKey: 264c0dc7c70ae3a694ad75dae991af1dc45c327eb148858bab7df47c905846a5
   - provider: ygk
@@ -6746,7 +6941,7 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -6776,7 +6971,7 @@ diagnostics:
           sourceRow: 191
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 73010de0c80f76309747cf559e26a6241a53dff05bc726d4e033da99417b2500
     issueKey: 2eb981e72a05aec659e3b208782f6ce34d483ebac171eb4de8e5fad6b178b6a9
   - provider: ygk
@@ -6805,7 +7000,7 @@ diagnostics:
           sourceRow: 146
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 5ab39c31776bd2cad387eccdb85cc6b634963259f79584b9905dcddd7c2c23fc
     issueKey: 440edf42fe289598da45a0f54ab535156eaffa8d456013b3307443bcc51f76e2
   - provider: ygk
@@ -6827,7 +7022,7 @@ diagnostics:
         - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 76bd68188c2e733d605be51b64cd00bb4bc3853e330050a4e56d5c7198696c80
     issueKey: 52855149bb8135169b667b1b901308cd42ac753cd82f2b43e50a58a88189abd6
   - provider: ygk
@@ -6859,7 +7054,7 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -6877,7 +7072,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: &a29
+      baseSourceFiles: &a31
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -6890,7 +7085,7 @@ diagnostics:
           sourceRow: 242
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
     issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
   - provider: ygk
@@ -6908,7 +7103,7 @@ diagnostics:
       type: cancel
       reason: subgroup-not-matched
       baseGroup: ИС1-43
-      baseSourceFiles: *a29
+      baseSourceFiles: *a31
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -6920,7 +7115,7 @@ diagnostics:
           sourceRow: 240
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 0d04a58cbe9f4ba015a1d3bec7c661c81bf5f13408d306c3186b8eb5020c8106
     issueKey: 9bba908750790d1771fd7dbe1d7eada75939936fe3247f97123a7cb4fed8ae0a
   - provider: ygk
@@ -6950,7 +7145,7 @@ diagnostics:
           sourceRow: 199
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: ce9106d56962883ba34dda4992de51b5c21534f239e5e30bcdcb0a4054defbda
     issueKey: bc51dc417c1bbd6f747a4822daf75865d1961806ed8c0a27b31cb9c993a3b7e6
   - provider: ygk
@@ -6980,7 +7175,7 @@ diagnostics:
           sourceRow: 130
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -7010,7 +7205,7 @@ diagnostics:
           sourceRow: 35
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f4388e588818f566fbc0cd859477a9bd5362d8c9c9e18f16b2ee5069ce1efbea
     issueKey: 2bf128fd5b61026f775e2fd96fa2459a23eff8635b9dbd5e7e94e758a3b131ef
   - provider: ygk
@@ -7041,7 +7236,7 @@ diagnostics:
           sourceRow: 219
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 521a6aa25f20cd28b2f8e71de1df8939408a4760c43a4320b401b1d951562276
     issueKey: a0ae7eca7525c9891356c9762210660c70e7f3aec385ad3c59b23184937374be
   - provider: ygk
@@ -7077,7 +7272,7 @@ diagnostics:
           sourceRow: 233
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: aca175edb50fd8d835b1781899fc4cf80082374349d9aad3823b35a0f2d76bd6
     issueKey: 1dfd062043b5b77bd7fa6e608441247c2a0761e0f9f4e5e26b3757ffbc7b7458
   - provider: ygk
@@ -7112,7 +7307,7 @@ diagnostics:
           sourceRow: 108
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
   - provider: ygk
@@ -7145,7 +7340,7 @@ diagnostics:
           sourceRow: 108
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f66e1bcf789f9a4440179020860272a3f373f23376914e0e406e01baf205097c
     issueKey: a7c05643ad8290db5b94295c85c9278b7ca02295ca7549d3fe831929c4af7910
   - provider: ygk
@@ -7175,7 +7370,7 @@ diagnostics:
           sourceRow: 55
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 99cfd4ea654c960d645f96f9f4e244d7252910bc49db5cff040c4f988fce2cdd
     issueKey: 52364eb20bca500a81a81db0346c7a9a09240607f26f76122b262f5cacaa9763
   - provider: ygk
@@ -7207,7 +7402,7 @@ diagnostics:
           sourceRow: 162
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -7235,7 +7430,7 @@ diagnostics:
           sourceRow: 122
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: be388d189978626d2a1e67dabc290b45a5ad67950b3d278419698579fdefa65c
     issueKey: c0270be2d9d67511ee8e5783ded567ff77d30080d58942382ed7c4a982c23854
   - provider: ygk
@@ -7269,7 +7464,7 @@ diagnostics:
           sourceRow: 12
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 8702e5befe776a4e5ed99b242079c6f3850a9f8eb5ed8c7de54cec76ebb2f037
     issueKey: f6687232bfaf4d526b4d213c4d99939bc6fc8e02db57c4bc81550a2f708a8304
   - provider: ygk
@@ -7299,7 +7494,7 @@ diagnostics:
           sourceRow: 302
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: d131e597624c947adb9376940ba0aed14e6097c553dc38889660a707bb98ab37
     issueKey: 264c0dc7c70ae3a694ad75dae991af1dc45c327eb148858bab7df47c905846a5
   - provider: ygk
@@ -7321,7 +7516,7 @@ diagnostics:
         - oit_1sem.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: fdcce08f0080b7fa936d84b03ca04b3d6c68ae15d726d30b0f697cebcc5bb998
     issueKey: a74b5955c1442f8bfb3ca12492aed308e48b46cb272d9c7f0cd17fa8a3449472
   - provider: ygk
@@ -7349,7 +7544,7 @@ diagnostics:
           sourceRow: 157
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -7379,7 +7574,7 @@ diagnostics:
           sourceRow: 29
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -7416,7 +7611,7 @@ diagnostics:
           sourceRow: 142
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: c1c8a6037043564eda410681850e96ed07e5fa5e205b2830b9ac0d3125f84533
     issueKey: 54bcdbb3e61b1d0ea5b37af3c95523b2158ba3a481a981d20136b457399e8036
   - provider: ygk
@@ -7444,7 +7639,7 @@ diagnostics:
           sourceRow: 122
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 9f933bda6fb52e4888c4053248f657f953838902c541192990542ec2ff295ccc
     issueKey: 6bb1783d0c7b4a53a01ae105d410cd96ec1e67d53edf40c2fb8ce8c3a9cf8c3f
   - provider: ygk
@@ -7462,7 +7657,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: &a30
+      baseSourceFiles: &a32
         - oit_1sem.xlsx
       requestedSubject: МДК 05.03
       requestedSubgroups:
@@ -7475,7 +7670,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -7505,7 +7700,7 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -7533,7 +7728,7 @@ diagnostics:
           sourceRow: 197
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 59e13068842767ecaf9a2d0ecc5e90221f1a2e362e2f33ea6c69aa62a3b7135f
     issueKey: d7e45d96a0ae8b61d33470b9a60812ae07901dc7cb58ac5047eaa24e81f36de9
   - provider: ygk
@@ -7551,7 +7746,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИС1-41
-      baseSourceFiles: *a30
+      baseSourceFiles: *a32
       requestedSubject: МДК 05.03
       requestedSubgroups:
         - "1"
@@ -7563,7 +7758,7 @@ diagnostics:
           sourceRow: 163
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 3e7cb20b5bcbd1912f234a674858af9339f8daeac280dd12e9999385017252c5
     issueKey: bb1d0adb120ed54e00e6e1c42e73ed72b436fe1cdcc9614311924a90553fdf54
   - provider: ygk
@@ -7595,7 +7790,7 @@ diagnostics:
           sourceRow: 264
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -7623,7 +7818,7 @@ diagnostics:
           sourceRow: 311
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1565623489c2a601d0351ab881d6e4c970467aea4bacd5dab249de9588f90225
     issueKey: fda4ff05c60fe77cafd29d5f43b1ddf7a44405fc378ab2effaf9e93d7f172c1f
   - provider: ygk
@@ -7651,7 +7846,7 @@ diagnostics:
           sourceRow: 158
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 5909df4bf081fd77a9773a121841a78610fca839e13a25c55d477b1107edf045
     issueKey: fccff26d7412ca9acf8aa34d554235bd19e89530515e7f191e15630f3a4d05db
   - provider: ygk
@@ -7681,7 +7876,7 @@ diagnostics:
           sourceRow: 217
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -7709,9 +7904,41 @@ diagnostics:
           sourceRow: 41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 0cb6c0c7acd92b52dc7214236ccc1e7a8504e5828e053e1349359eabdf7369db
+    sheet: "Замены: Вторая смена"
+    row: 22
+    normalizedGroup: ИБ1-41
+    rawValue: 1,2 п/гр.Ин.язык Зубковская А.Е.
+    context:
+      date: 2026-10-28
+      lessonNumber: 4
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: ИБ1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 03.01 Ин.яз.
+      requestedSubgroups:
+        - "1"
+      candidates:
+        - subject: Иностранный язык в проф. деят.
+          teacher: |-
+            Смирнова Е.Ф.
+            Зубковская А.Е.
+          room: Б110
+          sourceRow: 123
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a27
+    issueFingerprint: bec5fcb82194c313c31dc503ed97a1ede82cc79f8323a167816c8a5348406ec4
+    issueKey: 636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -7737,7 +7964,7 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66
     issueKey: 7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d
   - provider: ygk
@@ -7769,7 +7996,7 @@ diagnostics:
           sourceRow: 123
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: b9fb71132ffe54a7b1fded9e89c79bbcf15a5f82c76b14ef9d1d16045fb0b70b
     issueKey: f88ef8b83d9f1173382f8cc649c2fce5ce70a7389530f56b1876401773825473
   - provider: ygk
@@ -7798,7 +8025,7 @@ diagnostics:
           sourceRow: 203
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
     issueKey: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
   - provider: ygk
@@ -7826,7 +8053,7 @@ diagnostics:
           sourceRow: 276
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -7855,7 +8082,7 @@ diagnostics:
           sourceRow: 205
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
     issueKey: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
   - provider: ygk
@@ -7885,7 +8112,7 @@ diagnostics:
           sourceRow: 6
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1682d4dae1070051385b49b5d16d8d13b52a79720aea5cc80460cf3c397b878d
     issueKey: 1ab614e4cfd1aaa21c9286276ddefaa1980d1ef9490bb82e6ed20227fecbb8e0
   - provider: ygk
@@ -7903,11 +8130,11 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: АР1-41
-      baseSourceFiles: &a31
+      baseSourceFiles: &a33
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 1882b049c824dc37d2486818976429a1a351858d792447cccdc7c281d2bcba4b
     issueKey: aa35a7d1d0e826af12c28e2610e1f138ee413dc4ed69bea383ccb5a896f30aab
   - provider: ygk
@@ -7926,7 +8153,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: АР1-41
-      baseSourceFiles: *a31
+      baseSourceFiles: *a33
       replacementWeekType: denominator
       availableWeekTypes:
         - denominator
@@ -7938,7 +8165,7 @@ diagnostics:
           sourceRow: 164
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
     issueKey: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
   - provider: ygk
@@ -7975,7 +8202,7 @@ diagnostics:
           sourceRow: 143
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 688e89f3366e40262138ff95f2e61d664411d8189c4eab5058d903ee5e088871
     issueKey: 968b3ece8b62a6704e8fd1fbc0f64cd6b2dc6269c1cafcdec53d289654da5986
   - provider: ygk
@@ -8012,7 +8239,7 @@ diagnostics:
           sourceRow: 143
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 688e89f3366e40262138ff95f2e61d664411d8189c4eab5058d903ee5e088871
     issueKey: 968b3ece8b62a6704e8fd1fbc0f64cd6b2dc6269c1cafcdec53d289654da5986
   - provider: ygk
@@ -8040,7 +8267,7 @@ diagnostics:
           sourceRow: 197
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 56d42f9267eb288e851d9f1bb917609536fa6b17ec05af2381d8b979d25b559a
     issueKey: 0cf313d30260906d9750ca0aa69651f94b72e4370a7301a1771b3dfc55962133
   - provider: ygk
@@ -8070,7 +8297,7 @@ diagnostics:
           sourceRow: 186
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 705234f3071d96ac4ae234788d4c7b6b52089b80c0dc21acae86c7f5a197fdd4
     issueKey: 087e827798a6560fe33ebc23fa6ff1cc48c06769e8888261f5e9e85d7a212848
   - provider: ygk
@@ -8098,7 +8325,7 @@ diagnostics:
           sourceRow: 155
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -8130,7 +8357,7 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 4932433ebfdcd2a2a435bdba123221ad63cf164fab0f69f6b3d63bee38b17e50
     issueKey: 3e2f26f69045711eed53af28d99317ba0c527627c6f176aebf5b9d89973c5995
   - provider: ygk
@@ -8160,7 +8387,7 @@ diagnostics:
           sourceRow: 151
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -8190,7 +8417,7 @@ diagnostics:
           sourceRow: 247
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: d27d0ef68b05791814f7b7d4752d3ed850437ea1bcc0c76a68289564510b353c
     issueKey: 30aa01429bb5a2106d60766dc3d3bf8f4170bce1eedbfe481bec1d2c935116ff
   - provider: ygk
@@ -8220,7 +8447,7 @@ diagnostics:
           sourceRow: 143
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 3f886dd6519cb3a0d617aa536f439c888ddb45a0df9401ed3877f1975ac00951
     issueKey: b8721eb5a2505e30c20cd9cccaf27990c18205ba6a2031654c3ddaa42ac9c1ae
   - provider: ygk
@@ -8252,7 +8479,7 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 2a3d571eb72a91022afb99a363ad05cbaf8737910c1bd35d80381d84188482b6
     issueKey: c18dd50d5ced96821c2c0504f6427f92d6471dcb916379651250ba47e33d167f
   - provider: ygk
@@ -8274,7 +8501,7 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 16d25a11421e381f372902c7720b356f059e4626e8c68e994161651618401c51
     issueKey: 38ec8928f40f34f391172e929255f3ccc3e988ec890608b2bd5e29e300178a30
   - provider: ygk
@@ -8304,7 +8531,7 @@ diagnostics:
           sourceRow: 161
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -8326,7 +8553,7 @@ diagnostics:
         - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 2bd3250aa684aa83b3780ed6c993c8bd3b2c731855c4a0f911a66e1d9a245888
     issueKey: 2ddd8f8ad92db1432da3fbf5ab87bb4981df3f6297d2d57057f61cc876afc48d
   - provider: ygk
@@ -8360,7 +8587,7 @@ diagnostics:
           sourceRow: 165
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 91aa632d618640e1193ed5786353646b9d15cd561ade56661e47c3fd62301ce8
     issueKey: 1a9e00ac68f4485b7c319ed272393c60fc9d617098aa8b63635ae2683375525d
   - provider: ygk
@@ -8392,7 +8619,7 @@ diagnostics:
           sourceRow: 287
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: f33c779ae53fa88a6f500ff3632091688ba8c9f6c4afe9005ee4952addc6c728
     issueKey: d5dd409d7e5131de62300efeebeb7de598ed8d4ae4f5b94ec9d9a9bcb084c7bf
   - provider: ygk
@@ -8422,7 +8649,7 @@ diagnostics:
           sourceRow: 184
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 7dca14a2599d052d6cfd2e84aa1f7dc09fa8e79df9f03827c65316a24f9e963e
     issueKey: a9590c535d10263a199784302dd4b503e0b5d1eacc08e4fc7e4a3360f9d843ca
   - provider: ygk
@@ -8450,7 +8677,7 @@ diagnostics:
           sourceRow: 216
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 79c27407ec9698a85359172c1d1277d7f4b0fa3e7a466424bbe0f780e0a51b03
     issueKey: 9e1f8b5a57cea164c1f22bf85d7eaa01b93107165a7b544c02a4896b3d0d3209
   - provider: ygk
@@ -8478,7 +8705,7 @@ diagnostics:
           sourceRow: 119
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: fc6f35df7ebf68e57242a0352de8210157e36f29af3ecd287dbaaafdef4cd010
     issueKey: c9efed954c6968df1826de781d121ca4fa221af41dba810f889012ff6009796d
   - provider: ygk
@@ -8500,7 +8727,7 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: 58f463d8f95aa3ee099c029da25a307a2d2589506839b12982a2c708884654c5
     issueKey: 8dcafc85bb7169cd14b045748aadfb11422601c1d615be517dc38e7dd062697f
   - provider: ygk
@@ -8715,7 +8942,7 @@ diagnostics:
     row: 2
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8727,7 +8954,7 @@ diagnostics:
     row: 2
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8740,7 +8967,7 @@ diagnostics:
     normalizedGroup: ИС1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8753,7 +8980,7 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8766,7 +8993,7 @@ diagnostics:
     normalizedGroup: ИС1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8779,7 +9006,7 @@ diagnostics:
     normalizedGroup: ИБ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8792,7 +9019,7 @@ diagnostics:
     normalizedGroup: СА1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8805,7 +9032,7 @@ diagnostics:
     normalizedGroup: ДИ1-45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8818,7 +9045,7 @@ diagnostics:
     normalizedGroup: ДИ1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8831,7 +9058,7 @@ diagnostics:
     normalizedGroup: РК1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8844,7 +9071,7 @@ diagnostics:
     normalizedGroup: АР1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8857,7 +9084,7 @@ diagnostics:
     normalizedGroup: РК1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8870,7 +9097,7 @@ diagnostics:
     normalizedGroup: АР1-42
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8883,7 +9110,7 @@ diagnostics:
     normalizedGroup: ДИ1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8895,7 +9122,7 @@ diagnostics:
     row: 51
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -8907,7 +9134,7 @@ diagnostics:
     row: 52
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9152,7 +9379,7 @@ diagnostics:
     rawValue: " |  | ВПР 2 курс 0,1 пары | "
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9165,7 +9392,7 @@ diagnostics:
     rawValue: " |  |  | ВПР по истории по спец.расписанию ОУТ для 2 курса"
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9179,7 +9406,7 @@ diagnostics:
     rawValue: ИС1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9193,7 +9420,7 @@ diagnostics:
     rawValue: ИС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9207,7 +9434,7 @@ diagnostics:
     rawValue: ИС1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9221,7 +9448,7 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9235,7 +9462,7 @@ diagnostics:
     rawValue: СА1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9249,7 +9476,7 @@ diagnostics:
     rawValue: ДИ1-45 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9263,7 +9490,7 @@ diagnostics:
     rawValue: ДИ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9277,7 +9504,7 @@ diagnostics:
     rawValue: РК1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9291,7 +9518,7 @@ diagnostics:
     rawValue: АР1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9305,7 +9532,7 @@ diagnostics:
     rawValue: РК1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9319,7 +9546,7 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9333,7 +9560,7 @@ diagnostics:
     rawValue: ДИ1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9346,7 +9573,7 @@ diagnostics:
     rawValue: " |  | () | ()"
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
   - provider: ygk
@@ -9359,7 +9586,7 @@ diagnostics:
     rawValue: " |  | () | ()"
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-    source: *a25
+    source: *a27
     issueFingerprint: null
     issueKey: null
 issues:
@@ -10626,6 +10853,80 @@ issues:
       | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
       | Замены: Первая смена | 11 | — | СТ1-13 | 2 | cancel | Снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-13}} | {{group-yaml:actual:%D0%A1%D0%A21-13}} | {{raw-source:schedule:so.xlsx}} |
       | Замены: Первая смена | 22 | — | ДИ1-21 | 1 | replace | 1,2 п/гр.МДК 05.01 Рочева А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%94%D0%981-21}} | {{group-yaml:actual:%D0%94%D0%981-21}} | {{raw-source:schedule:oar.xlsx}} |
+  - key: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11
+    familyKey: 2a6727261ba551411483504b61fe2da11247df3b8f770b94396b0f0d9d78cb88
+    fingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-28
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-28, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 5
+    observationKeys:
+      - 245848a2b87c0eea672c741f9dc6947ffb4d3e997d726279ee13db478a6d0195
+      - 51b4b3c5a91b5d344d786b3123f6871bf3c73968aabfa81cc0e9a50e4f79ec20
+      - 8234916c2f59506d524c9651591b01b756af010045960a7a4317fa5257df08e1
+      - 978ed98f807b6a99e12a496ecc9660c44ffa6f846ba1b817bdfd2890958e8787
+      - f98c599167be6ba0b89e42a67a6e26fac5957cd4ebe15b49b61e443f5e4e430d
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11.json
+      yamlPath: actual/91-issue-evidence/41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11.yaml
+    body: |
+      <!-- parser-issue-key: 41053394aa72ce130b357ae1a00383ab6b982c3386816ea1e6d0d5d296806d11 -->
+      <!-- diagnostic-family-key: 2a6727261ba551411483504b61fe2da11247df3b8f770b94396b0f0d9d78cb88 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 245848a2b87c0eea672c741f9dc6947ffb4d3e997d726279ee13db478a6d0195,51b4b3c5a91b5d344d786b3123f6871bf3c73968aabfa81cc0e9a50e4f79ec20,8234916c2f59506d524c9651591b01b756af010045960a7a4317fa5257df08e1,978ed98f807b6a99e12a496ecc9660c44ffa6f846ba1b817bdfd2890958e8787,f98c599167be6ba0b89e42a67a6e26fac5957cd4ebe15b49b61e443f5e4e430d -->
+      <!-- parser-fingerprint: 130f78c3fef0253e402cac8e6cdc6475eef7f502221dcd1264be5bd228c3e0ea -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-10-28 |
+      | Смена | первая смена |
+      | Строк в Issue | 5 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 11 | — | СА1-21 | 1 | replace | 1,2 п/гр.МДК 01.01 Хожайнова М.Г. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%901-21}} | {{group-yaml:actual:%D0%A1%D0%901-21}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Первая смена | 61 | — | ЮР1-11 | 0 | replace | 1,2 п/гр. Хватова Е.Ю. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-11}} | {{group-yaml:actual:%D0%AE%D0%A01-11}} | {{raw-source:schedule:out.xlsx}} |
+      | Замены: Первая смена | 79 | — | 36 ЭМЕХ | 1 | replace | Физика Крижановский В.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:36%20%D0%AD%D0%9C%D0%95%D0%A5}} | {{group-yaml:actual:36%20%D0%AD%D0%9C%D0%95%D0%A5}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 85 | — | 4 ИКС | 2 | replace | МДК 04.01 Матвеичева О.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:4%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:4%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
+      | Замены: Первая смена | 85 | — | 4 ИКС | 3 | replace | МДК 04.01 Матвеичева О.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:4%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:4%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |
   - key: 684d330d1f036dd9fef8369656b0da7b252795b044be1d709981a957bb85d6c6
     familyKey: d5b207a28e07a2ba407aca6bcb6ac1337589c82ff7cd6d08f909936be650b8fe
     fingerprint: b96d24f3db294a7a88c8cc960a9abecfb8e0ace7df41efd882288fc37f635d5a
@@ -15043,6 +15344,74 @@ issues:
       {{group-yaml:base:%D0%9C%D0%901-12}} |
       {{group-yaml:actual:%D0%9C%D0%901-12}} | {{raw-source:schedule:oeis.xlsx}}
       |
+  - key: 7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2
+    familyKey: 5e56f9142ec57fb2f0dc81087a2135c78b69c7bfe6d8d9c2ebc6425c79be8ca0
+    fingerprint: 2cca2d53f805c66e386571ed7f7e16ccc056a0c4a5df9dc725742d10e8ce7675
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-28
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-found —
+      2026-10-28, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:lesson-not-found
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 2
+    observationKeys:
+      - 558e426ce9b07bc731e937a903d832890f9a34dae326dac66bc32a08f0758333
+      - bc542517513d263f7b19b8f495b584574f072c4470a3d02819f226a3b56711d6
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2.json
+      yamlPath: actual/91-issue-evidence/7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2.yaml
+    body: |
+      <!-- parser-issue-key: 7106e9c908050bcdd00e2d120256cf11aaa943a58375f57e2e9cb1c529f980a2 -->
+      <!-- diagnostic-family-key: 5e56f9142ec57fb2f0dc81087a2135c78b69c7bfe6d8d9c2ebc6425c79be8ca0 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 558e426ce9b07bc731e937a903d832890f9a34dae326dac66bc32a08f0758333,bc542517513d263f7b19b8f495b584574f072c4470a3d02819f226a3b56711d6 -->
+      <!-- parser-fingerprint: 2cca2d53f805c66e386571ed7f7e16ccc056a0c4a5df9dc725742d10e8ce7675 -->
+
+      ## Причина
+
+      Пара из замены отсутствует в базовом расписании
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | lesson-not-found |
+      | Дата замен | 2026-10-28 |
+      | Смена | первая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_first.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+      | SHA-256 | fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Первая смена | 53 | — | МА1-11 | 5 | replace | УП 01.01 Тепляков А.Б. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-11}} | {{group-yaml:actual:%D0%9C%D0%901-11}} | {{raw-source:schedule:oeis.xlsx}} |
+      | Замены: Первая смена | 53 | — | МА1-11 | 4 | replace | УП 01.01 Тепляков А.Б. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%9C%D0%901-11}} | {{group-yaml:actual:%D0%9C%D0%901-11}} | {{raw-source:schedule:oeis.xlsx}} |
   - key: a78b43a336d162c9a7fa1c66bf6b9c83e974007a64efc38ba019483369e89ae0
     familyKey: 3dda0267d69ff07e39ed5f2bc04871fd925ccdb9b33a5b9fc0cedcefecb051f4
     fingerprint: 0c4838ba070752b342fe6c750b18e6218f06af4b79826220466c5ba0157e2d2c
@@ -19237,6 +19606,114 @@ issues:
       {{group-yaml:base:%D0%90%D0%A01-41}} |
       {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: 636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71
+    familyKey: 39eecbb604b43d44564f4460866d6a82f9e539bead97bb71e8299b6a4ea811e6
+    fingerprint: bec5fcb82194c313c31dc503ed97a1ede82cc79f8323a167816c8a5348406ec4
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-28
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+      — 2026-10-28, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:subgroup-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 1
+    observationKeys:
+      - ba2005cea774bbcc24dba2a30e8cd2dbae3d2b51b54a4532faa51377326fad81
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71.json
+      yamlPath: actual/91-issue-evidence/636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71.yaml
+    body: >
+      <!-- parser-issue-key:
+      636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71 -->
+
+      <!-- diagnostic-family-key:
+      39eecbb604b43d44564f4460866d6a82f9e539bead97bb71e8299b6a4ea811e6 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      ba2005cea774bbcc24dba2a30e8cd2dbae3d2b51b54a4532faa51377326fad81 -->
+
+      <!-- parser-fingerprint:
+      bec5fcb82194c313c31dc503ed97a1ede82cc79f8323a167816c8a5348406ec4 -->
+
+
+      ## Причина
+
+
+      Подгруппа из замены не проводится в базовом расписании в эту неделю
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | subgroup-not-matched |
+
+      | Дата замен | 2026-10-28 |
+
+      | Смена | вторая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_second.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+
+      | SHA-256 |
+      ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Вторая смена | 22 | — | ИБ1-41 | 4 | replace | 1,2 п/гр.Ин.язык
+      Зубковская А.Е. | {{raw-source:replacements:rasp_second.html}} |
+      {{group-yaml:base:%D0%98%D0%911-41}} |
+      {{group-yaml:actual:%D0%98%D0%911-41}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: f88ef8b83d9f1173382f8cc649c2fce5ce70a7389530f56b1876401773825473
     familyKey: 0ff3f5a3e1ac52c9505106504fabcf9842cb4846e4bc57d1ab94dfbd62b420ed
     fingerprint: b9fb71132ffe54a7b1fded9e89c79bbcf15a5f82c76b14ef9d1d16045fb0b70b
