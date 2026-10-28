@@ -3943,6 +3943,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-29:
+    date: 2026-10-29
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 984dabe648ef406e26db2501aaf06d9b7308c2ab3b3a5fb8f6a253424668aca3
+          fetchedAt: 2026-10-28T15:55:15.580Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae1d968-4b89"
+          lastModified: Wed, 28 Oct 2026 11:15:52 GMT
+      second:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 785e38f8c4d63eec6bd73cdd49caecf9e76751c7e4bd99caa70bb687453a0ea7
+          fetchedAt: 2026-10-28T15:55:15.585Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae1e5c2-1c28"
+          lastModified: Wed, 28 Oct 2026 12:08:34 GMT
+    groups:
+      РК1-23:
+        group: РК1-23
+        date: 2026-10-29
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Безопасность жизнедеятельности
+                teacher: Акиничева М.А.
+                room: Б503
+                weekType: numerator
+                sourceRow: 131
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 131
+              rowEnd: 132
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Информационные технологии в профессиональной деятельности
+                teacher: |-
+                  Вепрева Ю.Ю.
+                  Подковкин А.Г.
+                room: |-
+                  Б304
+                  Б309
+                weekType: both
+                sourceRow: 133
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 133
+              rowEnd: 134
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 03.01
+                teacher: Вепрева Ю.Ю.
+                room: Б309
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                rawTeacher: Вепрева Ю.Ю.
+                rawRoom: Б309
+                sourceRow: 15
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 135
+              rowEnd: 136
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-10-29
+                  group: РК1-23
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 04.01 МДК 03.01
+                  replacement:
+                    raw: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                    room: Б309
+                  source:
+                    shift: first
+                    row: 15
+                    rawGroupName: РК1-23
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 04.01 МДК 03.01
+                    rawReplacement: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                    rawRoom: Б309
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: МДК 03.01
+                teacher: Вепрева Ю.Ю.
+                room: Б309
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
+                rawTeacher: Вепрева Ю.Ю.
+                rawRoom: Б309
+                sourceRow: 15
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 137
+              rowEnd: 138
+              rawGroupName: РК1-23/РК1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3969,4 +4104,4 @@ diagnostics:
           sourceRow: 131
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2d6f21c391575334bda5118f0d81240f60a29d2f09492b284b9fe1c3bb9f990b
+semanticHash: 07726395be93541414b4ec654bcb373628455dc0c0af97c4bb4934f7150646f4

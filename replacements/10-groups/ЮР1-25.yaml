@@ -1864,7 +1864,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1930,9 +1930,75 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 785e38f8c4d63eec6bd73cdd49caecf9e76751c7e4bd99caa70bb687453a0ea7
     replacements:
       - *a54
       - *a55
       - *a56
+  2026-10-29:
+    date: 2026-10-29
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 785e38f8c4d63eec6bd73cdd49caecf9e76751c7e4bd99caa70bb687453a0ea7
+          fetchedAt: 2026-10-28T15:55:15.585Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae1e5c2-1c28"
+          lastModified: Wed, 28 Oct 2026 12:08:34 GMT
+        replacements:
+          - &a57
+            date: 2026-10-29
+            group: ЮР1-25
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Конст.право
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "2"
+              rawOriginal: Конст.право
+              rawReplacement: снято
+              rawRoom: ""
+          - &a58
+            date: 2026-10-29
+            group: ЮР1-25
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Хватова Е.Ю.
+              room: Ф305Ф306
+            source:
+              shift: second
+              row: 4
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "3"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+              rawRoom: Ф305Ф306
+        diagnostics: []
+    replacements:
+      - *a57
+      - *a58
 diagnostics: []
-semanticHash: 06785cc1bf8c31102c8898003745acd05c0a724ee95909214fa065b1386d2259
+semanticHash: c1b553686a1228fd61cd68a93cf04b8904760d3bae9cde29a04bf8fdbcabe1cb

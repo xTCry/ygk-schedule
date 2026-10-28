@@ -371,6 +371,87 @@ dates:
           sourceSha256: e9892204e90cd8df97d46d74b8787060ac2f48cea0e148feed65ffee3b9de6dd
     replacements:
       - *a8
+  2026-10-29:
+    date: 2026-10-29
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 984dabe648ef406e26db2501aaf06d9b7308c2ab3b3a5fb8f6a253424668aca3
+          fetchedAt: 2026-10-28T15:55:15.580Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae1d968-4b89"
+          lastModified: Wed, 28 Oct 2026 11:15:52 GMT
+        replacements:
+          - &a9
+            date: 2026-10-29
+            group: ЮС1-43
+            lessonNumbers:
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+          - &a10
+            date: 2026-10-29
+            group: ЮС1-43
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инф.технол.
+            replacement:
+              raw: 1,2 п/гр. Хватова Е.Ю.
+              room: Ф305Ф306
+            source:
+              shift: first
+              row: 72
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "2"
+              rawOriginal: Инф.технол.
+              rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+              rawRoom: Ф305Ф306
+          - &a11
+            date: 2026-10-29
+            group: ЮС1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 73
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a9
+      - *a10
+      - *a11
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -393,4 +474,4 @@ diagnostics:
     rawValue: ЮС1-43 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: c2da59d9d2d9ee2d66c10d23f1a25da03a8cf2eaacb648199e4b4e2008a93ab6
+semanticHash: f000e9fa91212bd0890cbee4bd79c17c52cbd3276621c03d93ec477e9cfb4ff9

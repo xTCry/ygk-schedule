@@ -1088,7 +1088,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1155,9 +1155,56 @@ dates:
               rawReplacement: Доп.проф.п/гр.1 Воронкевич Г.А.
               rawRoom: Б510
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 984dabe648ef406e26db2501aaf06d9b7308c2ab3b3a5fb8f6a253424668aca3
     replacements:
       - *a28
       - *a29
       - *a30
+  2026-10-29:
+    date: 2026-10-29
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 984dabe648ef406e26db2501aaf06d9b7308c2ab3b3a5fb8f6a253424668aca3
+          fetchedAt: 2026-10-28T15:55:15.580Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae1d968-4b89"
+          lastModified: Wed, 28 Oct 2026 11:15:52 GMT
+        replacements:
+          - &a31
+            date: 2026-10-29
+            group: АР1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Биология
+            replacement:
+              raw: География Климова Ю.И.
+              room: Б401
+            source:
+              shift: first
+              row: 31
+              rawGroupName: АР1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Биология
+              rawReplacement: География Климова Ю.И.
+              rawRoom: Б401
+        diagnostics: []
+    replacements:
+      - *a31
 diagnostics: []
-semanticHash: 28901440159e2bd09b5922019e37b8679470c58908b58801cb5018ead0d644f2
+semanticHash: 1aae55621f68e903aa3812ff8677f54141e966000c34db35c3098abea228b6fa

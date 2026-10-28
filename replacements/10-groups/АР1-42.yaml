@@ -1429,7 +1429,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1479,9 +1479,57 @@ dates:
               rawReplacement: Гасенина М.П.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-29
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 785e38f8c4d63eec6bd73cdd49caecf9e76751c7e4bd99caa70bb687453a0ea7
     replacements:
       - *a35
       - *a36
+  2026-10-29:
+    date: 2026-10-29
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-29
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 785e38f8c4d63eec6bd73cdd49caecf9e76751c7e4bd99caa70bb687453a0ea7
+          fetchedAt: 2026-10-28T15:55:15.585Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae1e5c2-1c28"
+          lastModified: Wed, 28 Oct 2026 12:08:34 GMT
+        replacements:
+          - &a37
+            date: 2026-10-29
+            group: АР1-42
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.05.Т.5.1.
+            replacement:
+              raw: МДК 01.05 Т.5.3. Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 26
+              rawGroupName: АР1-42
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.05.Т.5.1.
+              rawReplacement: МДК 01.05 Т.5.3. Балина С.А.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a37
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1504,4 +1552,4 @@ diagnostics:
     rawValue: АР1-42 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2a89bd665d48f38de89c2e021cd0e0d976fa6a02c14275edcb4ff31f8a8794e5
+semanticHash: 22c15dfea9b219d5c3f10fb3cede2e2de785a4905c58ac64029b707f38569dbb
