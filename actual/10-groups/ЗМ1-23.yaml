@@ -3059,7 +3059,129 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+    groups:
+      ЗМ1-23:
+        group: ЗМ1-23
+        date: 2026-10-30
+        day: Пятница
+        lessons:
+          - number: 4
+            variants:
+              - subject: История России
+                teacher: Новиков М.П.
+                room: Ф301
+                weekType: both
+                rawSubject: Новиков М.П.
+                rawTeacher: Новиков М.П.
+                rawRoom: Ф301
+                sourceRow: 40
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 82
+              rowEnd: 83
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a14
+                  date: 2026-10-30
+                  group: ЗМ1-23
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: Новиков М.П.
+                    room: Ф301
+                  source:
+                    shift: first
+                    row: 40
+                    rawGroupName: ЗМ1-23
+                    rawLessonNumbers: 3,4
+                    rawOriginal: История России
+                    rawReplacement: Новиков М.П.
+                    rawRoom: Ф301
+                lessonNumber: 4
+                strategy: exact-subject
+          - number: 5
+            variants:
+              - subject: Безопасность жизнидеятельности
+                teacher: Петровский О.В.
+                room: Ф201
+                weekType: both
+                sourceRow: 84
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 84
+              rowEnd: 85
+              rawGroupName: ЗМ1-23/ЗМ1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a14
+            lessonNumber: 3
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «История России». По замене: «Новиков М.П.».
+                Аудитория: «Ф301»."
+              room: Ф301
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 61cc98d083e0095813287431ded233c01f84ce7c16ea319213243e8ff59a1e9c
+    sheet: "Замены: Первая смена"
+    row: 40
+    normalizedGroup: ЗМ1-23
+    rawValue: Новиков М.П.
+    context:
+      date: 2026-10-30
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ЗМ1-23
+      baseSourceFiles:
+        - oeis.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -3085,4 +3207,4 @@ diagnostics:
           sourceRow: 54
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 795c69a9ddadc9433b643b7c11bfd952f3377a5a595aa3077d8c2f6a0a7985ec
+semanticHash: 5e9526b9b05a8a30ece7ef6571ea3b2b7820eda3e2d0bf01b6f87d08ca85adfd

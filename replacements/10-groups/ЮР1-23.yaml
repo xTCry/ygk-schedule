@@ -1990,7 +1990,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2040,8 +2040,55 @@ dates:
               rawReplacement: 1,2 п/гр. Хватова Е.Ю.
               rawRoom: Ф305Ф306
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     replacements:
       - *a58
       - *a59
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        replacements:
+          - &a60
+            date: 2026-10-30
+            group: ЮР1-23
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 5
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a60
 diagnostics: []
-semanticHash: d30eaa95d0711623cbdfd2010848c69fd950b5c1951eaab62e1aae7be80e4af8
+semanticHash: ac81c0a060d01f8177d2d52c1a790ddbd79357e8c1bf7188b9d191d9b70c8854

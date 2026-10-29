@@ -4715,6 +4715,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+    groups:
+      РК1-41:
+        group: РК1-41
+        date: 2026-10-30
+        day: Пятница
+        lessons:
+          - number: 4
+            variants: []
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 283
+              rowEnd: 284
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-30
+                  group: РК1-41
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: МДК 03.02
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 25
+                    rawGroupName: РК1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: МДК 03.02
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                teacher: Зайцева О.В.
+                room: Б406
+                weekType: both
+                rawSubject: 1,2 п/гр. Зайцева О.В.
+                rawTeacher: Зайцева О.В.
+                rawRoom: Б406
+                sourceRow: 26
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 285
+              rowEnd: 286
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-10-30
+                  group: РК1-41
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: 1,2 п/гр. Зайцева О.В.
+                    room: Б406
+                  source:
+                    shift: second
+                    row: 26
+                    rawGroupName: РК1-41
+                    rawLessonNumbers: 5,6
+                    rawOriginal: МДК 01.01
+                    rawReplacement: 1,2 п/гр. Зайцева О.В.
+                    rawRoom: Б406
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК 01.01 Художественное проектирование рекламного продукта
+                teacher: Зайцева О.В.
+                room: Б406
+                weekType: both
+                rawSubject: 1,2 п/гр. Зайцева О.В.
+                rawTeacher: Зайцева О.В.
+                rawRoom: Б406
+                sourceRow: 26
+            source:
+              sheet: РК121РК1-22РК1-31РК32РК1-41РК42
+              rowStart: 287
+              rowEnd: 288
+              rawGroupName: РК1-41/РК1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4762,4 +4893,4 @@ diagnostics:
     normalizedGroup: РК1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 47ec8d3108333e664ff46d156bd6cf2a86c4318f771887ef37b8ac03136c6fa0
+semanticHash: 5692bb5ed58586dcb1a7517c756e54920ec8bac95b0a486dd90a6e16bc15ec13

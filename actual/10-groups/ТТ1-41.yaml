@@ -4943,7 +4943,7 @@ dates:
         date: 2026-10-29
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4953,11 +4953,15 @@ dates:
           shift: first
           etag: W/"6ae1d968-4b89"
           lastModified: Wed, 28 Oct 2026 11:15:52 GMT
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
       second:
         date: 2026-10-29
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4967,6 +4971,10 @@ dates:
           shift: second
           etag: W/"6ae1e5c2-1c28"
           lastModified: Wed, 28 Oct 2026 12:08:34 GMT
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     groups:
       ТТ1-41:
         group: ТТ1-41
@@ -5070,6 +5078,201 @@ dates:
               description: "По расписанию: «...МДК 04.01». По замене: «МДК 04.02 Леонидова
                 Н.А.». Аудитория: «ДОТ»."
               room: ДОТ
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.04.01 Управление и планирование на теплоэнергетических предприятиях
+                  teacher: Мартынова С.В.
+                  room: Фё04
+                  weekType: both
+                  sourceRow: 173
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 173
+                rowEnd: 174
+                rawGroupName: ТТ1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Эффективное поведение на рынке труда
+                  teacher: Мартынова С.В.
+                  room: Ф104
+                  weekType: numerator
+                  sourceRow: 175
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 175
+                rowEnd: 176
+                rawGroupName: ТТ1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+    groups:
+      ТТ1-41:
+        group: ТТ1-41
+        date: 2026-10-30
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК.02.03 Организация и технология ремонта оборудования систем
+                  топливоснабжения
+                teacher: Морозов Д.А.
+                room: очно
+                weekType: both
+                sourceRow: 178
+                rawRoom: очно
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 178
+              rowEnd: 179
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a12
+                  date: 2026-10-30
+                  group: ТТ1-41
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: очно
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: ТТ1-41
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: очно
+                lessonNumber: 0
+                strategy: scheduled-room
+          - number: 1
+            variants:
+              - subject: МДК.02.03 Организация и технология ремонта оборудования систем
+                  топливоснабжения
+                teacher: Морозов Д.А.
+                room: очно
+                weekType: both
+                sourceRow: 180
+                rawRoom: очно
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 180
+              rowEnd: 181
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a12
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: МДК.04.02 Организация промышленной безопасности в теплоэнергетике
+                teacher: Мартынова С.В.
+                room: Ф305
+                weekType: both
+                sourceRow: 182
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 182
+              rowEnd: 183
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 04.02
+                teacher: Леонидова Н.А
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 04.02 Леонидова Н.А
+                rawTeacher: Леонидова Н.А
+                rawRoom: ДОТ
+                sourceRow: 48
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 184
+              rowEnd: 185
+              rawGroupName: ТТ1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a13
+                  date: 2026-10-30
+                  group: ТТ1-41
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: МДК 04.01 Ин.яз.
+                  replacement:
+                    raw: МДК 04.02 Леонидова Н.А
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: ТТ1-41
+                    rawLessonNumbers: 2,3
+                    rawOriginal: МДК 04.01 Ин.яз.
+                    rawReplacement: МДК 04.02 Леонидова Н.А
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-word-mention
+        unresolvedReplacements:
+          - replacement: *a13
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 04.01 Ин.яз.». По замене: «МДК 04.02 Леонидова
+                Н.А». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -5079,6 +5282,31 @@ diagnostics:
     sheet: "Замены: Первая смена"
     row: 38
     normalizedGroup: ТТ1-41
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7d901b5068a550d8da649d270f520af0dba6f9f6b2ade80243bddf481e09767f
+    sheet: "Замены: Первая смена"
+    row: 48
+    normalizedGroup: ТТ1-41
+    rawValue: МДК 04.02 Леонидова Н.А
+    context:
+      date: 2026-10-30
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ТТ1-41
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: МДК 04.01 Ин.яз.
+      candidates:
+        - subject: МДК.04.02 Организация промышленной безопасности в теплоэнергетике
+          teacher: Мартынова С.В.
+          room: Ф305
+          sourceRow: 182
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -5096,7 +5324,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-41
-      baseSourceFiles: &a12
+      baseSourceFiles: &a14
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -5115,7 +5343,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-41
-      baseSourceFiles: *a12
+      baseSourceFiles: *a14
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -5169,7 +5397,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-41
-      baseSourceFiles: *a12
+      baseSourceFiles: *a14
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0d7a62e95555ffda8ee2d096836b1572133117be86a93ea11a14075ecf399d5b
+semanticHash: a7715506edbd4de31970f7c3a4356626a01154eb2740bf1463b8ef3616ecb9a4

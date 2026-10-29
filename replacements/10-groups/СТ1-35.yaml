@@ -2993,7 +2993,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3023,7 +3023,54 @@ dates:
               rawReplacement: ИТ п/гр.1 Краснянская Е.В. МДК 01.01 Т.1.2.п/гр.2 Гасенина М.П.
               rawRoom: Б204Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     replacements:
       - *a89
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        replacements:
+          - &a90
+            date: 2026-10-30
+            group: СТ1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.01 Т.1.1.
+            replacement:
+              raw: Лапин И.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 10
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01 Т.1.1.
+              rawReplacement: Лапин И.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a90
 diagnostics: []
-semanticHash: 8bca69d0bf36cc45b87f69b3a9d227e4b5519f5fd7f39c788faeb61dd7e69660
+semanticHash: 1d0ccc5b937755a68561335106ac46fe9d86c1c67725127611d10a3f4d5e28b2

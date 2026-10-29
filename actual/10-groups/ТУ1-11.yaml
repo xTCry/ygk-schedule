@@ -3781,6 +3781,163 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+    groups:
+      ТУ1-11:
+        group: ТУ1-11
+        date: 2026-10-30
+        day: Пятница
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 35
+              rowEnd: 36
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-10-30
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: Биология
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: Биология
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: exact-subject
+          - number: 1
+            variants:
+              - subject: География
+                teacher: Климова Ю.И.
+                room: Ф107
+                weekType: both
+                sourceRow: 37
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 37
+              rowEnd: 38
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: География
+                teacher: Климова Ю.И.
+                room: Ф107
+                weekType: both
+                rawSubject: География Климова Ю.И.
+                rawTeacher: Климова Ю.И.
+                rawRoom: Ф107
+                sourceRow: 51
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 39
+              rowEnd: 40
+              rawGroupName: ТУ1-11 / ТУ1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-30
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: География Климова Ю.И.
+                    room: Ф107
+                  source:
+                    shift: first
+                    row: 51
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "2"
+                    rawOriginal: Математика
+                    rawReplacement: География Климова Ю.И.
+                    rawRoom: Ф107
+                lessonNumber: 2
+                strategy: exact-subject
+          - number: 3
+            variants:
+              - subject: Физика
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: both
+                rawSubject: Физика Калинин Д.А.
+                rawTeacher: Калинин Д.А.
+                rawRoom: Ф106
+                sourceRow: 52
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-10-30
+                  group: ТУ1-11
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физика Калинин Д.А.
+                    room: Ф106
+                  source:
+                    shift: first
+                    row: 52
+                    rawGroupName: ТУ1-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Физика Калинин Д.А.
+                    rawRoom: Ф106
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3811,4 +3968,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: bab9805a91a0a2d5731e76e7b32243cb1b4de7c37c550859b0a1277fdcc5f0de
+semanticHash: 1504cb88fef0e9516a8d9a2f3011d6546878b2c940a878daa0d3de87ca549104

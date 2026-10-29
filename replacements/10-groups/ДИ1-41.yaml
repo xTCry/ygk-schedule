@@ -2693,7 +2693,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2744,9 +2744,56 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 01.02 Выблова Т.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     replacements:
       - *a83
       - *a84
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        replacements:
+          - &a85
+            date: 2026-10-30
+            group: ДИ1-41
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: п/гр.1 Ремизова А.И.
+              room: Б502
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.02
+              rawReplacement: п/гр.1 Ремизова А.И.
+              rawRoom: Б502
+        diagnostics: []
+    replacements:
+      - *a85
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2769,4 +2816,4 @@ diagnostics:
     rawValue: ДИ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0ccd33bbed2fafdc82d9709e1ae970dd2531f3800c14d5a0a84d561aaa322f84
+semanticHash: f17da9727979c61571d3effab38608919719690620d1c1f544671b9b442746b9

@@ -1570,7 +1570,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1600,7 +1600,74 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     replacements:
       - *a42
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        replacements:
+          - &a43
+            date: 2026-10-30
+            group: ЮР1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Конст.право
+            replacement:
+              raw: 1,2 п/гр.Инф.технол. Хватова Е.Ю.
+              room: Ф305
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Конст.право
+              rawReplacement: 1,2 п/гр.Инф.технол. Хватова Е.Ю.
+              rawRoom: Ф305
+          - &a44
+            date: 2026-10-30
+            group: ЮР1-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: История России Горбачёв В.Н.
+              room: Ф404
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: История России Горбачёв В.Н.
+              rawRoom: Ф404
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: a07ce95c3b243a9c94491a2edf9aa75ab75741721979c7e62ad63d1cb521b8e7
+semanticHash: c9b635ad8acabbf8c4ecee476b7dd61bc802fd373e2302069d1d62656992d51c

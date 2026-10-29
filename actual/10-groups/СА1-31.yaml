@@ -3892,6 +3892,122 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+    groups:
+      СА1-31:
+        group: СА1-31
+        date: 2026-10-30
+        day: Пятница
+        lessons:
+          - number: 4
+            variants:
+              - subject: Физическая культура
+                teacher: Куликова А.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 87
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 87
+              rowEnd: 88
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: УП.04Учебная практика
+                teacher: Зайцев Р.А.
+                room: Б301
+                weekType: both
+                rawSubject: 1,2 п/гр. Зайцев Р.А.
+                rawTeacher: Зайцев Р.А.
+                rawRoom: Б301
+                sourceRow: 19
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a11
+                  date: 2026-10-30
+                  group: СА1-31
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: УП 04
+                  replacement:
+                    raw: 1,2 п/гр. Зайцев Р.А.
+                    room: Б301
+                  source:
+                    shift: second
+                    row: 19
+                    rawGroupName: СА1-31
+                    rawLessonNumbers: 5,6
+                    rawOriginal: УП 04
+                    rawReplacement: 1,2 п/гр. Зайцев Р.А.
+                    rawRoom: Б301
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: УП.04Учебная практика
+                teacher: Зайцев Р.А.
+                room: Б301
+                weekType: both
+                rawSubject: 1,2 п/гр. Зайцев Р.А.
+                rawTeacher: Зайцев Р.А.
+                rawRoom: Б301
+                sourceRow: 19
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: СА1-31/СА1-32/СА2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a11
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3918,4 +4034,4 @@ diagnostics:
           sourceRow: 97
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 651946631b43e67770871f744f55aafb2b7ccc1cb100c18ee0aecaa561c92c43
+semanticHash: 10e54c51348c01dc5b180fa1500734afbed3d05ea9425edef3ea1e92bef323eb

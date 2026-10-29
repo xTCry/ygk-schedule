@@ -1768,7 +1768,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1799,7 +1799,73 @@ dates:
               rawReplacement: Биология Козырева Д.А.
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
     replacements:
       - *a50
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+        replacements:
+          - &a51
+            date: 2026-10-30
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Математика Гаврилова М.А.
+              room: Б504
+            source:
+              shift: first
+              row: 37
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Математика Гаврилова М.А.
+              rawRoom: Б504
+          - &a52
+            date: 2026-10-30
+            group: СТ1-17
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: Физика Информ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 38
+              rawGroupName: СТ1-17
+              rawLessonNumbers: 2,3
+              rawOriginal: Физика Информ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a51
+      - *a52
 diagnostics: []
-semanticHash: 94fd26d492e414b7363419150164e4fba37f0f2e0da38232f9772f37b428a0cd
+semanticHash: 09fa4ea0323665c091fd49eb71413b0669f74eff60f2f7c2133e01607f3d8bdc

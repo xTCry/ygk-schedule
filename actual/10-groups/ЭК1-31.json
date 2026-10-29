@@ -5147,6 +5147,152 @@
           }
         }
       }
+    },
+    "2026-10-30": {
+      "date": "2026-10-30",
+      "day": "Пятница",
+      "weekType": "numerator",
+      "shifts": {
+        "first": {
+          "date": "2026-10-30",
+          "day": "Пятница",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a",
+            "fetchedAt": "2026-10-29T16:00:40.073Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6ae320fc-41b7\"",
+            "lastModified": "Thu, 29 Oct 2026 10:33:32 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-10-30",
+          "day": "Пятница",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56",
+            "fetchedAt": "2026-10-29T16:00:40.078Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6ae33245-1f22\"",
+            "lastModified": "Thu, 29 Oct 2026 11:47:17 GMT"
+          }
+        }
+      },
+      "groups": {
+        "ЭК1-31": {
+          "group": "ЭК1-31",
+          "date": "2026-10-30",
+          "day": "Пятница",
+          "lessons": [
+            {
+              "number": 1,
+              "variants": [
+                {
+                  "subject": "Основы философии",
+                  "teacher": "Горбачев В.Н.",
+                  "room": "Ф201",
+                  "weekType": "numerator",
+                  "sourceRow": 80
+                }
+              ],
+              "source": {
+                "sheet": " ЭК1-21 ЭК1-31",
+                "rowStart": 80,
+                "rowEnd": 81,
+                "rawGroupName": "ЭК1-31/ ЭК1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 2,
+              "variants": [
+                {
+                  "subject": "МДК.01.01 Практические основы бухгалтерского учета активов организации",
+                  "teacher": "Ноева О.В.",
+                  "room": "Ф205",
+                  "weekType": "both",
+                  "sourceRow": 82
+                }
+              ],
+              "source": {
+                "sheet": " ЭК1-21 ЭК1-31",
+                "rowStart": 82,
+                "rowEnd": 83,
+                "rawGroupName": "ЭК1-31/ ЭК1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 3,
+              "variants": [
+                {
+                  "subject": "Физическая культура",
+                  "teacher": "Калачик Н.И.",
+                  "room": "Сп.площ.",
+                  "weekType": "both",
+                  "sourceRow": 84
+                }
+              ],
+              "source": {
+                "sheet": " ЭК1-21 ЭК1-31",
+                "rowStart": 84,
+                "rowEnd": 85,
+                "rawGroupName": "ЭК1-31/ ЭК1-32",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-10-30",
+                "group": "ЭК1-31",
+                "lessonNumbers": [
+                  1
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "МДК 01.01"
+                },
+                "replacement": {
+                  "raw": "МДК 04.01 Бежина М.И.",
+                  "room": "Ф205"
+                },
+                "source": {
+                  "shift": "first",
+                  "row": 75,
+                  "rawGroupName": "ЭК1-31",
+                  "rawLessonNumbers": "1",
+                  "rawOriginal": "МДК 01.01",
+                  "rawReplacement": "МДК 04.01 Бежина М.И.",
+                  "rawRoom": "Ф205"
+                }
+              },
+              "lessonNumber": 1,
+              "reason": "original-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «МДК 01.01». По замене: «МДК 04.01 Бежина М.И.». Аудитория: «Ф205».",
+                "room": "Ф205"
+              }
+            }
+          ]
+        }
+      }
     }
   },
   "diagnostics": [
@@ -5221,6 +5367,38 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "a4916a13e4f7205c358619f46e48b0093deeae18b0b4716eb734f988ec2e05f6",
+      "sheet": "Замены: Первая смена",
+      "row": 75,
+      "normalizedGroup": "ЭК1-31",
+      "rawValue": "МДК 04.01 Бежина М.И.",
+      "context": {
+        "date": "2026-10-30",
+        "lessonNumber": 1,
+        "type": "replace",
+        "reason": "original-not-matched",
+        "baseGroup": "ЭК1-31",
+        "baseSourceFiles": [
+          "out.xlsx"
+        ],
+        "requestedSubject": "МДК 01.01",
+        "candidates": [
+          {
+            "subject": "Основы философии",
+            "teacher": "Горбачев В.Н.",
+            "room": "Ф201",
+            "sourceRow": 80
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
       "message": "Пара из замены отсутствует в базовом расписании",
       "fingerprint": "bab115f4cec346ecf13e790212395b9dd1d5de6510f66f617293f09f4adc7e6c",
       "sheet": "Замены: Первая смена",
@@ -5273,5 +5451,5 @@
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html"
     }
   ],
-  "semanticHash": "5a2444c1fdc8674b24757f11fb2f92154ca9e2b3b75d6101fd92b8a3a92ea6de"
+  "semanticHash": "702adad9bf797714b878b989fd6d3bdfd691f39b348e99f61fd3a4854e42c4be"
 }

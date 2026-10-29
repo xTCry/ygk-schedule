@@ -1071,5 +1071,86 @@ dates:
           sourceSha256: 984dabe648ef406e26db2501aaf06d9b7308c2ab3b3a5fb8f6a253424668aca3
     replacements:
       - *a27
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
+          fetchedAt: 2026-10-29T16:00:40.073Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae320fc-41b7"
+          lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+        replacements:
+          - &a28
+            date: 2026-10-30
+            group: ТУ1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Биология
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 50
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Биология
+              rawReplacement: снято
+              rawRoom: ""
+          - &a29
+            date: 2026-10-30
+            group: ТУ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: География Климова Ю.И.
+              room: Ф107
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: География Климова Ю.И.
+              rawRoom: Ф107
+          - &a30
+            date: 2026-10-30
+            group: ТУ1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физика Калинин Д.А.
+              room: Ф106
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физика Калинин Д.А.
+              rawRoom: Ф106
+        diagnostics: []
+    replacements:
+      - *a28
+      - *a29
+      - *a30
 diagnostics: []
-semanticHash: 3205e23c94ab18e5bd156b4f6f7bd161556f9611467c381ba75e6810120408c5
+semanticHash: 2ac8c5eced12582a6a2bd803e905398347eadfb899b347414c065dac5a73a939

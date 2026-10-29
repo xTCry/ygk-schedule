@@ -1567,7 +1567,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1598,7 +1598,75 @@ dates:
               rawReplacement: МДК 02.01 Т.1.1. Топчиян Е.А.
               rawRoom: Б401
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-30
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
     replacements:
       - *a42
+  2026-10-30:
+    date: 2026-10-30
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-30
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eafd2c55ba8dc23f5c8427387bfa34ba29aaf2ec8d604a4b9c43624620d9dc56
+          fetchedAt: 2026-10-29T16:00:40.078Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae33245-1f22"
+          lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        replacements:
+          - &a43
+            date: 2026-10-30
+            group: СТ1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.3.
+            replacement:
+              raw: Осн.философии Смирнов Б.Е.
+              room: ДОТ
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.01 Т.1.3.
+              rawReplacement: Осн.философии Смирнов Б.Е.
+              rawRoom: ДОТ
+          - &a44
+            date: 2026-10-30
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.п/гр.1
+            replacement:
+              raw: п/гр.2 Секацкая Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СТ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01 Т.1.2.п/гр.1
+              rawReplacement: п/гр.2 Секацкая Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: 092092029ae2c86ae9eb6e3543c398ca89a1ebca223b3fdf07453a261ef11fa5
+semanticHash: 7c11562aa57f8d315d6428334db636dd0e22ada19b3fb09f870001d21a4dca7c
