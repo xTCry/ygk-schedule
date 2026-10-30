@@ -2405,7 +2405,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2436,7 +2436,55 @@ dates:
               rawReplacement: МДК 02.01 п/гр.1 Кожешкурт А.В.
               rawRoom: Б401
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71
     replacements:
       - *a65
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71
+          fetchedAt: 2026-10-30T15:48:42.223Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae479e4-1dea"
+          lastModified: Fri, 30 Oct 2026 11:05:08 GMT
+        replacements:
+          - &a66
+            date: 2026-10-31
+            group: РК1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.03 УП 04.03
+            replacement:
+              raw: МДК 02.02 Павлова А.В.
+              room: Б304
+            source:
+              shift: second
+              row: 23
+              rawGroupName: РК1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 04.03 УП 04.03
+              rawReplacement: МДК 02.02 Павлова А.В.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a66
 diagnostics: []
-semanticHash: 055006cb582da37f4a072358d98cbbd5ab4d1069725804f30d516c31b1e6fa41
+semanticHash: a3225f0dcf3c65db1680380e1550e84ecbe841e437d2ddeca7798c5e8ba4b156

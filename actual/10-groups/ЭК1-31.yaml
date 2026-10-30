@@ -3767,7 +3767,7 @@ dates:
         date: 2026-10-30
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3777,11 +3777,15 @@ dates:
           shift: first
           etag: W/"6ae320fc-41b7"
           lastModified: Thu, 29 Oct 2026 10:33:32 GMT
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
       second:
         date: 2026-10-30
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3791,6 +3795,10 @@ dates:
           shift: second
           etag: W/"6ae33245-1f22"
           lastModified: Thu, 29 Oct 2026 11:47:17 GMT
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71
     groups:
       ЭК1-31:
         group: ЭК1-31
@@ -3869,6 +3877,55 @@ dates:
               description: "По расписанию: «МДК 01.01». По замене: «МДК 04.01 Бежина М.И.».
                 Аудитория: «Ф205»."
               room: Ф205
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Основы философии
+                  teacher: Горбачев В.Н.
+                  room: Ф201
+                  weekType: numerator
+                  sourceRow: 80
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 80
+                rowEnd: 81
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: both
+                  sourceRow: 82
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 82
+                rowEnd: 83
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Физическая культура
+                  teacher: Калачик Н.И.
+                  room: Сп.площ.
+                  weekType: both
+                  sourceRow: 84
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 84
+                rowEnd: 85
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3991,4 +4048,4 @@ diagnostics:
           sourceRow: 77
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 702adad9bf797714b878b989fd6d3bdfd691f39b348e99f61fd3a4854e42c4be
+semanticHash: 746986321fa823b2cc3ae37323b794bcc5b7a15156e2b5ee8dcd31e4a5dfaf18

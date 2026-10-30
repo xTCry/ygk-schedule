@@ -2813,7 +2813,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2882,9 +2882,75 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
     replacements:
       - *a82
       - *a83
       - *a84
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
+          fetchedAt: 2026-10-30T15:48:42.221Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae470b2-270b"
+          lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        replacements:
+          - &a85
+            date: 2026-10-31
+            group: СА1-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: Арх.аппар.ср.МДК 01.01
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 13
+              rawGroupName: СА1-21
+              rawLessonNumbers: 1,2
+              rawOriginal: Арх.аппар.ср.МДК 01.01
+              rawReplacement: снято
+              rawRoom: ""
+          - &a86
+            date: 2026-10-31
+            group: СА1-21
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: История России Свободина Н.В.
+              room: М101
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СА1-21
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: История России Свободина Н.В.
+              rawRoom: М101
+        diagnostics: []
+    replacements:
+      - *a85
+      - *a86
 diagnostics: []
-semanticHash: 9eec7768ca4f04027fe08a3a3e1851a2f1f493ee4c870c69f7289b823bed6124
+semanticHash: c54312b4cc4eac53d8107aefcb6bf1f0e93a41808cb7ed1445e1e7d69113ff94

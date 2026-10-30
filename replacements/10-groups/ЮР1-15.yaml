@@ -2668,7 +2668,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2736,9 +2736,76 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
     replacements:
       - *a79
       - *a80
       - *a81
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
+          fetchedAt: 2026-10-30T15:48:42.221Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae470b2-270b"
+          lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        replacements:
+          - &a82
+            date: 2026-10-31
+            group: ЮР1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.площ.
+            source:
+              shift: first
+              row: 16
+              rawGroupName: ЮР1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.площ.
+          - &a83
+            date: 2026-10-31
+            group: ЮР1-15
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Математика Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ЮР1-15
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Математика Саввина Е.А.
+              rawRoom: Ф202
+        diagnostics: []
+    replacements:
+      - *a82
+      - *a83
 diagnostics: []
-semanticHash: 8b0f73bbfe7c222ae00feced18a8ce475e6689a51c0787b53d5b2ee90d744874
+semanticHash: e9e10d75ca3e4a708ece42825386bce492d499fe5ad59b4a8b29c05fc41a5169

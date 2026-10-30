@@ -1931,7 +1931,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1981,8 +1981,54 @@ dates:
               rawReplacement: Матем.методы Гаврилова М.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
     replacements:
       - *a51
       - *a52
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
+          fetchedAt: 2026-10-30T15:48:42.221Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae470b2-270b"
+          lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        replacements:
+          - &a53
+            date: 2026-10-31
+            group: СД2-13
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СД2-13
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a53
 diagnostics: []
-semanticHash: cdbc703bed6cf6b9d965da1c9a8e6a2860a4dd9d5d97b9ca2610063d05355257
+semanticHash: eefaf494abd167f4993f9206992ab929271e16ec989b5102b4c29f313115e7d5

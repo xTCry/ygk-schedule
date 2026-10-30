@@ -1815,7 +1815,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1864,8 +1864,55 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
     replacements:
       - *a51
       - *a52
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
+          fetchedAt: 2026-10-30T15:48:42.221Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae470b2-270b"
+          lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        replacements:
+          - &a53
+            date: 2026-10-31
+            group: СТ1-17
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Математика Гаврилова М.А.
+              room: Б507
+            source:
+              shift: first
+              row: 28
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Математика Гаврилова М.А.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a53
 diagnostics: []
-semanticHash: 09fa4ea0323665c091fd49eb71413b0669f74eff60f2f7c2133e01607f3d8bdc
+semanticHash: 54ef250e26f73e8acedfc78fb48b1b95e3296dd5c5b1b3ae512c17a579aaf1ae

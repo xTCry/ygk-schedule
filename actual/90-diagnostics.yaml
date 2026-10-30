@@ -1,11 +1,11 @@
 schemaVersion: 6
 scope: actual
-generatedAt: 2026-10-29T16:00:40.158Z
-scheduleVersion: dc0839f91a41b3c20b8c10eef8d15f7c1bfdb15f519e5a82c79b62f1647a52ce
+generatedAt: 2026-10-30T15:48:42.301Z
+scheduleVersion: 915379b8d0c6c2fc955f7ad575a7494ff878fad9e2c45487f8addbff00d3039e
 summary:
   info: 0
   warning: 65
-  error: 324
+  error: 329
   fatal: 0
 diagnostics:
   - provider: ygk
@@ -539,6 +539,34 @@ diagnostics:
     source: *a1
     issueFingerprint: 7d34e8726f86919909db0cd19bd48c7a9c6f8d1adc93ee4fc7115ba85300ebfc
     issueKey: 2ada06ae3050ad7e23d2f90559895db6d5a292f594134a438bbe250d4009b8e0
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3f6df4ca2ec726be0ac400a7e410688df40bca3d16cb61e5ea2875e6b9954fb8
+    sheet: "Замены: Первая смена"
+    row: 10
+    normalizedGroup: ИБ1-21
+    rawValue: Грехова Е.И.
+    context:
+      date: 2026-10-31
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ИБ1-21
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 01.01
+      candidates:
+        - subject: История
+          teacher: Залевская Е.Н.
+          room: ДОТ
+          sourceRow: 46
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: ec3ceb939c867c3b2f46832875b1954c8366c897b494b40de3945542abf1a796
+    issueKey: 29d5bfa140f4395127dc66f26771929a001dffab9fa9fc7615ee41db38e00986
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -7609,6 +7637,36 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: d5761238cabaad50a4b1db6a7921b991f02bfaa0064e3ec86708e1e732cebb6a
+    sheet: "Замены: Вторая смена"
+    row: 12
+    normalizedGroup: ИС1-41
+    rawValue: снято
+    context:
+      date: 2026-10-31
+      lessonNumber: 2
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: ИС1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 03.02
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК 03.02 Управление проектами п/пр2
+          teacher: Байдина Ю.А.
+          room: Б304
+          sourceRow: 198
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a28
+    issueFingerprint: 676502eca495c1899b105d3d7ae16159893daaf8ab51ac8f90d3f160a2608ce0
+    issueKey: c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Пара из замены есть в базовом расписании, но не проводится в указанную
       неделю
     fingerprint: 6ce09498e7d01eb02a378bd396d9c48eaf9b90b15c6c6798cf99c53c9407875a
@@ -7977,6 +8035,36 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: ea29eb7c9c7b3fd4ca90d0dd392a015ed61c163271a51e62c5f30b6156644afc
+    sheet: "Замены: Вторая смена"
+    row: 16
+    normalizedGroup: ИС1-45
+    rawValue: МДК 05.02 Васильченко М.О.Панасюк А.Д.
+    context:
+      date: 2026-10-31
+      lessonNumber: 3
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: ИС1-45
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: МДК 05.02
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК.05.02 Разработка кода ИС п/гр
+          teacher: Панасюк А.Д.
+          room: ДОТ
+          sourceRow: 309
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a28
+    issueFingerprint: 676502eca495c1899b105d3d7ae16159893daaf8ab51ac8f90d3f160a2608ce0
+    issueKey: c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: 90cf49d5dfa9ff88bfbc653c610fb573ab6c12acc07d546c2fb4318ae613df2c
     sheet: "Замены: Вторая смена"
     row: 17
@@ -8214,6 +8302,36 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: d09af72c96a3da443c6e011e2a7421bf9ee8dd9f349936c48dc6b0471f298da6
+    sheet: "Замены: Вторая смена"
+    row: 20
+    normalizedGroup: ДИ1-43
+    rawValue: Ремизова А.И.Матвеичева К.А.
+    context:
+      date: 2026-10-31
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: ДИ1-43
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.01, 02.01
+      candidates:
+        - subject: МДК 02.01 Выполнение дизайнерских проектов в материале
+          teacher: |-
+            Ремизова А.И.
+            Вакансия
+          room: ДОТ
+          sourceRow: 94
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a28
+    issueFingerprint: 1b690de6e57eb79be4fa3fe9a8f4d56aeb389e96d1007056ca5221d5b510bbc8
+    issueKey: 98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: b88e370d0f71524c622ba1e191ee64adf78df43829bbc9abb11566ac5baf314f
     sheet: "Замены: Вторая смена"
     row: 21
@@ -8445,6 +8563,34 @@ diagnostics:
     source: *a28
     issueFingerprint: 145012edde7e8d58a8df0d8e1b29ccedaa1db5c59c67872fbd355703197e7022
     issueKey: 2cad87179ee8a02528b0baac5285e24b8463fa770641f9d6119a5961623f4729
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: a6c02434d93cd1bb4d41cd4cbc3291d5bf57cdf19811e604f888524565092c16
+    sheet: "Замены: Вторая смена"
+    row: 24
+    normalizedGroup: АР1-42
+    rawValue: МДК 02.02 Гасенина М.П.
+    context:
+      date: 2026-10-31
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: АР1-42
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.03 Т.5.3.
+      candidates:
+        - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3
+          teacher: Вакансия
+          room: Б501
+          sourceRow: 257
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    source: *a28
+    issueFingerprint: 1b690de6e57eb79be4fa3fe9a8f4d56aeb389e96d1007056ca5221d5b510bbc8
+    issueKey: 98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -11064,6 +11210,114 @@ issues:
       {{group-yaml:base:%D0%94%D0%981-13}} |
       {{group-yaml:actual:%D0%94%D0%981-13}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: 29d5bfa140f4395127dc66f26771929a001dffab9fa9fc7615ee41db38e00986
+    familyKey: 6b1475a8f26a2ecdee80b880fd9e051319ca92451b1e69c5fa66a85bf296cc07
+    fingerprint: ec3ceb939c867c3b2f46832875b1954c8366c897b494b40de3945542abf1a796
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-31
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-31, первая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:first
+    occurrenceCount: 1
+    observationKeys:
+      - bea4e43b90b9caa39b6742ec77222b4bc89db303b2002a025cc8413ddb45ed7a
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/29d5bfa140f4395127dc66f26771929a001dffab9fa9fc7615ee41db38e00986.json
+      yamlPath: actual/91-issue-evidence/29d5bfa140f4395127dc66f26771929a001dffab9fa9fc7615ee41db38e00986.yaml
+    body: >
+      <!-- parser-issue-key:
+      29d5bfa140f4395127dc66f26771929a001dffab9fa9fc7615ee41db38e00986 -->
+
+      <!-- diagnostic-family-key:
+      6b1475a8f26a2ecdee80b880fd9e051319ca92451b1e69c5fa66a85bf296cc07 -->
+
+      <!-- diagnostic-lifecycle: dated -->
+
+      <!-- diagnostic-observation-keys:
+      bea4e43b90b9caa39b6742ec77222b4bc89db303b2002a025cc8413ddb45ed7a -->
+
+      <!-- parser-fingerprint:
+      ec3ceb939c867c3b2f46832875b1954c8366c897b494b40de3945542abf1a796 -->
+
+
+      ## Причина
+
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+
+      ## Классификация
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      | Причина | original-not-matched |
+
+      | Дата замен | 2026-10-31 |
+
+      | Смена | первая смена |
+
+      | Строк в Issue | 1 |
+
+
+      ## Источник
+
+
+      | Поле | Значение |
+
+      | --- | --- |
+
+      | Файл | rasp_first.html |
+
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |
+
+      | SHA-256 |
+      fbeef601eb031e0c512855826b442bbcf0544d035dc1168445917f24b4fa1d21 |
+
+      | Изменён на сайте | 08.09.2026, 12:39 МСК |
+
+      | Снимок впервые получен | 08.09.2026, 19:35 МСК |
+
+      | Уровень | error |
+
+      | Код | UNRESOLVED_REPLACEMENT |
+
+
+      ## Затронутые ячейки
+
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта
+      может
+
+      успеть измениться после получения снимка.
+
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение |
+      Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+      | Замены: Первая смена | 10 | — | ИБ1-21 | 0 | replace | Грехова Е.И. |
+      {{raw-source:replacements:rasp_first.html}} |
+      {{group-yaml:base:%D0%98%D0%911-21}} |
+      {{group-yaml:actual:%D0%98%D0%911-21}} |
+      {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: a07b1e27c57b35b3ce0737ae25195d7fee9aed1ce680e5c97737ca2979eb0c7a
     familyKey: c9edfba16b9abb39d0d134ef233dc14668b9162e4d15ccebcd87e5c5a215d401
     fingerprint: 238da2219aebdf4d181d58e30b27ef69d1007e7481da1837a02c1e6da769bd5e
@@ -19580,6 +19834,74 @@ issues:
       {{group-yaml:base:%D0%A0%D0%9A1-33}} |
       {{group-yaml:actual:%D0%A0%D0%9A1-33}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180
+    familyKey: c5d477a71e5ae3033630a9e7bdd27e3f6dc5c24d9668805fbcb2f13e29056963
+    fingerprint: 676502eca495c1899b105d3d7ae16159893daaf8ab51ac8f90d3f160a2608ce0
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-31
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / subgroup-not-matched
+      — 2026-10-31, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:subgroup-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 2
+    observationKeys:
+      - 236415d5d740fd7d4a3cf7201e1b29db6d58add00f1fa4dcec6241ad8d9541c2
+      - 59a3f7f6c086033dc577b879d41d553f28f295579a7c07f57da35017626b9452
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180.json
+      yamlPath: actual/91-issue-evidence/c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180.yaml
+    body: |
+      <!-- parser-issue-key: c05696d86cad821b74fef9e980154ce606b00089bdbe9f2da3e5c7506eebc180 -->
+      <!-- diagnostic-family-key: c5d477a71e5ae3033630a9e7bdd27e3f6dc5c24d9668805fbcb2f13e29056963 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: 236415d5d740fd7d4a3cf7201e1b29db6d58add00f1fa4dcec6241ad8d9541c2,59a3f7f6c086033dc577b879d41d553f28f295579a7c07f57da35017626b9452 -->
+      <!-- parser-fingerprint: 676502eca495c1899b105d3d7ae16159893daaf8ab51ac8f90d3f160a2608ce0 -->
+
+      ## Причина
+
+      Подгруппа из замены не проводится в базовом расписании в эту неделю
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | subgroup-not-matched |
+      | Дата замен | 2026-10-31 |
+      | Смена | вторая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 12 | — | ИС1-41 | 2 | cancel | снято | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-41}} | {{group-yaml:actual:%D0%98%D0%A11-41}} | {{raw-source:schedule:oit_1sem.xlsx}} |
+      | Замены: Вторая смена | 16 | — | ИС1-45 | 3 | replace | МДК 05.02 Васильченко М.О.Панасюк А.Д. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%98%D0%A11-45}} | {{group-yaml:actual:%D0%98%D0%A11-45}} | {{raw-source:schedule:oit_1sem.xlsx}} |
   - key: 296a2493d7da3cf2e15e9c4b1807cef6a3b7063d017d9ae04f5894ec9f66d4ce
     familyKey: 8c96e446ca8dbef66a53493f730421e3d4092f6bbfa677053b9b84586196322a
     fingerprint: 76dae4e3f9776259be2b1a55b184ac0c7bae34892e6578bdc9ad6548e24b2f7a
@@ -20381,6 +20703,74 @@ issues:
       {{group-yaml:base:%D0%90%D0%A01-41}} |
       {{group-yaml:actual:%D0%90%D0%A01-41}} | {{raw-source:schedule:oar.xlsx}}
       |
+  - key: 98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa
+    familyKey: 9111489c687465f8b710d88c04256fe472b9d2e93941c6cfe475a93b05f0e5c3
+    fingerprint: 1b690de6e57eb79be4fa3fe9a8f4d56aeb389e96d1007056ca5221d5b510bbc8
+    scope: actual
+    lifecycle: dated
+    observedDate: 2026-10-31
+    title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+      — 2026-10-31, вторая смена"
+    labels:
+      - area:resolver
+      - diagnostic:error
+      - diagnostic:unresolved-replacement
+      - reason:original-not-matched
+      - schedule-diagnostic
+      - scope:actual
+      - shift:second
+    occurrenceCount: 2
+    observationKeys:
+      - b6e67cdffba6cd080321d6bce83e3b216d8740d0d8415ef37209443c6d2f5065
+      - ff7ec2cd3bc39b14cd2c3b8cc4b6fbaaea2e7d5a9214cda870c0dbd2b1f36985
+    evidence:
+      diagnosticsJsonPath: actual/90-diagnostics.json
+      diagnosticsYamlPath: actual/90-diagnostics.yaml
+      jsonPath: actual/91-issue-evidence/98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa.json
+      yamlPath: actual/91-issue-evidence/98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa.yaml
+    body: |
+      <!-- parser-issue-key: 98dd6a5f94b1675500eb24e7ff081aab931e51e4a3b0eccf8142a74ec7c506aa -->
+      <!-- diagnostic-family-key: 9111489c687465f8b710d88c04256fe472b9d2e93941c6cfe475a93b05f0e5c3 -->
+      <!-- diagnostic-lifecycle: dated -->
+      <!-- diagnostic-observation-keys: b6e67cdffba6cd080321d6bce83e3b216d8740d0d8415ef37209443c6d2f5065,ff7ec2cd3bc39b14cd2c3b8cc4b6fbaaea2e7d5a9214cda870c0dbd2b1f36985 -->
+      <!-- parser-fingerprint: 1b690de6e57eb79be4fa3fe9a8f4d56aeb389e96d1007056ca5221d5b510bbc8 -->
+
+      ## Причина
+
+      Исходная дисциплина из замены не совпала с парой базового расписания
+
+      ## Классификация
+
+      | Поле | Значение |
+      | --- | --- |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+      | Причина | original-not-matched |
+      | Дата замен | 2026-10-31 |
+      | Смена | вторая смена |
+      | Строк в Issue | 2 |
+
+      ## Источник
+
+      | Поле | Значение |
+      | --- | --- |
+      | Файл | rasp_second.html |
+      | URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |
+      | SHA-256 | ffa40eacfaf8a0d8e648467384cbc446bec820301dbb40ac98c6b81bb70241e7 |
+      | Изменён на сайте | 19.10.2026, 12:55 МСК |
+      | Снимок впервые получен | 19.10.2026, 14:48 МСК |
+      | Уровень | error |
+      | Код | UNRESOLVED_REPLACEMENT |
+
+      ## Затронутые ячейки
+
+      Каждая ссылка закреплена за revision data из Issue. Живая страница сайта может
+      успеть измениться после получения снимка.
+
+      | Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Замены: Вторая смена | 20 | — | ДИ1-43 | 5 | replace | Ремизова А.И.Матвеичева К.А. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%94%D0%981-43}} | {{group-yaml:actual:%D0%94%D0%981-43}} | {{raw-source:schedule:oar.xlsx}} |
+      | Замены: Вторая смена | 24 | — | АР1-42 | 5 | replace | МДК 02.02 Гасенина М.П. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%90%D0%A01-42}} | {{group-yaml:actual:%D0%90%D0%A01-42}} | {{raw-source:schedule:oar.xlsx}} |
   - key: 636c053c43e690c28eef75852334ff41099fd37e13af82727270ce2ad5efbc71
     familyKey: 39eecbb604b43d44564f4460866d6a82f9e539bead97bb71e8299b6a4ea811e6
     fingerprint: bec5fcb82194c313c31dc503ed97a1ede82cc79f8323a167816c8a5348406ec4

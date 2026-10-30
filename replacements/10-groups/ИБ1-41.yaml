@@ -2478,7 +2478,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2528,9 +2528,55 @@ dates:
               rawReplacement: 1,2 п/гр. Зайцев Р.А.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71
     replacements:
       - *a74
       - *a75
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71
+          fetchedAt: 2026-10-30T15:48:42.223Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae479e4-1dea"
+          lastModified: Fri, 30 Oct 2026 11:05:08 GMT
+        replacements:
+          - &a76
+            date: 2026-10-31
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 03.01 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a76
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2553,4 +2599,4 @@ diagnostics:
     rawValue: ИБ1-41 |  |  | Турист.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 9bfb3a58a245ced0e8350a060ea89f09b98143d29443e9d6d8e3430013ce22f6
+semanticHash: 3a9a1cb651875380da48ae7c35b317d129046469df3b4ececb6d7ba87f06e422

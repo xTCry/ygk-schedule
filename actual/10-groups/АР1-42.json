@@ -6898,6 +6898,131 @@
           }
         }
       }
+    },
+    "2026-10-31": {
+      "date": "2026-10-31",
+      "day": "Суббота",
+      "weekType": "numerator",
+      "shifts": {
+        "first": {
+          "date": "2026-10-31",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "fileName": "rasp_first.html",
+            "sha256": "29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc",
+            "fetchedAt": "2026-10-30T15:48:42.221Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+            "shift": "first",
+            "etag": "W/\"6ae470b2-270b\"",
+            "lastModified": "Fri, 30 Oct 2026 10:25:54 GMT"
+          }
+        },
+        "second": {
+          "date": "2026-10-31",
+          "day": "Суббота",
+          "weekType": "numerator",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "cdfdb214bd92413af2de85de06d6cd228ad52a8d1dba5a5bdecdff92fac39c71",
+            "fetchedAt": "2026-10-30T15:48:42.223Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6ae479e4-1dea\"",
+            "lastModified": "Fri, 30 Oct 2026 11:05:08 GMT"
+          }
+        }
+      },
+      "groups": {
+        "АР1-42": {
+          "group": "АР1-42",
+          "date": "2026-10-31",
+          "day": "Суббота",
+          "lessons": [
+            {
+              "number": 4,
+              "variants": [
+                {
+                  "subject": "Рисунок и живопись",
+                  "teacher": "Балдасарьян О.Н.",
+                  "room": "Б208",
+                  "weekType": "both",
+                  "sourceRow": 255
+                }
+              ],
+              "source": {
+                "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                "rowStart": 255,
+                "rowEnd": 256,
+                "rawGroupName": "АР1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            },
+            {
+              "number": 5,
+              "variants": [
+                {
+                  "subject": "МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3",
+                  "teacher": "Вакансия",
+                  "room": "Б501",
+                  "weekType": "both",
+                  "sourceRow": 257
+                }
+              ],
+              "source": {
+                "sheet": "АР1-21 АР1-31 АР1-32 АР1-41",
+                "rowStart": 257,
+                "rowEnd": 258,
+                "rawGroupName": "АР1-42",
+                "sourceId": "https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx"
+              },
+              "status": "scheduled",
+              "replacements": []
+            }
+          ],
+          "unresolvedReplacements": [
+            {
+              "replacement": {
+                "date": "2026-10-31",
+                "group": "АР1-42",
+                "lessonNumbers": [
+                  5
+                ],
+                "type": "replace",
+                "original": {
+                  "raw": "МДК 01.03 Т.5.3."
+                },
+                "replacement": {
+                  "raw": "МДК 02.02 Гасенина М.П.",
+                  "room": "Б501"
+                },
+                "source": {
+                  "shift": "second",
+                  "row": 24,
+                  "rawGroupName": "АР1-42",
+                  "rawLessonNumbers": "5",
+                  "rawOriginal": "МДК 01.03 Т.5.3.",
+                  "rawReplacement": "МДК 02.02 Гасенина М.П.",
+                  "rawRoom": "Б501"
+                }
+              },
+              "lessonNumber": 5,
+              "reason": "original-not-matched",
+              "event": {
+                "summary": "Необработанная замена",
+                "description": "По расписанию: «МДК 01.03 Т.5.3.». По замене: «МДК 02.02 Гасенина М.П.». Аудитория: «Б501».",
+                "room": "Б501"
+              }
+            }
+          ]
+        }
+      }
     }
   },
   "diagnostics": [
@@ -6980,7 +7105,39 @@
       },
       "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
       "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "a6c02434d93cd1bb4d41cd4cbc3291d5bf57cdf19811e604f888524565092c16",
+      "sheet": "Замены: Вторая смена",
+      "row": 24,
+      "normalizedGroup": "АР1-42",
+      "rawValue": "МДК 02.02 Гасенина М.П.",
+      "context": {
+        "date": "2026-10-31",
+        "lessonNumber": 5,
+        "type": "replace",
+        "reason": "original-not-matched",
+        "baseGroup": "АР1-42",
+        "baseSourceFiles": [
+          "oar.xlsx"
+        ],
+        "requestedSubject": "МДК 01.03 Т.5.3.",
+        "candidates": [
+          {
+            "subject": "МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3",
+            "teacher": "Вакансия",
+            "room": "Б501",
+            "sourceRow": 257
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
     }
   ],
-  "semanticHash": "80c506c5be467c843c9ba3c8d606f810203b7e582c48347444958af4834a71cb"
+  "semanticHash": "bd425264d60046fd9488ae327f6e1703a764fd545e1e8b24f2713d0b93a1dbcb"
 }

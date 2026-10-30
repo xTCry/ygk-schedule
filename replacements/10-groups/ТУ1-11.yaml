@@ -1081,7 +1081,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1148,9 +1148,56 @@ dates:
               rawReplacement: Физика Калинин Д.А.
               rawRoom: Ф106
         diagnostics: []
+        finalizedBy:
+          date: 2026-10-31
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
     replacements:
       - *a28
       - *a29
       - *a30
+  2026-10-31:
+    date: 2026-10-31
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-10-31
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 29d8040ca82f38bcd1ffe73185d183d225102c80c8b6f4f060801f2291c3fffc
+          fetchedAt: 2026-10-30T15:48:42.221Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae470b2-270b"
+          lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        replacements:
+          - &a31
+            date: 2026-10-31
+            group: ТУ1-11
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Русский язык Головкина С.А.
+              room: Ф303
+            source:
+              shift: first
+              row: 15
+              rawGroupName: ТУ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: Русский язык Головкина С.А.
+              rawRoom: Ф303
+        diagnostics: []
+    replacements:
+      - *a31
 diagnostics: []
-semanticHash: 2ac8c5eced12582a6a2bd803e905398347eadfb899b347414c065dac5a73a939
+semanticHash: 02cfbe3ddc6d47867ead5355568f4a964a1c60724d91bc12226b70bebda01b0b
