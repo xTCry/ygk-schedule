@@ -1219,5 +1219,87 @@ dates:
     replacements:
       - *a30
       - *a31
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+        replacements:
+          - &a32
+            date: 2026-11-02
+            group: МА1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: 1,2 п/гр.Информ. Яковлева Е.Н.
+              room: Б308
+            source:
+              shift: first
+              row: 38
+              rawGroupName: МА1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: 1,2 п/гр.Информ. Яковлева Е.Н.
+              rawRoom: Б308
+          - &a33
+            date: 2026-11-02
+            group: МА1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Разговоры о важном Клепикова Т.В.
+              room: Б409
+            source:
+              shift: first
+              row: 39
+              rawGroupName: МА1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Математика
+              rawReplacement: Разговоры о важном Клепикова Т.В.
+              rawRoom: Б409
+          - &a34
+            date: 2026-11-02
+            group: МА1-11
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Разговоры
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 40
+              rawGroupName: МА1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Разговоры
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
+      - *a34
 diagnostics: []
-semanticHash: 1e2b113fc9bae6286d508e0373a195078842a53482e7c3c2de2531633d3d50aa
+semanticHash: 1fc1609bbfc0b3f0e2c700a9e751a0ab25e431c479ef460251ef6d977bee95cf

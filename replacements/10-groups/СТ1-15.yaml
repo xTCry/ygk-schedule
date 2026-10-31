@@ -2204,7 +2204,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2274,9 +2274,55 @@ dates:
               rawReplacement: История Ушкало Ю.А.
               rawRoom: Б204,А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
     replacements:
       - *a60
       - *a61
       - *a62
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+        replacements:
+          - &a63
+            date: 2026-11-02
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Инд.проект п/гр.2 Балина С.А.
+              room: Б204
+            source:
+              shift: first
+              row: 24
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Инд.проект п/гр.2 Балина С.А.
+              rawRoom: Б204
+        diagnostics: []
+    replacements:
+      - *a63
 diagnostics: []
-semanticHash: ac2beceb08f76c0a3828d51185a009de331475dceac4e2b2f9e40295b6a41003
+semanticHash: fdc9281e96b2aa8049be2651c5566530bab3c596d958a936ff0aafe4d1c055fe

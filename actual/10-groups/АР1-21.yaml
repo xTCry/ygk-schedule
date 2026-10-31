@@ -4960,6 +4960,104 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+    groups:
+      АР1-21:
+        group: АР1-21
+        date: 2026-11-02
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физическая культура
+                teacher: Дворниченко Г.В.
+                room: ДОТ
+                weekType: denominator
+                sourceRow: 5
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: История архитектуры
+                teacher: Шатрова М.П.
+                room: ДОТ
+                weekType: both
+                sourceRow: 6
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 1
+                teacher: Вакансия
+                room: ДОТ
+                weekType: denominator
+                subgroup: "1"
+                sourceRow: 9
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-11-02
+              group: АР1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: МДК 01.03 п/гр.2
+              replacement:
+                raw: БЖ Корсаков С.В.
+                room: ДОТ
+              source:
+                shift: first
+                row: 19
+                rawGroupName: АР1-21
+                rawLessonNumbers: "2"
+                rawOriginal: МДК 01.03 п/гр.2
+                rawReplacement: БЖ Корсаков С.В.
+                rawRoom: ДОТ
+            lessonNumber: 2
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 01.03 п/гр.2». По замене: «БЖ Корсаков С.В.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4993,6 +5091,34 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 66ce08b757e371a9cdfa07188913ee5457423648c7000640c4adb6cc06314702
+    sheet: "Замены: Первая смена"
+    row: 19
+    normalizedGroup: АР1-21
+    rawValue: БЖ Корсаков С.В.
+    context:
+      date: 2026-11-02
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: АР1-21
+      baseSourceFiles:
+        - oar.xlsx
+      requestedSubject: МДК 01.03
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК 01.03 Конструкции зданий и сооружений с элементами статики п/гр 1
+          teacher: Вакансия
+          room: ДОТ
+          subgroup: "1"
+          sourceRow: 9
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: ff393120ed15911ed789a3ea551dee37d811011fa520d1b827c1de55f1d1b321
     sheet: "Замены: Первая смена"
     row: 21
@@ -5017,4 +5143,4 @@ diagnostics:
           sourceRow: 8
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: dbb12286f4ed7179cedd126c9bb731cd8ade45c83b398c096c66bc9807b244b9
+semanticHash: 1933270164a2da285aecedabd905fb6e15b6f8331dd40f29be2eb80dcc9fd09f

@@ -1876,5 +1876,86 @@ dates:
           sourceSha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
     replacements:
       - *a51
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+        replacements:
+          - &a52
+            date: 2026-11-02
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.01 п/гр.1 Рочева А.А.
+              room: Б208
+            source:
+              shift: first
+              row: 16
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: МДК 05.01 п/гр.1 Рочева А.А.
+              rawRoom: Б208
+          - &a53
+            date: 2026-11-02
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: История дизайна Кожешкурт А.В.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.01
+              rawReplacement: История дизайна Кожешкурт А.В.
+              rawRoom: Б207Б208
+          - &a54
+            date: 2026-11-02
+            group: ДИ1-23
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: История дизайна
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 18
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "3"
+              rawOriginal: История дизайна
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
+      - *a54
 diagnostics: []
-semanticHash: 946a3e08b3357e181467f66f89f2c1fc51c7d760b383efcd12efe028ca7a0236
+semanticHash: f5320df486aacc226b44c33fe4c1792f694cdf9b09cec53cce3f77120311393e

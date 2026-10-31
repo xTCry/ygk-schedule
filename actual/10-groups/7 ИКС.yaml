@@ -8811,6 +8811,153 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+    groups:
+      7 ИКС:
+        group: 7 ИКС
+        date: 2026-11-02
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 01.04
+                teacher: Елистратов А.М.
+                room: к.43
+                weekType: both
+                rawSubject: МДК 01.04 Елистратов А.М.
+                rawTeacher: Елистратов А.М.
+                rawRoom: к.43
+                sourceRow: 61
+            source:
+              sheet: 2 курс
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-02
+                  group: 7 ИКС
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: МДК 01.04 Елистратов А.М.
+                    room: к.43
+                  source:
+                    shift: first
+                    row: 61
+                    rawGroupName: 7 ИКС
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: МДК 01.04 Елистратов А.М.
+                    rawRoom: к.43
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: МДК.01.02 Монтаж и эксплуатация компьютерных систем
+                teacher: Елистратов А.М.
+                room: к.43
+                weekType: both
+                sourceRow: 58
+            source:
+              sheet: 2 курс
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: УП.06 Учебная практика п/гр1
+                teacher: Вакансия
+                room: сл.м.
+                weekType: denominator
+                subgroup: "1"
+                sourceRow: 61
+            source:
+              sheet: 2 курс
+              rowStart: 60
+              rowEnd: 61
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: УП.06 Учебная практика п/гр1
+                teacher: Вакансия
+                room: сл.м.
+                weekType: denominator
+                subgroup: "1"
+                sourceRow: 63
+            source:
+              sheet: 2 курс
+              rowStart: 62
+              rowEnd: 63
+              rawGroupName: 7 ИКС
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: &a33
+              date: 2026-11-02
+              group: 7 ИКС
+              lessonNumbers:
+                - 2
+                - 3
+              type: replace
+              original:
+                raw: УП 06 п/гр.2
+              replacement:
+                raw: МДК 06.01 Богачев Е.В.
+                room: ДОТ
+              source:
+                shift: first
+                row: 62
+                rawGroupName: 7 ИКС
+                rawLessonNumbers: 2,3
+                rawOriginal: УП 06 п/гр.2
+                rawReplacement: МДК 06.01 Богачев Е.В.
+                rawRoom: ДОТ
+            lessonNumber: 2
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 06 п/гр.2». По замене: «МДК 06.01 Богачев
+                Е.В.». Аудитория: «ДОТ»."
+              room: ДОТ
+          - replacement: *a33
+            lessonNumber: 3
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП 06 п/гр.2». По замене: «МДК 06.01 Богачев
+                Е.В.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -8843,6 +8990,34 @@ diagnostics:
     code: UNRESOLVED_REPLACEMENT
     severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 32c5cf0af99675ddb1ecbcecdadbdbfd243e802c714ff7d3a04ced75c0dcacda
+    sheet: "Замены: Первая смена"
+    row: 62
+    normalizedGroup: 7 ИКС
+    rawValue: МДК 06.01 Богачев Е.В.
+    context:
+      date: 2026-11-02
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: 7 ИКС
+      baseSourceFiles: &a34
+        - ort.xlsx
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: УП.06 Учебная практика п/гр1
+          teacher: Вакансия
+          room: сл.м.
+          subgroup: "1"
+          sourceRow: 61
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: 4b54b97935a0fd1c9a30f0198b070a427f8d6d25ca6f18186b3835b19e32b105
     sheet: "Замены: Первая смена"
     row: 82
@@ -8864,6 +9039,33 @@ diagnostics:
           teacher: Елистратов А.М.
           room: к.43
           sourceRow: 58
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 6203093a2d205afcc1b832948eac98ad2d5e815e1cad84b3d32b23b6336c67da
+    sheet: "Замены: Первая смена"
+    row: 62
+    normalizedGroup: 7 ИКС
+    rawValue: МДК 06.01 Богачев Е.В.
+    context:
+      date: 2026-11-02
+      lessonNumber: 3
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: 7 ИКС
+      baseSourceFiles: *a34
+      requestedSubject: УП 06
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: УП.06 Учебная практика п/гр1
+          teacher: Вакансия
+          room: сл.м.
+          subgroup: "1"
+          sourceRow: 63
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -8977,4 +9179,4 @@ diagnostics:
           sourceRow: 85
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 68dac71dd3260d7d55a34d126e4942efaad292a7ed97c707859661883422cb0a
+semanticHash: 67fcd1ac5ae4fa391f77863484bf799eff4bdb23a0436b57ed4e0fb9f08d73af

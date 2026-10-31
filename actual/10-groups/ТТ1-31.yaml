@@ -7370,6 +7370,116 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+    groups:
+      ТТ1-31:
+        group: ТТ1-31
+        date: 2026-11-02
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Информационные технологии в профессионалной деятельности
+                teacher: Яковлева Е.Н.
+                room: Б406
+                weekType: both
+                sourceRow: 104
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 104
+              rowEnd: 105
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 106
+              rowEnd: 107
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a35
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: МДК 05.01
+                teacher: Шишмарев М.В.
+                room: Б402
+                weekType: both
+                rawSubject: МДК 05.01 Шишмарев М.В.
+                rawTeacher: Шишмарев М.В.
+                rawRoom: Б402
+                sourceRow: 47
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a41
+                  date: 2026-11-02
+                  group: ТТ1-31
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 05.01 Шишмарев М.В.
+                    room: Б402
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: ТТ1-31
+                    rawLessonNumbers: 5,6
+                    rawOriginal: ""
+                    rawReplacement: МДК 05.01 Шишмарев М.В.
+                    rawRoom: Б402
+                lessonNumber: 5
+                strategy: add
+          - number: 6
+            variants:
+              - subject: МДК 05.01
+                teacher: Шишмарев М.В.
+                room: Б402
+                weekType: both
+                rawSubject: МДК 05.01 Шишмарев М.В.
+                rawTeacher: Шишмарев М.В.
+                rawRoom: Б402
+                sourceRow: 47
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a41
+                lessonNumber: 6
+                strategy: add
+        unresolvedReplacements:
+          - replacement: *a35
+            lessonNumber: 1
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ИТ Физкультура». По замене: «снято»."
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7386,7 +7496,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: &a42
+      baseSourceFiles: &a43
         - oeis.xlsx
       requestedSubject: ..МДК 06.01 МДк 06.03
       candidates:
@@ -7456,7 +7566,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-31
-      baseSourceFiles: &a41
+      baseSourceFiles: &a42
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -7475,7 +7585,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: *a41
+      baseSourceFiles: *a42
       requestedSubject: МДК 06.01,06.02,06.02
       candidates:
         - subject: МДК.06.02Технология обслуживания и ремонта газового оборудования
@@ -7543,7 +7653,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: *a41
+      baseSourceFiles: *a42
       requestedSubject: МДК 06.01,06.02,06.02
       candidates:
         - subject: МДК.06.03Технология обслуживания и ремонта подземных трубопроводов и
@@ -7551,6 +7661,31 @@ diagnostics:
           teacher: Вакансия
           room: Газпром
           sourceRow: 120
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 9b4e90ae86e99cb5308e400d57bcf96fb343703187c34999601683d21bc61b4d
+    sheet: "Замены: Первая смена"
+    row: 46
+    normalizedGroup: ТТ1-31
+    rawValue: снято
+    context:
+      date: 2026-11-02
+      lessonNumber: 1
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ТТ1-31
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: ИТ Физкультура
+      candidates:
+        - subject: Информационные технологии в профессионалной деятельности
+          teacher: Яковлева Е.Н.
+          room: Б406
+          sourceRow: 104
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -7568,7 +7703,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-31
-      baseSourceFiles: *a42
+      baseSourceFiles: *a43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -7626,4 +7761,4 @@ diagnostics:
           sourceRow: 104
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 16c6b3517f27284c155f13ac2917b532e2b852ceb8e4434faf61a23b8843e3b3
+semanticHash: a43ddfdb6bdf41981fdbf6696883e0ed31dd06b9c9939c207484a61440525518

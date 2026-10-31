@@ -1284,7 +1284,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1315,7 +1315,73 @@ dates:
               rawReplacement: Биология Фокина Т.В.
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
     replacements:
       - *a31
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+        replacements:
+          - &a32
+            date: 2026-11-02
+            group: УД1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разговоры
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 44
+              rawGroupName: УД1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Разговоры
+              rawReplacement: снято
+              rawRoom: ""
+          - &a33
+            date: 2026-11-02
+            group: УД1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Литература Андрокович М.В.
+              room: М101
+            source:
+              shift: first
+              row: 45
+              rawGroupName: УД1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: Литература Андрокович М.В.
+              rawRoom: М101
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: 3961c8bbea762d25e4ae1ebfbb8f0bda5fd3899029c0762d631e6991ceff46d2
+semanticHash: 66c78f711a874ae29a3ff60ab360d05731b7eecb6ce4b1e8ef2dd3c650cbc49a

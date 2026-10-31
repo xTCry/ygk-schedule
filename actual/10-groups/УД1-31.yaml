@@ -1100,7 +1100,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
             status: cancelled
             replacements:
-              - replacement:
+              - replacement: &a8
                   date: 2026-10-05
                   group: УД1-31
                   lessonNumbers:
@@ -2655,6 +2655,99 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-02:
+    date: 2026-11-02
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-02
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
+          fetchedAt: 2026-10-31T15:16:40.042Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae5a9c1-430b"
+          lastModified: Sat, 31 Oct 2026 08:41:37 GMT
+    groups:
+      УД1-31:
+        group: УД1-31
+        date: 2026-11-02
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: Охрана труда
+                teacher: Леонидова Н.А.
+                room: М207
+                weekType: both
+                rawSubject: Охрана труда Леонидова Н.А.
+                rawTeacher: Леонидова Н.А.
+                rawRoom: М207
+                sourceRow: 42
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-02
+                  group: УД1-31
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: Охрана труда Леонидова Н.А.
+                    room: М207
+                  source:
+                    shift: first
+                    row: 42
+                    rawGroupName: УД1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: Физкультура
+                    rawReplacement: Охрана труда Леонидова Н.А.
+                    rawRoom: М207
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants:
+              - subject: Основы электротехники
+                teacher: Леонидова Н.А.
+                room: М101
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants: []
+            source:
+              sheet: УД1-11 УД1-21 УД1-31
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: УД1-31/УД2-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a8
+                lessonNumber: 5
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2671,7 +2764,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: УД1-31
-      baseSourceFiles: &a8
+      baseSourceFiles: &a9
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -2690,7 +2783,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: УД1-31
-      baseSourceFiles: *a8
+      baseSourceFiles: *a9
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -2712,4 +2805,4 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d2ebfb1df83672d16b4fa83ce60f7a9b7309c4998ef8524e6da055e3984f1a05
+semanticHash: 04ff684dc8f8867c9f86f16eb7fe68610e76808100b21fe13883053219976f26

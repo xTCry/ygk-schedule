@@ -4980,7 +4980,7 @@ dates:
         date: 2026-10-31
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4990,11 +4990,15 @@ dates:
           shift: first
           etag: W/"6ae470b2-270b"
           lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
       second:
         date: 2026-10-31
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5004,6 +5008,10 @@ dates:
           shift: second
           etag: W/"6ae479e4-1dea"
           lastModified: Fri, 30 Oct 2026 11:05:08 GMT
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 8bcbe60fff876690fc760c8f5f294d2322821060752a0f4095f99456b3894952
     groups:
       РК1-12:
         group: РК1-12
@@ -5080,6 +5088,55 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: История
+                  teacher: Булычева Л.А.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 301
+              source:
+                sheet: 1 курс
+                rowStart: 301
+                rowEnd: 302
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Пухова Ю.Г.
+                  room: М208
+                  weekType: numerator
+                  sourceRow: 303
+              source:
+                sheet: 1 курс
+                rowStart: 303
+                rowEnd: 304
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык
+                  teacher: Мишуринская Е.Ю.
+                  room: Акт.зал
+                  weekType: both
+                  sourceRow: 305
+              source:
+                sheet: 1 курс
+                rowStart: 305
+                rowEnd: 306
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5100,4 +5157,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: ed7084c1f8fbee54ea87d01e10e015b754efd64699127ae77fe1be87bd9bbf62
+semanticHash: 0619a8101ae3c9c266dc1e6516af57a62449b2e2696342f578a3da170c019d9f

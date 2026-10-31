@@ -9973,7 +9973,7 @@ dates:
         date: 2026-10-31
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -9983,11 +9983,15 @@ dates:
           shift: first
           etag: W/"6ae470b2-270b"
           lastModified: Fri, 30 Oct 2026 10:25:54 GMT
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
       second:
         date: 2026-10-31
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -9997,6 +10001,10 @@ dates:
           shift: second
           etag: W/"6ae479e4-1dea"
           lastModified: Fri, 30 Oct 2026 11:05:08 GMT
+        finalizedBy:
+          date: 2026-11-02
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 8bcbe60fff876690fc760c8f5f294d2322821060752a0f4095f99456b3894952
     groups:
       СТ1-35:
         group: СТ1-35
@@ -10075,6 +10083,58 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: МДК.02.01 Организация технологических процессов на объекте капитального
+                    строительствТ. 1.1.
+                  teacher: Машкова Е.С.
+                  room: А202
+                  weekType: numerator
+                  sourceRow: 144
+              source:
+                sheet: CТ 3 курс
+                rowStart: 144
+                rowEnd: 145
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                  teacher: Хухарева Н.Е.
+                  room: Б409
+                  weekType: both
+                  sourceRow: 146
+              source:
+                sheet: CТ 3 курс
+                rowStart: 146
+                rowEnd: 147
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Т.1.2.Архитектура зданий
+                    п/гр1
+                  teacher: Хухарева Н.Е.
+                  room: Б409
+                  weekType: numerator
+                  subgroup: "1"
+                  sourceRow: 148
+              source:
+                sheet: CТ 3 курс
+                rowStart: 148
+                rowEnd: 149
+                rawGroupName: СТ1-35/СТ1-36/СТ1-37
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -10114,4 +10174,4 @@ diagnostics:
         - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 2ab72454fa88895b86ee73a6bd2fe5801c4fe55baf6eea852a50d0783720f6f4
+semanticHash: 46c446d03422e0ccec0a025bc86fda10c51f9cd0b2abfe55318ed1097e4a7b12
