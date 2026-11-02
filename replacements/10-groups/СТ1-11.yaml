@@ -1231,5 +1231,67 @@ dates:
           sourceSha256: 51826c97b19350490ba60d797ee06a26f9494723dc2b59b4d11b8f9be6129ac7
     replacements:
       - *a31
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
+          fetchedAt: 2026-11-02T19:26:31.266Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae8812c-441f"
+          lastModified: Mon, 02 Nov 2026 12:25:16 GMT
+        replacements:
+          - &a32
+            date: 2026-11-03
+            group: СТ1-11
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Ин.язык п/гр 2
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 23
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Ин.язык п/гр 2
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a33
+            date: 2026-11-03
+            group: СТ1-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Жданова Н.А.
+              room: Б403
+            source:
+              shift: first
+              row: 24
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Жданова Н.А.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: 08fe666c37fa15602d85c27940590250795c3ace9a55112ff4d244a8a34beba1
+semanticHash: f4082134d4674c096e9ec22f3c06e86c818fa986615054be96e41c7abbe8e89b

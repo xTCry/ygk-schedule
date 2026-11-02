@@ -3197,6 +3197,69 @@ dates:
       - *a94
       - *a95
       - *a96
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c472e56c2edd752d5eee5489a45c4090ac097e33af692da2a823dd8241e35b3b
+          fetchedAt: 2026-11-02T19:26:31.277Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae87291-2407"
+          lastModified: Mon, 02 Nov 2026 11:22:57 GMT
+        replacements:
+          - &a97
+            date: 2026-11-03
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык МДК 09.03
+            replacement:
+              raw: МДК 05.03 Королева П.Д.
+              room: Б204,Б305
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ИС1-41
+              rawLessonNumbers: 4,5
+              rawOriginal: Ин.язык МДК 09.03
+              rawReplacement: МДК 05.03 Королева П.Д.
+              rawRoom: Б204,Б305
+          - &a98
+            date: 2026-11-03
+            group: ИС1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 05.03 пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 05.03 пгр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a97
+      - *a98
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -3219,4 +3282,4 @@ diagnostics:
     normalizedGroup: ИС1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 398f1b55ca6b1d2c0452bc348a34ef69e3ec9f8a79a55fc6d738cf6626081169
+semanticHash: 8333f7ed7493cd7c21d32dae4e0e2a997e791ac922c59d088d40e9b7d13663ac

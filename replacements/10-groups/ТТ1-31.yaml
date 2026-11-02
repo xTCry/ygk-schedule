@@ -2260,7 +2260,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2310,8 +2310,78 @@ dates:
               rawReplacement: МДК 05.01 Шишмарев М.В.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
     replacements:
       - *a65
       - *a66
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
+          fetchedAt: 2026-11-02T19:26:31.266Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae8812c-441f"
+          lastModified: Mon, 02 Nov 2026 12:25:16 GMT
+        replacements:
+          - &a67
+            date: 2026-11-03
+            group: ТТ1-31
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 06.03 Гренадеров С.М
+              room: Газпром
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 0-3
+              rawOriginal: ""
+              rawReplacement: МДК 06.03 Гренадеров С.М
+              rawRoom: Газпром
+          - &a68
+            date: 2026-11-03
+            group: ТТ1-31
+            lessonNumbers:
+              - 4
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: Охрана труда МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ТТ1-31
+              rawLessonNumbers: 4-6
+              rawOriginal: Охрана труда МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a67
+      - *a68
 diagnostics: []
-semanticHash: 42c9f89cd724848ddd0b6d2d0927148df79a10692b8fb889a60c6c465b19d3f2
+semanticHash: 1e0b901b898f4cc61bce1f5428e476eb31f96cb75930cbac3b153acf97b57a15

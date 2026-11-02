@@ -1632,6 +1632,90 @@ dates:
     replacements:
       - *a42
       - *a43
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
+          fetchedAt: 2026-11-02T19:26:31.266Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae8812c-441f"
+          lastModified: Mon, 02 Nov 2026 12:25:16 GMT
+        replacements:
+          - &a44
+            date: 2026-11-03
+            group: ТТ1-41
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 04.02 Леонидова Н.А.
+              room: Б402,Б409,Б202
+            source:
+              shift: first
+              row: 63
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: 0-2
+              rawOriginal: ""
+              rawReplacement: МДК 04.02 Леонидова Н.А.
+              rawRoom: Б402,Б409,Б202
+          - &a45
+            date: 2026-11-03
+            group: ТТ1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 04.02 Леонидова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 64
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 04.02 Леонидова Н.А.
+              rawRoom: ДОТ
+          - &a46
+            date: 2026-11-03
+            group: ТТ1-41
+            lessonNumbers:
+              - 4
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 04.02 Охр.труда
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 65
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: 4-6
+              rawOriginal: МДК 04.02 Охр.труда
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a44
+      - *a45
+      - *a46
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1654,4 +1738,4 @@ diagnostics:
     rawValue: ТТ1-41 |  |  | Тур.поход
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e42a0946ff7673f7bbe44a02f00074b7c90ba9d60b4e496fc0a65d3e83556347
+semanticHash: 8030b497170a35cb863d80f166a99ff7dc8e383d1b3f9d6a7e0054676efe9405

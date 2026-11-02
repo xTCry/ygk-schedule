@@ -786,6 +786,49 @@ dates:
           sourceSha256: 66eb2e4f1cfd3cf4479e68f219fea28c185ee0ea2b705fb8817e41e5c1fa4c4c
     replacements:
       - *a18
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c472e56c2edd752d5eee5489a45c4090ac097e33af692da2a823dd8241e35b3b
+          fetchedAt: 2026-11-02T19:26:31.277Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae87291-2407"
+          lastModified: Mon, 02 Nov 2026 11:22:57 GMT
+        replacements:
+          - &a19
+            date: 2026-11-03
+            group: РК1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: Бобкова Е.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: РК1-43
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: Бобкова Е.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a19
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -808,4 +851,4 @@ diagnostics:
     normalizedGroup: РК1-43
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: bf6f035b3c730f6b866bfd5fa8cd75077c5fa5c7e8b2ce11442020bf0739d179
+semanticHash: 0fc755e71757d20ee6fd700a95aeaf74c480651bfdc44c8e5504cdce6ccce5f3

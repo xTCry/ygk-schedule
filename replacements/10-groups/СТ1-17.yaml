@@ -1928,7 +1928,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1996,9 +1996,76 @@ dates:
               rawReplacement: 1,2 п/гр. Галочкина Н.Н.
               rawRoom: М101
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-03
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
     replacements:
       - *a54
       - *a55
       - *a56
+  2026-11-03:
+    date: 2026-11-03
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-03
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 3c29277116647e0eba7c85535f1d82f3c54c8b3832fdaf0d4c144f582b70ab81
+          fetchedAt: 2026-11-02T19:26:31.266Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae8812c-441f"
+          lastModified: Mon, 02 Nov 2026 12:25:16 GMT
+        replacements:
+          - &a57
+            date: 2026-11-03
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: Биология Козырева Д.А.
+              room: Б110
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: Ин.язык
+              rawReplacement: Биология Козырева Д.А.
+              rawRoom: Б110
+          - &a58
+            date: 2026-11-03
+            group: СТ1-17
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Математика Гаврилова М.А
+              room: Б402
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: Математика Гаврилова М.А
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a57
+      - *a58
 diagnostics: []
-semanticHash: d158b6048f113333a8f4f3d23dceaceca292069f534e1f2ac91d2ecc95b2d9a8
+semanticHash: b44ec2720ef2dc72bad34d5e882b88f1d45d4b338fd0e9d913bdffa7c68fe549
