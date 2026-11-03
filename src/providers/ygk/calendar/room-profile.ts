@@ -8,6 +8,7 @@ import type {
   LessonTimeResolution,
   LessonTimeResolver,
 } from '../../../calendar/lesson-times.ts';
+import { calendarDayKind } from '../../../calendar/holidays.ts';
 
 export type YgkRoomKind = 'physical' | 'remote' | 'sport' | 'unknown';
 
@@ -103,12 +104,22 @@ const resolveProfileTime = (
   profileName: string,
   day: string,
   lessonNumber: number,
+  preholiday = false,
 ): LessonTimeResolution => {
   const profile = profiles[profileName];
   if (!profile)
     return missingResolution(
       `Профиль звонков «${profileName}» не найден в конфигурации`,
     );
+
+  const shortened = preholiday
+    ? profile.preholidayLessonTimes?.[lessonNumber]
+    : undefined;
+  if (shortened)
+    return {
+      slots: 'start' in shortened ? [shortened] : [...shortened],
+      profile: profileName,
+    };
 
   const dayOverrides =
     profile.lessonTimesByDay[day as keyof typeof profile.lessonTimesByDay];
@@ -145,8 +156,12 @@ const resolveProfileTime = (
 export const createYgkRoomTimeResolver = (
   profiles: Record<string, CalendarProfile>,
   roomProfiles: CalendarRoomProfiles,
+  holidays: readonly string[] = [],
 ): LessonTimeResolver => {
-  return ({ group, day, lessonNumber, room }): LessonTimeResolution => {
+  return ({ group, day, lessonNumber, room, date }): LessonTimeResolution => {
+    const preholiday = date
+      ? calendarDayKind(date, holidays) === 'preholiday'
+      : false;
     const location = parseYgkRoomLocation(room, roomProfiles.specialRooms);
     if (location.kind !== 'physical' && !location.profile) {
       return missingResolution(
@@ -157,7 +172,13 @@ export const createYgkRoomTimeResolver = (
     }
 
     if (location.profile) {
-      return resolveProfileTime(profiles, location.profile, day, lessonNumber);
+      return resolveProfileTime(
+        profiles,
+        location.profile,
+        day,
+        lessonNumber,
+        preholiday,
+      );
     }
 
     const rule = roomProfiles.buildings[location.building!];
@@ -172,6 +193,12 @@ export const createYgkRoomTimeResolver = (
         `Для корпуса «${location.building}» и группы «${group}» не определен профиль звонков`,
       );
 
-    return resolveProfileTime(profiles, profileName, day, lessonNumber);
+    return resolveProfileTime(
+      profiles,
+      profileName,
+      day,
+      lessonNumber,
+      preholiday,
+    );
   };
 };

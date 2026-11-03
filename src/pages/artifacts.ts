@@ -40,6 +40,7 @@ export interface PagesApiUpdates {
 export interface PagesApiIndex {
   schemaVersion: 1;
   provider: 'ygk';
+  holidays?: string[];
   scheduleVersion: string;
   updates: PagesApiUpdates;
   sources: PagesApiSource[];
@@ -215,6 +216,13 @@ export const preparePagesPublicDirectory = async (
   const index: PagesApiIndex = {
     schemaVersion: 1,
     provider: 'ygk',
+    ...(options.calendarConfigPath
+      ? {
+          holidays:
+            (await loadYgkCalendarConfig(options.calendarConfigPath))
+              .holidays ?? [],
+        }
+      : {}),
     scheduleVersion: schedule.version.value,
     updates: {
       schedule: schedule.generatedAt,

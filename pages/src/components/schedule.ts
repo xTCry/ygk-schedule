@@ -11,8 +11,11 @@ import type {
   LessonVariant,
 } from '../types.ts';
 import { describeLessonReplacement } from '../replacement-summary.ts';
+import { calendarDayKind } from '../../../src/calendar/holidays.ts';
+import { selectHolidayVariants } from '../../../src/calendar/holiday-replacements.ts';
 
 export interface ScheduleRenderOptions {
+  holidays: readonly string[];
   group: string;
   subgroup: string | null;
   showOtherSubgroups: boolean;
@@ -178,7 +181,7 @@ const createLesson = (
     actual &&
     (actualLesson.status === 'cancelled' ||
       actualLesson.replacements.length > 0);
-  number.textContent = `${lesson.number}${changed ? ' ✳' : ''}`;
+  number.textContent = `${variants.some((variant) => variant.timing.preholidayChanged) ? '⏱ ' : ''}${lesson.number}${changed ? ' ✳' : ''}`;
   const time = createLessonTiming(variants);
   numberColumn.append(number, time);
   const content = createElement('div', 'min-w-0 space-y-2');
@@ -269,26 +272,76 @@ export const renderSchedule = (
     }
     card.append(heading);
 
-    const originalLessons = actualGroup?.lessons ?? baseDay?.lessons ?? [];
+    const kind = calendarDayKind(dateKey, options.holidays);
+    const originalLessons = (
+      actualGroup?.lessons ??
+      baseDay?.lessons ??
+      []
+    ).filter(
+      (lesson) =>
+        kind !== 'holiday' ||
+        (actualGroup && (lesson as ActualLesson).replacements.length > 0),
+    );
     const lessons = originalLessons
-      .map((lesson) => ({
-        lesson,
-        variants: displayedVariants(
-          lesson.variants,
-          options.subgroup,
-          options.showOtherSubgroups,
-        ),
-        replacementDetails: actualGroup
-          ? describeLessonReplacement(
-              lesson as ActualLesson,
-              baseDay?.lessons,
-              actualDate?.weekType,
-            )
-          : null,
-      }))
+      .map((lesson) => {
+        const selection =
+          kind === 'holiday' && actualGroup
+            ? selectHolidayVariants(
+                lesson.variants,
+                (
+                  actualGroup.frozenBase?.lessons ??
+                  baseDay?.lessons ??
+                  []
+                ).find((item) => item.number === lesson.number)?.variants ?? [],
+                (lesson as ActualLesson).replacements.map((item) => ({
+                  type: item.replacement.type,
+                  raw: item.replacement.replacement?.raw ?? '',
+                  ...(item.strategy ? { strategy: item.strategy } : {}),
+                })),
+              )
+            : { variants: lesson.variants, unmatched: [] };
+        return {
+          lesson,
+          unmatched: selection.unmatched,
+          variants: displayedVariants(
+            selection.variants.map((variant) => {
+              const shortened =
+                kind === 'preholiday'
+                  ? variant.timing.preholidaySlots
+                  : undefined;
+              if (
+                !shortened ||
+                JSON.stringify(shortened) ===
+                  JSON.stringify(variant.timing.slots)
+              )
+                return variant;
+              const timing = { ...variant.timing };
+              delete timing.breakAfterMinutes;
+              return {
+                ...variant,
+                timing: {
+                  ...timing,
+                  slots: shortened,
+                  preholidayChanged: true,
+                },
+              };
+            }),
+            options.subgroup,
+            options.showOtherSubgroups,
+          ),
+          replacementDetails: actualGroup
+            ? describeLessonReplacement(
+                lesson as ActualLesson,
+                baseDay?.lessons,
+                actualDate?.weekType,
+              )
+            : null,
+        };
+      })
       .filter(
         (item) =>
           item.variants.length > 0 ||
+          item.unmatched.length > 0 ||
           (actualGroup && (item.lesson as ActualLesson).status === 'cancelled'),
       );
     const isRemoteDay =
@@ -316,7 +369,12 @@ export const renderSchedule = (
         'div',
         'mt-4 divide-y divide-stone-200 dark:divide-stone-800',
       );
-      for (const { lesson, variants, replacementDetails } of lessons)
+      for (const {
+        lesson,
+        variants,
+        replacementDetails,
+        unmatched,
+      } of lessons) {
         list.append(
           createLesson(
             lesson,
@@ -326,6 +384,12 @@ export const renderSchedule = (
             replacementDetails,
           ),
         );
+        for (const replacement of unmatched) {
+          const notice = createElement('p', 'text-sm text-amber-700');
+          notice.textContent = `⚠ Не удалось определить вариант замены для пары ${lesson.number}: ${replacement.raw || 'по расписанию'}`;
+          list.append(notice);
+        }
+      }
       card.append(list);
     }
 

@@ -30,6 +30,7 @@ export interface IcalArtifactsResult {
 export interface WriteIcalArtifactsOptions {
   profiles: Record<string, CalendarProfile>;
   roomProfiles: CalendarRoomProfiles;
+  holidays?: readonly string[];
   term: CalendarTerm;
   timezone: string;
   publication?: CalendarPublication;
@@ -131,6 +132,7 @@ export const writeIcalArtifacts = async (
   const lessonTimeResolver = createYgkRoomTimeResolver(
     options.profiles,
     options.roomProfiles,
+    options.holidays,
   );
   const weekAnchor = resolveWeekAnchor(
     options.term.weekAnchor,
@@ -163,6 +165,7 @@ export const writeIcalArtifacts = async (
         referenceWeekType: weekAnchor.weekType,
         timezone: options.timezone,
         lessonTimeResolver,
+        ...(options.holidays ? { holidays: options.holidays } : {}),
         formatLessonSummary: formatYgkLessonSummary,
         ...(baseSourceUrl ? { sourceUrl: baseSourceUrl } : {}),
         ...(options.publication?.refreshInterval
@@ -190,6 +193,7 @@ export const writeIcalArtifacts = async (
           referenceWeekType: weekAnchor.weekType,
           timezone: options.timezone,
           lessonTimeResolver,
+          ...(options.holidays ? { holidays: options.holidays } : {}),
           formatLessonSummary: formatYgkLessonSummary,
           ...(actualSourceUrl ? { sourceUrl: actualSourceUrl } : {}),
           ...(options.publication?.refreshInterval

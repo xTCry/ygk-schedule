@@ -19,6 +19,7 @@ describe('YGK calendar config', () => {
     const path = join(directory, 'calendar.yaml');
     await writeCalendarConfig(path, {
       timezone: 'Europe/Moscow',
+      holidays: ['01-01', '11-04'],
       term: {
         first: { start: '09-01', end: '12-31' },
         second: { start: '01-12', end: '06-30' },
@@ -60,6 +61,7 @@ describe('YGK calendar config', () => {
     await expect(
       loadYgkCalendarConfig(path, new Date('2026-09-05T12:00:00Z')),
     ).resolves.toMatchObject({
+      holidays: ['01-01', '11-04'],
       profiles: {
         known: {
           lessonTimesByDay: {

@@ -70,6 +70,7 @@ export const generateIcalArtifacts = async (
   return writeIcalArtifacts(getIcalArtifactPaths(outputDir), schedule, actual, {
     profiles: config.profiles,
     roomProfiles: config.roomProfiles,
+    ...(config.holidays ? { holidays: config.holidays } : {}),
     term: config.term,
     timezone: config.timezone,
     ...(config.publication ? { publication: config.publication } : {}),

@@ -79,6 +79,7 @@ export interface CalendarRoomProfilesDocument {
 export interface CalendarConfigDocument {
   schema_version?: number;
   timezone: string;
+  holidays?: string[];
   term: {
     first: CalendarTermRange;
     second: CalendarTermRange;
@@ -119,6 +120,7 @@ export interface CalendarSpecialRoomRule {
 
 export interface YgkCalendarConfig {
   timezone: string;
+  holidays?: string[];
   term: CalendarTerm;
   profiles: Record<string, CalendarProfile>;
   roomProfiles: CalendarRoomProfiles;
@@ -790,6 +792,17 @@ export const loadYgkCalendarConfig = async (
   const publication = readPublication(parsed.publication, 'publication');
   return {
     timezone: readString(parsed.timezone, 'timezone'),
+    ...(parsed.holidays === undefined
+      ? {}
+      : {
+          holidays: (() => {
+            if (!Array.isArray(parsed.holidays))
+              throw new Error('Calendar config requires an array at holidays');
+            return parsed.holidays.map((date, index) =>
+              readMonthDay(date, `holidays[${index}]`),
+            );
+          })(),
+        }),
     term: {
       ...termRange,
       semester,

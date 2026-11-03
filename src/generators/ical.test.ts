@@ -120,6 +120,26 @@ const makeSchedule = (): CanonicalSchedule => ({
 });
 
 describe('schedule generators', () => {
+  it('excludes holidays and creates a shortened preholiday occurrence', () => {
+    const ical = generateIcal(makeSchedule(), {
+      group: 'СТ1-11',
+      termStart: '2026-11-02',
+      termEnd: '2026-11-16',
+      referenceDate: '2026-11-02',
+      holidays: ['11-03', '11-09'],
+      lessonTimeResolver: ({ lessonNumber, date }) => ({
+        slots:
+          lessonNumber === 1 && date === '2026-11-02'
+            ? [{ start: '09:10', end: '10:10' }]
+            : [{ start: '09:20', end: '10:50' }],
+      }),
+    });
+    expect(ical).toContain('20261102T092000');
+    expect(ical).toContain('20261109T092000');
+    expect(ical).toContain('DTSTART;TZID=Europe/Moscow:20261102T091000');
+    expect(ical).toContain('SUMMARY:⏱ 1. Общий\\, предмет');
+  });
+
   it('serializes formatted JSON with a trailing newline', () => {
     const serialized = serializeSchedule(makeSchedule());
     const parsed = JSON.parse(serialized) as CanonicalSchedule;

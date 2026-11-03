@@ -9,6 +9,8 @@ import type {
   WeekType,
 } from '../types.ts';
 import { sha256 } from '../utils/hash.ts';
+import { calendarDayKind } from '../calendar/holidays.ts';
+import { selectHolidayVariants } from '../calendar/holiday-replacements.ts';
 import {
   generateIcalWithReport,
   defaultIcalLessonSummary,
@@ -429,7 +431,93 @@ export const generateActualIcalWithReport = (
     const actualGroup = actualDate.groups[options.group];
     if (!actualGroup) continue;
 
-    if (actualGroup.frozenBase) {
+    if (calendarDayKind(date, options.holidays ?? []) === 'holiday') {
+      for (const lesson of actualGroup.lessons) {
+        const baseVariants =
+          (
+            actualGroup.frozenBase?.lessons ??
+            schedule.groups[options.group]?.days.find(
+              (day) => day.day === actualDate.day,
+            )?.lessons ??
+            []
+          ).find((item) => item.number === lesson.number)?.variants ?? [];
+        const selection = selectHolidayVariants(
+          lesson.variants,
+          baseVariants,
+          lesson.replacements.map((item) => ({
+            type: item.replacement.type,
+            raw: item.replacement.replacement?.raw ?? '',
+            strategy: item.strategy,
+          })),
+        );
+        events.push(
+          ...actualLessonEvents(
+            date,
+            { ...lesson, variants: selection.variants },
+            'holiday',
+            baseRoomForLesson(
+              schedule,
+              options.group,
+              actualDate.day,
+              lesson.number,
+              actualDate.weekType,
+            ),
+            undefined,
+            formatLessonSummary,
+            lesson.replacements.some(
+              (item) => item.strategy === 'scheduled-room',
+            )
+              ? (variant) =>
+                  baseVariants.find(
+                    (base) =>
+                      base.subject === variant.subject &&
+                      base.subgroup === variant.subgroup,
+                  )?.room ?? ''
+              : undefined,
+          ),
+        );
+        for (const [index, unmatched] of selection.unmatched.entries()) {
+          const room = lesson.replacements.find(
+            (item) => item.replacement.replacement?.raw === unmatched.raw,
+          )?.replacement.replacement?.room;
+          const fallback = baseRoomForLesson(
+            schedule,
+            options.group,
+            actualDate.day,
+            lesson.number,
+            actualDate.weekType,
+          );
+          events.push({
+            date,
+            lessonNumber: lesson.number,
+            key: `holiday-unmatched:${index}:${sha256(unmatched.raw)}`,
+            summary: '✳ Необработанная замена',
+            description: `Не удалось определить вариант замены: ${unmatched.raw || 'по расписанию'}`,
+            ...(room ? { room } : {}),
+            ...(room || fallback ? { timeRoom: room || fallback } : {}),
+          });
+        }
+        const cancelled = subgroupsForReplacementType(
+          schedule,
+          options.group,
+          actualDate.day,
+          actualDate.weekType,
+          lesson,
+          'cancel',
+        );
+        events.push(
+          ...cancelledLessonEvents(
+            date,
+            schedule,
+            options.group,
+            actualDate.day,
+            actualDate.weekType,
+            lesson,
+            cancelled,
+          ),
+        );
+      }
+    } else if (actualGroup.frozenBase) {
       addFrozenDate(
         schedule,
         options.group,

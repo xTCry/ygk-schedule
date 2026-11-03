@@ -69,6 +69,32 @@ const roomProfiles: CalendarRoomProfiles = {
 };
 
 describe('YGK room profile resolver', () => {
+  it('uses preholiday times only for dates preceding configured holidays', () => {
+    const resolve = createYgkRoomTimeResolver(
+      {
+        ...profiles,
+        'a-m': {
+          ...profiles['a-m']!,
+          preholidayLessonTimes: { 2: { start: '10:20', end: '11:20' } },
+        },
+      },
+      roomProfiles,
+      ['11-04'],
+    );
+    const request = {
+      group: 'СТ1-11',
+      day: 'Вторник' as const,
+      lessonNumber: 2,
+      room: 'А203',
+    };
+    expect(resolve({ ...request, date: '2026-11-03' }).slots).toEqual([
+      { start: '10:20', end: '11:20' },
+    ]);
+    expect(resolve({ ...request, date: '2026-11-02' }).slots).toEqual([
+      { start: '11:00', end: '11:45' },
+    ]);
+  });
+
   it('recognizes only numbered physical rooms as buildings', () => {
     expect(
       parseYgkRoomLocation('каб. А 203', roomProfiles.specialRooms),

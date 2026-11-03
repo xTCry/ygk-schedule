@@ -23,6 +23,8 @@ export interface LessonTimeRequest {
   day: DayOfWeek;
   lessonNumber: number;
   room: string;
+  /** Конкретная дата необходима для исключений календаря. */
+  date?: string;
 }
 
 /**

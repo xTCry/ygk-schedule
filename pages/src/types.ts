@@ -3,12 +3,15 @@ export type DayOfWeek =
 
 export interface LessonTiming {
   slots: Array<{ start: string; end: string }>;
+  preholidaySlots?: Array<{ start: string; end: string }>;
+  preholidayChanged?: boolean;
   profile?: string;
   breakAfterMinutes?: number;
 }
 
 export interface LessonVariant {
   subject: string;
+  rawSubject?: string;
   teacher: string;
   room: string;
   weekType: 'numerator' | 'denominator' | 'both' | 'unknown';
@@ -39,6 +42,7 @@ export interface BaseGroupArtifact {
 }
 
 export interface AppliedReplacement {
+  strategy?: string;
   replacement: {
     type: 'replace' | 'cancel' | 'add' | 'move' | 'unknown';
     original: { raw: string } | null;
@@ -54,6 +58,12 @@ export interface ActualLesson extends Lesson {
 
 export interface ActualGroup {
   lessons: ActualLesson[];
+  frozenBase?: {
+    lessons: Array<{
+      number: number;
+      variants: Array<Pick<LessonVariant, 'subject' | 'room' | 'subgroup'>>;
+    }>;
+  };
   unresolvedReplacements: Array<{
     lessonNumber: number;
     reason: string;
@@ -93,6 +103,7 @@ export interface PagesApiGroup {
 }
 
 export interface PagesApiIndex {
+  holidays?: string[];
   updates: {
     schedule: string;
     replacements: string | null;

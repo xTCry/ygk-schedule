@@ -258,6 +258,7 @@ const renderGroup = async (
     diagnostics.append(card);
   }
   renderSchedule(schedule, base, actual, {
+    holidays: index.holidays ?? [],
     group: group.code,
     subgroup,
     showOtherSubgroups,

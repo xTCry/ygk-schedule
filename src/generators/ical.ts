@@ -7,6 +7,7 @@ import type {
   WeekType,
 } from '../types.ts';
 import { weekTypeForDate } from '../calendar/academic-year.ts';
+import { calendarDayKind } from '../calendar/holidays.ts';
 import type {
   LessonTime,
   LessonTimeOverride,
@@ -125,6 +126,7 @@ export interface IcalOptions {
    * имеет приоритет над устаревшей единой таблицей времени группы.
    */
   lessonTimeResolver?: LessonTimeResolver;
+  holidays?: readonly string[];
   timezone?: string;
   productId?: string;
   calendarName?: string;
@@ -285,9 +287,16 @@ const resolveTimes = (
   day: DayOfWeek,
   lessonNumber: number,
   room: string,
+  date?: string,
 ): { slots: readonly LessonTime[]; reason?: string } => {
   if (options.lessonTimeResolver)
-    return options.lessonTimeResolver({ group, day, lessonNumber, room });
+    return options.lessonTimeResolver({
+      group,
+      day,
+      lessonNumber,
+      room,
+      ...(date ? { date } : {}),
+    });
   const slots = timesForDay(options, day, lessonNumber);
   return slots.length
     ? { slots }
@@ -466,6 +475,67 @@ export const generateIcalWithReport = (
           });
           return;
         }
+        const exclusions = excludedDatesForVariant(
+          options,
+          lesson.number,
+          variant.subgroup,
+        );
+        const specialEvents: string[] = [];
+        const calendarExclusions: string[] = [];
+        for (
+          let occurrence = new Date(firstDate);
+          occurrence <= termEnd;
+          occurrence.setUTCDate(occurrence.getUTCDate() + interval * 7)
+        ) {
+          const date = occurrence.toISOString().slice(0, 10);
+          const kind = calendarDayKind(date, options.holidays ?? []);
+          if (kind === 'holiday') calendarExclusions.push(date);
+          if (kind !== 'preholiday' || exclusions.includes(date)) continue;
+          const shortened = resolveTimes(
+            options,
+            group.group,
+            day.day,
+            lesson.number,
+            variant.room,
+            date,
+          );
+          if (
+            !shortened.slots.length ||
+            JSON.stringify(shortened.slots) === JSON.stringify(resolution.slots)
+          )
+            continue;
+          calendarExclusions.push(date);
+          const specialDescription = descriptionForLesson(
+            variant.teacher,
+            variant.room,
+          );
+          shortened.slots.forEach((slot, timeIndex) =>
+            specialEvents.push(
+              ...serializeEvent(
+                {
+                  uid: stableUid(
+                    'preholiday',
+                    group.group,
+                    options.subgroup ?? 'all',
+                    date,
+                    String(lesson.number),
+                    variant.weekType,
+                    String(index),
+                    String(timeIndex),
+                  ),
+                  start: formatLocalDateTime(occurrence, slot.start),
+                  end: formatLocalDateTime(occurrence, slot.end),
+                  summary: `⏱ ${formatLessonSummary(options, lesson.number, variant)}`,
+                  ...(variant.room ? { room: variant.room } : {}),
+                  ...(specialDescription
+                    ? { description: specialDescription }
+                    : {}),
+                },
+                timezone,
+              ),
+            ),
+          );
+        }
         resolution.slots.forEach((time, timeIndex) => {
           const description = descriptionForLesson(
             variant.teacher,
@@ -487,11 +557,10 @@ export const generateIcalWithReport = (
                 start: formatLocalDateTime(firstDate, time.start),
                 end: formatLocalDateTime(firstDate, time.end),
                 rule: `RRULE:FREQ=WEEKLY;INTERVAL=${interval};UNTIL=${dateKey(termEnd)}T235959Z`,
-                excludedDates: excludedDatesForVariant(
-                  options,
-                  lesson.number,
-                  variant.subgroup,
-                ),
+                excludedDates: sortedDates([
+                  ...exclusions,
+                  ...calendarExclusions,
+                ]),
                 summary: formatLessonSummary(options, lesson.number, variant),
                 ...(variant.room ? { room: variant.room } : {}),
                 ...(description ? { description } : {}),
@@ -500,6 +569,7 @@ export const generateIcalWithReport = (
             ),
           );
         });
+        lines.push(...specialEvents);
       });
     }
   }
@@ -519,7 +589,19 @@ export const generateIcalWithReport = (
       day,
       event.lessonNumber,
       event.timeRoom ?? event.room ?? '',
+      event.date,
     );
+    const regularResolution = resolveTimes(
+      options,
+      group.group,
+      day,
+      event.lessonNumber,
+      event.timeRoom ?? event.room ?? '',
+    );
+    const shifted =
+      calendarDayKind(event.date, options.holidays ?? []) === 'preholiday' &&
+      JSON.stringify(regularResolution.slots) !==
+        JSON.stringify(resolution.slots);
     if (!resolution.slots.length) {
       skippedEvents.push({
         group: group.group,
@@ -550,10 +632,10 @@ export const generateIcalWithReport = (
             ),
             start: formatLocalDateTime(date, time.start),
             end: formatLocalDateTime(date, time.end),
-            summary: formatAdditionalEventSummary(
+            summary: `${shifted ? '⏱ ' : ''}${formatAdditionalEventSummary(
               event.lessonNumber,
               event.summary,
-            ),
+            )}`,
             ...(event.room ? { room: event.room } : {}),
             ...(event.description ? { description: event.description } : {}),
             ...(event.transparency ? { transparency: event.transparency } : {}),

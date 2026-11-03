@@ -12,6 +12,7 @@ import type {
 
 export interface PagesLessonTiming {
   slots: LessonTime[];
+  preholidaySlots?: LessonTime[];
   profile?: string;
   breakAfterMinutes?: number;
 }
@@ -116,11 +117,15 @@ const addTiming = (
     ? config.profiles[resolution.profile]
     : undefined;
   const slots = [...resolution.slots];
+  const preholidaySlots = asSlots(
+    profile?.preholidayLessonTimes?.[lessonNumber],
+  );
   const pause = breakAfter(profile, day, lessonNumber, slots);
   return {
     ...variant,
     timing: {
       slots,
+      ...(preholidaySlots.length ? { preholidaySlots } : {}),
       ...(resolution.profile ? { profile: resolution.profile } : {}),
       ...(pause === undefined ? {} : { breakAfterMinutes: pause }),
     },

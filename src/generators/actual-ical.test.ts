@@ -195,6 +195,57 @@ const options = {
 } as const;
 
 describe('actual iCalendar generator', () => {
+  it('does not publish an unchanged subgroup alongside a holiday replacement', () => {
+    const actualGroup = makeActualGroup();
+    actualGroup.lessons[1]!.variants.unshift({
+      subject: 'Обычное занятие',
+      teacher: '',
+      room: 'А201',
+      weekType: 'both',
+      subgroup: '1',
+      sourceRow: 1,
+    });
+    actualGroup.lessons[1]!.variants[1]!.subgroup = '2';
+    const calendar = generateActualIcal(
+      makeSchedule(),
+      makeActual(actualGroup),
+      {
+        ...options,
+        holidays: ['09-04'],
+      },
+    );
+    expect(calendar).toContain('SUMMARY:2. ✳ [2] История');
+    expect(calendar).not.toContain('SUMMARY:2. ✳ [1] Обычное занятие');
+  });
+
+  it('keeps only explicitly replaced variants for a finalized holiday', () => {
+    const group = makeActualGroup();
+    group.frozenBase = {
+      scheduleVersion: 'past-base-version',
+      lessons: group.lessons,
+    };
+    const calendar = generateActualIcal(makeSchedule(), makeActual(group), {
+      ...options,
+      holidays: ['09-04'],
+    });
+    expect(calendar).toContain('SUMMARY:4. ✳ Биология');
+    expect(calendar).not.toContain('SUMMARY:4. ✳ Базовая пара 4');
+  });
+
+  it('hides base lessons on a holiday but keeps explicitly added and unresolved replacements', () => {
+    const ical = generateActualIcal(
+      makeSchedule(),
+      makeActual(makeActualGroup()),
+      {
+        ...options,
+        holidays: ['09-04'],
+      },
+    );
+    expect(ical).toContain('EXDATE;TZID=Europe/Moscow:20260904T150500');
+    expect(ical).toContain('SUMMARY:4. ✳ Биология');
+    expect(ical).toContain('SUMMARY:6. ✳ Необработанная замена');
+  });
+
   it('excludes replaced and cancelled base events, without hiding add/unresolved', () => {
     const ical = generateActualIcal(
       makeSchedule(),
