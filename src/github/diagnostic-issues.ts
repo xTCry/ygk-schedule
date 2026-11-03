@@ -146,6 +146,31 @@ const buildIssueMap = <T extends { key: string }>(
   return result;
 };
 
+/** Объединяет пересекающиеся отчёты до обращения к GitHub. */
+export const deduplicateDiagnosticIssueDrafts = (
+  drafts: readonly DiagnosticIssueDraft[],
+): DiagnosticIssueDraft[] => {
+  const priority: Record<DiagnosticsScope, number> = {
+    replacements: 0,
+    base: 1,
+    actual: 2,
+  };
+  const byKey = new Map<string, DiagnosticIssueDraft>();
+  for (const draft of drafts) {
+    const previous = byKey.get(draft.key);
+    if (
+      !previous ||
+      priority[draft.scope] > priority[previous.scope] ||
+      (priority[draft.scope] === priority[previous.scope] &&
+        (draft.occurrenceCount > previous.occurrenceCount ||
+          (draft.occurrenceCount === previous.occurrenceCount &&
+            JSON.stringify(draft) < JSON.stringify(previous))))
+    )
+      byKey.set(draft.key, draft);
+  }
+  return [...byKey.values()];
+};
+
 interface OpenIssueIndex {
   canonicalByKey: Map<string, ManagedDiagnosticIssue>;
   duplicates: Array<{
@@ -500,10 +525,11 @@ const diagnosticLabelDefinition = (
  * Issue без служебного маркера остаются без изменений.
  */
 export const syncDiagnosticIssues = async (
-  drafts: readonly DiagnosticIssueDraft[],
+  inputDrafts: readonly DiagnosticIssueDraft[],
   client: DiagnosticIssuesClient,
   options: SyncDiagnosticIssuesOptions = {},
 ): Promise<DiagnosticIssuesSyncResult> => {
+  const drafts = deduplicateDiagnosticIssueDrafts(inputDrafts);
   const desiredByKey = buildIssueMap(drafts, 'diagnostic Issue draft');
   const result: DiagnosticIssuesSyncResult = {
     created: 0,

@@ -8,6 +8,7 @@ import {
   type DiagnosticsScope,
 } from '../diagnostics/issues.ts';
 import {
+  deduplicateDiagnosticIssueDrafts,
   GitHubDiagnosticIssuesClient,
   syncDiagnosticIssues,
 } from '../github/diagnostic-issues.ts';
@@ -85,10 +86,11 @@ const readDiagnosticsReport = async (
   const issues = report.issues;
   if (!Array.isArray(issues) || !issues.every(isDiagnosticIssueDraft))
     throw new Error('Diagnostics report has an invalid issues array');
+  const scope = isDiagnosticsScope(report.scope)
+    ? report.scope
+    : scopeFromDiagnosticsPath(path);
   return {
-    scope: isDiagnosticsScope(report.scope)
-      ? report.scope
-      : scopeFromDiagnosticsPath(path),
+    scope,
     // Старые reports до schema v4 не содержат labels. Это нужно, чтобы
     // workflow мог синхронно мигрировать data-ветку без ручного шага.
     issues: issues.map((rawIssue) => {
@@ -114,6 +116,7 @@ const readDiagnosticsReport = async (
         : [];
       return {
         ...issue,
+        scope: isDiagnosticsScope(issue.scope) ? issue.scope : scope,
         familyKey:
           typeof issue.familyKey === 'string' &&
           /^[a-f0-9]{64}$/u.test(issue.familyKey)
@@ -311,25 +314,29 @@ export const runSyncIssuesCli = async (
   const dataRevision = await getDataRevision(options);
   const rawSourcePaths = await availableRawSourcePaths(options.dataRoot);
   const parserRevision = options.parserRevision ?? process.env.GITHUB_SHA;
-  const drafts = loadedReports
-    .flatMap((report) => report.issues)
-    .filter(
-      (issue) =>
-        issue.lifecycle !== 'dated' ||
-        !issue.observedDate ||
-        issue.observedDate >= options.currentDate,
-    )
-    .map((issue) =>
-      withDiagnosticIssueLinks(issue, {
-        repository: options.repository,
-        ...(dataRevision ? { dataRevision } : {}),
-        ...(parserRevision ? { parserRevision } : {}),
-        ...(options.sourceArchiveUrlTemplate
-          ? { sourceArchiveUrlTemplate: options.sourceArchiveUrlTemplate }
-          : {}),
-        ...(rawSourcePaths ? { availableRawSourcePaths: rawSourcePaths } : {}),
-      }),
-    );
+  const drafts = deduplicateDiagnosticIssueDrafts(
+    loadedReports
+      .flatMap((report) => report.issues)
+      .filter(
+        (issue) =>
+          issue.lifecycle !== 'dated' ||
+          !issue.observedDate ||
+          issue.observedDate >= options.currentDate,
+      )
+      .map((issue) =>
+        withDiagnosticIssueLinks(issue, {
+          repository: options.repository,
+          ...(dataRevision ? { dataRevision } : {}),
+          ...(parserRevision ? { parserRevision } : {}),
+          ...(options.sourceArchiveUrlTemplate
+            ? { sourceArchiveUrlTemplate: options.sourceArchiveUrlTemplate }
+            : {}),
+          ...(rawSourcePaths
+            ? { availableRawSourcePaths: rawSourcePaths }
+            : {}),
+        }),
+      ),
+  );
   const result = await syncDiagnosticIssues(
     drafts,
     new GitHubDiagnosticIssuesClient(options),

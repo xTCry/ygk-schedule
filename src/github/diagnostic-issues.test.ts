@@ -38,6 +38,68 @@ const managedIssue = (
 });
 
 describe('diagnostic Issue synchronization', () => {
+  it.each([false, true])(
+    'synchronizes overlapping actual and replacements drafts once regardless of order (reverse=%s)',
+    async (reverse) => {
+      const replacements = {
+        ...draft('same', ' replacements'),
+        scope: 'replacements' as const,
+      };
+      const actual = { ...draft('same', ' actual'), scope: 'actual' as const };
+      const unrelated = draft('unrelated');
+      const createIssue = vi.fn(() => Promise.resolve());
+      const client: DiagnosticIssuesClient = {
+        listOpenManagedIssues: () => Promise.resolve([]),
+        listClosedManagedIssues: () => Promise.resolve([]),
+        createIssue,
+        updateIssue: () => Promise.resolve(),
+        reopenIssue: () => Promise.resolve(),
+        addComment: () => Promise.resolve(),
+        closeIssue: () => Promise.resolve(),
+      };
+      const reports = reverse ? [actual, replacements] : [replacements, actual];
+      const result = await syncDiagnosticIssues(
+        [...reports, unrelated],
+        client,
+        {
+          maxWriteOperations: 2,
+          scopes: ['base', 'replacements', 'actual'],
+        },
+      );
+      expect(result.created).toBe(2);
+      expect(result.deferred).toBeUndefined();
+      expect(createIssue).toHaveBeenCalledTimes(2);
+      expect(createIssue).toHaveBeenCalledWith(actual);
+      expect(createIssue).toHaveBeenCalledWith(unrelated);
+    },
+  );
+
+  it('does not repeat writes for duplicate drafts when the canonical issue is current', async () => {
+    const actual = { ...draft('same'), scope: 'actual' as const };
+    const replacement = {
+      ...draft('same', ' replacement'),
+      scope: 'replacements' as const,
+    };
+    const createIssue = vi.fn(() => Promise.resolve());
+    const updateIssue = vi.fn(() => Promise.resolve());
+    const client: DiagnosticIssuesClient = {
+      listOpenManagedIssues: () =>
+        Promise.resolve([{ ...managedIssue('same', 7), scope: 'actual' }]),
+      listClosedManagedIssues: () => Promise.resolve([]),
+      createIssue,
+      updateIssue,
+      reopenIssue: () => Promise.resolve(),
+      addComment: () => Promise.resolve(),
+      closeIssue: () => Promise.resolve(),
+    };
+    const result = await syncDiagnosticIssues([replacement, actual], client, {
+      maxWriteOperations: 1,
+    });
+    expect(result.unchanged).toBe(1);
+    expect(createIssue).not.toHaveBeenCalled();
+    expect(updateIssue).not.toHaveBeenCalled();
+  });
+
   it('creates new issues, updates changed ones and closes resolved ones', async () => {
     const listOpenManagedIssues = vi.fn(() =>
       Promise.resolve([
