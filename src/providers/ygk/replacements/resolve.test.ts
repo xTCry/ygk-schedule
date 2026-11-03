@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadYgkReplacementAliases } from './config.ts';
+import { createDiagnostic } from '../../../diagnostics/index.ts';
 import {
   buildActualSchedule,
   semanticActualScheduleHash,
@@ -199,6 +200,9 @@ describe('actual YGK schedule', () => {
     ]);
     expect(actual.diagnostics[0]?.context).toMatchObject({
       baseGroup: 'СТ1-11',
+      date: '2026-09-04',
+      shift: 'first',
+      sourceSha256: 'source-hash',
     });
   });
 
@@ -1290,6 +1294,39 @@ describe('actual YGK schedule', () => {
       }),
     );
     expect(semanticActualScheduleHash(differentProvenance)).toBe(
+      semanticActualScheduleHash(actual),
+    );
+  });
+
+  it('does not change semantic hashes when only the diagnostic source hash changes', () => {
+    const warning = createDiagnostic({
+      code: 'UNKNOWN_REPLACEMENT_TYPE',
+      severity: 'warning',
+      message: 'test',
+      context: { date: '2026-09-04', shift: 'first', sourceSha256: 'old' },
+    });
+    const next = {
+      ...warning,
+      context: { ...warning.context, sourceSha256: 'new' },
+    };
+    const before = { ...replacements, diagnostics: [warning] };
+    const after = { ...replacements, diagnostics: [next] };
+    expect(semanticReplacementHash(before)).toBe(
+      semanticReplacementHash(after),
+    );
+    const actual = buildActualSchedule(
+      baseSchedule,
+      before,
+      'parser',
+      'config',
+    );
+    const updated = {
+      ...actual,
+      diagnostics: actual.diagnostics.map((item) =>
+        item === warning ? next : item,
+      ),
+    };
+    expect(semanticActualScheduleHash(updated)).toBe(
       semanticActualScheduleHash(actual),
     );
   });

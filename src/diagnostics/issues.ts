@@ -229,8 +229,11 @@ const normalizedContext = (value: unknown): unknown => {
  * входят временные metadata загрузки, поэтому повторная проверка того же
  * источника не создаёт ложную дельту.
  */
-const diagnosticObservationKey = (diagnostic: Diagnostic): string =>
-  sha256(
+const diagnosticObservationKey = (diagnostic: Diagnostic): string => {
+  const context = diagnostic.context ? { ...diagnostic.context } : undefined;
+  // Новый HTML-хеш сам по себе не является новой проблемной строкой.
+  if (context) delete context.sourceSha256;
+  return sha256(
     JSON.stringify({
       code: diagnostic.code,
       severity: diagnostic.severity,
@@ -241,9 +244,10 @@ const diagnosticObservationKey = (diagnostic: Diagnostic): string =>
       column: diagnostic.column,
       normalizedGroup: diagnostic.normalizedGroup,
       rawValue: diagnostic.rawValue,
-      context: normalizedContext(diagnostic.context),
+      context: normalizedContext(context),
     }),
   );
+};
 
 /**
  * Возвращает ключ семьи Issue без volatile fingerprint. Он намеренно

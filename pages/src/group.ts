@@ -6,6 +6,10 @@ import { initializeGroupPicker } from './components/group-picker.ts';
 import { renderSchedule } from './components/schedule.ts';
 import { formatScheduleDate, formatUpdate } from './date.ts';
 import { createElement, requiredElement } from './dom.ts';
+import {
+  diagnosticIsCommon,
+  diagnosticIsForDate,
+} from './diagnostic-visibility.ts';
 import { replacementSourceUrlForGroup } from './replacement-source.ts';
 import { describeLessonReplacement } from './replacement-summary.ts';
 import { initializeThemeControl } from './theme.ts';
@@ -197,7 +201,7 @@ const openReplacementDialog = (
     details.append(item);
   }
   for (const diagnostic of diagnostics.filter(
-    (item) => visibleDiagnostic(item) && item.context?.date === date,
+    (item) => visibleDiagnostic(item) && diagnosticIsForDate(item, date),
   )) {
     const item = createElement(
       'article',
@@ -247,7 +251,8 @@ const renderGroup = async (
     ...base.diagnostics,
     ...(actual?.diagnostics ?? []),
   ].filter(
-    (diagnostic) => visibleDiagnostic(diagnostic) && !diagnostic.context?.date,
+    (diagnostic) =>
+      visibleDiagnostic(diagnostic) && diagnosticIsCommon(diagnostic),
   )) {
     const card = createElement('article', 'diagnostic-card');
     const heading = createElement('strong', 'block text-sm');

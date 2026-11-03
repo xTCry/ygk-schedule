@@ -54,6 +54,24 @@ const schedule: CanonicalSchedule = {
 };
 
 describe('diagnostics metadata generator', () => {
+  it('selects the matching source snapshot when the URL is shared across dates', () => {
+    const original = schedule.sources[0]!;
+    const report = buildDiagnosticsReport({
+      ...schedule,
+      sources: [
+        { ...original, sha256: 'old' },
+        { ...original, sha256: 'new' },
+      ],
+      diagnostics: [
+        {
+          ...schedule.diagnostics[0]!,
+          context: { date: '2026-09-28', sourceSha256: 'old' },
+        },
+      ],
+    });
+    expect(report.diagnostics[0]?.source?.sha256).toBe('old');
+  });
+
   it('includes source data and an Issue draft for actionable diagnostics', () => {
     const report = buildDiagnosticsReport(schedule);
     expect(report.summary).toEqual({

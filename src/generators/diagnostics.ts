@@ -97,8 +97,15 @@ export const buildDiagnosticsReport = (
     .sort(compareDiagnostics)
     .map((diagnostic) => {
       summary[diagnostic.severity] += 1;
+      const snapshotHash = diagnostic.context?.sourceSha256;
       const source = diagnostic.sourceId
-        ? (sources.get(diagnostic.sourceId) ?? null)
+        ? typeof snapshotHash === 'string'
+          ? (schedule.sources.find(
+              (candidate) =>
+                candidate.id === diagnostic.sourceId &&
+                candidate.sha256 === snapshotHash,
+            ) ?? null)
+          : (sources.get(diagnostic.sourceId) ?? null)
         : null;
       const issueFingerprint = isIssueCandidate(diagnostic)
         ? diagnostic.fingerprint

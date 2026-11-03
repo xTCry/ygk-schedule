@@ -314,6 +314,8 @@ const resolutionDiagnostic = (
     row: replacement.source.row,
     context: {
       date: replacement.date,
+      shift: replacement.source.shift,
+      ...(source ? { sourceSha256: source.sha256 } : {}),
       lessonNumber,
       type: replacement.type,
       reason,
@@ -907,6 +909,12 @@ const semanticDiagnostics = (diagnostics: readonly Diagnostic[]): unknown[] =>
       const semanticDiagnostic = { ...diagnostic };
       delete semanticDiagnostic.sourceId;
       delete semanticDiagnostic.sourceUrl;
+      if (semanticDiagnostic.context) {
+        const context = { ...semanticDiagnostic.context };
+        // Хеш снимка — provenance, а не новое содержание предупреждения.
+        delete context.sourceSha256;
+        semanticDiagnostic.context = context;
+      }
       return stableSemanticValue(semanticDiagnostic);
     })
     .sort((left, right) =>
@@ -1038,9 +1046,16 @@ export const semanticActualScheduleHash = (actual: ActualSchedule): string => {
   return sha256(
     JSON.stringify({
       dates: withoutActualProvenance(dates),
-      diagnostics: [...actual.diagnostics].sort((left, right) =>
-        left.fingerprint.localeCompare(right.fingerprint),
-      ),
+      diagnostics: [...actual.diagnostics]
+        .map((diagnostic) => {
+          if (!diagnostic.context?.sourceSha256) return diagnostic;
+          const context = { ...diagnostic.context };
+          delete context.sourceSha256;
+          return { ...diagnostic, context };
+        })
+        .sort((left, right) =>
+          left.fingerprint.localeCompare(right.fingerprint),
+        ),
     }),
   );
 };
@@ -1162,7 +1177,7 @@ export const buildActualSchedule = (
               replacement,
               lessonNumber,
               reason,
-              replacements.sources,
+              [snapshot.source],
               diagnostics,
               baseContext,
             );
@@ -1186,7 +1201,7 @@ export const buildActualSchedule = (
               replacement,
               lessonNumber,
               'lesson-not-scheduled-for-week',
-              replacements.sources,
+              [snapshot.source],
               diagnostics,
               {
                 ...baseContext,
@@ -1203,7 +1218,7 @@ export const buildActualSchedule = (
             group,
             replacement,
             lessonNumber,
-            replacements.sources,
+            [snapshot.source],
             diagnostics,
             aliases,
             baseContext,

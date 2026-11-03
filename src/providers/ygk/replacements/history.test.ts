@@ -8,6 +8,7 @@ import type {
   WeekType,
 } from '../../../types.ts';
 import { mergeReplacementHistory } from './history.ts';
+import { createDiagnostic } from '../../../diagnostics/index.ts';
 
 const source = (
   shift: ReplacementShift,
@@ -77,6 +78,58 @@ const canonical = (
 });
 
 describe('YGK replacement history', () => {
+  it('attributes historical diagnostics to the actual date, shift and snapshot without changing their fingerprints', () => {
+    const page = parsed('2026-09-28', 'first', 'first-28', 'Понедельник');
+    const warning = createDiagnostic({
+      code: 'UNKNOWN_REPLACEMENT_TYPE',
+      severity: 'warning',
+      message: 'Неизвестная замена',
+      normalizedGroup: 'СД2-31',
+      context: { existing: 'kept' },
+    });
+    page.parsed.diagnostics.push(warning);
+    const initial = mergeReplacementHistory(null, [page]);
+    const result = mergeReplacementHistory(canonical(initial), [
+      parsed('2026-09-29', 'first', 'first-29', 'Вторник'),
+    ]);
+    expect(result.diagnostics).toEqual([
+      expect.objectContaining({
+        fingerprint: warning.fingerprint,
+        context: {
+          existing: 'kept',
+          date: '2026-09-28',
+          shift: 'first',
+          sourceSha256: 'first-28',
+        },
+      }),
+    ]);
+    expect(
+      result.dates['2026-09-28']?.shifts?.first?.diagnostics[0]?.context,
+    ).toEqual({ existing: 'kept' });
+  });
+
+  it('replaces only the revised shift diagnostics on the same date', () => {
+    const first = parsed('2026-09-28', 'first', 'first-old', 'Понедельник');
+    const second = parsed('2026-09-28', 'second', 'second-old', 'Понедельник');
+    const warning = createDiagnostic({
+      code: 'UNKNOWN_REPLACEMENT_TYPE',
+      severity: 'warning',
+      message: 'Предупреждение',
+    });
+    first.parsed.diagnostics.push(warning);
+    second.parsed.diagnostics.push(warning);
+    const initial = mergeReplacementHistory(null, [first, second]);
+    const revised = mergeReplacementHistory(canonical(initial), [
+      parsed('2026-09-28', 'first', 'first-new', 'Понедельник'),
+    ]);
+    expect(revised.diagnostics).toHaveLength(1);
+    expect(revised.diagnostics[0]?.context).toMatchObject({
+      date: '2026-09-28',
+      shift: 'second',
+      sourceSha256: 'second-old',
+    });
+  });
+
   it('finalizes only the previous snapshot of the same shift', () => {
     const first = mergeReplacementHistory(null, [
       parsed('2026-09-04', 'first', 'first-04'),

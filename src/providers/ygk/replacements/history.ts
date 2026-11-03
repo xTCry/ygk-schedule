@@ -258,7 +258,17 @@ const rebuildDateViews = (
     });
 
     for (const snapshot of snapshots)
-      diagnostics.push(...snapshot.diagnostics.map((item) => ({ ...item })));
+      diagnostics.push(
+        ...snapshot.diagnostics.map((item) => ({
+          ...item,
+          context: {
+            ...item.context,
+            date: snapshot.date,
+            shift: snapshot.shift,
+            sourceSha256: snapshot.source.sha256,
+          },
+        })),
+      );
 
     result[date] = {
       date,

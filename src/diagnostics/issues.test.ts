@@ -35,6 +35,20 @@ const diagnostic: Diagnostic = {
 };
 
 describe('diagnostic Issue drafts', () => {
+  it('does not treat a changed source snapshot hash as a new observation', () => {
+    const first = {
+      ...diagnostic,
+      context: { date: '2026-09-28', sourceSha256: 'old' },
+    };
+    const second = {
+      ...first,
+      context: { ...first.context, sourceSha256: 'new' },
+    };
+    expect(formatDiagnosticIssue([first], source).observationKeys).toEqual(
+      formatDiagnosticIssue([second], source).observationKeys,
+    );
+  });
+
   it('selects actionable diagnostics and renders their source context', () => {
     expect(isIssueCandidate(diagnostic)).toBe(true);
     expect(

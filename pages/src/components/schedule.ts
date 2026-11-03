@@ -1,4 +1,5 @@
 import { createElement } from '../dom.ts';
+import { diagnosticIsForDate } from '../diagnostic-visibility.ts';
 import { dayName, isoDate, nextStudyDates, russianDate } from '../date.ts';
 import type {
   ActualGroup,
@@ -30,9 +31,6 @@ const visibleDiagnostic = (diagnostic: Diagnostic): boolean =>
   diagnostic.severity === 'warning' ||
   diagnostic.severity === 'error' ||
   diagnostic.severity === 'fatal';
-
-const diagnosticForDate = (diagnostic: Diagnostic, date: string): boolean =>
-  diagnostic.context?.date === date;
 
 const isRemoteVariant = (variant: LessonVariant): boolean =>
   /(?:дот|дистанцион)/iu.test(variant.room);
@@ -396,7 +394,7 @@ export const renderSchedule = (
     for (const unresolved of actualGroup?.unresolvedReplacements ?? [])
       card.append(createUnresolved(unresolved));
     for (const diagnostic of diagnostics.filter(
-      (item) => visibleDiagnostic(item) && diagnosticForDate(item, dateKey),
+      (item) => visibleDiagnostic(item) && diagnosticIsForDate(item, dateKey),
     ))
       card.append(createDiagnostic(diagnostic));
     container.append(card);
