@@ -6576,7 +6576,7 @@ dates:
         date: 2026-11-03
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -6586,11 +6586,15 @@ dates:
           shift: first
           etag: W/"6ae8812c-441f"
           lastModified: Mon, 02 Nov 2026 12:25:16 GMT
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
       second:
         date: 2026-11-03
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -6600,6 +6604,10 @@ dates:
           shift: second
           etag: W/"6ae87291-2407"
           lastModified: Mon, 02 Nov 2026 11:22:57 GMT
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 4ccc3b63734a39c63540d8c20407f11ecd24f5ed0e575ddfa0a49ac3b3783c68
     groups:
       АР1-41:
         group: АР1-41
@@ -6722,6 +6730,79 @@ dates:
                 lessonNumber: 5
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: МДК 01.06 Архитектурное проектирование гражданских зданий
+                  teacher: Жарова Н.И.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 166
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 166
+                rowEnd: 167
+                rawGroupName: АР1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: >-
+                    МДК 01.05 Конструкции зданий и сооружений с элементами
+                    статики Т.5.1 п/гр 2
+
+                    МДК 02.02 Основы строительного производства п/гр 1
+                  teacher: |-
+                    Балина С.А.
+                    Хухарева Н.Е.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 169
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 168
+                rowEnd: 169
+                rawGroupName: АР1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК 02.02 Основы строительного производства п/гр 2
+                  teacher: Хухарева Н.Е.
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 171
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 170
+                rowEnd: 171
+                rawGroupName: АР1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.3
+                    п/гр 2
+                  teacher: Вакансия
+                  room: ДОТ
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 173
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 172
+                rowEnd: 173
+                rawGroupName: АР1-41
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6860,4 +6941,4 @@ diagnostics:
     normalizedGroup: АР1-41
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 98a358ab69a52639b364fbeeef5f16c78a1b7f4dae4f03a6e3ceebddbd0f18b6
+semanticHash: 0421e43af509fa2b0cac6eb7e466a1f1cfdeabbd3a9e2a2a73a77f2ec1f08411

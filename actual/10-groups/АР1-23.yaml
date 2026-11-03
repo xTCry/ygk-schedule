@@ -4462,6 +4462,147 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
+          fetchedAt: 2026-11-03T15:46:54.669Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae9a4fb-3f9c"
+          lastModified: Tue, 03 Nov 2026 09:10:19 GMT
+      second:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 4ccc3b63734a39c63540d8c20407f11ecd24f5ed0e575ddfa0a49ac3b3783c68
+          fetchedAt: 2026-11-03T15:46:54.637Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae9bbee-20bb"
+          lastModified: Tue, 03 Nov 2026 10:48:14 GMT
+    groups:
+      АР1-23:
+        group: АР1-23
+        date: 2026-11-05
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Техническая механика п/гр 2
+                teacher: Калугина М.В.
+                room: Б409
+                weekType: denominator
+                subgroup: "2"
+                sourceRow: 79
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 78
+              rowEnd: 79
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Физическая культура
+                teacher: Дворниченко Г.В.
+                room: Спорт.зал
+                weekType: denominator
+                sourceRow: 81
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 80
+              rowEnd: 81
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Тех.механика
+                teacher: Калугина М.В.
+                room: Б310
+                weekType: both
+                subgroup: "1"
+                rawSubject: Тех.механика п/гр.1 Калугина М.В.
+                rawTeacher: Калугина М.В.
+                rawRoom: Б310
+                sourceRow: 15
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 82
+              rowEnd: 83
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-05
+                  group: АР1-23
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 01.03 п/гр.1
+                  replacement:
+                    raw: Тех.механика п/гр.1 Калугина М.В.
+                    room: Б310
+                  source:
+                    shift: first
+                    row: 15
+                    rawGroupName: АР1-23
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 01.03 п/гр.1
+                    rawReplacement: Тех.механика п/гр.1 Калугина М.В.
+                    rawRoom: Б310
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 84
+              rowEnd: 85
+              rawGroupName: АР1-23/1-24
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-05
+                  group: АР1-23
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: МДК 01.03 п/гр.1
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 16
+                    rawGroupName: АР1-23
+                    rawLessonNumbers: "3"
+                    rawOriginal: МДК 01.03 п/гр.1
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4576,4 +4717,4 @@ diagnostics:
           sourceRow: 84
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b96853f2f80c95f985b646243d5966d4dfe1513c350644898b182d546d4c9e34
+semanticHash: 97c83bea93d97cfad7e57096f63d3a1061de389d2c970be989c02d9fe68254c4

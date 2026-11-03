@@ -1318,7 +1318,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1349,7 +1349,55 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
     replacements:
       - *a37
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
+          fetchedAt: 2026-11-03T15:46:54.669Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae9a4fb-3f9c"
+          lastModified: Tue, 03 Nov 2026 09:10:19 GMT
+        replacements:
+          - &a38
+            date: 2026-11-05
+            group: ТТ1-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Яковлева Е.Н.
+              room: Б301
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ТТ1-21
+              rawLessonNumbers: 1,2
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Яковлева Е.Н.
+              rawRoom: Б301
+        diagnostics: []
+    replacements:
+      - *a38
 diagnostics: []
-semanticHash: e90900693c505db923c7329ab369daad7d6af6b81835675721b816d04fcf3224
+semanticHash: 3107b09f942601788cc7be2364873aa1c15562da79db980d8eea947952ebbaf9

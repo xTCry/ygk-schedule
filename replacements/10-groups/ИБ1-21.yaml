@@ -2065,7 +2065,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2096,7 +2096,73 @@ dates:
               rawReplacement: 1,2 п/гр. Садилова К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
     replacements:
       - *a51
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
+          fetchedAt: 2026-11-03T15:46:54.669Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae9a4fb-3f9c"
+          lastModified: Tue, 03 Nov 2026 09:10:19 GMT
+        replacements:
+          - &a52
+            date: 2026-11-05
+            group: ИБ1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Зубковская А.Е.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 5
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Зубковская А.Е.
+              rawRoom: Акт.зал
+          - &a53
+            date: 2026-11-05
+            group: ИБ1-21
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Информ.п/гр.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 6
+              rawGroupName: ИБ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.п/гр.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics: []
-semanticHash: c3c4adfabc307608316ebf4a5b08e871c0607e5b346526a4b3b7650797c15f11
+semanticHash: a9eb194c164e43d7d211cac9724a8bd33ed026377958a6331854022ffc4877cc

@@ -2338,7 +2338,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2369,7 +2369,93 @@ dates:
               rawReplacement: 1,2 п/гр. Девлитянс О.В.
               rawRoom: Б101
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
     replacements:
       - *a64
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
+          fetchedAt: 2026-11-03T15:46:54.669Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae9a4fb-3f9c"
+          lastModified: Tue, 03 Nov 2026 09:10:19 GMT
+        replacements:
+          - &a65
+            date: 2026-11-05
+            group: СТ1-15
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Информ. Жданова Н.А.
+              room: Б402
+            source:
+              shift: first
+              row: 27
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: Информ. Жданова Н.А.
+              rawRoom: Б402
+          - &a66
+            date: 2026-11-05
+            group: СТ1-15
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Осн.шах.игр. Грязева А.В.
+              room: Б501
+            source:
+              shift: first
+              row: 28
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "1"
+              rawOriginal: Обществ.
+              rawReplacement: Осн.шах.игр. Грязева А.В.
+              rawRoom: Б501
+          - &a67
+            date: 2026-11-05
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 29
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: Информ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a65
+      - *a66
+      - *a67
 diagnostics: []
-semanticHash: 00eb8d0b4b841c37409c079d06e3a393a7c8952705ecef5ab54696a3701e8830
+semanticHash: a090fbdc7b1f5c747104e883ae2b078c749cdc05f3cbf6ab517dbcfb8279bf1c

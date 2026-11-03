@@ -870,5 +870,67 @@ dates:
           sourceSha256: f45ca79c0f7f3a1bcfde7b9760c1bb7bc42dbcfc9940a54b8f6b44c8c6ee0c7a
     replacements:
       - *a22
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 9f10ef21c178cb3477e4a88aacda0c4d86ddadf8c587453d4b984cd1214b6c76
+          fetchedAt: 2026-11-03T15:46:54.669Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6ae9a4fb-3f9c"
+          lastModified: Tue, 03 Nov 2026 09:10:19 GMT
+        replacements:
+          - &a23
+            date: 2026-11-05
+            group: ЗМ1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: История Новиков М.П.
+              room: Б502
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ЗМ1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: История Новиков М.П.
+              rawRoom: Б502
+          - &a24
+            date: 2026-11-05
+            group: ЗМ1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: экскурсия
+            source:
+              shift: first
+              row: 48
+              rawGroupName: ЗМ1-11
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: экскурсия
+        diagnostics: []
+    replacements:
+      - *a23
+      - *a24
 diagnostics: []
-semanticHash: 51d088a1f924f0a50cfb01d12e4c6bcef31cc8dd1d5428bbe165f2d39a4c98ce
+semanticHash: df1460b8e81f18d05a31c72ce9e253d70ff84527d41ddd6bea390b55382b55ff

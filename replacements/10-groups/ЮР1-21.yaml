@@ -1683,7 +1683,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1769,10 +1769,78 @@ dates:
               rawReplacement: Конст.право Богданова В.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-05
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 4ccc3b63734a39c63540d8c20407f11ecd24f5ed0e575ddfa0a49ac3b3783c68
     replacements:
       - *a45
       - *a46
       - *a47
       - *a48
+  2026-11-05:
+    date: 2026-11-05
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-05
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 4ccc3b63734a39c63540d8c20407f11ecd24f5ed0e575ddfa0a49ac3b3783c68
+          fetchedAt: 2026-11-03T15:46:54.637Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6ae9bbee-20bb"
+          lastModified: Tue, 03 Nov 2026 10:48:14 GMT
+        replacements:
+          - &a49
+            date: 2026-11-05
+            group: ЮР1-21
+            lessonNumbers:
+              - 2
+              - 3
+              - 4
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: 2-4
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+          - &a50
+            date: 2026-11-05
+            group: ЮР1-21
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: ДОУ
+            replacement:
+              raw: Конст.право Богданова В.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "5"
+              rawOriginal: ДОУ
+              rawReplacement: Конст.право Богданова В.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a49
+      - *a50
 diagnostics: []
-semanticHash: a0f8a938717aa044efa7769c53913447dbdb04a74d5dd5ec7998fa1cc71df709
+semanticHash: 2375f314d9c73d7a39451dd30207534436f07dbd61bdedab626ad51e25ee4c7b
