@@ -1868,7 +1868,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1937,9 +1937,74 @@ dates:
               rawReplacement: Физкультура Куликова А.А.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: cbe1c65e9caa23ec548f2566e15f1c9a56e7653866aec9d67214a121cd0a1824
     replacements:
       - *a51
       - *a52
       - *a53
+  2026-11-06:
+    date: 2026-11-06
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-06
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: cbe1c65e9caa23ec548f2566e15f1c9a56e7653866aec9d67214a121cd0a1824
+          fetchedAt: 2026-11-05T17:19:08.063Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aec51c8-38b4"
+          lastModified: Thu, 05 Nov 2026 09:52:08 GMT
+        replacements:
+          - &a54
+            date: 2026-11-06
+            group: ИС1-23
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Осн.фин.гр. Сафронова Л.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Осн.фин.гр. Сафронова Л.Н.
+              rawRoom: ДОТ
+          - &a55
+            date: 2026-11-06
+            group: ИС1-23
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Арх.аппар.ср.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 16
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "3"
+              rawOriginal: Арх.аппар.ср.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a54
+      - *a55
 diagnostics: []
-semanticHash: 9679f731f92176b6429b092d7745f09aa56cb6c2be1aa6b5376163b173fb02f9
+semanticHash: 6d2dae8222bbeb22928efb9aa42b851447ac811524ef134cc983d4733716b3a3

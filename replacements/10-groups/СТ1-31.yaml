@@ -1776,7 +1776,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1826,8 +1826,56 @@ dates:
               rawReplacement: МДК 02.01 п/гр.1 Топчиян Е.А. МДК 01.01 п/гр.2 Голованова Н.М.
               rawRoom: Б401Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 181fd015c0a95e5276c9ce47a133813e51db33cf53ba09e79ef48fc2ce9e46db
     replacements:
       - *a47
       - *a48
+  2026-11-06:
+    date: 2026-11-06
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-06
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 181fd015c0a95e5276c9ce47a133813e51db33cf53ba09e79ef48fc2ce9e46db
+          fetchedAt: 2026-11-05T17:19:08.054Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aec7986-21c0"
+          lastModified: Thu, 05 Nov 2026 12:41:42 GMT
+        replacements:
+          - &a49
+            date: 2026-11-06
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.п/гр.2
+            replacement:
+              raw: п/гр.1 Секацкая Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 6
+              rawGroupName: СТ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01 Т.1.2.п/гр.2
+              rawReplacement: п/гр.1 Секацкая Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a49
 diagnostics: []
-semanticHash: 618dd0dba453e220b7278ec06de647f3c33b9fc05988479655aab1e7361c1214
+semanticHash: 2f7eae79ac4f98686a92d86ebc6b2284f3bc941917d710c2885bf8ee990fc946

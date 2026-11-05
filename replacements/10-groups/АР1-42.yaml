@@ -1591,7 +1591,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1641,9 +1641,56 @@ dates:
               rawReplacement: МДК 01.05 Т.5.3. Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-06
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 181fd015c0a95e5276c9ce47a133813e51db33cf53ba09e79ef48fc2ce9e46db
     replacements:
       - *a39
       - *a40
+  2026-11-06:
+    date: 2026-11-06
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-06
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 181fd015c0a95e5276c9ce47a133813e51db33cf53ba09e79ef48fc2ce9e46db
+          fetchedAt: 2026-11-05T17:19:08.054Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aec7986-21c0"
+          lastModified: Thu, 05 Nov 2026 12:41:42 GMT
+        replacements:
+          - &a41
+            date: 2026-11-06
+            group: АР1-42
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Гасенина М.П.
+              room: Б409
+            source:
+              shift: second
+              row: 34
+              rawGroupName: АР1-42
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.02
+              rawReplacement: Гасенина М.П.
+              rawRoom: Б409
+        diagnostics: []
+    replacements:
+      - *a41
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1674,4 +1721,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: 8943d2c0691ab74032d105e2d404a3d8f69ff3c2699d3cbffff503802ffff694
+semanticHash: 4fca22fff4d8a02da4cd7ce6d5bd4579ab59940fbfc1c92f37f7df894b207771

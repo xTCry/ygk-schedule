@@ -3662,6 +3662,101 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-06:
+    date: 2026-11-06
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-06
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: cbe1c65e9caa23ec548f2566e15f1c9a56e7653866aec9d67214a121cd0a1824
+          fetchedAt: 2026-11-05T17:19:08.063Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aec51c8-38b4"
+          lastModified: Thu, 05 Nov 2026 09:52:08 GMT
+      second:
+        date: 2026-11-06
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 181fd015c0a95e5276c9ce47a133813e51db33cf53ba09e79ef48fc2ce9e46db
+          fetchedAt: 2026-11-05T17:19:08.054Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aec7986-21c0"
+          lastModified: Thu, 05 Nov 2026 12:41:42 GMT
+    groups:
+      ИС1-31:
+        group: ИС1-31
+        date: 2026-11-06
+        day: Пятница
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК.02.03 Мат. Моделирование
+                teacher: |-
+                  Кувшинова В.А.
+                  Серова А.М.
+                room: ДОТ
+                weekType: both
+                sourceRow: 38
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 38
+              rowEnd: 39
+              rawGroupName: ИС1-31/ ИС1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: пр.
+                teacher: Гудкова А.Л.
+                room: ДОТ
+                weekType: both
+                rawSubject: пр. Гудкова А.Л.Серова А.М.
+                rawRoom: ДОТ
+                sourceRow: 11
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 40
+              rowEnd: 41
+              rawGroupName: ИС1-31/ ИС1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-06
+                  group: ИС1-31
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Осн.проект.БД/т
+                  replacement:
+                    raw: пр. Гудкова А.Л.Серова А.М.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 11
+                    rawGroupName: ИС1-31
+                    rawLessonNumbers: "3"
+                    rawOriginal: Осн.проект.БД/т
+                    rawReplacement: пр. Гудкова А.Л.Серова А.М.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3725,4 +3820,4 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 3b70beadc02952ef619777a03e20e1de25826ee0ac8812bb45e98e66450beb2b
+semanticHash: 0fc3a43ff45aac31114b4536fcc7399603a92b718508b3c4f1db17ba6057e39c
