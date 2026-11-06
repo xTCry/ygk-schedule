@@ -2010,7 +2010,7 @@ dates:
         date: 2026-11-06
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2020,11 +2020,15 @@ dates:
           shift: first
           etag: W/"6aec51c8-38b4"
           lastModified: Thu, 05 Nov 2026 09:52:08 GMT
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
       second:
         date: 2026-11-06
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2034,6 +2038,10 @@ dates:
           shift: second
           etag: W/"6aec7986-21c0"
           lastModified: Thu, 05 Nov 2026 12:41:42 GMT
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
     groups:
       ЗМ1-31:
         group: ЗМ1-31
@@ -2110,6 +2118,55 @@ dates:
                 lessonNumber: 4
                 strategy: subject-module-code
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Основы бережливого производства
+                  teacher: Парамонов В.И.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 33
+              source:
+                sheet: ЗМ1-31 ЗМ1-33
+                rowStart: 32
+                rowEnd: 33
+                rawGroupName: ЗМ1-31/ЗМ1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Охрана труда
+                  teacher: Зевахина О.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 34
+              source:
+                sheet: ЗМ1-31 ЗМ1-33
+                rowStart: 34
+                rowEnd: 35
+                rawGroupName: ЗМ1-31/ЗМ1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.02.02 Территориальное планирование
+                  teacher: Зевахина О.Б.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 36
+              source:
+                sheet: ЗМ1-31 ЗМ1-33
+                rowStart: 36
+                rowEnd: 37
+                rawGroupName: ЗМ1-31/ЗМ1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2142,4 +2199,4 @@ diagnostics:
           sourceRow: 30
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a433a2a018eeb1022ca779adb1a5f51cb1a5efcc4d4ffccc7041fad2b74cb360
+semanticHash: ac7f322b9d4bb763562df691778d7ac462351b8376509dde5881f840eda7c79c

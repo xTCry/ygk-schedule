@@ -1058,7 +1058,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1089,7 +1089,76 @@ dates:
               rawReplacement: Экон.и прав. Белогорская Я.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
     replacements:
       - *a26
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
+          fetchedAt: 2026-11-06T16:42:54.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aedd262-3230"
+          lastModified: Fri, 06 Nov 2026 13:13:06 GMT
+        replacements:
+          - &a27
+            date: 2026-11-07
+            group: МС1-31
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: ...Ин.язык
+            replacement:
+              raw: МДК 02.02 Леонидова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 40
+              rawGroupName: МС1-31
+              rawLessonNumbers: 1,2
+              rawOriginal: ...Ин.язык
+              rawReplacement: МДК 02.02 Леонидова Н.А.
+              rawRoom: ДОТ
+          - &a28
+            date: 2026-11-07
+            group: МС1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: БЖ
+            replacement:
+              raw: Экон.и прав. Белогорская Я.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 41
+              rawGroupName: МС1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: БЖ
+              rawReplacement: Экон.и прав. Белогорская Я.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a27
+      - *a28
 diagnostics: []
-semanticHash: bea17a5c38d743f9f2fd9004162af6f67230d6e8a2c379cb143f46732cd2c71b
+semanticHash: bdc3d1bafa971dea25f7c7aef5eb6ab1ccd5ea8c30e5de0498323aeaa0694d6c

@@ -1057,7 +1057,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1088,7 +1088,74 @@ dates:
               rawReplacement: пр. Гудкова А.Л.Серова А.М.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
     replacements:
       - *a29
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
+          fetchedAt: 2026-11-06T16:42:53.747Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aedd146-2d56"
+          lastModified: Fri, 06 Nov 2026 13:08:22 GMT
+        replacements:
+          - &a30
+            date: 2026-11-07
+            group: ИС1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: ИС1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a31
+            date: 2026-11-07
+            group: ИС1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: БЖ
+            replacement:
+              raw: 1,2 п/гр.МДК 06.02 Неделяева Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 29
+              rawGroupName: ИС1-31
+              rawLessonNumbers: "5"
+              rawOriginal: БЖ
+              rawReplacement: 1,2 п/гр.МДК 06.02 Неделяева Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a30
+      - *a31
 diagnostics: []
-semanticHash: c7380a35c582e3f94ab6f84d58aa0d153301de183738bb9acef986d79a8fb485
+semanticHash: 2e95e2fa8c8b551ad77716d304765d98bda4b378034576e456749d9e82e5fd87

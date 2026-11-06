@@ -2129,7 +2129,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2160,7 +2160,73 @@ dates:
               rawReplacement: п/гр.1 Жданова Н.А.-по расписанию п/гр.2 Лужина А.С.-снято
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
     replacements:
       - *a60
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
+          fetchedAt: 2026-11-06T16:42:54.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aedd262-3230"
+          lastModified: Fri, 06 Nov 2026 13:13:06 GMT
+        replacements:
+          - &a61
+            date: 2026-11-07
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 26
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: История
+              rawReplacement: снято
+              rawRoom: ""
+          - &a62
+            date: 2026-11-07
+            group: СТ1-17
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Русский язык Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 27
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: Русский язык Шалаева А.А.
+              rawRoom: А203
+        diagnostics: []
+    replacements:
+      - *a61
+      - *a62
 diagnostics: []
-semanticHash: 5b5c22f98c095701dc831dcbb8934613d675e6f5fcfdbe7776d5394bb80976db
+semanticHash: 558242bab6ea0f14c02ae997aaa81d928adb9766560b118fedace680421f5a5b

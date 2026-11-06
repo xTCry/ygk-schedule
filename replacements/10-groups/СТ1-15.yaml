@@ -2471,7 +2471,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2521,8 +2521,56 @@ dates:
               rawReplacement: п/гр.1 Жданова Н.А.-по расписанию п/гр.2 Лужина А.С.-снято
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
     replacements:
       - *a68
       - *a69
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
+          fetchedAt: 2026-11-06T16:42:54.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aedd262-3230"
+          lastModified: Fri, 06 Nov 2026 13:13:06 GMT
+        replacements:
+          - &a70
+            date: 2026-11-07
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: История...
+            replacement:
+              raw: История Ушкало Ю.А.
+              room: Б503,А203
+            source:
+              shift: first
+              row: 21
+              rawGroupName: СТ1-15
+              rawLessonNumbers: 3,4
+              rawOriginal: История...
+              rawReplacement: История Ушкало Ю.А.
+              rawRoom: Б503,А203
+        diagnostics: []
+    replacements:
+      - *a70
 diagnostics: []
-semanticHash: ec15d3546335b34d7c1542941b683d3fd7528efb9f6b3bc1eeda9bbde34b7791
+semanticHash: aed77bc53d01b80fcc1f105587898c1bcb37155292218b4fb925bd29e8d8b01a

@@ -1817,7 +1817,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1869,9 +1869,74 @@ dates:
               rawReplacement: МДК 03.02 Коротюк И.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
     replacements:
       - *a50
       - *a51
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
+          fetchedAt: 2026-11-06T16:42:54.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aedd262-3230"
+          lastModified: Fri, 06 Nov 2026 13:13:06 GMT
+        replacements:
+          - &a52
+            date: 2026-11-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Коротюк И.С.
+              room: МТ103
+            source:
+              shift: first
+              row: 32
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Коротюк И.С.
+              rawRoom: МТ103
+          - &a53
+            date: 2026-11-07
+            group: ТТ1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Коротюк И.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 33
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Коротюк И.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1902,4 +1967,4 @@ diagnostics:
       date: 2026-09-23
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
-semanticHash: 6b5411159b70cf59d40bd0dfe48187a7c254b35c6926e722a4b2aea9a0bba0b8
+semanticHash: 9ed52e8ea693be7c5e1117334fd0d92d9e55c5070e2f29c246b9589550048b6f

@@ -2226,7 +2226,7 @@ dates:
         date: 2026-11-06
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2236,11 +2236,15 @@ dates:
           shift: first
           etag: W/"6aec51c8-38b4"
           lastModified: Thu, 05 Nov 2026 09:52:08 GMT
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
       second:
         date: 2026-11-06
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2250,6 +2254,10 @@ dates:
           shift: second
           etag: W/"6aec7986-21c0"
           lastModified: Thu, 05 Nov 2026 12:41:42 GMT
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
     groups:
       ЮР1-33:
         group: ЮР1-33
@@ -2327,6 +2335,56 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК 03.01 Право социального обеспечения
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: denominator
+                  rawSubject: "МДК 03.01 Право социального обеспечения "
+                  sourceRow: 76
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 75
+                rowEnd: 76
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Эффективное поведение на рынке труда
+                  teacher: Девятаева Н.Ф.
+                  room: Ф302
+                  weekType: denominator
+                  sourceRow: 78
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 77
+                rowEnd: 78
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.01.04 Арбитражный процесс
+                  teacher: Грак А.М.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 79
+              source:
+                sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+                rowStart: 79
+                rowEnd: 80
+                rawGroupName: ЮР1-33 / ЮР1-34
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2406,4 +2464,4 @@ diagnostics:
       date: 2026-09-22
       shift: first
       sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
-semanticHash: fd036b8e6f257d9438add0be652747c6d6ff81e378baffff028e42e86dfe7d1e
+semanticHash: e0dd8ed5e668abad8c4da29c218b811e1da483a5952bb01888a84536bd3fe3cc

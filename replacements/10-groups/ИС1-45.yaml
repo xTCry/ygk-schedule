@@ -2470,7 +2470,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2520,9 +2520,94 @@ dates:
               rawReplacement: УП 05 Васильченко М.О.Юров А.А.
               rawRoom: Б301Б302
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-07
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
     replacements:
       - *a72
       - *a73
+  2026-11-07:
+    date: 2026-11-07
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-07
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b39e6628cb05b6dde5d1f54e808b65ffe52d3b976019d58d5e22e75b432c2b08
+          fetchedAt: 2026-11-06T16:42:53.747Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aedd146-2d56"
+          lastModified: Fri, 06 Nov 2026 13:08:22 GMT
+        replacements:
+          - &a74
+            date: 2026-11-07
+            group: ИС1-45
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: МДК 05.02 Панасюк А.Д.Васильченко М.О.
+              room: Б309
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "1"
+              rawOriginal: УП 03
+              rawReplacement: МДК 05.02 Панасюк А.Д.Васильченко М.О.
+              rawRoom: Б309
+          - &a75
+            date: 2026-11-07
+            group: ИС1-45
+            lessonNumbers:
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Б309
+            source:
+              shift: second
+              row: 34
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Б309
+          - &a76
+            date: 2026-11-07
+            group: ИС1-45
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 05.02 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 35
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 05.02 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a74
+      - *a75
+      - *a76
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2553,4 +2638,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: 02fa23aecc59834c5a63ba1441e796173a33cf6b78df2c66dcb7e94ec3a9b0b5
+semanticHash: 7e28abe062f5cd322e22c9bebae9b89db9dd11b39046d7acbbac14c20b985340
