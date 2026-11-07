@@ -3265,6 +3265,135 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
+          fetchedAt: 2026-11-07T15:37:49.911Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aeeec9e-4c8a"
+          lastModified: Sat, 07 Nov 2026 09:17:18 GMT
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+    groups:
+      СТ1-45:
+        group: СТ1-45
+        date: 2026-11-09
+        day: Понедельник
+        lessons:
+          - number: 4
+            variants:
+              - subject: МДК 01.02
+                teacher: Силантьева С.И.
+                room: Б501
+                weekType: both
+                rawSubject: МДК 01.02/теория Силантьева С.И.
+                rawTeacher: Силантьева С.И.
+                rawRoom: Б501
+                sourceRow: 3
+            source:
+              sheet: СТ 4 курс
+              rowStart: 102
+              rowEnd: 103
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-11-09
+                  group: СТ1-45
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 01.01, 01.02 п/гр.
+                  replacement:
+                    raw: МДК 01.02/теория Силантьева С.И.
+                    room: Б501
+                  source:
+                    shift: first
+                    row: 3
+                    rawGroupName: СТ1-45
+                    rawLessonNumbers: 4,5
+                    rawOriginal: МДК 01.01, 01.02 п/гр.
+                    rawReplacement: МДК 01.02/теория Силантьева С.И.
+                    rawRoom: Б501
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК 01.02
+                teacher: Силантьева С.И.
+                room: Б501
+                weekType: both
+                rawSubject: МДК 01.02/теория Силантьева С.И.
+                rawTeacher: Силантьева С.И.
+                rawRoom: Б501
+                sourceRow: 3
+            source:
+              sheet: СТ 4 курс
+              rowStart: 104
+              rowEnd: 105
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: >-
+                  МДК.01.01 Тема 1.3 Проектирование строительных конструкций
+                  п/гр1
+
+                  МДК01.02 Проект производства работ п/гр2
+                teacher: |-
+                  Ткачев М.С.
+                  Силантьева С. И.
+                room: |-
+                  Б504
+                  Б501
+                weekType: numerator
+                rawSubject: >-
+                  МДК.01.01  Тема 1.3 Проектирование строительных
+                  конструкций  п/гр1
+
+                  МДК01.02 Проект производства работ п/гр2
+                sourceRow: 106
+            source:
+              sheet: СТ 4 курс
+              rowStart: 106
+              rowEnd: 107
+              rawGroupName: СТ1-45/СТ1-46
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3295,4 +3424,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 7b335908d6559946d5165d57ea06979d648253e71a07f0a1a3688a690b6f3458
+semanticHash: 11091471cce0bf01c466c722e5609898119f2cb0bdfa5f228ee4c0ea08b93045

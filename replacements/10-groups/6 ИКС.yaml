@@ -2654,6 +2654,69 @@ dates:
     replacements:
       - *a78
       - *a79
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
+          fetchedAt: 2026-11-07T15:37:49.911Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aeeec9e-4c8a"
+          lastModified: Sat, 07 Nov 2026 09:17:18 GMT
+        replacements:
+          - &a80
+            date: 2026-11-09
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: УП 02 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 75
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: УП 02 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+          - &a81
+            date: 2026-11-09
+            group: 6 ИКС
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 02 п/гр.2
+            replacement:
+              raw: УП 01 п/гр.2 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 76
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: УП 02 п/гр.2
+              rawReplacement: УП 01 п/гр.2 Елистратов А.М.
+              rawRoom: к.43
+        diagnostics: []
+    replacements:
+      - *a80
+      - *a81
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2670,4 +2733,4 @@ diagnostics:
       date: 2026-10-22
       shift: first
       sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
-semanticHash: 224b369e56c70b75210e102d5bd689f77d473833b4a41bfe7bfa7184773162d6
+semanticHash: 96561dd1a3e714896ad28c765f4d1fba8d0dd768dbaa3269a4408496790d8956

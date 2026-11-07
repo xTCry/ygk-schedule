@@ -1204,7 +1204,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1236,8 +1236,54 @@ dates:
               rawReplacement: Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     replacements:
       - *a30
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+        replacements:
+          - &a31
+            date: 2026-11-09
+            group: ДИ1-45
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 25
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a31
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1268,4 +1314,4 @@ diagnostics:
       date: 2026-09-25
       shift: second
       sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
-semanticHash: 48608ec01de03f7e8145bbadc3392cca6770407a2b4432c312c04a69ba562401
+semanticHash: 66c1a4f9053caa5883f1fd5264ffa3a083d43be8c842d5ab2761f7a935b3d57b

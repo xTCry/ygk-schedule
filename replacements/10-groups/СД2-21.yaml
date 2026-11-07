@@ -1762,7 +1762,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1813,8 +1813,75 @@ dates:
               rawReplacement: Лапин И.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     replacements:
       - *a45
       - *a46
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+        replacements:
+          - &a47
+            date: 2026-11-09
+            group: СД2-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.01 Т.1.1./т
+            replacement:
+              raw: МДК 01.01 Т.1.1 п/гр.2 Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 10
+              rawGroupName: СД2-21
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.01 Т.1.1./т
+              rawReplacement: МДК 01.01 Т.1.1 п/гр.2 Балина С.А.
+              rawRoom: Б503
+          - &a48
+            date: 2026-11-09
+            group: СД2-21
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01, 02.02 п/гр.
+            replacement:
+              raw: МДК 01.01 Т.1.1.п/гр.1 Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 11
+              rawGroupName: СД2-21
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01, 02.02 п/гр.
+              rawReplacement: МДК 01.01 Т.1.1.п/гр.1 Балина С.А.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a47
+      - *a48
 diagnostics: []
-semanticHash: 984287984b5f3be84e99dee085cda93e6fb0259a1a52b5f7d84baed654aeb6da
+semanticHash: e93bc7dba19be01e44a26fcce8f26e753b2257abde55829de94dd104e33bd713

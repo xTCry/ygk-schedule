@@ -2176,7 +2176,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2225,8 +2225,56 @@ dates:
               rawReplacement: Русский язык Шалаева А.А.
               rawRoom: А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
     replacements:
       - *a61
       - *a62
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
+          fetchedAt: 2026-11-07T15:37:49.911Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aeeec9e-4c8a"
+          lastModified: Sat, 07 Nov 2026 09:17:18 GMT
+        replacements:
+          - &a63
+            date: 2026-11-09
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-17
+              rawLessonNumbers: 0-2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a63
 diagnostics: []
-semanticHash: 558242bab6ea0f14c02ae997aaa81d928adb9766560b118fedace680421f5a5b
+semanticHash: 5e55dd2ccce9a5fb4c9c1e50541718581844173885f36c1b599ecf34f158de1a

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 6,
   "scope": "actual",
-  "generatedAt": "2026-11-06T16:42:54.806Z",
-  "scheduleVersion": "8c0028d91dcaa0a692c1344979ea93afb3057e27ff52856ea0fca07a317a1548",
+  "generatedAt": "2026-11-07T15:37:49.992Z",
+  "scheduleVersion": "dc5a2c3fb061546c7383c8682cc72c5c60f00b97681c530478adb7dde308fb43",
   "summary": {
     "info": 0,
     "warning": 65,
-    "error": 362,
+    "error": 366,
     "fatal": 0
   },
   "diagnostics": [
@@ -2769,6 +2769,55 @@
       },
       "issueFingerprint": "61144c37c0cce9cd57f24b49d49d7421fb4d6b8a1a5894b5c690e4363022dab6",
       "issueKey": "f5279a10b88e6de45e92bf21fd9aefc42c10019968250da9aca41c89ffff41c2"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Пара из замены есть в базовом расписании, но не проводится в указанную неделю",
+      "fingerprint": "4517387dffbd7e919447cf77bf79d12bee2d7379cc79914b425e473f9b85a88b",
+      "sheet": "Замены: Первая смена",
+      "row": 23,
+      "normalizedGroup": "РК1-11",
+      "rawValue": "по расписанию",
+      "context": {
+        "date": "2026-11-09",
+        "shift": "first",
+        "sourceSha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "lessonNumber": 1,
+        "type": "replace",
+        "reason": "lesson-not-scheduled-for-week",
+        "baseGroup": "РК1-11",
+        "baseSourceFiles": [
+          "oar.xlsx"
+        ],
+        "replacementWeekType": "numerator",
+        "availableWeekTypes": [
+          "denominator"
+        ],
+        "candidates": [
+          {
+            "subject": "Информатика",
+            "teacher": "Садилова К.А.",
+            "room": "Б310",
+            "sourceRow": 209
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "source": {
+        "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "fileName": "rasp_first.html",
+        "sha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "fetchedAt": "2026-11-07T15:37:49.911Z",
+        "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "shift": "first",
+        "etag": "W/\"6aeeec9e-4c8a\"",
+        "lastModified": "Sat, 07 Nov 2026 09:17:18 GMT"
+      },
+      "issueFingerprint": "ce99ae7b27a6c375c9f916e94b6b5b807bd8f270d35bff77a080467257f769e0",
+      "issueKey": "e03a5ef8477d6249c48615bbc656e8925e9d49f5febd73448e554145d2841bb3"
     },
     {
       "provider": "ygk",
@@ -8636,6 +8685,52 @@
       "provider": "ygk",
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "e47ff1eeb73fc91759554be6ae3737885cdecf59a031206abd676f569b3e7459",
+      "sheet": "Замены: Первая смена",
+      "row": 64,
+      "normalizedGroup": "ЮР1-13",
+      "rawValue": "Литература Тихонов А.А.",
+      "context": {
+        "date": "2026-11-09",
+        "shift": "first",
+        "sourceSha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "lessonNumber": 2,
+        "type": "replace",
+        "reason": "original-not-matched",
+        "baseGroup": "ЮР1-13",
+        "baseSourceFiles": [
+          "out.xlsx"
+        ],
+        "requestedSubject": "История",
+        "candidates": [
+          {
+            "subject": "Математика",
+            "teacher": "Саввина Е.А.",
+            "room": "Ф202",
+            "sourceRow": 62
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "source": {
+        "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "fileName": "rasp_first.html",
+        "sha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "fetchedAt": "2026-11-07T15:37:49.911Z",
+        "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "shift": "first",
+        "etag": "W/\"6aeeec9e-4c8a\"",
+        "lastModified": "Sat, 07 Nov 2026 09:17:18 GMT"
+      },
+      "issueFingerprint": "f277d7d2562118aa991e4e0d35fbc6aa8bad32a461229adf148e9f2479c47028",
+      "issueKey": "dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
       "message": "Группа из замены не найдена в базовом расписании",
       "fingerprint": "4436adb18a986c7a0cd04a86a4a68d0a2fdc389943e590cbcd6dc9387b17b3a1",
       "sheet": "Замены: Первая смена",
@@ -10490,6 +10585,52 @@
       "code": "UNRESOLVED_REPLACEMENT",
       "severity": "error",
       "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "4a9bdb5268d8529c01f5f2d53dae9593dc7b86a12c7945be47690e505e5b2d4f",
+      "sheet": "Замены: Первая смена",
+      "row": 78,
+      "normalizedGroup": "13 ДОУ",
+      "rawValue": "Рус.яз.в проф.деят Федотова Л.А.",
+      "context": {
+        "date": "2026-11-09",
+        "shift": "first",
+        "sourceSha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "lessonNumber": 1,
+        "type": "replace",
+        "reason": "original-not-matched",
+        "baseGroup": "13 ДОУ",
+        "baseSourceFiles": [
+          "ort.xlsx"
+        ],
+        "requestedSubject": "МДК 02.01,02.02",
+        "candidates": [
+          {
+            "subject": "МДК.02.02 Государственные, муниципальные архивы и архивы организаций",
+            "teacher": "Танасэ А.В.",
+            "room": "к.39",
+            "sourceRow": 162
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+      "source": {
+        "id": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "fileName": "rasp_first.html",
+        "sha256": "c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516",
+        "fetchedAt": "2026-11-07T15:37:49.911Z",
+        "url": "https://menu.sttec.yar.ru/timetable/rasp_first.html",
+        "shift": "first",
+        "etag": "W/\"6aeeec9e-4c8a\"",
+        "lastModified": "Sat, 07 Nov 2026 09:17:18 GMT"
+      },
+      "issueFingerprint": "f277d7d2562118aa991e4e0d35fbc6aa8bad32a461229adf148e9f2479c47028",
+      "issueKey": "dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
       "fingerprint": "05cdbfccd2e24ce0e1d494036a03dd2def08d81ddbd0c15b9bb4aba8bca6df0f",
       "sheet": "Замены: Первая смена",
       "row": 79,
@@ -12190,6 +12331,53 @@
       },
       "issueFingerprint": "f52e0e451067cde1327f0d095747536ffd513a76277045800bb5bad7d31d8e66",
       "issueKey": "7a8852ba7d2d96905631343d49984b6036daa02011f80ab78dbc4c42fe483f6d"
+    },
+    {
+      "provider": "ygk",
+      "code": "UNRESOLVED_REPLACEMENT",
+      "severity": "error",
+      "message": "Исходная дисциплина из замены не совпала с парой базового расписания",
+      "fingerprint": "3770f799d31df1e710a4f793208ecc4c8dd36425675b3366bb77e35de606b0af",
+      "sheet": "Замены: Вторая смена",
+      "row": 5,
+      "normalizedGroup": "ТУ1-31",
+      "rawValue": "Леонтьева А.С.",
+      "context": {
+        "date": "2026-11-09",
+        "shift": "second",
+        "sourceSha256": "16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6",
+        "lessonNumber": 4,
+        "type": "replace",
+        "reason": "original-not-matched",
+        "baseGroup": "ТУ1-31",
+        "baseSourceFiles": [
+          "out.xlsx"
+        ],
+        "requestedSubject": "МДК 03.01",
+        "candidates": [
+          {
+            "subject": "Иностранный язык в профессиональной деятельности п/гр1",
+            "teacher": "Петрова У.В.",
+            "room": "Ф204",
+            "subgroup": "1",
+            "sourceRow": 103
+          }
+        ]
+      },
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "source": {
+        "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+        "fileName": "rasp_second.html",
+        "sha256": "16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6",
+        "fetchedAt": "2026-11-07T15:37:49.889Z",
+        "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+        "shift": "second",
+        "etag": "W/\"6aef1e39-2072\"",
+        "lastModified": "Sat, 07 Nov 2026 12:48:57 GMT"
+      },
+      "issueFingerprint": "4094d72cf5650e40c2d7de57953222e16b996d20b8d00e484e8aa549229e7b04",
+      "issueKey": "0f28fcba301e8ddfc7130c4e80c213a020f63809d4bc49630b7a24456bccf6b3"
     },
     {
       "provider": "ygk",
@@ -19505,6 +19693,35 @@
       "body": "<!-- parser-issue-key: f5279a10b88e6de45e92bf21fd9aefc42c10019968250da9aca41c89ffff41c2 -->\n<!-- diagnostic-family-key: 23c1a175d93295ae9cb19ad7b3a203b2258464a3a1311de840dcfbbc827b8a51 -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: 506f41657fabdbe50836e53baf1f654b54f927661219cd3c2bf5ba35b0ff79bd,63b82fca8eb8b27db9d7b9b9e286f73801032f55814109fcb24a23583238dc85,da70db3d08d907af568bb4f98245f5e73debdf1d96812764321bbcaed0bcb3a2,ec459f3feab0ef2888c92675179409f46f1f99e57507b40b49d761a11a9467c1 -->\n<!-- parser-fingerprint: 61144c37c0cce9cd57f24b49d49d7421fb4d6b8a1a5894b5c690e4363022dab6 -->\n\n## Причина\n\nПара из замены отсутствует в базовом расписании\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | lesson-not-found |\n| Дата замен | 2026-10-26 |\n| Смена | первая смена |\n| Строк в Issue | 4 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_first.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |\n| SHA-256 | 12297911d5446c35944266c88b0a2537d9109ebf64c12b1fb06847ba30f59959 |\n| Изменён на сайте | 24.10.2026, 13:13 МСК |\n| Снимок впервые получен | 24.10.2026, 16:15 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Первая смена | 23 | — | СТ1-19 | 0 | replace | Разговоры о важном Грязева А.В. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A1%D0%A21-19}} | {{group-yaml:actual:%D0%A1%D0%A21-19}} | {{raw-source:schedule:so.xlsx}} |\n| Замены: Первая смена | 34 | — | ЗМ1-43 | 1 | replace | МДК 03.02 Шумилова Т.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-43}} | {{group-yaml:actual:%D0%97%D0%9C1-43}} | {{raw-source:schedule:oeis.xlsx}} |\n| Замены: Первая смена | 34 | — | ЗМ1-43 | 0 | replace | МДК 03.02 Шумилова Т.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-43}} | {{group-yaml:actual:%D0%97%D0%9C1-43}} | {{raw-source:schedule:oeis.xlsx}} |\n| Замены: Первая смена | 39 | — | ЗМ1-33 | 2 | replace | Физкультура Кургузова М.С. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%97%D0%9C1-33}} | {{group-yaml:actual:%D0%97%D0%9C1-33}} | {{raw-source:schedule:oeis.xlsx}} |\n"
     },
     {
+      "key": "e03a5ef8477d6249c48615bbc656e8925e9d49f5febd73448e554145d2841bb3",
+      "familyKey": "5f08fdc2a46a5297bd2e316e22042bfd9c97b5b9d79d60e65c18df7b99e5ff35",
+      "fingerprint": "ce99ae7b27a6c375c9f916e94b6b5b807bd8f270d35bff77a080467257f769e0",
+      "scope": "actual",
+      "lifecycle": "dated",
+      "observedDate": "2026-11-09",
+      "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / lesson-not-scheduled-for-week — 2026-11-09, первая смена",
+      "labels": [
+        "area:resolver",
+        "diagnostic:error",
+        "diagnostic:unresolved-replacement",
+        "reason:lesson-not-scheduled-for-week",
+        "schedule-diagnostic",
+        "scope:actual",
+        "shift:first"
+      ],
+      "occurrenceCount": 1,
+      "observationKeys": [
+        "2fb8823b1fa57f9337fb696cf9a02c2843d5ccd92579089cebb774869d41f823"
+      ],
+      "evidence": {
+        "diagnosticsJsonPath": "actual/90-diagnostics.json",
+        "diagnosticsYamlPath": "actual/90-diagnostics.yaml",
+        "jsonPath": "actual/91-issue-evidence/e03a5ef8477d6249c48615bbc656e8925e9d49f5febd73448e554145d2841bb3.json",
+        "yamlPath": "actual/91-issue-evidence/e03a5ef8477d6249c48615bbc656e8925e9d49f5febd73448e554145d2841bb3.yaml"
+      },
+      "body": "<!-- parser-issue-key: e03a5ef8477d6249c48615bbc656e8925e9d49f5febd73448e554145d2841bb3 -->\n<!-- diagnostic-family-key: 5f08fdc2a46a5297bd2e316e22042bfd9c97b5b9d79d60e65c18df7b99e5ff35 -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: 2fb8823b1fa57f9337fb696cf9a02c2843d5ccd92579089cebb774869d41f823 -->\n<!-- parser-fingerprint: ce99ae7b27a6c375c9f916e94b6b5b807bd8f270d35bff77a080467257f769e0 -->\n\n## Причина\n\nПара из замены есть в базовом расписании, но не проводится в указанную неделю\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | lesson-not-scheduled-for-week |\n| Дата замен | 2026-11-09 |\n| Смена | первая смена |\n| Тип недели в заменах | numerator |\n| Типы недель пары в base | denominator |\n| Строк в Issue | 1 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_first.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |\n| SHA-256 | c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516 |\n| Изменён на сайте | 07.11.2026, 12:17 МСК |\n| Снимок впервые получен | 07.11.2026, 18:37 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Первая смена | 23 | — | РК1-11 | 1 | replace | по расписанию | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%A0%D0%9A1-11}} | {{group-yaml:actual:%D0%A0%D0%9A1-11}} | {{raw-source:schedule:oar.xlsx}} |\n"
+    },
+    {
       "key": "b9f6e0e498e4f14d5699968268845ecbe3cf84684bdc7fb5ad2446aac986c65e",
       "familyKey": "bc6c35ecc9b7230b770faaaf49d7d253e3a1b52527d382acf5f39ad3503e45fd",
       "fingerprint": "8a940e1506cf54311d5dd15f541b84b806f9c80dbdcd34a69a5ba4a16088645b",
@@ -20840,6 +21057,36 @@
       "body": "<!-- parser-issue-key: 4da4c9d5723d032833a0f4338b43a3319e2f2a4a6b7e5c4c4a6555d04206931a -->\n<!-- diagnostic-family-key: 728aacd34796ab9b3eb18b5fc7bbfb9eef2e8b0daad2c021eeccc00cef7b9ea9 -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: 6a4a76258ca70abb6e89703b7c181b3d3e90a688fff4d16e60cf1cf720224b8f,747e5c08c9c0ecdf8b4da7f3aa5b25b05ed7ab2f04ac8bafbb014a993e61ad77,e242c35b4df803d8cc3358626ef4357ec350e5e6d964b90d7f6f70011b2648a9 -->\n<!-- parser-fingerprint: 37bbae32f48d928e3210b19a5214da205ae890cc63579aa26760759206a117b1 -->\n\n## Причина\n\nПодгруппа из замены не проводится в базовом расписании в эту неделю\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | subgroup-not-matched |\n| Дата замен | 2026-09-21 |\n| Смена | первая смена |\n| Строк в Issue | 3 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_first.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |\n| SHA-256 | 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103 |\n| Изменён на сайте | 19.09.2026, 14:08 МСК |\n| Снимок впервые получен | 19.09.2026, 16:03 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Первая смена | 64 | — | 6 ИКС | 2 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:6%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:6%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |\n| Замены: Первая смена | 78 | — | 7 ИКС | 0 | cancel | снято | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:7%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |\n| Замены: Первая смена | 79 | — | 7 ИКС | 1 | replace | Теория электросвязи Седова Н.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:7%20%D0%98%D0%9A%D0%A1}} | {{group-yaml:actual:7%20%D0%98%D0%9A%D0%A1}} | {{raw-source:schedule:ort.xlsx}} |\n"
     },
     {
+      "key": "dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69",
+      "familyKey": "1e2b4498e4e9c74bcf76682611588fa7ce0917f1915032671abffb2997a529a1",
+      "fingerprint": "f277d7d2562118aa991e4e0d35fbc6aa8bad32a461229adf148e9f2479c47028",
+      "scope": "actual",
+      "lifecycle": "dated",
+      "observedDate": "2026-11-09",
+      "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched — 2026-11-09, первая смена",
+      "labels": [
+        "area:resolver",
+        "diagnostic:error",
+        "diagnostic:unresolved-replacement",
+        "reason:original-not-matched",
+        "schedule-diagnostic",
+        "scope:actual",
+        "shift:first"
+      ],
+      "occurrenceCount": 2,
+      "observationKeys": [
+        "0f1a775cbe6ab852b188ccfda63103462b96628accff59c6e308a28fc9f2598c",
+        "b409d753f4e60c2f3aecea71d02d10aadb09a0536efe0bd18a25c6179cd3177f"
+      ],
+      "evidence": {
+        "diagnosticsJsonPath": "actual/90-diagnostics.json",
+        "diagnosticsYamlPath": "actual/90-diagnostics.yaml",
+        "jsonPath": "actual/91-issue-evidence/dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69.json",
+        "yamlPath": "actual/91-issue-evidence/dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69.yaml"
+      },
+      "body": "<!-- parser-issue-key: dba027ad6e36f9e69fabc934e5a67bb5e8807079b4f79005263038bc62e12a69 -->\n<!-- diagnostic-family-key: 1e2b4498e4e9c74bcf76682611588fa7ce0917f1915032671abffb2997a529a1 -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: 0f1a775cbe6ab852b188ccfda63103462b96628accff59c6e308a28fc9f2598c,b409d753f4e60c2f3aecea71d02d10aadb09a0536efe0bd18a25c6179cd3177f -->\n<!-- parser-fingerprint: f277d7d2562118aa991e4e0d35fbc6aa8bad32a461229adf148e9f2479c47028 -->\n\n## Причина\n\nИсходная дисциплина из замены не совпала с парой базового расписания\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | original-not-matched |\n| Дата замен | 2026-11-09 |\n| Смена | первая смена |\n| Строк в Issue | 2 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_first.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_first.html |\n| SHA-256 | c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516 |\n| Изменён на сайте | 07.11.2026, 12:17 МСК |\n| Снимок впервые получен | 07.11.2026, 18:37 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Первая смена | 64 | — | ЮР1-13 | 2 | replace | Литература Тихонов А.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:%D0%AE%D0%A01-13}} | {{group-yaml:actual:%D0%AE%D0%A01-13}} | {{raw-source:schedule:out.xlsx}} |\n| Замены: Первая смена | 78 | — | 13 ДОУ | 1 | replace | Рус.яз.в проф.деят Федотова Л.А. | {{raw-source:replacements:rasp_first.html}} | {{group-yaml:base:13%20%D0%94%D0%9E%D0%A3}} | {{group-yaml:actual:13%20%D0%94%D0%9E%D0%A3}} | {{raw-source:schedule:ort.xlsx}} |\n"
+    },
+    {
       "key": "2ee8b457be4e070da04154d4a462953cd10b5734619018461304cdb599e2a115",
       "familyKey": "7a05d84dc5b6e43ce459acaf38671cf45e57e1a4c1da50fb507b059b84b219f4",
       "fingerprint": "4548f6b6f3ecd6efa6f4d85b829b9cca59e96c80fa918867f7687a29046aa424",
@@ -21505,6 +21752,35 @@
         "yamlPath": "actual/91-issue-evidence/b67bdeb84532a34778a48351057edf1df658068f54b0e9a563a6a1b39e9d4871.yaml"
       },
       "body": "<!-- parser-issue-key: b67bdeb84532a34778a48351057edf1df658068f54b0e9a563a6a1b39e9d4871 -->\n<!-- diagnostic-family-key: 7b7ccee18e0f151f25f7df7b968bee1719adc6ce310e85dab53e7fd6358a3ebf -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: c40770025aa9e3eab92a0ae522b3553ea87b031763fd4c20aacb3e4eeccebd6a -->\n<!-- parser-fingerprint: b63a6b130132d54282e9de6e578a8f3a731e344888a8425956eec2c53191c253 -->\n\n## Причина\n\nИсходная дисциплина из замены не совпала с парой базового расписания\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | original-not-matched |\n| Дата замен | 2026-11-05 |\n| Смена | вторая смена |\n| Строк в Issue | 1 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_second.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |\n| SHA-256 | 4ccc3b63734a39c63540d8c20407f11ecd24f5ed0e575ddfa0a49ac3b3783c68 |\n| Изменён на сайте | 03.11.2026, 13:48 МСК |\n| Снимок впервые получен | 03.11.2026, 18:46 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Вторая смена | 4 | — | ЮР1-25 | 2 | replace | Конст.право Богданова В.В. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%AE%D0%A01-25}} | {{group-yaml:actual:%D0%AE%D0%A01-25}} | {{raw-source:schedule:out.xlsx}} |\n"
+    },
+    {
+      "key": "0f28fcba301e8ddfc7130c4e80c213a020f63809d4bc49630b7a24456bccf6b3",
+      "familyKey": "f92028483e45309e541cd2e2265d4ca6b15eec3f82ce91c9e20363aacd7924d9",
+      "fingerprint": "4094d72cf5650e40c2d7de57953222e16b996d20b8d00e484e8aa549229e7b04",
+      "scope": "actual",
+      "lifecycle": "dated",
+      "observedDate": "2026-11-09",
+      "title": "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched — 2026-11-09, вторая смена",
+      "labels": [
+        "area:resolver",
+        "diagnostic:error",
+        "diagnostic:unresolved-replacement",
+        "reason:original-not-matched",
+        "schedule-diagnostic",
+        "scope:actual",
+        "shift:second"
+      ],
+      "occurrenceCount": 1,
+      "observationKeys": [
+        "68280441f3763c1954926105e04a61ac218baf5651ca4ffcdaf095dae4f6eba3"
+      ],
+      "evidence": {
+        "diagnosticsJsonPath": "actual/90-diagnostics.json",
+        "diagnosticsYamlPath": "actual/90-diagnostics.yaml",
+        "jsonPath": "actual/91-issue-evidence/0f28fcba301e8ddfc7130c4e80c213a020f63809d4bc49630b7a24456bccf6b3.json",
+        "yamlPath": "actual/91-issue-evidence/0f28fcba301e8ddfc7130c4e80c213a020f63809d4bc49630b7a24456bccf6b3.yaml"
+      },
+      "body": "<!-- parser-issue-key: 0f28fcba301e8ddfc7130c4e80c213a020f63809d4bc49630b7a24456bccf6b3 -->\n<!-- diagnostic-family-key: f92028483e45309e541cd2e2265d4ca6b15eec3f82ce91c9e20363aacd7924d9 -->\n<!-- diagnostic-lifecycle: dated -->\n<!-- diagnostic-observation-keys: 68280441f3763c1954926105e04a61ac218baf5651ca4ffcdaf095dae4f6eba3 -->\n<!-- parser-fingerprint: 4094d72cf5650e40c2d7de57953222e16b996d20b8d00e484e8aa549229e7b04 -->\n\n## Причина\n\nИсходная дисциплина из замены не совпала с парой базового расписания\n\n## Классификация\n\n| Поле | Значение |\n| --- | --- |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n| Причина | original-not-matched |\n| Дата замен | 2026-11-09 |\n| Смена | вторая смена |\n| Строк в Issue | 1 |\n\n## Источник\n\n| Поле | Значение |\n| --- | --- |\n| Файл | rasp_second.html |\n| URL | https://menu.sttec.yar.ru/timetable/rasp_second.html |\n| SHA-256 | 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6 |\n| Изменён на сайте | 07.11.2026, 15:48 МСК |\n| Снимок впервые получен | 07.11.2026, 18:37 МСК |\n| Уровень | error |\n| Код | UNRESOLVED_REPLACEMENT |\n\n## Затронутые ячейки\n\nКаждая ссылка закреплена за revision data из Issue. Живая страница сайта может\nуспеть измениться после получения снимка.\n\n| Лист | Строка | Колонка | Группа | Пара | Тип | Исходное значение | Снимок источника | Base YAML | Actual YAML | Исходный XLSX |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Замены: Вторая смена | 5 | — | ТУ1-31 | 4 | replace | Леонтьева А.С. | {{raw-source:replacements:rasp_second.html}} | {{group-yaml:base:%D0%A2%D0%A31-31}} | {{group-yaml:actual:%D0%A2%D0%A31-31}} | {{raw-source:schedule:out.xlsx}} |\n"
     },
     {
       "key": "d9945b0aa2830112c5aa2cbeaf7adc46051a33e7861b663c3eefcf8f3c378578",

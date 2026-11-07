@@ -4369,7 +4369,7 @@ dates:
         date: 2026-11-07
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4379,11 +4379,15 @@ dates:
           shift: first
           etag: W/"6aedd262-3230"
           lastModified: Fri, 06 Nov 2026 13:13:06 GMT
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
       second:
         date: 2026-11-07
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4393,6 +4397,10 @@ dates:
           shift: second
           etag: W/"6aedd146-2d56"
           lastModified: Fri, 06 Nov 2026 13:08:22 GMT
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     groups:
       ТУ1-11:
         group: ТУ1-11
@@ -4469,6 +4477,59 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Физическая культура
+                  teacher: Калачик Н.И.
+                  room: Сп.площ.
+                  weekType: both
+                  sourceRow: 46
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 46
+                rowEnd: 47
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Информатика л/р
+                  teacher: |-
+                    Нестерова А,В.
+                    Хватова Е.Ю.
+                  room: |-
+                    Ф306
+                    Ф305
+                  weekType: denominator
+                  sourceRow: 49
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 48
+                rowEnd: 49
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Основы безопасности и защиты Родины
+                  teacher: Корсаков С.В.
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 50
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 50
+                rowEnd: 51
+                rawGroupName: ТУ1-11 / ТУ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4501,4 +4562,4 @@ diagnostics:
           sourceRow: 32
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 923bc3ebdc22d21ca7a4c8ce4055e6d4c5d58fde13746527a127231c362629f7
+semanticHash: 2cfa294fc781409f2d2bee2c5ed8453d8c0568b4272b5e67ac382d1679be2301

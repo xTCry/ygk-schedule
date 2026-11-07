@@ -3008,7 +3008,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3077,10 +3077,76 @@ dates:
               rawReplacement: Ремизова А.И.Голубева Т.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     replacements:
       - *a92
       - *a93
       - *a94
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+        replacements:
+          - &a95
+            date: 2026-11-09
+            group: ДИ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Живопись
+            replacement:
+              raw: Тарасова Н.А.Иванов Ю.А.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 23
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Живопись
+              rawReplacement: Тарасова Н.А.Иванов Ю.А.
+              rawRoom: Б207Б208
+          - &a96
+            date: 2026-11-09
+            group: ДИ1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 24
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.02
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a95
+      - *a96
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3111,4 +3177,4 @@ diagnostics:
       date: 2026-09-24
       shift: second
       sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
-semanticHash: 54f5884dd921004550d071ec666107bf53f0b6ce038073a27ec47e78677e5f7e
+semanticHash: 02ab2c50582c98d0d25b2f7356dcadc90a5451241f1d48fe5df888ae6010b252

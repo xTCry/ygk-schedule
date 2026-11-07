@@ -739,6 +739,67 @@ dates:
           sourceSha256: ea3558022e8e98a9a81761c2a1712e48dc3fee10983d434811081da621443b12
     replacements:
       - *a17
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: c399b8f119f530286c63e6abcf7790121277e8d79abdecc5f3144a448057d516
+          fetchedAt: 2026-11-07T15:37:49.911Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6aeeec9e-4c8a"
+          lastModified: Sat, 07 Nov 2026 09:17:18 GMT
+        replacements:
+          - &a18
+            date: 2026-11-09
+            group: ЮР1-33
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Осн.бер.пр. Мартынова С.В.
+              room: Ф104
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ЮР1-33
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Осн.бер.пр. Мартынова С.В.
+              rawRoom: Ф104
+          - &a19
+            date: 2026-11-09
+            group: ЮР1-33
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 68
+              rawGroupName: ЮР1-33
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.02
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -770,4 +831,4 @@ diagnostics:
       date: 2026-09-22
       shift: first
       sourceSha256: 08db90007a20166746403cbc1d7a326933125e99021f7cee70d646b19baa4535
-semanticHash: b7cdc90a6d6201bba09edab14a59cb57730e1091203a8f249c23bdb83d84c883
+semanticHash: 5bf054c84a2581666f052f79f3ab1343501f9f2cd57c6d3a36c40658a269eb11

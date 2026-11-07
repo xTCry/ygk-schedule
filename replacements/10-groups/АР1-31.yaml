@@ -2385,7 +2385,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2452,9 +2452,56 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     replacements:
       - *a73
       - *a74
       - *a75
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+        replacements:
+          - &a76
+            date: 2026-11-09
+            group: АР1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.05, 01.02
+            replacement:
+              raw: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 32
+              rawGroupName: АР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.05, 01.02
+              rawReplacement: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a76
 diagnostics: []
-semanticHash: aaba4dfb32b12d0142445129cbc4621605aa89dc7103ceac759a4b676b056286
+semanticHash: 7c94da7785dd48ae22b1590da481b5c2da4f8b2277b1166e0b8fd4d4f83f92f4

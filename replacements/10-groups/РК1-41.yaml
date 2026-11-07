@@ -1640,7 +1640,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1671,8 +1671,56 @@ dates:
               rawReplacement: МДК 03.01 Девятаева Н.Ф.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-09
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
     replacements:
       - *a40
+  2026-11-09:
+    date: 2026-11-09
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-09
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 16f9e51f90b5d907dc9d1dc84aaaf7b3beffbbc6586bbe923aec3e7faf0654b6
+          fetchedAt: 2026-11-07T15:37:49.889Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6aef1e39-2072"
+          lastModified: Sat, 07 Nov 2026 12:48:57 GMT
+        replacements:
+          - &a41
+            date: 2026-11-09
+            group: РК1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: УП 01.03
+            replacement:
+              raw: 1,2 п/гр. Пономаренко В.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: РК1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 01.03
+              rawReplacement: 1,2 п/гр. Пономаренко В.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a41
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1703,4 +1751,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: de85c31ba34c2a8e441300af70e77706d56b4676080f1e17df0ee7cc7811e68e
+semanticHash: 526bb71295b21396c656e1c400445095dc20a8f437fcccbcf2f497edbb9dec33
