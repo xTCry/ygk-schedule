@@ -1,0 +1,124 @@
+schemaVersion: 2
+issue:
+  key: 062b19bbb06b9f63a6d7aa21387bd9c9b1bfed92c028b9824f1ef8d82f96de07
+  familyKey: f39c7671b9acaf9ab97bc4607b32b14f6b8ab75ca73b469f03f9d151c95d25ee
+  fingerprint: 645b4711636f355927309a43408020490d5d9df04595898e3c600c95f1fa986d
+  scope: actual
+  lifecycle: dated
+  observedDate: 2026-11-10
+  title: "[schedule][actual][error] UNRESOLVED_REPLACEMENT / original-not-matched
+    — 2026-11-10, первая смена"
+  labels:
+    - area:resolver
+    - diagnostic:error
+    - diagnostic:unresolved-replacement
+    - reason:original-not-matched
+    - schedule-diagnostic
+    - scope:actual
+    - shift:first
+  occurrenceCount: 3
+  observationKeys:
+    - 09982665ecba938a348ec4ff55038e90ab0d8d8d5cdc17af4ac1d6bac0acce6f
+    - bda2043a5a1e2cab4d9c9da5505f7552ca58d530cf74546ed2b5a90c0f6fa882
+    - c5fc04cb12c018d509b4f7abe380a524aa77ded9f3a61b4a60c354c683b2d6eb
+diagnosticsReport:
+  diagnosticsJsonPath: actual/90-diagnostics.json
+  diagnosticsYamlPath: actual/90-diagnostics.yaml
+diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: aaf91d6cccbaf5ea1add357594044312945e6f25442cde073604aa27b5cf53ae
+    sheet: "Замены: Первая смена"
+    row: 42
+    normalizedGroup: МА1-12
+    rawValue: УП 01.01 п/гр 1 Тепляков А.Б.
+    context:
+      date: 2026-11-10
+      shift: first
+      sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: МА1-12
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Химия Инфор.Физика
+      candidates:
+        - subject: Химия л/р
+          teacher: Козырева Д.А.
+          room: Б110
+          sourceRow: 69
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: &a1
+      id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      fileName: rasp_first.html
+      sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+      fetchedAt: 2026-11-09T19:44:48.329Z
+      url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+      shift: first
+      etag: W/"6af1c878-4555"
+      lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+    issueFingerprint: 645b4711636f355927309a43408020490d5d9df04595898e3c600c95f1fa986d
+    issueKey: 062b19bbb06b9f63a6d7aa21387bd9c9b1bfed92c028b9824f1ef8d82f96de07
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 58bb2ad9b7981a8dd72a7c508ab9560aefbc0c8fe978974e0463943caa0b0e0d
+    sheet: "Замены: Первая смена"
+    row: 49
+    normalizedGroup: ЗМ1-23
+    rawValue: п/гр Сивачева М.С. - Снято
+    context:
+      date: 2026-11-10
+      shift: first
+      sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+      lessonNumber: 5
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-23
+      baseSourceFiles: &a2
+        - oeis.xlsx
+      requestedSubject: Уч. практика
+      candidates:
+        - subject: Основы геологии, геоморфологии, почвоведения
+          teacher: Сивачева М.С.
+          room: ДОТ
+          sourceRow: 63
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 645b4711636f355927309a43408020490d5d9df04595898e3c600c95f1fa986d
+    issueKey: 062b19bbb06b9f63a6d7aa21387bd9c9b1bfed92c028b9824f1ef8d82f96de07
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 695ae114eb29291bea1ba86dbd58e6ce05eba66b242e7b78bbc6a7e1f2151d56
+    sheet: "Замены: Первая смена"
+    row: 49
+    normalizedGroup: ЗМ1-23
+    rawValue: п/гр Сивачева М.С. - Снято
+    context:
+      date: 2026-11-10
+      shift: first
+      sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+      lessonNumber: 4
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-23
+      baseSourceFiles: *a2
+      requestedSubject: Уч. практика
+      candidates:
+        - subject: Основы геологии, геоморфологии, почвоведения
+          teacher: Сивачева М.С.
+          room: ДОТ
+          sourceRow: 61
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    source: *a1
+    issueFingerprint: 645b4711636f355927309a43408020490d5d9df04595898e3c600c95f1fa986d
+    issueKey: 062b19bbb06b9f63a6d7aa21387bd9c9b1bfed92c028b9824f1ef8d82f96de07

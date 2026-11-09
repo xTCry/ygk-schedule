@@ -2622,7 +2622,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2672,9 +2672,116 @@ dates:
               rawReplacement: МДК 05.03 Юров А.А.
               rawRoom: Б301
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
     replacements:
       - *a77
       - *a78
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
+          fetchedAt: 2026-11-09T19:44:48.328Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af1c74c-2a8b"
+          lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+        replacements:
+          - &a79
+            date: 2026-11-10
+            group: ИС1-45
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: ..., МДК 03.02
+            replacement:
+              raw: МДК 05.03 /теор Юров А.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ИС1-45
+              rawLessonNumbers: 2,3
+              rawOriginal: ..., МДК 03.02
+              rawReplacement: МДК 05.03 /теор Юров А.А.
+              rawRoom: ДОТ
+          - &a80
+            date: 2026-11-10
+            group: ИС1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: УП 05 Юров А.А.Васильченко М.О
+              room: ДОТ
+            source:
+              shift: second
+              row: 31
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "4"
+              rawOriginal: Эф.поведение
+              rawReplacement: УП 05 Юров А.А.Васильченко М.О
+              rawRoom: ДОТ
+          - &a81
+            date: 2026-11-10
+            group: ИС1-45
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: МДК 09.03 п/гр Гудковой А.Л.
+              room: ДОТ
+            source:
+              shift: second
+              row: 30
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "5"
+              rawOriginal: Ин.язык
+              rawReplacement: МДК 09.03 п/гр Гудковой А.Л.
+              rawRoom: ДОТ
+          - &a82
+            date: 2026-11-10
+            group: ИС1-45
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 09.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 09.03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a79
+      - *a80
+      - *a81
+      - *a82
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2705,4 +2812,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: e8fd4397fb4b7301a2c8d72246d56d001d75c889ca86c02ab696a88edcd0c6d7
+semanticHash: 749f28918c491d6552be06f5485922f9f205bdc3e29e3793557f88652af7720c

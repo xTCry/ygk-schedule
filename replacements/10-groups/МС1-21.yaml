@@ -1120,7 +1120,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1151,7 +1151,95 @@ dates:
               rawReplacement: 1,2 п/гр. Махрова Н.Н.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a31
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a32
+            date: 2026-11-10
+            group: МС1-21
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 05.01 пгр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 46
+              rawGroupName: МС1-21
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 05.01 пгр 1
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a33
+            date: 2026-11-10
+            group: МС1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: УП 05.01 пгр 2
+            replacement:
+              raw: МДК 01.01 Нечипорук О.Л
+              room: М101
+            source:
+              shift: first
+              row: 47
+              rawGroupName: МС1-21
+              rawLessonNumbers: "3"
+              rawOriginal: УП 05.01 пгр 2
+              rawReplacement: МДК 01.01 Нечипорук О.Л
+              rawRoom: М101
+          - &a34
+            date: 2026-11-10
+            group: МС1-21
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 05.01 п/гр 2
+            replacement:
+              raw: Психол.общ. Зеленцова Л.В.
+              room: Б409
+            source:
+              shift: first
+              row: 75
+              rawGroupName: МС1-21
+              rawLessonNumbers: "4"
+              rawOriginal: УП 05.01 п/гр 2
+              rawReplacement: Психол.общ. Зеленцова Л.В.
+              rawRoom: Б409
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
+      - *a34
 diagnostics: []
-semanticHash: 692c4291e8e8ac81593c5baf2ce426425eb986140d0fee11a27c23b56d3a3e56
+semanticHash: f07074e29ff561964ffa4b4a3aaaafbcc78efff5b704df15bb79a500304241f5

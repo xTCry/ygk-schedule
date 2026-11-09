@@ -1990,7 +1990,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2021,8 +2021,73 @@ dates:
               rawReplacement: МДК 01.05 Т.5.3. Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
     replacements:
       - *a54
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
+          fetchedAt: 2026-11-09T19:44:48.328Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af1c74c-2a8b"
+          lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+        replacements:
+          - &a55
+            date: 2026-11-10
+            group: АР1-41
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 22
+              rawGroupName: АР1-41
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: ДОТ
+          - &a56
+            date: 2026-11-10
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 01.05 Т5.3 пгр1
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 21
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 Т5.3 пгр1
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a55
+      - *a56
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2053,4 +2118,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: e7982432c0f2d660345d00fc3e6485aea3cb506266f05496fc09a9104fe324bb
+semanticHash: efb5c15ca30934047c93ee87472a7dd497c036f3265ae9cf7dc680d650f3cf37

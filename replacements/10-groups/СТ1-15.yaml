@@ -2586,7 +2586,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2619,7 +2619,54 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a71
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a72
+            date: 2026-11-10
+            group: СТ1-15
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Девлитянс О.В.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Девлитянс О.В.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a72
 diagnostics: []
-semanticHash: 0b50755dc8965f55779633d42b7d0d8e2e2881cc0a6a176edb17ebb250070beb
+semanticHash: 42b20c751c8df850e0c2c695eb9b8f62e4f59045dd1ee22d2cec3deaa15c0eb7

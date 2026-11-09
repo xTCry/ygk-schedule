@@ -2306,7 +2306,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2355,8 +2355,55 @@ dates:
               rawReplacement: Тихонов А.А.
               rawRoom: Ф104
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
     replacements:
       - *a67
       - *a68
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
+          fetchedAt: 2026-11-09T19:44:48.328Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af1c74c-2a8b"
+          lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+        replacements:
+          - &a69
+            date: 2026-11-10
+            group: ЮР1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Теор.гос и права
+            replacement:
+              raw: Констит.право Богданова В.В.
+              room: Ф404
+            source:
+              shift: second
+              row: 39
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Теор.гос и права
+              rawReplacement: Констит.право Богданова В.В.
+              rawRoom: Ф404
+        diagnostics: []
+    replacements:
+      - *a69
 diagnostics: []
-semanticHash: aee647d882e061680139d6dfa766293cb90147d7dcae0ebb0e6f8dcdb8a0df18
+semanticHash: 3df56c7a6ac2c57598f34c32173c6cf64e36d4b47fca77398105661c3da54b74

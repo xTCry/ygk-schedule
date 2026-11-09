@@ -1471,7 +1471,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1502,7 +1502,95 @@ dates:
               rawReplacement: 1,2 п/гр.Инфор. Яковлева Е.Н.
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a40
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a41
+            date: 2026-11-10
+            group: МА1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Химия Козырева Д.А
+              room: Б110
+            source:
+              shift: first
+              row: 30
+              rawGroupName: МА1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Информ.
+              rawReplacement: Химия Козырева Д.А
+              rawRoom: Б110
+          - &a42
+            date: 2026-11-10
+            group: МА1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: 1,2 пгр Информ Яковлева Е.Н.
+              room: Б204
+            source:
+              shift: first
+              row: 41
+              rawGroupName: МА1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: 1,2 пгр Информ Яковлева Е.Н.
+              rawRoom: Б204
+          - &a43
+            date: 2026-11-10
+            group: МА1-11
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: История Физика
+            replacement:
+              raw: Рус.язык Андрокович М.В.
+              room: Б409
+            source:
+              shift: first
+              row: 31
+              rawGroupName: МА1-11
+              rawLessonNumbers: 2,3
+              rawOriginal: История Физика
+              rawReplacement: Рус.язык Андрокович М.В.
+              rawRoom: Б409
+        diagnostics: []
+    replacements:
+      - *a41
+      - *a42
+      - *a43
 diagnostics: []
-semanticHash: 40f6efe6e1308b6ca5a1864984fcfceb02b9546a27d773cf82adc29bf456dbee
+semanticHash: 0d6eb1bae8e9181a78ad3e6d60d2a989a47fc142ec29f79323236571925b96d7

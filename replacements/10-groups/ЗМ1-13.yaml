@@ -1004,7 +1004,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1034,7 +1034,53 @@ dates:
               rawReplacement: Физкультура Кургузова М.С.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a25
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a26
+            date: 2026-11-10
+            group: ЗМ1-13
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История Новиков М.П.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 22
+              rawGroupName: ЗМ1-13
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: История Новиков М.П.
+              rawRoom: Экскурсия
+        diagnostics: []
+    replacements:
+      - *a26
 diagnostics: []
-semanticHash: 782e91dcfd96b35cb0f5df7147122ff759b017207f2bf6e055c978b7a6f0f4a2
+semanticHash: 89afe0539f37b67ea80b2a16593da15e328be7854b6db33a4c9fc527e5559e33

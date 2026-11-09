@@ -2626,7 +2626,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2695,9 +2695,76 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a77
       - *a78
       - *a79
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a80
+            date: 2026-11-10
+            group: ДИ1-21
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Живопись п/гр 2
+            replacement:
+              raw: Тарасова Н.А
+              room: Б207
+            source:
+              shift: first
+              row: 11
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "0"
+              rawOriginal: Живопись п/гр 2
+              rawReplacement: Тарасова Н.А
+              rawRoom: Б207
+          - &a81
+            date: 2026-11-10
+            group: ДИ1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: Тарасова Н.А Рочева А.А.
+              room: Б207Б208
+            source:
+              shift: first
+              row: 12
+              rawGroupName: ДИ1-21
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 05.01
+              rawReplacement: Тарасова Н.А Рочева А.А.
+              rawRoom: Б207Б208
+        diagnostics: []
+    replacements:
+      - *a80
+      - *a81
 diagnostics: []
-semanticHash: 92bbe9c74135c1d37de3c9612b7ef90374e031625b7879a50a03815896bc3748
+semanticHash: 07bdd72d50c0acaf101cc641ea45e9e3231c622021052fbd640d566af3a2b6ae

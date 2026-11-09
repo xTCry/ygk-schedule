@@ -2036,7 +2036,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2069,7 +2069,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a58
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a59
+            date: 2026-11-10
+            group: СТ1-13
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: А203
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СТ1-13
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: А203
+          - &a60
+            date: 2026-11-10
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История Ушкалова Ю.А
+              room: ДОТ
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СТ1-13
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: История Ушкалова Ю.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a59
+      - *a60
 diagnostics: []
-semanticHash: df157f9f57ceacca0a7719ad37c30cd4f4da5680c8a9eb605b6835351fdb261d
+semanticHash: 11f5b6752e721d0fe2c6f120cf43d1d6e36f637a82ff3a0a12a3b02f9301d329

@@ -6953,6 +6953,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+      second:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
+          fetchedAt: 2026-11-09T19:44:48.328Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af1c74c-2a8b"
+          lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+    groups:
+      ЮР1-17:
+        group: ЮР1-17
+        date: 2026-11-10
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: both
+                rawSubject: Математика Саввина Е.А.
+                rawTeacher: Саввина Е.А.
+                rawRoom: Ф202
+                sourceRow: 55
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 171
+              rowEnd: 172
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a15
+                  date: 2026-11-10
+                  group: ЮР1-17
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original:
+                    raw: Обществ.История
+                  replacement:
+                    raw: Математика Саввина Е.А.
+                    room: Ф202
+                  source:
+                    shift: first
+                    row: 55
+                    rawGroupName: ЮР1-17
+                    rawLessonNumbers: 0,1
+                    rawOriginal: Обществ.История
+                    rawReplacement: Математика Саввина Е.А.
+                    rawRoom: Ф202
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: both
+                rawSubject: Математика Саввина Е.А.
+                rawTeacher: Саввина Е.А.
+                rawRoom: Ф202
+                sourceRow: 55
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 173
+              rowEnd: 174
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a15
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Русский язык
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 175
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 175
+              rowEnd: 176
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Литература
+                teacher: Головкина С.А.
+                room: Ф303
+                weekType: both
+                sourceRow: 177
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 177
+              rowEnd: 178
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7079,7 +7210,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: &a15
+      baseSourceFiles: &a16
         - out.xlsx
       requestedSubject: ОбщетвИстория
       candidates:
@@ -7127,7 +7258,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: *a15
+      baseSourceFiles: *a16
       requestedSubject: ОбщетвИстория
       candidates:
         - subject: Обществознание
@@ -7167,4 +7298,4 @@ diagnostics:
           sourceRow: 207
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 3d8aa7f66f4bc17f590195fcc34d96bce1c750bae0f92ce10fe8b4e7e6e48e96
+semanticHash: d926e15a9ff2c26b733cb6031219fab976dd1b0e9a3f1251883ad81a2c27aad6

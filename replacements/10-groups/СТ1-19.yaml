@@ -2353,7 +2353,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2403,8 +2403,75 @@ dates:
               rawReplacement: ОБиЗР Корсаков С.В.
               rawRoom: Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a71
       - *a72
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a73
+            date: 2026-11-10
+            group: СТ1-19
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: ОБиЗР
+            replacement:
+              raw: Математика Пухова Ю.Г.
+              room: М208
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-19
+              rawLessonNumbers: "2"
+              rawOriginal: ОБиЗР
+              rawReplacement: Математика Пухова Ю.Г.
+              rawRoom: М208
+          - &a74
+            date: 2026-11-10
+            group: СТ1-19
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Физика Калинин Д.А.
+              room: Б202
+            source:
+              shift: first
+              row: 19
+              rawGroupName: СТ1-19
+              rawLessonNumbers: "3"
+              rawOriginal: История
+              rawReplacement: Физика Калинин Д.А.
+              rawRoom: Б202
+        diagnostics: []
+    replacements:
+      - *a73
+      - *a74
 diagnostics: []
-semanticHash: 78152c0245226b5ab8c41b4291214beed31402078507a69aa850f2526b87b1ef
+semanticHash: d6b50b3bdc5a9665126f0c56dd036bf6e220dd3651696ebc8149dcfe9fbd0c21

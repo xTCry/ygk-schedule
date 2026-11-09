@@ -2242,7 +2242,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2274,7 +2274,54 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a63
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a64
+            date: 2026-11-10
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Девлитянс О.В.
+              room: Б508
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "0"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Девлитянс О.В.
+              rawRoom: Б508
+        diagnostics: []
+    replacements:
+      - *a64
 diagnostics: []
-semanticHash: 5e55dd2ccce9a5fb4c9c1e50541718581844173885f36c1b599ecf34f158de1a
+semanticHash: d6a7581bcb6bdc5dfedcff06343dbe500a576e9b584bcc99e5a70dbf1da6a480

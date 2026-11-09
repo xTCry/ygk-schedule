@@ -645,7 +645,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -678,7 +678,53 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a19
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a20
+            date: 2026-11-10
+            group: ЗМ1-21
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Осн.геологии
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 44
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Осн.геологии
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a20
 diagnostics: []
-semanticHash: 814f28c77f3dc30b70e4ba1681fe696923736a76af0d86360755d0028daa04bb
+semanticHash: 1305c63613770fbe6a10e98c696e37997b8ad7d6c785557c51218eb371cefa78

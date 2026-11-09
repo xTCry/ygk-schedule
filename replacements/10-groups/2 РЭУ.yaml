@@ -1941,7 +1941,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1971,7 +1971,75 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a55
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a56
+            date: 2026-11-10
+            group: 2 РЭУ
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: УП 01 Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 68
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 01.01
+              rawReplacement: УП 01 Филиппова А.С.
+              rawRoom: к.30
+          - &a57
+            date: 2026-11-10
+            group: 2 РЭУ
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: УП 01 пгр
+            replacement:
+              raw: УП 01 Филиппова А.С.
+              room: к.30
+            source:
+              shift: first
+              row: 63
+              rawGroupName: 2 РЭУ
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 01 пгр
+              rawReplacement: УП 01 Филиппова А.С.
+              rawRoom: к.30
+        diagnostics: []
+    replacements:
+      - *a56
+      - *a57
 diagnostics: []
-semanticHash: f221ae406feacc4fc453577297883e8dbb7a966f82cbb4c872a854d2ee3b330f
+semanticHash: 4c27d56f1956b4b93f37cb7d62646ed60629514fbea03a2a19fec3887e8d498d

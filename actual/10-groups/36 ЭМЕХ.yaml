@@ -4793,6 +4793,163 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+      second:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c13d621296eee7736326b5fa47c9dc12ac28e064d088e16ec588829d4afc627a
+          fetchedAt: 2026-11-09T19:44:48.328Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af1c74c-2a8b"
+          lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+    groups:
+      36 ЭМЕХ:
+        group: 36 ЭМЕХ
+        date: 2026-11-10
+        day: Вторник
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК 02.01
+                teacher: Ковалева С.В
+                room: к.36
+                weekType: both
+                rawSubject: МДК 02.01 Ковалева С.В
+                rawTeacher: Ковалева С.В
+                rawRoom: к.36
+                sourceRow: 78
+            source:
+              sheet: 2-2 курс
+              rowStart: 65
+              rowEnd: 66
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a19
+                  date: 2026-11-10
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: МДК 02.01 Ковалева С.В
+                    room: к.36
+                  source:
+                    shift: first
+                    row: 78
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Математика
+                    rawReplacement: МДК 02.01 Ковалева С.В
+                    rawRoom: к.36
+                lessonNumber: 1
+                strategy: exact-subject
+          - number: 2
+            variants:
+              - subject: МДК 02.01
+                teacher: Ковалева С.В
+                room: к.36
+                weekType: both
+                rawSubject: МДК 02.01 Ковалева С.В
+                rawTeacher: Ковалева С.В
+                rawRoom: к.36
+                sourceRow: 78
+            source:
+              sheet: 2-2 курс
+              rowStart: 67
+              rowEnd: 68
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a19
+                lessonNumber: 2
+                strategy: exact-subject
+          - number: 3
+            variants:
+              - subject: УП 01
+                teacher: Бархатов Ю.Л.
+                room: Сл.м.
+                weekType: both
+                rawSubject: УП 01 Бархатов Ю.Л.
+                rawTeacher: Бархатов Ю.Л.
+                rawRoom: Сл.м.
+                sourceRow: 61
+            source:
+              sheet: 2-2 курс
+              rowStart: 69
+              rowEnd: 70
+              rawGroupName: 36 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a20
+                  date: 2026-11-10
+                  group: 36 ЭМЕХ
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: Химия, ...
+                  replacement:
+                    raw: УП 01 Бархатов Ю.Л.
+                    room: Сл.м.
+                  source:
+                    shift: first
+                    row: 61
+                    rawGroupName: 36 ЭМЕХ
+                    rawLessonNumbers: 3,4
+                    rawOriginal: Химия, ...
+                    rawReplacement: УП 01 Бархатов Ю.Л.
+                    rawRoom: Сл.м.
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: УП 01
+                teacher: Бархатов Ю.Л.
+                room: Сл.м.
+                weekType: both
+                rawSubject: УП 01 Бархатов Ю.Л.
+                rawTeacher: Бархатов Ю.Л.
+                rawRoom: Сл.м.
+                sourceRow: 61
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a20
+                lessonNumber: 4
+                strategy: ellipsis-continuation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4838,7 +4995,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 36 ЭМЕХ
-      baseSourceFiles: &a19
+      baseSourceFiles: &a21
         - ort.xlsx
       candidates:
         - subject: УП.01 Учебная практика
@@ -4885,7 +5042,7 @@ diagnostics:
       type: cancel
       reason: original-not-matched
       baseGroup: 36 ЭМЕХ
-      baseSourceFiles: *a19
+      baseSourceFiles: *a21
       candidates:
         - subject: УП.01 Учебная практика
           teacher: Вакансия
@@ -4893,4 +5050,4 @@ diagnostics:
           sourceRow: 96
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 4f032b3b16e357725951cba6ddaf09042f0ee466042ad32d811e0d3548ddae0f
+semanticHash: 02108f23e884343b0ba918dcf8f47097dc3420a11e050ebce19aaecc4e756152

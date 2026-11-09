@@ -962,7 +962,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -994,8 +994,56 @@ dates:
               rawReplacement: МДК 01.02/теория Силантьева С.И.
               rawRoom: Б501
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-10
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
     replacements:
       - *a22
+  2026-11-10:
+    date: 2026-11-10
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-10
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: f3827048b339b159cd92374043aef94bca2f97951c07a10fd9cfc50861386a5b
+          fetchedAt: 2026-11-09T19:44:48.329Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af1c878-4555"
+          lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        replacements:
+          - &a23
+            date: 2026-11-10
+            group: СТ1-45
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: КП 1,2 пгр Силантьева С.И
+              room: Б501
+            source:
+              shift: first
+              row: 79
+              rawGroupName: СТ1-45
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.02
+              rawReplacement: КП 1,2 пгр Силантьева С.И
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a23
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1026,4 +1074,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 08d97d8699ba9cc545da24c52ca728fc88a72e86f8b5ebeaaa8f55f75118489a
+semanticHash: 2da7bcd2c7d856bd5d26dd7263bfa2c153306168fbc92b0dcb88d85c56e926c8
