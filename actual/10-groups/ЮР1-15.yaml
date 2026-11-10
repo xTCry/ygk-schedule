@@ -9688,6 +9688,100 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+    groups:
+      ЮР1-15:
+        group: ЮР1-15
+        date: 2026-11-11
+        day: Среда
+        lessons:
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Саввина Е.А.
+                room: Ф202
+                weekType: both
+                sourceRow: 127
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 127
+              rowEnd: 128
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Информатика л/р
+                teacher: Хватова Е.Ю.
+                room: Ф305
+                weekType: both
+                rawSubject: 1,2 п/гр. Хватова Е.Ю.
+                rawTeacher: Хватова Е.Ю.
+                rawRoom: Ф305
+                sourceRow: 27
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 129
+              rowEnd: 130
+              rawGroupName: ЮР 1-15 / ЮР1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-11
+                  group: ЮР1-15
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Информ.
+                  replacement:
+                    raw: 1,2 п/гр. Хватова Е.Ю.
+                    room: Ф305
+                  source:
+                    shift: first
+                    row: 27
+                    rawGroupName: ЮР1-15
+                    rawLessonNumbers: "2"
+                    rawOriginal: Информ.
+                    rawReplacement: 1,2 п/гр. Хватова Е.Ю.
+                    rawRoom: Ф305
+                lessonNumber: 2
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9751,4 +9845,4 @@ diagnostics:
           sourceRow: 120
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 2140a48a4f4544f7791cb0edb8ad1d090548fb73937c3a941a0ab79d10ed7f34
+semanticHash: 54d66995bcb0635d3898914ad36ee71eeee41d3b459be24e560f3b106807359f

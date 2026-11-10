@@ -1098,7 +1098,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1129,7 +1129,54 @@ dates:
               rawReplacement: МДК 01.01 Каргина В.А.
               rawRoom: к.24
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a27
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a28
+            date: 2026-11-11
+            group: 21 МОНТ
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: ОБиЗР
+            replacement:
+              raw: Физкультура Шпынов Ю.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 63
+              rawGroupName: 21 МОНТ
+              rawLessonNumbers: "0"
+              rawOriginal: ОБиЗР
+              rawReplacement: Физкультура Шпынов Ю.Г.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a28
 diagnostics: []
-semanticHash: 30738ff6ecb038a1d169f553ec25ac6d7afa6e7e52896d284207e81f9589bb94
+semanticHash: f36a72196a6c73064e383b40de41c0c006eae912efbb951ff385279808660c0d

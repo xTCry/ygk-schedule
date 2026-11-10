@@ -877,7 +877,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -908,7 +908,54 @@ dates:
               rawReplacement: Физкультура Шпынов Ю.Г.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a24
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a25
+            date: 2026-11-11
+            group: 2 БПЛА
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Физика Крижановский В.С.
+              room: к.33
+            source:
+              shift: first
+              row: 64
+              rawGroupName: 2 БПЛА
+              rawLessonNumbers: "2"
+              rawOriginal: Инд.проект
+              rawReplacement: Физика Крижановский В.С.
+              rawRoom: к.33
+        diagnostics: []
+    replacements:
+      - *a25
 diagnostics: []
-semanticHash: da752e96a9f45a843920df4c8492807a1d9651eda7dcdeb7d0f8f259932a5e27
+semanticHash: 1c95affa23021793729c761125204f0eb8920ff7219a5db5c3647714b31e0a32

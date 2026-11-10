@@ -2217,6 +2217,114 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+    groups:
+      ЮС1-41:
+        group: ЮС1-41
+        date: 2026-11-11
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы экологического права
+                teacher: Рустамова А.В.
+                room: Ф405
+                weekType: both
+                sourceRow: 19
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 19
+              rowEnd: 20
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Уголовное право и уголовный процесс
+                teacher: Малышева Н.А.
+                room: Ф401
+                weekType: both
+                sourceRow: 21
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 21
+              rowEnd: 22
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Ин.язык
+                teacher: Вечера Л.А
+                room: Ф204Ф403
+                weekType: both
+                rawSubject: Ин.язык Петрова У.В. Абрамова К.В
+                rawRoom: Ф204Ф403
+                sourceRow: 34
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 23
+              rowEnd: 24
+              rawGroupName: ЮС1-41/ЮС1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-11
+                  group: ЮС1-41
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Ин.язык Петрова У.В. Абрамова К.В
+                    room: Ф204Ф403
+                  source:
+                    shift: first
+                    row: 34
+                    rawGroupName: ЮС1-41
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Ин.язык Петрова У.В. Абрамова К.В
+                    rawRoom: Ф204Ф403
+                lessonNumber: 2
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2247,4 +2355,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: c8a572df3790d7eb0018294f8187ff7908c13db516d31e2cc4849a3f2ff26a99
+semanticHash: 89d5700672598df49ca872085ac55e775557aace34892fbe29095bcfa285b5ad

@@ -2037,7 +2037,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2085,9 +2085,56 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     replacements:
       - *a55
       - *a56
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+        replacements:
+          - &a57
+            date: 2026-11-11
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.05 т. 5.3
+            replacement:
+              raw: Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 19
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 т. 5.3
+              rawReplacement: Балина С.А.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a57
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2118,4 +2165,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: efb5c15ca30934047c93ee87472a7dd497c036f3265ae9cf7dc680d650f3cf37
+semanticHash: a84d0890806ad9881e2096ed0c49bcd4a55e538d68726cb7deaf8336f3f81815

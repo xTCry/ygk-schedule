@@ -2103,7 +2103,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2134,7 +2134,75 @@ dates:
               rawReplacement: Лапина А.А.Тарасова Н.А
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a59
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a60
+            date: 2026-11-11
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: Рисун. Живоп
+            replacement:
+              raw: Лапина А.А.Тарасова Н.А
+              room: Б207Б208
+            source:
+              shift: first
+              row: 12
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: 0,1
+              rawOriginal: Рисун. Живоп
+              rawReplacement: Лапина А.А.Тарасова Н.А
+              rawRoom: Б207Б208
+          - &a61
+            date: 2026-11-11
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Инф.обесп
+            replacement:
+              raw: 1,2 п/гр. Подковкин А.Г.
+              room: Б406
+            source:
+              shift: first
+              row: 13
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "2"
+              rawOriginal: Инф.обесп
+              rawReplacement: 1,2 п/гр. Подковкин А.Г.
+              rawRoom: Б406
+        diagnostics: []
+    replacements:
+      - *a60
+      - *a61
 diagnostics: []
-semanticHash: e87a18dd8e071b863afc052a00fcd19f7807b55da249f23c4b0d5f9abc5a3c9a
+semanticHash: c2a30d1c6897597bbd071d37bad40d3e465221b6120eeb2b31766f1f8a517f9b

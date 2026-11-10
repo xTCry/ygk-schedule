@@ -5786,7 +5786,7 @@ dates:
         date: 2026-11-10
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -5796,11 +5796,15 @@ dates:
           shift: first
           etag: W/"6af1c878-4555"
           lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
       second:
         date: 2026-11-10
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5810,6 +5814,10 @@ dates:
           shift: second
           etag: W/"6af1c74c-2a8b"
           lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     groups:
       35 ЭМЕХ:
         group: 35 ЭМЕХ
@@ -5895,6 +5903,55 @@ dates:
               description: "По расписанию: «.. УП 02». По замене: «УП 02 Бархатов Ю.Л.».
                 Аудитория: «Сл.м»."
               room: Сл.м
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: УП.02 Учебная практика
+                  teacher: Вакансия
+                  room: к.39
+                  weekType: both
+                  sourceRow: 120
+              source:
+                sheet: 3 курс
+                rowStart: 120
+                rowEnd: 121
+                rawGroupName: 35 ЭМЕХ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Обществознание
+                  teacher: Вагушева Е.А.
+                  room: к.23
+                  weekType: both
+                  sourceRow: 122
+              source:
+                sheet: 3 курс
+                rowStart: 122
+                rowEnd: 123
+                rawGroupName: 35 ЭМЕХ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: МДК.02.02 Техническая эксплуатация холодильного оборудования
+                  teacher: Ковалева Л.В.
+                  room: к.23
+                  weekType: both
+                  sourceRow: 124
+              source:
+                sheet: 3 курс
+                rowStart: 124
+                rowEnd: 125
+                rawGroupName: 35 ЭМЕХ
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5958,4 +6015,4 @@ diagnostics:
           sourceRow: 119
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 7426245d5c616174575bd382833853447ede3dee3179709c61eefcebcd639970
+semanticHash: b87fd1949bd006e4ecc3578139b91a028b9f4540c8053aaaeb05d64a455cb686

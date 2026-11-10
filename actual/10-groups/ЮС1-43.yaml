@@ -1724,7 +1724,7 @@ dates:
         date: 2026-11-10
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1734,11 +1734,15 @@ dates:
           shift: first
           etag: W/"6af1c878-4555"
           lastModified: Mon, 09 Nov 2026 13:19:52 GMT
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
       second:
         date: 2026-11-10
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1748,6 +1752,10 @@ dates:
           shift: second
           etag: W/"6af1c74c-2a8b"
           lastModified: Mon, 09 Nov 2026 13:14:52 GMT
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     groups:
       ЮС1-43:
         group: ЮС1-43
@@ -1863,6 +1871,60 @@ dates:
                 lessonNumber: 2
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: МДК.03.01 Обеспечение защиты прав и свобод граждан
+                  teacher: Вечера Л.А
+                  room: Ф406
+                  weekType: both
+                  sourceRow: 56
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 56
+                rowEnd: 57
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.03.01 Обеспечение защиты прав и свобод граждан
+                  teacher: Вечера Л.А
+                  room: Ф406
+                  weekType: both
+                  sourceRow: 58
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 58
+                rowEnd: 59
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Информационные технологии в профессиональной деятельности
+                  teacher: |-
+                    Хватова Е.Ю.
+                    Нестерова А.В.
+                  room: |-
+                    Ф305
+                    Ф306
+                  weekType: both
+                  rawSubject: "Информационные технологии в профессиональной деятельности "
+                  sourceRow: 60
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 60
+                rowEnd: 61
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1893,4 +1955,4 @@ diagnostics:
       date: 2026-09-21
       shift: first
       sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
-semanticHash: 15baac4316dab2f375e7ee2e4594421c268b29d53cf0ebdc08d2b56b494205a5
+semanticHash: 93e49ae5ece0335223113ee52f88214d61a1534d1cca17753f560af2085bbe50

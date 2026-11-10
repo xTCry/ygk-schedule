@@ -2731,7 +2731,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2780,9 +2780,57 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a82
       - *a83
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a84
+            date: 2026-11-11
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: МДК 01.04 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 73
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 02.01
+              rawReplacement: МДК 01.04 Елистратов А.М.
+              rawRoom: к.43
+        diagnostics: []
+    replacements:
+      - *a84
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2799,4 +2847,4 @@ diagnostics:
       date: 2026-10-22
       shift: first
       sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
-semanticHash: af327c3497c9a15cf4f0c09bc29c4153f9dde37ae8807882001a669ed95b8254
+semanticHash: b6c4eaadb6b0a388366c660697d6ad98737b341f0fef7f1b4683cf8c4311bf82

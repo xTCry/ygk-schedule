@@ -2036,7 +2036,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2066,8 +2066,94 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a57
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a58
+            date: 2026-11-11
+            group: ТТ1-41
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 54
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a59
+            date: 2026-11-11
+            group: ТТ1-41
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Осн.эконом. Охр.труда
+            replacement:
+              raw: МДК 04.02 Леонидова Н.А.
+              room: Ф402
+            source:
+              shift: first
+              row: 55
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: 1,2
+              rawOriginal: Осн.эконом. Охр.труда
+              rawReplacement: МДК 04.02 Леонидова Н.А.
+              rawRoom: Ф402
+          - &a60
+            date: 2026-11-11
+            group: ТТ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Осн.эконом.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 56
+              rawGroupName: ТТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Осн.эконом.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a58
+      - *a59
+      - *a60
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2098,4 +2184,4 @@ diagnostics:
       date: 2026-09-23
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
-semanticHash: 958792b1e912f350d212907a6fcfd56ea34b1e3cc64f6cb969f408a1dbadd01c
+semanticHash: a8f114d78ee759cd6fb5bc74c5aaf2695c2b41d9cca5ffe39e4e711bda4f513c

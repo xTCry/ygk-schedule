@@ -1563,7 +1563,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1594,7 +1594,74 @@ dates:
               rawReplacement: МДК 01.01 п/гр 1 Секацкая Н.А.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     replacements:
       - *a41
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+        replacements:
+          - &a42
+            date: 2026-11-11
+            group: СТ1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: п/гр 2 Секацкая Н.А.
+              room: Б502
+            source:
+              shift: second
+              row: 33
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01
+              rawReplacement: п/гр 2 Секацкая Н.А.
+              rawRoom: Б502
+          - &a43
+            date: 2026-11-11
+            group: СТ1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: МДК 01.01 Ткачев М.С.
+              room: Б504
+            source:
+              shift: second
+              row: 34
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01
+              rawReplacement: МДК 01.01 Ткачев М.С.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a42
+      - *a43
 diagnostics: []
-semanticHash: bd54458753d7f196eb5c07baf8b0065f1574bccabd60d7a134944c948f7332f3
+semanticHash: 0b1a499feefca950fbff830c2706793c735443e2fdbf042dd935b3bf351e20e8

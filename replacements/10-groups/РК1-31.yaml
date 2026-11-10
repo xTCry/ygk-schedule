@@ -2412,7 +2412,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2444,7 +2444,73 @@ dates:
               rawReplacement: 1,2 п/гр. Выблова Т.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     replacements:
       - *a65
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+        replacements:
+          - &a66
+            date: 2026-11-11
+            group: РК1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Осн.фин.грам Ковалева С.В.
+              room: М102
+            source:
+              shift: second
+              row: 23
+              rawGroupName: РК1-31
+              rawLessonNumbers: "5"
+              rawOriginal: Эф.поведение
+              rawReplacement: Осн.фин.грам Ковалева С.В.
+              rawRoom: М102
+          - &a67
+            date: 2026-11-11
+            group: РК1-31
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 04.03
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 24
+              rawGroupName: РК1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 04.03
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a66
+      - *a67
 diagnostics: []
-semanticHash: 3a07da60859a7e766e7a49243988a3a6fcd2a9a8c0e5386848ff0a60a147ac58
+semanticHash: 925d5289c96390bec9a8ef5b024e16f37e47a61150a62fa0c754d2918e12dc6d

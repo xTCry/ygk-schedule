@@ -889,7 +889,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -920,8 +920,75 @@ dates:
               rawReplacement: Бобкова Е.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
     replacements:
       - *a21
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 7ab4cd5b01aa5f514ef1b452bdd82787f4c6be614cd00d23129adfac5a4b7cbe
+          fetchedAt: 2026-11-10T16:59:16.567Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af320f3-2333"
+          lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+        replacements:
+          - &a22
+            date: 2026-11-11
+            group: РК1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: УП 01.03
+            replacement:
+              raw: Истор.изобр.искус Кожешкурт А.В.
+              room: Б407
+            source:
+              shift: second
+              row: 14
+              rawGroupName: РК1-43
+              rawLessonNumbers: "5"
+              rawOriginal: УП 01.03
+              rawReplacement: Истор.изобр.искус Кожешкурт А.В.
+              rawRoom: Б407
+          - &a23
+            date: 2026-11-11
+            group: РК1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: МДК 03.02 Бобкова Е.А.
+              room: Б101
+            source:
+              shift: second
+              row: 15
+              rawGroupName: РК1-43
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: МДК 03.02 Бобкова Е.А.
+              rawRoom: Б101
+        diagnostics: []
+    replacements:
+      - *a22
+      - *a23
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -952,4 +1019,4 @@ diagnostics:
       date: 2026-09-23
       shift: second
       sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
-semanticHash: 78f60d49f49eaea22c8e67a974ce2cc34d20270888b4f226a741f09d01ce98c4
+semanticHash: 91cc6f26a866edb8e729721fcff8670f6776630e8546915302a9a8de6be5b64f

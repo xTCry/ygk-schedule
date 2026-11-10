@@ -1352,7 +1352,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1404,8 +1404,57 @@ dates:
               rawReplacement: УП 01 Бархатов Ю.Л.
               rawRoom: Сл.м.
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-11
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a37
       - *a38
+  2026-11-11:
+    date: 2026-11-11
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-11
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
+          fetchedAt: 2026-11-10T16:59:16.584Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af32187-41d6"
+          lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        replacements:
+          - &a39
+            date: 2026-11-11
+            group: 36 ЭМЕХ
+            lessonNumbers:
+              - 1
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: Математика Информ
+            replacement:
+              raw: УП 01 Бархатов Ю.Л.
+              room: Сл.м
+            source:
+              shift: first
+              row: 65
+              rawGroupName: 36 ЭМЕХ
+              rawLessonNumbers: 1-3
+              rawOriginal: Математика Информ
+              rawReplacement: УП 01 Бархатов Ю.Л.
+              rawRoom: Сл.м
+        diagnostics: []
+    replacements:
+      - *a39
 diagnostics: []
-semanticHash: 67a08185129b8c5a3b3456f3e7f40998ee4b657c521bb27d57acb205b3a91cd8
+semanticHash: b97e97f95e54648cfd36dcff7e7fa444d26d04c04623748e62e55bf9a9a5305a
