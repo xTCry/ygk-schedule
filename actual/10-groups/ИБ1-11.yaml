@@ -5311,7 +5311,7 @@ dates:
         date: 2026-11-11
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -5321,11 +5321,15 @@ dates:
           shift: first
           etag: W/"6af32187-41d6"
           lastModified: Tue, 10 Nov 2026 13:52:07 GMT
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
       second:
         date: 2026-11-11
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5335,6 +5339,10 @@ dates:
           shift: second
           etag: W/"6af320f3-2333"
           lastModified: Tue, 10 Nov 2026 13:49:39 GMT
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
     groups:
       ИБ1-11:
         group: ИБ1-11
@@ -5413,6 +5421,60 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Зубковская А.Е.
+                    Смирнова Е.Ф.
+                  room: В102
+                  weekType: both
+                  rawSubject: "Иностранный язык "
+                  sourceRow: 216
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 216
+                rowEnd: 217
+                rawGroupName: ИБ1-11/ИБ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Биология
+                  teacher: Козырева Д.А.
+                  room: Б502
+                  weekType: both
+                  sourceRow: 218
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 218
+                rowEnd: 219
+                rawGroupName: ИБ1-11/ИБ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Физика л/р
+                  teacher: |-
+                    Галочкина Н.Н.
+                    Калинин Д.А.
+                  room: М207
+                  weekType: numerator
+                  sourceRow: 220
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 220
+                rowEnd: 221
+                rawGroupName: ИБ1-11/ИБ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5468,4 +5530,4 @@ diagnostics:
           sourceRow: 218
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 02d9657edb41c32cdfdb62da82a431eae603f565a31a85fadf223e184539afd6
+semanticHash: 8836ae84fb1a5a0541a05a5b0c1fdedce25d13c7ad85d0d9d99e0388450e6c78

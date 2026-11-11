@@ -5502,6 +5502,117 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+    groups:
+      СА1-11:
+        group: СА1-11
+        date: 2026-11-12
+        day: Четверг
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика
+                teacher: Галочкина Н.Н.
+                room: М101
+                weekType: numerator
+                sourceRow: 173
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 173
+              rowEnd: 174
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Холманова В.М.
+                room: М102
+                weekType: both
+                sourceRow: 175
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 175
+              rowEnd: 176
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Русский язык
+                teacher: Грибанова Е.Н.
+                room: Б501
+                weekType: both
+                sourceRow: 177
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 177
+              rowEnd: 178
+              rawGroupName: СА1-11/СА1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-11-12
+              group: СА1-11
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Литература
+              replacement:
+                raw: Физкультура Куликова А.А.
+                room: Сп.зал
+              source:
+                shift: first
+                row: 42
+                rawGroupName: СА1-11
+                rawLessonNumbers: "2"
+                rawOriginal: Литература
+                rawReplacement: Физкультура Куликова А.А.
+                rawRoom: Сп.зал
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Литература». По замене: «Физкультура Куликова
+                А.А.». Аудитория: «Сп.зал»."
+              room: Сп.зал
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5529,4 +5640,31 @@ diagnostics:
           sourceRow: 170
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 8d84496a4d01d6cdfd35f0f00e61e6099e0254b7b877206f60d9b947676a5d65
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3e8ffb4480f59b64d8229ee26d465178b35e1bcabbb59f0a4ae25852a19f3593
+    sheet: "Замены: Первая смена"
+    row: 42
+    normalizedGroup: СА1-11
+    rawValue: Физкультура Куликова А.А.
+    context:
+      date: 2026-11-12
+      shift: first
+      sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: СА1-11
+      baseSourceFiles:
+        - oit_1sem.xlsx
+      requestedSubject: Литература
+      candidates:
+        - subject: Русский язык
+          teacher: Грибанова Е.Н.
+          room: Б501
+          sourceRow: 177
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 2ad170eaf599a65e6e8ac599c39b093b9b993c472d4ba859b8a430d9c20c21d9

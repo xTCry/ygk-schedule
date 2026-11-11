@@ -7156,6 +7156,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+    groups:
+      ЮР1-17:
+        group: ЮР1-17
+        date: 2026-11-12
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Обществ. История
+                teacher: Горбачёв В.Н.
+                room: Ф201
+                weekType: both
+                rawSubject: Обществ. История Горбачёв В.Н.
+                rawTeacher: Горбачёв В.Н.
+                rawRoom: Ф201
+                sourceRow: 67
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 187
+              rowEnd: 188
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a16
+                  date: 2026-11-12
+                  group: ЮР1-17
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: Обществ. История Горбачёв В.Н.
+                    room: Ф201
+                  source:
+                    shift: first
+                    row: 67
+                    rawGroupName: ЮР1-17
+                    rawLessonNumbers: 1,2
+                    rawOriginal: Математика
+                    rawReplacement: Обществ. История Горбачёв В.Н.
+                    rawRoom: Ф201
+                lessonNumber: 1
+                strategy: exact-subject
+          - number: 2
+            variants:
+              - subject: Обществ. История
+                teacher: Горбачёв В.Н.
+                room: Ф201
+                weekType: both
+                rawSubject: Обществ. История Горбачёв В.Н.
+                rawTeacher: Горбачёв В.Н.
+                rawRoom: Ф201
+                sourceRow: 67
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 189
+              rowEnd: 190
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a16
+                lessonNumber: 2
+                strategy: exact-subject
+          - number: 3
+            variants:
+              - subject: Литература
+                teacher: Головкина С.А.
+                room: Ф303.
+                weekType: numerator
+                sourceRow: 191
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 191
+              rowEnd: 192
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Физика л/р
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: numerator
+                sourceRow: 193
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 193
+              rowEnd: 194
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7282,7 +7413,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: &a16
+      baseSourceFiles: &a17
         - out.xlsx
       requestedSubject: ОбщетвИстория
       candidates:
@@ -7330,7 +7461,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: *a16
+      baseSourceFiles: *a17
       requestedSubject: ОбщетвИстория
       candidates:
         - subject: Обществознание
@@ -7370,4 +7501,4 @@ diagnostics:
           sourceRow: 207
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a77aaa0a8e45085443d4b75f87baec6575eddb4932839427e0938fa4dcc9dc9b
+semanticHash: b0e272e7d4613d38ecfa83ad075674156c5b9a5711bf2370a8e4a35a37f43214

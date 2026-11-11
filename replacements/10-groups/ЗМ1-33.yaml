@@ -929,5 +929,88 @@ dates:
           sourceSha256: b507e487f006bb13657f7701d1cf48641a007d3c91fa4eca3636b7b66e52f2d1
     replacements:
       - *a23
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a24
+            date: 2026-11-12
+            group: ЗМ1-33
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 54
+              rawGroupName: ЗМ1-33
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 05.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a25
+            date: 2026-11-12
+            group: ЗМ1-33
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 55
+              rawGroupName: ЗМ1-33
+              rawLessonNumbers: 1,2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a26
+            date: 2026-11-12
+            group: ЗМ1-33
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Осн.бер.произ., ..
+            replacement:
+              raw: МДК 02.02 Калугина М.В.
+              room: В102
+            source:
+              shift: first
+              row: 56
+              rawGroupName: ЗМ1-33
+              rawLessonNumbers: 3,4
+              rawOriginal: Осн.бер.произ., ..
+              rawReplacement: МДК 02.02 Калугина М.В.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
+      - *a26
 diagnostics: []
-semanticHash: a1aa7a82fbd5ff971c1435564d4ebfd123c029a25cd3fe73204fdf960fa902f9
+semanticHash: 373fdf0da0fc46b953a5b69db53c6d438276dbeb3c8556608c68bd7771faeef9

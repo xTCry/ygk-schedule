@@ -2150,7 +2150,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2201,8 +2201,73 @@ dates:
               rawReplacement: 1,2 п/гр. Подковкин А.Г.
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a60
       - *a61
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a62
+            date: 2026-11-12
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Осн.черчения п/гр1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 17
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: Осн.черчения п/гр1
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a63
+            date: 2026-11-12
+            group: ДИ1-23
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: История Смирнов Б.Е.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 16
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: История Смирнов Б.Е.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a62
+      - *a63
 diagnostics: []
-semanticHash: c2a30d1c6897597bbd071d37bad40d3e465221b6120eeb2b31766f1f8a517f9b
+semanticHash: 5b06424795af45016a19c6b378928cc088f640c68e871395b4bc5e395795668d

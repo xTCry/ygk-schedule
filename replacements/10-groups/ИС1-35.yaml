@@ -2053,7 +2053,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2140,10 +2140,57 @@ dates:
               rawReplacement: БЖ Акиничева М.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
     replacements:
       - *a53
       - *a54
       - *a55
       - *a56
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        replacements:
+          - &a57
+            date: 2026-11-12
+            group: ИС1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 06.03
+            replacement:
+              raw: Физкультура Куликова А.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 16
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 06.03
+              rawReplacement: Физкультура Куликова А.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a57
 diagnostics: []
-semanticHash: cde05e20cc0f85a005bcbae783278155db3114023ab0c70a6158cb2c714fcaf0
+semanticHash: 53c26c0b93fa01e2078739bc7c0e7974a92547aa3ef9706b650880511971bb49

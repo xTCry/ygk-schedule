@@ -1800,7 +1800,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1831,7 +1831,92 @@ dates:
               rawReplacement: Физкультура Дворниченко Г.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a49
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a50
+            date: 2026-11-12
+            group: АР1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 01.03 п/гр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 13
+              rawGroupName: АР1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.03 п/гр 1
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a51
+            date: 2026-11-12
+            group: АР1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: п/гр 1 Калугина М.В.
+              room: А201
+            source:
+              shift: first
+              row: 14
+              rawGroupName: АР1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Тех.механика
+              rawReplacement: п/гр 1 Калугина М.В.
+              rawRoom: А201
+          - &a52
+            date: 2026-11-12
+            group: АР1-21
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Дворниченко Г.В.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 15
+              rawGroupName: АР1-21
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Физкультура Дворниченко Г.В.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a50
+      - *a51
+      - *a52
 diagnostics: []
-semanticHash: 8ccd381d7415a0774e7f1fa35201bb48fb4ead1b894e262fe7f57fdd5d73c033
+semanticHash: 23e9328d743cfac8ccf45d011797eebe437cd63b38c4fd987dbddb56a2f1ed2e

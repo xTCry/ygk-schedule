@@ -2796,7 +2796,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2846,9 +2846,77 @@ dates:
               rawReplacement: УП 05 Васильченко М.О.Юров А.А
               rawRoom: Б301Б308
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
     replacements:
       - *a83
       - *a84
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        replacements:
+          - &a85
+            date: 2026-11-12
+            group: ИС1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 05.02
+            replacement:
+              raw: 1,2 пгр МДК 05.03 Юров А.А.
+              room: Б407
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИС1-45
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 05.02
+              rawReplacement: 1,2 пгр МДК 05.03 Юров А.А.
+              rawRoom: Б407
+          - &a86
+            date: 2026-11-12
+            group: ИС1-45
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 05.03
+            replacement:
+              raw: 1,2 пгр Юров А.А.
+              room: Б407
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИС1-45
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 05.03
+              rawReplacement: 1,2 пгр Юров А.А.
+              rawRoom: Б407
+        diagnostics: []
+    replacements:
+      - *a85
+      - *a86
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2879,4 +2947,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: 5d9c0e96b12ec3f034b3e05a5f49669daccdb07c3f139ad2cf21c63d5cf77931
+semanticHash: 929701a8b66f319e424a1f875c1fc99b0018f9fbd412c3dfa75884696d7263e6

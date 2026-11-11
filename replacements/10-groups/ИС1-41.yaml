@@ -3648,7 +3648,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3698,9 +3698,94 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
     replacements:
       - *a111
       - *a112
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        replacements:
+          - &a113
+            date: 2026-11-12
+            group: ИС1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a114
+            date: 2026-11-12
+            group: ИС1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 03
+            replacement:
+              raw: 1,2 п/гр. Неделяева Н.А.
+              room: Б302
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "4"
+              rawOriginal: УП 03
+              rawReplacement: 1,2 п/гр. Неделяева Н.А.
+              rawRoom: Б302
+          - &a115
+            date: 2026-11-12
+            group: ИС1-41
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: УП 05 Королева П.Д.Васильченко М.О
+              room: Б301
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИС1-41
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: УП 05 Королева П.Д.Васильченко М.О
+              rawRoom: Б301
+        diagnostics: []
+    replacements:
+      - *a113
+      - *a114
+      - *a115
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -3731,4 +3816,4 @@ diagnostics:
       date: 2026-09-24
       shift: second
       sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
-semanticHash: 1669ec0a922293ac312b2f5a4a2c12721188225b57481e979641306b3153ea8b
+semanticHash: 18c1659e87001616f8b3863ee2200f3db038872eb4034a502af5e89939028195

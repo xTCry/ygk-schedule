@@ -2152,7 +2152,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2182,7 +2182,92 @@ dates:
               rawReplacement: 1,2 п/гр Доп.проф. Сердцева О.Д.
               rawRoom: Б407
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a61
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a62
+            date: 2026-11-12
+            group: СТ1-13
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Информ. Жданова Н.А Лужина А.С
+              room: Б403
+            source:
+              shift: first
+              row: 32
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Информ. Жданова Н.А Лужина А.С
+              rawRoom: Б403
+          - &a63
+            date: 2026-11-12
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Информ. Жданова Н.А. Лужина А.С
+              room: Акт.зал
+            source:
+              shift: first
+              row: 33
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Информ. Жданова Н.А. Лужина А.С
+              rawRoom: Акт.зал
+          - &a64
+            date: 2026-11-12
+            group: СТ1-13
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a62
+      - *a63
+      - *a64
 diagnostics: []
-semanticHash: 10f253d741868f0e1a091c0dd4d0bc327ab2ef46df697cdf60c3b389d5bb1e07
+semanticHash: 1ef09ec43f88aee08a73ccab0072fe32ad1a972a76b0fa99045d10f86161b7e8

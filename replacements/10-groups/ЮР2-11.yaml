@@ -2344,7 +2344,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2413,9 +2413,94 @@ dates:
               rawReplacement: Конст.право Богданова В.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a73
       - *a74
       - *a75
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a76
+            date: 2026-11-12
+            group: ЮР2-11
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Конст.право Богданова В.В.
+              room: Ф404
+            source:
+              shift: first
+              row: 64
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Конст.право Богданова В.В.
+              rawRoom: Ф404
+          - &a77
+            date: 2026-11-12
+            group: ЮР2-11
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Рус.яз.и культ.речи Головкина С.А.
+              room: Ф303
+            source:
+              shift: first
+              row: 65
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Рус.яз.и культ.речи Головкина С.А.
+              rawRoom: Ф303
+          - &a78
+            date: 2026-11-12
+            group: ЮР2-11
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: Админ.право МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 66
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: 3,4
+              rawOriginal: Админ.право МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a76
+      - *a77
+      - *a78
 diagnostics: []
-semanticHash: 2fbf6476d509481fd23cd9de974a7805c834598e91ee00ee226ab073632816a7
+semanticHash: ffb7b0146e24624b70829a828123564727106444f27db40c4e7337a87358b000

@@ -7406,6 +7406,141 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+    groups:
+      СТ1-31:
+        group: СТ1-31
+        date: 2026-11-12
+        day: Четверг
+        lessons:
+          - number: 3
+            variants:
+              - subject: Основы электротехники
+                teacher: Леонидова Н.А.
+                room: М208
+                weekType: both
+                sourceRow: 29
+            source:
+              sheet: CТ 3 курс
+              rowStart: 29
+              rowEnd: 30
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК 02.01 МДК 02.02
+                teacher: Топчиян Е.А.
+                room: Б401
+                weekType: both
+                rawSubject: МДК 02.01 МДК 02.02 Топчиян Е.А.
+                rawTeacher: Топчиян Е.А.
+                rawRoom: Б401
+                sourceRow: 29
+            source:
+              sheet: CТ 3 курс
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-11-12
+                  group: СТ1-31
+                  lessonNumbers:
+                    - 4
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 02.01 МДК 01.01
+                  replacement:
+                    raw: МДК 02.01 МДК 02.02 Топчиян Е.А.
+                    room: Б401
+                  source:
+                    shift: second
+                    row: 29
+                    rawGroupName: СТ1-31
+                    rawLessonNumbers: 4,6
+                    rawOriginal: МДК 02.01 МДК 01.01
+                    rawReplacement: МДК 02.01 МДК 02.02 Топчиян Е.А.
+                    rawRoom: Б401
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: МДК.02.01Организация технологических процессов на объекте капитального
+                  строительств.Т. 1.1. ТОСП
+                teacher: Топчиян Е.А.
+                room: Б401
+                weekType: both
+                sourceRow: 33
+            source:
+              sheet: CТ 3 курс
+              rowStart: 33
+              rowEnd: 34
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants:
+              - subject: МДК.02.02. Учет и контроль технологических процессов на объекте
+                  капитальногостроительства
+                teacher: Топчиян Е.А.
+                room: Б401
+                weekType: both
+                sourceRow: 35
+            source:
+              sheet: CТ 3 курс
+              rowStart: 35
+              rowEnd: 36
+              rawGroupName: СТ1-31/СТ1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a9
+            lessonNumber: 6
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «МДК 02.01 МДК 01.01». По замене: «МДК 02.01 МДК
+                02.02 Топчиян Е.А.». Аудитория: «Б401»."
+              room: Б401
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7424,7 +7559,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a9
+      baseSourceFiles: &a10
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -7455,7 +7590,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a10
+      baseSourceFiles: &a11
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -7467,6 +7602,34 @@ diagnostics:
           room: ДОТ
           subgroup: "2"
           sourceRow: 42
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 3078fdca21c682f663297be7f2cb5dba3c02cda5cd3193bc2e7ce849a7d1dbae
+    sheet: "Замены: Вторая смена"
+    row: 29
+    normalizedGroup: СТ1-31
+    rawValue: МДК 02.01 МДК 02.02 Топчиян Е.А.
+    context:
+      date: 2026-11-12
+      shift: second
+      sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+      lessonNumber: 6
+      type: replace
+      reason: original-not-matched
+      baseGroup: СТ1-31
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: МДК 02.01 МДК 01.01
+      candidates:
+        - subject: МДК.02.02. Учет и контроль технологических процессов на объекте
+            капитальногостроительства
+          teacher: Топчиян Е.А.
+          room: Б401
+          sourceRow: 35
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
@@ -7514,7 +7677,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a9
+      baseSourceFiles: *a10
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "2"
@@ -7544,7 +7707,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a11
+      baseSourceFiles: &a12
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -7606,7 +7769,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a10
+      baseSourceFiles: *a11
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "1"
@@ -7636,7 +7799,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: &a12
+      baseSourceFiles: &a13
         - so.xlsx
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
@@ -7667,7 +7830,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a11
+      baseSourceFiles: *a12
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "2"
@@ -7726,7 +7889,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: СТ1-31
-      baseSourceFiles: *a12
+      baseSourceFiles: *a13
       requestedSubject: МДК 01.01 Т.1.2.
       requestedSubgroups:
         - "2"
@@ -7739,4 +7902,4 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0461e77bb43b6bb4bf8d6e11d01fd780fd692efd1af5ddb2633225b7f6e12fe6
+semanticHash: 177a8865baf4e0528f75868273331f4462550efe0162cec144a137d002b99f86

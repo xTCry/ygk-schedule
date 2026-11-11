@@ -4133,6 +4133,148 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+    groups:
+      МС1-21:
+        group: МС1-21
+        date: 2026-11-12
+        day: Четверг
+        lessons:
+          - number: 2
+            variants:
+              - subject: Матер. и изд.
+                teacher: Дегтева И.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: Матер. и изд. Дегтева И.Е.
+                rawTeacher: Дегтева И.Е.
+                rawRoom: ДОТ
+                sourceRow: 50
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 79
+              rowEnd: 80
+              rawGroupName: МС1-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a11
+                  date: 2026-11-12
+                  group: МС1-21
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: .. Инж.граф
+                  replacement:
+                    raw: Матер. и изд. Дегтева И.Е.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 50
+                    rawGroupName: МС1-21
+                    rawLessonNumbers: 1,2
+                    rawOriginal: .. Инж.граф
+                    rawReplacement: Матер. и изд. Дегтева И.Е.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants:
+              - subject: МДК 01.01
+                teacher: Нечипорук О.Л.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 01.01 Нечипорук О.Л.
+                rawTeacher: Нечипорук О.Л.
+                rawRoom: ДОТ
+                sourceRow: 51
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 81
+              rowEnd: 82
+              rawGroupName: МС1-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-12
+                  group: МС1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: Осн.строит.произв.
+                  replacement:
+                    raw: МДК 01.01 Нечипорук О.Л.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 51
+                    rawGroupName: МС1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: Осн.строит.произв.
+                    rawReplacement: МДК 01.01 Нечипорук О.Л.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-abbreviation
+          - number: 4
+            variants:
+              - subject: История России
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 83
+            source:
+              sheet: МС1-11 МС1-21 МС1-31 МС1-41
+              rowStart: 83
+              rowEnd: 84
+              rawGroupName: МС1-21
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a11
+            lessonNumber: 1
+            reason: lesson-not-scheduled-for-week
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «.. Инж.граф». По замене: «Матер. и изд. Дегтева
+                И.Е.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4185,6 +4327,37 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены есть в базовом расписании, но не проводится в указанную
+      неделю
+    fingerprint: 61795f3b0e7999f4ab6f165f2bd6c87b8e305c73a2f8d75ddab8fb7dfaf04d66
+    sheet: "Замены: Первая смена"
+    row: 50
+    normalizedGroup: МС1-21
+    rawValue: Матер. и изд. Дегтева И.Е.
+    context:
+      date: 2026-11-12
+      shift: first
+      sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+      lessonNumber: 1
+      type: replace
+      reason: lesson-not-scheduled-for-week
+      baseGroup: МС1-21
+      baseSourceFiles:
+        - oeis.xlsx
+      replacementWeekType: numerator
+      availableWeekTypes:
+        - denominator
+      requestedSubject: .. Инж.граф
+      candidates:
+        - subject: Основы строительного производства
+          teacher: Попов Д.М.
+          room: ДОТ
+          sourceRow: 78
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Исходная дисциплина из замены не совпала с парой базового расписания
     fingerprint: 8beecfbab337244f6b806965858ba90f506195254418e009f9c7bf709af1cca3
     sheet: "Замены: Первая смена"
@@ -4199,7 +4372,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МС1-21
-      baseSourceFiles: &a11
+      baseSourceFiles: &a12
         - oeis.xlsx
       requestedSubject: УП 05
       candidates:
@@ -4228,7 +4401,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: МС1-21
-      baseSourceFiles: *a11
+      baseSourceFiles: *a12
       requestedSubject: УП 05
       candidates:
         - subject: УП.05.01 Выполнение работ по монтажу сантехустройств и оборудования
@@ -4268,4 +4441,4 @@ diagnostics:
           sourceRow: 67
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 6600fadb5e3d2c9741777faecb1eed621aaea03fee1a02da04ae48746ab6b018
+semanticHash: 098041bccbbaf1b6d8c90d9567df33e333aa62c468380732f33a1c28da63803a

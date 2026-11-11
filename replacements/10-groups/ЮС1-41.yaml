@@ -656,7 +656,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -687,8 +687,55 @@ dates:
               rawReplacement: Ин.язык Петрова У.В. Абрамова К.В
               rawRoom: Ф204Ф403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a16
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
+          fetchedAt: 2026-11-11T17:03:58.655Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af46df8-5002"
+          lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        replacements:
+          - &a17
+            date: 2026-11-12
+            group: ЮС1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Правоох.и суд.
+            replacement:
+              raw: 1,2 п/гр.Инф.тех. Хватова Е.Ю.
+              room: Ф306
+            source:
+              shift: first
+              row: 63
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: "2"
+              rawOriginal: Правоох.и суд.
+              rawReplacement: 1,2 п/гр.Инф.тех. Хватова Е.Ю.
+              rawRoom: Ф306
+        diagnostics: []
+    replacements:
+      - *a17
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -719,4 +766,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 552dbf4986883f05991a44127d6e608f0755f332437b51d34f36633517ea5cb2
+semanticHash: ca6d6e52b477a5259dd1ecfb45b0303a31829d3acf18f7e30697b9275a161ee2

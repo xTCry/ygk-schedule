@@ -1610,7 +1610,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1660,8 +1660,55 @@ dates:
               rawReplacement: МДК 01.01 Ткачев М.С.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-12
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
     replacements:
       - *a42
       - *a43
+  2026-11-12:
+    date: 2026-11-12
+    day: Четверг
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-12
+        day: Четверг
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 70404cd16aaacbf9c321542798049adebceafa9d724379cc635153f62b234537
+          fetchedAt: 2026-11-11T17:03:58.667Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af45821-2040"
+          lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        replacements:
+          - &a44
+            date: 2026-11-12
+            group: СТ1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.01
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a44
 diagnostics: []
-semanticHash: 0b1a499feefca950fbff830c2706793c735443e2fdbf042dd935b3bf351e20e8
+semanticHash: eaddbe3f4ee4902be794a2df5495e84e0e1b842dae689751afb75b363fa71ae9
