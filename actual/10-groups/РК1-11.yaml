@@ -6446,6 +6446,139 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+    groups:
+      РК1-11:
+        group: РК1-11
+        date: 2026-11-13
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Литература
+                teacher: Новикова М.А.
+                room: Б402
+                weekType: both
+                rawSubject: Литература Новикова М.А.
+                rawTeacher: Новикова М.А.
+                rawRoom: Б402
+                sourceRow: 8
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: РК1-11
+                  lessonNumbers:
+                    - 0
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Литература Новикова М.А.
+                    room: Б402
+                  source:
+                    shift: first
+                    row: 8
+                    rawGroupName: РК1-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: Литература Новикова М.А.
+                    rawRoom: Б402
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Булычева Л.А.
+                room: А203
+                weekType: both
+                sourceRow: 240
+            source:
+              sheet: 1 курс
+              rowStart: 240
+              rowEnd: 241
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Обществознание
+                teacher: Булычева Л.А.
+                room: А203
+                weekType: numerator
+                sourceRow: 242
+            source:
+              sheet: 1 курс
+              rowStart: 242
+              rowEnd: 243
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants: []
+            source:
+              sheet: 1 курс
+              rowStart: 244
+              rowEnd: 245
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: РК1-11
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Литература
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 7
+                    rawGroupName: РК1-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: Литература
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6504,4 +6637,4 @@ diagnostics:
           sourceRow: 254
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: de00660ef209aa20d387210bba5f09de967886f51cd0812a78d7a5cb43702b87
+semanticHash: 0576849cfdcd812b29b03156bc4fbec562d201b23087ebc208fb81ef004ea9f4

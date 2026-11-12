@@ -5483,7 +5483,7 @@
           "day": "Четверг",
           "weekType": "numerator",
           "shift": "second",
-          "status": "mutable",
+          "status": "finalized",
           "source": {
             "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
             "fileName": "rasp_second.html",
@@ -5545,7 +5545,12 @@
               }
             }
           ],
-          "diagnostics": []
+          "diagnostics": [],
+          "finalizedBy": {
+            "date": "2026-11-13",
+            "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "sourceSha256": "c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be"
+          }
         }
       },
       "replacements": [
@@ -5599,6 +5604,99 @@
           }
         }
       ]
+    },
+    "2026-11-13": {
+      "date": "2026-11-13",
+      "day": "Пятница",
+      "weekType": "numerator",
+      "shifts": {
+        "second": {
+          "date": "2026-11-13",
+          "day": "Пятница",
+          "weekType": "numerator",
+          "shift": "second",
+          "status": "mutable",
+          "source": {
+            "id": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "fileName": "rasp_second.html",
+            "sha256": "c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be",
+            "fetchedAt": "2026-11-12T17:31:56.562Z",
+            "url": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+            "shift": "second",
+            "etag": "W/\"6af5acb9-1f8f\"",
+            "lastModified": "Thu, 12 Nov 2026 12:10:33 GMT"
+          },
+          "replacements": [
+            {
+              "date": "2026-11-13",
+              "group": "ИС1-45",
+              "lessonNumbers": [],
+              "type": "unknown",
+              "original": null,
+              "replacement": {
+                "raw": "День самоподготовки"
+              },
+              "source": {
+                "shift": "second",
+                "row": 16,
+                "rawGroupName": "ИС1-45",
+                "rawLessonNumbers": "",
+                "rawOriginal": "",
+                "rawReplacement": "День самоподготовки",
+                "rawRoom": ""
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "provider": "ygk",
+              "code": "UNKNOWN_REPLACEMENT_TYPE",
+              "severity": "warning",
+              "message": "Строка замен не содержит данных, достаточных для определения действия",
+              "fingerprint": "61b3dc3ff7c0983aeee1df593d34e3cdd4f62450ab0f385094a2caa750190872",
+              "sheet": "Замены: Вторая смена",
+              "row": 16,
+              "normalizedGroup": "ИС1-45",
+              "rawValue": "ИС1-45 |  |  | День самоподготовки",
+              "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+              "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+            },
+            {
+              "provider": "ygk",
+              "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+              "severity": "warning",
+              "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+              "fingerprint": "8eac113dd72d423b0c6af9c3edbcdeb23732908874fc8d751d6b283601e7ed00",
+              "sheet": "Замены: Вторая смена",
+              "row": 16,
+              "normalizedGroup": "ИС1-45",
+              "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+              "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html"
+            }
+          ]
+        }
+      },
+      "replacements": [
+        {
+          "date": "2026-11-13",
+          "group": "ИС1-45",
+          "lessonNumbers": [],
+          "type": "unknown",
+          "original": null,
+          "replacement": {
+            "raw": "День самоподготовки"
+          },
+          "source": {
+            "shift": "second",
+            "row": 16,
+            "rawGroupName": "ИС1-45",
+            "rawLessonNumbers": "",
+            "rawOriginal": "",
+            "rawReplacement": "День самоподготовки",
+            "rawRoom": ""
+          }
+        }
+      ]
     }
   },
   "diagnostics": [
@@ -5622,6 +5720,41 @@
     },
     {
       "provider": "ygk",
+      "code": "UNKNOWN_REPLACEMENT_TYPE",
+      "severity": "warning",
+      "message": "Строка замен не содержит данных, достаточных для определения действия",
+      "fingerprint": "61b3dc3ff7c0983aeee1df593d34e3cdd4f62450ab0f385094a2caa750190872",
+      "sheet": "Замены: Вторая смена",
+      "row": 16,
+      "normalizedGroup": "ИС1-45",
+      "rawValue": "ИС1-45 |  |  | День самоподготовки",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "context": {
+        "date": "2026-11-13",
+        "shift": "second",
+        "sourceSha256": "c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be"
+      }
+    },
+    {
+      "provider": "ygk",
+      "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
+      "severity": "warning",
+      "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
+      "fingerprint": "8eac113dd72d423b0c6af9c3edbcdeb23732908874fc8d751d6b283601e7ed00",
+      "sheet": "Замены: Вторая смена",
+      "row": 16,
+      "normalizedGroup": "ИС1-45",
+      "sourceId": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "sourceUrl": "https://menu.sttec.yar.ru/timetable/rasp_second.html",
+      "context": {
+        "date": "2026-11-13",
+        "shift": "second",
+        "sourceSha256": "c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be"
+      }
+    },
+    {
+      "provider": "ygk",
       "code": "INVALID_REPLACEMENT_LESSON_NUMBER",
       "severity": "warning",
       "message": "Не удалось разобрать номер пары или диапазон из таблицы замен",
@@ -5638,5 +5771,5 @@
       }
     }
   ],
-  "semanticHash": "929701a8b66f319e424a1f875c1fc99b0018f9fbd412c3dfa75884696d7263e6"
+  "semanticHash": "0e08c2f85f7d786ba093dd673b8ba7d893cca6ff16908c9990875c45835ea34b"
 }

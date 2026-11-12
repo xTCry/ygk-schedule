@@ -896,7 +896,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -944,8 +944,55 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
     replacements:
       - *a22
       - *a23
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a24
+            date: 2026-11-13
+            group: 7 МРТ
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Психол.общ.
+            replacement:
+              raw: Физкульт. Шпынов Ю.Г
+              room: Сп.зал
+            source:
+              shift: first
+              row: 70
+              rawGroupName: 7 МРТ
+              rawLessonNumbers: "1"
+              rawOriginal: Психол.общ.
+              rawReplacement: Физкульт. Шпынов Ю.Г
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a24
 diagnostics: []
-semanticHash: 9136b2952338c458942bb826aaaba96b326840634af4aed444dace8420c80ef7
+semanticHash: bc9535c6059df461ef9c9bd940673c575c7491dcdbf0fbeb7d761f1808785457

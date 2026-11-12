@@ -3911,6 +3911,130 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+    groups:
+      ЗМ1-13:
+        group: ЗМ1-13
+        date: 2026-11-13
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физика л/р
+                teacher: Вакансия
+                room: М207
+                weekType: numerator
+                sourceRow: 84
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 84
+              rowEnd: 85
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: ОБиЗР
+                teacher: Зевахина О.Б.
+                room: М207
+                weekType: both
+                rawSubject: ОБиЗР Зевахина О.Б.
+                rawTeacher: Зевахина О.Б.
+                rawRoom: М207
+                sourceRow: 56
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 86
+              rowEnd: 87
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: ОБиЗР Зевахина О.Б.
+                    room: М207
+                  source:
+                    shift: first
+                    row: 56
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: "1"
+                    rawOriginal: Физкультура
+                    rawReplacement: ОБиЗР Зевахина О.Б.
+                    rawRoom: М207
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants: []
+            source:
+              sheet: ЗМ1-11 ЗМ1-13 ЗМ1-15
+              rowStart: 88
+              rowEnd: 89
+              rawGroupName: ЗМ1-13/ЗМ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: ЗМ1-13
+                  lessonNumbers:
+                    - 2
+                  type: cancel
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 81
+                    rawGroupName: ЗМ1-13
+                    rawLessonNumbers: "2"
+                    rawOriginal: Математика
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3939,4 +4063,4 @@ diagnostics:
           sourceRow: 70
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 734496d78354895eb84ba74514a56a4a7dccd57eb1ca2f0210c9271be4b7bba9
+semanticHash: c977c66c23d81062b45142d2ad40f569004f1cc8897485e7f61ac54831c0b4d3

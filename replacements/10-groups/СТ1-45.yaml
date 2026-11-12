@@ -1105,7 +1105,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1135,8 +1135,55 @@ dates:
               rawReplacement: Экон.отрасли Малышева К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
     replacements:
       - *a25
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a26
+            date: 2026-11-13
+            group: СТ1-45
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Экон.отрасли Малышева К.А.
+              room: Б402
+            source:
+              shift: first
+              row: 38
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: Экон.отрасли Малышева К.А.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a26
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1167,4 +1214,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 40ad814909969b27d0897b3f5302f11de53712463184fb2f293d6834ca5dabfd
+semanticHash: 1a5649eddaa9d3d2252fbcbeaa3c48c0adb56af843a442d6bba176f4e1f21f24

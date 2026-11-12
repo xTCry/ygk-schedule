@@ -1934,7 +1934,7 @@ dates:
         date: 2026-11-12
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1944,11 +1944,15 @@ dates:
           shift: first
           etag: W/"6af46df8-5002"
           lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
       second:
         date: 2026-11-12
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1958,6 +1962,10 @@ dates:
           shift: second
           etag: W/"6af45821-2040"
           lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
     groups:
       ЮС1-43:
         group: ЮС1-43
@@ -2041,6 +2049,60 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Уголовное право и уголовный процесс
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: both
+                  sourceRow: 72
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 72
+                rowEnd: 73
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Информационные технологии в профессиональной деятельности
+                  teacher: |-
+                    Хватова Е.Ю.
+                    Нестерова А.В.
+                  room: |-
+                    Ф305
+                    Ф306
+                  weekType: numerator
+                  rawSubject: "Информационные технологии в профессиональной деятельности "
+                  sourceRow: 74
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 74
+                rowEnd: 75
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Правоохранительные и судебные органы
+                  teacher: Малышева Н.А.
+                  room: Ф401
+                  weekType: both
+                  sourceRow: 76
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 76
+                rowEnd: 77
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2071,4 +2133,4 @@ diagnostics:
       date: 2026-09-21
       shift: first
       sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
-semanticHash: 5fe97b9daedcecbf938b2f4fef440a0c4212b0e6ab67d206030a93e77b5afa73
+semanticHash: dad3525ecbe45b96f5a139085ed4da8fd6c183ed642b2badfd0ba9db8a32a9a3

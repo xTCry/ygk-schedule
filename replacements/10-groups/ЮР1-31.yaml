@@ -613,5 +613,66 @@ dates:
           sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a16
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a17
+            date: 2026-11-13
+            group: ЮР1-31
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 48
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "1"
+              rawOriginal: Эф.поведение
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a18
+            date: 2026-11-13
+            group: ЮР1-31
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Муницмп.право Гайдис А.С.
+              room: Ф206
+            source:
+              shift: first
+              row: 49
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Муницмп.право Гайдис А.С.
+              rawRoom: Ф206
+        diagnostics: []
+    replacements:
+      - *a17
+      - *a18
 diagnostics: []
-semanticHash: 7509f3f1f7f8a48c513740dcf891a8996faf72b52265eb798ae9a6bbdccecff4
+semanticHash: e07ac0570b2d8e2ae0adbf124949ab79fbf03e472b404f8475709df979ceb64b

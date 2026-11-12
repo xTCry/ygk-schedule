@@ -10104,6 +10104,146 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+    groups:
+      ДИ1-43:
+        group: ДИ1-43
+        date: 2026-11-13
+        day: Пятница
+        lessons:
+          - number: 4
+            variants:
+              - subject: Рисунок с основами перспективы
+                teacher: |-
+                  Лапина А.А.
+                  Вакансия
+                room: Б207Б208
+                weekType: both
+                rawSubject: Лапина А.А.Тарасова Н.А
+                rawRoom: Б207Б208
+                sourceRow: 8
+            source:
+              sheet: ДИ-4курс
+              rowStart: 81
+              rowEnd: 82
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a23
+                  date: 2026-11-13
+                  group: ДИ1-43
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: Рисун. Живопись
+                  replacement:
+                    raw: Лапина А.А.Тарасова Н.А
+                    room: Б207Б208
+                  source:
+                    shift: second
+                    row: 8
+                    rawGroupName: ДИ1-43
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Рисун. Живопись
+                    rawReplacement: Лапина А.А.Тарасова Н.А
+                    rawRoom: Б207Б208
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Живопись с основами цветоведения
+                teacher: |-
+                  Лапина А.А.
+                  Вакансия
+                room: Б207Б208
+                weekType: both
+                rawSubject: Лапина А.А.Тарасова Н.А
+                rawRoom: Б207Б208
+                sourceRow: 8
+            source:
+              sheet: ДИ-4курс
+              rowStart: 83
+              rowEnd: 84
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a23
+                lessonNumber: 5
+                strategy: subject-word-mention
+          - number: 6
+            variants:
+              - subject: Снято
+                teacher: Мишуринская Е.Ю.
+                room: Б503
+                weekType: both
+                rawSubject: п/гр Мишуринская Е.Ю. - Снято
+                rawTeacher: Мишуринская Е.Ю.
+                sourceRow: 24
+            source:
+              sheet: ДИ-4курс
+              rowStart: 85
+              rowEnd: 86
+              rawGroupName: ДИ1-43/1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: ДИ1-43
+                  lessonNumbers:
+                    - 6
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: п/гр Мишуринская Е.Ю. - Снято
+                  source:
+                    shift: second
+                    row: 24
+                    rawGroupName: ДИ1-43
+                    rawLessonNumbers: "6"
+                    rawOriginal: Ин.язык
+                    rawReplacement: п/гр Мишуринская Е.Ю. - Снято
+                    rawRoom: ""
+                lessonNumber: 6
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -10192,4 +10332,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: c60d69c03784a83f3b2e613b826e20c92645f767ff01b0e0d4d4e4c63ee7cac0
+semanticHash: f76446d12e3421a6641bedeabc1f6a707d93c8c42fd510b8f7958c8bbf64c09f

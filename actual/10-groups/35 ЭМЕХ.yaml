@@ -5952,6 +5952,159 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+    groups:
+      35 ЭМЕХ:
+        group: 35 ЭМЕХ
+        date: 2026-11-13
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: УП.02 Учебная практика
+                teacher: Бархатов Ю.Л.
+                room: Сп.м
+                weekType: both
+                rawSubject: Бархатов Ю.Л.
+                rawTeacher: Бархатов Ю.Л.
+                rawRoom: Сп.м
+                sourceRow: 65
+            source:
+              sheet: 3 курс
+              rowStart: 143
+              rowEnd: 144
+              rawGroupName: 35 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a27
+                  date: 2026-11-13
+                  group: 35 ЭМЕХ
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: replace
+                  original:
+                    raw: УП 02
+                  replacement:
+                    raw: Бархатов Ю.Л.
+                    room: Сп.м
+                  source:
+                    shift: first
+                    row: 65
+                    rawGroupName: 35 ЭМЕХ
+                    rawLessonNumbers: 0-2
+                    rawOriginal: УП 02
+                    rawReplacement: Бархатов Ю.Л.
+                    rawRoom: Сп.м
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: УП.02 Учебная практика
+                teacher: Бархатов Ю.Л.
+                room: Сп.м
+                weekType: both
+                rawSubject: Бархатов Ю.Л.
+                rawTeacher: Бархатов Ю.Л.
+                rawRoom: Сп.м
+                sourceRow: 65
+            source:
+              sheet: 3 курс
+              rowStart: 145
+              rowEnd: 146
+              rawGroupName: 35 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a27
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: УП.02 Учебная практика
+                teacher: Бархатов Ю.Л.
+                room: Сп.м
+                weekType: both
+                rawSubject: Бархатов Ю.Л.
+                rawTeacher: Бархатов Ю.Л.
+                rawRoom: Сп.м
+                sourceRow: 65
+            source:
+              sheet: 3 курс
+              rowStart: 147
+              rowEnd: 148
+              rawGroupName: 35 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a27
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants: []
+            source:
+              sheet: 3 курс
+              rowStart: 149
+              rowEnd: 150
+              rawGroupName: 35 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-13
+                  group: 35 ЭМЕХ
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Математика
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 66
+                    rawGroupName: 35 ЭМЕХ
+                    rawLessonNumbers: "3"
+                    rawOriginal: Математика
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: exact-subject
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6015,4 +6168,4 @@ diagnostics:
           sourceRow: 119
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b87fd1949bd006e4ecc3578139b91a028b9f4540c8053aaaeb05d64a455cb686
+semanticHash: 9687cec2fe8a16aa9d1898707382c75fe4014bc5fed94b3511e7b5b8c7e3c5e3

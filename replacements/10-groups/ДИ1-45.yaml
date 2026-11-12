@@ -1410,7 +1410,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1441,8 +1441,73 @@ dates:
               rawReplacement: МДК 01.02 Пономаренко В.С.
               rawRoom: Б407
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
     replacements:
       - *a35
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+        replacements:
+          - &a36
+            date: 2026-11-13
+            group: ДИ1-45
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.02 Пономаренко В.С.
+              room: Б302
+            source:
+              shift: second
+              row: 10
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 01.02 Пономаренко В.С.
+              rawRoom: Б302
+          - &a37
+            date: 2026-11-13
+            group: ДИ1-45
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 9
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a36
+      - *a37
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1473,4 +1538,4 @@ diagnostics:
       date: 2026-09-25
       shift: second
       sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
-semanticHash: 020cb01975a4221fe3429bff79296a0f923249567290e065bea052fe14dd2ee6
+semanticHash: cf48c8290559366a1cdb8165d93d125bfe8016c26d3b7fdf0a5197e90140c3c1

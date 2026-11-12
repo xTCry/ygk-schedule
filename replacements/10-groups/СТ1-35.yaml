@@ -3555,7 +3555,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3586,7 +3586,111 @@ dates:
               rawReplacement: п/гр 2 Гасенина М.П п/гр 1 - по расписанию
               rawRoom: Б409 Б204
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
     replacements:
       - *a105
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
+          fetchedAt: 2026-11-12T17:31:56.562Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af5acb9-1f8f"
+          lastModified: Thu, 12 Nov 2026 12:10:33 GMT
+        replacements:
+          - &a106
+            date: 2026-11-13
+            group: СТ1-35
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.01 п/гр 2 Лапин И.В
+              room: ДОТ
+            source:
+              shift: second
+              row: 30
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: МДК 02.01 п/гр 2 Лапин И.В
+              rawRoom: ДОТ
+          - &a107
+            date: 2026-11-13
+            group: СТ1-35
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: п/гр 2 - по расписанию МДК 02.01 п/гр 1 Лапин И.В
+              room: ДОТ
+            source:
+              shift: second
+              row: 29
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: п/гр 2 - по расписанию МДК 02.01 п/гр 1 Лапин И.В
+              rawRoom: ДОТ
+          - &a108
+            date: 2026-11-13
+            group: СТ1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Лапин И.В
+              room: ДОТ
+            source:
+              shift: second
+              row: 27
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Лапин И.В
+              rawRoom: ДОТ
+          - &a109
+            date: 2026-11-13
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 28
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a106
+      - *a107
+      - *a108
+      - *a109
 diagnostics: []
-semanticHash: 9171ef83ce50ee8388b5366c566cbf4d6bd303760f27805da2a0980db7a9a2e5
+semanticHash: 58c92d3222cb326736d6686143302f190f9f35fbb1aa36984f7da350144a4a4b

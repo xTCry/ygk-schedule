@@ -1806,5 +1806,66 @@ dates:
           sourceSha256: e7eec4e1456d9377fdb30545864a8f5a175ecb71e70c0f62c36c2c0cdd827f37
     replacements:
       - *a42
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a43
+            date: 2026-11-13
+            group: РК1-11
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Литература Новикова М.А.
+              room: Б402
+            source:
+              shift: first
+              row: 8
+              rawGroupName: РК1-11
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Литература Новикова М.А.
+              rawRoom: Б402
+          - &a44
+            date: 2026-11-13
+            group: РК1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Литература
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 7
+              rawGroupName: РК1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Литература
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: d2a7930b353db530f092926da43e55645a61af4638da68ce099ad69c0b60f0f5
+semanticHash: 7dbbf54306b6ec0d7cae6bc386119a6a47a41adf5c0d088530e1bf95045f636e

@@ -1653,7 +1653,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1706,8 +1706,55 @@ dates:
               rawReplacement: УП 01.01 п/гр 2 Тепляков А.Б.
               rawRoom: МТ106
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
     replacements:
       - *a45
       - *a46
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a47
+            date: 2026-11-13
+            group: МА1-11
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: Математика Кашурина Н.Н.
+              room: Б504
+            source:
+              shift: first
+              row: 61
+              rawGroupName: МА1-11
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: Математика Кашурина Н.Н.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a47
 diagnostics: []
-semanticHash: 9544de94cc370a73e8a54e4933dee39b7a8ed92217b8494dab9fa66147daa11d
+semanticHash: 369b164e39dd940e05580480b95c87b61e87232b7188edd90b2ba46e0e3f8f37

@@ -1420,7 +1420,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1487,9 +1487,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
     replacements:
       - *a38
       - *a39
       - *a40
+  2026-11-13:
+    date: 2026-11-13
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-13
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
+          fetchedAt: 2026-11-12T17:31:56.563Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af5ad8b-4688"
+          lastModified: Thu, 12 Nov 2026 12:14:03 GMT
+        replacements:
+          - &a41
+            date: 2026-11-13
+            group: РК2-11
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 30
+              rawGroupName: РК2-11
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 04.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a42
+            date: 2026-11-13
+            group: РК2-11
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Рус.яз.и культ.речи Новикова М.А.
+              room: В102
+            source:
+              shift: first
+              row: 31
+              rawGroupName: РК2-11
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Рус.яз.и культ.речи Новикова М.А.
+              rawRoom: В102
+        diagnostics: []
+    replacements:
+      - *a41
+      - *a42
 diagnostics: []
-semanticHash: 5456b471ef5375e98be2986aed8b2045f1da42ec4bc789633c8a0757afd8c04f
+semanticHash: c0050e515238fa706dddefabe42f301ca5268e8edd4688496117ecb53063f3f4

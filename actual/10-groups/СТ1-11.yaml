@@ -4922,7 +4922,7 @@ dates:
         date: 2026-11-12
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4932,11 +4932,15 @@ dates:
           shift: first
           etag: W/"6af46df8-5002"
           lastModified: Wed, 11 Nov 2026 13:30:32 GMT
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 13a484bee61d7f4c3bd4cab6073db5bec2c20e5346d8a812870b4e100c3e4f36
       second:
         date: 2026-11-12
         day: Четверг
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4946,6 +4950,10 @@ dates:
           shift: second
           etag: W/"6af45821-2040"
           lastModified: Wed, 11 Nov 2026 11:57:21 GMT
+        finalizedBy:
+          date: 2026-11-13
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
     groups:
       СТ1-11:
         group: СТ1-11
@@ -5055,6 +5063,55 @@ dates:
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Гаврилова М.А.
+                  room: А201
+                  weekType: both
+                  sourceRow: 29
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 29
+                rowEnd: 30
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Литература
+                  teacher: Шалаева А.А.
+                  room: А203
+                  weekType: numerator
+                  sourceRow: 31
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 31
+                rowEnd: 32
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Основы шахматной игры
+                  teacher: Грязева А.В.
+                  room: А202
+                  weekType: both
+                  sourceRow: 33
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 33
+                rowEnd: 34
+                rawGroupName: СТ1-11/СТ1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5083,4 +5140,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: cfb64fd2294edcda65215a004e5c63a95df32387866962a8a6ba4f23b9169f9f
+semanticHash: 116a5bf8d5e792730df42a5d6c2f675666eabc72cd5b008df06a3880b341ecc0
