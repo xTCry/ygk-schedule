@@ -3602,7 +3602,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3687,10 +3687,78 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
     replacements:
       - *a106
       - *a107
       - *a108
       - *a109
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+        replacements:
+          - &a110
+            date: 2026-11-14
+            group: СТ1-35
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Лапин И.В
+              room: А202
+            source:
+              shift: second
+              row: 26
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Лапин И.В
+              rawRoom: А202
+          - &a111
+            date: 2026-11-14
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Хухарева Н.Е.Гасенина М.П
+              room: Б409 Б510
+            source:
+              shift: second
+              row: 27
+              rawGroupName: СТ1-35
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 01.01
+              rawReplacement: Хухарева Н.Е.Гасенина М.П
+              rawRoom: Б409 Б510
+        diagnostics: []
+    replacements:
+      - *a110
+      - *a111
 diagnostics: []
-semanticHash: 58c92d3222cb326736d6686143302f190f9f35fbb1aa36984f7da350144a4a4b
+semanticHash: 8f88318039767ac3f85ba307ee8a2994e1d392ec68ead8c09b3903ee0573a3b0

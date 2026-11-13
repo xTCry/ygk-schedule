@@ -2206,7 +2206,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2294,10 +2294,56 @@ dates:
               rawReplacement: Физкульт. Куликова А.А
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
     replacements:
       - *a58
       - *a59
       - *a60
       - *a61
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+        replacements:
+          - &a62
+            date: 2026-11-14
+            group: ИС1-35
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: Комп.сети
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 11
+              rawGroupName: ИС1-35
+              rawLessonNumbers: "5"
+              rawOriginal: Комп.сети
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a62
 diagnostics: []
-semanticHash: ae341171de06c49530dda24cce07b9590bf4876a59c24edf7403a7aa3cfe9e2f
+semanticHash: 60856c75d952b0d26cf36f613a3e68c6e27bd06fed57bbed3b6c8bfd3d952afe

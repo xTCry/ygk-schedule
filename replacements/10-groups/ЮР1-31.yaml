@@ -623,7 +623,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -671,8 +671,74 @@ dates:
               rawReplacement: Муницмп.право Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
     replacements:
       - *a17
       - *a18
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+        replacements:
+          - &a19
+            date: 2026-11-14
+            group: ЮР1-31
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.03 Вечера Л.А.
+              room: Ф406
+            source:
+              shift: first
+              row: 40
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: МДК 01.03 Вечера Л.А.
+              rawRoom: Ф406
+          - &a20
+            date: 2026-11-14
+            group: ЮР1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 41
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a19
+      - *a20
 diagnostics: []
-semanticHash: e07ac0570b2d8e2ae0adbf124949ab79fbf03e472b404f8475709df979ceb64b
+semanticHash: 6e44f0e5c71fe0955813db701c835026ca059b1ec5779a6ebcc1b33b43f112eb

@@ -1151,7 +1151,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1182,8 +1182,75 @@ dates:
               rawReplacement: Экон.отрасли Малышева К.А.
               rawRoom: Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
     replacements:
       - *a26
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+        replacements:
+          - &a27
+            date: 2026-11-14
+            group: СТ1-45
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. Силантьева С.И.
+              room: ДОТ
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр. Силантьева С.И.
+              rawRoom: ДОТ
+          - &a28
+            date: 2026-11-14
+            group: СТ1-45
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: Экон.отрасли Малышева К.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.01
+              rawReplacement: Экон.отрасли Малышева К.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a27
+      - *a28
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1214,4 +1281,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 1a5649eddaa9d3d2252fbcbeaa3c48c0adb56af843a442d6bba176f4e1f21f24
+semanticHash: e4d990238b7eb3168ab775f900765dc30dbeb4401f079120d8cb047a86f7e5ca

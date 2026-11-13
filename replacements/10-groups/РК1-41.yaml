@@ -1801,7 +1801,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1831,8 +1831,54 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
     replacements:
       - *a44
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+        replacements:
+          - &a45
+            date: 2026-11-14
+            group: РК1-41
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Бобкова Е.А.
+              room: Б507
+            source:
+              shift: second
+              row: 18
+              rawGroupName: РК1-41
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Бобкова Е.А.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a45
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1863,4 +1909,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: ad554640b47e5595afdff693ee133b251ebbc21a628f5ab0c6e011a123510a64
+semanticHash: 3dab35b5f9d454d3e3097db5d662cb514247d0c0bc549f02ff112e7c1fea69f6

@@ -1752,7 +1752,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1802,8 +1802,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-14
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
     replacements:
       - *a46
       - *a47
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+        replacements:
+          - &a48
+            date: 2026-11-14
+            group: УД1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: История России
+            replacement:
+              raw: БЖ Акиничева М.А
+              room: Б409
+            source:
+              shift: first
+              row: 22
+              rawGroupName: УД1-21
+              rawLessonNumbers: "3"
+              rawOriginal: История России
+              rawReplacement: БЖ Акиничева М.А
+              rawRoom: Б409
+          - &a49
+            date: 2026-11-14
+            group: УД1-21
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: История России Коровкина А.М.
+              room: А202
+            source:
+              shift: first
+              row: 23
+              rawGroupName: УД1-21
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: История России Коровкина А.М.
+              rawRoom: А202
+        diagnostics: []
+    replacements:
+      - *a48
+      - *a49
 diagnostics: []
-semanticHash: 7aa0e985396581dcb687cfee491ee17eaa6cf91626068810b6678fcfd4111cf8
+semanticHash: cb920aef11af23d5da13b25d8daec87a27ee50c515928b9f68984f69f627de7d

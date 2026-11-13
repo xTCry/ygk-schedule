@@ -9157,6 +9157,143 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+    groups:
+      ТТ1-31:
+        group: ТТ1-31
+        date: 2026-11-14
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Информационные технологии в профессионалной деятельности
+                teacher: Яковлева Е.Н,
+                room: ДОТ
+                weekType: both
+                sourceRow: 139
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 139
+              rowEnd: 140
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК.05.01 Технология выполнения работ по рабочей профессии " Слесарь по
+                  ремонту оборудования тепловых сетей"
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 141
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 141
+              rowEnd: 142
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: МДК.05.01 Технология выполнения работ по рабочей профессии " Слесарь по
+                  ремонту оборудования тепловых сетей"
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                sourceRow: 143
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 143
+              rowEnd: 144
+              rawGroupName: ТТ1-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 01.01
+                teacher: Веселова И.Г.
+                room: Б407
+                weekType: both
+                rawSubject: МДК 01.01 Веселова И.Г.
+                rawTeacher: Веселова И.Г.
+                rawRoom: Б407
+                sourceRow: 27
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a54
+                  date: 2026-11-14
+                  group: ТТ1-31
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 01.01 Веселова И.Г.
+                    room: Б407
+                  source:
+                    shift: first
+                    row: 27
+                    rawGroupName: ТТ1-31
+                    rawLessonNumbers: 3,4
+                    rawOriginal: ""
+                    rawReplacement: МДК 01.01 Веселова И.Г.
+                    rawRoom: Б407
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: МДК 01.01
+                teacher: Веселова И.Г.
+                room: Б407
+                weekType: both
+                rawSubject: МДК 01.01 Веселова И.Г.
+                rawTeacher: Веселова И.Г.
+                rawRoom: Б407
+                sourceRow: 27
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a54
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9175,7 +9312,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: &a55
+      baseSourceFiles: &a56
         - oeis.xlsx
       requestedSubject: ..МДК 06.01 МДк 06.03
       candidates:
@@ -9251,7 +9388,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-31
-      baseSourceFiles: &a54
+      baseSourceFiles: &a55
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
@@ -9272,7 +9409,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: *a54
+      baseSourceFiles: *a55
       requestedSubject: МДК 06.01,06.02,06.02
       candidates:
         - subject: МДК.06.02Технология обслуживания и ремонта газового оборудования
@@ -9400,7 +9537,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ТТ1-31
-      baseSourceFiles: *a54
+      baseSourceFiles: *a55
       requestedSubject: МДК 06.01,06.02,06.02
       candidates:
         - subject: МДК.06.03Технология обслуживания и ремонта подземных трубопроводов и
@@ -9454,7 +9591,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ТТ1-31
-      baseSourceFiles: *a55
+      baseSourceFiles: *a56
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -9544,4 +9681,4 @@ diagnostics:
           sourceRow: 136
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e8e59cae314f5fad2572d1ddc9cbc68c8f16f57d389558268ebe478b6be96caa
+semanticHash: 55c9730a69a50b8cd9cc88243de9537a1d29713b9e42ab5cf534d26fba9cb8e3

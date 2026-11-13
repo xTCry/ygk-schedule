@@ -6272,6 +6272,107 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+    groups:
+      АР1-42:
+        group: АР1-42
+        date: 2026-11-14
+        day: Суббота
+        lessons:
+          - number: 4
+            variants:
+              - subject: Осн.экон.
+                teacher: Сафронова Л.Н.
+                room: В102
+                weekType: both
+                rawSubject: Осн.экон. Сафронова Л.Н.
+                rawTeacher: Сафронова Л.Н.
+                rawRoom: В102
+                sourceRow: 24
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 255
+              rowEnd: 256
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a11
+                  date: 2026-11-14
+                  group: АР1-42
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: Рисунок МДК 01.05
+                  replacement:
+                    raw: Осн.экон. Сафронова Л.Н.
+                    room: В102
+                  source:
+                    shift: second
+                    row: 24
+                    rawGroupName: АР1-42
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Рисунок МДК 01.05
+                    rawReplacement: Осн.экон. Сафронова Л.Н.
+                    rawRoom: В102
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Осн.экон.
+                teacher: Сафронова Л.Н.
+                room: В102
+                weekType: both
+                rawSubject: Осн.экон. Сафронова Л.Н.
+                rawTeacher: Сафронова Л.Н.
+                rawRoom: В102
+                sourceRow: 24
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 257
+              rowEnd: 258
+              rawGroupName: АР1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a11
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6398,4 +6499,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 5ab3dd82bd9d65df4c368324ac0e704bed8ea1b4a70aa086daf624befb541c77
+semanticHash: 38b274f358ac6447756072ba137e156e7ab0383a39a51613014fe7ce65e29e59

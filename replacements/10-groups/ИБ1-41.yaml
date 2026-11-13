@@ -2940,6 +2940,68 @@ dates:
           sourceSha256: c7abee761bcf3d50de1b0a22c3af655f662af7d6e6909584d900bf641433d0be
     replacements:
       - *a86
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+        replacements:
+          - &a87
+            date: 2026-11-14
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 03.01 пгр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 12
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01 пгр
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a88
+            date: 2026-11-14
+            group: ИБ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: УП03 Грехова Е.И.Зайцев Р.А
+              room: Б304Б305
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Эф.поведение
+              rawReplacement: УП03 Грехова Е.И.Зайцев Р.А
+              rawRoom: Б304Б305
+        diagnostics: []
+    replacements:
+      - *a87
+      - *a88
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2970,4 +3032,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: 0241122942977d2ad12cb04db8ed9cb86c8f20e8894ffbac70452560e01ddc91
+semanticHash: bc814000199137eb3041c677f54fa351e7c494b34070ffae568bc49a9302e56e

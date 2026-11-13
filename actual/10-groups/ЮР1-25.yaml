@@ -7626,6 +7626,161 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+    groups:
+      ЮР1-25:
+        group: ЮР1-25
+        date: 2026-11-14
+        day: Суббота
+        lessons:
+          - number: 2
+            variants: []
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 146
+              rowEnd: 147
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-14
+                  group: ЮР1-25
+                  lessonNumbers:
+                    - 2
+                  type: cancel
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 2
+                    rawGroupName: ЮР1-25
+                    rawLessonNumbers: "2"
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: Конст.право
+                teacher: Богданова В.В.
+                room: ДОТ
+                weekType: both
+                rawSubject: Конст.право Богданова В.В.
+                rawTeacher: Богданова В.В.
+                rawRoom: ДОТ
+                sourceRow: 3
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 148
+              rowEnd: 149
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a13
+                  date: 2026-11-14
+                  group: ЮР1-25
+                  lessonNumbers:
+                    - 3
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 03.01, Ин.язык
+                  replacement:
+                    raw: Конст.право Богданова В.В.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 3
+                    rawGroupName: ЮР1-25
+                    rawLessonNumbers: 3-5
+                    rawOriginal: МДК 03.01, Ин.язык
+                    rawReplacement: Конст.право Богданова В.В.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: Конст.право
+                teacher: Богданова В.В.
+                room: ДОТ
+                weekType: both
+                subgroup: "1"
+                rawSubject: Конст.право Богданова В.В.
+                rawTeacher: Богданова В.В.
+                rawRoom: ДОТ
+                sourceRow: 3
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 150
+              rowEnd: 151
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Конст.право
+                teacher: Богданова В.В.
+                room: ДОТ
+                weekType: both
+                subgroup: "1"
+                rawSubject: Конст.право Богданова В.В.
+                rawTeacher: Богданова В.В.
+                rawRoom: ДОТ
+                sourceRow: 3
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 152
+              rowEnd: 153
+              rawGroupName: ЮР1-25 / ЮР1-26
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 5
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7671,7 +7826,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: &a13
+      baseSourceFiles: &a14
         - out.xlsx
       requestedSubject: Ркс.яз. История России
       candidates:
@@ -7729,7 +7884,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: *a13
+      baseSourceFiles: *a14
       requestedSubject: Ркс.яз. История России
       candidates:
         - subject: МДК 03.01 Право социального обеспечения
@@ -7755,7 +7910,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЮР1-25
-      baseSourceFiles: &a14
+      baseSourceFiles: &a15
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
@@ -7776,7 +7931,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-25
-      baseSourceFiles: *a14
+      baseSourceFiles: *a15
       requestedSubject: ...ИТ
       candidates:
         - subject: Информационные технологии в юридической деятельности
@@ -7785,4 +7940,4 @@ diagnostics:
           sourceRow: 129
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a2c9b7d56ad8868f20e59c11d613d99bd68e698abcc983e6b57b1196ac91abae
+semanticHash: e2a885b18201823570a0bbdc3efcefadcff3c2943fc0856486325559764b67b4

@@ -6230,6 +6230,109 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-14:
+    date: 2026-11-14
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
+          fetchedAt: 2026-11-13T17:09:08.963Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af6ca12-2bb5"
+          lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+      second:
+        date: 2026-11-14
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+          fetchedAt: 2026-11-13T17:09:08.929Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af6ea9c-1c11"
+          lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+    groups:
+      СТ1-33:
+        group: СТ1-33
+        date: 2026-11-14
+        day: Суббота
+        lessons:
+          - number: 4
+            variants:
+              - subject: Осн.философии
+                teacher: Утешев В.В
+                room: Б110, Б502
+                weekType: both
+                rawSubject: Осн.философии Утешев В.В
+                rawTeacher: Утешев В.В
+                rawRoom: Б110, Б502
+                sourceRow: 28
+            source:
+              sheet: CТ 3 курс
+              rowStart: 98
+              rowEnd: 99
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a4
+                  date: 2026-11-14
+                  group: СТ1-33
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: .. МДК 01.01
+                  replacement:
+                    raw: Осн.философии Утешев В.В
+                    room: Б110, Б502
+                  source:
+                    shift: second
+                    row: 28
+                    rawGroupName: СТ1-33
+                    rawLessonNumbers: 3,4
+                    rawOriginal: .. МДК 01.01
+                    rawReplacement: Осн.философии Утешев В.В
+                    rawRoom: Б110, Б502
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: Физическая культура
+                teacher: Герман О.Г.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 100
+            source:
+              sheet: CТ 3 курс
+              rowStart: 100
+              rowEnd: 101
+              rawGroupName: СТ1-33/СТ1-34/СТ1-37
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a4
+            lessonNumber: 3
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «.. МДК 01.01». По замене: «Осн.философии Утешев
+                В.В». Аудитория: «Б110, Б502»."
+              room: Б110, Б502
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6256,6 +6359,27 @@ diagnostics:
           teacher: Секацкая Н. А.
           room: Б502
           sourceRow: 73
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: e5ab315bfb0f08c83fabe9f5ef3753e2654d1bee65ac16c05528d75114b51ee2
+    sheet: "Замены: Вторая смена"
+    row: 28
+    normalizedGroup: СТ1-33
+    rawValue: Осн.философии Утешев В.В
+    context:
+      date: 2026-11-14
+      shift: second
+      sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
+      lessonNumber: 3
+      type: replace
+      reason: lesson-not-found
+      baseGroup: СТ1-33
+      baseSourceFiles:
+        - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
@@ -6289,4 +6413,4 @@ diagnostics:
           sourceRow: 57
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 1da96e25aa81ad4dc503ef06225b34cc37d0eb5bd35a7bf04260bf449136e4e8
+semanticHash: 946e80897f106a2b65fb191fcc72ee8e8c7b8963075b6f739302e8b098224039
