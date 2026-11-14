@@ -1198,7 +1198,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1248,9 +1248,56 @@ dates:
               rawReplacement: Экон.отрасли Малышева К.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
     replacements:
       - *a27
       - *a28
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a29
+            date: 2026-11-16
+            group: СТ1-45
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 01.02
+            replacement:
+              raw: 1,2 п/гр.МДК 01.02 КП Силантьева С.И.
+              room: Б501
+            source:
+              shift: first
+              row: 7
+              rawGroupName: СТ1-45
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 МДК 01.02
+              rawReplacement: 1,2 п/гр.МДК 01.02 КП Силантьева С.И.
+              rawRoom: Б501
+        diagnostics: []
+    replacements:
+      - *a29
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1281,4 +1328,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: e4d990238b7eb3168ab775f900765dc30dbeb4401f079120d8cb047a86f7e5ca
+semanticHash: 90cf60fc46c9bf491d458c39bd1efe94633e8d6908dcbb1bc49f0a0564222108

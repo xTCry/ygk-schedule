@@ -3377,6 +3377,70 @@ dates:
           sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
     replacements:
       - *a102
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a103
+            date: 2026-11-16
+            group: ДИ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Живопись
+            replacement:
+              raw: Тарасова Н.А.Иванов Ю.А.
+              room: Б207Б208
+            source:
+              shift: second
+              row: 40
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Живопись
+              rawReplacement: Тарасова Н.А.Иванов Ю.А.
+              rawRoom: Б207Б208
+          - &a104
+            date: 2026-11-16
+            group: ДИ1-41
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.02...
+            replacement:
+              raw: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+              room: Б407,Б309
+            source:
+              shift: second
+              row: 41
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.02...
+              rawReplacement: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+              rawRoom: Б407,Б309
+        diagnostics: []
+    replacements:
+      - *a103
+      - *a104
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3407,4 +3471,4 @@ diagnostics:
       date: 2026-09-24
       shift: second
       sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
-semanticHash: 1993ba18f5a41ac8f9880e2284480930154b1fae229e8e5577706220a842f0a6
+semanticHash: 2cd1cca7c6ba914a6bf89c111166aa2cda86bc9a016db6b730e6a00f03b79095

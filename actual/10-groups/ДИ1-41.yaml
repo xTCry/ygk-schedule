@@ -9721,6 +9721,147 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      ДИ1-41:
+        group: ДИ1-41
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 4
+            variants:
+              - subject: Живопись с основами цветоведения
+                teacher: |-
+                  Вакансия
+                  Иванов Ю.А.
+                room: Б207Б208
+                weekType: both
+                rawSubject: Тарасова Н.А.Иванов Ю.А.
+                rawRoom: Б207Б208
+                sourceRow: 40
+            source:
+              sheet: ДИ-4курс
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: ДИ1-41
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: Живопись
+                  replacement:
+                    raw: Тарасова Н.А.Иванов Ю.А.
+                    room: Б207Б208
+                  source:
+                    shift: second
+                    row: 40
+                    rawGroupName: ДИ1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: Живопись
+                    rawReplacement: Тарасова Н.А.Иванов Ю.А.
+                    rawRoom: Б207Б208
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: МДК 01.02
+                teacher: Выблова Т.В.
+                room: Б407,Б309
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: Б407,Б309
+                sourceRow: 41
+            source:
+              sheet: ДИ-4курс
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a14
+                  date: 2026-11-16
+                  group: ДИ1-41
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: МДК 01.02...
+                  replacement:
+                    raw: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+                    room: Б407,Б309
+                  source:
+                    shift: second
+                    row: 41
+                    rawGroupName: ДИ1-41
+                    rawLessonNumbers: 5,6
+                    rawOriginal: МДК 01.02...
+                    rawReplacement: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+                    rawRoom: Б407,Б309
+                lessonNumber: 5
+                strategy: subject-module-code
+          - number: 6
+            variants:
+              - subject: МДК 01.02
+                teacher: Выблова Т.В.
+                room: Б407,Б309
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 01.02 Выблова Т.В.
+                rawTeacher: Выблова Т.В.
+                rawRoom: Б407,Б309
+                sourceRow: 41
+            source:
+              sheet: ДИ-4курс
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: ДИ1-41/1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a14
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9869,4 +10010,4 @@ diagnostics:
           sourceRow: 46
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: c01425e4f9a51f3a8be86ee35c5b3b8645d0ecda66bb5a70aeed7cfc9c42cc6d
+semanticHash: d807e199ab030f9cac1b193943ec064aa9a0bbdc46fc7a901439b693052066b7

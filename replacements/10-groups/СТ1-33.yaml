@@ -1724,7 +1724,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1756,7 +1756,73 @@ dates:
               rawReplacement: Осн.философии Утешев В.В
               rawRoom: Б110, Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
     replacements:
       - *a45
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a46
+            date: 2026-11-16
+            group: СТ1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Осн.философии
+            replacement:
+              raw: Утешев В.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 9
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "5"
+              rawOriginal: Осн.философии
+              rawReplacement: Утешев В.В.
+              rawRoom: ДОТ
+          - &a47
+            date: 2026-11-16
+            group: СТ1-33
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: Иня.язык Девлитянс О.В.Махрова Н.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 10
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: Иня.язык Девлитянс О.В.Махрова Н.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a46
+      - *a47
 diagnostics: []
-semanticHash: bf71815da6f38d9b088f73e6eab1d6143bc446f11b8a7d0720374a91de911ee1
+semanticHash: e7756847565fcba401af8e10aa489778064e72822e8113304696d97d011ef09f

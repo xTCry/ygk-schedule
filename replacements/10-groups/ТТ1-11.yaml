@@ -1534,7 +1534,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1565,7 +1565,53 @@ dates:
               rawReplacement: ОБиЗР Петровский О.В.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
     replacements:
       - *a38
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a39
+            date: 2026-11-16
+            group: ТТ1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Разговоры
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 37
+              rawGroupName: ТТ1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Разговоры
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a39
 diagnostics: []
-semanticHash: 27f4911cddd01e102263ff6b3533f819974943a26b7810f8a7e7d10c59a8b97d
+semanticHash: eced35503d27981c3d75f6b236a476e05cf7a1b1238153860f19323d92ff2e12

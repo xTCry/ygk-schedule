@@ -1932,7 +1932,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1963,7 +1963,53 @@ dates:
               rawReplacement: 1,2 п/гр. Ткаченко Г.А.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
     replacements:
       - *a53
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a54
+            date: 2026-11-16
+            group: АР1-21
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: МДК 01.03 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 26
+              rawGroupName: АР1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.03 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a54
 diagnostics: []
-semanticHash: c7977aef15697a78a19fe23722d9b6416ef74640ad65fe414bee42be8f9c0c61
+semanticHash: fad225d257b4ea81fd9fd5b1c0ac6814c86f33c7ad301afec668745f8e5dc234

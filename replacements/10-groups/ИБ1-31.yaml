@@ -3063,7 +3063,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3113,8 +3113,75 @@ dates:
               rawReplacement: Орг-прав.обесп Ершов И.Л
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
     replacements:
       - *a82
       - *a83
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a84
+            date: 2026-11-16
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 20
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+          - &a85
+            date: 2026-11-16
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: Орг.прав.Электротех.
+            replacement:
+              raw: ОПОИБ Ершов И.Л.
+              room: Б110
+            source:
+              shift: second
+              row: 21
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: Орг.прав.Электротех.
+              rawReplacement: ОПОИБ Ершов И.Л.
+              rawRoom: Б110
+        diagnostics: []
+    replacements:
+      - *a84
+      - *a85
 diagnostics: []
-semanticHash: a5157c9edb48f36947dcd461d0f376c3e780a239a114a13e04e23b0e61deb156
+semanticHash: 90bdd2322d2f5ac62e7889bd7502b9883eea30ab397cfc0169389eb590359e6d

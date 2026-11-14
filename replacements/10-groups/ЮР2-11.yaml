@@ -2516,7 +2516,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2566,8 +2566,73 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
     replacements:
       - *a79
       - *a80
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a81
+            date: 2026-11-16
+            group: ЮР2-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: История России
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 68
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "0"
+              rawOriginal: История России
+              rawReplacement: снято
+              rawRoom: ""
+          - &a82
+            date: 2026-11-16
+            group: ЮР2-11
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Конст.право Богданова В.В.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 69
+              rawGroupName: ЮР2-11
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Конст.право Богданова В.В.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a81
+      - *a82
 diagnostics: []
-semanticHash: ed015ba7d63cae768ea514c33f88e8280af53c60cf7fc0811720aed7f51f0723
+semanticHash: dd8c38da3f49e6b048bcb56ded259d0596b41d87c86227ef1f5bff88c74db32a

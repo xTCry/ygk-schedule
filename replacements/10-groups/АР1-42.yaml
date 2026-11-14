@@ -1917,7 +1917,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1949,8 +1949,75 @@ dates:
               rawReplacement: Осн.экон. Сафронова Л.Н.
               rawRoom: В102
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
     replacements:
       - *a47
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a48
+            date: 2026-11-16
+            group: АР1-42
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05 Т.5.3.
+            replacement:
+              raw: МДК 02.02 Гасенина М.П.
+              room: ДОТ
+            source:
+              shift: second
+              row: 24
+              rawGroupName: АР1-42
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05 Т.5.3.
+              rawReplacement: МДК 02.02 Гасенина М.П.
+              rawRoom: ДОТ
+          - &a49
+            date: 2026-11-16
+            group: АР1-42
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Ин.язык Ткаченко Г.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 25
+              rawGroupName: АР1-42
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: Ин.язык Ткаченко Г.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a48
+      - *a49
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1981,4 +2048,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: f7fe91ac5a20035c8acaf1f4184f505adaba42181c9084b49404bf10aab03cda
+semanticHash: 8197cc139a6d0f42bf13a2c6309077c6e0c4a9c81a90d1d327c4e5a145c7adfc

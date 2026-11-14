@@ -506,7 +506,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a10
                   date: 2026-09-14
                   group: ТУ1-21
                   lessonNumbers:
@@ -4702,6 +4702,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      ТУ1-21:
+        group: ТУ1-21
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Инф.экс.
+                teacher: Тюленева В.О.
+                room: Ф202
+                weekType: both
+                rawSubject: Инф.экс.Тюленева В.О.
+                rawTeacher: Тюленева В.О.
+                rawRoom: Ф202
+                sourceRow: 8
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: БЖ
+                  replacement:
+                    raw: Инф.экс.Тюленева В.О.
+                    room: Ф202
+                  source:
+                    shift: second
+                    row: 8
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: "2"
+                    rawOriginal: БЖ
+                    rawReplacement: Инф.экс.Тюленева В.О.
+                    rawRoom: Ф202
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Горбачев В.Н.
+                room: Ф107
+                weekType: both
+                sourceRow: 56
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: МДК.03.01 Выполнение функций ассистента экскурсовода (гида)
+                teacher: Леонтьева А.С.
+                room: Ф107
+                weekType: both
+                rawSubject: Леонтьева А.С.
+                rawTeacher: Леонтьева А.С.
+                rawRoom: Ф107
+                sourceRow: 7
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a10
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: Основы финансовой грамотности
+                teacher: Сафронова Л.Н
+                room: Ф302
+                weekType: both
+                rawSubject: "Основы финансовой грамотности "
+                sourceRow: 60
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 60
+              rowEnd: 61
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4757,4 +4888,4 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 9f01b041a417916ddee431b66919eaec299d839d4f98844669cf5d011764e26a
+semanticHash: a537588b3982be4c9da6f83c2930ae27550c0006909c1af7e72b52c598259da7

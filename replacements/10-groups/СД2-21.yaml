@@ -2116,7 +2116,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2148,7 +2148,93 @@ dates:
               rawReplacement: Лапин И.В
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
     replacements:
       - *a56
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a57
+            date: 2026-11-16
+            group: СД2-21
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.01 Т.1.1.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 14
+              rawGroupName: СД2-21
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01 Т.1.1.
+              rawReplacement: снято
+              rawRoom: ""
+          - &a58
+            date: 2026-11-16
+            group: СД2-21
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01 Т.2.1.
+            replacement:
+              raw: МДК 01.01 Т.2.2. Ткачев М.С.
+              room: Б503
+            source:
+              shift: second
+              row: 15
+              rawGroupName: СД2-21
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01 Т.2.1.
+              rawReplacement: МДК 01.01 Т.2.2. Ткачев М.С.
+              rawRoom: Б503
+          - &a59
+            date: 2026-11-16
+            group: СД2-21
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 Т.2.1.МДК 02.02
+            replacement:
+              raw: МДК 02.02 Лапин И.В.
+              room: Б503
+            source:
+              shift: second
+              row: 16
+              rawGroupName: СД2-21
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01 Т.2.1.МДК 02.02
+              rawReplacement: МДК 02.02 Лапин И.В.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a57
+      - *a58
+      - *a59
 diagnostics: []
-semanticHash: 319a0aba5a2d7666371f0d5c81c7475aa6b5f8e540edd8c370c9bb0286111545
+semanticHash: 902fb4aa1ee05d0b601ac080ec95030e0894a9b63fd6cc9a67cfc48a5ca9d9e0

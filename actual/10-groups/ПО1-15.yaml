@@ -6175,7 +6175,7 @@ dates:
         date: 2026-11-14
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -6185,11 +6185,15 @@ dates:
           shift: first
           etag: W/"6af6ca12-2bb5"
           lastModified: Fri, 13 Nov 2026 08:28:02 GMT
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
       second:
         date: 2026-11-14
         day: Суббота
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -6199,6 +6203,10 @@ dates:
           shift: second
           etag: W/"6af6ea9c-1c11"
           lastModified: Fri, 13 Nov 2026 10:46:52 GMT
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
     groups:
       ПО1-15:
         group: ПО1-15
@@ -6259,6 +6267,185 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
             replacements: []
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Загородних Е.С.
+                    Мишуринская Е.Ю.
+                  room: Б202
+                  weekType: both
+                  sourceRow: 144
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 144
+                rowEnd: 145
+                rawGroupName: ПО1-15/ПО-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Биология
+                  teacher: Козырева Д.А.
+                  room: Б202
+                  weekType: both
+                  sourceRow: 146
+              source:
+                sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+                rowStart: 146
+                rowEnd: 147
+                rawGroupName: ПО1-15/ПО-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      ПО1-15:
+        group: ПО1-15
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 101
+              rowEnd: 102
+              rawGroupName: ПО1-15/ПО-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: ПО1-15
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 35
+                    rawGroupName: ПО1-15
+                    rawLessonNumbers: "0"
+                    rawOriginal: Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-word-mention
+          - number: 1
+            variants:
+              - subject: Обществознание
+                teacher: Залевская Е.Н.
+                room: В102
+                weekType: denominator
+                sourceRow: 104
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 103
+              rowEnd: 104
+              rawGroupName: ПО1-15/ПО-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Куликова А.А.
+                room: Сп.зал
+                weekType: both
+                sourceRow: 105
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: ПО1-15/ПО-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Цеглярская О.А.
+                room: Б202
+                weekType: both
+                sourceRow: 107
+              - subject: Математика
+                teacher: Цеглярская О.А.
+                room: В102
+                weekType: both
+                rawSubject: Математика Цеглярская О.А.
+                rawTeacher: Цеглярская О.А.
+                rawRoom: В102
+                sourceRow: 36
+            source:
+              sheet: ПО1-11ПО1-13ПО1-15СА1-11ИБ1-11
+              rowStart: 107
+              rowEnd: 108
+              rawGroupName: ПО1-15/ПО-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: ПО1-15
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Математика Цеглярская О.А.
+                    room: В102
+                  source:
+                    shift: first
+                    row: 36
+                    rawGroupName: ПО1-15
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Математика Цеглярская О.А.
+                    rawRoom: В102
+                lessonNumber: 3
+                strategy: add
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -6330,4 +6517,4 @@ diagnostics:
           sourceRow: 132
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1559ac3dd85d95d16fa4986d77f4685260056eeffff94bc0740baf6f18209edc
+semanticHash: 1e362d16c043210e4f37c0e281bc9e3d245f4854bffbc25a96177ce7a9a5ce00

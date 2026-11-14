@@ -7685,6 +7685,145 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      СТ1-19:
+        group: СТ1-19
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: Основы шахматной игры
+                teacher: Грязева А.В.
+                room: Б409
+                weekType: both
+                sourceRow: 206
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 206
+              rowEnd: 207
+              rawGroupName: СТ1-19
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физкультура
+                teacher: Герман О.Г.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Герман О.Г.
+                rawTeacher: Герман О.Г.
+                rawRoom: Сп.зал
+                sourceRow: 33
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 208
+              rowEnd: 209
+              rawGroupName: СТ1-19
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: СТ1-19
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Биология
+                  replacement:
+                    raw: Физкультура Герман О.Г.
+                    room: Сп.зал
+                  source:
+                    shift: first
+                    row: 33
+                    rawGroupName: СТ1-19
+                    rawLessonNumbers: "2"
+                    rawOriginal: Биология
+                    rawReplacement: Физкультура Герман О.Г.
+                    rawRoom: Сп.зал
+                lessonNumber: 2
+                strategy: exact-subject
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: М208
+                weekType: both
+                sourceRow: 210
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 210
+              rowEnd: 211
+              rawGroupName: СТ1-19
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants: []
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 212
+              rowEnd: 213
+              rawGroupName: СТ1-19
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: СТ1-19
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Разговоры
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 31
+                    rawGroupName: СТ1-19
+                    rawLessonNumbers: "4"
+                    rawOriginal: Разговоры
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7707,4 +7846,4 @@ diagnostics:
         - so.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 040384c320b073a8e18ae2f9f7fcfc59b3d5abfc7962c1990e17b3f401bd322b
+semanticHash: 100572043ee6720753450817a2a70fbc269a1f7e0a220000e5e6e189eedaf13d

@@ -740,6 +740,69 @@ dates:
     replacements:
       - *a18
       - *a19
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a20
+            date: 2026-11-16
+            group: СТ1-43
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: УП п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СТ1-43
+              rawLessonNumbers: "1"
+              rawOriginal: УП п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a21
+            date: 2026-11-16
+            group: СТ1-43
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: УП п/гр.2
+            replacement:
+              raw: Ткачев М.С.
+              room: Б504
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СТ1-43
+              rawLessonNumbers: 2,3
+              rawOriginal: УП п/гр.2
+              rawReplacement: Ткачев М.С.
+              rawRoom: Б504
+        diagnostics: []
+    replacements:
+      - *a20
+      - *a21
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -770,4 +833,4 @@ diagnostics:
       date: 2026-09-23
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
-semanticHash: 965045706224619bcad68eed053dbb7a24fb6659c6b9cc20af54ce8ab9d15429
+semanticHash: fd3e60e1c10ce0713178596aaf1054694258681113b5f7f736cbeb5ac2719534

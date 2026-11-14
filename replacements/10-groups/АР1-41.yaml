@@ -2186,6 +2186,68 @@ dates:
           sourceSha256: b56017660fd1688537365831239837a00264d805e36a7c665402ff21e084e7da
     replacements:
       - *a58
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        replacements:
+          - &a59
+            date: 2026-11-16
+            group: АР1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 38
+              rawGroupName: АР1-41
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a60
+            date: 2026-11-16
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.05 Т.5.3.
+            replacement:
+              raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 39
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 Т.5.3.
+              rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a59
+      - *a60
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2216,4 +2278,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: b1b0041c27867a09ce2cfa6f44c9bdc12f2c978d50d620a70e9204071351a1ad
+semanticHash: d7bd2c432713766a5a61495986398cb0ae4ce117f039547f60af23fbe3f4619f

@@ -2528,6 +2528,149 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      СТ1-43:
+        group: СТ1-43
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 1
+            variants:
+              - subject: МДК.03.01 Т.1.3. Правовое обеспечение профессиональной деятельности
+                teacher: Серых Л.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 53
+            source:
+              sheet: СТ 4 курс
+              rowStart: 53
+              rowEnd: 54
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Общие сведения об инженерных сетях территорий и зданий
+                teacher: Нечипорук.О.Л.
+                room: ДОТ
+                weekType: both
+                sourceRow: 55
+            source:
+              sheet: СТ 4 курс
+              rowStart: 55
+              rowEnd: 56
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физическая культура
+                teacher: Герман О.Г.
+                room: ДОТ
+                weekType: both
+                sourceRow: 57
+            source:
+              sheet: СТ 4 курс
+              rowStart: 57
+              rowEnd: 58
+              rawGroupName: СТ1-43/СТ1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-11-16
+              group: СТ1-43
+              lessonNumbers:
+                - 1
+              type: cancel
+              original:
+                raw: УП п/гр.2
+              replacement:
+                raw: снято
+              source:
+                shift: first
+                row: 17
+                rawGroupName: СТ1-43
+                rawLessonNumbers: "1"
+                rawOriginal: УП п/гр.2
+                rawReplacement: снято
+                rawRoom: ""
+            lessonNumber: 1
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП п/гр.2». По замене: «снято»."
+          - replacement: &a5
+              date: 2026-11-16
+              group: СТ1-43
+              lessonNumbers:
+                - 2
+                - 3
+              type: replace
+              original:
+                raw: УП п/гр.2
+              replacement:
+                raw: Ткачев М.С.
+                room: Б504
+              source:
+                shift: first
+                row: 18
+                rawGroupName: СТ1-43
+                rawLessonNumbers: 2,3
+                rawOriginal: УП п/гр.2
+                rawReplacement: Ткачев М.С.
+                rawRoom: Б504
+            lessonNumber: 2
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП п/гр.2». По замене: «Ткачев М.С.». Аудитория:
+                «Б504»."
+              room: Б504
+          - replacement: *a5
+            lessonNumber: 3
+            reason: subgroup-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «УП п/гр.2». По замене: «Ткачев М.С.». Аудитория:
+                «Б504»."
+              room: Б504
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2544,6 +2687,92 @@ diagnostics:
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
   - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: 659134d27e952ffb9198c6d4969855eb5f206c789abff12c2cc9e709527dfc34
+    sheet: "Замены: Первая смена"
+    row: 18
+    normalizedGroup: СТ1-43
+    rawValue: Ткачев М.С.
+    context:
+      date: 2026-11-16
+      shift: first
+      sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+      lessonNumber: 2
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: СТ1-43
+      baseSourceFiles: &a6
+        - so.xlsx
+      requestedSubject: УП
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: Общие сведения об инженерных сетях территорий и зданий
+          teacher: Нечипорук.О.Л.
+          room: ДОТ
+          sourceRow: 55
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: ba8b7f9f78d3cb87ae4219f1f687d25d5a31a1372a320021388cbcabc77f3413
+    sheet: "Замены: Первая смена"
+    row: 17
+    normalizedGroup: СТ1-43
+    rawValue: снято
+    context:
+      date: 2026-11-16
+      shift: first
+      sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+      lessonNumber: 1
+      type: cancel
+      reason: subgroup-not-matched
+      baseGroup: СТ1-43
+      baseSourceFiles:
+        - so.xlsx
+      requestedSubject: УП
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: МДК.03.01 Т.1.3. Правовое обеспечение профессиональной деятельности
+          teacher: Серых Л.В.
+          room: ДОТ
+          sourceRow: 53
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Подгруппа из замены не проводится в базовом расписании в эту неделю
+    fingerprint: d06b0857c72fce407721ab82ab867a58b680adcdb32b5388ba93cd6f66497f83
+    sheet: "Замены: Первая смена"
+    row: 18
+    normalizedGroup: СТ1-43
+    rawValue: Ткачев М.С.
+    context:
+      date: 2026-11-16
+      shift: first
+      sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+      lessonNumber: 3
+      type: replace
+      reason: subgroup-not-matched
+      baseGroup: СТ1-43
+      baseSourceFiles: *a6
+      requestedSubject: УП
+      requestedSubgroups:
+        - "2"
+      candidates:
+        - subject: Физическая культура
+          teacher: Герман О.Г.
+          room: ДОТ
+          sourceRow: 57
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
     severity: warning
     message: Строка замен не содержит данных, достаточных для определения действия
@@ -2558,4 +2787,4 @@ diagnostics:
       date: 2026-09-23
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
-semanticHash: 4a9e242b9747697b717b724cca0541b5ce24a99b602930a51fe02ea17126b9eb
+semanticHash: 1028a624728e5976d5153b27845db64e1b0461a7ee1c2565074cc8627a722f18

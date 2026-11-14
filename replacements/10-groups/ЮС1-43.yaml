@@ -647,7 +647,7 @@ dates:
         day: Суббота
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -679,8 +679,74 @@ dates:
               rawReplacement: МДК 04.01 Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-16
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
     replacements:
       - *a17
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        replacements:
+          - &a18
+            date: 2026-11-16
+            group: ЮС1-43
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Экон.организации Сафронова Л.Н.
+              room: Ф302
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: Экон.организации Сафронова Л.Н.
+              rawRoom: Ф302
+          - &a19
+            date: 2026-11-16
+            group: ЮС1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 72
+              rawGroupName: ЮС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a18
+      - *a19
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -711,4 +777,4 @@ diagnostics:
       date: 2026-09-21
       shift: first
       sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
-semanticHash: 28a16e2e34e7016158839c8391ea24fc64691bf2b8e380290d5e971fe6e08e28
+semanticHash: fc4aa1435fe5aeb95514b7104216b0d98d4260de2cbf6fdf15c8fe310d60c519

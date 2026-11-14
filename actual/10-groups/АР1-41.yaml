@@ -7531,6 +7531,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-16:
+    date: 2026-11-16
+    day: Понедельник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 78d334953a066f4c1b10e84e0ca8ad06061443829d337e5522f90ff970246d66
+          fetchedAt: 2026-11-14T15:44:21.102Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6af82d26-565a"
+          lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+      second:
+        date: 2026-11-16
+        day: Понедельник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e924ecec207f7dd083901d88261074dbde5fa54721b74e9ec3e577bc1587d740
+          fetchedAt: 2026-11-14T15:44:21.118Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6af84f8b-285e"
+          lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+    groups:
+      АР1-41:
+        group: АР1-41
+        date: 2026-11-16
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 01.05 Конструкции зданий и сооружений с элементами статики Т.5.1
+                teacher: Балина С.А.
+                room: Б503
+                weekType: both
+                sourceRow: 159
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 159
+              rowEnd: 160
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Ткаченко Г.А.
+                  Мишуринская Е.Ю.
+                room: ДОТ
+                weekType: both
+                sourceRow: 161
+                rawRoom: ДОТ
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 161
+              rowEnd: 162
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: АР1-41
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 38
+                    rawGroupName: АР1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: scheduled-room
+          - number: 5
+            variants:
+              - subject: Рисунок
+                teacher: Вакансия
+                room: ДОТ
+                weekType: both
+                rawSubject: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                rawRoom: ДОТ
+                sourceRow: 39
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 163
+              rowEnd: 164
+              rawGroupName: АР1-41
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-16
+                  group: АР1-41
+                  lessonNumbers:
+                    - 5
+                  type: replace
+                  original:
+                    raw: МДК 01.05 Т.5.3.
+                  replacement:
+                    raw: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 39
+                    rawGroupName: АР1-41
+                    rawLessonNumbers: "5"
+                    rawOriginal: МДК 01.05 Т.5.3.
+                    rawReplacement: Рисунок Багдасарьян В.В.Багдасарьян О.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7687,4 +7818,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: 979623dd3cef7fa9ce584c8f2862f15da09140a691b873c6cd55f63f172d4615
+semanticHash: 3496da3515eb0d200a97f46210496f703dea52ae436b8b2f5e95e694638c25cc
