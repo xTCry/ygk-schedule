@@ -7187,6 +7187,172 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
+          fetchedAt: 2026-11-16T19:31:15.252Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afac083-5349"
+          lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+    groups:
+      ЮР1-21:
+        group: ЮР1-21
+        date: 2026-11-17
+        day: Вторник
+        lessons:
+          - number: 2
+            variants:
+              - subject: Теория государства и права
+                teacher: Вечера Л.А.
+                room: Ф406
+                weekType: both
+                sourceRow: 11
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 11
+              rowEnd: 12
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Конст.право
+                teacher: Богданова В.В.
+                room: Ф201
+                weekType: both
+                rawSubject: Конст.право Богданова В.В.
+                rawTeacher: Богданова В.В.
+                rawRoom: Ф201
+                sourceRow: 6
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 13
+              rowEnd: 14
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: ЮР1-21
+                  lessonNumbers:
+                    - 3
+                  type: replace
+                  original:
+                    raw: История России
+                  replacement:
+                    raw: Конст.право Богданова В.В.
+                    room: Ф201
+                  source:
+                    shift: second
+                    row: 6
+                    rawGroupName: ЮР1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: История России
+                    rawReplacement: Конст.право Богданова В.В.
+                    rawRoom: Ф201
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Документационное обеспечение управления
+                teacher: Нестерова А.В.
+                room: Ф306
+                weekType: both
+                rawSubject: /теория Нестерова А.В.
+                rawTeacher: Нестерова А.В.
+                rawRoom: Ф306
+                sourceRow: 5
+            source:
+              sheet: ЮР1-21 ЮР1-23 ЮР1-25
+              rowStart: 15
+              rowEnd: 16
+              rawGroupName: ЮР1-21 / ЮР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: ЮР1-21
+                  lessonNumbers:
+                    - 4
+                  type: replace
+                  original:
+                    raw: ДОУ
+                  replacement:
+                    raw: /теория Нестерова А.В.
+                    room: Ф306
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ЮР1-21
+                    rawLessonNumbers: "4"
+                    rawOriginal: ДОУ
+                    rawReplacement: /теория Нестерова А.В.
+                    rawRoom: Ф306
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: МДК 03.01
+                teacher: Ребрищева Л.П.
+                room: Ф206
+                weekType: both
+                rawSubject: МДК 03.01 Ребрищева Л.П.
+                rawTeacher: Ребрищева Л.П.
+                rawRoom: Ф206
+                sourceRow: 7
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: ЮР1-21
+                  lessonNumbers:
+                    - 5
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 03.01 Ребрищева Л.П.
+                    room: Ф206
+                  source:
+                    shift: second
+                    row: 7
+                    rawGroupName: ЮР1-21
+                    rawLessonNumbers: "5"
+                    rawOriginal: ""
+                    rawReplacement: МДК 03.01 Ребрищева Л.П.
+                    rawRoom: Ф206
+                lessonNumber: 5
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7215,4 +7381,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 478a6b9b607484782dcba351c0f25bd34526b722fc12864b7720a18e1a9919b7
+semanticHash: 416bf2e2432d5e9f5194f97a16f27c371e3752c8071f787565067e7ad8946504

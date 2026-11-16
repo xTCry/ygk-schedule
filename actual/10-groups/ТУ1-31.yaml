@@ -2435,7 +2435,7 @@ dates:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2445,11 +2445,15 @@ dates:
           shift: first
           etag: W/"6af82d26-565a"
           lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
       second:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2459,6 +2463,10 @@ dates:
           shift: second
           etag: W/"6af84f8b-285e"
           lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     groups:
       ТУ1-31:
         group: ТУ1-31
@@ -2557,6 +2565,77 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК.02.01 Предоставление туроператорских услуг
+                  teacher: Воронина Г.И.
+                  room: Ф104
+                  weekType: both
+                  sourceRow: 97
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 97
+                rowEnd: 98
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности
+                  teacher: |-
+                    Петрова У.В.
+                    Абрамова К.В.
+                  room: |-
+                    Ф204
+                    Ф403
+                  weekType: both
+                  rawSubject: "Иностранный язык в профессиональной деятельности "
+                  sourceRow: 99
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 99
+                rowEnd: 100
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности п/гр2
+                  teacher: Петрова У.В.
+                  room: Ф204
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 102
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 101
+                rowEnd: 102
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Иностранный язык в профессиональной деятельности п/гр2
+                  teacher: Петрова У.В.
+                  room: Ф204
+                  weekType: denominator
+                  subgroup: "2"
+                  sourceRow: 104
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 103
+                rowEnd: 104
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2586,4 +2665,4 @@ diagnostics:
           sourceRow: 103
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: e9cfdd9e728f3c0088cef0d9d309b8328fea5049c025af3c05d0bbcc8facb003
+semanticHash: 0e311aeca2b238d9b7cace078a9daa41a3f36883ac189ff87e83c58b1e1beaf5

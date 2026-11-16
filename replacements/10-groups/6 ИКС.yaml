@@ -2959,7 +2959,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3010,9 +3010,75 @@ dates:
               rawReplacement: УП 01 п/гр.2 Елистратов А.М.
               rawRoom: к.43
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
     replacements:
       - *a88
       - *a89
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
+          fetchedAt: 2026-11-16T19:31:15.252Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afac083-5349"
+          lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+        replacements:
+          - &a90
+            date: 2026-11-17
+            group: 6 ИКС
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: МДК 01.04 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 90
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: МДК 01.04 Елистратов А.М.
+              rawRoom: к.43
+          - &a91
+            date: 2026-11-17
+            group: 6 ИКС
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 91
+              rawGroupName: 6 ИКС
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a90
+      - *a91
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -3029,4 +3095,4 @@ diagnostics:
       date: 2026-10-22
       shift: first
       sourceSha256: d417db0d07a31ca66f84cc9b3ed051319acc4d31e8a9226e37b35c3f79210e69
-semanticHash: 3f2005c8172102f65abbda4f1221bc98f3da0eae6887af66764c08109d485650
+semanticHash: 74d21118d7375c407e102005a05446b6ca586a4773a3ece0c74d60b78ed87e2a

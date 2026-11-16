@@ -3052,7 +3052,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3140,10 +3140,96 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a81
       - *a82
       - *a83
       - *a84
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        replacements:
+          - &a85
+            date: 2026-11-17
+            group: РК1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: 1,2 п/гр. Анисимова С.А.
+              room: Б305
+            source:
+              shift: second
+              row: 36
+              rawGroupName: РК1-33
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 04.01
+              rawReplacement: 1,2 п/гр. Анисимова С.А.
+              rawRoom: Б305
+          - &a86
+            date: 2026-11-17
+            group: РК1-33
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: МДК 02.02 Павлова А.В
+              room: Б302
+            source:
+              shift: second
+              row: 34
+              rawGroupName: РК1-33
+              rawLessonNumbers: "5"
+              rawOriginal: Эф.поведение
+              rawReplacement: МДК 02.02 Павлова А.В
+              rawRoom: Б302
+          - &a87
+            date: 2026-11-17
+            group: РК1-33
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: УП 02 пгр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 35
+              rawGroupName: РК1-33
+              rawLessonNumbers: "6"
+              rawOriginal: УП 02 пгр 1
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a85
+      - *a86
+      - *a87
 diagnostics: []
-semanticHash: e0ebd73f1ea6e11b63630684ced4c3d63b887ca2323a95505f3924e23c7ea5cf
+semanticHash: c69a8f33506afbe49ba484d61e7ebdf5a47017e58157fa867a0cf1ee1d0fcac4

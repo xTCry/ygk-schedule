@@ -9179,6 +9179,163 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
+          fetchedAt: 2026-11-16T19:31:15.252Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afac083-5349"
+          lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+    groups:
+      СТ1-15:
+        group: СТ1-15
+        date: 2026-11-17
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физкультура
+                teacher: Герман О.Г.
+                room: Сп.зал
+                weekType: both
+                rawSubject: Физкультура Герман О.Г.
+                rawTeacher: Герман О.Г.
+                rawRoom: Сп.зал
+                sourceRow: 10
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: СТ1-15
+                  lessonNumbers:
+                    - 0
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Герман О.Г.
+                    room: Сп.зал
+                  source:
+                    shift: first
+                    row: 10
+                    rawGroupName: СТ1-15
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Герман О.Г.
+                    rawRoom: Сп.зал
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Петровский О.В.
+                room: В102
+                weekType: both
+                sourceRow: 113
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 113
+              rowEnd: 114
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Иностранный язык
+                teacher: Девлитянс О.В.
+                room: Акт.зал
+                weekType: both
+                rawSubject: 1,2 п/гр. Девлитянс О.В.
+                rawTeacher: Девлитянс О.В.
+                rawRoom: Акт.зал
+                sourceRow: 8
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 115
+              rowEnd: 116
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: СТ1-15
+                  lessonNumbers:
+                    - 2
+                  type: replace
+                  original:
+                    raw: Ин.язык
+                  replacement:
+                    raw: 1,2 п/гр. Девлитянс О.В.
+                    room: Акт.зал
+                  source:
+                    shift: first
+                    row: 8
+                    rawGroupName: СТ1-15
+                    rawLessonNumbers: "2"
+                    rawOriginal: Ин.язык
+                    rawReplacement: 1,2 п/гр. Девлитянс О.В.
+                    rawRoom: Акт.зал
+                lessonNumber: 2
+                strategy: subject-abbreviation
+          - number: 3
+            variants: []
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 117
+              rowEnd: 118
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: СТ1-15
+                  lessonNumbers:
+                    - 3
+                  type: cancel
+                  original:
+                    raw: Осн.шахм.игры
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 9
+                    rawGroupName: СТ1-15
+                    rawLessonNumbers: "3"
+                    rawOriginal: Осн.шахм.игры
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 3
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9207,4 +9364,4 @@ diagnostics:
           sourceRow: 146
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 00721a87cfd0c751a6c2884cc1b6c2e4cb153627dd53cf01574502b6ccf017b9
+semanticHash: 72777b1888066395712465fc9a17e172d4e35f791e4df550563cf1fb4c51b5c4

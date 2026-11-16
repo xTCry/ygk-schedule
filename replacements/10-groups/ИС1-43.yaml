@@ -2011,7 +2011,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2041,8 +2041,75 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a61
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        replacements:
+          - &a62
+            date: 2026-11-17
+            group: ИС1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: УП 05
+            replacement:
+              raw: Ин.язык Зубковская А.Е.Загородних Е.С
+              room: ДОТ
+            source:
+              shift: second
+              row: 40
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: УП 05
+              rawReplacement: Ин.язык Зубковская А.Е.Загородних Е.С
+              rawRoom: ДОТ
+          - &a63
+            date: 2026-11-17
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 09.03
+            replacement:
+              raw: Гудкова А.Л.Серова А.М
+              room: ДОТ
+            source:
+              shift: second
+              row: 41
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 09.03
+              rawReplacement: Гудкова А.Л.Серова А.М
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a62
+      - *a63
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2073,4 +2140,4 @@ diagnostics:
       date: 2026-09-25
       shift: second
       sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
-semanticHash: d1a887ebe7fdd21bf217f656e554150eb0f5bfa7c9485cdbd184ead7aad9c657
+semanticHash: 2ff532441453ebaf612bb2402bb83c632a951ff0c5e662107285c91c39ef27c1

@@ -2600,7 +2600,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2667,9 +2667,74 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a75
       - *a76
       - *a77
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        replacements:
+          - &a78
+            date: 2026-11-17
+            group: ЮР1-25
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Конст.право Богданова В.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Конст.право Богданова В.В.
+              rawRoom: ДОТ
+          - &a79
+            date: 2026-11-17
+            group: ЮР1-25
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: ДОУ
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-25
+              rawLessonNumbers: "5"
+              rawOriginal: ДОУ
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a78
+      - *a79
 diagnostics: []
-semanticHash: f894d2b44d607a8f7cc3d583144c0ebd74125868f1d91b7f375cc4cd8b1d42f8
+semanticHash: c2c5a7f17d33cd2d1223912ec537c39ef7d0a7fc3d04614879503e6606eff948

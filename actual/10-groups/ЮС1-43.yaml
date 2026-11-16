@@ -2255,7 +2255,7 @@ dates:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2265,11 +2265,15 @@ dates:
           shift: first
           etag: W/"6af82d26-565a"
           lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
       second:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2279,6 +2283,10 @@ dates:
           shift: second
           etag: W/"6af84f8b-285e"
           lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     groups:
       ЮС1-43:
         group: ЮС1-43
@@ -2376,6 +2384,55 @@ dates:
                 lessonNumber: 3
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Физическая культура
+                  teacher: Калачик Н.И.
+                  room: Сп.площ.
+                  weekType: both
+                  sourceRow: 49
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 49
+                rowEnd: 50
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Экономика организации
+                  teacher: Сафронова Л.Н.
+                  room: Ф302
+                  weekType: both
+                  sourceRow: 51
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 51
+                rowEnd: 52
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.04.01 Социальная политика и технология социальной работы
+                  teacher: Гайдис А.С.
+                  room: Ф206
+                  weekType: both
+                  sourceRow: 53
+              source:
+                sheet: ЮС1-41 ЮС1-43
+                rowStart: 53
+                rowEnd: 54
+                rawGroupName: ЮС1-43/ЮС1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2406,4 +2463,4 @@ diagnostics:
       date: 2026-09-21
       shift: first
       sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
-semanticHash: 1f0970d03ad3e11491bdf4dcf4ba90d83be8a624a3ee2b5ea0a6537b03ac111b
+semanticHash: ef1d0ceb19f95ae7074310dffa57eb590af59ec5409259379f5b7b7cd7197654

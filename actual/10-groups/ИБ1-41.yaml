@@ -9402,6 +9402,140 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
+          fetchedAt: 2026-11-16T19:31:15.252Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afac083-5349"
+          lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+    groups:
+      ИБ1-41:
+        group: ИБ1-41
+        date: 2026-11-17
+        day: Вторник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК 02.01
+                teacher: Егорова Ю.С.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 02.01 Егорова Ю.С.
+                rawTeacher: Егорова Ю.С.
+                rawRoom: ДОТ
+                sourceRow: 46
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a16
+                  date: 2026-11-17
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: ... МДК 03.01
+                  replacement:
+                    raw: МДК 02.01 Егорова Ю.С.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 46
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: 2,3
+                    rawOriginal: ... МДК 03.01
+                    rawReplacement: МДК 02.01 Егорова Ю.С.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-17
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 47
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "4"
+                    rawOriginal: Физкультура
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: МДК.03.01 Техническая защита информации п/гр1
+                teacher: Вакансия
+                room: Б310
+                weekType: both
+                subgroup: "1"
+                sourceRow: 116
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a16
+            lessonNumber: 2
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «... МДК 03.01». По замене: «МДК 02.01 Егорова
+                Ю.С.». Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9511,7 +9645,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: &a16
+      baseSourceFiles: &a17
         - oit_1sem.xlsx
       requestedSubject: МДК 03.01
       requestedSubgroups:
@@ -9523,6 +9657,27 @@ diagnostics:
             Зубковская А.Е.
           room: Б110
           sourceRow: 123
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 3d19176888a237a563fcbb71edfea031abf639d49ec0d4b8ede89732273bc84d
+    sheet: "Замены: Вторая смена"
+    row: 46
+    normalizedGroup: ИБ1-41
+    rawValue: МДК 02.01 Егорова Ю.С.
+    context:
+      date: 2026-11-17
+      shift: second
+      sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ИБ1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
   - provider: ygk
@@ -9571,7 +9726,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: *a16
+      baseSourceFiles: *a17
       requestedSubject: МДК 03.01
       requestedSubgroups:
         - "1"
@@ -9645,4 +9800,4 @@ diagnostics:
           sourceRow: 112
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 0c8d27043a7245876a264e833a909f8a669e7dbbfbc82c03b6dd274bc0b354de
+semanticHash: aa3b4d5b7f7a3f62f6abd00a7f729f90cbb46ded3a18ba4ef267ff57be394935

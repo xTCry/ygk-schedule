@@ -2164,7 +2164,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2232,9 +2232,57 @@ dates:
               rawReplacement: МДК 02.02 Лапин И.В.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a57
       - *a58
       - *a59
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        replacements:
+          - &a60
+            date: 2026-11-17
+            group: СД2-21
+            lessonNumbers:
+              - 5
+              - 6
+            type: replace
+            original:
+              raw: МДК 01.01 п/гр 2
+            replacement:
+              raw: МДК 02.02 п/гр 2 Лапин И.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 15
+              rawGroupName: СД2-21
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01 п/гр 2
+              rawReplacement: МДК 02.02 п/гр 2 Лапин И.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a60
 diagnostics: []
-semanticHash: 902fb4aa1ee05d0b601ac080ec95030e0894a9b63fd6cc9a67cfc48a5ca9d9e0
+semanticHash: 72c62b69d3beb82873a4617d332a433261e41c51fd0901669a2f2303ab6d61e3

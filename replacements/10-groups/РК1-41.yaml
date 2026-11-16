@@ -1893,7 +1893,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1925,8 +1925,73 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a46
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
+          fetchedAt: 2026-11-16T19:31:15.250Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afaecfa-2b2d"
+          lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        replacements:
+          - &a47
+            date: 2026-11-17
+            group: РК1-41
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 30
+              rawGroupName: РК1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a48
+            date: 2026-11-17
+            group: РК1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 31
+              rawGroupName: РК1-41
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a47
+      - *a48
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -1957,4 +2022,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: a8ade22ed9ac2a835e8f8bc0f4de5d2a5bfb6db231454332f117e848d4878d3c
+semanticHash: 34c34f525a7b5fc91d65d7bea884bbf35994046944d4e6276c51b3c072c9633a

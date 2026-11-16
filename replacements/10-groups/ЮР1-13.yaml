@@ -3512,7 +3512,7 @@ dates:
         day: Понедельник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3563,8 +3563,74 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
     replacements:
       - *a109
       - *a110
+  2026-11-17:
+    date: 2026-11-17
+    day: Вторник
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-17
+        day: Вторник
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
+          fetchedAt: 2026-11-16T19:31:15.252Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afac083-5349"
+          lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+        replacements:
+          - &a111
+            date: 2026-11-17
+            group: ЮР1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: 1,2 п/гр. Малявкина Н.А.
+              room: Ф106
+            source:
+              shift: first
+              row: 70
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Инд.проект
+              rawReplacement: 1,2 п/гр. Малявкина Н.А.
+              rawRoom: Ф106
+          - &a112
+            date: 2026-11-17
+            group: ЮР1-13
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 71
+              rawGroupName: ЮР1-13
+              rawLessonNumbers: "4"
+              rawOriginal: Инд.проект
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a111
+      - *a112
 diagnostics: []
-semanticHash: e625a2eda2c2e736a39818dbefbf566479c90162c9dc5cf632b29fe6add0f974
+semanticHash: 08bc61f0ae633d6b77cc913ddd9a3de1e0d1741add3995e17a62950d5a01944f

@@ -4640,7 +4640,7 @@ dates:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4650,11 +4650,15 @@ dates:
           shift: first
           etag: W/"6af82d26-565a"
           lastModified: Sat, 14 Nov 2026 09:43:02 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 183be36703535f90dab9dcc1a0ccae3d7c8d8109880bbc372f381cf376587fe3
       second:
         date: 2026-11-16
         day: Понедельник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4664,6 +4668,10 @@ dates:
           shift: second
           etag: W/"6af84f8b-285e"
           lastModified: Sat, 14 Nov 2026 12:09:47 GMT
+        finalizedBy:
+          date: 2026-11-17
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     groups:
       ЭК1-31:
         group: ЭК1-31
@@ -4768,6 +4776,72 @@ dates:
               description: "По расписанию: «УП 04 п/гр.1». По замене: «УП 01 п/гр.1 Ноева
                 О.В.». Аудитория: «Ф205»."
               room: Ф205
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Основы философии
+                  teacher: Горбачев В.Н.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 48
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 48
+                rowEnd: 49
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: both
+                  sourceRow: 50
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 50
+                rowEnd: 51
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: УП 04.01 Учебная практика п/гр1
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 53
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 52
+                rowEnd: 53
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: УП 04.01 Учебная практика п/гр1
+                  teacher: Ноева О.В.
+                  room: Ф205
+                  weekType: denominator
+                  subgroup: "1"
+                  sourceRow: 55
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 54
+                rowEnd: 55
+                rawGroupName: ЭК1-31/ ЭК1-32
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4959,4 +5033,4 @@ diagnostics:
           sourceRow: 77
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 06661a26f87a71080b443ed619e4129c89983149ef982dd7843c99fc1f5a4aaa
+semanticHash: 7ad218d5dbe4eaa1d57a1cd07c4c3994356669f8a4eb7997dd43a187aa35ee50
