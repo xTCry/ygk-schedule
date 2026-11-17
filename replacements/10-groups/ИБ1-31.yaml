@@ -3197,7 +3197,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3247,8 +3247,55 @@ dates:
               rawReplacement: Орг-прав.обесп Ершов И.Л.
               rawRoom: А201
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     replacements:
       - *a86
       - *a87
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a88
+            date: 2026-11-18
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: УП 04
+            replacement:
+              raw: ТСИ Серова А.М.
+              room: Б407
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: УП 04
+              rawReplacement: ТСИ Серова А.М.
+              rawRoom: Б407
+        diagnostics: []
+    replacements:
+      - *a88
 diagnostics: []
-semanticHash: b30580a9bc28212760c106b15186bd47b210e7660c90ca17bad248cb0253e76c
+semanticHash: a175a4582053846ab4b210dcbb0053d8284bf64722fe23369e3143f3649e19f1

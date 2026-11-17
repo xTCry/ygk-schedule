@@ -1475,7 +1475,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1524,8 +1524,76 @@ dates:
               rawReplacement: 1,2 п/гр. Анисимова С.А.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
     replacements:
       - *a38
       - *a39
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+        replacements:
+          - &a40
+            date: 2026-11-18
+            group: РК1-21
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 03.01 Физкул.
+            replacement:
+              raw: МДК 04.03 Выблова Т.В.Анисимова С.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 21
+              rawGroupName: РК1-21
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 03.01 Физкул.
+              rawReplacement: МДК 04.03 Выблова Т.В.Анисимова С.А.
+              rawRoom: ДОТ
+          - &a41
+            date: 2026-11-18
+            group: РК1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Ткаченко Г.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 20
+              rawGroupName: РК1-21
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Ткаченко Г.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a40
+      - *a41
 diagnostics: []
-semanticHash: e178bbf39a52e596b512d4f9a7e4daf3e281520872181139236e789ff403609b
+semanticHash: 3faa9b088f0459508840be51b96c1d7c51793bf930131e0737dc58015f038c6c

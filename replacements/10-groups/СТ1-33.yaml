@@ -1838,7 +1838,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1869,7 +1869,54 @@ dates:
               rawReplacement: МДК 01.01 п/гр 2 Секацкая Н.А.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     replacements:
       - *a48
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a49
+            date: 2026-11-18
+            group: СТ1-33
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.философии
+            replacement:
+              raw: Утешев В.В.
+              room: А201
+            source:
+              shift: second
+              row: 48
+              rawGroupName: СТ1-33
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.философии
+              rawReplacement: Утешев В.В.
+              rawRoom: А201
+        diagnostics: []
+    replacements:
+      - *a49
 diagnostics: []
-semanticHash: e8ae6922847dc188f2102db37a586eaf821a13b20fa3111ae2146c4f31ca34f0
+semanticHash: 4a7f7243b39fd256295cf94a6b12d9f061300136f92fd52c7c65a3447daeba0c

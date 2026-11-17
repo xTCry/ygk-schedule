@@ -2022,7 +2022,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2053,7 +2053,73 @@ dates:
               rawReplacement: ОБиЗР Травникова Г.Г.
               rawRoom: Б101
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
     replacements:
       - *a55
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+        replacements:
+          - &a56
+            date: 2026-11-18
+            group: РК1-12
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Литература
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 43
+              rawGroupName: РК1-12
+              rawLessonNumbers: "0"
+              rawOriginal: Литература
+              rawReplacement: снято
+              rawRoom: ""
+          - &a57
+            date: 2026-11-18
+            group: РК1-12
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: ОБиЗР Травникова Г.Г.
+              room: Б101
+            source:
+              shift: first
+              row: 42
+              rawGroupName: РК1-12
+              rawLessonNumbers: "2"
+              rawOriginal: Физкультура
+              rawReplacement: ОБиЗР Травникова Г.Г.
+              rawRoom: Б101
+        diagnostics: []
+    replacements:
+      - *a56
+      - *a57
 diagnostics: []
-semanticHash: 3c154740e90de46c0c8d2f81fd4035be407589dfe3299822681b6810e392c137
+semanticHash: 5568c124cdff27cf0a34c98a533f4b59fab6d0d6003c1beaf71d86697d14a770

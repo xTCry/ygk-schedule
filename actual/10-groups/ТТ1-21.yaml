@@ -4814,7 +4814,7 @@ dates:
         date: 2026-11-17
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4824,11 +4824,15 @@ dates:
           shift: first
           etag: W/"6afac083-5349"
           lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
       second:
         date: 2026-11-17
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4838,6 +4842,10 @@ dates:
           shift: second
           etag: W/"6afaecfa-2b2d"
           lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     groups:
       ТТ1-21:
         group: ТТ1-21
@@ -4899,6 +4907,40 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 5
+              variants:
+                - subject: Инженерная графика
+                  teacher: Дегтева И.Е.
+                  room: Б401
+                  weekType: both
+                  sourceRow: 63
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 63
+                rowEnd: 64
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 6
+              variants:
+                - subject: Техническая механика
+                  teacher: Дегтева И.Е.
+                  room: Б503
+                  weekType: both
+                  sourceRow: 65
+              source:
+                sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+                rowStart: 65
+                rowEnd: 66
+                rawGroupName: ТТ1-21\ТТ2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4965,4 +5007,4 @@ diagnostics:
           sourceRow: 78
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: b3f2ea49659f41c4c15020a84559ead08cd0852217788d90a6ef574a95cd613f
+semanticHash: 458614383adf35501d925b6b0bbd03fecd2f7cf1f1020c15bddf04e23b449d81

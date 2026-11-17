@@ -3557,7 +3557,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3643,11 +3643,78 @@ dates:
               rawReplacement: Ин.язык п/гр Мишуринская Е.Ю.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     replacements:
       - *a103
       - *a104
       - *a105
       - *a106
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a107
+            date: 2026-11-18
+            group: ДИ1-43
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: Ремизова А.И.Матвеичева К.А.
+              room: Б503
+            source:
+              shift: second
+              row: 32
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.02
+              rawReplacement: Ремизова А.И.Матвеичева К.А.
+              rawRoom: Б503
+          - &a108
+            date: 2026-11-18
+            group: ДИ1-43
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Физкультура Чупрова П.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 33
+              rawGroupName: ДИ1-43
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: Физкультура Чупрова П.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a107
+      - *a108
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -3678,4 +3745,4 @@ diagnostics:
       date: 2026-09-21
       shift: second
       sourceSha256: 00b920491dafb9e694e89d8c0fb73c67d502fdb0a16cace4006b21219f372027
-semanticHash: 3ce13ac9ad9765c14a9ed00eaab97e55f3a97c53a78c7115391a135ee3e1b460
+semanticHash: 1310561b0ce9b83d801a110db62ccce57754571c89623f5b3e1a89e9d60c65a3

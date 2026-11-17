@@ -1223,7 +1223,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1273,8 +1273,75 @@ dates:
               rawReplacement: МДК 02.02 Леонидова Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
     replacements:
       - *a30
       - *a31
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+        replacements:
+          - &a32
+            date: 2026-11-18
+            group: МС1-31
+            lessonNumbers:
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 55
+              rawGroupName: МС1-31
+              rawLessonNumbers: 1,2
+              rawOriginal: МДК 02.02
+              rawReplacement: снято
+              rawRoom: ""
+          - &a33
+            date: 2026-11-18
+            group: МС1-31
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.02 Леонидова Н.А.
+              room: Ф106
+            source:
+              shift: first
+              row: 56
+              rawGroupName: МС1-31
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: МДК 02.02 Леонидова Н.А.
+              rawRoom: Ф106
+        diagnostics: []
+    replacements:
+      - *a32
+      - *a33
 diagnostics: []
-semanticHash: 894bd6276afdc6ac21b05af7d61d79b85a621b1955201982544da54cc4ef8881
+semanticHash: d71e1867d209ddb92a9b21a5c80330c3c902f8c54abc327ae54e36e4d84bf46a

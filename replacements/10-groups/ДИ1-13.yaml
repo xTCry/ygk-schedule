@@ -1702,5 +1702,67 @@ dates:
           sourceSha256: 55e7182ab035e45b7d06bbf67d3e6599cc5f8d7163691acbc6a956b6857e7f64
     replacements:
       - *a42
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+        replacements:
+          - &a43
+            date: 2026-11-18
+            group: ДИ1-13
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 48
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "0"
+              rawOriginal: Физкультура
+              rawReplacement: снято
+              rawRoom: ""
+          - &a44
+            date: 2026-11-18
+            group: ДИ1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Комиссарова О.В.
+              room: Б403
+            source:
+              shift: first
+              row: 47
+              rawGroupName: ДИ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Комиссарова О.В.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: f61fc53962ae29365b827dc0843fb6d445582b711ad1f579d6067b0277450e6f
+semanticHash: 24be2202f13f6667d8482f5a7a94f0a8b6ad4ddd428870e5385bd40027766f20

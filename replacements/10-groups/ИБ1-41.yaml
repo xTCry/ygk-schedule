@@ -3016,7 +3016,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3066,9 +3066,76 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     replacements:
       - *a89
       - *a90
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a91
+            date: 2026-11-18
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.01 п/гр.1 Ин.яз.
+            replacement:
+              raw: УП 02 Грехова Е.И.Зайцев Р.А.
+              room: Б305,Б406
+            source:
+              shift: second
+              row: 13
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 03.01 п/гр.1 Ин.яз.
+              rawReplacement: УП 02 Грехова Е.И.Зайцев Р.А.
+              rawRoom: Б305,Б406
+          - &a92
+            date: 2026-11-18
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 03.01 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 14
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a91
+      - *a92
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3099,4 +3166,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: 28841f1f36332cefa0bbba4d737a2a202e8487e5638dd30a3c14ee54482be408
+semanticHash: 018dbf72d20bc92d508e65c679a3a9f350c593404f50ef1c90e3331490cb71d8

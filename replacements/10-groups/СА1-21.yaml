@@ -3700,7 +3700,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3750,8 +3750,93 @@ dates:
               rawReplacement: 1,2 п/гр. Комиссарова О.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
     replacements:
       - *a109
       - *a110
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+        replacements:
+          - &a111
+            date: 2026-11-18
+            group: СА1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СА1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 01.01
+              rawReplacement: снято
+              rawRoom: ""
+          - &a112
+            date: 2026-11-18
+            group: СА1-21
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: ААС Грехова Е.И.
+              room: А202
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СА1-21
+              rawLessonNumbers: "1"
+              rawOriginal: МДК 04.01
+              rawReplacement: ААС Грехова Е.И.
+              rawRoom: А202
+          - &a113
+            date: 2026-11-18
+            group: СА1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Инф.технол. Комиссарова О.В.
+              room: Б308
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СА1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Инф.технол. Комиссарова О.В.
+              rawRoom: Б308
+        diagnostics: []
+    replacements:
+      - *a111
+      - *a112
+      - *a113
 diagnostics: []
-semanticHash: e7bee4ba98b12bee2a40b5eb62bad20ebafc3e640d142478db73ddbe80cac6db
+semanticHash: 1bd0d8c714a789afd76517d458a22cbbb6e88ffe88ab0e7024f2f5ca8fb2046e

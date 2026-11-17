@@ -1607,6 +1607,49 @@ dates:
           sourceSha256: eec16db24d808c07915417c09cfc42cb549dafaeaeaab2851666433577b43d01
     replacements:
       - *a39
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a40
+            date: 2026-11-18
+            group: ДИ1-45
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: Физкультура Чупрова П.А.
+              room: Сп.зал
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ДИ1-45
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 04.01
+              rawReplacement: Физкультура Чупрова П.А.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a40
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1637,4 +1680,4 @@ diagnostics:
       date: 2026-09-25
       shift: second
       sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
-semanticHash: 25bc6446ac372c29ba94b60cd57f114e8aaf1e1e9c0cfe577b15a57a880359d3
+semanticHash: 7e2482184e826bddbaac0090a268e1943942abd121482adae570ef679b4d9005

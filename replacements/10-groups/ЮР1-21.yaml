@@ -2265,7 +2265,7 @@ dates:
         day: Вторник
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2333,9 +2333,75 @@ dates:
               rawReplacement: МДК 03.01 Ребрищева Л.П.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     replacements:
       - *a62
       - *a63
       - *a64
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+        replacements:
+          - &a65
+            date: 2026-11-18
+            group: ЮР1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Зеленцова Л.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Зеленцова Л.В.
+              rawRoom: ДОТ
+          - &a66
+            date: 2026-11-18
+            group: ЮР1-21
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 3
+              rawGroupName: ЮР1-21
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a65
+      - *a66
 diagnostics: []
-semanticHash: 60757719e6e473a8b2843149f30f0e37e188b92e929510f8998f34a2d68fd8ab
+semanticHash: 8574c3ad6ee8131cd30802249b9afd4879709f722f6285e38aab327021c5d220

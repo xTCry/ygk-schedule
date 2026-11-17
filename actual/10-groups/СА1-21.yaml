@@ -11396,7 +11396,7 @@ dates:
         date: 2026-11-17
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -11406,11 +11406,15 @@ dates:
           shift: first
           etag: W/"6afac083-5349"
           lastModified: Mon, 16 Nov 2026 08:36:19 GMT
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
       second:
         date: 2026-11-17
         day: Вторник
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -11420,6 +11424,10 @@ dates:
           shift: second
           etag: W/"6afaecfa-2b2d"
           lastModified: Mon, 16 Nov 2026 11:46:02 GMT
+        finalizedBy:
+          date: 2026-11-18
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
     groups:
       СА1-21:
         group: СА1-21
@@ -11538,6 +11546,214 @@ dates:
             status: scheduled
             replacements:
               - replacement: *a15
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Информационные технологии
+                  teacher: |-
+                    Лужина А.С.
+                    Комиссарова О.В.
+                  room: ДОТ
+                  weekType: denominator
+                  sourceRow: 13
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 12
+                rowEnd: 13
+                rawGroupName: СА1-21/СА1-22/СА2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: История России
+                  teacher: Свободина Н.В.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 14
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 14
+                rowEnd: 15
+                rawGroupName: СА1-21/СА1-22/СА2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Основы электротехники
+                  teacher: Леонидова Н.А.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 16
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 16
+                rowEnd: 17
+                rawGroupName: СА1-21/СА1-22/СА2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+  2026-11-18:
+    date: 2026-11-18
+    day: Среда
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: e653631fc1dc8db09a45245de7ecff705547a2196db49da9335e95c3fa7e54a1
+          fetchedAt: 2026-11-17T18:25:24.525Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afc540d-5816"
+          lastModified: Tue, 17 Nov 2026 13:18:05 GMT
+      second:
+        date: 2026-11-18
+        day: Среда
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: e58207f4b8e3202198780d8a399ae20fc36681714b5eb32769dc53da98c8cc92
+          fetchedAt: 2026-11-17T18:25:24.678Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afc5309-2aca"
+          lastModified: Tue, 17 Nov 2026 13:13:45 GMT
+    groups:
+      СА1-21:
+        group: СА1-21
+        date: 2026-11-18
+        day: Среда
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 19
+              rowEnd: 20
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-18
+                  group: СА1-21
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: МДК 01.01
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: first
+                    row: 14
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 01.01
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: ААС
+                teacher: Грехова Е.И.
+                room: А202
+                weekType: both
+                rawSubject: ААС Грехова Е.И.
+                rawTeacher: Грехова Е.И.
+                rawRoom: А202
+                sourceRow: 11
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 21
+              rowEnd: 22
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-18
+                  group: СА1-21
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: МДК 04.01
+                  replacement:
+                    raw: ААС Грехова Е.И.
+                    room: А202
+                  source:
+                    shift: first
+                    row: 11
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 04.01
+                    rawReplacement: ААС Грехова Е.И.
+                    rawRoom: А202
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: Операционные системы и среды
+                teacher: Гудкова А.Л.
+                room: Б301
+                weekType: denominator
+                sourceRow: 24
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 23
+              rowEnd: 24
+              rawGroupName: СА1-21/СА1-22/СА2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Инф.технол.
+                teacher: Комиссарова О.В.
+                room: Б308
+                weekType: both
+                rawSubject: 1,2 п/гр.Инф.технол. Комиссарова О.В.
+                rawTeacher: Комиссарова О.В.
+                rawRoom: Б308
+                sourceRow: 15
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-18
+                  group: СА1-21
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: 1,2 п/гр.Инф.технол. Комиссарова О.В.
+                    room: Б308
+                  source:
+                    shift: first
+                    row: 15
+                    rawGroupName: СА1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: 1,2 п/гр.Инф.технол. Комиссарова О.В.
+                    rawRoom: Б308
                 lessonNumber: 3
                 strategy: add
         unresolvedReplacements: []
@@ -11719,4 +11935,4 @@ diagnostics:
           sourceRow: 21
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 0450212ca7f4b3d45e0620ba2dacfb0a7e584f90b6e7b3f4e1cdcf33a21efbbe
+semanticHash: 7ce97c6f7f193d2cb1aa6d62e9c69d3a2cbc099d0800e3fab51d1c1c29d900f2
