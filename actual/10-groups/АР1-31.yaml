@@ -9204,6 +9204,137 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+      second:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
+          fetchedAt: 2026-11-18T17:58:01.020Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afd9c20-1fb5"
+          lastModified: Wed, 18 Nov 2026 12:37:52 GMT
+    groups:
+      АР1-31:
+        group: АР1-31
+        date: 2026-11-19
+        day: Четверг
+        lessons:
+          - number: 4
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 131
+              rowEnd: 132
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-19
+                  group: АР1-31
+                  lessonNumbers:
+                    - 4
+                  type: cancel
+                  original:
+                    raw: ОБП
+                  replacement:
+                    raw: снято
+                  source:
+                    shift: second
+                    row: 22
+                    rawGroupName: АР1-31
+                    rawLessonNumbers: "4"
+                    rawOriginal: ОБП
+                    rawReplacement: снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: МДК 01.02
+                teacher: Иванов Ю.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+                rawTeacher: Иванов Ю.А.
+                rawRoom: ДОТ
+                sourceRow: 23
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 133
+              rowEnd: 134
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a14
+                  date: 2026-11-19
+                  group: АР1-31
+                  lessonNumbers:
+                    - 5
+                    - 6
+                  type: replace
+                  original:
+                    raw: Рисунок
+                  replacement:
+                    raw: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 23
+                    rawGroupName: АР1-31
+                    rawLessonNumbers: 5,6
+                    rawOriginal: Рисунок
+                    rawReplacement: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+                    rawRoom: ДОТ
+                lessonNumber: 5
+                strategy: subject-word-mention
+          - number: 6
+            variants:
+              - subject: МДК 01.02
+                teacher: Иванов Ю.А.
+                room: ДОТ
+                weekType: both
+                rawSubject: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
+                rawTeacher: Иванов Ю.А.
+                rawRoom: ДОТ
+                sourceRow: 23
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 135
+              rowEnd: 136
+              rawGroupName: АР1-31/1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a14
+                lessonNumber: 6
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9463,4 +9594,4 @@ diagnostics:
           sourceRow: 143
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 49fd4795d35adb822e0a4f5609137abd43a5d6f4ad2335b439421c05c837f00a
+semanticHash: 2a23d76c17e9bd7fa3e8973fe79d736f951b1fbb39e8ccfe84cc2615aab14b29

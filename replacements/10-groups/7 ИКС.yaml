@@ -3509,7 +3509,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3540,7 +3540,77 @@ dates:
               rawReplacement: МДК 01.02 Елистратов А.М.
               rawRoom: к.43
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a104
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a105
+            date: 2026-11-19
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 01 п/гр.1 и 2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 94
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 п/гр.1 и 2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a106
+            date: 2026-11-19
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: УП 01 п/гр.2...
+            replacement:
+              raw: МДК 01.02 Елистратов А.М.
+              room: к.43
+            source:
+              shift: first
+              row: 95
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 3-5
+              rawOriginal: УП 01 п/гр.2...
+              rawReplacement: МДК 01.02 Елистратов А.М.
+              rawRoom: к.43
+        diagnostics: []
+    replacements:
+      - *a105
+      - *a106
 diagnostics: []
-semanticHash: 9f0ca1cec0ddeb497a390aacb9a47c29b2d4cf7b91c8cae65731ad0cf3e2c8c7
+semanticHash: ec7d510e82586421d2bfd5c9831f17f69f025389afe0e5f46362cd2f97ee7466

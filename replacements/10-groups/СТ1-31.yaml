@@ -2168,7 +2168,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2217,8 +2217,75 @@ dates:
               rawReplacement: п/гр.2 Секацкая Н.А.
               rawRoom: Б502
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
     replacements:
       - *a57
       - *a58
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
+          fetchedAt: 2026-11-18T17:58:01.020Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afd9c20-1fb5"
+          lastModified: Wed, 18 Nov 2026 12:37:52 GMT
+        replacements:
+          - &a59
+            date: 2026-11-19
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.01 Т.1.1.
+            replacement:
+              raw: МДК 02.02 Топчиян Е.А.
+              room: Б401
+            source:
+              shift: second
+              row: 7
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 02.01 Т.1.1.
+              rawReplacement: МДК 02.02 Топчиян Е.А.
+              rawRoom: Б401
+          - &a60
+            date: 2026-11-19
+            group: СТ1-31
+            lessonNumbers:
+              - 6
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 02.01 п/гр.1 Топчиян Е.А. МДК 01.01 п/гр.2 Голованова Н.М.
+              room: Б401Б504
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 02.01 п/гр.1 Топчиян Е.А. МДК 01.01 п/гр.2 Голованова Н.М.
+              rawRoom: Б401Б504
+        diagnostics: []
+    replacements:
+      - *a59
+      - *a60
 diagnostics: []
-semanticHash: d052e884b9bcd63cc7384a8a0484930d55e78a24833c18bd52d1958337c210e6
+semanticHash: 5d91513e69cb79ae707e00dc68b8846507c1ddba6a21b7ba41e50c3f8dc8130e

@@ -3394,7 +3394,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3427,7 +3427,76 @@ dates:
               rawReplacement: Осн.авиац. Царькова Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a103
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a104
+            date: 2026-11-19
+            group: 1 БПЛА
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: МДК 01.01 МДК 04.01
+            replacement:
+              raw: Электротехника Ковалев Н.В.
+              room: к.36
+            source:
+              shift: first
+              row: 106
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 01.01 МДК 04.01
+              rawReplacement: Электротехника Ковалев Н.В.
+              rawRoom: к.36
+          - &a105
+            date: 2026-11-19
+            group: 1 БПЛА
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01 Осн.авиац.
+            replacement:
+              raw: Электротехника Ковалев Н.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 107
+              rawGroupName: 1 БПЛА
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.01 Осн.авиац.
+              rawReplacement: Электротехника Ковалев Н.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a104
+      - *a105
 diagnostics: []
-semanticHash: be5741f3b34b590cb0835df66b9da61d415e41ee85b0947a611bf940fc679383
+semanticHash: 284a7417053fcadcaed72a20e96d992c25f576e1200a9d0b6c82af177a904087

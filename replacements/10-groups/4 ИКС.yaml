@@ -3084,7 +3084,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3135,8 +3135,55 @@ dates:
               rawReplacement: МДК 06.01 Богачев Е.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a79
       - *a80
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a81
+            date: 2026-11-19
+            group: 4 ИКС
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: УП 06 п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 108
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 2,3
+              rawOriginal: УП 06 п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a81
 diagnostics: []
-semanticHash: 057e64cc25890340c8578ecbf6c21b23035664738fa16ff96de00b384126fe71
+semanticHash: acc54b3ca0eb92e89da4ce512d82a84cefe6a64deccdd9d66241b3ba6050de81

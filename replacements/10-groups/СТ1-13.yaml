@@ -2378,7 +2378,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2408,7 +2408,93 @@ dates:
               rawReplacement: Доп.проф.п/гр.2 Сердцева О.Д.
               rawRoom: Б305
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a67
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a68
+            date: 2026-11-19
+            group: СТ1-13
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Физкультура Герман О.Г.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 48
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "1"
+              rawOriginal: Информ.
+              rawReplacement: Физкультура Герман О.Г.
+              rawRoom: Сп.зал
+          - &a69
+            date: 2026-11-19
+            group: СТ1-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: История
+            replacement:
+              raw: Обществ. Утешев В.В.
+              room: А202
+            source:
+              shift: first
+              row: 49
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "2"
+              rawOriginal: История
+              rawReplacement: Обществ. Утешев В.В.
+              rawRoom: А202
+          - &a70
+            date: 2026-11-19
+            group: СТ1-13
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 50
+              rawGroupName: СТ1-13
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a68
+      - *a69
+      - *a70
 diagnostics: []
-semanticHash: 5cd450e511b2bb11b24ed6d196a90bfe8229aa73e3714a7c6aa5ed9bc4d02aa2
+semanticHash: ee5ba99f28aa641325c00cc25867fef81a004be6c6cd8905ab3e87b0061a298a

@@ -845,7 +845,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -893,9 +893,56 @@ dates:
               rawReplacement: МДК 03.01 Вечера Л.А.
               rawRoom: экскурсия
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a20
       - *a21
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a22
+            date: 2026-11-19
+            group: ЮС1-41
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Экон.организации Сафронова Л.Н.
+              room: Ф301
+            source:
+              shift: first
+              row: 78
+              rawGroupName: ЮС1-41
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: Экон.организации Сафронова Л.Н.
+              rawRoom: Ф301
+        diagnostics: []
+    replacements:
+      - *a22
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -926,4 +973,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 89ce0f62adbe547916772854e1d7db1b35bf8bf8ec002165f5ab4309de84a3ac
+semanticHash: 30f4721831491233fdd7b9366930b8b1e6ea30ad3c060c64872301bc0ee58944

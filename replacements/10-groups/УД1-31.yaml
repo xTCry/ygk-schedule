@@ -1321,7 +1321,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1372,8 +1372,76 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
     replacements:
       - *a33
       - *a34
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 6820759db19b52ec5b6c5753301ad4b75b3b44fd2ff102f5dfc200a463d4d997
+          fetchedAt: 2026-11-18T17:58:01.019Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afd8e6e-5ba3"
+          lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        replacements:
+          - &a35
+            date: 2026-11-19
+            group: УД1-31
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: ...Ин.язык
+            replacement:
+              raw: МДК 01.01 Костина Г.Л.
+              room: Б308
+            source:
+              shift: first
+              row: 57
+              rawGroupName: УД1-31
+              rawLessonNumbers: 0,1
+              rawOriginal: ...Ин.язык
+              rawReplacement: МДК 01.01 Костина Г.Л.
+              rawRoom: Б308
+          - &a36
+            date: 2026-11-19
+            group: УД1-31
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: Этика, Эф.пов.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 58
+              rawGroupName: УД1-31
+              rawLessonNumbers: 2,3
+              rawOriginal: Этика, Эф.пов.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a35
+      - *a36
 diagnostics: []
-semanticHash: 5cefd555acf6d051d90301c8dac575556637f3d4fb7a5598545794620bc2c927
+semanticHash: db3c37adab97887a5889c3ed29c6b718c70a6f6d85e48788881a9da4b06ec442

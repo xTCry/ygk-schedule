@@ -3455,7 +3455,7 @@ dates:
         day: Среда
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3505,9 +3505,76 @@ dates:
               rawReplacement: Ремизова А.И.Голубева Т.С.
               rawRoom: Б407Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-19
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
     replacements:
       - *a105
       - *a106
+  2026-11-19:
+    date: 2026-11-19
+    day: Четверг
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-19
+        day: Четверг
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
+          fetchedAt: 2026-11-18T17:58:01.020Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afd9c20-1fb5"
+          lastModified: Wed, 18 Nov 2026 12:37:52 GMT
+        replacements:
+          - &a107
+            date: 2026-11-19
+            group: ДИ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр. Выблова Т.В.
+              rawRoom: ДОТ
+          - &a108
+            date: 2026-11-19
+            group: ДИ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.01
+            replacement:
+              raw: Ремизова А.И.Голубева Т.С.
+              room: ДОТ
+            source:
+              shift: second
+              row: 27
+              rawGroupName: ДИ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 04.01
+              rawReplacement: Ремизова А.И.Голубева Т.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a107
+      - *a108
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3538,4 +3605,4 @@ diagnostics:
       date: 2026-09-24
       shift: second
       sourceSha256: c010be2f64b020fa9d32f1d921acb38625c8a539e424db58d6c571c9d5322602
-semanticHash: e54551da357666583f74d421529bc76f24e2b7404d0cae9ba0e7fcf703e8c793
+semanticHash: ba32427c780ad5903b6e57d799843e8a4d8504d159293ad206240d8246ef1428
