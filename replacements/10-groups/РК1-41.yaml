@@ -2043,6 +2043,68 @@ dates:
           sourceSha256: 9d6e42d2d36af4ade59af84e4b8409b7c51002ba2dcbc2d60c9c8977ae1989d9
     replacements:
       - *a49
+  2026-11-20:
+    date: 2026-11-20
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
+          fetchedAt: 2026-11-19T18:11:15.334Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afef643-25f9"
+          lastModified: Thu, 19 Nov 2026 13:14:43 GMT
+        replacements:
+          - &a50
+            date: 2026-11-20
+            group: РК1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: Ист.изобр.иск. Кожешкурт А.В.
+              room: Б101
+            source:
+              shift: second
+              row: 32
+              rawGroupName: РК1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: Ист.изобр.иск. Кожешкурт А.В.
+              rawRoom: Б101
+          - &a51
+            date: 2026-11-20
+            group: РК1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.01
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 33
+              rawGroupName: РК1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.01
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a50
+      - *a51
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2073,4 +2135,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: 3687566e3e57b38c90b373526c9e866d4afe5b96ca599e8d0710adf87dda47e3
+semanticHash: 378642986fe782808d2ddb5b692f8518a406df968218f4f2f6059af9a7885219

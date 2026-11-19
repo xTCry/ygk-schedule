@@ -2856,7 +2856,7 @@ dates:
         date: 2026-11-19
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2866,11 +2866,15 @@ dates:
           shift: first
           etag: W/"6afd8e6e-5ba3"
           lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
       second:
         date: 2026-11-19
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2880,6 +2884,10 @@ dates:
           shift: second
           etag: W/"6afd9c20-1fb5"
           lastModified: Wed, 18 Nov 2026 12:37:52 GMT
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
     groups:
       ТУ1-31:
         group: ТУ1-31
@@ -2956,6 +2964,55 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: Информационно-экскурсионная деятельность
+                  teacher: Тюленева В.О.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 120
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 120
+                rowEnd: 121
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.02.01 Предоставление туроператорских услуг
+                  teacher: Воронина Г.И.
+                  room: Ф107
+                  weekType: denominator
+                  sourceRow: 123
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 122
+                rowEnd: 123
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Физическая культура
+                  teacher: Калачик Н.И.
+                  room: Сп.площ.
+                  weekType: both
+                  sourceRow: 124
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 124
+                rowEnd: 125
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -2985,4 +3042,4 @@ diagnostics:
           sourceRow: 103
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 5428af50ff513267d9244197e4bbb21603d6d32cd76abb5505950c418eb027aa
+semanticHash: 625fff3d4f9a93ca1074009f1ef52b55db5198851ff353830081a0e9b86ecac9

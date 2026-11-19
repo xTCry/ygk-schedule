@@ -2770,7 +2770,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2821,8 +2821,95 @@ dates:
               rawReplacement: МДК 06.01 Гасенина М.П.
               rawRoom: М106
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
     replacements:
       - *a74
       - *a75
+  2026-11-20:
+    date: 2026-11-20
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
+          fetchedAt: 2026-11-19T18:11:15.313Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afecfb7-529d"
+          lastModified: Thu, 19 Nov 2026 10:30:15 GMT
+        replacements:
+          - &a76
+            date: 2026-11-20
+            group: СД2-13
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Махрова Н.Н.
+              room: ДОТ
+            source:
+              shift: first
+              row: 10
+              rawGroupName: СД2-13
+              rawLessonNumbers: "2"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Махрова Н.Н.
+              rawRoom: ДОТ
+          - &a77
+            date: 2026-11-20
+            group: СД2-13
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.Ист.России
+            replacement:
+              raw: МДК 06.01 Гасенина М.П.
+              room: ДОТ
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СД2-13
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 01.01 Т.1.2.Ист.России
+              rawReplacement: МДК 06.01 Гасенина М.П.
+              rawRoom: ДОТ
+          - &a78
+            date: 2026-11-20
+            group: СД2-13
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: История России Утешев В.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СД2-13
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: История России Утешев В.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a76
+      - *a77
+      - *a78
 diagnostics: []
-semanticHash: 6a1f65058ba05ec41d5dc7f732b826f75ef47367f5a23cc9e1b8da39186c44ac
+semanticHash: f382e49ec163f41716f76a9efc9f24a2541719133a80cfc98a349dcd085e52b9

@@ -2996,7 +2996,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3046,8 +3046,74 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
     replacements:
       - *a82
       - *a83
+  2026-11-20:
+    date: 2026-11-20
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
+          fetchedAt: 2026-11-19T18:11:15.313Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afecfb7-529d"
+          lastModified: Thu, 19 Nov 2026 10:30:15 GMT
+        replacements:
+          - &a84
+            date: 2026-11-20
+            group: СТ1-15
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инд.проект
+            replacement:
+              raw: Русский язык Шалаева А.А.
+              room: А203
+            source:
+              shift: first
+              row: 32
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "3"
+              rawOriginal: Инд.проект
+              rawReplacement: Русский язык Шалаева А.А.
+              rawRoom: А203
+          - &a85
+            date: 2026-11-20
+            group: СТ1-15
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: Информ.
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 33
+              rawGroupName: СТ1-15
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a84
+      - *a85
 diagnostics: []
-semanticHash: 66a557e934217f0706b10f7a94009f8e3cf35f427d025aeab06d3774fa3aafe8
+semanticHash: 37bb0b3d056658ffcec364d8bb2d02be4dedaaac854ccce9a3cfb72996c29d47

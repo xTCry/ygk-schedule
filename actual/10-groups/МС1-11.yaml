@@ -4460,7 +4460,7 @@ dates:
         date: 2026-11-19
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4470,11 +4470,15 @@ dates:
           shift: first
           etag: W/"6afd8e6e-5ba3"
           lastModified: Wed, 18 Nov 2026 11:39:26 GMT
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
       second:
         date: 2026-11-19
         day: Четверг
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4484,6 +4488,10 @@ dates:
           shift: second
           etag: W/"6afd9c20-1fb5"
           lastModified: Wed, 18 Nov 2026 12:37:52 GMT
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
     groups:
       МС1-11:
         group: МС1-11
@@ -4623,6 +4631,71 @@ dates:
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Биология
+                  teacher: Фокина Т.В.
+                  room: Б202
+                  weekType: both
+                  sourceRow: 27
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 27
+                rowEnd: 28
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Физика
+                  teacher: Акиничева М.А.
+                  room: М207
+                  weekType: denominator
+                  sourceRow: 30
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 29
+                rowEnd: 30
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Физическая культура
+                  teacher: Кургузова М.С.
+                  room: Сп.зал
+                  weekType: denominator
+                  sourceRow: 32
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 31
+                rowEnd: 32
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Индивидуальный проект
+                  teacher: Нечипорук О.Л.
+                  room: М208
+                  weekType: denominator
+                  rawSubject: "Индивидуальный проект "
+                  sourceRow: 34
+              source:
+                sheet: МС1-11 МС1-21 МС1-31 МС1-41
+                rowStart: 33
+                rowEnd: 34
+                rawGroupName: МС1-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4655,4 +4728,4 @@ diagnostics:
           sourceRow: 34
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 366deaf6f54f2810a09b56ea9e88c11ff42bb06d595ae31de0ab46a0c4ca7484
+semanticHash: 95dbd6c082396433889b4a0d9b7fbbc557a9abac018f62dda6795d7d4c3cfd97

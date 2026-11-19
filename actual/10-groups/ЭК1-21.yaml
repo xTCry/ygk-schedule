@@ -4866,6 +4866,122 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-20:
+    date: 2026-11-20
+    day: Пятница
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
+          fetchedAt: 2026-11-19T18:11:15.313Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6afecfb7-529d"
+          lastModified: Thu, 19 Nov 2026 10:30:15 GMT
+      second:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
+          fetchedAt: 2026-11-19T18:11:15.334Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afef643-25f9"
+          lastModified: Thu, 19 Nov 2026 13:14:43 GMT
+    groups:
+      ЭК1-21:
+        group: ЭК1-21
+        date: 2026-11-20
+        day: Пятница
+        lessons:
+          - number: 2
+            variants:
+              - subject: История России
+                teacher: Горбачев В.Н.
+                room: ДОТ
+                weekType: both
+                sourceRow: 31
+                rawRoom: ДОТ
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 31
+              rowEnd: 32
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-11-20
+                  group: ЭК1-21
+                  lessonNumbers:
+                    - 2
+                    - 3
+                    - 4
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 5
+                    rawGroupName: ЭК1-21
+                    rawLessonNumbers: 2-4
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: scheduled-room
+          - number: 3
+            variants:
+              - subject: Основы бухгалтерского учета
+                teacher: Ноева О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 33
+                rawRoom: ДОТ
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 33
+              rowEnd: 34
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 3
+                strategy: scheduled-room
+          - number: 4
+            variants:
+              - subject: Психология общения
+                teacher: Зеленцова Л.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 35
+                rawRoom: ДОТ
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 35
+              rowEnd: 36
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 4
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -4925,4 +5041,4 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: d8b13d1568725b96793dc30fadb86f24ccc77602ad87abbb6b1495fc9f24373c
+semanticHash: 9f4984b49cb8abaea3dc6f6d9072547b6173d07be0947b07c20126df805a79aa

@@ -3150,7 +3150,7 @@ dates:
         day: Четверг
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3181,8 +3181,74 @@ dates:
               rawReplacement: МДК 03.02 Егорова Ю.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-20
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
     replacements:
       - *a93
+  2026-11-20:
+    date: 2026-11-20
+    day: Пятница
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-20
+        day: Пятница
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3ff7c4206c2ccea331c7b24c4954db7072f490e92ea7036e5a13876665ec6086
+          fetchedAt: 2026-11-19T18:11:15.334Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6afef643-25f9"
+          lastModified: Thu, 19 Nov 2026 13:14:43 GMT
+        replacements:
+          - &a94
+            date: 2026-11-20
+            group: ИБ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: Акт.зал
+            source:
+              shift: second
+              row: 17
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: Акт.зал
+          - &a95
+            date: 2026-11-20
+            group: ИБ1-41
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 02.02 Web-программ.
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ИБ1-41
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 02.02 Web-программ.
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a94
+      - *a95
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3213,4 +3279,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: beb956b6a700b91b150e1645e4221b2dee41f073da3e943e69420d64e945432b
+semanticHash: 0b56c8f0d1204910588171ac9b775cfa0f051819f9379c7bfa630c1c8de61268
