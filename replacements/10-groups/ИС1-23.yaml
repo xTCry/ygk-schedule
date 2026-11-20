@@ -2484,7 +2484,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2535,9 +2535,91 @@ dates:
             rawValue: "13.20"
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a70
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a71
+            date: 2026-11-21
+            group: ИС1-23
+            lessonNumbers: []
+            type: unknown
+            original: null
+            replacement:
+              raw: Экзамен Пронина Л.Ю.
+              room: Б305
+            source:
+              shift: first
+              row: 15
+              rawGroupName: ИС1-23
+              rawLessonNumbers: "8.00"
+              rawOriginal: ""
+              rawReplacement: Экзамен Пронина Л.Ю.
+              rawRoom: Б305
+        diagnostics:
+          - provider: ygk
+            code: INVALID_REPLACEMENT_LESSON_NUMBER
+            severity: warning
+            message: Не удалось разобрать номер пары или диапазон из таблицы замен
+            fingerprint: 0a88c2d5a7ca9094536326e949508deb36bd777b12f477a1f41e024a70301e42
+            sheet: "Замены: Первая смена"
+            row: 15
+            normalizedGroup: ИС1-23
+            rawValue: "8.00"
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          - provider: ygk
+            code: UNKNOWN_REPLACEMENT_TYPE
+            severity: warning
+            message: Строка замен не содержит данных, достаточных для определения действия
+            fingerprint: 9b44f70d2940784a6968ce0efae06a2b4e741153b6f55855292d4d09f5690e93
+            sheet: "Замены: Первая смена"
+            row: 15
+            normalizedGroup: ИС1-23
+            rawValue: ИС1-23 | 8.00 |  | Экзамен Пронина Л.Ю.
+            sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+            sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    replacements:
+      - *a71
 diagnostics:
+  - provider: ygk
+    code: INVALID_REPLACEMENT_LESSON_NUMBER
+    severity: warning
+    message: Не удалось разобрать номер пары или диапазон из таблицы замен
+    fingerprint: 0a88c2d5a7ca9094536326e949508deb36bd777b12f477a1f41e024a70301e42
+    sheet: "Замены: Первая смена"
+    row: 15
+    normalizedGroup: ИС1-23
+    rawValue: "8.00"
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    context:
+      date: 2026-11-21
+      shift: first
+      sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
     severity: warning
@@ -2568,4 +2650,19 @@ diagnostics:
       date: 2026-11-20
       shift: first
       sourceSha256: 2e1367e66d62bbd54c87ae8dfecb00044ab345577d13d13a3bfd6d970826277b
-semanticHash: f917424a2e3618804bd9b46a1dd24e087105323083938635b03b7e4dd65e0a44
+  - provider: ygk
+    code: UNKNOWN_REPLACEMENT_TYPE
+    severity: warning
+    message: Строка замен не содержит данных, достаточных для определения действия
+    fingerprint: 9b44f70d2940784a6968ce0efae06a2b4e741153b6f55855292d4d09f5690e93
+    sheet: "Замены: Первая смена"
+    row: 15
+    normalizedGroup: ИС1-23
+    rawValue: ИС1-23 | 8.00 |  | Экзамен Пронина Л.Ю.
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    context:
+      date: 2026-11-21
+      shift: first
+      sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+semanticHash: 5e089a3f7fd028d12ca97c6f299abbf15d683da27aca523dc8e85b5667c8f09a

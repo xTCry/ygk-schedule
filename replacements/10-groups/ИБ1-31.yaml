@@ -3398,7 +3398,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3466,9 +3466,95 @@ dates:
               rawReplacement: ОПОИБ Ершов И.Л.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
     replacements:
       - *a92
       - *a93
       - *a94
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      second:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
+          fetchedAt: 2026-11-20T17:43:10.029Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b002ed0-22b6"
+          lastModified: Fri, 20 Nov 2026 11:28:16 GMT
+        replacements:
+          - &a95
+            date: 2026-11-21
+            group: ИБ1-31
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Электр.изм. Леонидова Н.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 24
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Электр.изм. Леонидова Н.А.
+              rawRoom: ДОТ
+          - &a96
+            date: 2026-11-21
+            group: ИБ1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: ТСИ
+            replacement:
+              raw: ОПОИБ Ершов И.Л.
+              room: ДОТ
+            source:
+              shift: second
+              row: 22
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "4"
+              rawOriginal: ТСИ
+              rawReplacement: ОПОИБ Ершов И.Л.
+              rawRoom: ДОТ
+          - &a97
+            date: 2026-11-21
+            group: ИБ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.03
+            replacement:
+              raw: МДК 01.04 Тимощук М.В.Зайцев Р.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 23
+              rawGroupName: ИБ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.03
+              rawReplacement: МДК 01.04 Тимощук М.В.Зайцев Р.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a95
+      - *a96
+      - *a97
 diagnostics: []
-semanticHash: 5673c280dc12dde391a4e474bc7e7e025b5e398c3984f33931102dd7938e320b
+semanticHash: 398e1a5feca5f0f0dad26150d2d87f909f559690155de92c2509343812091be1

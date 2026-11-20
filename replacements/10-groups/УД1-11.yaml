@@ -1872,7 +1872,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1923,8 +1923,55 @@ dates:
               rawReplacement: Литература Андрокович М.В.
               rawRoom: экскурсия
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a47
       - *a48
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a49
+            date: 2026-11-21
+            group: УД1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: ОБиЗР Петровский О.В.
+              room: Б402
+            source:
+              shift: first
+              row: 38
+              rawGroupName: УД1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: ОБиЗР Петровский О.В.
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a49
 diagnostics: []
-semanticHash: fd669c2058995988337f338dc2ea39afbb3ca3b857c3cfc6b2abafa15f7bae1c
+semanticHash: ef3992048d182102a175d7e5f7a4ba4bbad14c2e58f871f9b8e096b8f11737c7

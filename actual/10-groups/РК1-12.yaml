@@ -6973,7 +6973,7 @@ dates:
         date: 2026-11-20
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -6983,11 +6983,15 @@ dates:
           shift: first
           etag: W/"6afecfb7-529d"
           lastModified: Thu, 19 Nov 2026 10:30:15 GMT
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
       second:
         date: 2026-11-20
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -6997,6 +7001,10 @@ dates:
           shift: second
           etag: W/"6afef643-25f9"
           lastModified: Thu, 19 Nov 2026 13:14:43 GMT
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
     groups:
       РК1-12:
         group: РК1-12
@@ -7130,6 +7138,59 @@ dates:
                 lessonNumber: 3
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Информатика
+                  teacher: |-
+                    Садилова К.А.
+                    Комиссарова О.В.
+                  room: |-
+                    Б310
+                    Б403
+                  weekType: denominator
+                  sourceRow: 293
+              source:
+                sheet: 1 курс
+                rowStart: 292
+                rowEnd: 293
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Математика
+                  teacher: Пухова Ю.Г.
+                  room: М208
+                  weekType: both
+                  sourceRow: 294
+              source:
+                sheet: 1 курс
+                rowStart: 294
+                rowEnd: 295
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Основы шахматной игры
+                  teacher: Чупрова П.А.
+                  room: Б510
+                  weekType: denominator
+                  sourceRow: 297
+              source:
+                sheet: 1 курс
+                rowStart: 296
+                rowEnd: 297
+                rawGroupName: РК1-12
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7152,4 +7213,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: cd719c9fb120f0526db504046c10ac2f0b773cc84f700c994195a1916ee67951
+semanticHash: fa216b739b08813053b1b1d4f6cb4b6c0e32b8c21fcea1a627fb9bc5042ab843

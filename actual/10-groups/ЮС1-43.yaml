@@ -2607,6 +2607,107 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+      second:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
+          fetchedAt: 2026-11-20T17:43:10.029Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b002ed0-22b6"
+          lastModified: Fri, 20 Nov 2026 11:28:16 GMT
+    groups:
+      ЮС1-43:
+        group: ЮС1-43
+        date: 2026-11-21
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: МДК 04.01
+                teacher: Гайдис А.С.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 04.01 Гайдис А.С.
+                rawTeacher: Гайдис А.С.
+                rawRoom: ДОТ
+                sourceRow: 48
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 88
+              rowEnd: 89
+              rawGroupName: ЮС1-43/ЮС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a7
+                  date: 2026-11-21
+                  group: ЮС1-43
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original:
+                    raw: Осн.экол.пр.
+                  replacement:
+                    raw: МДК 04.01 Гайдис А.С.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: ЮС1-43
+                    rawLessonNumbers: 0,1
+                    rawOriginal: Осн.экол.пр.
+                    rawReplacement: МДК 04.01 Гайдис А.С.
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: МДК 04.01
+                teacher: Гайдис А.С.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 04.01 Гайдис А.С.
+                rawTeacher: Гайдис А.С.
+                rawRoom: ДОТ
+                sourceRow: 48
+            source:
+              sheet: ЮС1-41 ЮС1-43
+              rowStart: 90
+              rowEnd: 91
+              rawGroupName: ЮС1-43/ЮС1-44
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a7
+                lessonNumber: 1
+                strategy: subject-abbreviation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2637,4 +2738,4 @@ diagnostics:
       date: 2026-09-21
       shift: first
       sourceSha256: 9501d92f936238d12738509c70f0599d0dca421e5ef14732a7e6fd49080bf103
-semanticHash: 6175f4f99cfe84099619cae9f91bd88bde5b053a35c5f5c09563bce840f9a7e1
+semanticHash: b7cd520389a8df5269cd0e5581ce83d05a3adf4fbbefea24ac689e0373b4e49c

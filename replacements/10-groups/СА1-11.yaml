@@ -1790,7 +1790,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1857,9 +1857,56 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a44
       - *a45
       - *a46
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a47
+            date: 2026-11-21
+            group: СА1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Осн.шах.игр.
+            replacement:
+              raw: ОБиЗР Травникова Г.Г.
+              room: Б101
+            source:
+              shift: first
+              row: 34
+              rawGroupName: СА1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Осн.шах.игр.
+              rawReplacement: ОБиЗР Травникова Г.Г.
+              rawRoom: Б101
+        diagnostics: []
+    replacements:
+      - *a47
 diagnostics: []
-semanticHash: 937be6da73521e48cfc3e742939a6ebce0e2038d40b9af3c7f443b73727b2e94
+semanticHash: e72d51d0c354d3ed8520ea34c50df3752f7d5009cfb2e2c648f5e073ddab27b7

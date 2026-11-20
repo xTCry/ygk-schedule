@@ -7439,6 +7439,124 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+      second:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
+          fetchedAt: 2026-11-20T17:43:10.029Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b002ed0-22b6"
+          lastModified: Fri, 20 Nov 2026 11:28:16 GMT
+    groups:
+      РК1-11:
+        group: РК1-11
+        date: 2026-11-21
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Русский язык
+                teacher: Новикова М.А.
+                room: Б502
+                weekType: both
+                rawSubject: Русский язык Новикова М.А.
+                rawTeacher: Новикова М.А.
+                rawRoom: Б502
+                sourceRow: 33
+            source:
+              sheet: 1 курс
+              rowStart: 249
+              rowEnd: 250
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a12
+                  date: 2026-11-21
+                  group: РК1-11
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: replace
+                  original:
+                    raw: ...ОБиЗР
+                  replacement:
+                    raw: Русский язык Новикова М.А.
+                    room: Б502
+                  source:
+                    shift: first
+                    row: 33
+                    rawGroupName: РК1-11
+                    rawLessonNumbers: 0,1
+                    rawOriginal: ...ОБиЗР
+                    rawReplacement: Русский язык Новикова М.А.
+                    rawRoom: Б502
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Физическая культура
+                teacher: Чупрова П.А.
+                room: Спорт.зал
+                weekType: both
+                sourceRow: 251
+            source:
+              sheet: 1 курс
+              rowStart: 251
+              rowEnd: 252
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: М208
+                weekType: denominator
+                sourceRow: 254
+            source:
+              sheet: 1 курс
+              rowStart: 253
+              rowEnd: 254
+              rawGroupName: РК1-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements:
+          - replacement: *a12
+            lessonNumber: 0
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «...ОБиЗР». По замене: «Русский язык Новикова
+                М.А.». Аудитория: «Б502»."
+              room: Б502
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7518,4 +7636,25 @@ diagnostics:
           sourceRow: 254
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 9ef8edfd0dabff42c39aaa93f72b07dca5667518f0410443875757b7c0bf4dc2
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: 8ec4ac40f1cfa4e48b9628ce4fd308741929170167634db4f7eb1993cdc60770
+    sheet: "Замены: Первая смена"
+    row: 33
+    normalizedGroup: РК1-11
+    rawValue: Русский язык Новикова М.А.
+    context:
+      date: 2026-11-21
+      shift: first
+      sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+      lessonNumber: 0
+      type: replace
+      reason: lesson-not-found
+      baseGroup: РК1-11
+      baseSourceFiles:
+        - oar.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 6c4248d0af8975eef141626c713d11dc77b9405d2e403ce0b41d13c09a226a0a

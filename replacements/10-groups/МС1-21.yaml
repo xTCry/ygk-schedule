@@ -1637,7 +1637,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1668,7 +1668,53 @@ dates:
               rawReplacement: МДК 01.01 Т.1.1. Нечипорук О.Л.
               rawRoom: Ф302
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a46
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a47
+            date: 2026-11-21
+            group: МС1-21
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Кургузова М.С.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 36
+              rawGroupName: МС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: Физкультура Кургузова М.С.
+              rawRoom: Сп.зал
+        diagnostics: []
+    replacements:
+      - *a47
 diagnostics: []
-semanticHash: b544b9ba681c0cb0e0f417f0c11a336f788a0ab5c67f38a071b45b5478a6d5a0
+semanticHash: 2e6e746bdcb25394fec8e41d2dc2668761c23272ada199515eb50903c3d79326

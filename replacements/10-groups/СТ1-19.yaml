@@ -2727,7 +2727,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2777,8 +2777,55 @@ dates:
               rawReplacement: Утешев В.В.
               rawRoom: М208
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a83
       - *a84
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a85
+            date: 2026-11-21
+            group: СТ1-19
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: История Утешев В.В.
+              room: Б401
+            source:
+              shift: first
+              row: 27
+              rawGroupName: СТ1-19
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: История Утешев В.В.
+              rawRoom: Б401
+        diagnostics: []
+    replacements:
+      - *a85
 diagnostics: []
-semanticHash: 047566593636fc3075039a7e1cc3e81e378ce8bfef3eca045ad186cab07959a3
+semanticHash: e5a22cf15bf835961fbde7ec1e045348a710a83e40322794e8c4329a73d24a1e

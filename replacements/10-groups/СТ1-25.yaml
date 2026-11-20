@@ -2310,7 +2310,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2341,7 +2341,93 @@ dates:
               rawReplacement: п/гр.2 Кощеев В.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a65
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a66
+            date: 2026-11-21
+            group: СТ1-25
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: ИТ п/гр.2
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 10
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "1"
+              rawOriginal: ИТ п/гр.2
+              rawReplacement: снято
+              rawRoom: ""
+          - &a67
+            date: 2026-11-21
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: ИТ п/гр.2
+            replacement:
+              raw: Тех.механика п/гр.1 Кощеев В.В.
+              room: М207
+            source:
+              shift: first
+              row: 11
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: ИТ п/гр.2
+              rawReplacement: Тех.механика п/гр.1 Кощеев В.В.
+              rawRoom: М207
+          - &a68
+            date: 2026-11-21
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Тех.механика п/гр.1
+            replacement:
+              raw: /теория Кощеев В.В.
+              room: М207
+            source:
+              shift: first
+              row: 12
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: Тех.механика п/гр.1
+              rawReplacement: /теория Кощеев В.В.
+              rawRoom: М207
+        diagnostics: []
+    replacements:
+      - *a66
+      - *a67
+      - *a68
 diagnostics: []
-semanticHash: 178368d2e09453cbc07119f4dd091c3004c3a4a04ffd2299717530b2504e5512
+semanticHash: e6c8db483b89d8d5b90962677be81a81bf3ff8040a2aa0c3358e52014850eaf9

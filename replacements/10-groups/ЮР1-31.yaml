@@ -993,7 +993,7 @@ dates:
         day: Пятница
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1041,8 +1041,55 @@ dates:
               rawReplacement: МДК 03.02 Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
     replacements:
       - *a29
       - *a30
+  2026-11-21:
+    date: 2026-11-21
+    day: Суббота
+    weekType: denominator
+    shifts:
+      first:
+        date: 2026-11-21
+        day: Суббота
+        weekType: denominator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
+          fetchedAt: 2026-11-20T17:43:10.026Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b001b44-3259"
+          lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        replacements:
+          - &a31
+            date: 2026-11-21
+            group: ЮР1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Физкультура Калачик Н.И.
+              room: Сп.площ.
+            source:
+              shift: first
+              row: 43
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01
+              rawReplacement: Физкультура Калачик Н.И.
+              rawRoom: Сп.площ.
+        diagnostics: []
+    replacements:
+      - *a31
 diagnostics: []
-semanticHash: 489189df030f8a8a4a8566408e085c0c17f5b76adf8231fdfc83b9d9d97a09c0
+semanticHash: 320f1a48cd04745a50644e9a9db8c995dec0d59917700c479c88860882785595

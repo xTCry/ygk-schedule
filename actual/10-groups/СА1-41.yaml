@@ -7079,7 +7079,7 @@ dates:
         date: 2026-11-20
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -7089,11 +7089,15 @@ dates:
           shift: first
           etag: W/"6afecfb7-529d"
           lastModified: Thu, 19 Nov 2026 10:30:15 GMT
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: dc986ad12f73fb8764d622ee5c2863a43e92d3af797c981be9a88d82325c9cc1
       second:
         date: 2026-11-20
         day: Пятница
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -7103,6 +7107,10 @@ dates:
           shift: second
           etag: W/"6afef643-25f9"
           lastModified: Thu, 19 Nov 2026 13:14:43 GMT
+        finalizedBy:
+          date: 2026-11-21
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
     groups:
       СА1-41:
         group: СА1-41
@@ -7167,6 +7175,44 @@ dates:
                 lessonNumber: 5
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 4
+              variants:
+                - subject: МДК.03.01 Эксплуатация объектов сетевой инфраструктуры КП
+                  teacher: |-
+                    Хожайнова М.Г.
+                    Тимощук М.В.
+                  room: |-
+                    Б308
+                    Б309
+                  weekType: both
+                  sourceRow: 135
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 135
+                rowEnd: 136
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
+            - number: 5
+              variants:
+                - subject: Экономика отрасли
+                  teacher: Сафронова Л.Н.
+                  room: Б402
+                  weekType: denominator
+                  sourceRow: 138
+              source:
+                sheet: СА1-21 СА1-31  СА1-41
+                rowStart: 137
+                rowEnd: 138
+                rawGroupName: СА1-41/СА1-42
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -7410,4 +7456,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: f95078eae4b3e1ea3c56b20c35c3ea603bafaa2d275ab4793f366115ceb75ff0
+semanticHash: 3da120018b45e8b51c794d62e16a5fab84a0cd8677df3a7b2ca212277d32bd3a
