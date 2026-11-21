@@ -2357,7 +2357,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2425,9 +2425,76 @@ dates:
               rawReplacement: /теория Кощеев В.В.
               rawRoom: М207
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
     replacements:
       - *a66
       - *a67
       - *a68
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a69
+            date: 2026-11-23
+            group: СТ1-25
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01/т
+            replacement:
+              raw: п/гр.1 Топчиян Е.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.01/т
+              rawReplacement: п/гр.1 Топчиян Е.А.
+              rawRoom: ДОТ
+          - &a70
+            date: 2026-11-23
+            group: СТ1-25
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.01 Т.1.2.
+            replacement:
+              raw: Мат.метода Гаврилова М.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СТ1-25
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.01 Т.1.2.
+              rawReplacement: Мат.метода Гаврилова М.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a69
+      - *a70
 diagnostics: []
-semanticHash: e6c8db483b89d8d5b90962677be81a81bf3ff8040a2aa0c3358e52014850eaf9
+semanticHash: 3611d85f245005ea1eb9e91ac5044cdb786b90390799764d458a5a2592c31730

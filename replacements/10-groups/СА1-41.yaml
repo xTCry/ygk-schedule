@@ -2292,6 +2292,69 @@ dates:
           sourceSha256: 608a2aa266bf935b7195112927c9b0425112ea7eb68161ed9cad65881722e709
     replacements:
       - *a65
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        replacements:
+          - &a66
+            date: 2026-11-23
+            group: СА1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: 1,2 п/гр. Грехова Е.И.
+              room: Б304
+            source:
+              shift: second
+              row: 16
+              rawGroupName: СА1-41
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.02
+              rawReplacement: 1,2 п/гр. Грехова Е.И.
+              rawRoom: Б304
+          - &a67
+            date: 2026-11-23
+            group: СА1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.03
+            replacement:
+              raw: 1,2 п/гр. Зайцев Р.А.
+              room: Б304
+            source:
+              shift: second
+              row: 17
+              rawGroupName: СА1-41
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.03
+              rawReplacement: 1,2 п/гр. Зайцев Р.А.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a66
+      - *a67
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2322,4 +2385,4 @@ diagnostics:
       date: 2026-09-23
       shift: second
       sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
-semanticHash: 115cc520aabe7f5c86f2416f6a2c1382adf54f8763b8c0cc3d5b9e6bff2f71b2
+semanticHash: 4b9ef8d6f22a597828dcd52d3361bd7d26e3b04ae966ffc52d678e605f1e612d

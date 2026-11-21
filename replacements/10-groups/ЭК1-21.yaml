@@ -1555,7 +1555,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -1587,7 +1587,73 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
     replacements:
       - *a41
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        replacements:
+          - &a42
+            date: 2026-11-23
+            group: ЭК1-21
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: Статистика Багон А.А.
+              room: Ф104
+            source:
+              shift: second
+              row: 35
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: Статистика Багон А.А.
+              rawRoom: Ф104
+          - &a43
+            date: 2026-11-23
+            group: ЭК1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Статистика
+            replacement:
+              raw: ОФГ Сафронова Л.Н.
+              room: Ф302
+            source:
+              shift: second
+              row: 36
+              rawGroupName: ЭК1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Статистика
+              rawReplacement: ОФГ Сафронова Л.Н.
+              rawRoom: Ф302
+        diagnostics: []
+    replacements:
+      - *a42
+      - *a43
 diagnostics: []
-semanticHash: 180cdecf61ccd06ac015868a239d8d43a8943213551b1df3864e64f498eb21e9
+semanticHash: 54e38a98639de929938d696e9bd0ad4c97f03e3baacbad985d1135303151e812

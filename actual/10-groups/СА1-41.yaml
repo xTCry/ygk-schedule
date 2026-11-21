@@ -1003,7 +1003,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a16
                   date: 2026-09-14
                   group: СА1-41
                   lessonNumbers:
@@ -1042,7 +1042,7 @@ dates:
               sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a17
                   date: 2026-09-14
                   group: СА1-41
                   lessonNumbers:
@@ -7213,6 +7213,107 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+    groups:
+      СА1-41:
+        group: СА1-41
+        date: 2026-11-23
+        day: Понедельник
+        lessons:
+          - number: 3
+            variants:
+              - subject: МДК.03.02 Безопасность КС
+                teacher: Грехова Е.И.
+                room: Б304
+                weekType: both
+                rawSubject: 1,2 п/гр. Грехова Е.И.
+                rawTeacher: Грехова Е.И.
+                rawRoom: Б304
+                sourceRow: 16
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 101
+              rowEnd: 102
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a16
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants:
+              - subject: МДК.02.03 Организация администрирования КС
+                teacher: Зайцев Р.А.
+                room: Б304
+                weekType: both
+                rawSubject: 1,2 п/гр. Зайцев Р.А.
+                rawTeacher: Зайцев Р.А.
+                rawRoom: Б304
+                sourceRow: 17
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 103
+              rowEnd: 104
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a17
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants:
+              - subject: УП 03 Учебная практика
+                teacher: |-
+                  Зайцев Р.А.
+                  Грехова Е.И.
+                room: |-
+                  Б309
+                  Б304
+                weekType: both
+                sourceRow: 105
+            source:
+              sheet: СА1-21 СА1-31  СА1-41
+              rowStart: 105
+              rowEnd: 106
+              rawGroupName: СА1-41/СА1-42
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -7456,4 +7557,4 @@ diagnostics:
           sourceRow: 111
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 3da120018b45e8b51c794d62e16a5fab84a0cd8677df3a7b2ca212277d32bd3a
+semanticHash: d2437ec2a052566590cf9f08569c62aee5a5f8a19e022b216762fce29f9f2740

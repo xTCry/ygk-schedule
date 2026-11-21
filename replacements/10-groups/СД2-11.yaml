@@ -3456,7 +3456,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3507,8 +3507,55 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
     replacements:
       - *a97
       - *a98
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a99
+            date: 2026-11-23
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: ИТ МДК 05.01 п/гр.
+            replacement:
+              raw: ИТ п/гр.1 Сердцева О.Д. МДК 01.01 Т.1.2.п/гр.2 Краснянская Е.В.
+              room: Б406В102
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: ИТ МДК 05.01 п/гр.
+              rawReplacement: ИТ п/гр.1 Сердцева О.Д. МДК 01.01 Т.1.2.п/гр.2 Краснянская Е.В.
+              rawRoom: Б406В102
+        diagnostics: []
+    replacements:
+      - *a99
 diagnostics: []
-semanticHash: d29db7e4274e39ab11cfc18833276262733baa7268324d40922d29a581d606da
+semanticHash: 76c622a8d4a2e2e072dbf62d0579d64c5b61931e733934a3c60b5eb251ff41ff

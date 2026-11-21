@@ -5163,6 +5163,122 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+    groups:
+      ТТ1-21:
+        group: ТТ1-21
+        date: 2026-11-23
+        day: Понедельник
+        lessons:
+          - number: 4
+            variants:
+              - subject: Тех.механика
+                teacher: Дегтева И.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: Тех.механика Дегтева И.Е.
+                rawTeacher: Дегтева И.Е.
+                rawRoom: ДОТ
+                sourceRow: 39
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a15
+                  date: 2026-11-23
+                  group: ТТ1-21
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original:
+                    raw: Материал.Инж.гр.
+                  replacement:
+                    raw: Тех.механика Дегтева И.Е.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 39
+                    rawGroupName: ТТ1-21
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Материал.Инж.гр.
+                    rawReplacement: Тех.механика Дегтева И.Е.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants:
+              - subject: Тех.механика
+                teacher: Дегтева И.Е.
+                room: ДОТ
+                weekType: both
+                rawSubject: Тех.механика Дегтева И.Е.
+                rawTeacher: Дегтева И.Е.
+                rawRoom: ДОТ
+                sourceRow: 39
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 56
+              rowEnd: 57
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a15
+                lessonNumber: 5
+                strategy: subject-word-mention
+          - number: 6
+            variants:
+              - subject: Основы финансовой грамотности
+                teacher: Ковалева С.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 58
+            source:
+              sheet: ТТ1-11 ТТ1-21 ТТ1-31 ТТ1-41
+              rowStart: 58
+              rowEnd: 59
+              rawGroupName: ТТ1-21\ТТ2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5182,7 +5298,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: &a15
+      baseSourceFiles: &a16
         - oeis.xlsx
       replacementWeekType: denominator
       availableWeekTypes:
@@ -5215,7 +5331,7 @@ diagnostics:
       type: replace
       reason: lesson-not-scheduled-for-week
       baseGroup: ТТ1-21
-      baseSourceFiles: *a15
+      baseSourceFiles: *a16
       replacementWeekType: denominator
       availableWeekTypes:
         - denominator
@@ -5229,4 +5345,4 @@ diagnostics:
           sourceRow: 78
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 38269651766d75a0a52ff3fa60b28b9d3207808436b39462e7cb07bbd03cd49d
+semanticHash: 64c0207fae7a53b80f577761ce42f945a4be675359e89be4544effefdc03785c

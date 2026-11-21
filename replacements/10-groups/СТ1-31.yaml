@@ -2349,7 +2349,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2382,7 +2382,55 @@ dates:
               rawReplacement: Физкультура Герман О.Г.
               rawRoom: Шинник
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
     replacements:
       - *a62
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        replacements:
+          - &a63
+            date: 2026-11-23
+            group: СТ1-31
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.01/т
+            replacement:
+              raw: МДК 01.01 Т.1.2.п/гр.2 Секацкая Н.А. МДК 02.01 Т.1.4.п/гр.1 Андреева Ю.Р.
+              room: Б502Б407
+            source:
+              shift: second
+              row: 11
+              rawGroupName: СТ1-31
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.01/т
+              rawReplacement: МДК 01.01 Т.1.2.п/гр.2 Секацкая Н.А. МДК 02.01 Т.1.4.п/гр.1
+                Андреева Ю.Р.
+              rawRoom: Б502Б407
+        diagnostics: []
+    replacements:
+      - *a63
 diagnostics: []
-semanticHash: d0337a4de4e3488f188390820ddfe6bbc80a49dbe7226c511dd8d3081ae84577
+semanticHash: e4a46e019eac5d5cd6be4d5f1ed8c2e0b648c81f6959c7ff3c0d29e46100cbda

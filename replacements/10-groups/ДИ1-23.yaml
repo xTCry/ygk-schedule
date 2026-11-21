@@ -2596,7 +2596,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2645,8 +2645,74 @@ dates:
               rawReplacement: Тарасова Н.А.Лапина А.А.
               rawRoom: Б207Б208
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
     replacements:
       - *a73
       - *a74
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a75
+            date: 2026-11-23
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: МДК 05.01 п/гр.1 Рочева А.А.
+              room: Б509
+            source:
+              shift: first
+              row: 24
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: МДК 05.01 п/гр.1 Рочева А.А.
+              rawRoom: Б509
+          - &a76
+            date: 2026-11-23
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 05.01
+            replacement:
+              raw: п/гр.2 Тарасова Н.А.
+              room: Б208
+            source:
+              shift: first
+              row: 25
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 05.01
+              rawReplacement: п/гр.2 Тарасова Н.А.
+              rawRoom: Б208
+        diagnostics: []
+    replacements:
+      - *a75
+      - *a76
 diagnostics: []
-semanticHash: d9e2236c366d7ee3665cd6a2a32133fdca139e9e4163c6fdbbb2d891745c9e62
+semanticHash: 88e14b44dd826595d1450df99b50192da95c0b88a19e4372e7d91dbd819e0023

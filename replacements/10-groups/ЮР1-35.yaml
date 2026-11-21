@@ -1143,7 +1143,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1192,8 +1192,55 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
     replacements:
       - *a32
       - *a33
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a34
+            date: 2026-11-23
+            group: ЮР1-35
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Муниц.право
+            replacement:
+              raw: МДК 03.02 Грак А.М.
+              room: Ф206
+            source:
+              shift: first
+              row: 69
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "0"
+              rawOriginal: Муниц.право
+              rawReplacement: МДК 03.02 Грак А.М.
+              rawRoom: Ф206
+        diagnostics: []
+    replacements:
+      - *a34
 diagnostics: []
-semanticHash: 1db775775f76d0009155e4e48a19ff864107ea453383222d248412a159a37cd1
+semanticHash: d39c105830ea450d020b297da9d03638191c39a5050bcb225d234d894e8f85b4

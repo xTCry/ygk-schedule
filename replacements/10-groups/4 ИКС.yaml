@@ -3256,5 +3256,68 @@ dates:
     replacements:
       - *a82
       - *a83
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a84
+            date: 2026-11-23
+            group: 4 ИКС
+            lessonNumbers:
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 04 п/гр.1
+            replacement:
+              raw: снято
+            source:
+              shift: first
+              row: 77
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 1,2
+              rawOriginal: УП 04 п/гр.1
+              rawReplacement: снято
+              rawRoom: ""
+          - &a85
+            date: 2026-11-23
+            group: 4 ИКС
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Псих.общ. Царькова Н.А.
+              room: к.25
+            source:
+              shift: first
+              row: 78
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: "4"
+              rawOriginal: Эф.поведение
+              rawReplacement: Псих.общ. Царькова Н.А.
+              rawRoom: к.25
+        diagnostics: []
+    replacements:
+      - *a84
+      - *a85
 diagnostics: []
-semanticHash: 327dcc3135289228a429f58d6cbdd69938010f2873ec6e3d0e0d287fd43b7711
+semanticHash: f9566bbdf3fe733c14f50719ff2a623b7b92a0ac7e626d24e5fa66aba465ce4d

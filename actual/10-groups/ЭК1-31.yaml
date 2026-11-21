@@ -5207,6 +5207,139 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+    groups:
+      ЭК1-31:
+        group: ЭК1-31
+        date: 2026-11-23
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы философии
+                teacher: Горбачев В.Н.
+                room: Ф107
+                weekType: both
+                sourceRow: 48
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 48
+              rowEnd: 49
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК.01.01 Практические основы бухгалтерского учета активов организации
+                teacher: Ноева О.В.
+                room: Ф205
+                weekType: both
+                sourceRow: 50
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 50
+              rowEnd: 51
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: УП 01
+                teacher: Ноева О.В.
+                room: Ф205
+                weekType: both
+                subgroup: "2"
+                rawSubject: УП 01 п/гр.2 Ноева О.В.
+                rawTeacher: Ноева О.В.
+                rawRoom: Ф205
+                sourceRow: 54
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 52
+              rowEnd: 53
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a9
+                  date: 2026-11-23
+                  group: ЭК1-31
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: УП 04.01 п/гр.2
+                  replacement:
+                    raw: УП 01 п/гр.2 Ноева О.В.
+                    room: Ф205
+                  source:
+                    shift: first
+                    row: 54
+                    rawGroupName: ЭК1-31
+                    rawLessonNumbers: 2,3
+                    rawOriginal: УП 04.01 п/гр.2
+                    rawReplacement: УП 01 п/гр.2 Ноева О.В.
+                    rawRoom: Ф205
+                lessonNumber: 2
+                strategy: subject-module-code
+          - number: 3
+            variants:
+              - subject: УП 01
+                teacher: Ноева О.В.
+                room: Ф205
+                weekType: both
+                subgroup: "2"
+                rawSubject: УП 01 п/гр.2 Ноева О.В.
+                rawTeacher: Ноева О.В.
+                rawRoom: Ф205
+                sourceRow: 54
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 54
+              rowEnd: 55
+              rawGroupName: ЭК1-31/ ЭК1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a9
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5281,7 +5414,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЭК1-31
-      baseSourceFiles: &a9
+      baseSourceFiles: &a10
         - out.xlsx
       requestedSubject: УП 04
       requestedSubgroups:
@@ -5338,7 +5471,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЭК1-31
-      baseSourceFiles: *a9
+      baseSourceFiles: *a10
       requestedSubject: УП 04
       requestedSubgroups:
         - "1"
@@ -5398,4 +5531,4 @@ diagnostics:
           sourceRow: 77
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 5d6545cdb28a439227f9eab7d7060fd8e0a61815a77ac3de3b6c3ebedbbec2d2
+semanticHash: de14bda61cb9bf57234a47f3284834d981a347bfd30f66766163ea7188ee604d

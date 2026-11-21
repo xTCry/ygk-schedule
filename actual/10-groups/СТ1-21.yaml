@@ -4477,7 +4477,7 @@ dates:
         date: 2026-11-21
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -4487,11 +4487,15 @@ dates:
           shift: first
           etag: W/"6b001b44-3259"
           lastModified: Fri, 20 Nov 2026 10:04:52 GMT
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
       second:
         date: 2026-11-21
         day: Суббота
         weekType: denominator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4501,6 +4505,10 @@ dates:
           shift: second
           etag: W/"6b002ed0-22b6"
           lastModified: Fri, 20 Nov 2026 11:28:16 GMT
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
     groups:
       СТ1-21:
         group: СТ1-21
@@ -4586,5 +4594,166 @@ dates:
                 lessonNumber: 4
                 strategy: subject-abbreviation
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 3
+              variants:
+                - subject: История России
+                  teacher: Смирнов Б.Е.
+                  room: А201
+                  weekType: denominator
+                  sourceRow: 48
+              source:
+                sheet: СТ 2 курс
+                rowStart: 47
+                rowEnd: 48
+                rawGroupName: СТ1-21/СТ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Математические методы решения прикладных профессиональных задач
+                  teacher: Гаврилова М. А.
+                  room: М102
+                  weekType: both
+                  sourceRow: 49
+              source:
+                sheet: СТ 2 курс
+                rowStart: 49
+                rowEnd: 50
+                rawGroupName: СТ1-21/СТ1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+    groups:
+      СТ1-21:
+        group: СТ1-21
+        date: 2026-11-23
+        day: Понедельник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математические методы решения прикладных профессиональных задач
+                teacher: Гаврилова М. А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 4
+            source:
+              sheet: СТ 2 курс
+              rowStart: 4
+              rowEnd: 5
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: МДК 06.01
+                teacher: Гасенина М.П.
+                room: ДОТ
+                weekType: both
+                rawSubject: МДК 06.01 Гасенина М.П.
+                rawTeacher: Гасенина М.П.
+                rawRoom: ДОТ
+                sourceRow: 5
+            source:
+              sheet: СТ 2 курс
+              rowStart: 6
+              rowEnd: 7
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-23
+                  group: СТ1-21
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: МДК 05.01
+                  replacement:
+                    raw: МДК 06.01 Гасенина М.П.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 5
+                    rawGroupName: СТ1-21
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 05.01
+                    rawReplacement: МДК 06.01 Гасенина М.П.
+                    rawRoom: ДОТ
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: Инженерная графика
+                teacher: |-
+                  Дегтева И.Е.
+                  Костерина Е. В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 8
+            source:
+              sheet: СТ 2 курс
+              rowStart: 8
+              rowEnd: 9
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Техническая механика п/гр1
+                teacher: Кощеев В. В.
+                room: ДОТ
+                weekType: numerator
+                subgroup: "1"
+                sourceRow: 10
+            source:
+              sheet: СТ 2 курс
+              rowStart: 10
+              rowEnd: 11
+              rawGroupName: СТ1-21/СТ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: faa4736bcf8086f6e0203e2d0cfe011236bcc0d443ea3ee9a0b4720d6cd6f4c0
+semanticHash: 2d9f74160500fcd384652cfb84ef6d9f664a7a57cfe86d9f20eed93394b0f1b8

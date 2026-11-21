@@ -2775,7 +2775,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2824,8 +2824,75 @@ dates:
               rawReplacement: МДК 02.01 Серова А.М.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
     replacements:
       - *a76
       - *a77
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: ba4a7f1da0e408c9f6f2bde004dad47375ea1344db917726a14cc2206de7e735
+          fetchedAt: 2026-11-21T16:44:37.076Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b017f4a-4cba"
+          lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        replacements:
+          - &a78
+            date: 2026-11-23
+            group: ИС1-25
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: ААС
+            replacement:
+              raw: МДК 02.01 Серова А.М.
+              room: ДОТ
+            source:
+              shift: first
+              row: 19
+              rawGroupName: ИС1-25
+              rawLessonNumbers: "1"
+              rawOriginal: ААС
+              rawReplacement: МДК 02.01 Серова А.М.
+              rawRoom: ДОТ
+          - &a79
+            date: 2026-11-23
+            group: ИС1-25
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Загородних Е.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 18
+              rawGroupName: ИС1-25
+              rawLessonNumbers: "3"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Загородних Е.С.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a78
+      - *a79
 diagnostics: []
-semanticHash: 3a5eca561e4a8883fad8358164583af166bff2e85bc15d68c9c75643b182a888
+semanticHash: f74b677ca1fceb0e7726b4dc116c0a3fea8b2b8b55bcfc1d95d4e3798bc79012

@@ -2776,7 +2776,7 @@ dates:
         day: Суббота
         weekType: denominator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2846,9 +2846,55 @@ dates:
               rawReplacement: Физкультура Калачик Н.И.
               rawRoom: Шинник
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-23
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
     replacements:
       - *a80
       - *a81
       - *a82
+  2026-11-23:
+    date: 2026-11-23
+    day: Понедельник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-23
+        day: Понедельник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 3e43ad1e4e080213fcf12fa2cbed81b6cc86d7d3003dec5c37826732a7abf0f7
+          fetchedAt: 2026-11-21T16:44:37.086Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b017b0a-2262"
+          lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        replacements:
+          - &a83
+            date: 2026-11-23
+            group: ЮР1-23
+            lessonNumbers:
+              - 2
+            type: cancel
+            original:
+              raw: Конст.право
+            replacement:
+              raw: снято
+            source:
+              shift: second
+              row: 2
+              rawGroupName: ЮР1-23
+              rawLessonNumbers: "2"
+              rawOriginal: Конст.право
+              rawReplacement: снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a83
 diagnostics: []
-semanticHash: 6dd7f6c9277a3cc69aa61ac55e2dc50e734709cb10dc2db26212b34a38fc064c
+semanticHash: e8284b70b0630878b9d32f4ae2092d8f44e2730a0f07209d96a3af5122719762
