@@ -1500,7 +1500,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1550,8 +1550,55 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 03.01 Вепрева Ю.Ю.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a38
       - *a39
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a40
+            date: 2026-11-24
+            group: РК1-23
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: МДК 04.02 п/гр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 22
+              rawGroupName: РК1-23
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 04.02 п/гр 1
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a40
 diagnostics: []
-semanticHash: d9555966a90944a68a6e033212fd105666ca77d267ce82d5ca63834597629b3a
+semanticHash: 56a08f7e190a13ecb24ece93c006de1d57b104f64e4112875b8755a00a11264d

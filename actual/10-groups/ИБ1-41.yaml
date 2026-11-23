@@ -10440,6 +10440,142 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+    groups:
+      ИБ1-41:
+        group: ИБ1-41
+        date: 2026-11-24
+        day: Вторник
+        lessons:
+          - number: 2
+            variants:
+              - subject: МДК 03.02
+                teacher: Егорова Ю.С.
+                room: Б305
+                weekType: both
+                rawSubject: МДК 03.02 Егорова Ю.С.
+                rawTeacher: Егорова Ю.С.
+                rawRoom: Б305
+                sourceRow: 9
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-24
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 2
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 03.02 Егорова Ю.С.
+                    room: Б305
+                  source:
+                    shift: second
+                    row: 9
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: "2"
+                    rawOriginal: ""
+                    rawReplacement: МДК 03.02 Егорова Ю.С.
+                    rawRoom: Б305
+                lessonNumber: 2
+                strategy: add
+          - number: 3
+            variants:
+              - subject: УП.03 Учебная практика
+                teacher: |-
+                  Грехова Е.И.
+                  Зайцев Р.А.
+                room: |-
+                  Б309
+                  Б403
+                weekType: numerator
+                sourceRow: 112
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 114
+              rowEnd: 115
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a21
+                  date: 2026-11-24
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: cancel
+                  original:
+                    raw: МДК 03.01
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 10
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: 4,5
+                    rawOriginal: МДК 03.01
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-module-code
+          - number: 5
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 116
+              rowEnd: 117
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a21
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -10549,7 +10685,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: &a21
+      baseSourceFiles: &a22
         - oit_1sem.xlsx
       requestedSubject: МДК 03.01
       requestedSubgroups:
@@ -10630,7 +10766,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: *a21
+      baseSourceFiles: *a22
       requestedSubject: МДК 03.01
       requestedSubgroups:
         - "1"
@@ -10735,4 +10871,4 @@ diagnostics:
           sourceRow: 123
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7262bb021f85713651014ebb58a6da15845e42e0a37feffce5b338003e1a1eb3
+semanticHash: 78bf7e02053b0534cc699e5f2f112bffc6f0f6c9b91cb66ea906f3e3901b7780

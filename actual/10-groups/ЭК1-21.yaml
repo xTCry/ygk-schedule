@@ -5221,7 +5221,7 @@ dates:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -5231,11 +5231,15 @@ dates:
           shift: first
           etag: W/"6b017f4a-4cba"
           lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
       second:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5245,6 +5249,10 @@ dates:
           shift: second
           etag: W/"6b017b0a-2262"
           lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     groups:
       ЭК1-21:
         group: ЭК1-21
@@ -5355,6 +5363,56 @@ dates:
             status: scheduled
             replacements: []
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Статистика
+                  teacher: Багон А.А.
+                  room: Ф104
+                  weekType: both
+                  sourceRow: 3
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 3
+                rowEnd: 4
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: Статистика
+                  teacher: Багон А.А.
+                  room: Ф104
+                  weekType: numerator
+                  sourceRow: 5
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 5
+                rowEnd: 6
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 4
+              variants:
+                - subject: Основы финансовой грамотности
+                  teacher: Сафронова Л.Н.
+                  room: Ф302
+                  weekType: both
+                  rawSubject: "Основы финансовой грамотности "
+                  sourceRow: 7
+              source:
+                sheet: " ЭК1-21 ЭК1-31"
+                rowStart: 7
+                rowEnd: 8
+                rawGroupName: ЭК1-21/ЭК1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5414,4 +5472,4 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 82d34b33530fc4f06129f230d273e1141f37663849ae87dbb9ad975c89ffa5a9
+semanticHash: 157bdb60c7baf3c866168028eed960068869abd50cf81f5605e06ee18e19f2ac

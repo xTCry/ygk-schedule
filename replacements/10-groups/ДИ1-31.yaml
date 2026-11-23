@@ -2601,7 +2601,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2632,7 +2632,53 @@ dates:
               rawReplacement: п/гр.1 Махоткина Д.Е.
               rawRoom: Б407
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a69
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+        replacements:
+          - &a70
+            date: 2026-11-24
+            group: ДИ1-31
+            lessonNumbers:
+              - 6
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.02 п/гр 2 Матвеичева К.А. МДК 02.01 пгр 1 Лапина А.А.
+              room: Б304 Б409
+            source:
+              shift: second
+              row: 15
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: "6"
+              rawOriginal: ""
+              rawReplacement: МДК 01.02 п/гр 2 Матвеичева К.А. МДК 02.01 пгр 1 Лапина А.А.
+              rawRoom: Б304 Б409
+        diagnostics: []
+    replacements:
+      - *a70
 diagnostics: []
-semanticHash: 9b47ce112cd6618ee447e355e4910876e35a39bb6b6e5e99472349417e2045ee
+semanticHash: 54531142169586cfb839b7c70e65b4af737ca12a8253ecbb52da6ef198207880

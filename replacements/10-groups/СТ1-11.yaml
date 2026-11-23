@@ -1645,7 +1645,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1675,7 +1675,54 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a43
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a44
+            date: 2026-11-24
+            group: СТ1-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: 1,2 п/гр. Жданова Н.А.
+              room: Б403
+            source:
+              shift: first
+              row: 37
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "4"
+              rawOriginal: Информ.
+              rawReplacement: 1,2 п/гр. Жданова Н.А.
+              rawRoom: Б403
+        diagnostics: []
+    replacements:
+      - *a44
 diagnostics: []
-semanticHash: 51b1c982809325bfc40f41725dcb03929a004e008804b1273d880f3a8a618db1
+semanticHash: 8dae523a5f6b2c2194f1d167f28a5daee88ea8bd17772593b6cf68cce7743eb0

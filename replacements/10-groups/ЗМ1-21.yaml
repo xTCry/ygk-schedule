@@ -966,7 +966,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -999,7 +999,74 @@ dates:
               rawReplacement: по расписанию
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a27
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a28
+            date: 2026-11-24
+            group: ЗМ1-21
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 44
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: 0-2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a29
+            date: 2026-11-24
+            group: ЗМ1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.01 Федорова А.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ЗМ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 01.01 Федорова А.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a28
+      - *a29
 diagnostics: []
-semanticHash: 64b16bf434f162fcd7a8363fd31d06eded2c726cd9cbd9280eb8832b0796a1a9
+semanticHash: 70efd94885d469167494a2577edde7da84db364834a0d2be43477f0e18142711

@@ -2302,7 +2302,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2352,9 +2352,56 @@ dates:
               rawReplacement: 1,2 п/гр. Зайцев Р.А.
               rawRoom: Б304
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a66
       - *a67
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+        replacements:
+          - &a68
+            date: 2026-11-24
+            group: СА1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Физкультура
+            replacement:
+              raw: УП 03 Грехова Е.И.Зайцев Р.А
+              room: Б308Б304
+            source:
+              shift: second
+              row: 8
+              rawGroupName: СА1-41
+              rawLessonNumbers: "5"
+              rawOriginal: Физкультура
+              rawReplacement: УП 03 Грехова Е.И.Зайцев Р.А
+              rawRoom: Б308Б304
+        diagnostics: []
+    replacements:
+      - *a68
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2385,4 +2432,4 @@ diagnostics:
       date: 2026-09-23
       shift: second
       sourceSha256: de5024a8471bcc89243463615c019b8cbbdabecab5607001203f66bb38ddc4b4
-semanticHash: 4b9ef8d6f22a597828dcd52d3361bd7d26e3b04ae966ffc52d678e605f1e612d
+semanticHash: 6d31547b19214e25ef6e081f9c9b03f0d11ed7445be3f0d1a1890432cc63d491

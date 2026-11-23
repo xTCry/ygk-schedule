@@ -8230,6 +8230,126 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+    groups:
+      СТ1-13:
+        group: СТ1-13
+        date: 2026-11-24
+        day: Вторник
+        lessons:
+          - number: 0
+            variants:
+              - subject: Русский язык
+                teacher: Шалаева А.А.
+                room: А203
+                weekType: both
+                sourceRow: 63
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 63
+              rowEnd: 64
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Литература
+                teacher: Шалаева А.А.
+                room: А203
+                weekType: both
+                sourceRow: 65
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 65
+              rowEnd: 66
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: История
+                teacher: Ушкало Ю. А.
+                room: ДОТ
+                weekType: both
+                rawSubject: История Ушкало Ю. А.
+                rawTeacher: Ушкало Ю. А.
+                rawRoom: ДОТ
+                sourceRow: 36
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a21
+                  date: 2026-11-24
+                  group: СТ1-13
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: История Ушкало Ю. А.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 36
+                    rawGroupName: СТ1-13
+                    rawLessonNumbers: 2,3
+                    rawOriginal: ""
+                    rawReplacement: История Ушкало Ю. А.
+                    rawRoom: ДОТ
+                lessonNumber: 2
+                strategy: add
+          - number: 3
+            variants:
+              - subject: История
+                teacher: Ушкало Ю. А.
+                room: ДОТ
+                weekType: both
+                rawSubject: История Ушкало Ю. А.
+                rawTeacher: Ушкало Ю. А.
+                rawRoom: ДОТ
+                sourceRow: 36
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a21
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -8390,4 +8510,4 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 4e6828c858645f7db48d0bd0ccf78d5f549be3b64da751266af011bb802b829b
+semanticHash: 1864b8e60d6a3e191cf0cd5dfde4e4cc4ac9b455d2133850c1b06310e349d86a

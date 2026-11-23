@@ -1656,7 +1656,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1687,7 +1687,54 @@ dates:
               rawReplacement: снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a43
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a44
+            date: 2026-11-24
+            group: РК1-21
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Инф.обесп
+            replacement:
+              raw: 1,2 п/гр. Анисимова С.А.
+              room: Б304
+            source:
+              shift: first
+              row: 21
+              rawGroupName: РК1-21
+              rawLessonNumbers: "3"
+              rawOriginal: Инф.обесп
+              rawReplacement: 1,2 п/гр. Анисимова С.А.
+              rawRoom: Б304
+        diagnostics: []
+    replacements:
+      - *a44
 diagnostics: []
-semanticHash: 77e791b502ee4864a6b06394a847eabdf3f918c5239d7c9765a05e75d8e36195
+semanticHash: 312dd7e740081a0b198b5bbde33e1fe1ce61f4a6bd61619592d2ed65ade86688

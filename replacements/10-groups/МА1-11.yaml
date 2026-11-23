@@ -1952,7 +1952,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2003,8 +2003,94 @@ dates:
               rawReplacement: Ин.язык Трусова Е.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a53
       - *a54
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a55
+            date: 2026-11-24
+            group: МА1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Информ.
+            replacement:
+              raw: Химия Козырева Д.А.
+              room: Б110
+            source:
+              shift: first
+              row: 59
+              rawGroupName: МА1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Информ.
+              rawReplacement: Химия Козырева Д.А.
+              rawRoom: Б110
+          - &a56
+            date: 2026-11-24
+            group: МА1-11
+            lessonNumbers:
+              - 1
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Физкульт. Герман О.Г
+              room: Сп.зал
+            source:
+              shift: first
+              row: 60
+              rawGroupName: МА1-11
+              rawLessonNumbers: "1"
+              rawOriginal: Математика
+              rawReplacement: Физкульт. Герман О.Г
+              rawRoom: Сп.зал
+          - &a57
+            date: 2026-11-24
+            group: МА1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 61
+              rawGroupName: МА1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a55
+      - *a56
+      - *a57
 diagnostics: []
-semanticHash: d2fe40fd85510357ae6eae55a2280a1f4bcd74fbdc7dde11a0dabd406c0151ed
+semanticHash: 0585128565c8ee60ac37dc0accdd86044bb61d4e3745d308c5c4aee7a90e2c99

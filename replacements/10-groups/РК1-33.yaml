@@ -3407,7 +3407,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3457,8 +3457,56 @@ dates:
               rawReplacement: 1,2 п/гр. Пономаренко В.С.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a92
       - *a93
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+        replacements:
+          - &a94
+            date: 2026-11-24
+            group: РК1-33
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 04.01 МДК 02.01
+            replacement:
+              raw: 1,2 п/гр.УП 04.03 Пономаренко В.С.
+              room: Б309
+            source:
+              shift: second
+              row: 27
+              rawGroupName: РК1-33
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 04.01 МДК 02.01
+              rawReplacement: 1,2 п/гр.УП 04.03 Пономаренко В.С.
+              rawRoom: Б309
+        diagnostics: []
+    replacements:
+      - *a94
 diagnostics: []
-semanticHash: f773995b3b48466d686b2336a1afe92ad88fe22217d0463bad35971f5135252f
+semanticHash: 8daf9bb1732e37167d6c2f97dad330b534125ed0dbd85dc7f67241ef42d2b364

@@ -895,7 +895,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -926,8 +926,74 @@ dates:
               rawReplacement: МДК 03.01 Т.1.2. Девятаева Н.Ф.
               rawRoom: Б504
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a23
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
+          fetchedAt: 2026-11-23T21:11:49.542Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b042dbe-4ca6"
+          lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        replacements:
+          - &a24
+            date: 2026-11-24
+            group: СТ1-41
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: Экон.отрасли
+            replacement:
+              raw: МДК 03.01 Серых Л.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: Экон.отрасли
+              rawReplacement: МДК 03.01 Серых Л.В.
+              rawRoom: ДОТ
+          - &a25
+            date: 2026-11-24
+            group: СТ1-41
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: Ин.язык Девлитянс О.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: Ин.язык Девлитянс О.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a24
+      - *a25
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -958,4 +1024,4 @@ diagnostics:
       date: 2026-09-28
       shift: first
       sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
-semanticHash: e0aacc8ddb79286933317bcd11a61734702edeea18a86ea63858e2d19d409447
+semanticHash: 729a0219be3878a50220057647416316e3a8ceff11e9e374379cf58550f30d92

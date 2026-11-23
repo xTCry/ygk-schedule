@@ -11361,7 +11361,7 @@ dates:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -11371,11 +11371,15 @@ dates:
           shift: first
           etag: W/"6b017f4a-4cba"
           lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
       second:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -11385,6 +11389,10 @@ dates:
           shift: second
           etag: W/"6b017b0a-2262"
           lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     groups:
       ЮР1-15:
         group: ЮР1-15
@@ -11514,6 +11522,60 @@ dates:
                 lessonNumber: 3
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Разговоры о важном
+                  teacher: Грак А.М.
+                  room: Ф202
+                  weekType: both
+                  sourceRow: 109
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 109
+                rowEnd: 110
+                rawGroupName: ЮР 1-15 / ЮР1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Петрова У.В.
+                    Абрамова К.В.
+                  room: |-
+                    Ф204
+                    Ф403
+                  weekType: both
+                  rawSubject: "Иностранный язык "
+                  sourceRow: 111
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 111
+                rowEnd: 112
+                rawGroupName: ЮР 1-15 / ЮР1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: История
+                  teacher: Вакансия
+                  room: Ф106
+                  weekType: both
+                  sourceRow: 113
+              source:
+                sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+                rowStart: 113
+                rowEnd: 114
+                rawGroupName: ЮР 1-15 / ЮР1-16
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -11577,4 +11639,4 @@ diagnostics:
           sourceRow: 120
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 48abd814e804843b3d55a71a67afcf503961c5d83e8b9f026bcd55cb9ef2584e
+semanticHash: 241dc6d10909f33f659816913b5e6326416fd2d86c08cfe4edb22eebc017359c

@@ -3110,7 +3110,7 @@ dates:
         day: Понедельник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3141,7 +3141,73 @@ dates:
               rawReplacement: 1,2 п/гр.МДК 01.02 Иванов Ю.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a96
+  2026-11-24:
+    date: 2026-11-24
+    day: Вторник
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-24
+        day: Вторник
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
+          fetchedAt: 2026-11-23T21:11:49.541Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b042eb7-1e54"
+          lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+        replacements:
+          - &a97
+            date: 2026-11-24
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05 МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. МДК 01.02 Иванов Ю.А.
+              room: Б507
+            source:
+              shift: second
+              row: 22
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05 МДК 01.02
+              rawReplacement: 1,2 п/гр. МДК 01.02 Иванов Ю.А.
+              rawRoom: Б507
+          - &a98
+            date: 2026-11-24
+            group: АР1-31
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Осн.эконом.
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 23
+              rawGroupName: АР1-31
+              rawLessonNumbers: "6"
+              rawOriginal: Осн.эконом.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a97
+      - *a98
 diagnostics: []
-semanticHash: ca3bae58a4da2419c19a1079fc4e583ed59b26cd06202ecda9373f095cfeb4d3
+semanticHash: d3da2bf338cff42ead67c16e8e0ec5b12d350ed167cdebb350392a385cfb4849

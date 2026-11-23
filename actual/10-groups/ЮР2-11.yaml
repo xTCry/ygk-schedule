@@ -8448,7 +8448,7 @@ dates:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -8458,11 +8458,15 @@ dates:
           shift: first
           etag: W/"6b017f4a-4cba"
           lastModified: Sat, 21 Nov 2026 11:23:54 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
       second:
         date: 2026-11-23
         day: Понедельник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -8472,6 +8476,10 @@ dates:
           shift: second
           etag: W/"6b017b0a-2262"
           lastModified: Sat, 21 Nov 2026 11:05:46 GMT
+        finalizedBy:
+          date: 2026-11-24
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     groups:
       ЮР2-11:
         group: ЮР2-11
@@ -8590,6 +8598,40 @@ dates:
               description: "По расписанию: «Конст.право». По замене: «МДК 03.01 Богданова
                 В.В.». Аудитория: «Ф404»."
               room: Ф404
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: История России
+                  teacher: Вакансия
+                  room: Ф301
+                  weekType: both
+                  sourceRow: 3
+              source:
+                sheet: ЮР2-11
+                rowStart: 3
+                rowEnd: 4
+                rawGroupName: ЮР2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Конституционное право России
+                  teacher: Богданова В.В.
+                  room: Ф401
+                  weekType: both
+                  sourceRow: 5
+              source:
+                sheet: ЮР2-11
+                rowStart: 5
+                rowEnd: 6
+                rawGroupName: ЮР2-11
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -8789,4 +8831,4 @@ diagnostics:
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 9602a2037fbdc130451b27d9f881df6381518b1a8d7e8c0f7111a2995575b826
+semanticHash: 73810476024184a26410ddeaf2cd4d752249a254449b4c8e49e46572ac4e70ae
