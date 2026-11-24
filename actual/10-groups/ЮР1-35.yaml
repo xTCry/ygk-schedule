@@ -3847,6 +3847,155 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      ЮР1-35:
+        group: ЮР1-35
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 108
+              rowEnd: 109
+              rawGroupName: ЮР1-35 / ЮР1-36
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a12
+                  date: 2026-11-25
+                  group: ЮР1-35
+                  lessonNumbers:
+                    - 0
+                    - 1
+                  type: cancel
+                  original:
+                    raw: МДК 01.01 Осн.береж
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 93
+                    rawGroupName: ЮР1-35
+                    rawLessonNumbers: 0,1
+                    rawOriginal: МДК 01.01 Осн.береж
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants: []
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 110
+              rowEnd: 111
+              rawGroupName: ЮР1-35 / ЮР1-36
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a12
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: МДК.01.04 Арбитражный процесс
+                teacher: Грак А.М.
+                room: Ф106
+                weekType: both
+                sourceRow: 112
+            source:
+              sheet: "ЮР1-31 ЮР1-33  ЮР1-35 "
+              rowStart: 112
+              rowEnd: 113
+              rawGroupName: ЮР1-35 / ЮР1-36
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: МДК 03.02
+                teacher: Грак А.М.
+                room: Ф406
+                weekType: both
+                rawSubject: МДК 03.02 Грак А.М.
+                rawTeacher: Грак А.М.
+                rawRoom: Ф406
+                sourceRow: 94
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a13
+                  date: 2026-11-25
+                  group: ЮР1-35
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: МДК 03.02 Грак А.М.
+                    room: Ф406
+                  source:
+                    shift: first
+                    row: 94
+                    rawGroupName: ЮР1-35
+                    rawLessonNumbers: 3,4
+                    rawOriginal: ""
+                    rawReplacement: МДК 03.02 Грак А.М.
+                    rawRoom: Ф406
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: МДК 03.02
+                teacher: Грак А.М.
+                room: Ф406
+                weekType: both
+                rawSubject: МДК 03.02 Грак А.М.
+                rawTeacher: Грак А.М.
+                rawRoom: Ф406
+                sourceRow: 94
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3896,4 +4045,4 @@ diagnostics:
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 96f1fac0e241db7d86b50b05b392df89cfdaa1df9c4d72458ff472c9c0feace8
+semanticHash: ff610af265cb25e9046565e24c1679b066cf8e09b607f2bd3951191919b3f08a

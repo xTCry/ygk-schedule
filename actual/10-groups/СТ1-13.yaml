@@ -8239,7 +8239,7 @@ dates:
         date: 2026-11-24
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -8249,11 +8249,15 @@ dates:
           shift: first
           etag: W/"6b042dbe-4ca6"
           lastModified: Mon, 23 Nov 2026 12:12:46 GMT
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
       second:
         date: 2026-11-24
         day: Вторник
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -8263,6 +8267,10 @@ dates:
           shift: second
           etag: W/"6b042eb7-1e54"
           lastModified: Mon, 23 Nov 2026 12:16:55 GMT
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
     groups:
       СТ1-13:
         group: СТ1-13
@@ -8349,6 +8357,156 @@ dates:
               - replacement: *a21
                 lessonNumber: 3
                 strategy: add
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Русский язык
+                  teacher: Шалаева А.А.
+                  room: А203
+                  weekType: both
+                  sourceRow: 63
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 63
+                rowEnd: 64
+                rawGroupName: СТ1-13/СТ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Литература
+                  teacher: Шалаева А.А.
+                  room: А203
+                  weekType: both
+                  sourceRow: 65
+              source:
+                sheet: CТ1-11СТ1-13СТ1-15СТ-17
+                rowStart: 65
+                rowEnd: 66
+                rawGroupName: СТ1-13/СТ1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      СТ1-13:
+        group: СТ1-13
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: ДОТ
+                weekType: both
+                sourceRow: 70
+                rawRoom: ДОТ
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a22
+                  date: 2026-11-25
+                  group: СТ1-13
+                  lessonNumbers:
+                    - 0
+                    - 1
+                    - 2
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 55
+                    rawGroupName: СТ1-13
+                    rawLessonNumbers: 0-2
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 0
+                strategy: scheduled-room
+          - number: 1
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Петровский О.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 72
+                rawRoom: ДОТ
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a22
+                lessonNumber: 1
+                strategy: scheduled-room
+          - number: 2
+            variants:
+              - subject: Физика
+                teacher: Овсова К.С.
+                room: ДОТ
+                weekType: both
+                sourceRow: 74
+                rawRoom: ДОТ
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 74
+              rowEnd: 75
+              rawGroupName: СТ1-13/СТ1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a22
+                lessonNumber: 2
+                strategy: scheduled-room
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -8510,4 +8668,4 @@ diagnostics:
           sourceRow: 58
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 1864b8e60d6a3e191cf0cd5dfde4e4cc4ac9b455d2133850c1b06310e349d86a
+semanticHash: 95c5cbeaa30e5149004324dcad3914fc2a7a942a6d31a2cfdb022a63b0452a1f

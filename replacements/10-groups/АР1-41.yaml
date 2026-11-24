@@ -2526,7 +2526,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2593,10 +2593,77 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
     replacements:
       - *a69
       - *a70
       - *a71
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        replacements:
+          - &a72
+            date: 2026-11-25
+            group: АР1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Рисунок и живоп
+            replacement:
+              raw: Осн.эконом. Сафронова Л.Н.
+              room: Б402
+            source:
+              shift: second
+              row: 23
+              rawGroupName: АР1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Рисунок и живоп
+              rawReplacement: Осн.эконом. Сафронова Л.Н.
+              rawRoom: Б402
+          - &a73
+            date: 2026-11-25
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.05 Т5.3
+            replacement:
+              raw: Балина С.А.
+              room: Б503
+            source:
+              shift: second
+              row: 24
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 01.05 Т5.3
+              rawReplacement: Балина С.А.
+              rawRoom: Б503
+        diagnostics: []
+    replacements:
+      - *a72
+      - *a73
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2627,4 +2694,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: ce56ad62f1f2aab66fefa8835a4bae61ec520edad83c6be73c04c0b087c44fbc
+semanticHash: 9d61e079678af2f2e4026413a7f0f2fb927c32f9fbba9858ea40dedc573a80ed

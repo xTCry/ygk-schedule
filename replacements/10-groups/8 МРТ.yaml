@@ -1555,7 +1555,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1587,7 +1587,75 @@ dates:
               rawReplacement: УП 02 п/гр 1 Лебедева С.В.
               rawRoom: к.42
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a40
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a41
+            date: 2026-11-25
+            group: 8 МРТ
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: МДК 02.02 Микркопр
+            replacement:
+              raw: Микроп.сист Лебедева С.В.
+              room: ДОТ
+            source:
+              shift: first
+              row: 113
+              rawGroupName: 8 МРТ
+              rawLessonNumbers: 0-2
+              rawOriginal: МДК 02.02 Микркопр
+              rawReplacement: Микроп.сист Лебедева С.В.
+              rawRoom: ДОТ
+          - &a42
+            date: 2026-11-25
+            group: 8 МРТ
+            lessonNumbers:
+              - 3
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 114
+              rawGroupName: 8 МРТ
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a41
+      - *a42
 diagnostics: []
-semanticHash: 8a6a369d2ccb1b2f42ef71eb39379e4fc6422aff27f5ff333edc3ee6f42723a7
+semanticHash: e83a6038bc9e7b4ab05a75a3e7d3af4da3032488fdffd1386d27a65f08f27582

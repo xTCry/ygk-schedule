@@ -8632,6 +8632,152 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      ЮР2-11:
+        group: ЮР2-11
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 91
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-25
+                  group: ЮР2-11
+                  lessonNumbers:
+                    - 0
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Калачик Н.И.
+                    room: Сп.площ.
+                  source:
+                    shift: first
+                    row: 91
+                    rawGroupName: ЮР2-11
+                    rawLessonNumbers: "0"
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Калачик Н.И.
+                    rawRoom: Сп.площ.
+                lessonNumber: 0
+                strategy: add
+          - number: 1
+            variants:
+              - subject: Административное право
+                teacher: Грак А.М.
+                room: Ф106
+                weekType: numerator
+                sourceRow: 21
+            source:
+              sheet: ЮР2-11
+              rowStart: 21
+              rowEnd: 22
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants: []
+            source:
+              sheet: ЮР2-11
+              rowStart: 23
+              rowEnd: 24
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a20
+                  date: 2026-11-25
+                  group: ЮР2-11
+                  lessonNumbers:
+                    - 2
+                    - 3
+                    - 4
+                  type: cancel
+                  original:
+                    raw: Физкул. Теор.гос.
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 92
+                    rawGroupName: ЮР2-11
+                    rawLessonNumbers: 2-4
+                    rawOriginal: Физкул. Теор.гос.
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants: []
+            source:
+              sheet: ЮР2-11
+              rowStart: 25
+              rowEnd: 26
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a20
+                lessonNumber: 3
+                strategy: subject-word-mention
+          - number: 4
+            variants: []
+            source:
+              sheet: ЮР2-11
+              rowStart: 27
+              rowEnd: 28
+              rawGroupName: ЮР2-11
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a20
+                lessonNumber: 4
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -8831,4 +8977,4 @@ diagnostics:
         - out.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 73810476024184a26410ddeaf2cd4d752249a254449b4c8e49e46572ac4e70ae
+semanticHash: e1f053297a9dbb381db47c349f786c89c042c1d4b78cebdb89ebbdddae5a9f42

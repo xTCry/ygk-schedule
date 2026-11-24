@@ -1985,7 +1985,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2035,8 +2035,76 @@ dates:
               rawReplacement: 1,2 п/гр Информ Комиссарова О.В
               rawRoom: Б406
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a53
       - *a54
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a55
+            date: 2026-11-25
+            group: ИТ1-11
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: очно
+            source:
+              shift: first
+              row: 46
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: очно
+          - &a56
+            date: 2026-11-25
+            group: ИТ1-11
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: Информ., ...
+            replacement:
+              raw: Математика Пухова Ю.Г.
+              room: ДОТ
+            source:
+              shift: first
+              row: 45
+              rawGroupName: ИТ1-11
+              rawLessonNumbers: 2,3
+              rawOriginal: Информ., ...
+              rawReplacement: Математика Пухова Ю.Г.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a55
+      - *a56
 diagnostics: []
-semanticHash: 3215c7dc88c64d0559837b20b7e1b0b3d190cfe18477e5a855081ac96a93c85a
+semanticHash: eb0a81ef7ea4ef4ba2f32ea7ebbd8f903070f2718328e243337da117b471340a

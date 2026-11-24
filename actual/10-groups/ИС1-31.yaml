@@ -5980,6 +5980,110 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      ИС1-31:
+        group: ИС1-31
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 4
+            variants:
+              - subject: Теория вероятностей и мат.статистика
+                teacher: Шереметьева Н.В.
+                room: М106
+                weekType: both
+                sourceRow: 22
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 22
+              rowEnd: 23
+              rawGroupName: ИС1-31/ ИС1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 5
+            variants:
+              - subject: Компьютерные сети
+                teacher: |-
+                  Юров А.А.
+                  Панасюк А.Д.
+                room: |-
+                  Б305
+                  Б301
+                weekType: both
+                sourceRow: 24
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 24
+              rowEnd: 25
+              rawGroupName: ИС1-31/ ИС1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements: []
+          - number: 6
+            variants: []
+            source:
+              sheet: ИС-3 курс ИС-4 курс
+              rowStart: 26
+              rowEnd: 27
+              rawGroupName: ИС1-31/ ИС1-32
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-25
+                  group: ИС1-31
+                  lessonNumbers:
+                    - 6
+                  type: cancel
+                  original:
+                    raw: МДК 06.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 10
+                    rawGroupName: ИС1-31
+                    rawLessonNumbers: "6"
+                    rawOriginal: МДК 06.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 6
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -6074,4 +6178,4 @@ diagnostics:
           sourceRow: 45
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 7d8674ac22a7166eca9a59858d61762141dd162d33d4c0e20998e25fb3a86033
+semanticHash: e6c000138cc440559247067aa44caa630bef7f388cceda4c8d71266b5e93f0cc

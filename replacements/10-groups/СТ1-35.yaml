@@ -4325,7 +4325,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -4375,8 +4375,95 @@ dates:
               rawReplacement: п/гр 1 Хухарева Н.Е.
               rawRoom: Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
     replacements:
       - *a130
       - *a131
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        replacements:
+          - &a132
+            date: 2026-11-25
+            group: СТ1-35
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 пгр Ин.язык Девлитянс О.В.
+              room: Б502,А203
+            source:
+              shift: second
+              row: 20
+              rawGroupName: СТ1-35
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: 1,2 пгр Ин.язык Девлитянс О.В.
+              rawRoom: Б502,А203
+          - &a133
+            date: 2026-11-25
+            group: СТ1-35
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Осн.философии
+            replacement:
+              raw: Утешев В.В
+              room: А201
+            source:
+              shift: second
+              row: 19
+              rawGroupName: СТ1-35
+              rawLessonNumbers: "4"
+              rawOriginal: Осн.философии
+              rawReplacement: Утешев В.В
+              rawRoom: А201
+          - &a134
+            date: 2026-11-25
+            group: СТ1-35
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.01 МДК 02.01
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 21
+              rawGroupName: СТ1-35
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.01 МДК 02.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a132
+      - *a133
+      - *a134
 diagnostics: []
-semanticHash: 03a7488c9474a70b0e7118ec035fb3989e8e72847cd1155a600607b1c121e8bf
+semanticHash: 0b44bf1161dddb2507826457b8824f81e4186a42ae0ec90ed2c25189e4ef32ae

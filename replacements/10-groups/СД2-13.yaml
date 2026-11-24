@@ -3039,7 +3039,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3070,7 +3070,93 @@ dates:
               rawReplacement: МДК 02.02 п/гр 2 Рангелова Н.М.
               rawRoom: А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a82
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a83
+            date: 2026-11-25
+            group: СД2-13
+            lessonNumbers:
+              - 2
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История России Утешев В.В
+              room: Б202,Б508
+            source:
+              shift: first
+              row: 16
+              rawGroupName: СД2-13
+              rawLessonNumbers: 2,3
+              rawOriginal: ""
+              rawReplacement: История России Утешев В.В
+              rawRoom: Б202,Б508
+          - &a84
+            date: 2026-11-25
+            group: СД2-13
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Тех.механика п/гр
+            replacement:
+              raw: МДК 01.01 п/гр 1 Краснянская Е.В. п/гр 2 - по расписанию
+              room: В102 А202
+            source:
+              shift: first
+              row: 14
+              rawGroupName: СД2-13
+              rawLessonNumbers: "5"
+              rawOriginal: Тех.механика п/гр
+              rawReplacement: МДК 01.01 п/гр 1 Краснянская Е.В. п/гр 2 - по расписанию
+              rawRoom: В102 А202
+          - &a85
+            date: 2026-11-25
+            group: СД2-13
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Тех.механика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 15
+              rawGroupName: СД2-13
+              rawLessonNumbers: "6"
+              rawOriginal: Тех.механика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a83
+      - *a84
+      - *a85
 diagnostics: []
-semanticHash: 0f6e38a5eeb2ef951439593cd2c2562d705fb961662d1b4103fd1028c42f6c05
+semanticHash: 74b79254d2bd2923597d6c02dd0e451493e09569e3cef11df292a7362ed976e3

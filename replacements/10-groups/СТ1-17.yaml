@@ -2942,7 +2942,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2973,7 +2973,93 @@ dates:
               rawReplacement: 1,2 п/гр. Девлитянс О.В.
               rawRoom: Акт.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a82
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a83
+            date: 2026-11-25
+            group: СТ1-17
+            lessonNumbers:
+              - 0
+              - 1
+            type: replace
+            original:
+              raw: Обществ.История
+            replacement:
+              raw: Утешев В.В.
+              room: Б504
+            source:
+              shift: first
+              row: 49
+              rawGroupName: СТ1-17
+              rawLessonNumbers: 0,1
+              rawOriginal: Обществ.История
+              rawReplacement: Утешев В.В.
+              rawRoom: Б504
+          - &a84
+            date: 2026-11-25
+            group: СТ1-17
+            lessonNumbers:
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 50
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a85
+            date: 2026-11-25
+            group: СТ1-17
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Информ. /теор Жданова Н.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 51
+              rawGroupName: СТ1-17
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Информ. /теор Жданова Н.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a83
+      - *a84
+      - *a85
 diagnostics: []
-semanticHash: 5ab218ffeed38a55efe63fe3291ffce43eec8c3f0b0d7bd4fecc16444ccb588d
+semanticHash: a0ae31f32ee8ced00636316b7e41746edf703fe27a4fe21017293cd33e28ef36

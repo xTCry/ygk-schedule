@@ -5604,6 +5604,140 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      ТУ1-21:
+        group: ТУ1-21
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Горбачёв В.Н.
+                room: ДОТ
+                weekType: both
+                rawSubject: История России Горбачёв В.Н.
+                rawTeacher: Горбачёв В.Н.
+                rawRoom: ДОТ
+                sourceRow: 40
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-25
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: История России Горбачёв В.Н.
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 40
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: История России Горбачёв В.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 3
+                strategy: add
+          - number: 4
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Петрова У.В.
+                  Абрамова К.В.
+                room: ДОТ
+                weekType: both
+                sourceRow: 70
+                rawRoom: ДОТ
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 70
+              rowEnd: 71
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a13
+                  date: 2026-11-25
+                  group: ТУ1-21
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: ДОТ
+                  source:
+                    shift: second
+                    row: 38
+                    rawGroupName: ТУ1-21
+                    rawLessonNumbers: 4,5
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: scheduled-room
+          - number: 5
+            variants:
+              - subject: Предпринимательская деятельность в сфере туризма и гостиничного бизнеса
+                teacher: Девятаева Н.Ф.
+                room: ДОТ
+                weekType: both
+                rawSubject: Предпринимательская деятельность в сфере туризма и гостиничного
+                  бизнеса
+                rawTeacher: "Девятаева Н.Ф. "
+                sourceRow: 72
+                rawRoom: ДОТ
+            source:
+              sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+              rowStart: 72
+              rowEnd: 73
+              rawGroupName: ТУ1-21/ТУ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a13
+                lessonNumber: 5
+                strategy: scheduled-room
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5659,4 +5793,4 @@ diagnostics:
           sourceRow: 94
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 87db7fb08c13a648ab7c70de59f3d357b34d052c8f24457971c45f23dc44cf4a
+semanticHash: 6d4d3a7299900ab2656d8f060516dd0389b9a223eea9681d358e9fca1dcd0642

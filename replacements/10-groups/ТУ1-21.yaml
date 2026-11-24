@@ -1648,5 +1648,67 @@ dates:
           sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a42
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        replacements:
+          - &a43
+            date: 2026-11-25
+            group: ТУ1-21
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: История России Горбачёв В.Н.
+              room: ДОТ
+            source:
+              shift: second
+              row: 40
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: История России Горбачёв В.Н.
+              rawRoom: ДОТ
+          - &a44
+            date: 2026-11-25
+            group: ТУ1-21
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: second
+              row: 38
+              rawGroupName: ТУ1-21
+              rawLessonNumbers: 4,5
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a43
+      - *a44
 diagnostics: []
-semanticHash: 7617cf73581f7f18023c2ae3a8bf5a66cc1f330bddc0e2321bb48f2861984e34
+semanticHash: 7bc7ac3cc4042933c48f1bae4a8a4ca7fc7bf7ef55f1e9fe561b247cc56c31f5

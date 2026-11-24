@@ -3571,7 +3571,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3623,8 +3623,94 @@ dates:
               rawReplacement: История России Утешев В.В
               rawRoom: Б110
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a100
       - *a101
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a102
+            date: 2026-11-25
+            group: СД2-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.02 п/гр 2 Рангелова Н.М.
+              room: А202
+            source:
+              shift: first
+              row: 19
+              rawGroupName: СД2-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 02.02 п/гр 2 Рангелова Н.М.
+              rawRoom: А202
+          - &a103
+            date: 2026-11-25
+            group: СД2-11
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: МДК 02.02 п/гр 1 Рангелова Н.М Инф.тех. п/гр 2 Сердцева О.Д.
+              room: А202 Б406
+            source:
+              shift: first
+              row: 17
+              rawGroupName: СД2-11
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 02.02
+              rawReplacement: МДК 02.02 п/гр 1 Рангелова Н.М Инф.тех. п/гр 2 Сердцева О.Д.
+              rawRoom: А202 Б406
+          - &a104
+            date: 2026-11-25
+            group: СД2-11
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Матем.методы
+            replacement:
+              raw: МДК 01.01 Ткачев М.С.
+              room: Б507
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СД2-11
+              rawLessonNumbers: "5"
+              rawOriginal: Матем.методы
+              rawReplacement: МДК 01.01 Ткачев М.С.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a102
+      - *a103
+      - *a104
 diagnostics: []
-semanticHash: 5247526e074250fd43dbb2a2291751649590ba04beb9d0ef2d93f683d89a368d
+semanticHash: b4f92d61a5e2b9519fbd37e20383dc9ca43d51ca2dab0a9d726166d483314b49

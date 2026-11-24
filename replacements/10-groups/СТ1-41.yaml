@@ -942,7 +942,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -991,9 +991,113 @@ dates:
               rawReplacement: Ин.язык Девлитянс О.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a24
       - *a25
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a26
+            date: 2026-11-25
+            group: СТ1-41
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Серых Л.В.
+              room: конф.зал
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Серых Л.В.
+              rawRoom: конф.зал
+          - &a27
+            date: 2026-11-25
+            group: СТ1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Т1.1 Топчиян Е.А
+              room: Б401
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Т1.1 Топчиян Е.А
+              rawRoom: Б401
+          - &a28
+            date: 2026-11-25
+            group: СТ1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: МДК 01.02 п/гр 1 Топчиян Е.А.
+              room: Б401
+            source:
+              shift: first
+              row: 4
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01
+              rawReplacement: МДК 01.02 п/гр 1 Топчиян Е.А.
+              rawRoom: Б401
+          - &a29
+            date: 2026-11-25
+            group: СТ1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.02 п/гр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 5
+              rawGroupName: СТ1-41
+              rawLessonNumbers: "6"
+              rawOriginal: МДК 01.02 п/гр 1
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a26
+      - *a27
+      - *a28
+      - *a29
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1024,4 +1128,4 @@ diagnostics:
       date: 2026-09-28
       shift: first
       sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
-semanticHash: 729a0219be3878a50220057647416316e3a8ceff11e9e374379cf58550f30d92
+semanticHash: 8dcb8883572302aacb99dc45cabf01af72306d332b3b189b7b42f7ff136f2c4b

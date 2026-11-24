@@ -2508,6 +2508,88 @@ dates:
           sourceSha256: f3d259e9b1b9647ca497550702a23d95eea11906af8ac0f6a054a2dbd761cfa6
     replacements:
       - *a76
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        replacements:
+          - &a77
+            date: 2026-11-25
+            group: ИС1-43
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 05.03 п/гр
+            replacement:
+              raw: /теория Васильченко М.О.
+              room: Б301
+            source:
+              shift: second
+              row: 7
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 05.03 п/гр
+              rawReplacement: /теория Васильченко М.О.
+              rawRoom: Б301
+          - &a78
+            date: 2026-11-25
+            group: ИС1-43
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 03.02
+            replacement:
+              raw: /теория Юров А.А.
+              room: Б305
+            source:
+              shift: second
+              row: 8
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.02
+              rawReplacement: /теория Юров А.А.
+              rawRoom: Б305
+          - &a79
+            date: 2026-11-25
+            group: ИС1-43
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 05.03 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 9
+              rawGroupName: ИС1-43
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 05.03 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a77
+      - *a78
+      - *a79
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2538,4 +2620,4 @@ diagnostics:
       date: 2026-09-25
       shift: second
       sourceSha256: 9e74f25192488022d0e36efd9da130eb35f2fc43277c5635834f26156a0de44a
-semanticHash: 6471a12dd31ccb320182ab30cdc9a57cd6a5279f78500c5900459af7d6349860
+semanticHash: ca2be6949d163bbd2e08d393322c639b9562c053c2d699cd087df25397763e49

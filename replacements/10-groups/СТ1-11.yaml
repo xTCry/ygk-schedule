@@ -1691,7 +1691,7 @@ dates:
         day: Вторник
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1722,7 +1722,74 @@ dates:
               rawReplacement: 1,2 п/гр. Жданова Н.А.
               rawRoom: Б403
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-25
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
     replacements:
       - *a44
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a45
+            date: 2026-11-25
+            group: СТ1-11
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original: null
+            replacement:
+              raw: по расписанию
+              room: ДОТ
+            source:
+              shift: first
+              row: 56
+              rawGroupName: СТ1-11
+              rawLessonNumbers: 0-2
+              rawOriginal: ""
+              rawReplacement: по расписанию
+              rawRoom: ДОТ
+          - &a46
+            date: 2026-11-25
+            group: СТ1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Математика Гаврилова М.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 57
+              rawGroupName: СТ1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Математика Гаврилова М.А.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a45
+      - *a46
 diagnostics: []
-semanticHash: 8dae523a5f6b2c2194f1d167f28a5daee88ea8bd17772593b6cf68cce7743eb0
+semanticHash: a25a236fcb590d8b3decf9997c2a26a28c8b697fb9f288e2d0a968ba4fb74f96

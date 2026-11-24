@@ -5876,6 +5876,149 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+      second:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: d744f8b1bff82efd5fb98e6394b566ac98c11a02d8659fc2e4868310393c68b9
+          fetchedAt: 2026-11-24T20:06:36.468Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b057aa3-2422"
+          lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+    groups:
+      АР1-11:
+        group: АР1-11
+        date: 2026-11-25
+        day: Среда
+        lessons:
+          - number: 0
+            variants:
+              - subject: Русский язык
+                teacher: Баранова С.Г.
+                room: Б503
+                weekType: both
+                sourceRow: 22
+            source:
+              sheet: 1 курс
+              rowStart: 22
+              rowEnd: 23
+              rawGroupName: АР1-11/АР1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: История
+                teacher: Смирнов Б.Е.
+                room: А201
+                weekType: both
+                rawSubject: История Смирнов Б.Е.
+                rawTeacher: Смирнов Б.Е.
+                rawRoom: А201
+                sourceRow: 47
+            source:
+              sheet: 1 курс
+              rowStart: 24
+              rowEnd: 25
+              rawGroupName: АР1-11/АР1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-25
+                  group: АР1-11
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Литература
+                  replacement:
+                    raw: История Смирнов Б.Е.
+                    room: А201
+                  source:
+                    shift: first
+                    row: 47
+                    rawGroupName: АР1-11
+                    rawLessonNumbers: "1"
+                    rawOriginal: Литература
+                    rawReplacement: История Смирнов Б.Е.
+                    rawRoom: А201
+                lessonNumber: 1
+                strategy: exact-subject
+          - number: 2
+            variants:
+              - subject: Обществознание
+                teacher: Залевская Е.Н.
+                room: А201
+                weekType: both
+                sourceRow: 26
+            source:
+              sheet: 1 курс
+              rowStart: 26
+              rowEnd: 27
+              rawGroupName: АР1-11/АР1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Доп.проф.
+                teacher: Воронкевич Г.А.
+                room: Б510
+                weekType: both
+                subgroup: "1"
+                rawSubject: Доп.проф. п/гр 1 Воронкевич Г.А.
+                rawTeacher: Воронкевич Г.А.
+                rawRoom: Б510
+                sourceRow: 48
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-25
+                  group: АР1-11
+                  lessonNumbers:
+                    - 3
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Доп.проф. п/гр 1 Воронкевич Г.А.
+                    room: Б510
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: АР1-11
+                    rawLessonNumbers: "3"
+                    rawOriginal: ""
+                    rawReplacement: Доп.проф. п/гр 1 Воронкевич Г.А.
+                    rawRoom: Б510
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5904,4 +6047,4 @@ diagnostics:
           sourceRow: 31
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: d0ac516b6d0a60aefd79163145becee14e7fe7ce05c222ca6bca0641c4ab255b
+semanticHash: 3f0d3cdba6f6e783bde8654da9c6c384ea38f77df7d637361bf34d9c8e424f00

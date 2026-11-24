@@ -1246,5 +1246,68 @@ dates:
           sourceSha256: 8bc01d881aa3b1005feced8e785ef6fc146ee608a4b4f923b45334b23aa90f27
     replacements:
       - *a34
+  2026-11-25:
+    date: 2026-11-25
+    day: Среда
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-25
+        day: Среда
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 7a6f4a21bba0547296e2efdebace497e04dce1e4ea2db0cee11f1c5bd8770ea8
+          fetchedAt: 2026-11-24T20:06:36.471Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b059497-60e5"
+          lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        replacements:
+          - &a35
+            date: 2026-11-25
+            group: ЮР1-35
+            lessonNumbers:
+              - 0
+              - 1
+            type: cancel
+            original:
+              raw: МДК 01.01 Осн.береж
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 93
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: 0,1
+              rawOriginal: МДК 01.01 Осн.береж
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a36
+            date: 2026-11-25
+            group: ЮР1-35
+            lessonNumbers:
+              - 3
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Грак А.М.
+              room: Ф406
+            source:
+              shift: first
+              row: 94
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: 3,4
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Грак А.М.
+              rawRoom: Ф406
+        diagnostics: []
+    replacements:
+      - *a35
+      - *a36
 diagnostics: []
-semanticHash: 4ea5f2bca9bc96e8524bcc6eae482d6f2bf1d4679157f7d41af2f69a93af0429
+semanticHash: b1430af38c37dcd722d27a71e331c875ef4a8e7f27b07770d1217a3d111d74a1
