@@ -3379,7 +3379,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3410,7 +3410,74 @@ dates:
               rawReplacement: 1,2 п/гр.Инд.проект Супагина К.И.
               rawRoom: Ф201
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
     replacements:
       - *a93
+  2026-11-26:
+    date: 2026-11-26
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
+          fetchedAt: 2026-11-25T19:08:36.755Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b06d25f-56c6"
+          lastModified: Wed, 25 Nov 2026 12:19:43 GMT
+        replacements:
+          - &a94
+            date: 2026-11-26
+            group: ЮР1-11
+            lessonNumbers:
+              - 0
+            type: replace
+            original:
+              raw: Математика
+            replacement:
+              raw: Саввина Е.А.
+              room: Ф202
+            source:
+              shift: first
+              row: 81
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Саввина Е.А.
+              rawRoom: Ф202
+          - &a95
+            date: 2026-11-26
+            group: ЮР1-11
+            lessonNumbers:
+              - 2
+              - 3
+            type: cancel
+            original:
+              raw: Обществ.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 82
+              rawGroupName: ЮР1-11
+              rawLessonNumbers: 2,3
+              rawOriginal: Обществ.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a94
+      - *a95
 diagnostics: []
-semanticHash: 39d56c811f9cb1b8e35ecb9de0bef86c2986c7efa43cc47be7c1f7f2186477ae
+semanticHash: 59db3f25a5c936b9d4bcb79711f2cc21082d7cb9bcf56ddebea8e9b0e98a2f7d

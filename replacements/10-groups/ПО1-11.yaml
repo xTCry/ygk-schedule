@@ -1914,7 +1914,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1982,9 +1982,93 @@ dates:
               rawReplacement: 1,2 п/гр. Ин.язык Зубковская А.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
     replacements:
       - *a49
       - *a50
       - *a51
+  2026-11-26:
+    date: 2026-11-26
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
+          fetchedAt: 2026-11-25T19:08:36.755Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b06d25f-56c6"
+          lastModified: Wed, 25 Nov 2026 12:19:43 GMT
+        replacements:
+          - &a52
+            date: 2026-11-26
+            group: ПО1-11
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 42
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a53
+            date: 2026-11-26
+            group: ПО1-11
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Математика Шереметьева Н.В.
+              room: М106
+            source:
+              shift: first
+              row: 43
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Математика Шереметьева Н.В.
+              rawRoom: М106
+          - &a54
+            date: 2026-11-26
+            group: ПО1-11
+            lessonNumbers:
+              - 4
+            type: add
+            original: null
+            replacement:
+              raw: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              room: Акт.зал
+            source:
+              shift: first
+              row: 44
+              rawGroupName: ПО1-11
+              rawLessonNumbers: "4"
+              rawOriginal: ""
+              rawReplacement: 1,2 п/гр.Ин.язык Зубковская А.Е.
+              rawRoom: Акт.зал
+        diagnostics: []
+    replacements:
+      - *a52
+      - *a53
+      - *a54
 diagnostics: []
-semanticHash: eb3d335dc8b0866aff78960a69aa9a858d6abb17a2d8711f5de400174589c47d
+semanticHash: 19d94d995889063b095db285efabcda628b53aa01418efa2ef65431473803dfd

@@ -5800,7 +5800,7 @@ dates:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -5810,11 +5810,15 @@ dates:
           shift: first
           etag: W/"6b059497-60e5"
           lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
       second:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -5824,6 +5828,10 @@ dates:
           shift: second
           etag: W/"6b057aa3-2422"
           lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 953ae2e604811ca19371f29f68eef249816560c9be40e7ad442b5746ec4bb9d4
     groups:
       АР1-13:
         group: АР1-13
@@ -5910,6 +5918,57 @@ dates:
                 lessonNumber: 3
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Физика
+                  teacher: Галочкина Н.Н.
+                  room: М101
+                  weekType: numerator
+                  sourceRow: 74
+              source:
+                sheet: 1 курс
+                rowStart: 74
+                rowEnd: 75
+                rawGroupName: АР1-13/АР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: Иностранный язык
+                  teacher: |-
+                    Ткаченко Г.А.
+                    Темофеева Е.Н.
+                  room: Акт.зал
+                  weekType: both
+                  sourceRow: 76
+              source:
+                sheet: 1 курс
+                rowStart: 76
+                rowEnd: 77
+                rawGroupName: АР1-13/АР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: Математика
+                  teacher: Климова А.А.
+                  room: В102
+                  weekType: both
+                  sourceRow: 78
+              source:
+                sheet: 1 курс
+                rowStart: 78
+                rowEnd: 79
+                rawGroupName: АР1-13/АР1-14
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5932,4 +5991,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 32d43b8d4e9c61df7d558e8e1f7c0b99c56a71259c148ad8423e82e2813244b2
+semanticHash: 6b73ad6fdc23abb3ba53dfab580e4d9ab47eabd48d10b417ec0c5795d7d18175

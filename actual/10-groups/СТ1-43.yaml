@@ -3178,7 +3178,7 @@ dates:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3188,11 +3188,15 @@ dates:
           shift: first
           etag: W/"6b059497-60e5"
           lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
       second:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3202,6 +3206,10 @@ dates:
           shift: second
           etag: W/"6b057aa3-2422"
           lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 953ae2e604811ca19371f29f68eef249816560c9be40e7ad442b5746ec4bb9d4
     groups:
       СТ1-43:
         group: СТ1-43
@@ -3290,6 +3298,58 @@ dates:
                 lessonNumber: 4
                 strategy: add
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 1
+              variants:
+                - subject: МДК01.02 Проект производства работ
+                  teacher: Шалопьева Е.Н.
+                  room: ДОТ
+                  weekType: both
+                  sourceRow: 69
+              source:
+                sheet: СТ 4 курс
+                rowStart: 69
+                rowEnd: 70
+                rawGroupName: СТ1-43/СТ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК01.02 Проект производства работ
+                  teacher: Шалопьева Е.Н.
+                  room: ДОТ
+                  weekType: numerator
+                  sourceRow: 71
+              source:
+                sheet: СТ 4 курс
+                rowStart: 71
+                rowEnd: 72
+                rawGroupName: СТ1-43/СТ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК.01.01 Проектирование зданий и сооружений Тема 1.3 Проектирование
+                    строительных конструкций
+                  teacher: Ткачев М.С.
+                  room: ДОТ
+                  weekType: both
+                  rawSubject: "МДК.01.01 Проектирование зданий и сооружений Тема 1.3
+                    Проектирование строительных конструкций "
+                  sourceRow: 73
+              source:
+                sheet: СТ 4 курс
+                rowStart: 73
+                rowEnd: 74
+                rawGroupName: СТ1-43/СТ1-44
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -3406,4 +3466,4 @@ diagnostics:
       date: 2026-09-23
       shift: first
       sourceSha256: e651dcf513b1b449e3816673d75b904788c94ef5c0313fafaf367d44f9bb372b
-semanticHash: 3442ef0704c709749e6d642a7d802a7aa2db819123a52617007261d7ec5ac252
+semanticHash: 7c2165f0166a103ac67657e8d51d0fc9389cc9c3b78c560d59ab0c389d323e74

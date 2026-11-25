@@ -3640,7 +3640,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3708,9 +3708,76 @@ dates:
               rawReplacement: МДК 01.01 Ткачев М.С.
               rawRoom: Б507
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
     replacements:
       - *a102
       - *a103
       - *a104
+  2026-11-26:
+    date: 2026-11-26
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
+          fetchedAt: 2026-11-25T19:08:36.755Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b06d25f-56c6"
+          lastModified: Wed, 25 Nov 2026 12:19:43 GMT
+        replacements:
+          - &a105
+            date: 2026-11-26
+            group: СД2-11
+            lessonNumbers:
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: МДК 01.01 Ткачев М.С.
+              room: ДОТ
+            source:
+              shift: first
+              row: 19
+              rawGroupName: СД2-11
+              rawLessonNumbers: "1"
+              rawOriginal: ""
+              rawReplacement: МДК 01.01 Ткачев М.С.
+              rawRoom: ДОТ
+          - &a106
+            date: 2026-11-26
+            group: СД2-11
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.01 Матем.методы
+            replacement:
+              raw: История России Утешев В.В
+              room: ДОТ
+            source:
+              shift: first
+              row: 18
+              rawGroupName: СД2-11
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.01 Матем.методы
+              rawReplacement: История России Утешев В.В
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a105
+      - *a106
 diagnostics: []
-semanticHash: b4f92d61a5e2b9519fbd37e20383dc9ca43d51ca2dab0a9d726166d483314b49
+semanticHash: 839605c19ff4f9213b10157866e60aca41e8453aad520d98fed7d3a71f8f5cbe

@@ -3022,7 +3022,7 @@ dates:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3032,11 +3032,15 @@ dates:
           shift: first
           etag: W/"6b059497-60e5"
           lastModified: Tue, 24 Nov 2026 13:43:51 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
       second:
         date: 2026-11-25
         day: Среда
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3046,6 +3050,10 @@ dates:
           shift: second
           etag: W/"6b057aa3-2422"
           lastModified: Tue, 24 Nov 2026 11:53:07 GMT
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 953ae2e604811ca19371f29f68eef249816560c9be40e7ad442b5746ec4bb9d4
     groups:
       ТУ1-31:
         group: ТУ1-31
@@ -3130,6 +3138,56 @@ dates:
                 lessonNumber: 2
                 strategy: scheduled-room
         unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 0
+              variants:
+                - subject: Психология делового общения и конфликтология
+                  teacher: Зеленцова Л.В.
+                  room: Ф107
+                  weekType: both
+                  rawSubject: Психология делового общения и конфликтология
+                  sourceRow: 113
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 113
+                rowEnd: 114
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 1
+              variants:
+                - subject: МДК.02.02 Предоставление турагентских услуг
+                  teacher: Воронина Г.И.
+                  room: Ф107
+                  weekType: numerator
+                  sourceRow: 115
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 115
+                rowEnd: 116
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
+            - number: 2
+              variants:
+                - subject: МДК.02.03 Координация качества выполнения турагентских услуг
+                  teacher: Воронина Г.И.
+                  room: Ф107
+                  weekType: both
+                  sourceRow: 117
+              source:
+                sheet: "ТУ1-11 ТУ1-21 ТУ1-31 "
+                rowStart: 117
+                rowEnd: 118
+                rawGroupName: ТУ1-31/ТУ1-32/ТУ2-21
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+              status: scheduled
+              replacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3159,4 +3217,4 @@ diagnostics:
           sourceRow: 103
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: a9cbf98313b4eeede080794616dbee544fa3faef2d7557c6d8fdac65578ef350
+semanticHash: f104f178f6009762d5a8f0898d1b00919a4e55156d0abe95b2823e1f0a6c37af

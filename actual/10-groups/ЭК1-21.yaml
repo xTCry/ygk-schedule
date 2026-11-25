@@ -5413,6 +5413,182 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-26:
+    date: 2026-11-26
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
+          fetchedAt: 2026-11-25T19:08:36.755Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b06d25f-56c6"
+          lastModified: Wed, 25 Nov 2026 12:19:43 GMT
+      second:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 953ae2e604811ca19371f29f68eef249816560c9be40e7ad442b5746ec4bb9d4
+          fetchedAt: 2026-11-25T19:08:36.764Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b06cda8-2128"
+          lastModified: Wed, 25 Nov 2026 11:59:36 GMT
+    groups:
+      ЭК1-21:
+        group: ЭК1-21
+        date: 2026-11-26
+        day: Четверг
+        lessons:
+          - number: 1
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 14
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: &a11
+                  date: 2026-11-26
+                  group: ЭК1-21
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физкультура Калачик Н.И.
+                    room: Сп.площ.
+                  source:
+                    shift: second
+                    row: 14
+                    rawGroupName: ЭК1-21
+                    rawLessonNumbers: 1,2
+                    rawOriginal: ""
+                    rawReplacement: Физкультура Калачик Н.И.
+                    rawRoom: Сп.площ.
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: Физкультура
+                teacher: Калачик Н.И.
+                room: Сп.площ.
+                weekType: both
+                rawSubject: Физкультура Калачик Н.И.
+                rawTeacher: Калачик Н.И.
+                rawRoom: Сп.площ.
+                sourceRow: 14
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a11
+                lessonNumber: 2
+                strategy: add
+          - number: 3
+            variants:
+              - subject: Налоги и налогообложение
+                teacher: Бежина М.И.
+                room: Экскурсия
+                weekType: both
+                sourceRow: 24
+                rawRoom: Экскурсия
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 24
+              rowEnd: 25
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a12
+                  date: 2026-11-26
+                  group: ЭК1-21
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original: null
+                  replacement:
+                    raw: по расписанию
+                    room: Экскурсия
+                  source:
+                    shift: second
+                    row: 15
+                    rawGroupName: ЭК1-21
+                    rawLessonNumbers: 3,4
+                    rawOriginal: ""
+                    rawReplacement: по расписанию
+                    rawRoom: Экскурсия
+                lessonNumber: 3
+                strategy: scheduled-room
+          - number: 4
+            variants:
+              - subject: Финансы, денежное обращение и креди
+                teacher: Бежина М.И.
+                room: Экскурсия
+                weekType: both
+                sourceRow: 26
+                rawRoom: Экскурсия
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 26
+              rowEnd: 27
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a12
+                lessonNumber: 4
+                strategy: scheduled-room
+          - number: 5
+            variants: []
+            source:
+              sheet: " ЭК1-21 ЭК1-31"
+              rowStart: 28
+              rowEnd: 29
+              rawGroupName: ЭК1-21/ЭК1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-26
+                  group: ЭК1-21
+                  lessonNumbers:
+                    - 5
+                  type: cancel
+                  original:
+                    raw: Физкультура
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 16
+                    rawGroupName: ЭК1-21
+                    rawLessonNumbers: "5"
+                    rawOriginal: Физкультура
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 5
+                strategy: subject-word-mention
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -5472,4 +5648,4 @@ diagnostics:
           sourceRow: 11
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 157bdb60c7baf3c866168028eed960068869abd50cf81f5605e06ee18e19f2ac
+semanticHash: 2ef8c64318e15ae804bf116c9b51b1f73f46bb1f517a449b4dddd76b3ac1f9ae

@@ -3828,7 +3828,7 @@ dates:
         day: Среда
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3897,9 +3897,78 @@ dates:
               rawReplacement: МДК 01.01 Седова Н.А.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-26
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
     replacements:
       - *a113
       - *a114
       - *a115
+  2026-11-26:
+    date: 2026-11-26
+    day: Четверг
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-26
+        day: Четверг
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
+          fetchedAt: 2026-11-25T19:08:36.755Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b06d25f-56c6"
+          lastModified: Wed, 25 Nov 2026 12:19:43 GMT
+        replacements:
+          - &a116
+            date: 2026-11-26
+            group: 7 ИКС
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: cancel
+            original:
+              raw: УП 01 п/гр
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 84
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 0-2
+              rawOriginal: УП 01 п/гр
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a117
+            date: 2026-11-26
+            group: 7 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: УП 01 п/гр
+            replacement:
+              raw: МДК 01.01 Седова Н.А.
+              room: к.29
+            source:
+              shift: first
+              row: 85
+              rawGroupName: 7 ИКС
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 01 п/гр
+              rawReplacement: МДК 01.01 Седова Н.А.
+              rawRoom: к.29
+        diagnostics: []
+    replacements:
+      - *a116
+      - *a117
 diagnostics: []
-semanticHash: 2d0cf7f061245fed3aafa74e830f33df7e7be415fcd5cb72fecead47cf9e2fdb
+semanticHash: 77cc077de2614d9f5459ccaca041620504e4a00fac88168b49dec5f99e494f4f
