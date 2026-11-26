@@ -2568,7 +2568,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2619,8 +2619,75 @@ dates:
             rawValue: ИС1-21 | 9.20 |  | Экзамен Пронина Л.Ю.
             sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
             sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a69
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a70
+            date: 2026-11-27
+            group: ИС1-21
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: МДК 06.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 6
+              rawGroupName: ИС1-21
+              rawLessonNumbers: "0"
+              rawOriginal: МДК 06.01
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a71
+            date: 2026-11-27
+            group: ИС1-21
+            lessonNumbers:
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: МДК 06.01 Арх.апп.ред
+            replacement:
+              raw: Психол.общения Зеленцова Л.В.
+              room: Б301,Б402
+            source:
+              shift: first
+              row: 7
+              rawGroupName: ИС1-21
+              rawLessonNumbers: 1,2
+              rawOriginal: МДК 06.01 Арх.апп.ред
+              rawReplacement: Психол.общения Зеленцова Л.В.
+              rawRoom: Б301,Б402
+        diagnostics: []
+    replacements:
+      - *a70
+      - *a71
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2682,4 +2749,4 @@ diagnostics:
       date: 2026-11-26
       shift: first
       sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
-semanticHash: 4eff18d4497bf1fc62ccd9e9852a873ea244a2f859518bd9afbba8a243c835d5
+semanticHash: 2cc2728bd12aeb57ab652e30565e9a18cc45f41007cea48aab148d54e6769b86

@@ -2019,7 +2019,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2089,9 +2089,96 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a55
       - *a56
       - *a57
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a58
+            date: 2026-11-27
+            group: 36 ЭМЕХ
+            lessonNumbers:
+              - 0
+            type: cancel
+            original:
+              raw: Математика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 96
+              rawGroupName: 36 ЭМЕХ
+              rawLessonNumbers: "0"
+              rawOriginal: Математика
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a59
+            date: 2026-11-27
+            group: 36 ЭМЕХ
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: УП 01
+            replacement:
+              raw: Информ. Ефимова А.С.
+              room: к.34
+            source:
+              shift: first
+              row: 94
+              rawGroupName: 36 ЭМЕХ
+              rawLessonNumbers: "2"
+              rawOriginal: УП 01
+              rawReplacement: Информ. Ефимова А.С.
+              rawRoom: к.34
+          - &a60
+            date: 2026-11-27
+            group: 36 ЭМЕХ
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: УП 01, ...
+            replacement:
+              raw: УП 01 Бархатов Ю.Л.
+              room: Сл.м
+            source:
+              shift: first
+              row: 95
+              rawGroupName: 36 ЭМЕХ
+              rawLessonNumbers: 3,4
+              rawOriginal: УП 01, ...
+              rawReplacement: УП 01 Бархатов Ю.Л.
+              rawRoom: Сл.м
+        diagnostics: []
+    replacements:
+      - *a58
+      - *a59
+      - *a60
 diagnostics: []
-semanticHash: b0cf0bbfa36587498dc3108c75eb9ab5ce1a106a769537ebc59ac3891156a053
+semanticHash: cf6de3bab4a50bc7c8e11151cb42ec6ed6462a744c0b93214e3f1252bb805d6c

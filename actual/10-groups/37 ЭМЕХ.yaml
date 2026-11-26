@@ -5542,5 +5542,160 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
               status: scheduled
               replacements: []
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+    groups:
+      37 ЭМЕХ:
+        group: 37 ЭМЕХ
+        date: 2026-11-27
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы материаловедения
+                teacher: Ковалева Л.В.
+                room: к.24
+                weekType: both
+                sourceRow: 37
+            source:
+              sheet: 1-1 курс
+              rowStart: 37
+              rowEnd: 38
+              rawGroupName: 37 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Биология
+                teacher: Царькова Н.А.
+                room: к.25
+                weekType: both
+                rawSubject: Биология Царькова Н.А.
+                rawTeacher: Царькова Н.А.
+                rawRoom: к.25
+                sourceRow: 89
+            source:
+              sheet: 1-1 курс
+              rowStart: 39
+              rowEnd: 40
+              rawGroupName: 37 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-27
+                  group: 37 ЭМЕХ
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: Физика
+                  replacement:
+                    raw: Биология Царькова Н.А.
+                    room: к.25
+                  source:
+                    shift: first
+                    row: 89
+                    rawGroupName: 37 ЭМЕХ
+                    rawLessonNumbers: "1"
+                    rawOriginal: Физика
+                    rawReplacement: Биология Царькова Н.А.
+                    rawRoom: к.25
+                lessonNumber: 1
+                strategy: exact-subject
+          - number: 2
+            variants:
+              - subject: История России
+                teacher: Вагушева Е.А.
+                room: Экскурсия
+                weekType: both
+                rawSubject: История России Вагушева Е.А.
+                rawTeacher: Вагушева Е.А.
+                rawRoom: Экскурсия
+                sourceRow: 88
+            source:
+              sheet: 1-1 курс
+              rowStart: 41
+              rowEnd: 42
+              rawGroupName: 37 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a6
+                  date: 2026-11-27
+                  group: 37 ЭМЕХ
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: История МДК 01.02
+                  replacement:
+                    raw: История России Вагушева Е.А.
+                    room: Экскурсия
+                  source:
+                    shift: first
+                    row: 88
+                    rawGroupName: 37 ЭМЕХ
+                    rawLessonNumbers: 2,3
+                    rawOriginal: История МДК 01.02
+                    rawReplacement: История России Вагушева Е.А.
+                    rawRoom: Экскурсия
+                lessonNumber: 2
+                strategy: subject-word-mention
+          - number: 3
+            variants:
+              - subject: История России
+                teacher: Вагушева Е.А.
+                room: Экскурсия
+                weekType: both
+                rawSubject: История России Вагушева Е.А.
+                rawTeacher: Вагушева Е.А.
+                rawRoom: Экскурсия
+                sourceRow: 88
+            source:
+              sheet: 1-1 курс
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: 37 ЭМЕХ
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/ort.xlsx
+            status: scheduled
+            replacements:
+              - replacement: *a6
+                lessonNumber: 3
+                strategy: subject-module-code
+        unresolvedReplacements: []
 diagnostics: []
-semanticHash: 1e7356de5c64e7f9320df461a3e4bbc3553453942044f4327d643407f0662b27
+semanticHash: 2f66d154df4439a918488ea7a5aed06faca63a9508d279841010d6ad16510bfd

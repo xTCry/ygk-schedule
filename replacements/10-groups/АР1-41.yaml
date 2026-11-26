@@ -2668,6 +2668,87 @@ dates:
     replacements:
       - *a72
       - *a73
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+        replacements:
+          - &a74
+            date: 2026-11-27
+            group: АР1-41
+            lessonNumbers:
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 02.02 п/гр 2 Хухарева Н.Е.
+              room: Б409
+            source:
+              shift: second
+              row: 24
+              rawGroupName: АР1-41
+              rawLessonNumbers: "2"
+              rawOriginal: ""
+              rawReplacement: МДК 02.02 п/гр 2 Хухарева Н.Е.
+              rawRoom: Б409
+          - &a75
+            date: 2026-11-27
+            group: АР1-41
+            lessonNumbers:
+              - 5
+            type: replace
+            original:
+              raw: Осн.эконом.
+            replacement:
+              raw: МДК 02.02 Хухарева Н.Е.
+              room: Б409
+            source:
+              shift: second
+              row: 22
+              rawGroupName: АР1-41
+              rawLessonNumbers: "5"
+              rawOriginal: Осн.эконом.
+              rawReplacement: МДК 02.02 Хухарева Н.Е.
+              rawRoom: Б409
+          - &a76
+            date: 2026-11-27
+            group: АР1-41
+            lessonNumbers:
+              - 6
+            type: cancel
+            original:
+              raw: Эф.поведение
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 23
+              rawGroupName: АР1-41
+              rawLessonNumbers: "6"
+              rawOriginal: Эф.поведение
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a74
+      - *a75
+      - *a76
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2698,4 +2779,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: b8a83c6e9133ce8b098ba6f3014a899e654ab704c7efa837c22e987dba52daeb
+semanticHash: e941b8230f158ce8bb9531d326dd8f3a70de1bff8da7fdac9ae070d0241bc675

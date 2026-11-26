@@ -7117,7 +7117,7 @@ dates:
             source: null
             status: scheduled
             replacements:
-              - replacement:
+              - replacement: &a8
                   date: 2026-11-20
                   group: РК1-12
                   lessonNumbers:
@@ -7191,6 +7191,131 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
               status: scheduled
               replacements: []
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+    groups:
+      РК1-12:
+        group: РК1-12
+        date: 2026-11-27
+        day: Пятница
+        lessons:
+          - number: 0
+            variants:
+              - subject: Обществ.
+                teacher: Булычева Л.А.
+                room: Б501
+                weekType: both
+                rawSubject: Обществ. Булычева Л.А.
+                rawTeacher: Булычева Л.А.
+                rawRoom: Б501
+                sourceRow: 37
+            source:
+              sheet: 1 курс
+              rowStart: 292
+              rowEnd: 293
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-27
+                  group: РК1-12
+                  lessonNumbers:
+                    - 0
+                  type: replace
+                  original:
+                    raw: Информ.
+                  replacement:
+                    raw: Обществ. Булычева Л.А.
+                    room: Б501
+                  source:
+                    shift: first
+                    row: 37
+                    rawGroupName: РК1-12
+                    rawLessonNumbers: "0"
+                    rawOriginal: Информ.
+                    rawReplacement: Обществ. Булычева Л.А.
+                    rawRoom: Б501
+                lessonNumber: 0
+                strategy: subject-abbreviation
+          - number: 1
+            variants:
+              - subject: Математика
+                teacher: Пухова Ю.Г.
+                room: М208
+                weekType: both
+                sourceRow: 294
+            source:
+              sheet: 1 курс
+              rowStart: 294
+              rowEnd: 295
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Литература
+                teacher: Новикова М.А.
+                room: Б510
+                weekType: numerator
+                sourceRow: 296
+            source:
+              sheet: 1 курс
+              rowStart: 296
+              rowEnd: 297
+              rawGroupName: РК1-12
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Доп.проф.
+                teacher: Подковкин А.Г.
+                room: Б207
+                weekType: both
+                rawSubject: Доп.проф. Подковкин А.Г.
+                rawTeacher: Подковкин А.Г.
+                rawRoom: Б207
+                sourceRow: 38
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a8
+                lessonNumber: 3
+                strategy: add
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -7213,4 +7338,4 @@ diagnostics:
         - oar.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: fa216b739b08813053b1b1d4f6cb4b6c0e32b8c21fcea1a627fb9bc5042ab843
+semanticHash: 88c3d6cf6de6fb2df4c08cc8655c5d953b1a89ae6d7035b40635f0b1c0577d2d

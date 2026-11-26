@@ -3223,7 +3223,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3272,8 +3272,97 @@ dates:
               rawReplacement: МДК 01.05 /теор Балина С.А.
               rawRoom: Б503
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
     replacements:
       - *a99
       - *a100
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+        replacements:
+          - &a101
+            date: 2026-11-27
+            group: АР1-31
+            lessonNumbers:
+              - 1
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: .. МДК 01.05 п/гр 1
+            replacement:
+              raw: МДК 01.05 /теор Балина С.А.
+              room: ДОТ
+            source:
+              shift: second
+              row: 25
+              rawGroupName: АР1-31
+              rawLessonNumbers: 1-3
+              rawOriginal: .. МДК 01.05 п/гр 1
+              rawReplacement: МДК 01.05 /теор Балина С.А.
+              rawRoom: ДОТ
+          - &a102
+            date: 2026-11-27
+            group: АР1-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.05 п/гр 2
+            replacement:
+              raw: п/гр 1 - по расписанию п/гр 2 Снято
+              room: ДОТ
+            source:
+              shift: second
+              row: 26
+              rawGroupName: АР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.05 п/гр 2
+              rawReplacement: п/гр 1 - по расписанию п/гр 2 Снято
+              rawRoom: ДОТ
+          - &a103
+            date: 2026-11-27
+            group: АР1-31
+            lessonNumbers:
+              - 5
+              - 6
+            type: cancel
+            original:
+              raw: МДК 01.05 п/гр 2
+            replacement:
+              raw: Снято
+            source:
+              shift: second
+              row: 27
+              rawGroupName: АР1-31
+              rawLessonNumbers: 5,6
+              rawOriginal: МДК 01.05 п/гр 2
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a101
+      - *a102
+      - *a103
 diagnostics: []
-semanticHash: 7835c7e510f2bde93ca8a606eee2fb10bda46d82bf993b048ed990016e2b6173
+semanticHash: 43709124e76a31fbdf2879efde307681d764c487944348463c018ff77f5b0ab3

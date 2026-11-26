@@ -1888,7 +1888,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1920,7 +1920,74 @@ dates:
               rawReplacement: БЖ Зевахина О.Б.
               rawRoom: Б310,Б409
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a52
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a53
+            date: 2026-11-27
+            group: АР1-23
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: История арх Шатрова М.П.
+              room: Б508
+            source:
+              shift: first
+              row: 21
+              rawGroupName: АР1-23
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 01.02
+              rawReplacement: История арх Шатрова М.П.
+              rawRoom: Б508
+          - &a54
+            date: 2026-11-27
+            group: АР1-23
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: МДК 02.01 пгр 1
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 22
+              rawGroupName: АР1-23
+              rawLessonNumbers: 3,4
+              rawOriginal: МДК 02.01 пгр 1
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a53
+      - *a54
 diagnostics: []
-semanticHash: bc7a87006a81bfd59ec685a08d27ef40a30725159b205ff20f114e9cd7a5edb4
+semanticHash: d4910c7d8a97b31b970aa7126db6b51f412fd2058c0f0eb79e4f5b3d7eb60fa5

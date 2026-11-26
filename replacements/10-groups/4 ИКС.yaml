@@ -3447,7 +3447,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -3479,7 +3479,74 @@ dates:
               rawReplacement: МДК 06.01 Богачев Е.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a89
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a90
+            date: 2026-11-27
+            group: 4 ИКС
+            lessonNumbers:
+              - 1
+              - 2
+            type: add
+            original: null
+            replacement:
+              raw: МДК 04.01 Матвеичева К.А.
+              room: Экскурсия
+            source:
+              shift: first
+              row: 85
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 1,2
+              rawOriginal: ""
+              rawReplacement: МДК 04.01 Матвеичева К.А.
+              rawRoom: Экскурсия
+          - &a91
+            date: 2026-11-27
+            group: 4 ИКС
+            lessonNumbers:
+              - 3
+              - 4
+            type: cancel
+            original:
+              raw: Пихол.общ. Физкул.
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 86
+              rawGroupName: 4 ИКС
+              rawLessonNumbers: 3,4
+              rawOriginal: Пихол.общ. Физкул.
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a90
+      - *a91
 diagnostics: []
-semanticHash: d4663d3946a3df27eab68839305440a258b902ad452e72c6620348f82c2fd6ed
+semanticHash: 4cce069682090dd57ded02bab8f5e88e3e41af6a57ffcf039906b53fee65cf0d

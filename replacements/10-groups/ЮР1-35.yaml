@@ -1323,7 +1323,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1353,7 +1353,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a37
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a38
+            date: 2026-11-27
+            group: ЮР1-35
+            lessonNumbers:
+              - 1
+            type: cancel
+            original:
+              raw: Физкультура
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 68
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: "1"
+              rawOriginal: Физкультура
+              rawReplacement: Снято
+              rawRoom: ""
+          - &a39
+            date: 2026-11-27
+            group: ЮР1-35
+            lessonNumbers:
+              - 3
+              - 4
+            type: replace
+            original:
+              raw: Осн.бер.пр, ...
+            replacement:
+              raw: МДК 01.02 Грак А.М.
+              room: Ф104,Ф302
+            source:
+              shift: first
+              row: 69
+              rawGroupName: ЮР1-35
+              rawLessonNumbers: 3,4
+              rawOriginal: Осн.бер.пр, ...
+              rawReplacement: МДК 01.02 Грак А.М.
+              rawRoom: Ф104,Ф302
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
 diagnostics: []
-semanticHash: c28e83ab8570ffa0581c9008a198c299a04b8208d8ff355097d2ef51967321a0
+semanticHash: bba24ebb7617a940be82829d4ef358fccf3bee6b557eb510c30872a578ccaa94

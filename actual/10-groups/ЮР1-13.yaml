@@ -11948,7 +11948,174 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+    groups:
+      ЮР1-13:
+        group: ЮР1-13
+        date: 2026-11-27
+        day: Пятница
+        lessons:
+          - number: 1
+            variants: []
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 89
+              rowEnd: 90
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a28
+                  date: 2026-11-27
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: cancel
+                  original:
+                    raw: ОБиЗР Биол
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 77
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: 1,2
+                    rawOriginal: ОБиЗР Биол
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 1
+                strategy: subject-word-mention
+          - number: 2
+            variants:
+              - subject: Биология
+                teacher: Малявкина Н.А.
+                room: Ф104
+                weekType: both
+                sourceRow: 91
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 91
+              rowEnd: 92
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Физика
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: numerator
+                sourceRow: 93
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 93
+              rowEnd: 94
+              rawGroupName: ЮР 1-13 / ЮР1-14
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Физика
+                teacher: Калинин Д.А.
+                room: Ф106
+                weekType: both
+                rawSubject: Физика Калинин Д.А.
+                rawTeacher: Калинин Д.А.
+                rawRoom: Ф106
+                sourceRow: 78
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-27
+                  group: ЮР1-13
+                  lessonNumbers:
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Физика Калинин Д.А.
+                    room: Ф106
+                  source:
+                    shift: first
+                    row: 78
+                    rawGroupName: ЮР1-13
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: Физика Калинин Д.А.
+                    rawRoom: Ф106
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements:
+          - replacement: *a28
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «ОБиЗР Биол». По замене: «Снято»."
 diagnostics:
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 2f079015e1259c8b88fc3775c7924e4b0eca19d5b587f1abc8ab38c5fc0628cf
+    sheet: "Замены: Первая смена"
+    row: 77
+    normalizedGroup: ЮР1-13
+    rawValue: Снято
+    context:
+      date: 2026-11-27
+      shift: first
+      sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+      lessonNumber: 2
+      type: cancel
+      reason: original-not-matched
+      baseGroup: ЮР1-13
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: ОБиЗР Биол
+      candidates:
+        - subject: Биология
+          teacher: Малявкина Н.А.
+          room: Ф104
+          sourceRow: 91
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
@@ -11993,7 +12160,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-13
-      baseSourceFiles: &a28
+      baseSourceFiles: &a29
         - out.xlsx
       requestedSubject: Математика...
       candidates:
@@ -12047,7 +12214,7 @@ diagnostics:
       type: replace
       reason: lesson-not-found
       baseGroup: ЮР1-13
-      baseSourceFiles: *a28
+      baseSourceFiles: *a29
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -12156,4 +12323,4 @@ diagnostics:
           sourceRow: 71
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 7ced089267316332c9e8f0e0939d3d97a1e078af4ca53b9c162723f912b0770c
+semanticHash: d3b6bb04834de15ea1a1a8623948d79234339ebe44f9f1954cd0b51eba9c5c6f

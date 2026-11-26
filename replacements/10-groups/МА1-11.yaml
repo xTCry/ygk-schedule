@@ -2106,7 +2106,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2159,8 +2159,76 @@ dates:
               rawReplacement: УП 01.01 п/гр 2 Тепляков А.Б.
               rawRoom: МТ106
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
     replacements:
       - *a58
       - *a59
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 2a6a15dca2c697192705a4d64cd3c2bd20598185d5ed91f69d1a9084b0770847
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b082d4d-5e4c"
+          lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        replacements:
+          - &a60
+            date: 2026-11-27
+            group: МА1-11
+            lessonNumbers:
+              - 0
+              - 1
+              - 2
+            type: replace
+            original:
+              raw: Химия Ин.язык
+            replacement:
+              raw: Слесарное дело Щеглов И.А.
+              room: МТ103
+            source:
+              shift: first
+              row: 56
+              rawGroupName: МА1-11
+              rawLessonNumbers: 0-2
+              rawOriginal: Химия Ин.язык
+              rawReplacement: Слесарное дело Щеглов И.А.
+              rawRoom: МТ103
+          - &a61
+            date: 2026-11-27
+            group: МА1-11
+            lessonNumbers:
+              - 3
+            type: cancel
+            original:
+              raw: Физика
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 57
+              rawGroupName: МА1-11
+              rawLessonNumbers: "3"
+              rawOriginal: Физика
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a60
+      - *a61
 diagnostics: []
-semanticHash: 46ec9285ebb8b26e18becb89f59c8202af19c78728cf94dac620574ff880b30d
+semanticHash: a75620aaedbb433301c36a8ecdab463a29106addb4b253bb7a6635af8ee64c20

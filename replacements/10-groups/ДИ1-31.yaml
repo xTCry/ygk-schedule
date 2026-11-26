@@ -2740,7 +2740,7 @@ dates:
         day: Четверг
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2770,7 +2770,55 @@ dates:
               rawReplacement: Физкультура Чупрова П.А.
               rawRoom: Сп.зал
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-27
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
     replacements:
       - *a72
+  2026-11-27:
+    date: 2026-11-27
+    day: Пятница
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-27
+        day: Пятница
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 9e91ddf55abe5dad1d1907ba5a5303c8b57352bc8488091b2de18a15082eca4d
+          fetchedAt: 2026-11-26T18:57:51.207Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b082c39-1d3e"
+          lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+        replacements:
+          - &a73
+            date: 2026-11-27
+            group: ДИ1-31
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 01.03 МДК 01.02
+            replacement:
+              raw: МДК 01.02 Махоткина Д.Е.Матвеичева К.А
+              room: ДОТ
+            source:
+              shift: second
+              row: 18
+              rawGroupName: ДИ1-31
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 01.03 МДК 01.02
+              rawReplacement: МДК 01.02 Махоткина Д.Е.Матвеичева К.А
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a73
 diagnostics: []
-semanticHash: 33e644bae614d402784dcdecb57f73f11e9d7f4fdf4f45ca574fe508c91fe7ff
+semanticHash: a522a486789354adff800d085cc64e71aec72b88a6dd08d731344984a136b015
