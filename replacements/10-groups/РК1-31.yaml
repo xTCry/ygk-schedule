@@ -3068,7 +3068,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -3118,8 +3118,56 @@ dates:
               rawReplacement: по расписанию
               rawRoom: очно
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
     replacements:
       - *a83
       - *a84
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+        replacements:
+          - &a85
+            date: 2026-11-28
+            group: РК1-31
+            lessonNumbers:
+              - 4
+              - 5
+            type: replace
+            original:
+              raw: МДК 02.02
+            replacement:
+              raw: 1,2 п/гр.Инф.тех. УП 04.03 Выблова Т.В.
+              room: ДОТ
+            source:
+              shift: second
+              row: 28
+              rawGroupName: РК1-31
+              rawLessonNumbers: 4,5
+              rawOriginal: МДК 02.02
+              rawReplacement: 1,2 п/гр.Инф.тех. УП 04.03 Выблова Т.В.
+              rawRoom: ДОТ
+        diagnostics: []
+    replacements:
+      - *a85
 diagnostics: []
-semanticHash: c38f120b1f3becf2b64149d9c0920c79d7f411dd9e4f2738063293df7148435d
+semanticHash: b3791a31dc92e56b533b88730e3dc509715533c4dfb3eb4825a8271125a60bee

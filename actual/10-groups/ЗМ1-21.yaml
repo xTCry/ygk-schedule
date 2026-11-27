@@ -3728,6 +3728,136 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
               status: scheduled
               replacements: []
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+    groups:
+      ЗМ1-21:
+        group: ЗМ1-21
+        date: 2026-11-28
+        day: Суббота
+        lessons:
+          - number: 2
+            variants:
+              - subject: Иформационные технологии в профессиональной деятельности
+                teacher: Яковлева Е.Н.
+                room: ДОТ
+                weekType: numerator
+                sourceRow: 43
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 43
+              rowEnd: 44
+              rawGroupName: ЗМ1-21/ЗМ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Математические методы решения прикладных профессиональных задач
+                teacher: Емелина Н.А.
+                room: ДОТ
+                weekType: both
+                sourceRow: 45
+            source:
+              sheet: ЗМ1-21 ЗМ1-23
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: ЗМ1-21/ЗМ1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oeis.xlsx
+            status: scheduled
+            replacements: []
+          - number: 4
+            variants:
+              - subject: Инф.технол.
+                teacher: Яковлева Е.Н.
+                room: ДОТ
+                weekType: both
+                subgroup: "2"
+                rawSubject: Инф.технол. п/гр 2 Яковлева Е.Н.
+                rawTeacher: Яковлева Е.Н.
+                rawRoom: ДОТ
+                sourceRow: 48
+            source: null
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-28
+                  group: ЗМ1-21
+                  lessonNumbers:
+                    - 4
+                  type: add
+                  original: null
+                  replacement:
+                    raw: Инф.технол. п/гр 2 Яковлева Е.Н.
+                    room: ДОТ
+                  source:
+                    shift: first
+                    row: 48
+                    rawGroupName: ЗМ1-21
+                    rawLessonNumbers: "4"
+                    rawOriginal: ""
+                    rawReplacement: Инф.технол. п/гр 2 Яковлева Е.Н.
+                    rawRoom: ДОТ
+                lessonNumber: 4
+                strategy: add
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-11-28
+              group: ЗМ1-21
+              lessonNumbers:
+                - 2
+              type: replace
+              original:
+                raw: Инф.технол.
+              replacement:
+                raw: п/гр 1 Яковлева Е.Н.
+                room: ДОТ
+              source:
+                shift: first
+                row: 47
+                rawGroupName: ЗМ1-21
+                rawLessonNumbers: "2"
+                rawOriginal: Инф.технол.
+                rawReplacement: п/гр 1 Яковлева Е.Н.
+                rawRoom: ДОТ
+            lessonNumber: 2
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Инф.технол.». По замене: «п/гр 1 Яковлева Е.Н.».
+                Аудитория: «ДОТ»."
+              room: ДОТ
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -3780,4 +3910,31 @@ diagnostics:
         - oeis.xlsx
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: a7551c176bb2ef0b4109bc1ed58385e916bcf11285be980a09b48d9338d0b946
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: dafe2e7c8860e0607a5e493842b75601de3beccace17a0c1aa8127e729f6ea5c
+    sheet: "Замены: Первая смена"
+    row: 47
+    normalizedGroup: ЗМ1-21
+    rawValue: п/гр 1 Яковлева Е.Н.
+    context:
+      date: 2026-11-28
+      shift: first
+      sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+      lessonNumber: 2
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЗМ1-21
+      baseSourceFiles:
+        - oeis.xlsx
+      requestedSubject: Инф.технол.
+      candidates:
+        - subject: Иформационные технологии в профессиональной деятельности
+          teacher: Яковлева Е.Н.
+          room: ДОТ
+          sourceRow: 43
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+semanticHash: 38f64d4c2aba1a157b282b6fb11ab73be25691ecaaa92fb3c1c12f2afa9d1248

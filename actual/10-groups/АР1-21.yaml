@@ -7999,7 +7999,7 @@ dates:
         date: 2026-11-27
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -8009,11 +8009,15 @@ dates:
           shift: first
           etag: W/"6b082d4d-5e4c"
           lastModified: Thu, 26 Nov 2026 12:59:57 GMT
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
       second:
         date: 2026-11-27
         day: Пятница
         weekType: numerator
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -8023,6 +8027,10 @@ dates:
           shift: second
           etag: W/"6b082c39-1d3e"
           lastModified: Thu, 26 Nov 2026 12:55:21 GMT
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
     groups:
       АР1-21:
         group: АР1-21
@@ -8110,6 +8118,185 @@ dates:
                     rawRoom: Сп.зал
                 lessonNumber: 4
                 strategy: add
+        unresolvedReplacements: []
+        frozenBase:
+          scheduleVersion: 0f4abf67a6bed9a0f3d953a58525057b40fbb1b8a97ce4c50686b2f5decc58df
+          dataRevision: d7a396b4c1e668e9940d28e0447eb7c08979c46b
+          lessons:
+            - number: 2
+              variants:
+                - subject: Физическая культура
+                  teacher: Дворниченко Г.В.
+                  room: Сп.зал
+                  weekType: numerator
+                  sourceRow: 38
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 38
+                rowEnd: 39
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+            - number: 3
+              variants:
+                - subject: МДК 01.02 Объемно-пространственная композиция с элементами
+                    макетирования
+                  teacher: |-
+                    Шатрова М.П.
+                    Иванов Ю.А.
+                  room: Б508
+                  weekType: both
+                  sourceRow: 40
+              source:
+                sheet: АР1-21 АР1-31 АР1-32 АР1-41
+                rowStart: 40
+                rowEnd: 41
+                rawGroupName: АР1-21/АР1-22
+                sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+              status: scheduled
+              replacements: []
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+    groups:
+      АР1-21:
+        group: АР1-21
+        date: 2026-11-28
+        day: Суббота
+        lessons:
+          - number: 0
+            variants: []
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 45
+              rowEnd: 46
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: cancelled
+            replacements:
+              - replacement:
+                  date: 2026-11-28
+                  group: АР1-21
+                  lessonNumbers:
+                    - 0
+                  type: cancel
+                  original:
+                    raw: МДК 02.01 п/гр 1
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: first
+                    row: 18
+                    rawGroupName: АР1-21
+                    rawLessonNumbers: "0"
+                    rawOriginal: МДК 02.01 п/гр 1
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 0
+                strategy: subject-module-code
+          - number: 1
+            variants:
+              - subject: Типол.зданий
+                teacher: Иванов Ю.А.
+                room: Б507
+                weekType: both
+                subgroup: "1"
+                rawSubject: Типол.зданий Иванов Ю.А.
+                rawTeacher: Иванов Ю.А.
+                rawRoom: Б507
+                sourceRow: 17
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 47
+              rowEnd: 48
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements:
+              - replacement:
+                  date: 2026-11-28
+                  group: АР1-21
+                  lessonNumbers:
+                    - 1
+                  type: replace
+                  original:
+                    raw: МДК 02.01 п/гр 1
+                  replacement:
+                    raw: Типол.зданий Иванов Ю.А.
+                    room: Б507
+                  source:
+                    shift: first
+                    row: 17
+                    rawGroupName: АР1-21
+                    rawLessonNumbers: "1"
+                    rawOriginal: МДК 02.01 п/гр 1
+                    rawReplacement: Типол.зданий Иванов Ю.А.
+                    rawRoom: Б507
+                lessonNumber: 1
+                strategy: subject-module-code
+          - number: 2
+            variants:
+              - subject: История архитектуры
+                teacher: Шатрова М.П.
+                room: Б508
+                weekType: both
+                sourceRow: 49
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 49
+              rowEnd: 50
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Иностранный язык в профессиональной деятельности
+                teacher: |-
+                  Ткаченко Г.А.
+                  Мишуринская Е.Ю.
+                room: Б502
+                weekType: both
+                sourceRow: 51
+            source:
+              sheet: АР1-21 АР1-31 АР1-32 АР1-41
+              rowStart: 51
+              rowEnd: 52
+              rawGroupName: АР1-21/АР1-22
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oar.xlsx
+            status: scheduled
+            replacements: []
         unresolvedReplacements: []
 diagnostics:
   - provider: ygk
@@ -8229,4 +8416,4 @@ diagnostics:
           sourceRow: 8
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: e6e8eebf05885d7a5524fc8db20f28ec2e58bfb587a856890be0dc2247937682
+semanticHash: c1cf2675cbf4d8c462cf8f5291a93c7b064686f47dd5589c77a7fcbe5e4420f4

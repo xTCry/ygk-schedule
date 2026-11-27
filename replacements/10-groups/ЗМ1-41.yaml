@@ -2537,7 +2537,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2568,8 +2568,93 @@ dates:
               rawReplacement: Прав.обесп Воробьева Н.Е.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
     replacements:
       - *a64
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+        replacements:
+          - &a65
+            date: 2026-11-28
+            group: ЗМ1-41
+            lessonNumbers:
+              - 3
+            type: add
+            original: null
+            replacement:
+              raw: Физкультура Кургузова М.С.
+              room: Сп.зал
+            source:
+              shift: first
+              row: 50
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "3"
+              rawOriginal: ""
+              rawReplacement: Физкультура Кургузова М.С.
+              rawRoom: Сп.зал
+          - &a66
+            date: 2026-11-28
+            group: ЗМ1-41
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: Ин.язык
+            replacement:
+              raw: 1,2 п/гр. Ткаченко Г.А.
+              room: Б509Б510
+            source:
+              shift: first
+              row: 52
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "4"
+              rawOriginal: Ин.язык
+              rawReplacement: 1,2 п/гр. Ткаченко Г.А.
+              rawRoom: Б509Б510
+          - &a67
+            date: 2026-11-28
+            group: ЗМ1-41
+            lessonNumbers:
+              - 5
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 51
+              rawGroupName: ЗМ1-41
+              rawLessonNumbers: "5"
+              rawOriginal: МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a65
+      - *a66
+      - *a67
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2600,4 +2685,4 @@ diagnostics:
       date: 2026-09-25
       shift: first
       sourceSha256: 9de4232229dd55a601b1918f1030d6d80842ae4b201f3cb9b7b333ab1955b12f
-semanticHash: 0b00e0478d07416b0c7f2f53f3ad2e0ed2b1e7d70beecb19300d3fca3123f24a
+semanticHash: be5f5603c702d721d36a41ea07b8cde33959ac5231e34722f2e83b870062804c

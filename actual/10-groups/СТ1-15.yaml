@@ -10786,6 +10786,134 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
               status: scheduled
               replacements: []
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+    groups:
+      СТ1-15:
+        group: СТ1-15
+        date: 2026-11-28
+        day: Суббота
+        lessons:
+          - number: 1
+            variants:
+              - subject: Физика л/р
+                teacher: |-
+                  Овсова К.С.
+                  Галочкина Н.Н.
+                room: М101
+                weekType: numerator
+                sourceRow: 145
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 145
+              rowEnd: 146
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 2
+            variants:
+              - subject: Физика
+                teacher: Овсова К.С.
+                room: М101
+                weekType: both
+                sourceRow: 147
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 147
+              rowEnd: 148
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements: []
+          - number: 3
+            variants:
+              - subject: Истор.
+                teacher: Ушкало Ю.А
+                room: Б402,А203
+                weekType: both
+                rawSubject: Истор. Ушкало Ю.А
+                rawTeacher: Ушкало Ю.А
+                rawRoom: Б402,А203
+                sourceRow: 31
+            source:
+              sheet: CТ1-11СТ1-13СТ1-15СТ-17
+              rowStart: 149
+              rowEnd: 150
+              rawGroupName: СТ1-15/СТ1-16
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/so.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a15
+                  date: 2026-11-28
+                  group: СТ1-15
+                  lessonNumbers:
+                    - 3
+                    - 4
+                  type: replace
+                  original:
+                    raw: История, ...
+                  replacement:
+                    raw: Истор. Ушкало Ю.А
+                    room: Б402,А203
+                  source:
+                    shift: first
+                    row: 31
+                    rawGroupName: СТ1-15
+                    rawLessonNumbers: 3,4
+                    rawOriginal: История, ...
+                    rawReplacement: Истор. Ушкало Ю.А
+                    rawRoom: Б402,А203
+                lessonNumber: 3
+                strategy: exact-subject
+          - number: 4
+            variants:
+              - subject: Истор.
+                teacher: Ушкало Ю.А
+                room: Б402,А203
+                weekType: both
+                rawSubject: Истор. Ушкало Ю.А
+                rawTeacher: Ушкало Ю.А
+                rawRoom: Б402,А203
+                sourceRow: 31
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a15
+                lessonNumber: 4
+                strategy: ellipsis-continuation
+        unresolvedReplacements: []
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -10814,4 +10942,4 @@ diagnostics:
           sourceRow: 146
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: 33646584a76d8c86e787932bd069ba25dc854d9729d9d0afde8e69b2991a1de8
+semanticHash: 9adadc20dff34f5de4154bc269e8a8742460d36dbcbd1c0e897a67e41639ffb3

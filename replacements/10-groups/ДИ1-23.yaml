@@ -2841,7 +2841,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2872,7 +2872,74 @@ dates:
               rawReplacement: Осн.фин.грам Ковалева С.В.
               rawRoom: ДОТ
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
     replacements:
       - *a80
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+        replacements:
+          - &a81
+            date: 2026-11-28
+            group: ДИ1-23
+            lessonNumbers:
+              - 0
+            type: add
+            original: null
+            replacement:
+              raw: Доп.проф. Рочева А.А.
+              room: Б309
+            source:
+              shift: first
+              row: 13
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: "0"
+              rawOriginal: ""
+              rawReplacement: Доп.проф. Рочева А.А.
+              rawRoom: Б309
+          - &a82
+            date: 2026-11-28
+            group: ДИ1-23
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: 1,2 п/гр. Иванов Ю.А.
+              room: Б507
+            source:
+              shift: first
+              row: 14
+              rawGroupName: ДИ1-23
+              rawLessonNumbers: 2,3
+              rawOriginal: МДК 01.02
+              rawReplacement: 1,2 п/гр. Иванов Ю.А.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a81
+      - *a82
 diagnostics: []
-semanticHash: 53c756210909dbc9852f0e43ff1ce052d774c44558fd181e00ce78457b0e0a4e
+semanticHash: efd8073d8d2cfb0968f8e9df668e05d88a38ea183552573cc8e9ac10215076e8

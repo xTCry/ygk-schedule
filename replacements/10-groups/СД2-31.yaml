@@ -1476,7 +1476,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1507,8 +1507,76 @@ dates:
               rawReplacement: 1,2 п/гр. Махрова Н.Н.
               rawRoom: А203
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
     replacements:
       - *a37
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+        replacements:
+          - &a38
+            date: 2026-11-28
+            group: СД2-31
+            lessonNumbers:
+              - 2
+              - 3
+            type: replace
+            original:
+              raw: ... Физкульт
+            replacement:
+              raw: МДК 01.02 пгр 1 Машкова Е.С
+              room: Б510
+            source:
+              shift: first
+              row: 2
+              rawGroupName: СД2-31
+              rawLessonNumbers: 2,3
+              rawOriginal: ... Физкульт
+              rawReplacement: МДК 01.02 пгр 1 Машкова Е.С
+              rawRoom: Б510
+          - &a39
+            date: 2026-11-28
+            group: СД2-31
+            lessonNumbers:
+              - 4
+            type: replace
+            original:
+              raw: МДК 01.02
+            replacement:
+              raw: пгр 2 Машкова Е.С
+              room: Б402
+            source:
+              shift: first
+              row: 3
+              rawGroupName: СД2-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 01.02
+              rawReplacement: пгр 2 Машкова Е.С
+              rawRoom: Б402
+        diagnostics: []
+    replacements:
+      - *a38
+      - *a39
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -1539,4 +1607,4 @@ diagnostics:
       date: 2026-09-28
       shift: first
       sourceSha256: d7c285a2ac984e80bb095454160508f2224089ef27597a00f65cf5d29188abaf
-semanticHash: 281e97564ab67da21cd5a92b6f24629263b4135fa2c427ebb51e28a2048b1e69
+semanticHash: a5087cb0df763d6ff3b72b53baac0562e2bb6cf0b87c5edac59032286d95f689

@@ -2635,7 +2635,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -2685,9 +2685,56 @@ dates:
               rawReplacement: Психол.общения Зеленцова Л.В.
               rawRoom: Б301,Б402
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
     replacements:
       - *a70
       - *a71
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+        replacements:
+          - &a72
+            date: 2026-11-28
+            group: ИС1-21
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: МДК 02.01
+            replacement:
+              raw: /теория Серова А.М.
+              room: Б305
+            source:
+              shift: first
+              row: 28
+              rawGroupName: ИС1-21
+              rawLessonNumbers: "2"
+              rawOriginal: МДК 02.01
+              rawReplacement: /теория Серова А.М.
+              rawRoom: Б305
+        diagnostics: []
+    replacements:
+      - *a72
 diagnostics:
   - provider: ygk
     code: INVALID_REPLACEMENT_LESSON_NUMBER
@@ -2749,4 +2796,4 @@ diagnostics:
       date: 2026-11-26
       shift: first
       sourceSha256: 5f3d2503e22acd3bfcadd83eafa36e63f63155cb66d58f1c5bfdf93302e1775f
-semanticHash: 2cc2728bd12aeb57ab652e30565e9a18cc45f41007cea48aab148d54e6769b86
+semanticHash: 48a82777aff351dcff36467afc9cba0f8f115cd67973714f5b6c2c9d8035f5dc

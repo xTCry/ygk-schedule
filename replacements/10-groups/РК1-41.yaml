@@ -2232,7 +2232,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: second
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_second.html
           fileName: rasp_second.html
@@ -2262,8 +2262,74 @@ dates:
               rawReplacement: Снято
               rawRoom: ""
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          sourceSha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
     replacements:
       - *a55
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: second
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+        replacements:
+          - &a56
+            date: 2026-11-28
+            group: РК1-41
+            lessonNumbers:
+              - 2
+            type: replace
+            original:
+              raw: Рисунок
+            replacement:
+              raw: Живопись Багдасарьян В.В.Багдасарьян О.Н
+              room: Б207Б208
+            source:
+              shift: second
+              row: 22
+              rawGroupName: РК1-41
+              rawLessonNumbers: "2"
+              rawOriginal: Рисунок
+              rawReplacement: Живопись Багдасарьян В.В.Багдасарьян О.Н
+              rawRoom: Б207Б208
+          - &a57
+            date: 2026-11-28
+            group: РК1-41
+            lessonNumbers:
+              - 5
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.02 Бобкова Е.А.
+              room: Б507
+            source:
+              shift: second
+              row: 23
+              rawGroupName: РК1-41
+              rawLessonNumbers: "5"
+              rawOriginal: ""
+              rawReplacement: МДК 03.02 Бобкова Е.А.
+              rawRoom: Б507
+        diagnostics: []
+    replacements:
+      - *a56
+      - *a57
 diagnostics:
   - provider: ygk
     code: UNKNOWN_REPLACEMENT_TYPE
@@ -2294,4 +2360,4 @@ diagnostics:
       date: 2026-09-22
       shift: second
       sourceSha256: 87d2725a1dc16206f29f744e03bbe9d2ce7f0b69041aa6da6a142e52a16634cd
-semanticHash: af41c848cdfea483b5b8cfda9f21ec790f59188e45103aa97149af5425890e68
+semanticHash: aa7376205e2025feb095a27d1551df60c0546319ed12d03085dfe6620808778e

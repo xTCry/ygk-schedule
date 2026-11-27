@@ -11065,6 +11065,138 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
               status: scheduled
               replacements: []
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+    groups:
+      ИБ1-41:
+        group: ИБ1-41
+        date: 2026-11-28
+        day: Суббота
+        lessons:
+          - number: 3
+            variants:
+              - subject: УП 02 УП03
+                teacher: Вакансия
+                room: Б308
+                weekType: both
+                subgroup: "2"
+                rawSubject: УП 02 УП03 Зайцев Р.А.Грехова Е.И.
+                rawRoom: Б308
+                sourceRow: 10
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 150
+              rowEnd: 151
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a25
+                  date: 2026-11-28
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 2
+                    - 3
+                  type: replace
+                  original:
+                    raw: ... МДК 03.01
+                  replacement:
+                    raw: УП 02 УП03 Зайцев Р.А.Грехова Е.И.
+                    room: Б308
+                  source:
+                    shift: second
+                    row: 10
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: 2,3
+                    rawOriginal: ... МДК 03.01
+                    rawReplacement: УП 02 УП03 Зайцев Р.А.Грехова Е.И.
+                    rawRoom: Б308
+                lessonNumber: 3
+                strategy: subject-module-code
+          - number: 4
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 152
+              rowEnd: 153
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: &a24
+                  date: 2026-11-28
+                  group: ИБ1-41
+                  lessonNumbers:
+                    - 4
+                    - 5
+                  type: cancel
+                  original:
+                    raw: Эф.поведение МДК 02.02
+                  replacement:
+                    raw: Снято
+                  source:
+                    shift: second
+                    row: 11
+                    rawGroupName: ИБ1-41
+                    rawLessonNumbers: 4,5
+                    rawOriginal: Эф.поведение МДК 02.02
+                    rawReplacement: Снято
+                    rawRoom: ""
+                lessonNumber: 4
+                strategy: subject-word-mention
+          - number: 5
+            variants: []
+            source:
+              sheet: ИБ1-21 ИБ1-31 ИБ41
+              rowStart: 154
+              rowEnd: 155
+              rawGroupName: ИБ1-41/ИБ1-42/ИБ2-31
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/oit_1sem.xlsx
+            status: cancelled
+            replacements:
+              - replacement: *a24
+                lessonNumber: 5
+                strategy: subject-module-code
+        unresolvedReplacements:
+          - replacement: *a25
+            lessonNumber: 2
+            reason: lesson-not-found
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «... МДК 03.01». По замене: «УП 02 УП03 Зайцев
+                Р.А.Грехова Е.И.». Аудитория: «Б308»."
+              room: Б308
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -11174,7 +11306,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: &a24
+      baseSourceFiles: &a26
         - oit_1sem.xlsx
       requestedSubject: МДК 03.01
       requestedSubgroups:
@@ -11241,6 +11373,27 @@ diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
     severity: error
+    message: Пара из замены отсутствует в базовом расписании
+    fingerprint: b4b231de742ea1e5ff567db1e14a9f1878fb576bd9fd194c825e1f946b33a68d
+    sheet: "Замены: Вторая смена"
+    row: 10
+    normalizedGroup: ИБ1-41
+    rawValue: УП 02 УП03 Зайцев Р.А.Грехова Е.И.
+    context:
+      date: 2026-11-28
+      shift: second
+      sourceSha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+      lessonNumber: 2
+      type: replace
+      reason: lesson-not-found
+      baseGroup: ИБ1-41
+      baseSourceFiles:
+        - oit_1sem.xlsx
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
     message: Подгруппа из замены не проводится в базовом расписании в эту неделю
     fingerprint: ced0deb0e96259bc079e58f62d6aaba0004595881a65996a1ab7be4bd025dfdb
     sheet: "Замены: Вторая смена"
@@ -11255,7 +11408,7 @@ diagnostics:
       type: replace
       reason: subgroup-not-matched
       baseGroup: ИБ1-41
-      baseSourceFiles: *a24
+      baseSourceFiles: *a26
       requestedSubject: МДК 03.01
       requestedSubgroups:
         - "1"
@@ -11360,4 +11513,4 @@ diagnostics:
           sourceRow: 123
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_second.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_second.html
-semanticHash: 6b9d040bb6764b1902bb4ea19e72aa1a688bcb7b1fc3c7329418e79ab5e6e5f5
+semanticHash: 33f4a2534031a65492baa9b37bbeacce245e74998c99592de43a6db97edc76f8

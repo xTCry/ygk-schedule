@@ -1173,7 +1173,7 @@ dates:
         day: Пятница
         weekType: numerator
         shift: first
-        status: mutable
+        status: finalized
         source:
           id: https://menu.sttec.yar.ru/timetable/rasp_first.html
           fileName: rasp_first.html
@@ -1222,8 +1222,94 @@ dates:
               rawReplacement: МДК 03.02 Гайдис А.С.
               rawRoom: Ф206
         diagnostics: []
+        finalizedBy:
+          date: 2026-11-28
+          sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
     replacements:
       - *a34
       - *a35
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        shift: first
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+        replacements:
+          - &a36
+            date: 2026-11-28
+            group: ЮР1-31
+            lessonNumbers:
+              - 0
+              - 1
+            type: add
+            original: null
+            replacement:
+              raw: МДК 03.01 Бобкова Е.А.
+              room: ДОТ
+            source:
+              shift: first
+              row: 65
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: 0,1
+              rawOriginal: ""
+              rawReplacement: МДК 03.01 Бобкова Е.А.
+              rawRoom: ДОТ
+          - &a37
+            date: 2026-11-28
+            group: ЮР1-31
+            lessonNumbers:
+              - 3
+            type: replace
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: МДК 01.02 Грак А.М
+              room: ДОТ
+            source:
+              shift: first
+              row: 66
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "3"
+              rawOriginal: МДК 03.01
+              rawReplacement: МДК 01.02 Грак А.М
+              rawRoom: ДОТ
+          - &a38
+            date: 2026-11-28
+            group: ЮР1-31
+            lessonNumbers:
+              - 4
+            type: cancel
+            original:
+              raw: МДК 03.01
+            replacement:
+              raw: Снято
+            source:
+              shift: first
+              row: 67
+              rawGroupName: ЮР1-31
+              rawLessonNumbers: "4"
+              rawOriginal: МДК 03.01
+              rawReplacement: Снято
+              rawRoom: ""
+        diagnostics: []
+    replacements:
+      - *a36
+      - *a37
+      - *a38
 diagnostics: []
-semanticHash: f598bb7ea530cfb4e58729dd037e04554e5690b359b8e9bc53c28393728a2b25
+semanticHash: 5ba6b7a00925366d692779589003adf443e473c1d9a20c3d8be0e94beb199083

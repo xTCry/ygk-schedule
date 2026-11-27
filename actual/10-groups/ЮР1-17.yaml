@@ -9558,6 +9558,151 @@ dates:
                 sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
               status: scheduled
               replacements: []
+  2026-11-28:
+    date: 2026-11-28
+    day: Суббота
+    weekType: numerator
+    shifts:
+      first:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          fileName: rasp_first.html
+          sha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+          fetchedAt: 2026-11-27T18:50:54.713Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_first.html
+          shift: first
+          etag: W/"6b096704-3fb7"
+          lastModified: Fri, 27 Nov 2026 11:18:28 GMT
+      second:
+        date: 2026-11-28
+        day: Суббота
+        weekType: numerator
+        status: mutable
+        source:
+          id: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          fileName: rasp_second.html
+          sha256: 56c7e3883218bf8121c46714c362f7169972d7905f006b95bfcc835a4bf5bb33
+          fetchedAt: 2026-11-27T18:50:54.712Z
+          url: https://menu.sttec.yar.ru/timetable/rasp_second.html
+          shift: second
+          etag: W/"6b098999-1f1e"
+          lastModified: Fri, 27 Nov 2026 13:46:01 GMT
+    groups:
+      ЮР1-17:
+        group: ЮР1-17
+        date: 2026-11-28
+        day: Суббота
+        lessons:
+          - number: 0
+            variants:
+              - subject: Основы безопасности и защиты Родины
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                sourceRow: 205
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 205
+              rowEnd: 206
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements: []
+          - number: 1
+            variants:
+              - subject: Информатика л/р
+                teacher: |-
+                  Нестерова А.В.
+                  Хватова Е.Ю.
+                room: |-
+                  Ф306
+                  Ф305
+                weekType: numerator
+                sourceRow: 207
+              - subject: ОБиЗР
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                rawSubject: ОБиЗР Корсаков С.В.
+                rawTeacher: Корсаков С.В.
+                rawRoom: Ф301
+                sourceRow: 60
+            source:
+              sheet: ЮР 1-11 ЮР1-13 ЮР1-15 ЮР1-17
+              rowStart: 207
+              rowEnd: 208
+              rawGroupName: ЮР 1-17 / ЮР1-18
+              sourceId: https://ygk.edu.yar.ru/pages/rasp/26-27/out.xlsx
+            status: scheduled
+            replacements:
+              - replacement: &a20
+                  date: 2026-11-28
+                  group: ЮР1-17
+                  lessonNumbers:
+                    - 1
+                    - 2
+                  type: add
+                  original: null
+                  replacement:
+                    raw: ОБиЗР Корсаков С.В.
+                    room: Ф301
+                  source:
+                    shift: first
+                    row: 60
+                    rawGroupName: ЮР1-17
+                    rawLessonNumbers: 1,2
+                    rawOriginal: ""
+                    rawReplacement: ОБиЗР Корсаков С.В.
+                    rawRoom: Ф301
+                lessonNumber: 1
+                strategy: add
+          - number: 2
+            variants:
+              - subject: ОБиЗР
+                teacher: Корсаков С.В.
+                room: Ф301
+                weekType: both
+                rawSubject: ОБиЗР Корсаков С.В.
+                rawTeacher: Корсаков С.В.
+                rawRoom: Ф301
+                sourceRow: 60
+            source: null
+            status: scheduled
+            replacements:
+              - replacement: *a20
+                lessonNumber: 2
+                strategy: add
+        unresolvedReplacements:
+          - replacement:
+              date: 2026-11-28
+              group: ЮР1-17
+              lessonNumbers:
+                - 0
+              type: replace
+              original:
+                raw: Информ.
+              replacement:
+                raw: 1,2 п/гр. Нестерова А.В.
+                room: Ф306
+              source:
+                shift: first
+                row: 59
+                rawGroupName: ЮР1-17
+                rawLessonNumbers: "0"
+                rawOriginal: Информ.
+                rawReplacement: 1,2 п/гр. Нестерова А.В.
+                rawRoom: Ф306
+            lessonNumber: 0
+            reason: original-not-matched
+            event:
+              summary: Необработанная замена
+              description: "По расписанию: «Информ.». По замене: «1,2 п/гр. Нестерова А.В.».
+                Аудитория: «Ф306»."
+              room: Ф306
 diagnostics:
   - provider: ygk
     code: UNRESOLVED_REPLACEMENT
@@ -9711,7 +9856,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: &a20
+      baseSourceFiles: &a21
         - out.xlsx
       requestedSubject: ОбщетвИстория
       candidates:
@@ -9719,6 +9864,33 @@ diagnostics:
           teacher: Горбачев В.Н.
           room: Ф104
           sourceRow: 173
+    sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
+    sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
+  - provider: ygk
+    code: UNRESOLVED_REPLACEMENT
+    severity: error
+    message: Исходная дисциплина из замены не совпала с парой базового расписания
+    fingerprint: 7554cab8d3fdb072c0fd96b64c3435af3f53b4f8260edc24b4521a5ec69bfc0c
+    sheet: "Замены: Первая смена"
+    row: 59
+    normalizedGroup: ЮР1-17
+    rawValue: 1,2 п/гр. Нестерова А.В.
+    context:
+      date: 2026-11-28
+      shift: first
+      sourceSha256: 52ddb57ac78ab8fae7e1650d2295300435e2c252b7d07b00793975bd98c576fc
+      lessonNumber: 0
+      type: replace
+      reason: original-not-matched
+      baseGroup: ЮР1-17
+      baseSourceFiles:
+        - out.xlsx
+      requestedSubject: Информ.
+      candidates:
+        - subject: Основы безопасности и защиты Родины
+          teacher: Корсаков С.В.
+          room: Ф301
+          sourceRow: 205
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
   - provider: ygk
@@ -9759,7 +9931,7 @@ diagnostics:
       type: replace
       reason: original-not-matched
       baseGroup: ЮР1-17
-      baseSourceFiles: *a20
+      baseSourceFiles: *a21
       requestedSubject: ОбщетвИстория
       candidates:
         - subject: Обществознание
@@ -9799,4 +9971,4 @@ diagnostics:
           sourceRow: 207
     sourceId: https://menu.sttec.yar.ru/timetable/rasp_first.html
     sourceUrl: https://menu.sttec.yar.ru/timetable/rasp_first.html
-semanticHash: accb34ebe4bb228bde2ae186274c57e176d34f795bd7419673a69f55346f4d7a
+semanticHash: c344053c5b2e110c58b50e195c1cae530d505baa7303ad0513d3aaea51473e93
